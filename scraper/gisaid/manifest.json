@@ -1,0 +1,18 @@
+{
+
+  "description": "Automate information extraction for GISAID sequence data",
+  "manifest_version": 2,
+  "name": "GISAID-scrape",
+  "version": "1.0",
+  "icons": {
+    "48": "icons/border-48.png"
+  },
+
+  "content_scripts": [
+    {
+      "matches": ["*://platform.gisaid.org/epi3/*"],
+      "js": ["extract.js"]
+    }
+  ]
+
+}
