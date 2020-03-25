@@ -83,8 +83,8 @@ for b,v in slac["tested"]["0"].items():
         
     
 for i, row in enumerate (fel["MLE"]["content"]["0"]):
-    if row[4] < import_settings.pvalue and row[1] > row[0]:
-        site_list[i] = {'fel' : row[4]}
+    if row[4] < import_settings.pvalue :
+        site_list[i] = {'fel' : row[4], 'kind' : 'positive' if row[1] > row[0] else 'negative'}
     
 for i, row in enumerate (meme["MLE"]["content"]["0"]):
     if row[6] < import_settings.pvalue or i in site_list:
