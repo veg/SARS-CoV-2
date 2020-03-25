@@ -36,8 +36,41 @@ arguments.add_argument('-p', '--prime',  help = 'PRIME results file', required =
 arguments.add_argument('-P', '--pvalue',  help = 'p-value', required = False, type = float, default = 0.1)
 arguments.add_argument('-c', '--coordinates',  help = 'An alignment with reference sequence (assumed to start with NC)', required = True, type = argparse.FileType('r'))
 
+arguments.add_argument('-D', '--database', help ='Primary database record to extract sequence information from', required = True, type = argparse.FileType('r'))
+arguments.add_argument('-d', '--duplicates', help ='The JSON file recording compressed sequence duplicates', required = True, type = argparse.FileType('r'))
+
+
 
 import_settings = arguments.parse_args()
+
+db = json.load (import_settings.database)
+dups = json.load (import_settings.duplicates)
+
+sequences_with_dates = {}
+
+for id, record in db.items():
+    try:
+        date_check = datetime.datetime.strptime (record['collected'], "%Y%m%d")
+        if date_check.year < 2019 or date_check.year == 2019 and date_check.month < 10: 
+            continue
+        sequences_with_dates[id] = record['collected']
+    except Exception as e:
+        pass
+        
+date_dups = {}
+for seq, copies in dups.items():
+    date_collection = {}
+    for cp in copies.values():
+        cpv = "_".join (cp.split ('_')[:3])
+        if cpv in sequences_with_dates:
+            cdate = sequences_with_dates[cpv]
+            if not cdate in date_collection:
+                date_collection[cdate] = 1
+            else:
+                date_collection[cdate] += 1
+    date_dups[seq] = date_collection   
+           
+                
 
 slac = json.load (import_settings.slac)
 fel  = json.load (import_settings.fel)
@@ -100,15 +133,35 @@ for site in site_list:
     site_list[site]['substitutions'] = [slac["MLE"]["content"]["0"]['by-site']['RESOLVED'][site][2],slac["MLE"]["content"]["0"]['by-site']['RESOLVED'][site][3]]
     labels      = {}
     composition = {}
+    timing      = {}
+    ''' 
+        for each amino acid, this will record "date" : count for when they were sampled
+        timing -> 
+            "residue" ->
+                "date" -> count
+    '''
     for node,value in slac["branch attributes"]["0"].items():
-        if value["amino-acid"][0][site] not in composition:
-            composition[value["amino-acid"][0][site]] = 1
+        aa_value = value["amino-acid"][0][site]
+        if aa_value not in composition:
+            composition[aa_value] = 1
         else:
-            composition[value["amino-acid"][0][site]] += 1
+            composition[aa_value] += 1
             
-        labels[node] = [value["amino-acid"][0][site],value["codon"][0][site],value["nonsynonymous substitution count"][0][site],value["synonymous substitution count"][0][site]]
+        if node in date_dups:
+            if aa_value not in timing:
+                timing [aa_value] = {}
+            for dt, cnt in date_dups[node].items():
+                if not dt in timing [aa_value]:
+                    timing [aa_value][dt] = cnt
+                else:
+                    timing [aa_value][dt] += cnt
+            
+        
+             
+        labels[node] = [aa_value,value["codon"][0][site],value["nonsynonymous substitution count"][0][site],value["synonymous substitution count"][0][site]]
     site_list[site]['composition'] = composition
     site_list[site]['labels'] = labels
+    site_list[site]['timing'] = timing
     
     if prime:
         site_list[site]['prime'] = []
@@ -132,6 +185,6 @@ json_out = {
     'map' : ref_seq_map
 }
 
-json.dump (json_out, import_settings.output)
+json.dump (json_out, import_settings.output, sort_keys = True, indent = 1)
     
 
