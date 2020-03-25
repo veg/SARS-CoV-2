@@ -15,7 +15,7 @@ TRIM_FROM=$3
 TRIM_TO=$4
 N_FRAC=$5
 
-if [ -s ${FILE}.${GENE}.json ]
+if [ -s ${FILE}.${GENE}.1.json ]
 then 
    echo "$GENE alignment already processed"
 else
@@ -41,10 +41,11 @@ else
     then
         echo "Already reverse translated"
     else
-        $HYPHY /Users/sergei/Development/hyphy-analyses/codon-msa/post-msa.bf --protein-msa ${FILE}.${GENE}.msa --nucleotide-sequences ${FILE}.${GENE}_nuc.fas --output ${FILE}.${GENE}.compressed.fas
+        $HYPHY /Users/sergei/Development/hyphy-analyses/codon-msa/post-msa.bf --protein-msa ${FILE}.${GENE}.msa --nucleotide-sequences ${FILE}.${GENE}_nuc.fas --output ${FILE}.${GENE}.compressed.fas --duplicates ${FILE}.${GENE}.duplicates.json
         $HYPHY /Users/sergei/Development/hyphy-analyses/codon-msa/post-msa.bf --protein-msa ${FILE}.${GENE}.msa --nucleotide-sequences ${FILE}.${GENE}_nuc.fas --compress No --output ${FILE}.${GENE}.all.fas    
     fi
     
+     
     if [ -s ${FILE}.${GENE}.withref.fas ]
     then 
         echo "Already has alignment with reference"
@@ -142,7 +143,7 @@ run_a_gene "ORF3a" "data/reference_genes/ORF3a.fas" "24000" "27000" 0.05
 run_a_gene "ORF6" "data/reference_genes/ORF6.fas" "26000" "30000" 0.05
 run_a_gene "ORF7a" "data/reference_genes/ORF7a.fas" "26000" "35000" 0.05
 run_a_gene "ORF8" "data/reference_genes/ORF8.fas" "26000" "35000" 0.05
-run_a_gene "ORF1a" "data/reference_genes/ORF1a.fas" "1" "15000" 0.005
-run_a_gene "ORF1b" "data/reference_genes/ORF1b.fas" "12000" "24000" 0.005
+run_a_gene "ORF1a" "data/reference_genes/ORF1a.fas" "1" "15000" 0.001
+run_a_gene "ORF1b" "data/reference_genes/ORF1b.fas" "12000" "24000" 0.001
 
 
