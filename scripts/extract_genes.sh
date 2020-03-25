@@ -135,14 +135,14 @@ fi
 
 }
 
-run_a_gene "S" "data/reference_genes/S.fas" "20000" "27000" 0.05
-run_a_gene "M" "data/reference_genes/M.fas" "25000" "30000" 0.05
-run_a_gene "N" "data/reference_genes/N.fas" "26000" "35000" 0.05
+run_a_gene "S" "data/reference_genes/S.fas" "20000" "27000" 0.005
+run_a_gene "M" "data/reference_genes/M.fas" "25000" "30000" 0.01
+run_a_gene "N" "data/reference_genes/N.fas" "26000" "35000" 0.01
 run_a_gene "ORF3a" "data/reference_genes/ORF3a.fas" "24000" "27000" 0.05
 run_a_gene "ORF6" "data/reference_genes/ORF6.fas" "26000" "30000" 0.05
 run_a_gene "ORF7a" "data/reference_genes/ORF7a.fas" "26000" "35000" 0.05
 run_a_gene "ORF8" "data/reference_genes/ORF8.fas" "26000" "35000" 0.05
-run_a_gene "ORF1a" "data/reference_genes/ORF1a.fas" "1" "15000" 0.05
-run_a_gene "ORF1b" "data/reference_genes/ORF1b.fas" "12000" "24000" 0.05
+run_a_gene "ORF1a" "data/reference_genes/ORF1a.fas" "1" "15000" 0.005
+run_a_gene "ORF1b" "data/reference_genes/ORF1b.fas" "12000" "24000" 0.005
 
 
