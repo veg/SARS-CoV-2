@@ -18,3 +18,5 @@ The master file and archived version, created by each non-trivial update, are st
 | `/Users/sergei/Downloads/gisaid(6).json` | March 23 2020 (09:56) | **27** new sequences added. **0** duplicate sequences. **0** sequences errored | |
 | `data/raw/20200324-add.json` | March 24 2020 (08:40) | **170** new sequences added. **73** duplicate sequences. **0** sequences errored | |
 | `data/raw/20200325-add.json` | March 25 2020 (07:36) | **233** new sequences added. **35** duplicate sequences. **0** sequences errored | |
+| `data/raw/20200326-add-1.json` | March 26 2020 (07:09) | **13** new sequences added. **41** duplicate sequences. **0** sequences errored | |
+| `data/raw/20200326-add-2.json` | March 26 2020 (07:09) | **14** new sequences added. **11** duplicate sequences. **2** sequences errored | |
