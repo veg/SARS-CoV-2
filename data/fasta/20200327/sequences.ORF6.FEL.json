@@ -1,0 +1,321 @@
+{
+ "MLE":{
+   "content":{
+     "0":      [
+[0, 0, 0, 0, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, -3.305330817937602e-07, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, -3.305334299597007e-07, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [23.79488582533593, 0, 9.11880866268937, 1.953850833464056, 0.1621724904712684, 0.1588153247580371],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [14.86009621561599, 0, 7.58616925609198, 1.41201155536945, 0.2347227505292363, 0.09918143855541754],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, -1.047773592333101e-06, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, -2.566267198744754e-10, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, -5.665575812940915e-07, 1, 0],
+      [43.51559280569327, 0, 11.59104706099673, 2.764697862197343, 0.09636487980667097, 0.290438166175866] 
+      ]
+    },
+   "headers":    [
+["alpha", "Synonymous substitution rate at a site"],
+    ["beta", "Non-synonymous substitution rate at a site"],
+    ["alpha=beta", "The rate estimate under the neutral model"],
+    ["LRT", "Likelihood ration test statistic for beta = alpha, versus beta &neq; alpha"],
+    ["p-value", "Asymptotic p-value for evidence of selection, i.e. beta &neq; alpha"],
+    ["Total branch length", "The total length of branches contributing to inference at this site, and used to scale dN-dS"] 
+    ]
+  },
+ "analysis":{
+   "authors":"Sergei L Kosakovsky Pond and Simon DW Frost",
+   "citation":"Not So Different After All: A Comparison of Methods for Detecting Amino Acid Sites Under Selection (2005). _Mol Biol Evol_ 22 (5): 1208-1222",
+   "contact":"spond@temple.edu",
+   "info":"FEL (Fixed Effects Likelihood)\n    estimates site-wise synonymous (&alpha;) and non-synonymous (&beta;) rates, and\n    uses a likelihood ratio test to determine if beta &neq; alpha at a site.\n    The estimates aggregate information over all branches,\n    so the signal is derived from\n    pervasive diversification or conservation. A subset of branches can be selected\n    for testing as well, in which case an additional (nuisance) parameter will be\n    inferred -- the non-synonymous rate on branches NOT selected for testing.\n    Multiple partitions within a NEXUS file are also supported\n    for recombination - aware analysis.\n    ",
+   "requirements":"in-frame codon alignment and a phylogenetic tree",
+   "version":"2.1"
+  },
+ "branch attributes":{
+   "0":{
+     "Node10":{
+       "Global MG94xREV":0,
+       "Nucleotide GTR":0
+      },
+     "Node13":{
+       "Global MG94xREV":0,
+       "Nucleotide GTR":0
+      },
+     "Node2":{
+       "Global MG94xREV":0,
+       "Nucleotide GTR":0
+      },
+     "Node3":{
+       "Global MG94xREV":0,
+       "Nucleotide GTR":0
+      },
+     "Node4":{
+       "Global MG94xREV":0.006674346997241576,
+       "Nucleotide GTR":0.005481242169748327
+      },
+     "Node6":{
+       "Global MG94xREV":0,
+       "Nucleotide GTR":0
+      },
+     "epi_isl_402128_Hubei_20191230_MGISEQ_1600":{
+       "Global MG94xREV":0,
+       "Nucleotide GTR":0,
+       "original name":"epi_isl_402128_Hubei_20191230_MGISEQ_1600"
+      },
+     "epi_isl_413855_Guangdong_20200207_metagenomics_BGI_2":{
+       "Global MG94xREV":0.01155067676791775,
+       "Nucleotide GTR":0.01126835668112253,
+       "original name":"epi_isl_413855_Guangdong_20200207_metagenomics_BGI_2"
+      },
+     "epi_isl_415152_Panama_City_20200306_Illumina_17":{
+       "Global MG94xREV":0,
+       "Nucleotide GTR":0,
+       "original name":"epi_isl_415152_Panama_City_20200306_Illumina_17"
+      },
+     "epi_isl_415613_Washington_20200309_Illumina_9":{
+       "Global MG94xREV":0.005628226985096733,
+       "Nucleotide GTR":0.00549279099508775,
+       "original name":"epi_isl_415613_Washington_20200309_Illumina_9"
+      },
+     "epi_isl_415699_Switzerland_20200227_null_1":{
+       "Global MG94xREV":0.005607530991276935,
+       "Nucleotide GTR":0.005492791093186916,
+       "original name":"epi_isl_415699_Switzerland_20200227_null_1"
+      },
+     "epi_isl_416625_unknown_20200217_Illumina_1":{
+       "Global MG94xREV":0.005625785694352473,
+       "Nucleotide GTR":0.005492790880991839,
+       "original name":"epi_isl_416625_unknown_20200217_Illumina_1"
+      },
+     "epi_isl_416641_Washington_20200311_Illumina_1":{
+       "Global MG94xREV":0.005621359328014314,
+       "Nucleotide GTR":0.005474894773580869,
+       "original name":"epi_isl_416641_Washington_20200311_Illumina_1"
+      },
+     "epi_isl_417362_Washington_20200313_Illumina_1":{
+       "Global MG94xREV":0.00561681632668425,
+       "Nucleotide GTR":0.005483023316941513,
+       "original name":"epi_isl_417362_Washington_20200313_Illumina_1"
+      },
+     "epi_isl_417373_Washington_20200313_Illumina_1":{
+       "Global MG94xREV":0.00562578645514221,
+       "Nucleotide GTR":0.005492791093164848,
+       "original name":"epi_isl_417373_Washington_20200313_Illumina_1"
+      }
+    },
+   "attributes":{
+     "Global MG94xREV":{
+       "attribute type":"branch length",
+       "display order":1
+      },
+     "Nucleotide GTR":{
+       "attribute type":"branch length",
+       "display order":0
+      },
+     "original name":{
+       "attribute type":"node label",
+       "display order":-1
+      }
+    }
+  },
+ "data partitions":{
+   "0":{
+     "coverage":      [
+[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60] 
+      ],
+     "name":"fel.filter.default"
+    }
+  },
+ "fits":{
+   "Global MG94xREV":{
+     "AIC-c":625.5729602662855,
+     "Equilibrium frequencies":      [
+[0.0525172541018475],
+      [0.0184576357757871],
+      [0.03135170820933695],
+      [0.06520693261375309],
+      [0.01786569991639604],
+      [0.006279052238657463],
+      [0.01066545119910829],
+      [0.02218256667202615],
+      [0.004342039595115915],
+      [0.001526046758181066],
+      [0.002592107313064428],
+      [0.005391201199055282],
+      [0.05339134409622479],
+      [0.01876484214115015],
+      [0.03187352175273494],
+      [0.06629222788168886],
+      [0.02110564173846795],
+      [0.007417757357751638],
+      [0.01259962906803942],
+      [0.02620537158971302],
+      [0.007179870088241475],
+      [0.002523426429516382],
+      [0.004286233083530052],
+      [0.008914733129640024],
+      [0.001744979505802743],
+      [0.0006132878937626515],
+      [0.001041716465051741],
+      [0.002166616724221627],
+      [0.02145692115290058],
+      [0.007541217496671985],
+      [0.01280933557097045],
+      [0.02664153021028914],
+      [0.02695831420011032],
+      [0.009474728889478654],
+      [0.01609355277750043],
+      [0.0334722179879762],
+      [0.009170874600889429],
+      [0.003223181905138471],
+      [0.005474821359736515],
+      [0.01138682157581311],
+      [0.002228868772298147],
+      [0.0007833548934474416],
+      [0.001330588291049595],
+      [0.002767427549777989],
+      [0.02740700469451237],
+      [0.009632424981236799],
+      [0.01636141166878053],
+      [0.03402932500610334],
+      [0.01251231264678731],
+      [0.04420336046892646],
+      [0.01211104313266776],
+      [0.004256529150859875],
+      [0.007230040810392185],
+      [0.01503741935750487],
+      [0.001034497287947674],
+      [0.001757172885469555],
+      [0.003654660638216961],
+      [0.03619364896345606],
+      [0.01272056586714546],
+      [0.02160685551329171],
+      [0.04493907515478591] 
+      ],
+     "Log Likelihood":-279.8677180441679,
+     "Rate Distributions":{
+       "non-synonymous/synonymous rate ratio for *background*":        [
+[0.7188739778346176, 1] 
+        ],
+       "non-synonymous/synonymous rate ratio for *test*":        [
+[0, 1] 
+        ]
+      },
+     "display order":1,
+     "estimated parameters":31
+    },
+   "Nucleotide GTR":{
+     "AIC-c":635.2413072665863,
+     "Equilibrium frequencies":      [
+[0.3600973236009732],
+      [0.1429440389294404],
+      [0.1399026763990268],
+      [0.3570559610705596] 
+      ],
+     "Log Likelihood":-294.280542727563,
+     "Rate Distributions":{
+       "Substitution rate from nucleotide A to nucleotide C":0,
+       "Substitution rate from nucleotide A to nucleotide G":1,
+       "Substitution rate from nucleotide A to nucleotide T":0.7573933428002037,
+       "Substitution rate from nucleotide C to nucleotide G":0,
+       "Substitution rate from nucleotide C to nucleotide T":1.90972295632239,
+       "Substitution rate from nucleotide G to nucleotide T":3.918467125323378
+      },
+     "display order":0,
+     "estimated parameters":23
+    }
+  },
+ "input":{
+   "file name":"/Users/sergei/Dropbox/COVID-19/data/fasta/20200327/sequences.ORF6.compressed.fas",
+   "number of sequences":9,
+   "number of sites":61,
+   "partition count":1,
+   "trees":{
+     "0":"(epi_isl_402128_Hubei_20191230_MGISEQ_1600:1e-06,(((epi_isl_413855_Guangdong_20200207_metagenomics_BGI_2:0.011235,(epi_isl_417362_Washington_20200313_Illumina_1:0.005468,epi_isl_415152_Panama_City_20200306_Illumina_17:1e-06)Node6:1e-06)Node4:0.005467,epi_isl_415613_Washington_20200309_Illumina_9:0.005476)Node3:1e-06,(epi_isl_417373_Washington_20200313_Illumina_1:0.005476,epi_isl_415699_Switzerland_20200227_null_1:0.005476)Node10:1e-06)Node2:1e-06,(epi_isl_416641_Washington_20200311_Illumina_1:0.005462,epi_isl_416625_unknown_20200217_Illumina_1:0.005476)Node13:1e-06)"
+    }
+  },
+ "tested":{
+   "0":{
+     "Node10":"test",
+     "Node13":"test",
+     "Node2":"test",
+     "Node3":"test",
+     "Node4":"test",
+     "Node6":"test",
+     "epi_isl_402128_Hubei_20191230_MGISEQ_1600":"background",
+     "epi_isl_413855_Guangdong_20200207_metagenomics_BGI_2":"background",
+     "epi_isl_415152_Panama_City_20200306_Illumina_17":"background",
+     "epi_isl_415613_Washington_20200309_Illumina_9":"background",
+     "epi_isl_415699_Switzerland_20200227_null_1":"background",
+     "epi_isl_416625_unknown_20200217_Illumina_1":"background",
+     "epi_isl_416641_Washington_20200311_Illumina_1":"background",
+     "epi_isl_417362_Washington_20200313_Illumina_1":"background",
+     "epi_isl_417373_Washington_20200313_Illumina_1":"background"
+    }
+  },
+ "timers":{
+   "FEL analysis":{
+     "order":2,
+     "timer":1
+    },
+   "Model fitting":{
+     "order":1,
+     "timer":2
+    },
+   "Total time":{
+     "order":0,
+     "timer":3
+    }
+  }
+}
