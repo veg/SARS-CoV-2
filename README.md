@@ -12,7 +12,7 @@
 
 1. We collect data from the <img src="https://www.gisaid.org/fileadmin/gisaid/img/schild.png" alt="gisaid-logo" width="65"> database daily. These are mostly full genome sequences collected from different platforms and different regions. See here for a [summary of the sequence data](https://observablehq.com/@stevenweaver/case-vs-sequence-count). The metadata on the sequences can be found in `data/db/master-no-fasta.json`; in accordance with GISAID data usage policies, we do not distribute sequence data here.
 
-2. We extract full genome human sequences and map them to the [reference genes](https://www.ncbi.nlm.nih.gov/nuccore/?term=COVID) usign a simple [codon-aware pipeline](https://github.com/veg/hyphy-analyses/tree/master/codon-msa). 
+2. We extract full genome human sequences and map them to the [reference genes](https://www.ncbi.nlm.nih.gov/nuccore/?term=COVID) using a simple [codon-aware pipeline](https://github.com/veg/hyphy-analyses/tree/master/codon-msa). 
 At this step we also compress the data to retain a single copy of each unique haplotype in the gene, and filter out sequences that have too many (>0.5%) uncalled/unresolved (`N`) bases.
 
 3. We reconstruct ML phylogenies on compressed data using [raxml-ng](https://github.com/amkozlov/raxml-ng)
