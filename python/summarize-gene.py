@@ -48,10 +48,12 @@ dups = json.load (import_settings.duplicates)
 
 sequences_with_dates = {}
 
+now = datetime.datetime.now()
+
 for id, record in db.items():
     try:
         date_check = datetime.datetime.strptime (record['collected'], "%Y%m%d")
-        if date_check.year < 2019 or date_check.year == 2019 and date_check.month < 10: 
+        if date_check.year < 2019 or date_check.year == 2019 and date_check.month < 10 or date_check >= now: 
             continue
         sequences_with_dates[id] = record['collected']
     except Exception as e:
