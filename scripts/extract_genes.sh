@@ -9,6 +9,7 @@ TN93=/usr/local/bin/tn93
 function run_a_gene {
 
 
+
 GENE=$1
 REFERENCE_SEQUENCE=$2
 TRIM_FROM=$3
@@ -29,7 +30,6 @@ else
         mv ${FILE}_nuc.fas ${FILE}.${GENE}_nuc.fas
     fi
     
-    echo "ALIGNING PROTEIN DATA"
     if [ -s ${FILE}.${GENE}.msa ] 
     then
         echo "Already aligned"
