@@ -10,7 +10,7 @@
 
   "content_scripts": [
     {
-      "matches": ["*://platform.gisaid.org/epi3/*"],
+      "matches": ["*://platform.gisaid.org/epi3/*","*://www.epicov.org/*"],
       "js": ["extract.js"]
     }
   ]
