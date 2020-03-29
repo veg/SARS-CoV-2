@@ -98,12 +98,12 @@ else
     
     python3 python/summarize-gene.py -D data/db/master-no-fasta.json -d ${FILE}.${GENE}.duplicates.json -s ${FILE}.${GENE}.SLAC.json -f ${FILE}.${GENE}.FEL.json -m ${FILE}.${GENE}.MEME.json -P 0.1 -p ${FILE}.${GENE}.PRIME.json --output  ${FILE}.${GENE}.json -c ${FILE}.${GENE}.withref.fas
 
-    #if [ -s ${FILE}.${GENE}.BGM.json ] 
-    #then
-    #    echo "Already has BGM results"
-    #else
-    #    mpirun -np $NP $HYPHYMPI bgm --alignment ${FILE}.${GENE}.compressed.fas --tree ${FILE}.${GENE}.compressed.fas.raxml.bestTree --branches Internal --min-subs 2 --type codon
-    #fi
+    if [ -s ${FILE}.${GENE}.BGM.json ] 
+    then
+        echo "Already has BGM results"
+    else
+       $HYPHY bgm --alignment ${FILE}.${GENE}.compressed.fas --tree ${FILE}.${GENE}.compressed.fas.raxml.bestTree --branches Internal --min-subs 1 --type codon
+    fi
 
     #if [ -s ${FILE}.${GENE}.FADE.json ] 
     #then
