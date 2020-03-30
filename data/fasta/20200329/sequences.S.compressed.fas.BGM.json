@@ -1,0 +1,1494 @@
+{
+ "MLE":{
+   "content":    [
+[8, 54, 0.04396641546376154, 0.03782994134123233, 0.08179635680499386, 1, 1, 0],
+    [8, 157, 0.04015042355836244, 0.03935590346417413, 0.07950632702253657, 1, 1, 0],
+    [8, 239, 0.04101553485145507, 0.03930444041097577, 0.08031997526243084, 1, 1, 0],
+    [8, 254, 0.0461680104326597, 0.03622042375169076, 0.08238843418435046, 1, 1, 0],
+    [8, 278, 0.04770295744561848, 0.04082162274193771, 0.0885245801875562, 1, 1, 0],
+    [8, 285, 0.02198412340243209, 0.04772888175613984, 0.06971300515857193, 1, 1, 0],
+    [8, 289, 0.01325888886000429, 0.05789574440371986, 0.07115463326372415, 1, 1, 0],
+    [8, 296, 0.04389989786865733, 0.0395927432106653, 0.08349264107932264, 1, 1, 0],
+    [8, 300, 0.04029757301057729, 0.04621691104213053, 0.08651448405270781, 1, 1, 0],
+    [8, 322, 0.03756832959959383, 0.04928437245504858, 0.08685270205464241, 1, 1, 0],
+    [8, 368, 0.04215088636558392, 0.04013714511048653, 0.08228803147607044, 1, 1, 0],
+    [8, 477, 0.04265358271232229, 0.03915292365366698, 0.08180650636598927, 1, 1, 0],
+    [8, 542, 0.03950449092167482, 0.0437151195818053, 0.08321961050348012, 1, 1, 0],
+    [8, 615, 0.03955994617712208, 0.04880676664261135, 0.08836671281973343, 1, 1, 0],
+    [8, 832, 0.03219081381551919, 0.05357127585717295, 0.08576208967269214, 1, 1, 0],
+    [8, 944, 0.04092721741528912, 0.02745288330588254, 0.06838010072117166, 1, 2, 0],
+    [8, 955, 0.04410617590729633, 0.04366545515226615, 0.08777163105956248, 1, 1, 0],
+    [54, 157, 0.04089138338755691, 0.03715708367604428, 0.07804846706360119, 1, 1, 0],
+    [54, 239, 0.04187402426809896, 0.03876828966783488, 0.08064231393593384, 1, 1, 0],
+    [54, 254, 0.04461199982265184, 0.03895943366445598, 0.08357143348710783, 1, 1, 0],
+    [54, 278, 0.04552335737811486, 0.03713377338563267, 0.08265713076374753, 1, 1, 0],
+    [54, 285, 0.01381866333408479, 0.05276863591728877, 0.06658729925137356, 1, 1, 0],
+    [54, 289, 0.02155740149043525, 0.04994644803104376, 0.07150384952147901, 1, 1, 0],
+    [54, 296, 0.03760664390076845, 0.0475578442651518, 0.08516448816592025, 1, 1, 0],
+    [54, 300, 0.04473427021826807, 0.04065011354381268, 0.08538438376208074, 1, 1, 0],
+    [54, 322, 0.04328638772559515, 0.04521481217267079, 0.08850119989826594, 1, 1, 0],
+    [54, 368, 0.04028293052490112, 0.03919333985712194, 0.07947627038202307, 1, 1, 0],
+    [54, 477, 0.04605864681737146, 0.04061132159627961, 0.08666996841365107, 1, 1, 0],
+    [54, 542, 0.04673753027451386, 0.04150981901783795, 0.08824734929235181, 1, 1, 0],
+    [54, 615, 0.04128475248383852, 0.04052414864347637, 0.08180890112731488, 1, 1, 0],
+    [54, 832, 0.03654647661854944, 0.04694964235648368, 0.08349611897503312, 1, 1, 0],
+    [54, 944, 0.04246546277782692, 0.02613220327984955, 0.06859766605767646, 1, 2, 0],
+    [54, 955, 0.03094727548319232, 0.05923485742371894, 0.09018213290691127, 1, 1, 0],
+    [157, 239, 0.04055704076959182, 0.04309775253462043, 0.08365479330421226, 1, 1, 0],
+    [157, 254, 0.0450953186642225, 0.03595405871082305, 0.08104937737504556, 1, 1, 0],
+    [157, 278, 0.03454002631182414, 0.04658092211676213, 0.08112094842858628, 1, 1, 0],
+    [157, 285, 0.008568334978003229, 0.06362566593755099, 0.07219400091555422, 1, 1, 0],
+    [157, 289, 0.01826961093142426, 0.05704472521071725, 0.07531433614214152, 1, 1, 0],
+    [157, 296, 0.04112162754923028, 0.04145310231488169, 0.08257472986411196, 1, 1, 0],
+    [157, 300, 0.04156160723806153, 0.03552407790120045, 0.07708568513926198, 1, 1, 0],
+    [157, 322, 0.03817290651902774, 0.04547476790296608, 0.08364767442199382, 1, 1, 0],
+    [157, 368, 0.04113234522359667, 0.04115505598720653, 0.0822874012108032, 1, 1, 0],
+    [157, 477, 0.04195002688807963, 0.04336971404477923, 0.08531974093285885, 1, 1, 0],
+    [157, 542, 0.03722307428700272, 0.0436508572473395, 0.08087393153434222, 1, 1, 0],
+    [157, 615, 0.04877832135282176, 0.03582879350224381, 0.08460711485506556, 1, 1, 0],
+    [157, 832, 0.04965460419767235, 0.0369077380544934, 0.08656234225216575, 1, 1, 0],
+    [157, 944, 0.04176505724836913, 0.02695072680316173, 0.06871578405153086, 1, 2, 0],
+    [157, 955, 0.02770662163471065, 0.05966069840386503, 0.08736732003857567, 1, 1, 0],
+    [239, 254, 0.04140376325324487, 0.03830255507450276, 0.07970631832774763, 1, 1, 0],
+    [239, 278, 0.03578884663392581, 0.05284018554999634, 0.08862903218392215, 1, 1, 0],
+    [239, 285, 0.01925580916621747, 0.05150367711721583, 0.0707594862834333, 1, 1, 0],
+    [239, 289, 0.01771687415058113, 0.0439423793616746, 0.06165925351225574, 1, 1, 0],
+    [239, 296, 0.04168770415449118, 0.04076802567071776, 0.08245572982520893, 1, 1, 0],
+    [239, 300, 0.03792476299756547, 0.04378551029628544, 0.08171027329385092, 1, 1, 0],
+    [239, 322, 0.04376904815859544, 0.04435308113188662, 0.08812212929048205, 1, 1, 0],
+    [239, 368, 0.04340679847173101, 0.040061920317343, 0.08346871878907401, 1, 1, 0],
+    [239, 477, 0.04153514442682638, 0.04268646571503312, 0.0842216101418595, 1, 1, 0],
+    [239, 542, 0.040031660000997, 0.04811355523523731, 0.08814521523623431, 1, 1, 0],
+    [239, 615, 0.03950378638767603, 0.04826213353519648, 0.0877659199228725, 1, 1, 0],
+    [239, 832, 0.04001768552467474, 0.0480899212949996, 0.08810760681967433, 1, 1, 0],
+    [239, 944, 0.04166255621067948, 0.02541375107024262, 0.06707630728092209, 1, 2, 0],
+    [239, 955, 0.03513058743469088, 0.04974210827236661, 0.08487269570705749, 1, 1, 0],
+    [254, 278, 0.04295388392026843, 0.03709532899691528, 0.08004921291718371, 1, 1, 0],
+    [254, 285, 0.01878296254932864, 0.04670367855342574, 0.06548664110275439, 1, 1, 0],
+    [254, 289, 0.01638179940894752, 0.04801803085844477, 0.06439983026739229, 1, 1, 0],
+    [254, 296, 0.03489488636556712, 0.04818176972921642, 0.08307665609478354, 1, 1, 0],
+    [254, 300, 0.04300887084716343, 0.04133847573993837, 0.0843473465871018, 1, 1, 0],
+    [254, 322, 0.03069418354106523, 0.05536862000829713, 0.08606280354936235, 1, 1, 0],
+    [254, 368, 0.0351841133123065, 0.0435089688375761, 0.0786930821498826, 1, 1, 0],
+    [254, 477, 0.03653627370216223, 0.04591044182405534, 0.08244671552621757, 1, 1, 0],
+    [254, 542, 0.04221534934699939, 0.04480667301013461, 0.08702202235713399, 1, 1, 0],
+    [254, 615, 0.03955648825837553, 0.04255572073889861, 0.08211220899727414, 1, 1, 0],
+    [254, 832, 0.03668205124956028, 0.045773041756852, 0.08245509300641228, 1, 1, 0],
+    [254, 944, 0.03410131191084446, 0.03190393464852003, 0.06600524655936449, 1, 2, 0],
+    [254, 955, 0.03615758687397125, 0.04291409440359365, 0.07907168127756491, 1, 1, 0],
+    [278, 285, 0.014158589748726, 0.04770292197509732, 0.06186151172382332, 1, 1, 0],
+    [278, 289, 0.02486590571700648, 0.0481674849103684, 0.07303339062737488, 1, 1, 0],
+    [278, 296, 0.03725848569241946, 0.03944995313111287, 0.07670843882353233, 1, 1, 0],
+    [278, 300, 0.0386932434873875, 0.04627368919721993, 0.08496693268460742, 1, 1, 0],
+    [278, 322, 0.03710813054164358, 0.04487189048776968, 0.08198002102941326, 1, 1, 0],
+    [278, 368, 0.04782282219656428, 0.0364480935235279, 0.08427091572009218, 1, 1, 0],
+    [278, 477, 0.04080414339853947, 0.04249418440725996, 0.08329832780579943, 1, 1, 0],
+    [278, 542, 0.04219330297457236, 0.04709693929717923, 0.08929024227175159, 1, 1, 0],
+    [278, 615, 0.04631722596471101, 0.04160040628203187, 0.08791763224674287, 1, 1, 0],
+    [278, 832, 0.05015553018358069, 0.03893627049869124, 0.08909180068227193, 1, 1, 0],
+    [278, 944, 0.04038251543151503, 0.02806784256459309, 0.06845035799610812, 1, 2, 0],
+    [278, 955, 0.03764300944283891, 0.04533712492917246, 0.08298013437201138, 1, 1, 0],
+    [285, 289, 0.4273932869005283, 0.5250445858056599, 0.9524378727061882, 1, 1, 1],
+    [285, 296, 0.04920779375310408, 0.01422285559753643, 0.06343064935064051, 1, 1, 0],
+    [285, 300, 0.0528080785103197, 0.01561155882430789, 0.06841963733462758, 1, 1, 0],
+    [285, 322, 0.04975968989101871, 0.02241194344331085, 0.07217163333432955, 1, 1, 0],
+    [285, 368, 0.04973635875706491, 0.01692200401667599, 0.0666583627737409, 1, 1, 0],
+    [285, 477, 0.0512341212328914, 0.01405010887586904, 0.06528423010876044, 1, 1, 0],
+    [285, 542, 0.04909775353479716, 0.01425574494628763, 0.06335349848108479, 1, 1, 0],
+    [285, 615, 0.05539522179046414, 0.01532839634524425, 0.07072361813570839, 1, 1, 0],
+    [285, 832, 0.0464990607211451, 0.01389480099832931, 0.0603938617194744, 1, 1, 0],
+    [285, 944, 0.04266447880171222, 0.01265916586774346, 0.05532364466945568, 1, 2, 0],
+    [285, 955, 0.05268516827355455, 0.03352083360136031, 0.08620600187491487, 1, 1, 0],
+    [289, 296, 0.05526554535867053, 0.01963247625719243, 0.07489802161586295, 1, 1, 0],
+    [289, 300, 0.04066881324600529, 0.02752934831328371, 0.06819816155928901, 1, 1, 0],
+    [289, 322, 0.05528596933578084, 0.01948028852419402, 0.07476625785997486, 1, 1, 0],
+    [289, 368, 0.05541414693265678, 0.01682479260625815, 0.07223893953891493, 1, 1, 0],
+    [289, 477, 0.05603723119294719, 0.02231332003014615, 0.07835055122309334, 1, 1, 0],
+    [289, 542, 0.04810556077019857, 0.02716732947052278, 0.07527289024072134, 1, 1, 0],
+    [289, 615, 0.04892671091918599, 0.02079587451796128, 0.06972258543714727, 1, 1, 0],
+    [289, 832, 0.05401213850246394, 0.0245230997779365, 0.07853523828040045, 1, 1, 0],
+    [289, 944, 0.05357081036966409, 0.00933522808102131, 0.0629060384506854, 1, 2, 0],
+    [289, 955, 0.04686036801576667, 0.01669163986966589, 0.06355200788543255, 1, 1, 0],
+    [296, 300, 0.03178495777147442, 0.05445553854740223, 0.08624049631887665, 1, 1, 0],
+    [296, 322, 0.04433142050595788, 0.04289651430722241, 0.08722793481318028, 1, 1, 0],
+    [296, 368, 0.03797376639752102, 0.04542747850283112, 0.08340124490035214, 1, 1, 0],
+    [296, 477, 0.04074309652249159, 0.04328108629863119, 0.08402418282112278, 1, 1, 0],
+    [296, 542, 0.04351765912049831, 0.04336689261892916, 0.08688455173942747, 1, 1, 0],
+    [296, 615, 0.03877920647515929, 0.04063399182665644, 0.07941319830181573, 1, 1, 0],
+    [296, 832, 0.03450442893164112, 0.04350421709027417, 0.07800864602191529, 1, 1, 0],
+    [296, 944, 0.03979621752022672, 0.02764507221407178, 0.06744128973429851, 1, 2, 0],
+    [296, 955, 0.03782405918567608, 0.05106829980314901, 0.08889235898882508, 1, 1, 0],
+    [300, 322, 0.04003081159447906, 0.04580379400691901, 0.08583460560139808, 1, 1, 0],
+    [300, 368, 0.04154908329510957, 0.03990644335336273, 0.0814555266484723, 1, 1, 0],
+    [300, 477, 0.04215403454491057, 0.04448838529341381, 0.08664241983832438, 1, 1, 0],
+    [300, 542, 0.04223753012077189, 0.04298452060826708, 0.08522205072903896, 1, 1, 0],
+    [300, 615, 0.03470838711784205, 0.05476930419998034, 0.08947769131782239, 1, 1, 0],
+    [300, 832, 0.03747684296190871, 0.04801466319880295, 0.08549150616071166, 1, 1, 0],
+    [300, 944, 0.03931612570740842, 0.02918017296802659, 0.06849629867543501, 1, 2, 0],
+    [300, 955, 0.04431287780062546, 0.04346684672822519, 0.08777972452885065, 1, 1, 0],
+    [322, 368, 0.04232380716788146, 0.0396570531640713, 0.08198086033195276, 1, 1, 0],
+    [322, 477, 0.03934660520724999, 0.04296817826021519, 0.08231478346746518, 1, 1, 0],
+    [322, 542, 0.04161504604012824, 0.04383165637313687, 0.08544670241326512, 1, 1, 0],
+    [322, 615, 0.03972552564014766, 0.04914345205728244, 0.0888689776974301, 1, 1, 0],
+    [322, 832, 0.04427711700137817, 0.04847498812065293, 0.09275210512203111, 1, 1, 0],
+    [322, 944, 0.04355276774428744, 0.02859015636003247, 0.07214292410431991, 1, 2, 0],
+    [322, 955, 0.04616362650722263, 0.03992679470897887, 0.0860904212162015, 1, 1, 0],
+    [368, 477, 0.0392238271368161, 0.04327015257641977, 0.08249397971323587, 1, 1, 0],
+    [368, 542, 0.04422329281255793, 0.04016068805427245, 0.08438398086683038, 1, 1, 0],
+    [368, 615, 0.04500637522148373, 0.0380960277706095, 0.08310240299209323, 1, 1, 0],
+    [368, 832, 0.04102997515654942, 0.04957283499793102, 0.09060281015448043, 1, 1, 0],
+    [368, 944, 0.0391601411484605, 0.02707111049896472, 0.06623125164742522, 1, 2, 0],
+    [368, 955, 0.04646355860153589, 0.04510715618940653, 0.09157071479094242, 1, 1, 0],
+    [477, 542, 0.04634557026885586, 0.04411213978352443, 0.09045771005238029, 1, 1, 0],
+    [477, 615, 0.03689654430510823, 0.04697220137728329, 0.08386874568239153, 1, 1, 0],
+    [477, 832, 0.04159657141130662, 0.04321248803000968, 0.0848090594413163, 1, 1, 0],
+    [477, 944, 0.04982741034895422, 0.02292224082864122, 0.07274965117759544, 1, 2, 0],
+    [477, 955, 0.04160257384610804, 0.04357100343214069, 0.08517357727824873, 1, 1, 0],
+    [542, 615, 0.04399290151121948, 0.04355527720511847, 0.08754817871633795, 1, 1, 0],
+    [542, 832, 0.03999504852695892, 0.04987454662299629, 0.08986959514995521, 1, 1, 0],
+    [542, 944, 0.05126779384559717, 0.02138175753631971, 0.07264955138191688, 1, 2, 0],
+    [542, 955, 0.04419954352478828, 0.04038580064826199, 0.08458534417305028, 1, 1, 0],
+    [615, 832, 0.05126727808840352, 0.0425581430545614, 0.09382542114296491, 1, 1, 0],
+    [615, 944, 0.04592306023258007, 0.02357795558722451, 0.06950101581980458, 1, 2, 0],
+    [615, 955, 0.03778141493177187, 0.04939622292497371, 0.08717763785674558, 1, 1, 0],
+    [832, 944, 0.04956717714058057, 0.02293997717025647, 0.07250715431083704, 1, 2, 0],
+    [832, 955, 0.04251264824657665, 0.04462272486067253, 0.08713537310724917, 1, 1, 0],
+    [944, 955, 0.0277954931631135, 0.04403696262865, 0.07183245579176349, 2, 1, 0] 
+    ],
+   "headers":    [
+["Site 1", "Index of site 1"],
+    ["Site 2", "Index of site 2"],
+    ["P [Site 1 –> Site 2]", "Probability that site 2 is conditionally dependent on site 1"],
+    ["P [Site 2 –> Site 1]", "Probability that site 1 is conditionally dependent on site 2"],
+    ["P [Site 1 <–> Site 2]", "Probability that sites 1 and 2 are not conditionally independent"],
+    ["Site 1 subs", "Substitution counts inferred for Site 1"],
+    ["Site 2 subs", "Substitution counts inferred for Site 2"],
+    ["Shared subs", "Substitutions shared by both sites"] 
+    ]
+  },
+ "analysis":{
+   "authors":"Art FY Poon, Fraser I Lewis, Simon DW Frost and Sergei L Kosakovsky Pond",
+   "citation":"Spidermonkey: rapid detection of co-evolving sites using Bayesian graphical models (2008). _Bioinformatics_ 24(17): 1949-1950",
+   "contact":"apoon42@uwo.ca",
+   "info":"BGM (Bayesian Graphical Model) uses a maximum likelihood ancestral state reconstruction to\nmap substitution (non-synonymous only for coding data) events to branches in the\nphylogeny and then analyzes the joint distribution of the\nsubstitution map using a Bayesian graphical model (network).\nNext, a Markov chain Monte Carlo analysis is used to generate\na random sample of network structures from the posterior\ndistribution given the data.  Each node in the network\nrepresents a codon site in the alignment, and links (edges)\nbetween nodes indicate high posterior support for correlated\nsubstitutions at the two sites over time, which implies coevolution.",
+   "requirements":"in-frame codon alignment and a phylogenetic tree",
+   "version":"1.1"
+  },
+ "branch attributes":{
+   "0":{
+     "Node1":{
+       "models.codon.MG_REV.ModelDescription":0
+      },
+     "Node100":{
+       "models.codon.MG_REV.ModelDescription":0
+      },
+     "Node101":{
+       "models.codon.MG_REV.ModelDescription":0
+      },
+     "Node102":{
+       "models.codon.MG_REV.ModelDescription":0
+      },
+     "Node106":{
+       "models.codon.MG_REV.ModelDescription":0
+      },
+     "Node107":{
+       "models.codon.MG_REV.ModelDescription":0.0002642403588126854
+      },
+     "Node111":{
+       "models.codon.MG_REV.ModelDescription":0
+      },
+     "Node112":{
+       "models.codon.MG_REV.ModelDescription":0
+      },
+     "Node113":{
+       "models.codon.MG_REV.ModelDescription":0
+      },
+     "Node114":{
+       "models.codon.MG_REV.ModelDescription":0.0002643571958975306
+      },
+     "Node117":{
+       "models.codon.MG_REV.ModelDescription":0
+      },
+     "Node12":{
+       "models.codon.MG_REV.ModelDescription":0
+      },
+     "Node120":{
+       "models.codon.MG_REV.ModelDescription":0
+      },
+     "Node123":{
+       "models.codon.MG_REV.ModelDescription":0
+      },
+     "Node124":{
+       "models.codon.MG_REV.ModelDescription":0
+      },
+     "Node125":{
+       "models.codon.MG_REV.ModelDescription":0
+      },
+     "Node126":{
+       "models.codon.MG_REV.ModelDescription":0
+      },
+     "Node127":{
+       "models.codon.MG_REV.ModelDescription":0
+      },
+     "Node128":{
+       "models.codon.MG_REV.ModelDescription":0.0002642359346272905
+      },
+     "Node13":{
+       "models.codon.MG_REV.ModelDescription":0
+      },
+     "Node132":{
+       "models.codon.MG_REV.ModelDescription":0
+      },
+     "Node134":{
+       "models.codon.MG_REV.ModelDescription":0.0002643433763424072
+      },
+     "Node136":{
+       "models.codon.MG_REV.ModelDescription":0.0002643015033889468
+      },
+     "Node14":{
+       "models.codon.MG_REV.ModelDescription":0
+      },
+     "Node140":{
+       "models.codon.MG_REV.ModelDescription":0
+      },
+     "Node141":{
+       "models.codon.MG_REV.ModelDescription":0
+      },
+     "Node142":{
+       "models.codon.MG_REV.ModelDescription":0
+      },
+     "Node144":{
+       "models.codon.MG_REV.ModelDescription":0.0005291533755840827
+      },
+     "Node147":{
+       "models.codon.MG_REV.ModelDescription":0
+      },
+     "Node149":{
+       "models.codon.MG_REV.ModelDescription":0
+      },
+     "Node15":{
+       "models.codon.MG_REV.ModelDescription":0.0002643494093416482
+      },
+     "Node151":{
+       "models.codon.MG_REV.ModelDescription":0
+      },
+     "Node153":{
+       "models.codon.MG_REV.ModelDescription":0.001855163144100149
+      },
+     "Node156":{
+       "models.codon.MG_REV.ModelDescription":0
+      },
+     "Node158":{
+       "models.codon.MG_REV.ModelDescription":0
+      },
+     "Node16":{
+       "models.codon.MG_REV.ModelDescription":0
+      },
+     "Node161":{
+       "models.codon.MG_REV.ModelDescription":0
+      },
+     "Node162":{
+       "models.codon.MG_REV.ModelDescription":0
+      },
+     "Node163":{
+       "models.codon.MG_REV.ModelDescription":0
+      },
+     "Node167":{
+       "models.codon.MG_REV.ModelDescription":0
+      },
+     "Node170":{
+       "models.codon.MG_REV.ModelDescription":0.0005305887564307509
+      },
+     "Node173":{
+       "models.codon.MG_REV.ModelDescription":0.0001920996066078404
+      },
+     "Node177":{
+       "models.codon.MG_REV.ModelDescription":0
+      },
+     "Node18":{
+       "models.codon.MG_REV.ModelDescription":0
+      },
+     "Node180":{
+       "models.codon.MG_REV.ModelDescription":0
+      },
+     "Node181":{
+       "models.codon.MG_REV.ModelDescription":0
+      },
+     "Node182":{
+       "models.codon.MG_REV.ModelDescription":0
+      },
+     "Node186":{
+       "models.codon.MG_REV.ModelDescription":0
+      },
+     "Node187":{
+       "models.codon.MG_REV.ModelDescription":0
+      },
+     "Node188":{
+       "models.codon.MG_REV.ModelDescription":0
+      },
+     "Node189":{
+       "models.codon.MG_REV.ModelDescription":0
+      },
+     "Node19":{
+       "models.codon.MG_REV.ModelDescription":0
+      },
+     "Node191":{
+       "models.codon.MG_REV.ModelDescription":0
+      },
+     "Node192":{
+       "models.codon.MG_REV.ModelDescription":0
+      },
+     "Node193":{
+       "models.codon.MG_REV.ModelDescription":0
+      },
+     "Node194":{
+       "models.codon.MG_REV.ModelDescription":0
+      },
+     "Node195":{
+       "models.codon.MG_REV.ModelDescription":0
+      },
+     "Node198":{
+       "models.codon.MG_REV.ModelDescription":0
+      },
+     "Node2":{
+       "models.codon.MG_REV.ModelDescription":0
+      },
+     "Node201":{
+       "models.codon.MG_REV.ModelDescription":0
+      },
+     "Node202":{
+       "models.codon.MG_REV.ModelDescription":0
+      },
+     "Node203":{
+       "models.codon.MG_REV.ModelDescription":0
+      },
+     "Node205":{
+       "models.codon.MG_REV.ModelDescription":0
+      },
+     "Node208":{
+       "models.codon.MG_REV.ModelDescription":0
+      },
+     "Node21":{
+       "models.codon.MG_REV.ModelDescription":0.0002642975827116917
+      },
+     "Node210":{
+       "models.codon.MG_REV.ModelDescription":0
+      },
+     "Node211":{
+       "models.codon.MG_REV.ModelDescription":0
+      },
+     "Node215":{
+       "models.codon.MG_REV.ModelDescription":0
+      },
+     "Node217":{
+       "models.codon.MG_REV.ModelDescription":0
+      },
+     "Node220":{
+       "models.codon.MG_REV.ModelDescription":0
+      },
+     "Node223":{
+       "models.codon.MG_REV.ModelDescription":0
+      },
+     "Node226":{
+       "models.codon.MG_REV.ModelDescription":0
+      },
+     "Node227":{
+       "models.codon.MG_REV.ModelDescription":0
+      },
+     "Node231":{
+       "models.codon.MG_REV.ModelDescription":0
+      },
+     "Node232":{
+       "models.codon.MG_REV.ModelDescription":0.0001898774792023025
+      },
+     "Node235":{
+       "models.codon.MG_REV.ModelDescription":0
+      },
+     "Node238":{
+       "models.codon.MG_REV.ModelDescription":0
+      },
+     "Node239":{
+       "models.codon.MG_REV.ModelDescription":0
+      },
+     "Node24":{
+       "models.codon.MG_REV.ModelDescription":0
+      },
+     "Node240":{
+       "models.codon.MG_REV.ModelDescription":0
+      },
+     "Node241":{
+       "models.codon.MG_REV.ModelDescription":0
+      },
+     "Node242":{
+       "models.codon.MG_REV.ModelDescription":0
+      },
+     "Node243":{
+       "models.codon.MG_REV.ModelDescription":0.0002643105365364793
+      },
+     "Node245":{
+       "models.codon.MG_REV.ModelDescription":0
+      },
+     "Node248":{
+       "models.codon.MG_REV.ModelDescription":0
+      },
+     "Node25":{
+       "models.codon.MG_REV.ModelDescription":0
+      },
+     "Node250":{
+       "models.codon.MG_REV.ModelDescription":0
+      },
+     "Node254":{
+       "models.codon.MG_REV.ModelDescription":0
+      },
+     "Node255":{
+       "models.codon.MG_REV.ModelDescription":0
+      },
+     "Node256":{
+       "models.codon.MG_REV.ModelDescription":0
+      },
+     "Node259":{
+       "models.codon.MG_REV.ModelDescription":0
+      },
+     "Node26":{
+       "models.codon.MG_REV.ModelDescription":0
+      },
+     "Node260":{
+       "models.codon.MG_REV.ModelDescription":0
+      },
+     "Node262":{
+       "models.codon.MG_REV.ModelDescription":0.0002643606679796142
+      },
+     "Node265":{
+       "models.codon.MG_REV.ModelDescription":0
+      },
+     "Node267":{
+       "models.codon.MG_REV.ModelDescription":0
+      },
+     "Node270":{
+       "models.codon.MG_REV.ModelDescription":0
+      },
+     "Node271":{
+       "models.codon.MG_REV.ModelDescription":0
+      },
+     "Node272":{
+       "models.codon.MG_REV.ModelDescription":0
+      },
+     "Node273":{
+       "models.codon.MG_REV.ModelDescription":0
+      },
+     "Node275":{
+       "models.codon.MG_REV.ModelDescription":0
+      },
+     "Node278":{
+       "models.codon.MG_REV.ModelDescription":0
+      },
+     "Node281":{
+       "models.codon.MG_REV.ModelDescription":0
+      },
+     "Node283":{
+       "models.codon.MG_REV.ModelDescription":0
+      },
+     "Node286":{
+       "models.codon.MG_REV.ModelDescription":0
+      },
+     "Node287":{
+       "models.codon.MG_REV.ModelDescription":0
+      },
+     "Node289":{
+       "models.codon.MG_REV.ModelDescription":0.0002643717018200573
+      },
+     "Node29":{
+       "models.codon.MG_REV.ModelDescription":0
+      },
+     "Node292":{
+       "models.codon.MG_REV.ModelDescription":0
+      },
+     "Node293":{
+       "models.codon.MG_REV.ModelDescription":0
+      },
+     "Node294":{
+       "models.codon.MG_REV.ModelDescription":0
+      },
+     "Node295":{
+       "models.codon.MG_REV.ModelDescription":0
+      },
+     "Node298":{
+       "models.codon.MG_REV.ModelDescription":0
+      },
+     "Node3":{
+       "models.codon.MG_REV.ModelDescription":0
+      },
+     "Node301":{
+       "models.codon.MG_REV.ModelDescription":0
+      },
+     "Node302":{
+       "models.codon.MG_REV.ModelDescription":0
+      },
+     "Node305":{
+       "models.codon.MG_REV.ModelDescription":0
+      },
+     "Node308":{
+       "models.codon.MG_REV.ModelDescription":0
+      },
+     "Node31":{
+       "models.codon.MG_REV.ModelDescription":0
+      },
+     "Node310":{
+       "models.codon.MG_REV.ModelDescription":0
+      },
+     "Node313":{
+       "models.codon.MG_REV.ModelDescription":0
+      },
+     "Node314":{
+       "models.codon.MG_REV.ModelDescription":0
+      },
+     "Node315":{
+       "models.codon.MG_REV.ModelDescription":0
+      },
+     "Node316":{
+       "models.codon.MG_REV.ModelDescription":0
+      },
+     "Node317":{
+       "models.codon.MG_REV.ModelDescription":0
+      },
+     "Node32":{
+       "models.codon.MG_REV.ModelDescription":0
+      },
+     "Node320":{
+       "models.codon.MG_REV.ModelDescription":0
+      },
+     "Node321":{
+       "models.codon.MG_REV.ModelDescription":0.0002643043417377252
+      },
+     "Node324":{
+       "models.codon.MG_REV.ModelDescription":0.0002643396488610076
+      },
+     "Node327":{
+       "models.codon.MG_REV.ModelDescription":0.000264292924632702
+      },
+     "Node330":{
+       "models.codon.MG_REV.ModelDescription":0
+      },
+     "Node331":{
+       "models.codon.MG_REV.ModelDescription":0
+      },
+     "Node332":{
+       "models.codon.MG_REV.ModelDescription":0
+      },
+     "Node333":{
+       "models.codon.MG_REV.ModelDescription":0
+      },
+     "Node334":{
+       "models.codon.MG_REV.ModelDescription":0
+      },
+     "Node337":{
+       "models.codon.MG_REV.ModelDescription":0
+      },
+     "Node339":{
+       "models.codon.MG_REV.ModelDescription":0.0002643868649681553
+      },
+     "Node34":{
+       "models.codon.MG_REV.ModelDescription":0
+      },
+     "Node342":{
+       "models.codon.MG_REV.ModelDescription":0
+      },
+     "Node343":{
+       "models.codon.MG_REV.ModelDescription":0
+      },
+     "Node346":{
+       "models.codon.MG_REV.ModelDescription":0
+      },
+     "Node349":{
+       "models.codon.MG_REV.ModelDescription":0
+      },
+     "Node351":{
+       "models.codon.MG_REV.ModelDescription":0
+      },
+     "Node354":{
+       "models.codon.MG_REV.ModelDescription":0
+      },
+     "Node355":{
+       "models.codon.MG_REV.ModelDescription":0
+      },
+     "Node356":{
+       "models.codon.MG_REV.ModelDescription":0
+      },
+     "Node359":{
+       "models.codon.MG_REV.ModelDescription":0
+      },
+     "Node360":{
+       "models.codon.MG_REV.ModelDescription":0
+      },
+     "Node361":{
+       "models.codon.MG_REV.ModelDescription":0
+      },
+     "Node362":{
+       "models.codon.MG_REV.ModelDescription":0
+      },
+     "Node366":{
+       "models.codon.MG_REV.ModelDescription":0.0002643848917091338
+      },
+     "Node367":{
+       "models.codon.MG_REV.ModelDescription":0
+      },
+     "Node372":{
+       "models.codon.MG_REV.ModelDescription":0
+      },
+     "Node375":{
+       "models.codon.MG_REV.ModelDescription":0
+      },
+     "Node377":{
+       "models.codon.MG_REV.ModelDescription":0
+      },
+     "Node378":{
+       "models.codon.MG_REV.ModelDescription":0
+      },
+     "Node379":{
+       "models.codon.MG_REV.ModelDescription":0.000264328683008764
+      },
+     "Node38":{
+       "models.codon.MG_REV.ModelDescription":0
+      },
+     "Node380":{
+       "models.codon.MG_REV.ModelDescription":0.0002642601149332056
+      },
+     "Node385":{
+       "models.codon.MG_REV.ModelDescription":0
+      },
+     "Node386":{
+       "models.codon.MG_REV.ModelDescription":0
+      },
+     "Node388":{
+       "models.codon.MG_REV.ModelDescription":0
+      },
+     "Node39":{
+       "models.codon.MG_REV.ModelDescription":0
+      },
+     "Node391":{
+       "models.codon.MG_REV.ModelDescription":0
+      },
+     "Node394":{
+       "models.codon.MG_REV.ModelDescription":0
+      },
+     "Node396":{
+       "models.codon.MG_REV.ModelDescription":0.001205713516072945
+      },
+     "Node399":{
+       "models.codon.MG_REV.ModelDescription":0
+      },
+     "Node4":{
+       "models.codon.MG_REV.ModelDescription":0
+      },
+     "Node40":{
+       "models.codon.MG_REV.ModelDescription":0.0001955395169344423
+      },
+     "Node400":{
+       "models.codon.MG_REV.ModelDescription":0
+      },
+     "Node402":{
+       "models.codon.MG_REV.ModelDescription":0.0002643020755195745
+      },
+     "Node406":{
+       "models.codon.MG_REV.ModelDescription":0
+      },
+     "Node407":{
+       "models.codon.MG_REV.ModelDescription":0
+      },
+     "Node408":{
+       "models.codon.MG_REV.ModelDescription":0
+      },
+     "Node409":{
+       "models.codon.MG_REV.ModelDescription":0.0002643020635168886
+      },
+     "Node410":{
+       "models.codon.MG_REV.ModelDescription":0.0002644951336362228
+      },
+     "Node44":{
+       "models.codon.MG_REV.ModelDescription":0
+      },
+     "Node45":{
+       "models.codon.MG_REV.ModelDescription":0
+      },
+     "Node46":{
+       "models.codon.MG_REV.ModelDescription":0
+      },
+     "Node47":{
+       "models.codon.MG_REV.ModelDescription":0
+      },
+     "Node48":{
+       "models.codon.MG_REV.ModelDescription":0.0008830159246460094
+      },
+     "Node5":{
+       "models.codon.MG_REV.ModelDescription":0
+      },
+     "Node51":{
+       "models.codon.MG_REV.ModelDescription":0.0002645931362712099
+      },
+     "Node54":{
+       "models.codon.MG_REV.ModelDescription":0
+      },
+     "Node55":{
+       "models.codon.MG_REV.ModelDescription":0
+      },
+     "Node58":{
+       "models.codon.MG_REV.ModelDescription":0
+      },
+     "Node60":{
+       "models.codon.MG_REV.ModelDescription":0
+      },
+     "Node63":{
+       "models.codon.MG_REV.ModelDescription":0
+      },
+     "Node64":{
+       "models.codon.MG_REV.ModelDescription":0.0002642969129592076
+      },
+     "Node68":{
+       "models.codon.MG_REV.ModelDescription":0
+      },
+     "Node69":{
+       "models.codon.MG_REV.ModelDescription":0
+      },
+     "Node7":{
+       "models.codon.MG_REV.ModelDescription":0.0002643019886486002
+      },
+     "Node70":{
+       "models.codon.MG_REV.ModelDescription":0
+      },
+     "Node73":{
+       "models.codon.MG_REV.ModelDescription":0
+      },
+     "Node74":{
+       "models.codon.MG_REV.ModelDescription":0
+      },
+     "Node75":{
+       "models.codon.MG_REV.ModelDescription":0
+      },
+     "Node76":{
+       "models.codon.MG_REV.ModelDescription":0
+      },
+     "Node77":{
+       "models.codon.MG_REV.ModelDescription":0
+      },
+     "Node79":{
+       "models.codon.MG_REV.ModelDescription":0
+      },
+     "Node8":{
+       "models.codon.MG_REV.ModelDescription":0
+      },
+     "Node80":{
+       "models.codon.MG_REV.ModelDescription":0
+      },
+     "Node82":{
+       "models.codon.MG_REV.ModelDescription":0
+      },
+     "Node83":{
+       "models.codon.MG_REV.ModelDescription":0.000193670071156646
+      },
+     "Node89":{
+       "models.codon.MG_REV.ModelDescription":0.0002642505248115508
+      },
+     "Node92":{
+       "models.codon.MG_REV.ModelDescription":0
+      },
+     "Node94":{
+       "models.codon.MG_REV.ModelDescription":0.0002561291664396009
+      },
+     "Node98":{
+       "models.codon.MG_REV.ModelDescription":0
+      },
+     "Node99":{
+       "models.codon.MG_REV.ModelDescription":0
+      },
+     "epi_isl_402130_Hubei_20191230_Illumina_782":{
+       "models.codon.MG_REV.ModelDescription":0
+      },
+     "epi_isl_403932_Guandong_20200114_illumina_15":{
+       "models.codon.MG_REV.ModelDescription":0
+      },
+     "epi_isl_404228_Zhejiang_20200117_Sanger_2":{
+       "models.codon.MG_REV.ModelDescription":0.0002643707057193486
+      },
+     "epi_isl_406030_Guangdong_20200110_Nanopore_16":{
+       "models.codon.MG_REV.ModelDescription":0
+      },
+     "epi_isl_406031_Kaohsiung_20200123_null_5":{
+       "models.codon.MG_REV.ModelDescription":0.0002644598467542995
+      },
+     "epi_isl_406594_Guandong_20200116_null_12":{
+       "models.codon.MG_REV.ModelDescription":0
+      },
+     "epi_isl_406716_Hubei_20200102_Illumina_17":{
+       "models.codon.MG_REV.ModelDescription":0.0005287230209423872
+      },
+     "epi_isl_406799_Wuhan_20191231_DNBSEQ_1":{
+       "models.codon.MG_REV.ModelDescription":0.0005286392624743202
+      },
+     "epi_isl_406800_Hubei_20200101_DNBSEQ_11":{
+       "models.codon.MG_REV.ModelDescription":0
+      },
+     "epi_isl_407073_England_20200129_Illumina_1":{
+       "models.codon.MG_REV.ModelDescription":0.0002643684433548019
+      },
+     "epi_isl_407079_Lapland_20200129_Illumina_298":{
+       "models.codon.MG_REV.ModelDescription":0
+      },
+     "epi_isl_407193_Gyeonggi_do_20200125_null_3":{
+       "models.codon.MG_REV.ModelDescription":0.0002643262632458282
+      },
+     "epi_isl_407313_Zhejiang_20200119_Nanopore_26":{
+       "models.codon.MG_REV.ModelDescription":0
+      },
+     "epi_isl_407893_New_South_Wales_20200124_Illumina_20":{
+       "models.codon.MG_REV.ModelDescription":0
+      },
+     "epi_isl_408485_Beijing_20200118_Illumina_1":{
+       "models.codon.MG_REV.ModelDescription":0.0002643658357036352
+      },
+     "epi_isl_408668_Thanh_Hoa_20200124_Illumina_2":{
+       "models.codon.MG_REV.ModelDescription":0.0002643059393942317
+      },
+     "epi_isl_408669_Kyoto_20200129_NextSeq500_1":{
+       "models.codon.MG_REV.ModelDescription":0.00079545327617883
+      },
+     "epi_isl_408670_Wisconsin_20200131_Sanger_1":{
+       "models.codon.MG_REV.ModelDescription":0.001590247150951948
+      },
+     "epi_isl_408977_New_South_Wales_20200125_Illumina_9":{
+       "models.codon.MG_REV.ModelDescription":0.001323576357308506
+      },
+     "epi_isl_411929_South_Korea_2020_01_Illumina_1":{
+       "models.codon.MG_REV.ModelDescription":0.0002643020635349079
+      },
+     "epi_isl_411957_China_20200108_Illumina_3":{
+       "models.codon.MG_REV.ModelDescription":0.0002643909374673953
+      },
+     "epi_isl_412029_Hong_Kong_20200130_Illumina_1":{
+       "models.codon.MG_REV.ModelDescription":0.0002642810687032416
+      },
+     "epi_isl_412967_Guangzhou_20200129_Illumina_1":{
+       "models.codon.MG_REV.ModelDescription":0.0002642414782999252
+      },
+     "epi_isl_413015_Ontario_20200123_Nanopore_1":{
+       "models.codon.MG_REV.ModelDescription":0.0002643867118260385
+      },
+     "epi_isl_413017_South_Korea_20200206_Illumina_1":{
+       "models.codon.MG_REV.ModelDescription":0
+      },
+     "epi_isl_413019_Zurich_20200226_Illumina_1":{
+       "models.codon.MG_REV.ModelDescription":0.0002643308769167113
+      },
+     "epi_isl_413455_Washington_20200228_Illumina_7":{
+       "models.codon.MG_REV.ModelDescription":0.0002643717402065411
+      },
+     "epi_isl_413458_Washington_20200301_Illumina_2":{
+       "models.codon.MG_REV.ModelDescription":0.0002642472070780515
+      },
+     "epi_isl_413485_Anhui_20200124_null_5":{
+       "models.codon.MG_REV.ModelDescription":0.0002643046746587075
+      },
+     "epi_isl_413513_South_Korea_20200227_Illumina_8":{
+       "models.codon.MG_REV.ModelDescription":0.0002644597643211307
+      },
+     "epi_isl_413523_Kerala_20200131_Illumina_1":{
+       "models.codon.MG_REV.ModelDescription":0
+      },
+     "epi_isl_413561_California_20200227_Illumina_1":{
+       "models.codon.MG_REV.ModelDescription":0.0002644275036133484
+      },
+     "epi_isl_413562_Washington_20200302_Illumina_1":{
+       "models.codon.MG_REV.ModelDescription":0.0002643658359808059
+      },
+     "epi_isl_413589_Utrecht_20200301_Nanopore_1":{
+       "models.codon.MG_REV.ModelDescription":0.0002643886111436952
+      },
+     "epi_isl_413602_Helsinki_20200303_Illumina_2":{
+       "models.codon.MG_REV.ModelDescription":0
+      },
+     "epi_isl_413603_Helsinki_20200303_Illumina_1":{
+       "models.codon.MG_REV.ModelDescription":0.0002643233860705948
+      },
+     "epi_isl_413605_Helsinki_20200301_Illumina_1":{
+       "models.codon.MG_REV.ModelDescription":0.0002643725331280134
+      },
+     "epi_isl_413649_Washington_20200305_Illumina_1":{
+       "models.codon.MG_REV.ModelDescription":0.0002642380579116497
+      },
+     "epi_isl_413692_China_2020_01_MGI_2":{
+       "models.codon.MG_REV.ModelDescription":7.457876443395374e-05
+      },
+     "epi_isl_413695_China_2020_01_MGI_9":{
+       "models.codon.MG_REV.ModelDescription":0.0002644291580527831
+      },
+     "epi_isl_413752_China_2020_02_MGI_1":{
+       "models.codon.MG_REV.ModelDescription":0.0005289579818573612
+      },
+     "epi_isl_413851_Guangdong_20200130_metagenomics_BGI_1":{
+       "models.codon.MG_REV.ModelDescription":0.0005547176532523614
+      },
+     "epi_isl_413852_Guangdong_20200130_metagenomics_BGI_1":{
+       "models.codon.MG_REV.ModelDescription":0.0002674640066047695
+      },
+     "epi_isl_413859_Guangdong_20200131_metagenomics_BGI_1":{
+       "models.codon.MG_REV.ModelDescription":0.0002644964946275831
+      },
+     "epi_isl_413869_Guangdong_20200228_multiplex_pcr_nanopore_1":{
+       "models.codon.MG_REV.ModelDescription":0.0002642655012276118
+      },
+     "epi_isl_414005_England_20200225_Illumina_4":{
+       "models.codon.MG_REV.ModelDescription":0
+      },
+     "epi_isl_414020_Geneva_20200227_null_1":{
+       "models.codon.MG_REV.ModelDescription":0.0002645238166825016
+      },
+     "epi_isl_414424_Limburg_20200303_Nanopore_25":{
+       "models.codon.MG_REV.ModelDescription":0.0002643060221160094
+      },
+     "epi_isl_414431_Noord_Brabant_20200302_Nanopore_1":{
+       "models.codon.MG_REV.ModelDescription":0.0002643527465977066
+      },
+     "epi_isl_414450_Noord_Brabant_20200306_Nanopore_4":{
+       "models.codon.MG_REV.ModelDescription":0
+      },
+     "epi_isl_414459_Noord_Brabant_20200306_Nanopore_1":{
+       "models.codon.MG_REV.ModelDescription":0.0002642403562794826
+      },
+     "epi_isl_414465_Zuid_Holland_20200304_Nanopore_1":{
+       "models.codon.MG_REV.ModelDescription":0.0002642656169453641
+      },
+     "epi_isl_414495_Comunitat_Valenciana_20200308_Nanopore_1":{
+       "models.codon.MG_REV.ModelDescription":0.0002642909607546945
+      },
+     "epi_isl_414496_Comunitat_Valenciana_20200304_Nanopore_1":{
+       "models.codon.MG_REV.ModelDescription":0.0002650902876794807
+      },
+     "epi_isl_414498_North_Rhine_Westphalia_20200226_Nanopore_2":{
+       "models.codon.MG_REV.ModelDescription":0.0002643116866094054
+      },
+     "epi_isl_414530_Noord_Brabant_20200304_Nanopore_2":{
+       "models.codon.MG_REV.ModelDescription":0
+      },
+     "epi_isl_414533_Noord_Brabant_20200306_Nanopore_7":{
+       "models.codon.MG_REV.ModelDescription":0.0002642920733677151
+      },
+     "epi_isl_414538_Noord_Brabant_20200308_Nanopore_4":{
+       "models.codon.MG_REV.ModelDescription":0.0002642222462699314
+      },
+     "epi_isl_414539_Noord_Brabant_20200308_Nanopore_1":{
+       "models.codon.MG_REV.ModelDescription":0.0002644264433282602
+      },
+     "epi_isl_414542_Noord_Brabant_2020_03_Nanopore_6":{
+       "models.codon.MG_REV.ModelDescription":0
+      },
+     "epi_isl_414547_Noord_Brabant_20200306_Nanopore_1":{
+       "models.codon.MG_REV.ModelDescription":0.0002644023097268984
+      },
+     "epi_isl_414569_Hong_Kong_20200212_Illumina_2":{
+       "models.codon.MG_REV.ModelDescription":0
+      },
+     "epi_isl_414571_Hong_Kong_20200222_Illumina_4":{
+       "models.codon.MG_REV.ModelDescription":0.0002643342426828831
+      },
+     "epi_isl_414577_Talca_20200302_Illumina_1":{
+       "models.codon.MG_REV.ModelDescription":0.0002642646716604822
+      },
+     "epi_isl_414594_Washington_20200305_Illumina_1":{
+       "models.codon.MG_REV.ModelDescription":0.001865803351145294
+      },
+     "epi_isl_414597_Washington_20200304_Illumina_3":{
+       "models.codon.MG_REV.ModelDescription":0.0002643021080654396
+      },
+     "epi_isl_414622_Washington_20200308_Illumina_1":{
+       "models.codon.MG_REV.ModelDescription":0.0007945388938486734
+      },
+     "epi_isl_414639_New_York_20200304_ribo_depleted__1":{
+       "models.codon.MG_REV.ModelDescription":0.0002642928389620734
+      },
+     "epi_isl_414640_Finland_20200301_Illumina_1":{
+       "models.codon.MG_REV.ModelDescription":0.0002642463992766699
+      },
+     "epi_isl_414641_Finland_20200305_Illumina_1":{
+       "models.codon.MG_REV.ModelDescription":0.0002643682308037466
+      },
+     "epi_isl_414688_Guangdong_20200225_DNBSEQ_T7_1":{
+       "models.codon.MG_REV.ModelDescription":0.0002643007817797953
+      },
+     "epi_isl_415145_England_20200301_Illumina_1":{
+       "models.codon.MG_REV.ModelDescription":0
+      },
+     "epi_isl_415148_England_20200303_Illumina_1":{
+       "models.codon.MG_REV.ModelDescription":0.0002648405733315467
+      },
+     "epi_isl_415152_Panama_City_20200306_Illumina_56":{
+       "models.codon.MG_REV.ModelDescription":0.000264226881957863
+      },
+     "epi_isl_415153_Huldenberg_20200303_Nanopore_1":{
+       "models.codon.MG_REV.ModelDescription":0.0002649716333612726
+      },
+     "epi_isl_415154_Kraainem_20200301_Nanopore_2":{
+       "models.codon.MG_REV.ModelDescription":0.0007999471923145541
+      },
+     "epi_isl_415435_Wales_20200306_null_1":{
+       "models.codon.MG_REV.ModelDescription":0
+      },
+     "epi_isl_415453_Wales_20200310_null_1":{
+       "models.codon.MG_REV.ModelDescription":0
+      },
+     "epi_isl_415461_Gelderland_20200310_Nanopore_5":{
+       "models.codon.MG_REV.ModelDescription":0
+      },
+     "epi_isl_415468_Netherlands_20200310_Nanopore_4":{
+       "models.codon.MG_REV.ModelDescription":0.001057305991329935
+      },
+     "epi_isl_415531_Zuid_Holland_20200309_Nanopore_1":{
+       "models.codon.MG_REV.ModelDescription":0.0002643685293054813
+      },
+     "epi_isl_415534_Zuid_Holland_20200311_Nanopore_2":{
+       "models.codon.MG_REV.ModelDescription":0.0002644067059385217
+      },
+     "epi_isl_415577_British_Columbia_20200220_Nanopore_1":{
+       "models.codon.MG_REV.ModelDescription":0.0002644669402688239
+      },
+     "epi_isl_415578_British_Columbia_20200227_Nanopore_1":{
+       "models.codon.MG_REV.ModelDescription":0.0002642358982001542
+      },
+     "epi_isl_415579_British_Columbia_20200302_Nanopore_2":{
+       "models.codon.MG_REV.ModelDescription":0.0002644085531365757
+      },
+     "epi_isl_415596_Washington_20200309_Illumina_1":{
+       "models.codon.MG_REV.ModelDescription":0.0002645648002097256
+      },
+     "epi_isl_415616_Washington_20200308_Illumina_1":{
+       "models.codon.MG_REV.ModelDescription":0.0002643413919402862
+      },
+     "epi_isl_415634_Scotland_20200306_Nanopore_1":{
+       "models.codon.MG_REV.ModelDescription":0
+      },
+     "epi_isl_415640_Scotland_20200308_Nanopore_1":{
+       "models.codon.MG_REV.ModelDescription":0.0002643323439814776
+      },
+     "epi_isl_415646_Italy_20200303_MiSeq_4":{
+       "models.codon.MG_REV.ModelDescription":0.0002644299280997677
+      },
+     "epi_isl_415655_Wales_20200312_Nanopore_1":{
+       "models.codon.MG_REV.ModelDescription":0.0002642625779937703
+      },
+     "epi_isl_415658_Santiago_20200306_Illumina_2":{
+       "models.codon.MG_REV.ModelDescription":0.0002642403589778495
+      },
+     "epi_isl_415709_Hangzhou_20200125_Noveseq_1":{
+       "models.codon.MG_REV.ModelDescription":0.0002643316594664946
+      },
+     "epi_isl_415710_Saint_Petersburg_20200315_Nanopore_8":{
+       "models.codon.MG_REV.ModelDescription":0.0002643072831196812
+      },
+     "epi_isl_415787_Lima_20200310_Illumina_1":{
+       "models.codon.MG_REV.ModelDescription":0.0002643420001464098
+      },
+     "epi_isl_415918_Wales_20200311_null_1":{
+       "models.codon.MG_REV.ModelDescription":0.001058514304254592
+      },
+     "epi_isl_415919_Wales_20200311_null_4":{
+       "models.codon.MG_REV.ModelDescription":0.0002643685453530801
+      },
+     "epi_isl_416036_Sao_Paulo_20200305_Ion_1":{
+       "models.codon.MG_REV.ModelDescription":0.0002641946372265043
+      },
+     "epi_isl_416141_Copenhagen_20200303_Illumina_1":{
+       "models.codon.MG_REV.ModelDescription":0.000264463267795801
+      },
+     "epi_isl_416325_Shanghai_20200202_Illumina_1":{
+       "models.codon.MG_REV.ModelDescription":0.0002643059490883348
+      },
+     "epi_isl_416328_Shanghai_20200201_Illumina_1":{
+       "models.codon.MG_REV.ModelDescription":0.0002643457179457
+      },
+     "epi_isl_416330_Shanghai_20200202_Illumina_1":{
+       "models.codon.MG_REV.ModelDescription":0.0002643716564082191
+      },
+     "epi_isl_416339_Shanghai_20200203_Illumina_2":{
+       "models.codon.MG_REV.ModelDescription":0.0002644038416503929
+      },
+     "epi_isl_416341_Shanghai_20200201_Illumina_2":{
+       "models.codon.MG_REV.ModelDescription":0.0002647752453320787
+      },
+     "epi_isl_416343_Shanghai_20200204_Illumina_1":{
+       "models.codon.MG_REV.ModelDescription":0.0002644980169915883
+      },
+     "epi_isl_416355_Shanghai_20200204_Illumina_1":{
+       "models.codon.MG_REV.ModelDescription":0.0002643042713857692
+      },
+     "epi_isl_416356_Shanghai_20200201_Illumina_1":{
+       "models.codon.MG_REV.ModelDescription":0.0002643545529842199
+      },
+     "epi_isl_416364_Shanghai_20200208_Illumina_1":{
+       "models.codon.MG_REV.ModelDescription":0.0002643551577732162
+      },
+     "epi_isl_416372_Shanghai_20200201_Illumina_1":{
+       "models.codon.MG_REV.ModelDescription":0.0002642661048703642
+      },
+     "epi_isl_416374_Shanghai_20200207_Illumina_1":{
+       "models.codon.MG_REV.ModelDescription":0.0002643487465714228
+      },
+     "epi_isl_416378_Shanghai_20200130_Illumina_2":{
+       "models.codon.MG_REV.ModelDescription":0.000264425932550548
+      },
+     "epi_isl_416392_Shanghai_20200202_Illumina_1":{
+       "models.codon.MG_REV.ModelDescription":0.0002642734110378002
+      },
+     "epi_isl_416396_Shanghai_20200210_Illumina_1":{
+       "models.codon.MG_REV.ModelDescription":0.0005290353654390398
+      },
+     "epi_isl_416401_Shanghai_20200202_Illumina_1":{
+       "models.codon.MG_REV.ModelDescription":0.0002643287705314135
+      },
+     "epi_isl_416407_Shanghai_20200215_Illumina_1":{
+       "models.codon.MG_REV.ModelDescription":0.0002643850747800483
+      },
+     "epi_isl_416410_Victoria_20200124_Ilumina_1":{
+       "models.codon.MG_REV.ModelDescription":0.0002643020430050458
+      },
+     "epi_isl_416411_Victoria_20200125_Ilumina_1":{
+       "models.codon.MG_REV.ModelDescription":0.0002643043243141585
+      },
+     "epi_isl_416412_Victoria_20200302_Ilumina_1":{
+       "models.codon.MG_REV.ModelDescription":0.0002643020882393388
+      },
+     "epi_isl_416413_Victoria_20200305_Ilumina_2":{
+       "models.codon.MG_REV.ModelDescription":0.0002642957366398174
+      },
+     "epi_isl_416426_Budapest_20200317_Nanopore_1":{
+       "models.codon.MG_REV.ModelDescription":0.0005312976141038336
+      },
+     "epi_isl_416434_Washington_20200310_Illumina_2":{
+       "models.codon.MG_REV.ModelDescription":0.0002642963509140354
+      },
+     "epi_isl_416440_Washington_20200310_Illumina_18":{
+       "models.codon.MG_REV.ModelDescription":0.0002642957366396999
+      },
+     "epi_isl_416457_California_20200318_Nanopore_9":{
+       "models.codon.MG_REV.ModelDescription":0.0002644280751205186
+      },
+     "epi_isl_416615_unknown_20200217_Illumina_1":{
+       "models.codon.MG_REV.ModelDescription":0.0002643021132048575
+      },
+     "epi_isl_416623_unknown_20200217_Illumina_1":{
+       "models.codon.MG_REV.ModelDescription":0.0002643631376368855
+      },
+     "epi_isl_416670_Washington_20200312_Illumina_2":{
+       "models.codon.MG_REV.ModelDescription":0.0002642441094149693
+      },
+     "epi_isl_416678_Washington_20200311_Illumina_6":{
+       "models.codon.MG_REV.ModelDescription":0.0005315168664169905
+      },
+     "epi_isl_416682_USA_20200309_Illumina_2":{
+       "models.codon.MG_REV.ModelDescription":0.0002644669402729092
+      },
+     "epi_isl_416694_Washington_20200313_Illumina_9":{
+       "models.codon.MG_REV.ModelDescription":0.0002644038051090984
+      },
+     "epi_isl_416699_Washington_20200313_Illumina_1":{
+       "models.codon.MG_REV.ModelDescription":0.0002642211730858651
+      },
+     "epi_isl_416703_Washington_20200313_Illumina_1":{
+       "models.codon.MG_REV.ModelDescription":0.0002643355007417686
+      },
+     "epi_isl_416753_ARA_20200306_Illumina_5":{
+       "models.codon.MG_REV.ModelDescription":0.0002642321786596113
+      },
+     "epi_isl_416994_Castilla_y_Le_n_20200304_Illumina_2":{
+       "models.codon.MG_REV.ModelDescription":0.0002642402751670616
+      },
+     "epi_isl_416997_Li_ge_20200305_Nanopore_1":{
+       "models.codon.MG_REV.ModelDescription":0.0002642928363903136
+      },
+     "epi_isl_417006_Li_ge_20200305_Nanopore_1":{
+       "models.codon.MG_REV.ModelDescription":3.656612674232525e-05
+      },
+     "epi_isl_417008_Li_ge_20200307_Nanopore_1":{
+       "models.codon.MG_REV.ModelDescription":0.001854024378738399
+      },
+     "epi_isl_417013_Li_ge_20200309_Nanopore_1":{
+       "models.codon.MG_REV.ModelDescription":0.0002662926277868315
+      },
+     "epi_isl_417031_Queensland_20200311_null_1":{
+       "models.codon.MG_REV.ModelDescription":0.0002642403588868332
+      },
+     "epi_isl_417071_Washington_20200303_Illumina_5":{
+       "models.codon.MG_REV.ModelDescription":0
+      },
+     "epi_isl_417083_Washington_20200228_Illumina_1":{
+       "models.codon.MG_REV.ModelDescription":0.0002643685121999733
+      },
+     "epi_isl_417090_Washington_20200304_Illumina_1":{
+       "models.codon.MG_REV.ModelDescription":0.0002645662474487673
+      },
+     "epi_isl_417094_Washington_20200228_Illumina_2":{
+       "models.codon.MG_REV.ModelDescription":0
+      },
+     "epi_isl_417168_Washington_20200229_Illumina_2":{
+       "models.codon.MG_REV.ModelDescription":0.0002642908783825194
+      },
+     "epi_isl_417174_Washington_20200301_Illumina_1":{
+       "models.codon.MG_REV.ModelDescription":0.0002643716720014799
+      },
+     "epi_isl_417181_Hong_Kong_20200205_Nanopore_1":{
+       "models.codon.MG_REV.ModelDescription":0.0005304905030302582
+      },
+     "epi_isl_417193_Hong_Kong_20200209_Nanopore_3":{
+       "models.codon.MG_REV.ModelDescription":0.0002643072651841096
+      },
+     "epi_isl_417200_Wisconsin_20200321_Nanopore_1":{
+       "models.codon.MG_REV.ModelDescription":0.0002646324965747624
+      },
+     "epi_isl_417201_Wisconsin_20200321_Nanopore_1":{
+       "models.codon.MG_REV.ModelDescription":0.0002644358974933132
+      },
+     "epi_isl_417216_England_20200225_Illumina_4":{
+       "models.codon.MG_REV.ModelDescription":0.0002643020635593851
+      },
+     "epi_isl_417238_England_20200303_Illumina_1":{
+       "models.codon.MG_REV.ModelDescription":0.0005307411995837911
+      },
+     "epi_isl_417242_England_20200303_Illumina_1":{
+       "models.codon.MG_REV.ModelDescription":0
+      },
+     "epi_isl_417254_England_20200304_Illumina_1":{
+       "models.codon.MG_REV.ModelDescription":0
+      },
+     "epi_isl_417278_England_20200307_Illumina_1":{
+       "models.codon.MG_REV.ModelDescription":0.0003844223171355534
+      },
+     "epi_isl_417285_England_20200306_Illumina_1":{
+       "models.codon.MG_REV.ModelDescription":0.0002643689874766697
+      },
+     "epi_isl_417288_England_20200305_Illumina_1":{
+       "models.codon.MG_REV.ModelDescription":0.0005287156807336791
+      },
+     "epi_isl_417291_England_20200308_Illumina_1":{
+       "models.codon.MG_REV.ModelDescription":0
+      },
+     "epi_isl_417300_England_20200305_Illumina_2":{
+       "models.codon.MG_REV.ModelDescription":0.0002643113108483462
+      },
+     "epi_isl_417309_England_20200306_Illumina_1":{
+       "models.codon.MG_REV.ModelDescription":0
+      },
+     "epi_isl_417314_England_20200310_Illumina_1":{
+       "models.codon.MG_REV.ModelDescription":0
+      },
+     "epi_isl_417348_Washington_20200313_Illumina_1":{
+       "models.codon.MG_REV.ModelDescription":0.0002651053283614502
+      },
+     "epi_isl_417370_Washington_20200314_Illumina_2":{
+       "models.codon.MG_REV.ModelDescription":0.0002643587137673098
+      },
+     "epi_isl_417396_New_South_Wales_20200310_Illumina_1":{
+       "models.codon.MG_REV.ModelDescription":0.0002643042717515758
+      },
+     "epi_isl_417400_New_South_Wales_20200310_Illumina_3":{
+       "models.codon.MG_REV.ModelDescription":0.0002643849481345608
+      },
+     "epi_isl_417434_Kinshasa_20200314_Nanopore_1":{
+       "models.codon.MG_REV.ModelDescription":0.0002652170164178894
+      },
+     "epi_isl_417453_Washington_20200314_Illumina_1":{
+       "models.codon.MG_REV.ModelDescription":0.0002670228745929986
+      },
+     "epi_isl_417489_Oslo_20200229_Illumina_1":{
+       "models.codon.MG_REV.ModelDescription":0.0002642948844308628
+      },
+     "epi_isl_417531_Luxembourg_20200318_Illumina_8":{
+       "models.codon.MG_REV.ModelDescription":7.059554211471035e-05
+      },
+     "epi_isl_417546_Reykjavik_20200317_Illumina_1":{
+       "models.codon.MG_REV.ModelDescription":0.0002642237585595855
+      },
+     "epi_isl_417584_Reykjavik_20200317_Illumina_1":{
+       "models.codon.MG_REV.ModelDescription":0
+      },
+     "epi_isl_417600_Reykjavik_20200317_Illumina_1":{
+       "models.codon.MG_REV.ModelDescription":0.0002642343351338426
+      },
+     "epi_isl_417653_Reykjavik_20200318_Illumina_1":{
+       "models.codon.MG_REV.ModelDescription":0.0002642208367539279
+      },
+     "epi_isl_417657_Reykjavik_20200313_Illumina_2":{
+       "models.codon.MG_REV.ModelDescription":0.0002642626613537042
+      },
+     "epi_isl_417660_Reykjavik_20200314_Illumina_2":{
+       "models.codon.MG_REV.ModelDescription":0.0002642709826983479
+      },
+     "epi_isl_417661_Reykjavik_20200314_Illumina_1":{
+       "models.codon.MG_REV.ModelDescription":0.0002644163262286001
+      },
+     "epi_isl_417669_Reykjavik_20200315_Illumina_1":{
+       "models.codon.MG_REV.ModelDescription":0.001069238016163329
+      },
+     "epi_isl_417673_Reykjavik_20200304_Illumina_1":{
+       "models.codon.MG_REV.ModelDescription":0
+      },
+     "epi_isl_417674_Reykjavik_20200309_Illumina_1":{
+       "models.codon.MG_REV.ModelDescription":6.875744911369906e-05
+      },
+     "epi_isl_417708_Reykjavik_20200311_Illumina_4":{
+       "models.codon.MG_REV.ModelDescription":0.0004447798873685496
+      },
+     "epi_isl_417713_Reykjavik_20200312_Illumina_1":{
+       "models.codon.MG_REV.ModelDescription":0
+      },
+     "epi_isl_417719_Reykjavik_20200313_Illumina_1":{
+       "models.codon.MG_REV.ModelDescription":0.0002641801974574987
+      },
+     "epi_isl_417726_Reykjavik_20200309_Illumina_1":{
+       "models.codon.MG_REV.ModelDescription":0.0002642962671567355
+      },
+     "epi_isl_417729_Reykjavik_20200310_Illumina_1":{
+       "models.codon.MG_REV.ModelDescription":0.0002641728959195723
+      },
+     "epi_isl_417760_Reykjavik_20200306_Illumina_1":{
+       "models.codon.MG_REV.ModelDescription":0.0002643584454545085
+      },
+     "epi_isl_417762_Reykjavik_20200316_Illumina_1":{
+       "models.codon.MG_REV.ModelDescription":0.0002642969128691361
+      },
+     "epi_isl_417776_Reykjavik_20200303_Illumina_1":{
+       "models.codon.MG_REV.ModelDescription":0.0002651619894870838
+      },
+     "epi_isl_417778_Reykjavik_20200310_Illumina_1":{
+       "models.codon.MG_REV.ModelDescription":0.0005291765458347637
+      },
+     "epi_isl_417828_Reykjavik_20200302_Illumina_1":{
+       "models.codon.MG_REV.ModelDescription":0.0002641941305021247
+      },
+     "epi_isl_417843_Reykjavik_20200303_Illumina_2":{
+       "models.codon.MG_REV.ModelDescription":0
+      },
+     "epi_isl_417952_Madrid_20200309_Ion_4":{
+       "models.codon.MG_REV.ModelDescription":0.0002643983199750442
+      },
+     "epi_isl_417953_Rio_de_Janeiro_20200318_MinION_20":{
+       "models.codon.MG_REV.ModelDescription":0.0002641968956721754
+      },
+     "epi_isl_417955_Kinshasa_20200321_Illumina_1":{
+       "models.codon.MG_REV.ModelDescription":0.0002643807940385826
+      },
+     "epi_isl_417977_Utah_20200324_Illumina_1":{
+       "models.codon.MG_REV.ModelDescription":0.0005291152674852029
+      },
+     "epi_isl_417982_Rio_de_Janeiro_20200319_MinION_1":{
+       "models.codon.MG_REV.ModelDescription":0.0002641934184728704
+      },
+     "epi_isl_417983_Rio_de_Janeiro_20200319_MinION_1":{
+       "models.codon.MG_REV.ModelDescription":0.0002642776246981338
+      },
+     "epi_isl_417984_Rio_de_Janeiro_20200319_MinION_1":{
+       "models.codon.MG_REV.ModelDescription":7.219615073028299e-05
+      },
+     "epi_isl_417985_Rio_de_Janeiro_20200319_MinION_1":{
+       "models.codon.MG_REV.ModelDescription":0.0002644291607224567
+      },
+     "epi_isl_417994_Portugal_20200308_Illumina_5":{
+       "models.codon.MG_REV.ModelDescription":0.0002657531611841438
+      },
+     "epi_isl_418028_Washington_20200313_Illumina_1":{
+       "models.codon.MG_REV.ModelDescription":0.0002642343350981667
+      },
+     "epi_isl_418029_Washington_20200316_Illumina_1":{
+       "models.codon.MG_REV.ModelDescription":0.0002643217846910146
+      },
+     "epi_isl_418046_Washington_20200316_Illumina_1":{
+       "models.codon.MG_REV.ModelDescription":0.0002643414219626001
+      },
+     "epi_isl_418050_Washington_20200316_Illumina_1":{
+       "models.codon.MG_REV.ModelDescription":0.0002360477297238663
+      },
+     "epi_isl_418055_Washington_20200314_Illumina_1":{
+       "models.codon.MG_REV.ModelDescription":0.0002643791561053438
+      },
+     "epi_isl_418068_Washington_20200314_Illumina_1":{
+       "models.codon.MG_REV.ModelDescription":0.0002641520153978844
+      },
+     "epi_isl_418076_Washington_20200315_Illumina_1":{
+       "models.codon.MG_REV.ModelDescription":0.0002646349581257985
+      },
+     "epi_isl_418081_Washington_20200315_Illumina_1":{
+       "models.codon.MG_REV.ModelDescription":0.0002642294791510314
+      },
+     "epi_isl_418088_Wales_20200312_Illumina_1":{
+       "models.codon.MG_REV.ModelDescription":0.0002644194489194444
+      },
+     "epi_isl_418111_Wales_20200313_Illumina_1":{
+       "models.codon.MG_REV.ModelDescription":0.0002642659541590453
+      },
+     "epi_isl_418119_Wales_20200313_Illumina_1":{
+       "models.codon.MG_REV.ModelDescription":0
+      },
+     "epi_isl_418128_Wales_20200315_Illumina_1":{
+       "models.codon.MG_REV.ModelDescription":0.0002643059894821675
+      },
+     "epi_isl_418214_Touba_20200312_Illumina_1":{
+       "models.codon.MG_REV.ModelDescription":0.0002641946368589609
+      },
+     "epi_isl_418229_Ile_de_France_20200312_Illumina_1":{
+       "models.codon.MG_REV.ModelDescription":0.0002644232492333152
+      }
+    },
+   "attributes":{
+     "models.codon.MG_REV.ModelDescription":{
+       "attribute type":"branch length",
+       "display order":0
+      }
+    }
+  },
+ "data partitions":{
+   "0":{
+     "coverage":      [
+[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 123, 124, 125, 126, 127, 128, 129, 130, 131, 132, 133, 134, 135, 136, 137, 138, 139, 140, 141, 142, 143, 144, 145, 146, 147, 148, 149, 150, 151, 152, 153, 154, 155, 156, 157, 158, 159, 160, 161, 162, 163, 164, 165, 166, 167, 168, 169, 170, 171, 172, 173, 174, 175, 176, 177, 178, 179, 180, 181, 182, 183, 184, 185, 186, 187, 188, 189, 190, 191, 192, 193, 194, 195, 196, 197, 198, 199, 200, 201, 202, 203, 204, 205, 206, 207, 208, 209, 210, 211, 212, 213, 214, 215, 216, 217, 218, 219, 220, 221, 222, 223, 224, 225, 226, 227, 228, 229, 230, 231, 232, 233, 234, 235, 236, 237, 238, 239, 240, 241, 242, 243, 244, 245, 246, 247, 248, 249, 250, 251, 252, 253, 254, 255, 256, 257, 258, 259, 260, 261, 262, 263, 264, 265, 266, 267, 268, 269, 270, 271, 272, 273, 274, 275, 276, 277, 278, 279, 280, 281, 282, 283, 284, 285, 286, 287, 288, 289, 290, 291, 292, 293, 294, 295, 296, 297, 298, 299, 300, 301, 302, 303, 304, 305, 306, 307, 308, 309, 310, 311, 312, 313, 314, 315, 316, 317, 318, 319, 320, 321, 322, 323, 324, 325, 326, 327, 328, 329, 330, 331, 332, 333, 334, 335, 336, 337, 338, 339, 340, 341, 342, 343, 344, 345, 346, 347, 348, 349, 350, 351, 352, 353, 354, 355, 356, 357, 358, 359, 360, 361, 362, 363, 364, 365, 366, 367, 368, 369, 370, 371, 372, 373, 374, 375, 376, 377, 378, 379, 380, 381, 382, 383, 384, 385, 386, 387, 388, 389, 390, 391, 392, 393, 394, 395, 396, 397, 398, 399, 400, 401, 402, 403, 404, 405, 406, 407, 408, 409, 410, 411, 412, 413, 414, 415, 416, 417, 418, 419, 420, 421, 422, 423, 424, 425, 426, 427, 428, 429, 430, 431, 432, 433, 434, 435, 436, 437, 438, 439, 440, 441, 442, 443, 444, 445, 446, 447, 448, 449, 450, 451, 452, 453, 454, 455, 456, 457, 458, 459, 460, 461, 462, 463, 464, 465, 466, 467, 468, 469, 470, 471, 472, 473, 474, 475, 476, 477, 478, 479, 480, 481, 482, 483, 484, 485, 486, 487, 488, 489, 490, 491, 492, 493, 494, 495, 496, 497, 498, 499, 500, 501, 502, 503, 504, 505, 506, 507, 508, 509, 510, 511, 512, 513, 514, 515, 516, 517, 518, 519, 520, 521, 522, 523, 524, 525, 526, 527, 528, 529, 530, 531, 532, 533, 534, 535, 536, 537, 538, 539, 540, 541, 542, 543, 544, 545, 546, 547, 548, 549, 550, 551, 552, 553, 554, 555, 556, 557, 558, 559, 560, 561, 562, 563, 564, 565, 566, 567, 568, 569, 570, 571, 572, 573, 574, 575, 576, 577, 578, 579, 580, 581, 582, 583, 584, 585, 586, 587, 588, 589, 590, 591, 592, 593, 594, 595, 596, 597, 598, 599, 600, 601, 602, 603, 604, 605, 606, 607, 608, 609, 610, 611, 612, 613, 614, 615, 616, 617, 618, 619, 620, 621, 622, 623, 624, 625, 626, 627, 628, 629, 630, 631, 632, 633, 634, 635, 636, 637, 638, 639, 640, 641, 642, 643, 644, 645, 646, 647, 648, 649, 650, 651, 652, 653, 654, 655, 656, 657, 658, 659, 660, 661, 662, 663, 664, 665, 666, 667, 668, 669, 670, 671, 672, 673, 674, 675, 676, 677, 678, 679, 680, 681, 682, 683, 684, 685, 686, 687, 688, 689, 690, 691, 692, 693, 694, 695, 696, 697, 698, 699, 700, 701, 702, 703, 704, 705, 706, 707, 708, 709, 710, 711, 712, 713, 714, 715, 716, 717, 718, 719, 720, 721, 722, 723, 724, 725, 726, 727, 728, 729, 730, 731, 732, 733, 734, 735, 736, 737, 738, 739, 740, 741, 742, 743, 744, 745, 746, 747, 748, 749, 750, 751, 752, 753, 754, 755, 756, 757, 758, 759, 760, 761, 762, 763, 764, 765, 766, 767, 768, 769, 770, 771, 772, 773, 774, 775, 776, 777, 778, 779, 780, 781, 782, 783, 784, 785, 786, 787, 788, 789, 790, 791, 792, 793, 794, 795, 796, 797, 798, 799, 800, 801, 802, 803, 804, 805, 806, 807, 808, 809, 810, 811, 812, 813, 814, 815, 816, 817, 818, 819, 820, 821, 822, 823, 824, 825, 826, 827, 828, 829, 830, 831, 832, 833, 834, 835, 836, 837, 838, 839, 840, 841, 842, 843, 844, 845, 846, 847, 848, 849, 850, 851, 852, 853, 854, 855, 856, 857, 858, 859, 860, 861, 862, 863, 864, 865, 866, 867, 868, 869, 870, 871, 872, 873, 874, 875, 876, 877, 878, 879, 880, 881, 882, 883, 884, 885, 886, 887, 888, 889, 890, 891, 892, 893, 894, 895, 896, 897, 898, 899, 900, 901, 902, 903, 904, 905, 906, 907, 908, 909, 910, 911, 912, 913, 914, 915, 916, 917, 918, 919, 920, 921, 922, 923, 924, 925, 926, 927, 928, 929, 930, 931, 932, 933, 934, 935, 936, 937, 938, 939, 940, 941, 942, 943, 944, 945, 946, 947, 948, 949, 950, 951, 952, 953, 954, 955, 956, 957, 958, 959, 960, 961, 962, 963, 964, 965, 966, 967, 968, 969, 970, 971, 972, 973, 974, 975, 976, 977, 978, 979, 980, 981, 982, 983, 984, 985, 986, 987, 988, 989, 990, 991, 992, 993, 994, 995, 996, 997, 998, 999, 1000, 1001, 1002, 1003, 1004, 1005, 1006, 1007, 1008, 1009, 1010, 1011, 1012, 1013, 1014, 1015, 1016, 1017, 1018, 1019, 1020, 1021, 1022, 1023, 1024, 1025, 1026, 1027, 1028, 1029, 1030, 1031, 1032, 1033, 1034, 1035, 1036, 1037, 1038, 1039, 1040, 1041, 1042, 1043, 1044, 1045, 1046, 1047, 1048, 1049, 1050, 1051, 1052, 1053, 1054, 1055, 1056, 1057, 1058, 1059, 1060, 1061, 1062, 1063, 1064, 1065, 1066, 1067, 1068, 1069, 1070, 1071, 1072, 1073, 1074, 1075, 1076, 1077, 1078, 1079, 1080, 1081, 1082, 1083, 1084, 1085, 1086, 1087, 1088, 1089, 1090, 1091, 1092, 1093, 1094, 1095, 1096, 1097, 1098, 1099, 1100, 1101, 1102, 1103, 1104, 1105, 1106, 1107, 1108, 1109, 1110, 1111, 1112, 1113, 1114, 1115, 1116, 1117, 1118, 1119, 1120, 1121, 1122, 1123, 1124, 1125, 1126, 1127, 1128, 1129, 1130, 1131, 1132, 1133, 1134, 1135, 1136, 1137, 1138, 1139, 1140, 1141, 1142, 1143, 1144, 1145, 1146, 1147, 1148, 1149, 1150, 1151, 1152, 1153, 1154, 1155, 1156, 1157, 1158, 1159, 1160, 1161, 1162, 1163, 1164, 1165, 1166, 1167, 1168, 1169, 1170, 1171, 1172, 1173, 1174, 1175, 1176, 1177, 1178, 1179, 1180, 1181, 1182, 1183, 1184, 1185, 1186, 1187, 1188, 1189, 1190, 1191, 1192, 1193, 1194, 1195, 1196, 1197, 1198, 1199, 1200, 1201, 1202, 1203, 1204, 1205, 1206, 1207, 1208, 1209, 1210, 1211, 1212, 1213, 1214, 1215, 1216, 1217, 1218, 1219, 1220, 1221, 1222, 1223, 1224, 1225, 1226, 1227, 1228, 1229, 1230, 1231, 1232, 1233, 1234, 1235, 1236, 1237, 1238, 1239, 1240, 1241, 1242, 1243, 1244, 1245, 1246, 1247, 1248, 1249, 1250, 1251, 1252, 1253, 1254, 1255, 1256, 1257, 1258, 1259, 1260, 1261, 1262, 1263, 1264, 1265, 1266, 1267, 1268, 1269, 1270, 1271, 1272, 1273] 
+      ],
+     "name":"bgm.filter.default"
+    }
+  },
+ "fits":{
+   "models.codon.MG_REV.ModelDescription":{
+     "AIC-c":15988.56551415451,
+     "Log Likelihood":-7559.579311576676,
+     "Rate Distributions":null,
+     "display order":0,
+     "estimated parameters":434
+    }
+  },
+ "input":{
+   "datatype":"codon",
+   "file name":"/Users/sergei/Dropbox/COVID-19/data/fasta/20200329/sequences.S.compressed.fas",
+   "number of sequences":211,
+   "number of sites":1274,
+   "trees":{
+     "0":"((((((epi_isl_417348_Washington_20200313_Illumina_1:0.000262,((epi_isl_416341_Shanghai_20200201_Illumina_2:0.000261,epi_isl_406594_Guandong_20200116_null_12:1e-06)Node8:1e-06,epi_isl_408670_Wisconsin_20200131_Sanger_1:0.00157)Node7:0.000261)Node5:1e-06,(((((epi_isl_417291_England_20200308_Illumina_1:1e-06,((epi_isl_417653_Reykjavik_20200318_Illumina_1:0.000261,(epi_isl_413602_Helsinki_20200303_Illumina_2:1e-06,epi_isl_415646_Italy_20200303_MiSeq_4:0.000261)Node21:0.000261)Node19:1e-06,(((epi_isl_414538_Noord_Brabant_20200308_Nanopore_4:0.000261,epi_isl_416670_Washington_20200312_Illumina_2:0.000261)Node26:1e-06,(epi_isl_414571_Hong_Kong_20200222_Illumina_4:0.000261,((epi_isl_414496_Comunitat_Valenciana_20200304_Nanopore_1:0.000262,(epi_isl_417977_Utah_20200324_Illumina_1:0.000521,epi_isl_418076_Washington_20200315_Illumina_1:0.000261)Node34:1e-06)Node32:1e-06,epi_isl_415655_Wales_20200312_Nanopore_1:0.000261)Node31:1e-06)Node29:1e-06)Node25:1e-06,(((epi_isl_415579_British_Columbia_20200302_Nanopore_2:0.000261,epi_isl_417674_Reykjavik_20200309_Illumina_1:0.00013)Node40:0.000131,epi_isl_416699_Washington_20200313_Illumina_1:0.000261)Node39:1e-06,(((((epi_isl_417708_Reykjavik_20200311_Illumina_4:0.000439,epi_isl_417673_Reykjavik_20200304_Illumina_1:1e-06)Node48:0.000871,(epi_isl_415148_England_20200303_Illumina_1:0.000261,epi_isl_415145_England_20200301_Illumina_1:1e-06)Node51:0.000261)Node47:1e-06,((epi_isl_413589_Utrecht_20200301_Nanopore_1:0.000261,epi_isl_416994_Castilla_y_Le_n_20200304_Illumina_2:0.000261)Node55:1e-06,(epi_isl_415152_Panama_City_20200306_Illumina_56:0.000261,(epi_isl_415578_British_Columbia_20200227_Nanopore_1:0.000261,epi_isl_414639_New_York_20200304_ribo_depleted__1:0.000261)Node60:1e-06)Node58:1e-06)Node54:1e-06)Node46:1e-06,((epi_isl_417713_Reykjavik_20200312_Illumina_1:1e-06,epi_isl_417843_Reykjavik_20200303_Illumina_2:1e-06)Node64:0.000261,epi_isl_416141_Copenhagen_20200303_Illumina_1:0.000261)Node63:1e-06)Node45:1e-06,(((epi_isl_416036_Sao_Paulo_20200305_Ion_1:0.000261,epi_isl_416753_ARA_20200306_Illumina_5:0.000261)Node70:1e-06,(((((epi_isl_415709_Hangzhou_20200125_Noveseq_1:0.000261,((epi_isl_417952_Madrid_20200309_Ion_4:0.000261,((epi_isl_417238_England_20200303_Illumina_1:0.0005240000000000001,epi_isl_417531_Luxembourg_20200318_Illumina_8:0.000131)Node83:0.00013,epi_isl_417982_Rio_de_Janeiro_20200319_MinION_1:0.000261)Node82:1e-06)Node80:1e-06,epi_isl_417828_Reykjavik_20200302_Illumina_1:0.000261)Node79:1e-06)Node77:1e-06,epi_isl_418081_Washington_20200315_Illumina_1:0.000261)Node76:1e-06,(epi_isl_414569_Hong_Kong_20200212_Illumina_2:1e-06,epi_isl_414688_Guangdong_20200225_DNBSEQ_T7_1:0.000261)Node89:0.000261)Node75:1e-06,(epi_isl_417600_Reykjavik_20200317_Illumina_1:0.000261,(epi_isl_417006_Li_ge_20200305_Nanopore_1:9.1e-05,epi_isl_418050_Washington_20200316_Illumina_1:0.000191)Node94:0.00024)Node92:1e-06)Node74:1e-06,epi_isl_407079_Lapland_20200129_Illumina_298:1e-06)Node73:1e-06)Node69:1e-06,(((((epi_isl_417726_Reykjavik_20200309_Illumina_1:0.000261,epi_isl_415918_Wales_20200311_null_1:0.001045)Node102:1e-06,epi_isl_417661_Reykjavik_20200314_Illumina_1:0.000261)Node101:1e-06,((epi_isl_417729_Reykjavik_20200310_Illumina_1:0.000261,epi_isl_417584_Reykjavik_20200317_Illumina_1:1e-06)Node107:0.000261,epi_isl_418028_Washington_20200313_Illumina_1:0.000261)Node106:1e-06)Node100:1e-06,((((epi_isl_415435_Wales_20200306_null_1:1e-06,epi_isl_414594_Washington_20200305_Illumina_1:0.001842)Node114:0.000261,(epi_isl_417660_Reykjavik_20200314_Illumina_2:0.000261,epi_isl_418214_Touba_20200312_Illumina_1:0.000261)Node117:1e-06)Node113:1e-06,(epi_isl_417657_Reykjavik_20200313_Illumina_2:0.000261,epi_isl_414622_Washington_20200308_Illumina_1:0.000784)Node120:1e-06)Node112:1e-06,((((((epi_isl_414542_Noord_Brabant_2020_03_Nanopore_6:1e-06,epi_isl_417719_Reykjavik_20200313_Illumina_1:0.000261)Node128:0.000261,epi_isl_414640_Finland_20200301_Illumina_1:0.000261)Node127:1e-06,(epi_isl_417983_Rio_de_Janeiro_20200319_MinION_1:0.000261,(epi_isl_415461_Gelderland_20200310_Nanopore_5:1e-06,(epi_isl_415453_Wales_20200310_null_1:1e-06,epi_isl_415468_Netherlands_20200310_Nanopore_4:0.001043)Node136:0.000261)Node134:0.000261)Node132:1e-06)Node126:1e-06,epi_isl_414641_Finland_20200305_Illumina_1:0.000261)Node125:1e-06,(((epi_isl_417193_Hong_Kong_20200209_Nanopore_3:0.000261,(epi_isl_417254_England_20200304_Illumina_1:1e-06,epi_isl_417200_Wisconsin_20200321_Nanopore_1:0.000261)Node144:0.000522)Node142:1e-06,(epi_isl_416426_Budapest_20200317_Nanopore_1:0.0005240000000000001,(epi_isl_415658_Santiago_20200306_Illumina_2:0.000261,(epi_isl_417953_Rio_de_Janeiro_20200318_MinION_20:0.000261,(epi_isl_417314_England_20200310_Illumina_1:1e-06,epi_isl_417242_England_20200303_Illumina_1:1e-06)Node153:0.001832)Node151:1e-06)Node149:1e-06)Node147:1e-06)Node141:1e-06,(epi_isl_415710_Saint_Petersburg_20200315_Nanopore_8:0.000261,(epi_isl_417031_Queensland_20200311_null_1:0.000261,epi_isl_414459_Noord_Brabant_20200306_Nanopore_1:0.000261)Node158:1e-06)Node156:1e-06)Node140:1e-06)Node124:1e-06,(((epi_isl_417546_Reykjavik_20200317_Illumina_1:0.000261,epi_isl_413458_Washington_20200301_Illumina_2:0.000261)Node163:1e-06,epi_isl_413649_Washington_20200305_Illumina_1:0.000261)Node162:1e-06,(epi_isl_416997_Li_ge_20200305_Nanopore_1:0.000261,epi_isl_417762_Reykjavik_20200316_Illumina_1:0.000261)Node167:1e-06)Node161:1e-06)Node123:1e-06)Node111:1e-06)Node99:1e-06,(epi_isl_417013_Li_ge_20200309_Nanopore_1:0.000263,epi_isl_417994_Portugal_20200308_Illumina_5:0.000262)Node170:0.0005240000000000001)Node98:1e-06)Node68:1e-06)Node44:1e-06)Node38:1e-06)Node24:1e-06)Node18:1e-06)Node16:1e-06,(epi_isl_416678_Washington_20200311_Illumina_6:0.000525,epi_isl_417984_Rio_de_Janeiro_20200319_MinION_1:0.00013)Node173:0.000131)Node15:0.000261,epi_isl_416412_Victoria_20200302_Ilumina_1:0.000261)Node14:1e-06,(epi_isl_417168_Washington_20200229_Illumina_2:0.000261,epi_isl_415534_Zuid_Holland_20200311_Nanopore_2:0.000261)Node177:1e-06)Node13:1e-06,(((epi_isl_417434_Kinshasa_20200314_Nanopore_1:0.000262,epi_isl_416330_Shanghai_20200202_Illumina_1:0.000261)Node182:1e-06,epi_isl_413485_Anhui_20200124_null_5:0.000261)Node181:1e-06,((((epi_isl_418229_Ile_de_France_20200312_Illumina_1:0.000261,(((((epi_isl_414577_Talca_20200302_Illumina_1:0.000261,epi_isl_413852_Guangdong_20200130_metagenomics_BGI_1:0.000264)Node195:1e-06,(epi_isl_411929_South_Korea_2020_01_Illumina_1:0.000261,epi_isl_414539_Noord_Brabant_20200308_Nanopore_1:0.000261)Node198:1e-06)Node194:1e-06,(((epi_isl_417400_New_South_Wales_20200310_Illumina_3:0.000261,(epi_isl_417288_England_20200305_Illumina_1:0.000522,epi_isl_413513_South_Korea_20200227_Illumina_8:0.000261)Node205:1e-06)Node203:1e-06,(epi_isl_407193_Gyeonggi_do_20200125_null_3:0.000261,((epi_isl_416411_Victoria_20200125_Ilumina_1:0.000261,epi_isl_406716_Hubei_20200102_Illumina_17:0.000522)Node211:1e-06,epi_isl_414597_Washington_20200304_Illumina_3:0.000261)Node210:1e-06)Node208:1e-06)Node202:1e-06,(epi_isl_413603_Helsinki_20200303_Illumina_1:0.000261,(epi_isl_416364_Shanghai_20200208_Illumina_1:0.000261,epi_isl_413562_Washington_20200302_Illumina_1:0.000261)Node217:1e-06)Node215:1e-06)Node201:1e-06)Node193:1e-06,(epi_isl_413605_Helsinki_20200301_Illumina_1:0.000261,epi_isl_413561_California_20200227_Illumina_1:0.000261)Node220:1e-06)Node192:1e-06,(epi_isl_418128_Wales_20200315_Illumina_1:0.000261,epi_isl_416694_Washington_20200313_Illumina_9:0.000261)Node223:1e-06)Node191:1e-06)Node189:1e-06,((epi_isl_416396_Shanghai_20200210_Illumina_1:0.000522,epi_isl_408669_Kyoto_20200129_NextSeq500_1:0.000785)Node227:1e-06,epi_isl_414498_North_Rhine_Westphalia_20200226_Nanopore_2:0.000261)Node226:1e-06)Node188:1e-06,((epi_isl_413851_Guangdong_20200130_metagenomics_BGI_1:0.000547,epi_isl_413692_China_2020_01_MGI_2:0.00013)Node232:0.000131,(epi_isl_414424_Limburg_20200303_Nanopore_25:0.000261,epi_isl_415577_British_Columbia_20200220_Nanopore_1:0.000261)Node235:1e-06)Node231:1e-06)Node187:1e-06,((((((epi_isl_417071_Washington_20200303_Illumina_5:1e-06,(epi_isl_418068_Washington_20200314_Illumina_1:0.000261,epi_isl_417776_Reykjavik_20200303_Illumina_1:0.000262)Node245:1e-06)Node243:0.000261,(epi_isl_416703_Washington_20200313_Illumina_1:0.000261,(epi_isl_416374_Shanghai_20200207_Illumina_1:0.000261,epi_isl_413015_Ontario_20200123_Nanopore_1:0.000261)Node250:1e-06)Node248:1e-06)Node242:1e-06,epi_isl_417216_England_20200225_Illumina_4:0.000261)Node241:1e-06,(((epi_isl_415616_Washington_20200308_Illumina_1:0.000261,epi_isl_414431_Noord_Brabant_20200302_Nanopore_1:0.000261)Node256:1e-06,((epi_isl_408977_New_South_Wales_20200125_Illumina_9:0.001307,(epi_isl_407893_New_South_Wales_20200124_Illumina_20:1e-06,epi_isl_407313_Zhejiang_20200119_Nanopore_26:1e-06)Node262:0.000261)Node260:1e-06,(epi_isl_417008_Li_ge_20200307_Nanopore_1:0.001831,(epi_isl_417300_England_20200305_Illumina_2:0.000256,epi_isl_417090_Washington_20200304_Illumina_1:0.000261)Node267:4e-06)Node265:1e-06)Node259:1e-06)Node255:1e-06,((((epi_isl_415596_Washington_20200309_Illumina_1:0.000261,(epi_isl_415531_Zuid_Holland_20200309_Nanopore_1:0.000261,epi_isl_417760_Reykjavik_20200306_Illumina_1:0.000261)Node275:1e-06)Node273:1e-06,(epi_isl_417489_Oslo_20200229_Illumina_1:0.000261,epi_isl_417174_Washington_20200301_Illumina_1:0.000261)Node278:1e-06)Node272:1e-06,(epi_isl_407073_England_20200129_Illumina_1:0.000261,(epi_isl_416343_Shanghai_20200204_Illumina_1:0.000261,epi_isl_415153_Huldenberg_20200303_Nanopore_1:0.000262)Node283:1e-06)Node281:1e-06)Node271:1e-06,((epi_isl_418029_Washington_20200316_Illumina_1:0.000261,(epi_isl_414450_Noord_Brabant_20200306_Nanopore_4:1e-06,epi_isl_413523_Kerala_20200131_Illumina_1:1e-06)Node289:0.000261)Node287:1e-06,((((epi_isl_416434_Washington_20200310_Illumina_2:0.000261,epi_isl_413019_Zurich_20200226_Illumina_1:0.000261)Node295:1e-06,(epi_isl_404228_Zhejiang_20200117_Sanger_2:0.000261,epi_isl_414020_Geneva_20200227_null_1:0.000261)Node298:1e-06)Node294:1e-06,((epi_isl_417285_England_20200306_Illumina_1:0.000261,epi_isl_418111_Wales_20200313_Illumina_1:0.000261)Node302:1e-06,(epi_isl_416413_Victoria_20200305_Ilumina_2:0.000261,epi_isl_416401_Shanghai_20200202_Illumina_1:0.000261)Node305:1e-06)Node301:1e-06)Node293:1e-06,(epi_isl_415640_Scotland_20200308_Nanopore_1:0.000261,(epi_isl_416615_unknown_20200217_Illumina_1:0.000261,epi_isl_417396_New_South_Wales_20200310_Illumina_1:0.000261)Node310:1e-06)Node308:1e-06)Node292:1e-06)Node286:1e-06)Node270:1e-06)Node254:1e-06)Node240:1e-06,(((((epi_isl_416407_Shanghai_20200215_Illumina_1:0.000261,epi_isl_408668_Thanh_Hoa_20200124_Illumina_2:0.000261)Node317:1e-06,((epi_isl_406799_Wuhan_20191231_DNBSEQ_1:0.000522,epi_isl_406030_Guangdong_20200110_Nanopore_16:1e-06)Node321:0.000261,(epi_isl_403932_Guandong_20200114_illumina_15:1e-06,epi_isl_412967_Guangzhou_20200129_Illumina_1:0.000261)Node324:0.000261)Node320:1e-06)Node316:1e-06,(epi_isl_417201_Wisconsin_20200321_Nanopore_1:0.000261,epi_isl_414530_Noord_Brabant_20200304_Nanopore_2:1e-06)Node327:0.000261)Node315:1e-06,(((((epi_isl_413752_China_2020_02_MGI_1:0.000522,epi_isl_417083_Washington_20200228_Illumina_1:0.000261)Node334:1e-06,(epi_isl_413695_China_2020_01_MGI_9:0.000261,(epi_isl_415634_Scotland_20200306_Nanopore_1:1e-06,epi_isl_417309_England_20200306_Illumina_1:1e-06)Node339:0.000261)Node337:1e-06)Node333:1e-06,((epi_isl_416339_Shanghai_20200203_Illumina_2:0.000261,epi_isl_414465_Zuid_Holland_20200304_Nanopore_1:0.000261)Node343:1e-06,(epi_isl_416623_unknown_20200217_Illumina_1:0.000261,epi_isl_416392_Shanghai_20200202_Illumina_1:0.000261)Node346:1e-06)Node342:1e-06)Node332:1e-06,(epi_isl_418088_Wales_20200312_Illumina_1:0.000261,(epi_isl_408485_Beijing_20200118_Illumina_1:0.000261,epi_isl_416378_Shanghai_20200130_Illumina_2:0.000261)Node351:1e-06)Node349:1e-06)Node331:1e-06,(((epi_isl_417955_Kinshasa_20200321_Illumina_1:0.000261,epi_isl_416325_Shanghai_20200202_Illumina_1:0.000261)Node356:1e-06,((((epi_isl_416410_Victoria_20200124_Ilumina_1:0.000261,epi_isl_418055_Washington_20200314_Illumina_1:0.000261)Node362:1e-06,epi_isl_416356_Shanghai_20200201_Illumina_1:0.000261)Node361:1e-06,((epi_isl_417370_Washington_20200314_Illumina_2:0.000261,epi_isl_417094_Washington_20200228_Illumina_2:1e-06)Node367:1e-06,epi_isl_416457_California_20200318_Nanopore_9:0.000261)Node366:0.000261)Node360:1e-06,epi_isl_415787_Lima_20200310_Illumina_1:0.000261)Node359:1e-06)Node355:1e-06,(epi_isl_411957_China_20200108_Illumina_3:0.000261,epi_isl_402130_Hubei_20191230_Illumina_782:1e-06)Node372:1e-06)Node354:1e-06)Node330:1e-06)Node314:1e-06,(epi_isl_413869_Guangdong_20200228_multiplex_pcr_nanopore_1:0.000261,((((epi_isl_417181_Hong_Kong_20200205_Nanopore_1:0.000523,epi_isl_417453_Washington_20200314_Illumina_1:0.000264)Node380:0.000261,epi_isl_406800_Hubei_20200101_DNBSEQ_11:1e-06)Node379:0.000261,epi_isl_418046_Washington_20200316_Illumina_1:0.000261)Node378:1e-06,((epi_isl_414547_Noord_Brabant_20200306_Nanopore_1:0.000261,(epi_isl_413455_Washington_20200228_Illumina_7:0.000261,epi_isl_417985_Rio_de_Janeiro_20200319_MinION_1:0.000261)Node388:1e-06)Node386:1e-06,(epi_isl_406031_Kaohsiung_20200123_null_5:0.000261,epi_isl_414533_Noord_Brabant_20200306_Nanopore_7:0.000261)Node391:1e-06)Node385:1e-06)Node377:1e-06)Node375:1e-06)Node313:1e-06)Node239:1e-06,(epi_isl_415154_Kraainem_20200301_Nanopore_2:0.000789,(epi_isl_417669_Reykjavik_20200315_Illumina_1:0.001057,epi_isl_417278_England_20200307_Illumina_1:0.000791)Node396:0.000778)Node394:1e-06)Node238:1e-06)Node186:1e-06)Node180:1e-06)Node12:1e-06)Node4:1e-06,((epi_isl_416355_Shanghai_20200204_Illumina_1:0.000261,(epi_isl_413017_South_Korea_20200206_Illumina_1:1e-06,epi_isl_416328_Shanghai_20200201_Illumina_1:0.000261)Node402:0.000261)Node400:1e-06,epi_isl_414495_Comunitat_Valenciana_20200308_Nanopore_1:0.000261)Node399:1e-06)Node3:1e-06,(((((epi_isl_417778_Reykjavik_20200310_Illumina_1:0.000522,epi_isl_418119_Wales_20200313_Illumina_1:1e-06)Node410:0.000261,epi_isl_414005_England_20200225_Illumina_4:1e-06)Node409:0.000261,epi_isl_416440_Washington_20200310_Illumina_18:0.000261)Node408:1e-06,epi_isl_413859_Guangdong_20200131_metagenomics_BGI_1:0.000261)Node407:1e-06,epi_isl_415919_Wales_20200311_null_4:0.000261)Node406:1e-06)Node2:1e-06,epi_isl_412029_Hong_Kong_20200130_Illumina_1:0.000261)Node1:1e-06,epi_isl_416372_Shanghai_20200201_Illumina_1:0.000261,epi_isl_416682_USA_20200309_Illumina_2:0.000261)"
+    }
+  },
+ "settings":{
+   "burn-in":10000,
+   "data-type":"codon",
+   "max-parents":1,
+   "min-subs":1,
+   "samples":100,
+   "steps":100000,
+   "threshold":0.5
+  },
+ "tested":0,
+ "timers":{
+   "Baseline fit":{
+     "order":1,
+     "timer":62
+    },
+   "Network inference":{
+     "order":2,
+     "timer":1
+    },
+   "Overall":{
+     "order":0,
+     "timer":66
+    }
+  }
+}

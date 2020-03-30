@@ -1,5 +1,5 @@
 {
- "L": 0.010358495008950034,
+ "L": 0.014111398328935723,
  "map": [
   0,
   1,
@@ -425,9 +425,9 @@
  "selection": {
   "379": {
    "composition": {
-    "Q": 198
+    "Q": 236
    },
-   "fel": 0.09177750896169778,
+   "fel": 0.09771834204348473,
    "kind": "negative",
    "labels": {
     "Node1": [
@@ -454,6 +454,12 @@
      0,
      0
     ],
+    "Node104": [
+     "Q",
+     "CAA",
+     0,
+     0
+    ],
     "Node107": [
      "Q",
      "CAA",
@@ -466,31 +472,31 @@
      0,
      0
     ],
-    "Node109": [
+    "Node11": [
      "Q",
      "CAA",
      0,
      0
     ],
-    "Node112": [
+    "Node111": [
      "Q",
      "CAA",
      0,
      0
     ],
-    "Node113": [
+    "Node114": [
      "Q",
      "CAA",
      0,
      0
     ],
-    "Node117": [
+    "Node115": [
      "Q",
      "CAA",
      0,
      0
     ],
-    "Node118": [
+    "Node116": [
      "Q",
      "CAA",
      0,
@@ -520,13 +526,7 @@
      0,
      0
     ],
-    "Node122": [
-     "Q",
-     "CAA",
-     0,
-     0
-    ],
-    "Node125": [
+    "Node124": [
      "Q",
      "CAA",
      0,
@@ -538,7 +538,31 @@
      0,
      0
     ],
-    "Node132": [
+    "Node129": [
+     "Q",
+     "CAA",
+     0,
+     0
+    ],
+    "Node13": [
+     "Q",
+     "CAA",
+     0,
+     0
+    ],
+    "Node130": [
+     "Q",
+     "CAA",
+     0,
+     0
+    ],
+    "Node131": [
+     "Q",
+     "CAA",
+     0,
+     0
+    ],
+    "Node134": [
      "Q",
      "CAA",
      0,
@@ -550,19 +574,7 @@
      0,
      0
     ],
-    "Node136": [
-     "Q",
-     "CAA",
-     0,
-     0
-    ],
-    "Node137": [
-     "Q",
-     "CAA",
-     0,
-     0
-    ],
-    "Node14": [
+    "Node138": [
      "Q",
      "CAA",
      0,
@@ -574,25 +586,19 @@
      0,
      0
     ],
+    "Node141": [
+     "Q",
+     "CAA",
+     0,
+     0
+    ],
+    "Node142": [
+     "Q",
+     "CAA",
+     0,
+     0
+    ],
     "Node143": [
-     "Q",
-     "CAA",
-     0,
-     0
-    ],
-    "Node144": [
-     "Q",
-     "CAA",
-     0,
-     0
-    ],
-    "Node145": [
-     "Q",
-     "CAA",
-     0,
-     0
-    ],
-    "Node146": [
      "Q",
      "CAA",
      0,
@@ -604,13 +610,7 @@
      0,
      0
     ],
-    "Node15": [
-     "Q",
-     "CAA",
-     0,
-     0
-    ],
-    "Node152": [
+    "Node150": [
      "Q",
      "CAA",
      0,
@@ -628,7 +628,19 @@
      0,
      0
     ],
-    "Node156": [
+    "Node155": [
+     "Q",
+     "CAA",
+     0,
+     0
+    ],
+    "Node157": [
+     "Q",
+     "CAA",
+     0,
+     0
+    ],
+    "Node158": [
      "Q",
      "CAA",
      0,
@@ -640,25 +652,43 @@
      0,
      0
     ],
+    "Node16": [
+     "Q",
+     "CAA",
+     0,
+     0
+    ],
     "Node160": [
      "Q",
      "CAA",
      0,
      0
     ],
-    "Node163": [
+    "Node161": [
      "Q",
      "CAA",
      0,
      0
     ],
-    "Node166": [
+    "Node164": [
      "Q",
      "CAA",
      0,
      0
     ],
-    "Node167": [
+    "Node165": [
+     "Q",
+     "CAA",
+     0,
+     0
+    ],
+    "Node168": [
+     "Q",
+     "CAA",
+     0,
+     0
+    ],
+    "Node169": [
      "Q",
      "CAA",
      0,
@@ -670,7 +700,13 @@
      0,
      0
     ],
-    "Node173": [
+    "Node172": [
+     "Q",
+     "CAA",
+     0,
+     0
+    ],
+    "Node175": [
      "Q",
      "CAA",
      0,
@@ -682,43 +718,25 @@
      0,
      0
     ],
-    "Node177": [
+    "Node179": [
      "Q",
      "CAA",
      0,
      0
     ],
-    "Node18": [
+    "Node183": [
      "Q",
      "CAA",
      0,
      0
     ],
-    "Node180": [
+    "Node188": [
      "Q",
      "CAA",
      0,
      0
     ],
-    "Node181": [
-     "Q",
-     "CAA",
-     0,
-     0
-    ],
-    "Node184": [
-     "Q",
-     "CAA",
-     0,
-     0
-    ],
-    "Node187": [
-     "Q",
-     "CAA",
-     0,
-     0
-    ],
-    "Node190": [
+    "Node19": [
      "Q",
      "CAA",
      0,
@@ -730,13 +748,37 @@
      0,
      0
     ],
+    "Node194": [
+     "Q",
+     "CAA",
+     0,
+     0
+    ],
     "Node195": [
      "Q",
      "CAA",
      0,
      0
     ],
-    "Node195_1": [
+    "Node196": [
+     "Q",
+     "CAA",
+     0,
+     0
+    ],
+    "Node197": [
+     "Q",
+     "CAA",
+     0,
+     0
+    ],
+    "Node198": [
+     "Q",
+     "CAA",
+     0,
+     0
+    ],
+    "Node2": [
      "Q",
      "CAA",
      0,
@@ -748,7 +790,85 @@
      0,
      0
     ],
-    "Node22": [
+    "Node202": [
+     "Q",
+     "CAA",
+     0,
+     0
+    ],
+    "Node207": [
+     "Q",
+     "CAA",
+     0,
+     0
+    ],
+    "Node209": [
+     "Q",
+     "CAA",
+     0,
+     0
+    ],
+    "Node21": [
+     "Q",
+     "CAA",
+     0,
+     0
+    ],
+    "Node213": [
+     "Q",
+     "CAA",
+     0,
+     0
+    ],
+    "Node214": [
+     "Q",
+     "CAA",
+     0,
+     0
+    ],
+    "Node216": [
+     "Q",
+     "CAA",
+     0,
+     0
+    ],
+    "Node219": [
+     "Q",
+     "CAA",
+     0,
+     0
+    ],
+    "Node223": [
+     "Q",
+     "CAA",
+     0,
+     0
+    ],
+    "Node227": [
+     "Q",
+     "CAA",
+     0,
+     0
+    ],
+    "Node227_1": [
+     "Q",
+     "CAA",
+     0,
+     0
+    ],
+    "Node228": [
+     "Q",
+     "CAA",
+     0,
+     0
+    ],
+    "Node229": [
+     "Q",
+     "CAA",
+     0,
+     0
+    ],
+    "Node233": [
      "Q",
      "CAA",
      0,
@@ -766,7 +886,7 @@
      0,
      0
     ],
-    "Node28": [
+    "Node26": [
      "Q",
      "CAA",
      0,
@@ -784,25 +904,25 @@
      0,
      0
     ],
+    "Node33": [
+     "Q",
+     "CAA",
+     0,
+     0
+    ],
     "Node34": [
      "Q",
      "CAA",
      0,
      0
     ],
-    "Node35": [
+    "Node37": [
      "Q",
      "CAA",
      0,
      0
     ],
-    "Node38": [
-     "Q",
-     "CAA",
-     0,
-     0
-    ],
-    "Node4": [
+    "Node40": [
      "Q",
      "CAA",
      0,
@@ -826,7 +946,13 @@
      0,
      0
     ],
-    "Node47": [
+    "Node46": [
+     "Q",
+     "CAA",
+     0,
+     0
+    ],
+    "Node49": [
      "Q",
      "CAA",
      0,
@@ -838,7 +964,7 @@
      0,
      0
     ],
-    "Node50": [
+    "Node52": [
      "Q",
      "CAA",
      0,
@@ -850,19 +976,19 @@
      0,
      0
     ],
-    "Node56": [
+    "Node54": [
      "Q",
      "CAA",
      0,
      0
     ],
-    "Node57": [
+    "Node55": [
      "Q",
      "CAA",
      0,
      0
     ],
-    "Node6": [
+    "Node58": [
      "Q",
      "CAA",
      0,
@@ -880,7 +1006,13 @@
      0,
      0
     ],
-    "Node64": [
+    "Node65": [
+     "Q",
+     "CAA",
+     0,
+     0
+    ],
+    "Node66": [
      "Q",
      "CAA",
      0,
@@ -892,55 +1024,31 @@
      0,
      0
     ],
-    "Node7": [
+    "Node68": [
      "Q",
      "CAA",
      0,
      0
     ],
-    "Node70": [
+    "Node69": [
      "Q",
      "CAA",
      0,
      0
     ],
-    "Node71": [
+    "Node73": [
      "Q",
      "CAA",
      0,
      0
     ],
-    "Node72": [
-     "Q",
-     "CAA",
-     0,
-     0
-    ],
-    "Node75": [
-     "Q",
-     "CAA",
-     0,
-     0
-    ],
-    "Node76": [
+    "Node74": [
      "Q",
      "CAA",
      0,
      0
     ],
     "Node77": [
-     "Q",
-     "CAA",
-     0,
-     0
-    ],
-    "Node78": [
-     "Q",
-     "CAA",
-     0,
-     0
-    ],
-    "Node79": [
      "Q",
      "CAA",
      0,
@@ -958,19 +1066,19 @@
      0,
      0
     ],
+    "Node81": [
+     "Q",
+     "CAA",
+     0,
+     0
+    ],
+    "Node84": [
+     "Q",
+     "CAA",
+     0,
+     0
+    ],
     "Node86": [
-     "Q",
-     "CAA",
-     0,
-     0
-    ],
-    "Node87": [
-     "Q",
-     "CAA",
-     0,
-     0
-    ],
-    "Node88": [
      "Q",
      "CAA",
      0,
@@ -994,31 +1102,37 @@
      0,
      0
     ],
+    "Node91": [
+     "Q",
+     "CAA",
+     0,
+     0
+    ],
+    "Node92": [
+     "Q",
+     "CAA",
+     0,
+     0
+    ],
     "Node93": [
      "Q",
      "CAA",
      0,
      0
     ],
-    "Node94": [
+    "Node96": [
      "Q",
      "CAA",
      0,
      0
     ],
-    "Node97": [
+    "Node99": [
      "Q",
      "CAA",
      0,
      0
     ],
-    "Node98": [
-     "Q",
-     "CAA",
-     0,
-     0
-    ],
-    "epi_isl_402128_Hubei_20191230_MGISEQ_1054": [
+    "epi_isl_402128_Hubei_20191230_MGISEQ_1309": [
      "Q",
      "CAA",
      0,
@@ -1048,7 +1162,7 @@
      0,
      0
     ],
-    "epi_isl_406798_Hubei_20191226_DNBSEQ_7": [
+    "epi_isl_406798_Hubei_20191226_DNBSEQ_9": [
      "Q",
      "CAA",
      0,
@@ -1060,7 +1174,7 @@
      0,
      0
     ],
-    "epi_isl_408008_California_20200129_Sanger_34": [
+    "epi_isl_408008_California_20200129_Sanger_36": [
      "Q",
      "CAA",
      0,
@@ -1096,7 +1210,7 @@
      0,
      0
     ],
-    "epi_isl_412968_Japan_20200210_null_125": [
+    "epi_isl_412968_Japan_20200210_null_155": [
      "Q",
      "CAA",
      0,
@@ -1210,7 +1324,7 @@
      0,
      0
     ],
-    "epi_isl_413885_Guangdong_20200201_multiplex_pcr_nanopore_4": [
+    "epi_isl_413925_California_20200305_Illumina_1": [
      "Q",
      "CAA",
      0,
@@ -1234,7 +1348,7 @@
      0,
      0
     ],
-    "epi_isl_414470_Zuid_Holland_20200306_Nanopore_1": [
+    "epi_isl_414470_Zuid_Holland_20200306_Nanopore_7": [
      "Q",
      "CAA",
      0,
@@ -1276,7 +1390,7 @@
      0,
      0
     ],
-    "epi_isl_414578_Talca_20200304_Illumina_1": [
+    "epi_isl_414578_Talca_20200304_Illumina_3": [
      "Q",
      "CAA",
      0,
@@ -1348,7 +1462,7 @@
      0,
      0
     ],
-    "epi_isl_415584_British_Columbia_20200302_Nanopore_3": [
+    "epi_isl_415584_British_Columbia_20200302_Nanopore_5": [
      "Q",
      "CAA",
      0,
@@ -1384,7 +1498,7 @@
      0,
      0
     ],
-    "epi_isl_415742_Taoyuan_20200227_Illumina_1": [
+    "epi_isl_415742_Taoyuan_20200227_Illumina_2": [
      "Q",
      "CAA",
      0,
@@ -1396,7 +1510,7 @@
      0,
      1
     ],
-    "epi_isl_415978_Wales_20200308_null_3": [
+    "epi_isl_415978_Wales_20200308_null_5": [
      "Q",
      "CAA",
      0,
@@ -1612,7 +1726,121 @@
      0,
      0
     ],
-    "epi_isl_417481_Reykjavik_20200313_Illumina_1": [
+    "epi_isl_417481_Reykjavik_20200313_Illumina_2": [
+     "Q",
+     "CAA",
+     0,
+     0
+    ],
+    "epi_isl_417520_Taoyuan_20200309_Illumina_2": [
+     "Q",
+     "CAA",
+     0,
+     0
+    ],
+    "epi_isl_417550_Reykjavik_20200316_Illumina_7": [
+     "Q",
+     "CAA",
+     0,
+     0
+    ],
+    "epi_isl_417571_Reykjavik_20200317_Illumina_1": [
+     "Q",
+     "CAA",
+     0,
+     0
+    ],
+    "epi_isl_417572_Reykjavik_20200317_Illumina_4": [
+     "Q",
+     "CAA",
+     0,
+     0
+    ],
+    "epi_isl_417606_Reykjavik_20200317_Illumina_1": [
+     "Q",
+     "CAA",
+     0,
+     0
+    ],
+    "epi_isl_417608_Reykjavik_20200317_Illumina_1": [
+     "Q",
+     "CAA",
+     0,
+     0
+    ],
+    "epi_isl_417610_Reykjavik_20200317_Illumina_1": [
+     "Q",
+     "CAA",
+     0,
+     0
+    ],
+    "epi_isl_417614_Reykjavik_20200318_Illumina_1": [
+     "Q",
+     "CAA",
+     0,
+     0
+    ],
+    "epi_isl_417624_Reykjavik_20200318_Illumina_1": [
+     "Q",
+     "CAA",
+     0,
+     0
+    ],
+    "epi_isl_417631_Reykjavik_20200318_Illumina_1": [
+     "Q",
+     "CAA",
+     0,
+     0
+    ],
+    "epi_isl_417638_Reykjavik_20200318_Illumina_1": [
+     "Q",
+     "CAA",
+     0,
+     0
+    ],
+    "epi_isl_417648_Reykjavik_20200318_Illumina_1": [
+     "Q",
+     "CAA",
+     0,
+     0
+    ],
+    "epi_isl_417730_Reykjavik_20200310_Illumina_1": [
+     "Q",
+     "CAA",
+     0,
+     0
+    ],
+    "epi_isl_417740_Reykjavik_20200315_Illumina_2": [
+     "Q",
+     "CAA",
+     0,
+     0
+    ],
+    "epi_isl_417756_Reykjavik_20200306_Illumina_1": [
+     "Q",
+     "CAA",
+     0,
+     0
+    ],
+    "epi_isl_417767_Reykjavik_20200303_Illumina_1": [
+     "Q",
+     "CAA",
+     0,
+     0
+    ],
+    "epi_isl_417787_Reykjavik_20200312_Illumina_1": [
+     "Q",
+     "CAA",
+     0,
+     0
+    ],
+    "epi_isl_417841_Reykjavik_20200303_Illumina_2": [
+     "Q",
+     "CAA",
+     0,
+     0
+    ],
+    "epi_isl_417878_Bratislava_20200307_Illumina_1": [
      "Q",
      "CAA",
      0,
@@ -1621,7 +1849,7 @@
    },
    "meme": 0.6666666666666666,
    "meme-branches": 0,
-   "meme-fraction": 0.2507083180078092,
+   "meme-fraction": 0.2312286078389982,
    "prime": [],
    "substitutions": [
     0,
@@ -1686,24 +1914,1556 @@
      "20200227": 34,
      "20200228": 44,
      "20200229": 51,
-     "20200301": 54,
-     "20200302": 80,
-     "20200303": 88,
-     "20200304": 75,
-     "20200305": 84,
-     "20200306": 65,
-     "20200307": 34,
-     "20200308": 55,
-     "20200309": 66,
-     "20200310": 57,
-     "20200311": 64,
-     "20200312": 51,
-     "20200313": 70,
-     "20200314": 46,
-     "20200315": 24,
-     "20200316": 3,
-     "20200317": 10,
-     "20200318": 2,
+     "20200301": 56,
+     "20200302": 87,
+     "20200303": 95,
+     "20200304": 84,
+     "20200305": 89,
+     "20200306": 74,
+     "20200307": 39,
+     "20200308": 61,
+     "20200309": 77,
+     "20200310": 76,
+     "20200311": 75,
+     "20200312": 67,
+     "20200313": 99,
+     "20200314": 63,
+     "20200315": 40,
+     "20200316": 60,
+     "20200317": 72,
+     "20200318": 45,
+     "20200320": 4,
+     "20200321": 6,
+     "20200326": 13
+    }
+   }
+  },
+  "409": {
+   "composition": {
+    "-": 1,
+    "C": 1,
+    "Q": 2,
+    "S": 232
+   },
+   "fel": 0.3403716651002703,
+   "labels": {
+    "Node1": [
+     "S",
+     "TCC",
+     0,
+     0
+    ],
+    "Node10": [
+     "S",
+     "TCC",
+     0,
+     0
+    ],
+    "Node102": [
+     "S",
+     "TCC",
+     0,
+     0
+    ],
+    "Node103": [
+     "S",
+     "TCC",
+     0,
+     0
+    ],
+    "Node104": [
+     "S",
+     "TCC",
+     0,
+     0
+    ],
+    "Node107": [
+     "S",
+     "TCC",
+     0,
+     0
+    ],
+    "Node108": [
+     "S",
+     "TCC",
+     0,
+     0
+    ],
+    "Node11": [
+     "S",
+     "TCC",
+     0,
+     0
+    ],
+    "Node111": [
+     "S",
+     "TCC",
+     0,
+     0
+    ],
+    "Node114": [
+     "S",
+     "TCC",
+     0,
+     0
+    ],
+    "Node115": [
+     "S",
+     "TCC",
+     0,
+     0
+    ],
+    "Node116": [
+     "S",
+     "TCC",
+     0,
+     0
+    ],
+    "Node119": [
+     "S",
+     "TCC",
+     0,
+     0
+    ],
+    "Node12": [
+     "S",
+     "TCC",
+     0,
+     0
+    ],
+    "Node120": [
+     "S",
+     "TCC",
+     0,
+     0
+    ],
+    "Node121": [
+     "S",
+     "TCC",
+     0,
+     0
+    ],
+    "Node124": [
+     "S",
+     "TCC",
+     0,
+     0
+    ],
+    "Node126": [
+     "S",
+     "TCC",
+     0,
+     0
+    ],
+    "Node129": [
+     "S",
+     "TCC",
+     0,
+     0
+    ],
+    "Node13": [
+     "S",
+     "TCC",
+     0,
+     0
+    ],
+    "Node130": [
+     "S",
+     "TCC",
+     0,
+     0
+    ],
+    "Node131": [
+     "S",
+     "TCC",
+     0,
+     0
+    ],
+    "Node134": [
+     "S",
+     "TCC",
+     0,
+     0
+    ],
+    "Node135": [
+     "S",
+     "TCC",
+     0,
+     0
+    ],
+    "Node138": [
+     "S",
+     "TCC",
+     0,
+     0
+    ],
+    "Node140": [
+     "S",
+     "TCC",
+     0,
+     0
+    ],
+    "Node141": [
+     "S",
+     "TCC",
+     0,
+     0
+    ],
+    "Node142": [
+     "S",
+     "TCC",
+     0,
+     0
+    ],
+    "Node143": [
+     "S",
+     "TCC",
+     0,
+     0
+    ],
+    "Node149": [
+     "S",
+     "TCC",
+     0,
+     0
+    ],
+    "Node150": [
+     "S",
+     "TCC",
+     0,
+     0
+    ],
+    "Node153": [
+     "S",
+     "TCC",
+     0,
+     0
+    ],
+    "Node154": [
+     "S",
+     "TCC",
+     0,
+     0
+    ],
+    "Node155": [
+     "S",
+     "TCC",
+     0,
+     0
+    ],
+    "Node157": [
+     "S",
+     "TCC",
+     0,
+     0
+    ],
+    "Node158": [
+     "S",
+     "TCC",
+     0,
+     0
+    ],
+    "Node159": [
+     "S",
+     "TCC",
+     0,
+     0
+    ],
+    "Node16": [
+     "S",
+     "TCC",
+     0,
+     0
+    ],
+    "Node160": [
+     "S",
+     "TCC",
+     0,
+     0
+    ],
+    "Node161": [
+     "S",
+     "TCC",
+     0,
+     0
+    ],
+    "Node164": [
+     "S",
+     "TCC",
+     0,
+     0
+    ],
+    "Node165": [
+     "S",
+     "TCC",
+     0,
+     0
+    ],
+    "Node168": [
+     "S",
+     "TCC",
+     0,
+     0
+    ],
+    "Node169": [
+     "S",
+     "TCC",
+     0,
+     0
+    ],
+    "Node170": [
+     "S",
+     "TCC",
+     0,
+     0
+    ],
+    "Node172": [
+     "S",
+     "TCC",
+     0,
+     0
+    ],
+    "Node175": [
+     "S",
+     "TCC",
+     0,
+     0
+    ],
+    "Node176": [
+     "S",
+     "TCC",
+     0,
+     0
+    ],
+    "Node179": [
+     "S",
+     "TCC",
+     0,
+     0
+    ],
+    "Node183": [
+     "S",
+     "TCC",
+     0,
+     0
+    ],
+    "Node188": [
+     "S",
+     "TCC",
+     0,
+     0
+    ],
+    "Node19": [
+     "S",
+     "TCC",
+     0,
+     0
+    ],
+    "Node191": [
+     "S",
+     "TCC",
+     0,
+     0
+    ],
+    "Node194": [
+     "S",
+     "TCC",
+     0,
+     0
+    ],
+    "Node195": [
+     "S",
+     "TCC",
+     0,
+     0
+    ],
+    "Node196": [
+     "S",
+     "TCC",
+     0,
+     0
+    ],
+    "Node197": [
+     "S",
+     "TCC",
+     0,
+     0
+    ],
+    "Node198": [
+     "S",
+     "TCC",
+     0,
+     0
+    ],
+    "Node2": [
+     "S",
+     "TCC",
+     0,
+     0
+    ],
+    "Node20": [
+     "S",
+     "TCC",
+     0,
+     0
+    ],
+    "Node202": [
+     "S",
+     "TCC",
+     0,
+     0
+    ],
+    "Node207": [
+     "S",
+     "TCC",
+     0,
+     0
+    ],
+    "Node209": [
+     "S",
+     "TCC",
+     0,
+     0
+    ],
+    "Node21": [
+     "S",
+     "TCC",
+     0,
+     0
+    ],
+    "Node213": [
+     "S",
+     "TCC",
+     0,
+     0
+    ],
+    "Node214": [
+     "S",
+     "TCC",
+     0,
+     0
+    ],
+    "Node216": [
+     "S",
+     "TCC",
+     0,
+     0
+    ],
+    "Node219": [
+     "Q",
+     "CAA",
+     2.5,
+     0.5
+    ],
+    "Node223": [
+     "S",
+     "TCC",
+     0,
+     0
+    ],
+    "Node227": [
+     "S",
+     "TCC",
+     0,
+     0
+    ],
+    "Node227_1": [
+     "S",
+     "TCC",
+     0,
+     0
+    ],
+    "Node228": [
+     "S",
+     "TCC",
+     0,
+     0
+    ],
+    "Node229": [
+     "S",
+     "TCC",
+     0,
+     0
+    ],
+    "Node233": [
+     "S",
+     "TCC",
+     0,
+     0
+    ],
+    "Node24": [
+     "S",
+     "TCC",
+     0,
+     0
+    ],
+    "Node25": [
+     "S",
+     "TCC",
+     0,
+     0
+    ],
+    "Node26": [
+     "S",
+     "TCC",
+     0,
+     0
+    ],
+    "Node29": [
+     "S",
+     "TCC",
+     0,
+     0
+    ],
+    "Node32": [
+     "S",
+     "TCC",
+     0,
+     0
+    ],
+    "Node33": [
+     "S",
+     "TCC",
+     0,
+     0
+    ],
+    "Node34": [
+     "S",
+     "TCC",
+     0,
+     0
+    ],
+    "Node37": [
+     "S",
+     "TCC",
+     0,
+     0
+    ],
+    "Node40": [
+     "S",
+     "TCC",
+     0,
+     0
+    ],
+    "Node41": [
+     "S",
+     "TCC",
+     0,
+     0
+    ],
+    "Node42": [
+     "S",
+     "TCC",
+     0,
+     0
+    ],
+    "Node43": [
+     "S",
+     "TCC",
+     0,
+     0
+    ],
+    "Node46": [
+     "S",
+     "TCC",
+     0,
+     0
+    ],
+    "Node49": [
+     "S",
+     "TCC",
+     0,
+     0
+    ],
+    "Node5": [
+     "S",
+     "TCC",
+     0,
+     0
+    ],
+    "Node52": [
+     "S",
+     "TCC",
+     0,
+     0
+    ],
+    "Node53": [
+     "S",
+     "TCC",
+     0,
+     0
+    ],
+    "Node54": [
+     "S",
+     "TCC",
+     0,
+     0
+    ],
+    "Node55": [
+     "S",
+     "TCC",
+     0,
+     0
+    ],
+    "Node58": [
+     "S",
+     "TCC",
+     0,
+     0
+    ],
+    "Node61": [
+     "S",
+     "TCC",
+     0,
+     0
+    ],
+    "Node62": [
+     "S",
+     "TCC",
+     0,
+     0
+    ],
+    "Node65": [
+     "S",
+     "TCC",
+     0,
+     0
+    ],
+    "Node66": [
+     "S",
+     "TCC",
+     0,
+     0
+    ],
+    "Node67": [
+     "S",
+     "TCC",
+     0,
+     0
+    ],
+    "Node68": [
+     "S",
+     "TCC",
+     0,
+     0
+    ],
+    "Node69": [
+     "S",
+     "TCC",
+     0,
+     0
+    ],
+    "Node73": [
+     "S",
+     "TCC",
+     0,
+     0
+    ],
+    "Node74": [
+     "S",
+     "TCC",
+     0,
+     0
+    ],
+    "Node77": [
+     "S",
+     "TCC",
+     0,
+     0
+    ],
+    "Node8": [
+     "S",
+     "TCC",
+     0,
+     0
+    ],
+    "Node80": [
+     "S",
+     "TCC",
+     0,
+     0
+    ],
+    "Node81": [
+     "S",
+     "TCC",
+     0,
+     0
+    ],
+    "Node84": [
+     "S",
+     "TCC",
+     0,
+     0
+    ],
+    "Node86": [
+     "S",
+     "TCC",
+     0,
+     0
+    ],
+    "Node89": [
+     "S",
+     "TCC",
+     0,
+     0
+    ],
+    "Node9": [
+     "S",
+     "TCC",
+     0,
+     0
+    ],
+    "Node90": [
+     "S",
+     "TCC",
+     0,
+     0
+    ],
+    "Node91": [
+     "S",
+     "TCC",
+     0,
+     0
+    ],
+    "Node92": [
+     "S",
+     "TCC",
+     0,
+     0
+    ],
+    "Node93": [
+     "S",
+     "TCC",
+     0,
+     0
+    ],
+    "Node96": [
+     "S",
+     "TCC",
+     0,
+     0
+    ],
+    "Node99": [
+     "S",
+     "TCC",
+     0,
+     0
+    ],
+    "epi_isl_402128_Hubei_20191230_MGISEQ_1309": [
+     "S",
+     "TCC",
+     0,
+     0
+    ],
+    "epi_isl_404253_Illinois_20200121_Sanger__28": [
+     "S",
+     "TCC",
+     0,
+     0
+    ],
+    "epi_isl_406534_Guangdong_20200122_null_1": [
+     "S",
+     "TCC",
+     0,
+     0
+    ],
+    "epi_isl_406594_Guandong_20200116_null_7": [
+     "S",
+     "TCC",
+     0,
+     0
+    ],
+    "epi_isl_406595_Guandong_20200116_null_1": [
+     "S",
+     "TCC",
+     0,
+     0
+    ],
+    "epi_isl_406798_Hubei_20191226_DNBSEQ_9": [
+     "S",
+     "TCC",
+     0,
+     0
+    ],
+    "epi_isl_406799_Wuhan_20191231_DNBSEQ_1": [
+     "S",
+     "TCC",
+     0,
+     0
+    ],
+    "epi_isl_408008_California_20200129_Sanger_36": [
+     "S",
+     "TCC",
+     0,
+     0
+    ],
+    "epi_isl_408485_Beijing_20200118_Illumina_1": [
+     "S",
+     "TCC",
+     0,
+     0
+    ],
+    "epi_isl_408488_Jiangsu_20200119_Illumina_120": [
+     "S",
+     "TCC",
+     0,
+     0
+    ],
+    "epi_isl_410218_Taipei_20200205_Sanger_7": [
+     "S",
+     "TCC",
+     0,
+     0
+    ],
+    "epi_isl_410719_Singapore_20200202_Illumina_2": [
+     "S",
+     "TCC",
+     0,
+     0
+    ],
+    "epi_isl_412967_Guangzhou_20200129_Illumina_1": [
+     "S",
+     "TCC",
+     0,
+     0
+    ],
+    "epi_isl_412968_Japan_20200210_null_155": [
+     "S",
+     "TCC",
+     0,
+     0
+    ],
+    "epi_isl_412972_Mexico_City_20200227_Ion_3": [
+     "S",
+     "TCC",
+     0,
+     0
+    ],
+    "epi_isl_413015_Ontario_20200123_Nanopore_1": [
+     "S",
+     "TCC",
+     0,
+     0
+    ],
+    "epi_isl_413018_South_Korea_20200206_Illumina_1": [
+     "S",
+     "TCC",
+     0,
+     0
+    ],
+    "epi_isl_413025_Washington_20200227_Illumina_1": [
+     "S",
+     "TCC",
+     0,
+     0
+    ],
+    "epi_isl_413485_Anhui_20200124_null_5": [
+     "S",
+     "TCC",
+     0,
+     0
+    ],
+    "epi_isl_413557_California_2020_Illumina_1": [
+     "S",
+     "TCC",
+     0,
+     0
+    ],
+    "epi_isl_413563_Washington_20200303_Illumina_2": [
+     "S",
+     "TCC",
+     0,
+     0
+    ],
+    "epi_isl_413595_NSW_20200228_Illumina_6": [
+     "S",
+     "TCC",
+     0,
+     0
+    ],
+    "epi_isl_413603_Helsinki_20200303_Illumina_1": [
+     "S",
+     "TCC",
+     0,
+     0
+    ],
+    "epi_isl_413609_USA_20200221_null_2": [
+     "S",
+     "TCC",
+     0,
+     0
+    ],
+    "epi_isl_413623_USA_20200224_null_3": [
+     "S",
+     "TCC",
+     0,
+     0
+    ],
+    "epi_isl_413647_Portugal_20200301_Illumina_1": [
+     "S",
+     "TCC",
+     0,
+     0
+    ],
+    "epi_isl_413648_Portugal_20200301_Illumina_1": [
+     "S",
+     "TCC",
+     0,
+     0
+    ],
+    "epi_isl_413693_China_2020_01_MGI_2": [
+     "S",
+     "TCC",
+     0,
+     0
+    ],
+    "epi_isl_413857_Guangdong_20200131_metagenomics_BGI_2": [
+     "S",
+     "TCC",
+     0,
+     0
+    ],
+    "epi_isl_413873_Guangdong_20200228_multiplex_pcr_nanopore_1": [
+     "S",
+     "TCC",
+     0,
+     0
+    ],
+    "epi_isl_413876_Guangdong_20200210_multiplex_pcr_nanopore_1": [
+     "S",
+     "TCC",
+     0,
+     0
+    ],
+    "epi_isl_413879_Guangdong_20200205_multiplex_pcr_nanopore_3": [
+     "S",
+     "TCC",
+     0,
+     0
+    ],
+    "epi_isl_413925_California_20200305_Illumina_1": [
+     "S",
+     "TCC",
+     0,
+     0
+    ],
+    "epi_isl_413928_California_20200305_Illumina_1": [
+     "S",
+     "TCC",
+     0,
+     0
+    ],
+    "epi_isl_414017_Sao_Paulo_20200304_Ion_15": [
+     "S",
+     "TCC",
+     0,
+     0
+    ],
+    "epi_isl_414450_Noord_Brabant_20200306_Nanopore_2": [
+     "S",
+     "TCC",
+     0,
+     0
+    ],
+    "epi_isl_414470_Zuid_Holland_20200306_Nanopore_7": [
+     "S",
+     "TCC",
+     0,
+     0
+    ],
+    "epi_isl_414477_Usti_nad_Labem_20200301_Nanopore_1": [
+     "S",
+     "TCC",
+     0,
+     0
+    ],
+    "epi_isl_414482_USA_20200218_Nanopore_1": [
+     "S",
+     "TCC",
+     0,
+     0
+    ],
+    "epi_isl_414485_USA_20200224_Nanopore_1": [
+     "S",
+     "TCC",
+     0,
+     0
+    ],
+    "epi_isl_414507_North_Rhine_Westphalia_20200303_Nanopore_6": [
+     "S",
+     "TCC",
+     0,
+     0
+    ],
+    "epi_isl_414510_Shanghai_20200202_Illumina__12": [
+     "S",
+     "TCC",
+     0,
+     0
+    ],
+    "epi_isl_414540_Noord_Brabant_20200308_Nanopore_1": [
+     "S",
+     "TCC",
+     0,
+     0
+    ],
+    "epi_isl_414578_Talca_20200304_Illumina_3": [
+     "S",
+     "TCC",
+     0,
+     0
+    ],
+    "epi_isl_414579_Santiago_20200303_Illumina_2": [
+     "S",
+     "TCC",
+     0,
+     0
+    ],
+    "epi_isl_414580_Santiago_20200305_Illumina_1": [
+     "S",
+     "TCC",
+     0,
+     0
+    ],
+    "epi_isl_414584_Dublin_20200302_MinION_2": [
+     "S",
+     "TCC",
+     0,
+     0
+    ],
+    "epi_isl_414586_Limerick_20200303_Nanopore_2": [
+     "S",
+     "TCC",
+     0,
+     0
+    ],
+    "epi_isl_414623_Grand_Est_20200225_Illumina_1": [
+     "S",
+     "TCC",
+     0,
+     0
+    ],
+    "epi_isl_414941_Shandong_20200130_null_1": [
+     "S",
+     "TCC",
+     0,
+     0
+    ],
+    "epi_isl_415454_Switzerland_20200228_null_4": [
+     "S",
+     "TCC",
+     0,
+     0
+    ],
+    "epi_isl_415503_Noord_Brabant_20200311_Nanopore_1": [
+     "S",
+     "TCC",
+     0,
+     0
+    ],
+    "epi_isl_415516_Noord_Brabant_20200311_Nanopore_1": [
+     "S",
+     "TCC",
+     0,
+     0
+    ],
+    "epi_isl_415528_Utrecht_20200312_Nanopore_1": [
+     "S",
+     "TCC",
+     0,
+     0
+    ],
+    "epi_isl_415582_British_Columbia_20200304_Nanopore_1": [
+     "S",
+     "TCC",
+     0,
+     0
+    ],
+    "epi_isl_415584_British_Columbia_20200302_Nanopore_5": [
+     "S",
+     "TCC",
+     0,
+     0
+    ],
+    "epi_isl_415585_British_Columbia_20200304_Nanopore_2": [
+     "S",
+     "TCC",
+     0,
+     0
+    ],
+    "epi_isl_415605_Washington_20200305_Illumina_1": [
+     "S",
+     "TCC",
+     0,
+     0
+    ],
+    "epi_isl_415643_Tbilisi_20200310_Illumina_2": [
+     "S",
+     "TCC",
+     0,
+     0
+    ],
+    "epi_isl_415655_Wales_20200312_Nanopore_2": [
+     "S",
+     "TCC",
+     0,
+     0
+    ],
+    "epi_isl_415700_Switzerland_20200228_null_3": [
+     "S",
+     "TCC",
+     0,
+     0
+    ],
+    "epi_isl_415742_Taoyuan_20200227_Illumina_2": [
+     "S",
+     "TCC",
+     0,
+     0
+    ],
+    "epi_isl_415787_Lima_20200310_Illumina_1": [
+     "C",
+     "TGC",
+     1,
+     0
+    ],
+    "epi_isl_415978_Wales_20200308_null_5": [
+     "S",
+     "TCC",
+     0,
+     0
+    ],
+    "epi_isl_416042_Hangzhou_20200126_Novaseq_1": [
+     "S",
+     "TCC",
+     0,
+     0
+    ],
+    "epi_isl_416351_Shanghai_20200206_Illumina_1": [
+     "S",
+     "TCC",
+     0,
+     0
+    ],
+    "epi_isl_416354_Shanghai_20200204_Illumina_2": [
+     "S",
+     "TCC",
+     0,
+     0
+    ],
+    "epi_isl_416360_Shanghai_20200201_Illumina_1": [
+     "S",
+     "TCC",
+     0,
+     0
+    ],
+    "epi_isl_416361_Shanghai_20200201_Illumina_2": [
+     "S",
+     "TCC",
+     0,
+     0
+    ],
+    "epi_isl_416371_Shanghai_20200205_Illumina_1": [
+     "S",
+     "TCC",
+     0,
+     0
+    ],
+    "epi_isl_416389_Shanghai_20200121_Illumina_1": [
+     "S",
+     "TCC",
+     0,
+     0
+    ],
+    "epi_isl_416412_Victoria_20200302_Ilumina_1": [
+     "S",
+     "TCC",
+     0,
+     0
+    ],
+    "epi_isl_416437_Washington_20200310_Illumina_8": [
+     "S",
+     "TCC",
+     0,
+     0
+    ],
+    "epi_isl_416446_Washington_20200310_Illumina_1": [
+     "S",
+     "TCC",
+     0,
+     0
+    ],
+    "epi_isl_416571_unknown_20200215_Illumina_7": [
+     "S",
+     "TCC",
+     0,
+     0
+    ],
+    "epi_isl_416619_unknown_20200217_Illumina_1": [
+     "S",
+     "TCC",
+     0,
+     0
+    ],
+    "epi_isl_416626_unknown_20200217_Illumina_2": [
+     "S",
+     "TCC",
+     0,
+     0
+    ],
+    "epi_isl_416645_Washington_20200311_Illumina_1": [
+     "S",
+     "TCC",
+     0,
+     0
+    ],
+    "epi_isl_416655_Washington_20200311_Illumina_1": [
+     "S",
+     "TCC",
+     0,
+     0
+    ],
+    "epi_isl_416657_Washington_20200311_Illumina_1": [
+     "S",
+     "TCC",
+     0,
+     0
+    ],
+    "epi_isl_416670_Washington_20200312_Illumina_3": [
+     "S",
+     "TCC",
+     0,
+     0
+    ],
+    "epi_isl_416689_Washington_20200314_Illumina_1": [
+     "S",
+     "TCC",
+     0,
+     0
+    ],
+    "epi_isl_416697_Washington_20200313_Illumina_1": [
+     "S",
+     "TCC",
+     0,
+     0
+    ],
+    "epi_isl_417031_Queensland_20200311_null_1": [
+     "S",
+     "TCC",
+     0,
+     0
+    ],
+    "epi_isl_417084_Washington_20200302_Illumina_2": [
+     "S",
+     "TCC",
+     0,
+     0
+    ],
+    "epi_isl_417094_Washington_20200228_Illumina_1": [
+     "S",
+     "TCC",
+     0,
+     0
+    ],
+    "epi_isl_417117_Washington_20200303_Illumina_1": [
+     "S",
+     "TCC",
+     0,
+     0
+    ],
+    "epi_isl_417163_Washington_20200305_Illumina_1": [
+     "S",
+     "TCC",
+     0,
+     0
+    ],
+    "epi_isl_417201_Wisconsin_20200321_Nanopore_1": [
+     "S",
+     "TCC",
+     0,
+     0
+    ],
+    "epi_isl_417217_England_20200301_Illumina_1": [
+     "S",
+     "TCC",
+     0,
+     0
+    ],
+    "epi_isl_417244_England_20200303_Illumina_1": [
+     "S",
+     "TCC",
+     0,
+     0
+    ],
+    "epi_isl_417251_England_20200303_Illumina_2": [
+     "S",
+     "TCC",
+     0,
+     0
+    ],
+    "epi_isl_417259_England_20200304_Illumina_1": [
+     "S",
+     "TCC",
+     0,
+     0
+    ],
+    "epi_isl_417285_England_20200306_Illumina_1": [
+     "S",
+     "TCC",
+     0,
+     0
+    ],
+    "epi_isl_417287_England_20200306_Illumina_1": [
+     "S",
+     "TCC",
+     0,
+     0
+    ],
+    "epi_isl_417290_England_20200306_Illumina_1": [
+     "S",
+     "TCC",
+     0,
+     0
+    ],
+    "epi_isl_417351_Washington_20200312_Illumina_1": [
+     "S",
+     "TCC",
+     0,
+     0
+    ],
+    "epi_isl_417353_Washington_20200313_Illumina_1": [
+     "S",
+     "TCC",
+     0,
+     0
+    ],
+    "epi_isl_417424_Kasterlee_20200304_Nanopore_1": [
+     "S",
+     "TCC",
+     0,
+     0
+    ],
+    "epi_isl_417481_Reykjavik_20200313_Illumina_2": [
+     "S",
+     "TCC",
+     0,
+     0
+    ],
+    "epi_isl_417520_Taoyuan_20200309_Illumina_2": [
+     "S",
+     "TCC",
+     0,
+     0
+    ],
+    "epi_isl_417550_Reykjavik_20200316_Illumina_7": [
+     "S",
+     "TCC",
+     0,
+     0
+    ],
+    "epi_isl_417571_Reykjavik_20200317_Illumina_1": [
+     "S",
+     "TCC",
+     0,
+     0
+    ],
+    "epi_isl_417572_Reykjavik_20200317_Illumina_4": [
+     "S",
+     "TCC",
+     0,
+     0
+    ],
+    "epi_isl_417606_Reykjavik_20200317_Illumina_1": [
+     "S",
+     "TCC",
+     0,
+     0
+    ],
+    "epi_isl_417608_Reykjavik_20200317_Illumina_1": [
+     "S",
+     "TCC",
+     0,
+     0
+    ],
+    "epi_isl_417610_Reykjavik_20200317_Illumina_1": [
+     "-",
+     "---",
+     0,
+     0
+    ],
+    "epi_isl_417614_Reykjavik_20200318_Illumina_1": [
+     "S",
+     "TCC",
+     0,
+     0
+    ],
+    "epi_isl_417624_Reykjavik_20200318_Illumina_1": [
+     "S",
+     "TCC",
+     0,
+     0
+    ],
+    "epi_isl_417631_Reykjavik_20200318_Illumina_1": [
+     "S",
+     "TCC",
+     0,
+     0
+    ],
+    "epi_isl_417638_Reykjavik_20200318_Illumina_1": [
+     "Q",
+     "CAA",
+     0,
+     0
+    ],
+    "epi_isl_417648_Reykjavik_20200318_Illumina_1": [
+     "S",
+     "TCC",
+     0,
+     0
+    ],
+    "epi_isl_417730_Reykjavik_20200310_Illumina_1": [
+     "S",
+     "TCC",
+     0,
+     0
+    ],
+    "epi_isl_417740_Reykjavik_20200315_Illumina_2": [
+     "S",
+     "TCC",
+     0,
+     0
+    ],
+    "epi_isl_417756_Reykjavik_20200306_Illumina_1": [
+     "S",
+     "TCC",
+     0,
+     0
+    ],
+    "epi_isl_417767_Reykjavik_20200303_Illumina_1": [
+     "S",
+     "TCC",
+     0,
+     0
+    ],
+    "epi_isl_417787_Reykjavik_20200312_Illumina_1": [
+     "S",
+     "TCC",
+     0,
+     0
+    ],
+    "epi_isl_417841_Reykjavik_20200303_Illumina_2": [
+     "S",
+     "TCC",
+     0,
+     0
+    ],
+    "epi_isl_417878_Bratislava_20200307_Illumina_1": [
+     "S",
+     "TCC",
+     0,
+     0
+    ]
+   },
+   "meme": 2.106556782655034e-05,
+   "meme-branches": 1,
+   "meme-fraction": 0.06880253308938022,
+   "prime": [
+    [
+     "Overall",
+     0.005927045057941172,
+     0
+    ]
+   ],
+   "substitutions": [
+    0.5,
+    2.5
+   ],
+   "timing": {
+    "-": {
+     "20200317": 1
+    },
+    "C": {
+     "20200310": 1
+    },
+    "Q": {
+     "20200318": 1
+    },
+    "S": {
+     "20191226": 1,
+     "20191230": 9,
+     "20191231": 1,
+     "20200101": 2,
+     "20200102": 2,
+     "20200105": 1,
+     "20200108": 3,
+     "20200110": 1,
+     "20200111": 1,
+     "20200113": 4,
+     "20200114": 1,
+     "20200115": 4,
+     "20200116": 3,
+     "20200117": 4,
+     "20200118": 5,
+     "20200119": 4,
+     "20200120": 3,
+     "20200121": 8,
+     "20200122": 12,
+     "20200123": 12,
+     "20200124": 7,
+     "20200125": 16,
+     "20200126": 3,
+     "20200127": 4,
+     "20200128": 14,
+     "20200129": 19,
+     "20200130": 26,
+     "20200131": 11,
+     "20200201": 24,
+     "20200202": 18,
+     "20200203": 6,
+     "20200204": 10,
+     "20200205": 19,
+     "20200206": 10,
+     "20200207": 10,
+     "20200208": 12,
+     "20200209": 15,
+     "20200210": 9,
+     "20200211": 3,
+     "20200212": 3,
+     "20200213": 1,
+     "20200214": 1,
+     "20200215": 16,
+     "20200216": 1,
+     "20200217": 35,
+     "20200218": 7,
+     "20200219": 2,
+     "20200220": 12,
+     "20200221": 6,
+     "20200222": 2,
+     "20200223": 2,
+     "20200224": 10,
+     "20200225": 15,
+     "20200226": 11,
+     "20200227": 34,
+     "20200228": 44,
+     "20200229": 51,
+     "20200301": 56,
+     "20200302": 87,
+     "20200303": 95,
+     "20200304": 84,
+     "20200305": 89,
+     "20200306": 74,
+     "20200307": 39,
+     "20200308": 61,
+     "20200309": 77,
+     "20200310": 75,
+     "20200311": 75,
+     "20200312": 67,
+     "20200313": 99,
+     "20200314": 63,
+     "20200315": 40,
+     "20200316": 60,
+     "20200317": 71,
+     "20200318": 44,
      "20200320": 4,
      "20200321": 6,
      "20200326": 13
@@ -1711,7 +3471,7 @@
    }
   }
  },
- "sequences": 100,
+ "sequences": 119,
  "sites": 419,
- "tree": "((epi_isl_414580_Santiago_20200305_Illumina_1:0.000818,epi_isl_416389_Shanghai_20200121_Illumina_1:0.000818)Node1:1e-06,(((((((epi_isl_402128_Hubei_20191230_MGISEQ_1054:1e-06,(epi_isl_416645_Washington_20200311_Illumina_1:0.000819,((epi_isl_416571_unknown_20200215_Illumina_7:0.000818,epi_isl_414450_Noord_Brabant_20200306_Nanopore_2:0.000818)Node15:1e-06,(epi_isl_406594_Guandong_20200116_null_7:0.000818,(epi_isl_417353_Washington_20200313_Illumina_1:1e-06,(epi_isl_414579_Santiago_20200303_Illumina_2:0.000821,((epi_isl_414482_USA_20200218_Nanopore_1:0.00082,epi_isl_415582_British_Columbia_20200304_Nanopore_1:0.000821)Node25:1e-06,((epi_isl_413595_NSW_20200228_Illumina_6:0.000821,epi_isl_417031_Queensland_20200311_null_1:0.000821)Node29:1e-06,(epi_isl_412968_Japan_20200210_null_125:1e-06,((epi_isl_417285_England_20200306_Illumina_1:0.000821,epi_isl_417251_England_20200303_Illumina_2:0.000821)Node35:1e-06,(epi_isl_413025_Washington_20200227_Illumina_1:0.000821,epi_isl_414470_Zuid_Holland_20200306_Nanopore_1:0.000824)Node38:1e-06)Node34:1e-06)Node32:1e-06)Node28:1e-06)Node24:1e-06)Node22:0.001649)Node20:0.000819)Node18:1e-06)Node14:1e-06)Node12:1e-06)Node10:1e-06,(((epi_isl_414510_Shanghai_20200202_Illumina__12:0.001636,epi_isl_413018_South_Korea_20200206_Illumina_1:0.000818)Node43:1e-06,epi_isl_417481_Reykjavik_20200313_Illumina_1:0.000821)Node42:1e-06,(epi_isl_414586_Limerick_20200303_Nanopore_2:0.000818,epi_isl_417217_England_20200301_Illumina_1:0.001637)Node47:1e-06)Node41:1e-06)Node9:1e-06,(epi_isl_417163_Washington_20200305_Illumina_1:0.000818,epi_isl_408485_Beijing_20200118_Illumina_1:0.000818)Node50:1e-06)Node8:1e-06,(epi_isl_417351_Washington_20200312_Illumina_1:0.000818,epi_isl_413873_Guangdong_20200228_multiplex_pcr_nanopore_1:0.000818)Node53:1e-06)Node7:1e-06,((epi_isl_416361_Shanghai_20200201_Illumina_2:0.000818,epi_isl_410218_Taipei_20200205_Sanger_7:1e-06)Node57:0.000818,epi_isl_416354_Shanghai_20200204_Illumina_2:0.000818)Node56:1e-06)Node6:1e-06,((epi_isl_413609_USA_20200221_null_2:0.000821,(epi_isl_413693_China_2020_01_MGI_2:0.000818,epi_isl_413879_Guangdong_20200205_multiplex_pcr_nanopore_3:0.000819)Node64:1e-06)Node62:1e-06,(epi_isl_415516_Noord_Brabant_20200311_Nanopore_1:0.000818,epi_isl_415655_Wales_20200312_Nanopore_2:0.000819)Node67:1e-06)Node61:1e-06)Node5:1e-06,(((epi_isl_412967_Guangzhou_20200129_Illumina_1:0.000821,epi_isl_413623_USA_20200224_null_3:0.000818)Node72:1e-06,((((((epi_isl_415787_Lima_20200310_Illumina_1:0.034275,epi_isl_417201_Wisconsin_20200321_Nanopore_1:0.0009829999999999999)Node80:0.001515,epi_isl_413885_Guangdong_20200201_multiplex_pcr_nanopore_4:1e-06)Node79:0.002518,epi_isl_415528_Utrecht_20200312_Nanopore_1:1e-06)Node78:0.000818,epi_isl_416371_Shanghai_20200205_Illumina_1:0.000818)Node77:1e-06,(((((epi_isl_416042_Hangzhou_20200126_Novaseq_1:0.000818,epi_isl_415503_Noord_Brabant_20200311_Nanopore_1:0.000818)Node90:1e-06,((epi_isl_415585_British_Columbia_20200304_Nanopore_2:0.000818,epi_isl_413647_Portugal_20200301_Illumina_1:0.000818)Node94:1e-06,((epi_isl_413928_California_20200305_Illumina_1:0.002523,epi_isl_414477_Usti_nad_Labem_20200301_Nanopore_1:1e-06)Node98:0.000818,epi_isl_416657_Washington_20200311_Illumina_1:0.000818)Node97:1e-06)Node93:1e-06)Node89:1e-06,((epi_isl_410719_Singapore_20200202_Illumina_2:1e-06,epi_isl_417244_England_20200303_Illumina_1:0.000822)Node103:0.000817,epi_isl_404253_Illinois_20200121_Sanger__28:0.000818)Node102:1e-06)Node88:1e-06,(((epi_isl_406534_Guangdong_20200122_null_1:0.000818,epi_isl_414017_Sao_Paulo_20200304_Ion_15:0.000818)Node109:1e-06,((epi_isl_413876_Guangdong_20200210_multiplex_pcr_nanopore_1:0.000822,epi_isl_413648_Portugal_20200301_Illumina_1:0.000408)Node113:0.00041,epi_isl_417117_Washington_20200303_Illumina_1:0.000818)Node112:1e-06)Node108:1e-06,((((((epi_isl_413603_Helsinki_20200303_Illumina_1:0.00082,epi_isl_413485_Anhui_20200124_null_5:0.00082)Node122:1e-06,((epi_isl_414578_Talca_20200304_Illumina_1:0.00082,epi_isl_415978_Wales_20200308_null_3:0.00082)Node126:1e-06,epi_isl_408488_Jiangsu_20200119_Illumina_120:1e-06)Node125:1e-06)Node121:1e-06,epi_isl_414485_USA_20200224_Nanopore_1:0.000819)Node120:0.000819,epi_isl_414941_Shandong_20200130_null_1:0.00082)Node119:1e-06,(epi_isl_416360_Shanghai_20200201_Illumina_1:0.000818,epi_isl_413015_Ontario_20200123_Nanopore_1:0.000819)Node132:1e-06)Node118:1e-06,(((epi_isl_414584_Dublin_20200302_MinION_2:0.000818,epi_isl_415742_Taoyuan_20200227_Illumina_1:0.000818)Node137:1e-06,(epi_isl_417094_Washington_20200228_Illumina_1:0.000819,epi_isl_413563_Washington_20200303_Illumina_2:0.000818)Node140:1e-06)Node136:1e-06,((((epi_isl_416446_Washington_20200310_Illumina_1:0.000819,epi_isl_414623_Grand_Est_20200225_Illumina_1:0.000819)Node146:1e-06,(epi_isl_416412_Victoria_20200302_Ilumina_1:0.000821,epi_isl_414540_Noord_Brabant_20200308_Nanopore_1:0.000818)Node149:1e-06)Node145:1e-06,(((epi_isl_412972_Mexico_City_20200227_Ion_3:0.000819,(epi_isl_415454_Switzerland_20200228_null_4:0.000818,epi_isl_406799_Wuhan_20191231_DNBSEQ_1:0.000818)Node156:1e-06)Node154:1e-06,((epi_isl_415700_Switzerland_20200228_null_3:0.000818,epi_isl_414507_North_Rhine_Westphalia_20200303_Nanopore_6:0.000821)Node160:1e-06,(epi_isl_416697_Washington_20200313_Illumina_1:0.000818,epi_isl_415584_British_Columbia_20200302_Nanopore_3:0.000818)Node163:1e-06)Node159:1e-06)Node153:1e-06,((epi_isl_406595_Guandong_20200116_null_1:0.000816,epi_isl_406798_Hubei_20191226_DNBSEQ_7:1e-06)Node167:0.000818,(epi_isl_417259_England_20200304_Illumina_1:0.000819,epi_isl_415643_Tbilisi_20200310_Illumina_2:1e-06)Node170:0.000819)Node166:1e-06)Node152:1e-06)Node144:1e-06,(epi_isl_416655_Washington_20200311_Illumina_1:0.000818,epi_isl_413557_California_2020_Illumina_1:0.000818)Node173:1e-06)Node143:1e-06)Node135:1e-06)Node117:1e-06)Node107:1e-06)Node87:1e-06,((epi_isl_416437_Washington_20200310_Illumina_8:0.000818,epi_isl_417290_England_20200306_Illumina_1:0.000819)Node177:1e-06,((epi_isl_416689_Washington_20200314_Illumina_1:0.000818,epi_isl_416619_unknown_20200217_Illumina_1:0.000818)Node181:1e-06,(epi_isl_417084_Washington_20200302_Illumina_2:0.000819,epi_isl_416670_Washington_20200312_Illumina_3:0.000819)Node184:1e-06)Node180:1e-06)Node176:1e-06)Node86:1e-06)Node76:1e-06,(epi_isl_416351_Shanghai_20200206_Illumina_1:0.000828,epi_isl_408008_California_20200129_Sanger_34:1e-06)Node187:0.000819)Node75:1e-06)Node71:1e-06,((epi_isl_417287_England_20200306_Illumina_1:0.000818,epi_isl_413857_Guangdong_20200131_metagenomics_BGI_2:0.000818)Node191:1e-06,epi_isl_417424_Kasterlee_20200304_Nanopore_1:0.000819)Node190:1e-06)Node70:1e-06)Node4:1e-06,(epi_isl_415605_Washington_20200305_Illumina_1:0.000818,epi_isl_416626_unknown_20200217_Illumina_2:0.000818)Node195:1e-06)"
+ "tree": "(((epi_isl_412972_Mexico_City_20200227_Ion_3:0.000811,epi_isl_414450_Noord_Brabant_20200306_Nanopore_2:0.00081)Node2:1e-06,(epi_isl_413873_Guangdong_20200228_multiplex_pcr_nanopore_1:0.00081,epi_isl_414507_North_Rhine_Westphalia_20200303_Nanopore_6:0.000813)Node5:1e-06)Node1:1e-06,((((((epi_isl_416657_Washington_20200311_Illumina_1:0.00081,epi_isl_417084_Washington_20200302_Illumina_2:0.000811)Node13:1e-06,(epi_isl_416437_Washington_20200310_Illumina_8:0.00081,epi_isl_417730_Reykjavik_20200310_Illumina_1:0.002437)Node16:1e-06)Node12:1e-06,(((epi_isl_413693_China_2020_01_MGI_2:0.00081,epi_isl_417351_Washington_20200312_Illumina_1:0.00081)Node21:1e-06,(((epi_isl_413557_California_2020_Illumina_1:0.000811,epi_isl_413018_South_Korea_20200206_Illumina_1:0.00081)Node26:1e-06,(epi_isl_415585_British_Columbia_20200304_Nanopore_2:0.00081,epi_isl_416645_Washington_20200311_Illumina_1:0.000811)Node29:1e-06)Node25:1e-06,(((epi_isl_416042_Hangzhou_20200126_Novaseq_1:0.00081,epi_isl_416412_Victoria_20200302_Ilumina_1:0.000812)Node34:1e-06,(epi_isl_416354_Shanghai_20200204_Illumina_2:0.00081,epi_isl_416655_Washington_20200311_Illumina_1:0.00081)Node37:1e-06)Node33:1e-06,((((epi_isl_404253_Illinois_20200121_Sanger__28:0.00081,epi_isl_416697_Washington_20200313_Illumina_1:0.000811)Node43:1e-06,(epi_isl_417608_Reykjavik_20200317_Illumina_1:0.00081,epi_isl_416371_Shanghai_20200205_Illumina_1:0.00081)Node46:1e-06)Node42:1e-06,(epi_isl_416670_Washington_20200312_Illumina_3:0.000811,epi_isl_415454_Switzerland_20200228_null_4:0.00081)Node49:1e-06)Node41:1e-06,((((epi_isl_417767_Reykjavik_20200303_Illumina_1:0.00081,epi_isl_414477_Usti_nad_Labem_20200301_Nanopore_1:0.00081)Node55:1e-06,(epi_isl_414623_Grand_Est_20200225_Illumina_1:0.000811,epi_isl_417756_Reykjavik_20200306_Illumina_1:0.00081)Node58:1e-06)Node54:1e-06,((epi_isl_406534_Guangdong_20200122_null_1:0.000811,epi_isl_416571_unknown_20200215_Illumina_7:0.00081)Node62:1e-06,(((((epi_isl_413648_Portugal_20200301_Illumina_1:0.000402,epi_isl_413876_Guangdong_20200210_multiplex_pcr_nanopore_1:0.0008140000000000001)Node69:0.000408,epi_isl_415516_Noord_Brabant_20200311_Nanopore_1:0.00081)Node68:1e-06,((epi_isl_417624_Reykjavik_20200318_Illumina_1:0.00081,epi_isl_417878_Bratislava_20200307_Illumina_1:1e-06)Node74:0.00081,(epi_isl_416351_Shanghai_20200206_Illumina_1:0.000819,epi_isl_408008_California_20200129_Sanger_36:1e-06)Node77:0.000811)Node73:1e-06)Node67:1e-06,((epi_isl_408485_Beijing_20200118_Illumina_1:0.00081,epi_isl_417571_Reykjavik_20200317_Illumina_1:0.001622)Node81:1e-06,(epi_isl_406799_Wuhan_20191231_DNBSEQ_1:0.00081,(epi_isl_415503_Noord_Brabant_20200311_Nanopore_1:1e-06,epi_isl_417606_Reykjavik_20200317_Illumina_1:0.002491)Node86:0.000809)Node84:1e-06)Node80:1e-06)Node66:1e-06,(((((epi_isl_416389_Shanghai_20200121_Illumina_1:0.00081,epi_isl_413857_Guangdong_20200131_metagenomics_BGI_2:0.00081)Node93:1e-06,(epi_isl_416689_Washington_20200314_Illumina_1:0.00081,epi_isl_417217_England_20200301_Illumina_1:0.001622)Node96:1e-06)Node92:1e-06,(epi_isl_413563_Washington_20200303_Illumina_2:0.00081,epi_isl_417481_Reykjavik_20200313_Illumina_2:0.000812)Node99:1e-06)Node91:1e-06,(((epi_isl_414017_Sao_Paulo_20200304_Ion_15:0.00081,epi_isl_413623_USA_20200224_null_3:0.00081)Node104:1e-06,((epi_isl_414510_Shanghai_20200202_Illumina__12:0.001621,epi_isl_414586_Limerick_20200303_Nanopore_2:0.00081)Node108:1e-06,(epi_isl_415700_Switzerland_20200228_null_3:0.00081,epi_isl_417787_Reykjavik_20200312_Illumina_1:0.00081)Node111:1e-06)Node107:1e-06)Node103:1e-06,(((epi_isl_414540_Noord_Brabant_20200308_Nanopore_1:0.00081,epi_isl_412967_Guangzhou_20200129_Illumina_1:0.000813)Node116:1e-06,(((epi_isl_415584_British_Columbia_20200302_Nanopore_5:0.00081,epi_isl_415655_Wales_20200312_Nanopore_2:0.000811)Node121:1e-06,(epi_isl_415605_Washington_20200305_Illumina_1:0.00081,(epi_isl_417244_England_20200303_Illumina_1:0.0008140000000000001,epi_isl_410719_Singapore_20200202_Illumina_2:1e-06)Node126:0.00081)Node124:1e-06)Node120:1e-06,(((epi_isl_416360_Shanghai_20200201_Illumina_1:0.00081,epi_isl_417094_Washington_20200228_Illumina_1:0.000811)Node131:1e-06,((epi_isl_417290_England_20200306_Illumina_1:0.000811,epi_isl_417572_Reykjavik_20200317_Illumina_4:0.00081)Node135:1e-06,(epi_isl_415742_Taoyuan_20200227_Illumina_2:0.00081,((((epi_isl_417201_Wisconsin_20200321_Nanopore_1:0.001068,epi_isl_415787_Lima_20200310_Illumina_1:0.033438)Node143:0.001403,epi_isl_413928_California_20200305_Illumina_1:1e-06)Node142:1e-06,epi_isl_413925_California_20200305_Illumina_1:1e-06)Node141:0.002492,epi_isl_415528_Utrecht_20200312_Nanopore_1:1e-06)Node140:0.00081)Node138:1e-06)Node134:1e-06)Node130:1e-06,((epi_isl_416626_unknown_20200217_Illumina_2:0.00081,epi_isl_417287_England_20200306_Illumina_1:0.00081)Node150:1e-06,(((epi_isl_416446_Washington_20200310_Illumina_1:0.000811,(((((epi_isl_413595_NSW_20200228_Illumina_6:0.000813,epi_isl_417648_Reykjavik_20200318_Illumina_1:0.000812)Node161:1e-06,((epi_isl_417614_Reykjavik_20200318_Illumina_1:0.000816,epi_isl_415582_British_Columbia_20200304_Nanopore_1:0.000812)Node165:1e-06,(((epi_isl_414470_Zuid_Holland_20200306_Nanopore_7:0.000815,(epi_isl_417251_England_20200303_Illumina_2:0.000812,epi_isl_417550_Reykjavik_20200316_Illumina_7:0.000812)Node172:1e-06)Node170:1e-06,((epi_isl_413025_Washington_20200227_Illumina_1:0.000812,epi_isl_417740_Reykjavik_20200315_Illumina_2:0.000813)Node176:1e-06,(epi_isl_417285_England_20200306_Illumina_1:0.000812,epi_isl_414482_USA_20200218_Nanopore_1:0.000812)Node179:1e-06)Node175:1e-06)Node169:1e-06,epi_isl_412968_Japan_20200210_null_155:1e-06)Node168:1e-06)Node164:1e-06)Node160:1e-06,(epi_isl_414579_Santiago_20200303_Illumina_2:0.000812,epi_isl_417031_Queensland_20200311_null_1:0.000812)Node183:1e-06)Node159:1e-06,epi_isl_417841_Reykjavik_20200303_Illumina_2:0.000812)Node158:0.001632,epi_isl_417353_Washington_20200313_Illumina_1:1e-06)Node157:0.000811)Node155:1e-06,(epi_isl_417117_Washington_20200303_Illumina_1:0.00081,epi_isl_406594_Guandong_20200116_null_7:0.00081)Node188:1e-06)Node154:1e-06,(epi_isl_413647_Portugal_20200301_Illumina_1:0.00081,epi_isl_413879_Guangdong_20200205_multiplex_pcr_nanopore_3:0.000811)Node191:1e-06)Node153:1e-06)Node149:1e-06)Node129:1e-06)Node119:1e-06)Node115:1e-06,(((((epi_isl_413485_Anhui_20200124_null_5:0.000812,epi_isl_413603_Helsinki_20200303_Illumina_1:0.000812)Node198:1e-06,epi_isl_408488_Jiangsu_20200119_Illumina_120:1e-06)Node197:1e-06,(epi_isl_414578_Talca_20200304_Illumina_3:0.000812,epi_isl_414485_USA_20200224_Nanopore_1:0.000811)Node202:1e-06)Node196:1e-06,epi_isl_415978_Wales_20200308_null_5:0.000812)Node195:0.000811,epi_isl_417424_Kasterlee_20200304_Nanopore_1:0.000811)Node194:1e-06)Node114:1e-06)Node102:1e-06)Node90:1e-06,(epi_isl_414580_Santiago_20200305_Illumina_1:0.00081,(epi_isl_415643_Tbilisi_20200310_Illumina_2:1e-06,epi_isl_417259_England_20200304_Illumina_1:0.000811)Node209:0.000811)Node207:1e-06)Node89:1e-06)Node65:1e-06)Node61:1e-06)Node53:1e-06,epi_isl_402128_Hubei_20191230_MGISEQ_1309:1e-06)Node52:1e-06)Node40:1e-06)Node32:1e-06)Node24:1e-06)Node20:1e-06,((epi_isl_417631_Reykjavik_20200318_Illumina_1:0.0008229999999999999,(epi_isl_410218_Taipei_20200205_Sanger_7:1e-06,epi_isl_416361_Shanghai_20200201_Illumina_2:0.00081)Node216:0.000808)Node214:3e-06,(epi_isl_417610_Reykjavik_20200317_Illumina_1:0.004762,epi_isl_417638_Reykjavik_20200318_Illumina_1:1e-06)Node219:0.002761)Node213:1e-06)Node19:1e-06)Node11:1e-06,epi_isl_413609_USA_20200221_null_2:0.000813)Node10:1e-06,(epi_isl_416619_unknown_20200217_Illumina_1:0.00081,epi_isl_417163_Washington_20200305_Illumina_1:0.000811)Node223:1e-06)Node9:1e-06,epi_isl_414941_Shandong_20200130_null_1:0.000812)Node8:1e-06,(((epi_isl_406595_Guandong_20200116_null_1:0.000809,epi_isl_406798_Hubei_20191226_DNBSEQ_9:1e-06)Node229:0.00081,epi_isl_417520_Taoyuan_20200309_Illumina_2:0.000811)Node228:1e-06,(epi_isl_414584_Dublin_20200302_MinION_2:0.00081,epi_isl_413015_Ontario_20200123_Nanopore_1:0.000811)Node233:1e-06)Node227:1e-06)"
 }
