@@ -3,6 +3,20 @@
  "all variant sites": [],
  "aminoacid variant sites": [],
  "any variation": 30,
+ "dN/dS": {
+  "internal": [
+   [
+    0,
+    1
+   ]
+  ],
+  "leaves": [
+   [
+    1.226425408290812,
+    1
+   ]
+  ]
+ },
  "map": [
   0,
   1,
