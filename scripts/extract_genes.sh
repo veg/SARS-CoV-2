@@ -61,6 +61,8 @@ else
         python3 python/tabulate-diversity-divergence.py -j data/db/master.json -t ${FILE}.${GENE}.tn93 > data/evolution.${GENE}.csv
     fi
 
+    return 0
+    
     if [ -s ${FILE}.${GENE}.compressed.fas.raxml.bestTree ] 
     then
         echo "Already has tree"
