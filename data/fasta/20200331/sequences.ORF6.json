@@ -1,0 +1,103 @@
+{
+ "L": 0.022112885648763573,
+ "all variant sites": [
+  {
+   "ATG": 2,
+   "TTT": 16
+  },
+  {
+   "GAC": 2,
+   "GAT": 14
+  }
+ ],
+ "aminoacid variant sites": [
+  {
+   "F": 16,
+   "M": 2
+  }
+ ],
+ "any variation": 18,
+ "dN/dS": {
+  "internal": [
+   [
+    0.5158630796587409,
+    1
+   ]
+  ],
+  "leaves": [
+   [
+    0.9484955109732823,
+    1
+   ]
+  ]
+ },
+ "map": [
+  0,
+  1,
+  2,
+  3,
+  4,
+  5,
+  6,
+  7,
+  8,
+  9,
+  10,
+  11,
+  12,
+  13,
+  14,
+  15,
+  16,
+  17,
+  18,
+  19,
+  20,
+  21,
+  22,
+  23,
+  24,
+  25,
+  26,
+  27,
+  28,
+  29,
+  30,
+  31,
+  32,
+  33,
+  34,
+  35,
+  36,
+  37,
+  38,
+  39,
+  40,
+  41,
+  42,
+  43,
+  44,
+  45,
+  46,
+  47,
+  48,
+  49,
+  50,
+  51,
+  52,
+  53,
+  54,
+  55,
+  56,
+  57,
+  58,
+  59,
+  60
+ ],
+ "p": 0.1,
+ "selection": {},
+ "sequences": 18,
+ "sites": 61,
+ "total sequences": 2662,
+ "tree": "((((epi_isl_417374_Washington_20200315_Illumina_1:0.005449,epi_isl_418380_Ontario_2020_Illumina_1:0.005443)Node3:1e-06,(((((epi_isl_415614_Washington_20200309_Illumina_26:0.005449,epi_isl_418757_England_20200318_Illumina_1:0.005432)Node10:1e-06,(epi_isl_418315_Derbyshire_20200325_Nanopore_1:0.005443,epi_isl_416626_unknown_20200217_Illumina_2:0.005449)Node13:1e-06)Node9:1e-06,(epi_isl_418323_Ontario_20200314_Illumina_1:0.005432,epi_isl_415700_Switzerland_20200228_null_1:0.005449)Node16:1e-06)Node8:1e-06,(epi_isl_418631_Li_ge_20200314_Nanopore_1:0.005449,(epi_isl_418106_Wales_20200313_Illumina_1:0.017119,epi_isl_418219_Bretagne_20200226_Illumina_11:0.002725)Node21:0.00273)Node19:1e-06)Node7:1e-06,(epi_isl_416642_Washington_20200311_Illumina_1:0.005429,epi_isl_403928_Hubei_20200101_null_2587:1e-06)Node24:1e-06)Node6:1e-06)Node2:1e-06,(epi_isl_418076_Washington_20200315_Illumina_1:1e-06,epi_isl_417559_Reykjavik_20200317_Illumina_1:0.011647)Node27:0.011173)Node1:0.005442,(epi_isl_417363_Washington_20200314_Illumina_1:0.005443,epi_isl_415153_Huldenberg_20200303_Nanopore_23:1e-06)Node30:1e-06,epi_isl_413857_Guangdong_20200131_metagenomics_BGI_1:0.011233)"
+}
