@@ -211,7 +211,11 @@ json_out = {
     'L' : L,
     'p' : import_settings.pvalue,
     'selection' : site_list,
-    'map' : ref_seq_map
+    'map' : ref_seq_map,
+    'dN/dS' : {
+        'internal' :  meme["fits"]["Global MG94xREV"]["Rate Distributions"]["non-synonymous/synonymous rate ratio for *test*"],
+        'leaves'   :  meme["fits"]["Global MG94xREV"]["Rate Distributions"]["non-synonymous/synonymous rate ratio for *background*"]
+    }
 }
 
 json.dump (json_out, import_settings.output, sort_keys = True, indent = 1)
