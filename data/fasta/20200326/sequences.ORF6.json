@@ -1,5 +1,13 @@
 {
  "L": 0.002112548897262977,
+ "all variant sites": [
+  {
+   "GAC": 2,
+   "GAT": 6
+  }
+ ],
+ "aminoacid variant sites": [],
+ "any variation": 8,
  "map": [
   0,
   1,
@@ -266,5 +274,6 @@
  },
  "sequences": 9,
  "sites": 61,
+ "total sequences": 1563,
  "tree": "(((((epi_isl_417362_Washington_20200313_Illumina_1:0.005468,epi_isl_415152_Panama_City_20200306_Illumina_15:1e-06)Node4:0.005467,epi_isl_413855_Guangdong_20200207_metagenomics_BGI_2:0.011235)Node3:1e-06,epi_isl_416641_Washington_20200311_Illumina_1:0.005462)Node2:1e-06,(epi_isl_417373_Washington_20200313_Illumina_1:0.005476,epi_isl_415699_Switzerland_20200227_null_1:0.005476)Node9:1e-06)Node1:1e-06,(epi_isl_416625_unknown_20200217_Illumina_1:0.005475,epi_isl_415613_Washington_20200309_Illumina_8:0.005476)Node12:1e-06,epi_isl_402128_Hubei_20191230_MGISEQ_1533:1e-06)"
 }

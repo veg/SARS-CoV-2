@@ -1,5 +1,8 @@
 {
  "L": 0.007051392695840266,
+ "all variant sites": [],
+ "aminoacid variant sites": [],
+ "any variation": 27,
  "map": [
   0,
   1,
@@ -1044,5 +1047,6 @@
  },
  "sequences": 30,
  "sites": 121,
+ "total sequences": 2082,
  "tree": "((epi_isl_416325_Shanghai_20200202_Illumina_1:0.002757,epi_isl_416401_Shanghai_20200202_Illumina_1:0.002762)Node1:1e-06,(epi_isl_417800_Reykjavik_20200302_Illumina_1:0.002757,epi_isl_417722_Reykjavik_20200311_Illumina_1:0.00276)Node4:1e-06,((((epi_isl_417174_Washington_20200301_Illumina_2:0.00276,epi_isl_417600_Reykjavik_20200317_Illumina_1:0.00276)Node10:1e-06,((epi_isl_416375_Shanghai_20200201_Illumina_1:0.002759,epi_isl_418122_Wales_20200313_Illumina_4:0.002759)Node14:1e-06,(((epi_isl_417556_Reykjavik_20200317_Illumina_1:1e-06,epi_isl_413875_Guangdong_20200210_multiplex_pcr_nanopore_1:0.00945)Node19:0.002759,epi_isl_413214_New_South_Wales_20200229_Illumina_6:0.002757)Node18:1e-06,epi_isl_418030_Washington_20200316_Illumina_1:0.002765)Node17:1e-06)Node13:1e-06)Node9:1e-06,((((epi_isl_413863_Guangdong_20200201_metagenomics_BGI_1:0.011224,epi_isl_413486_Washington_20200301_Illumina_1:1e-06)Node27:0.00276,epi_isl_416565_unknown_20200215_Illumina_4:0.00276)Node26:1e-06,((epi_isl_417578_Reykjavik_20200317_Illumina_2:0.002759,(epi_isl_417860_Reykjavik_20200308_Illumina_1:0.002765,epi_isl_416446_Washington_20200310_Illumina_1:0.00276)Node34:1e-06)Node32:1e-06,((((epi_isl_416354_Shanghai_20200204_Illumina_1:0.005531,epi_isl_417719_Reykjavik_20200313_Illumina_1:0.00276)Node40:1e-06,epi_isl_408488_Jiangsu_20200119_Illumina_1:0.002766)Node39:1e-06,(epi_isl_417917_Kuala_Lumpur_20200320_Illumina_1:0.00276,epi_isl_416700_Washington_20200313_Illumina_5:0.002759)Node44:1e-06)Node38:1e-06,((epi_isl_416396_Shanghai_20200210_Illumina_1:0.002764,epi_isl_417379_Washington_20200315_Illumina_1:0.002757)Node48:1e-06,(epi_isl_417979_Madrid_20200303_Ion_1:0.002757,epi_isl_408668_Thanh_Hoa_20200124_Illumina_2:0.00276)Node51:1e-06)Node47:1e-06)Node37:1e-06)Node31:1e-06)Node25:1e-06,epi_isl_402128_Hubei_20191230_MGISEQ_2035:1e-06)Node24:1e-06)Node8:1e-06,(epi_isl_402129_Hubei_20191230_Illumina_1:0.00276,epi_isl_416432_Riyadh_20200307_null_1:0.002766)Node55:1e-06)Node7:1e-06)"
 }

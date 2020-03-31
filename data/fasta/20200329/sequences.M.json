@@ -1,5 +1,26 @@
 {
  "L": 0.006332878431336134,
+ "all variant sites": [
+  {
+   "GCC": 2,
+   "GCT": 31
+  },
+  {
+   "GGA": 31,
+   "GGT": 2
+  },
+  {
+   "CAC": 2,
+   "GAC": 31
+  }
+ ],
+ "aminoacid variant sites": [
+  {
+   "D": 31,
+   "H": 2
+  }
+ ],
+ "any variation": 35,
  "map": [
   0,
   1,
@@ -1216,5 +1237,6 @@
  },
  "sequences": 33,
  "sites": 222,
+ "total sequences": 2156,
  "tree": "(epi_isl_417729_Reykjavik_20200310_Illumina_1:0.004613,(((((((epi_isl_418117_Wales_20200314_Illumina_1:0.001505,epi_isl_417529_Luxembourg_20200318_Illumina_2:0.001505)Node8:1e-06,((epi_isl_408667_Tokyo_20200131_NextSeq500_1:0.001504,epi_isl_406534_Guangdong_20200122_null_14:1e-06)Node12:0.001504,epi_isl_413024_Zurich_20200229_Illumina_1:0.001505)Node11:1e-06)Node7:1e-06,(((epi_isl_417422_Dilbeek_20200304_Nanopore_2:0.004525,epi_isl_417032_Queensland_20200311_Illumina_1:0.001505)Node18:1e-06,(epi_isl_416692_Washington_20200314_Illumina_1:0.001504,epi_isl_416539_Wellington_20200315_Nanopore_2:0.001505)Node21:1e-06)Node17:1e-06,(epi_isl_416395_Shanghai_20200209_Illumina_1:0.001507,epi_isl_413572_Haarlem_20200301_Nanopore_82:0.001505)Node24:1e-06)Node16:1e-06)Node6:1e-06,epi_isl_402128_Hubei_20191230_MGISEQ_1972:1e-06)Node5:1e-06,(((epi_isl_416907_Selangor_20200220_Illumina_1:0.001502,epi_isl_408431_Ile_de_France_20200129_Illumina_4:1e-06)Node30:0.001505,(epi_isl_413022_Zurich_20200229_Illumina_2:0.003012,epi_isl_415150_England_20200309_Illumina_4:0.001505)Node33:1e-06)Node29:1e-06,((epi_isl_413520_Beijing_20200128_MGISEQ2000_3:0.001505,epi_isl_414636_Hauts_de_France_20200304_Illumina_2:0.001505)Node37:1e-06,((((epi_isl_417668_Reykjavik_20200315_Illumina_1:0.001505,epi_isl_416457_California_20200318_Nanopore_6:0.001505)Node43:1e-06,(epi_isl_416569_unknown_20200215_Illumina_1:0.001514,epi_isl_413855_Guangdong_20200207_metagenomics_BGI_10:0.001505)Node46:1e-06)Node42:1e-06,(epi_isl_417103_Washington_20200305_Illumina_1:0.001505,epi_isl_417967_Madrid_20200312_Ion_1:0.001505)Node49:1e-06)Node41:1e-06,((epi_isl_415132_England_20200228_Illumina_1:0.001504,epi_isl_414010_England_20200226_Illumina_25:0.001504)Node53:1e-06,(epi_isl_417083_Washington_20200228_Illumina_1:0.001505,epi_isl_416327_Shanghai_20200128_Illumina_1:0.001505)Node56:1e-06)Node52:1e-06)Node40:1e-06)Node36:1e-06)Node28:1e-06)Node4:1e-06,(epi_isl_415620_Washington_20200309_Illumina_1:0.001505,epi_isl_417523_Taoyuan_20200313_Illumina_1:0.001505)Node59:1e-06)Node3:1e-06,epi_isl_415138_England_20200302_Illumina_7:0.001505)Node2:0.003013,epi_isl_406716_Hubei_20200102_Illumina_2:1e-06)"
 }

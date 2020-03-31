@@ -1,5 +1,8 @@
 {
  "L": 0.007076624297313153,
+ "all variant sites": [],
+ "aminoacid variant sites": [],
+ "any variation": 30,
  "map": [
   0,
   1,
@@ -1092,5 +1095,6 @@
  },
  "sequences": 32,
  "sites": 121,
+ "total sequences": 2134,
  "tree": "(epi_isl_416375_Shanghai_20200201_Illumina_1:0.002758,((((((((epi_isl_408668_Thanh_Hoa_20200124_Illumina_2:0.002759,epi_isl_417600_Reykjavik_20200317_Illumina_1:0.002759)Node9:1e-06,(epi_isl_418030_Washington_20200316_Illumina_1:0.002766,epi_isl_417379_Washington_20200315_Illumina_1:0.002756)Node12:1e-06)Node8:1e-06,((epi_isl_418233_Ile_de_France_20200315_Illumina_1:0.002759,epi_isl_417174_Washington_20200301_Illumina_2:0.002759)Node16:1e-06,epi_isl_416396_Shanghai_20200210_Illumina_1:0.002762)Node15:1e-06)Node7:1e-06,(epi_isl_416565_unknown_20200215_Illumina_4:0.002759,(((epi_isl_417860_Reykjavik_20200308_Illumina_1:0.002766,epi_isl_416446_Washington_20200310_Illumina_1:0.002759)Node24:1e-06,((epi_isl_417917_Kuala_Lumpur_20200320_Illumina_1:0.002759,epi_isl_416700_Washington_20200313_Illumina_5:0.002758)Node28:1e-06,((epi_isl_416325_Shanghai_20200202_Illumina_1:0.002756,epi_isl_413214_New_South_Wales_20200229_Illumina_6:0.002756)Node32:1e-06,epi_isl_417578_Reykjavik_20200317_Illumina_2:0.002759)Node31:1e-06)Node27:1e-06)Node23:1e-06,((epi_isl_416401_Shanghai_20200202_Illumina_1:0.002761,(epi_isl_417556_Reykjavik_20200317_Illumina_1:1e-06,epi_isl_413875_Guangdong_20200210_multiplex_pcr_nanopore_1:0.009443999999999999)Node39:0.002758)Node37:1e-06,epi_isl_402128_Hubei_20191230_MGISEQ_2085:1e-06)Node36:1e-06)Node22:1e-06)Node20:1e-06)Node6:1e-06,((epi_isl_408488_Jiangsu_20200119_Illumina_1:0.002763,(epi_isl_418186_Wisconsin_2020_03_null_1:0.005527,epi_isl_417800_Reykjavik_20200302_Illumina_1:0.002756)Node46:1e-06)Node44:1e-06,(epi_isl_417979_Madrid_20200303_Ion_1:0.002756,epi_isl_402129_Hubei_20191230_Illumina_1:0.002759)Node49:1e-06)Node43:1e-06)Node5:1e-06,(epi_isl_416354_Shanghai_20200204_Illumina_1:0.005526,(epi_isl_413863_Guangdong_20200201_metagenomics_BGI_1:0.011205,epi_isl_413486_Washington_20200301_Illumina_1:1e-06)Node54:0.002759)Node52:1e-06)Node4:1e-06,epi_isl_416432_Riyadh_20200307_null_1:0.002763)Node3:1e-06,(epi_isl_417719_Reykjavik_20200313_Illumina_1:0.002759,epi_isl_417722_Reykjavik_20200311_Illumina_1:0.002759)Node58:1e-06)Node2:1e-06,epi_isl_418122_Wales_20200313_Illumina_4:0.002757)"
 }
