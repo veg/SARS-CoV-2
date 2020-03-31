@@ -1,5 +1,5 @@
 FILE=$1
-NP=6
+NP=10
 HYPHY=/usr/local/bin/hyphy
 HYPHYMPI=/usr/local/bin/HYPHYMPI
 MAFFT=/usr/local/bin/mafft
@@ -25,7 +25,7 @@ else
     then
         echo "Already extracted"
     else
-        mpirun -np $NP $HYPHYMPI  /Users/sergei/Development/hyphy-analyses/codon-msa/pre-msa.bf --input $FILE --reference $REFERENCE_SEQUENCE --trim-from $TRIM_FROM --trim-to $TRIM_TO --N-fraction $N_FRAC
+        mpirun -np $NP --use-hwthread-cpus $HYPHYMPI  /Users/sergei/Development/hyphy-analyses/codon-msa/pre-msa.bf --input $FILE --reference $REFERENCE_SEQUENCE --trim-from $TRIM_FROM --trim-to $TRIM_TO --N-fraction $N_FRAC
         mv ${FILE}_protein.fas ${FILE}.${GENE}_protein.fas
         mv ${FILE}_nuc.fas ${FILE}.${GENE}_nuc.fas
     fi
@@ -72,28 +72,28 @@ else
     then
         echo "Already has SLAC results"
     else
-        mpirun -np $NP $HYPHYMPI slac --alignment ${FILE}.${GENE}.compressed.fas --tree ${FILE}.${GENE}.compressed.fas.raxml.bestTree --branches Internal --output ${FILE}.${GENE}.SLAC.json
+        mpirun --use-hwthread-cpus -np $NP $HYPHYMPI slac --alignment ${FILE}.${GENE}.compressed.fas --tree ${FILE}.${GENE}.compressed.fas.raxml.bestTree --branches Internal --output ${FILE}.${GENE}.SLAC.json
     fi
 
     if [ -s ${FILE}.${GENE}.FEL.json ] 
     then
         echo "Already has FEL results"
     else
-        mpirun -np $NP $HYPHYMPI fel --alignment ${FILE}.${GENE}.compressed.fas --tree ${FILE}.${GENE}.compressed.fas.raxml.bestTree --branches Internal --output ${FILE}.${GENE}.FEL.json
+        mpirun --use-hwthread-cpus -np $NP $HYPHYMPI fel --alignment ${FILE}.${GENE}.compressed.fas --tree ${FILE}.${GENE}.compressed.fas.raxml.bestTree --branches Internal --output ${FILE}.${GENE}.FEL.json
     fi
 
     if [ -s ${FILE}.${GENE}.MEME.json ] 
     then
         echo "Already has MEME results"
     else
-        mpirun -np $NP $HYPHYMPI meme --alignment ${FILE}.${GENE}.compressed.fas --tree ${FILE}.${GENE}.compressed.fas.raxml.bestTree --branches Internal --output ${FILE}.${GENE}.MEME.json
+        mpirun --use-hwthread-cpus -np $NP $HYPHYMPI meme --alignment ${FILE}.${GENE}.compressed.fas --tree ${FILE}.${GENE}.compressed.fas.raxml.bestTree --branches Internal --output ${FILE}.${GENE}.MEME.json
     fi
     
     if [ -s ${FILE}.${GENE}.PRIME.json ] 
     then
         echo "Already has PRIME results"
     else
-        mpirun -np $NP $HYPHYMPI prime --alignment ${FILE}.${GENE}.compressed.fas --tree ${FILE}.${GENE}.compressed.fas.raxml.bestTree --branches Internal --output ${FILE}.${GENE}.PRIME.json
+        mpirun --use-hwthread-cpus -np $NP $HYPHYMPI prime --alignment ${FILE}.${GENE}.compressed.fas --tree ${FILE}.${GENE}.compressed.fas.raxml.bestTree --branches Internal --output ${FILE}.${GENE}.PRIME.json
     fi
     
     python3 python/summarize-gene.py -D data/db/master-no-fasta.json -d ${FILE}.${GENE}.duplicates.json -s ${FILE}.${GENE}.SLAC.json -f ${FILE}.${GENE}.FEL.json -m ${FILE}.${GENE}.MEME.json -P 0.1 -p ${FILE}.${GENE}.PRIME.json --output  ${FILE}.${GENE}.json -c ${FILE}.${GENE}.withref.fas
