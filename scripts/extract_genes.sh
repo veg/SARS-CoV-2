@@ -6,7 +6,7 @@ MAFFT=/usr/local/bin/mafft
 RAXML=/usr/local/bin/raxml-ng
 TN93=/usr/local/bin/tn93
 
-function run_a_gene {
+function RunAGene {
 
 
 
@@ -60,9 +60,7 @@ else
         $TN93 -q -t 0.05 ${FILE}.${GENE}.withref.fas > ${FILE}.${GENE}.tn93 2> ${FILE}.${GENE}.tn93.json
         python3 python/tabulate-diversity-divergence.py -j data/db/master.json -t ${FILE}.${GENE}.tn93 > data/evolution.${GENE}.csv
     fi
-
-    return 0
-    
+   
     if [ -s ${FILE}.${GENE}.compressed.fas.raxml.bestTree ] 
     then
         echo "Already has tree"
@@ -138,14 +136,14 @@ fi
 
 }
 
-run_a_gene "S" "data/reference_genes/S.fas" "20000" "27000" 0.005
-run_a_gene "M" "data/reference_genes/M.fas" "25000" "30000" 0.01
-run_a_gene "N" "data/reference_genes/N.fas" "26000" "35000" 0.01
-run_a_gene "ORF3a" "data/reference_genes/ORF3a.fas" "24000" "27000" 0.05
-run_a_gene "ORF6" "data/reference_genes/ORF6.fas" "26000" "30000" 0.05
-run_a_gene "ORF7a" "data/reference_genes/ORF7a.fas" "26000" "35000" 0.05
-run_a_gene "ORF8" "data/reference_genes/ORF8.fas" "26000" "35000" 0.05
-run_a_gene "ORF1a" "data/reference_genes/ORF1a.fas" "1" "15000" 0.001
-run_a_gene "ORF1b" "data/reference_genes/ORF1b.fas" "12000" "24000" 0.001
+RunAGene "S" "data/reference_genes/S.fas" "20000" "27000" 0.005
+RunAGene "M" "data/reference_genes/M.fas" "25000" "30000" 0.01
+RunAGene "N" "data/reference_genes/N.fas" "26000" "35000" 0.01
+RunAGene "ORF3a" "data/reference_genes/ORF3a.fas" "24000" "27000" 0.05
+RunAGene "ORF6" "data/reference_genes/ORF6.fas" "26000" "30000" 0.05
+RunAGene "ORF7a" "data/reference_genes/ORF7a.fas" "26000" "35000" 0.05
+RunAGene "ORF8" "data/reference_genes/ORF8.fas" "26000" "35000" 0.05
+RunAGene "ORF1a" "data/reference_genes/ORF1a.fas" "1" "15000" 0.001
+RunAGene "ORF1b" "data/reference_genes/ORF1b.fas" "12000" "24000" 0.001
 
 
