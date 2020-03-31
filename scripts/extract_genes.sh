@@ -37,7 +37,7 @@ else
         $MAFFT ${FILE}.${GENE}_protein.fas > ${FILE}.${GENE}.msa
     fi
         
-    if [ -s ${FILE}.${GENE}.compressed.fas ] 
+    if [ -s ${FILE}.${GENE}.duplicates.json ] 
     then
         echo "Already reverse translated"
     else
@@ -52,7 +52,7 @@ else
     else
         $MAFFT --add $REFERENCE_SEQUENCE --reorder ${FILE}.${GENE}.all.fas > ${FILE}.${GENE}.withref.fas
     fi 
-
+    
     if [ -s ${FILE}.${GENE}.tn93 ] 
     then
         echo "Already computed TN93"
@@ -98,12 +98,13 @@ else
     
     python3 python/summarize-gene.py -D data/db/master-no-fasta.json -d ${FILE}.${GENE}.duplicates.json -s ${FILE}.${GENE}.SLAC.json -f ${FILE}.${GENE}.FEL.json -m ${FILE}.${GENE}.MEME.json -P 0.1 -p ${FILE}.${GENE}.PRIME.json --output  ${FILE}.${GENE}.json -c ${FILE}.${GENE}.withref.fas
 
-    if [ -s ${FILE}.${GENE}.BGM.json ] 
-    then
-        echo "Already has BGM results"
-    else
-       $HYPHY bgm --alignment ${FILE}.${GENE}.compressed.fas --tree ${FILE}.${GENE}.compressed.fas.raxml.bestTree --branches Internal --min-subs 1 --type codon
-    fi
+    #if [ -s ${FILE}.${GENE}.BGM.json ] 
+    #then
+    #    echo "Already has BGM results"
+    #else
+    #   $HYPHY bgm --alignment ${FILE}.${GENE}.compressed.fas --tree ${FILE}.${GENE}.compressed.fas.raxml.bestTree --branches Internal --min-subs 1 --type codon
+    #   mv ${FILE}.${GENE}.compressed.fas.BGM.json ${FILE}.${GENE}.BGM.json
+    #fi
 
     #if [ -s ${FILE}.${GENE}.FADE.json ] 
     #then
@@ -112,7 +113,6 @@ else
     #    $HYPHY scripts/reroot-on-oldest.bf --tree ${FILE}.${GENE}.compressed.fas.raxml.bestTree --csv data/attributes.csv --output ${FILE}.${GENE}.compressed.fas.rooted
     #    $HYPHY conv Universal "Keep Deletions" ${FILE}.${GENE}.compressed.fas  ${FILE}.${GENE}.compressed.fas.prot
     #    $HYPHY fade --alignment ${FILE}.${GENE}.compressed.fas.prot --tree ${FILE}.${GENE}.compressed.fas.rooted --branches Internal
-    #    mpirun -np $NP $HYPHYMPI bgm --alignment ${FILE}.${GENE}.compressed.fas --tree ${FILE}.${GENE}.compressed.fas.raxml.bestTree --branches Internal --min-subs 2 --type codon
     #fi
 
 
