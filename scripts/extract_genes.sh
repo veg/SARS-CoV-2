@@ -53,13 +53,13 @@ else
         $MAFFT --add $REFERENCE_SEQUENCE --reorder ${FILE}.${GENE}.all.fas > ${FILE}.${GENE}.withref.fas
     fi 
     
-    if [ -s ${FILE}.${GENE}.tn93 ] 
-    then
-        echo "Already computed TN93"
-    else
+    #if [ -s ${FILE}.${GENE}.tn93 ] 
+    #then
+    #    echo "Already computed TN93"
+    #else
         $TN93 -q -t 0.05 ${FILE}.${GENE}.withref.fas > ${FILE}.${GENE}.tn93 2> ${FILE}.${GENE}.tn93.json
         python3 python/tabulate-diversity-divergence.py -j data/db/master.json -t ${FILE}.${GENE}.tn93 > data/evolution.${GENE}.csv
-    fi
+    #fi
    
     if [ -s ${FILE}.${GENE}.compressed.fas.raxml.bestTree ] 
     then
