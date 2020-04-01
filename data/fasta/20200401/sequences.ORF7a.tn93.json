@@ -1,0 +1,3 @@
+dyld: Library not loaded: /usr/local/opt/gcc/lib/gcc/8/libgomp.1.dylib
+  Referenced from: /usr/local/bin/tn93
+  Reason: image not found
