@@ -38,7 +38,6 @@ for (seq; in; T) {
 }
 
 root.output = io.PromptUserForFilePath ("Write the rerooted tree to");
-console.log ((trees.RootTree (root.tree , root.oldest_sequence)));
 fprintf (root.output, CLEAR_FILE, ((trees.RootTree (root.tree , root.oldest_sequence))["tree"])[terms.trees.newick_with_lengths])
 
 
