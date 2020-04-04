@@ -110,6 +110,7 @@ site_list = {}
 sequences = slac["input"]["number of sequences"]
 sites = slac["input"]["number of sites"]
 tree = slac["input"]["trees"]["0"]
+branch_lengths = {}
 
 L = 0
 
@@ -117,6 +118,7 @@ variants_by_site   = [{} for k in range (sites)]
 aa_variants_by_site = [{} for k in range (sites)]
 
 for b,v in slac["tested"]["0"].items():
+    branch_lengths[b] = meme["branch attributes"]["0"][b]["Global MG94xREV"]
     if v == "test":
         L += slac["branch attributes"]["0"][b]["Global MG94xREV"]
     else:
@@ -202,6 +204,7 @@ for site in site_list:
         
 json_out = {
     'sequences' : sequences,
+    'bl' : branch_lengths,
     'total sequences' : sum ([len (k) for k in dups.values()]),
     'aminoacid variant sites' : [v for v in aa_variants_by_site if len (v) > 1 and len ([c for c in v.values() if c>1]) > 1],
     'all variant sites' : [v for v in variants_by_site if len (v) > 1 and len ([c for c in v.values() if c>1]) > 1],
