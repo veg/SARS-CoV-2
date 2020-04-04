@@ -9,6 +9,33 @@
  ],
  "aminoacid variant sites": [],
  "any variation": 22,
+ "bl": {
+  "Node34": 0.00634289235337309,
+  "epi_isl_402120_Hubei_20200101_null_3478": 0,
+  "epi_isl_414010_England_20200226_Illumina_1": 0,
+  "epi_isl_415144_England_20200227_Illumina_22": 0,
+  "epi_isl_415608_Washington_20200308_Illumina_7": 0.005528776946625969,
+  "epi_isl_415655_Wales_20200312_Nanopore_1": 0.005509945371932843,
+  "epi_isl_416620_unknown_20200217_Illumina_1": 0.005510858301453174,
+  "epi_isl_416636_Washington_20200312_Illumina_1": 0.005534777120392077,
+  "epi_isl_417356_Washington_20200313_Illumina_2": 0.005519154144167587,
+  "epi_isl_417368_USA_20200313_Illumina_1": 0.005510858158519862,
+  "epi_isl_417952_Madrid_20200309_Ion_1": 0.03575341056171148,
+  "epi_isl_418099_Wales_20200313_Illumina_1": 0,
+  "epi_isl_418141_Wales_20200313_Illumina_1": 0,
+  "epi_isl_418210_Touba_20200310_Illumina_6": 0.005526779318452428,
+  "epi_isl_418305_South_Yorkshire_20200325_Nanopore_1": 0.005513690938994893,
+  "epi_isl_418311_Derbyshire_20200325_Nanopore_1": 0.005519450723112863,
+  "epi_isl_418371_Ontario_20200307_Illumina_2": 0.005500058605498557,
+  "epi_isl_418431_ARA_20200318_Illumina_1": 0.005532148224003694,
+  "epi_isl_418750_England_20200318_Illumina_1": 0.005522422854859238,
+  "epi_isl_418861_Barcelona_20200324_null_1": 0.005482332190266542,
+  "epi_isl_419184_ARA_20200322_Illumina_1": 0.005495723906264984,
+  "epi_isl_419546_Duesseldorf_20200315_Nanopore_1": 0,
+  "epi_isl_419875_Victoria_20200318_Illumina_1": 0.005496248923328311,
+  "epi_isl_419898_Victoria_20200319_Illumina_1": 0.005519542991663137,
+  "epi_isl_419947_Victoria_20200321_Illumina_1": 0.005535832772031434
+ },
  "dN/dS": {
   "internal": [
    [
