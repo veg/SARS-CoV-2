@@ -166,24 +166,24 @@ for site in site_list:
                 "date" -> count
     '''
     for node,value in slac["branch attributes"]["0"].items():
-        aa_value = value["amino-acid"][0][site]
-        if aa_value not in composition:
-            composition[aa_value] = 1
-        else:
-            composition[aa_value] += 1
+        if "amino-acid" in value:
+            aa_value = value["amino-acid"][0][site]
+            if aa_value not in composition:
+                composition[aa_value] = 1
+            else:
+                composition[aa_value] += 1
             
-        if node in date_dups:
-            if aa_value not in timing:
-                timing [aa_value] = {}
-            for dt, cnt in date_dups[node].items():
-                if not dt in timing [aa_value]:
-                    timing [aa_value][dt] = cnt
-                else:
-                    timing [aa_value][dt] += cnt
-            
-        
+            if node in date_dups:
+                if aa_value not in timing:
+                    timing [aa_value] = {}
+                for dt, cnt in date_dups[node].items():
+                    if not dt in timing [aa_value]:
+                        timing [aa_value][dt] = cnt
+                    else:
+                        timing [aa_value][dt] += cnt
              
-        labels[node] = [aa_value,value["codon"][0][site],value["nonsynonymous substitution count"][0][site],value["synonymous substitution count"][0][site]]
+            labels[node] = [aa_value,value["codon"][0][site],value["nonsynonymous substitution count"][0][site],value["synonymous substitution count"][0][site]]
+    
     site_list[site]['composition'] = composition
     site_list[site]['labels'] = labels
     site_list[site]['timing'] = timing

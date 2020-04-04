@@ -34,3 +34,6 @@ The master file and archived version, created by each non-trivial update, are st
 | `data/raw/20200331-3.fas` | March 31 2020 (20:07) | **11** new sequences added. **43** duplicate sequences. **0** sequences errored | |
 | `data/raw/20200401-1.json` | April 01 2020 (21:03) | **77** new sequences added. **4** duplicate sequences. **0** sequences errored | |
 | `data/raw/20200401-2.json` | April 01 2020 (21:03) | **7** new sequences added. **74** duplicate sequences. **0** sequences errored | |
+| `data/raw/20200402-1.json` | April 02 2020 (11:35) | **22** new sequences added. **32** duplicate sequences. **0** sequences errored | |
+| `data/raw/20200402-2.json` | April 02 2020 (17:56) | **219** new sequences added. **23** duplicate sequences. **1** sequences errored | |
+| `data/raw/20200403.json` | April 03 2020 (19:01) | **375** new sequences added. **3** duplicate sequences. **0** sequences errored | |
