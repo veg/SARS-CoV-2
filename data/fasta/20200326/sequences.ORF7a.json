@@ -1,5 +1,8 @@
 {
  "L": 5.42146130691019e-05,
+ "all variant sites": [],
+ "aminoacid variant sites": [],
+ "any variation": 18,
  "map": [
   0,
   1,
@@ -127,5 +130,6 @@
  "selection": {},
  "sequences": 18,
  "sites": 121,
+ "total sequences": 1484,
  "tree": "((epi_isl_416401_Shanghai_20200202_Illumina_1:0.002757,(epi_isl_416325_Shanghai_20200202_Illumina_1:0.002753,epi_isl_413214_New_South_Wales_20200229_Illumina_6:0.002753)Node3:1e-06)Node1:1e-06,((((epi_isl_402129_Hubei_20191230_Illumina_1:0.002756,epi_isl_417174_Washington_20200301_Illumina_1:0.002756)Node9:1e-06,(epi_isl_413486_Washington_20200301_Illumina_1:0.002756,epi_isl_416565_unknown_20200215_Illumina_3:0.002756)Node12:1e-06)Node8:1e-06,(epi_isl_416396_Shanghai_20200210_Illumina_1:0.00276,(epi_isl_416375_Shanghai_20200201_Illumina_1:0.002754,epi_isl_402128_Hubei_20191230_MGISEQ_1456:1e-06)Node17:1e-06)Node15:1e-06)Node7:1e-06,((epi_isl_416354_Shanghai_20200204_Illumina_1:0.005517,epi_isl_416446_Washington_20200310_Illumina_1:0.002756)Node21:1e-06,(((epi_isl_413875_Guangdong_20200210_multiplex_pcr_nanopore_1:0.009495,epi_isl_416700_Washington_20200313_Illumina_4:0.002756)Node26:1e-06,epi_isl_408488_Jiangsu_20200119_Illumina_1:0.002759)Node25:1e-06,(epi_isl_417379_Washington_20200315_Illumina_1:0.002753,epi_isl_408668_Thanh_Hoa_20200124_Illumina_2:0.002756)Node30:1e-06)Node24:1e-06)Node20:1e-06)Node6:1e-06,epi_isl_416432_Riyadh_20200307_null_1:0.002759)"
 }

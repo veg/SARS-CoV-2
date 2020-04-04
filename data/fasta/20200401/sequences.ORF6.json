@@ -1,0 +1,103 @@
+{
+ "L": 0.02195887307861473,
+ "all variant sites": [
+  {
+   "ATG": 2,
+   "TTT": 17
+  },
+  {
+   "GAC": 2,
+   "GAT": 15
+  }
+ ],
+ "aminoacid variant sites": [
+  {
+   "F": 17,
+   "M": 2
+  }
+ ],
+ "any variation": 19,
+ "dN/dS": {
+  "internal": [
+   [
+    0.5268930081861972,
+    1
+   ]
+  ],
+  "leaves": [
+   [
+    1.029606887485873,
+    1
+   ]
+  ]
+ },
+ "map": [
+  0,
+  1,
+  2,
+  3,
+  4,
+  5,
+  6,
+  7,
+  8,
+  9,
+  10,
+  11,
+  12,
+  13,
+  14,
+  15,
+  16,
+  17,
+  18,
+  19,
+  20,
+  21,
+  22,
+  23,
+  24,
+  25,
+  26,
+  27,
+  28,
+  29,
+  30,
+  31,
+  32,
+  33,
+  34,
+  35,
+  36,
+  37,
+  38,
+  39,
+  40,
+  41,
+  42,
+  43,
+  44,
+  45,
+  46,
+  47,
+  48,
+  49,
+  50,
+  51,
+  52,
+  53,
+  54,
+  55,
+  56,
+  57,
+  58,
+  59,
+  60
+ ],
+ "p": 0.1,
+ "selection": {},
+ "sequences": 19,
+ "sites": 61,
+ "total sequences": 2802,
+ "tree": "((epi_isl_418073_Washington_20200315_Illumina_1:1e-06,epi_isl_417559_Reykjavik_20200317_Illumina_1:0.01168)Node1:0.011218,(((epi_isl_417374_Washington_20200315_Illumina_1:0.005469,epi_isl_418315_Derbyshire_20200325_Nanopore_1:0.005461)Node6:1e-06,((epi_isl_415700_Switzerland_20200228_null_1:0.005469,epi_isl_418757_England_20200318_Illumina_1:0.005451)Node10:1e-06,(epi_isl_416626_unknown_20200217_Illumina_2:0.005469,epi_isl_415618_Washington_20200309_Illumina_29:0.005469)Node13:1e-06)Node9:1e-06)Node5:1e-06,(epi_isl_403928_Hubei_20200101_null_2718:1e-06,(((epi_isl_418905_Washington_20200324_Illumina_1:0.005451,epi_isl_418323_Ontario_20200314_Illumina_1:0.005451)Node20:1e-06,(epi_isl_418631_Li_ge_20200314_Nanopore_1:0.005469,(epi_isl_413857_Guangdong_20200131_metagenomics_BGI_1:0.011233,(epi_isl_417363_Washington_20200314_Illumina_2:0.005461,epi_isl_415153_Huldenberg_20200303_Nanopore_27:1e-06)Node27:1e-06)Node25:0.00546)Node23:1e-06)Node19:1e-06,(epi_isl_416642_Washington_20200311_Illumina_1:0.005456,(epi_isl_418103_Wales_20200315_Illumina_1:0.017185,epi_isl_418216_Dakar_20200313_Illumina_11:0.002736)Node32:0.00274)Node30:1e-06)Node18:1e-06)Node16:1e-06)Node4:1e-06,epi_isl_418380_Ontario_2020_Illumina_1:0.005461)"
+}

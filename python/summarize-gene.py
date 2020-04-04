@@ -112,9 +112,32 @@ sites = slac["input"]["number of sites"]
 tree = slac["input"]["trees"]["0"]
 
 L = 0
+
+variants_by_site   = [{} for k in range (sites)]
+aa_variants_by_site = [{} for k in range (sites)]
+
 for b,v in slac["tested"]["0"].items():
     if v == "test":
         L += slac["branch attributes"]["0"][b]["Global MG94xREV"]
+    else:
+        for k in range (sites):
+            codon = slac["branch attributes"]["0"][b]["codon"][0][k]
+            if codon != '---':
+                if codon not in variants_by_site[k]:
+                    variants_by_site[k][codon] = 1
+                else:
+                    variants_by_site[k][codon] += 1
+                aa = slac["branch attributes"]["0"][b]["amino-acid"][0][k]
+                if aa not in aa_variants_by_site[k]:
+                    aa_variants_by_site[k][aa] = 1
+                else:
+                    aa_variants_by_site[k][aa] += 1
+                
+ 
+                          
+        
+variant_count_total = 0
+variant_count_NS    = 0
         
     
 for i, row in enumerate (fel["MLE"]["content"]["0"]):
@@ -179,12 +202,20 @@ for site in site_list:
         
 json_out = {
     'sequences' : sequences,
+    'total sequences' : sum ([len (k) for k in dups.values()]),
+    'aminoacid variant sites' : [v for v in aa_variants_by_site if len (v) > 1 and len ([c for c in v.values() if c>1]) > 1],
+    'all variant sites' : [v for v in variants_by_site if len (v) > 1 and len ([c for c in v.values() if c>1]) > 1],
+    'any variation' : len ([v for v in variants_by_site if len (v) > 1]),
     'sites' : sites,
     'tree' : tree,
     'L' : L,
     'p' : import_settings.pvalue,
     'selection' : site_list,
-    'map' : ref_seq_map
+    'map' : ref_seq_map,
+    'dN/dS' : {
+        'internal' :  meme["fits"]["Global MG94xREV"]["Rate Distributions"]["non-synonymous/synonymous rate ratio for *test*"],
+        'leaves'   :  meme["fits"]["Global MG94xREV"]["Rate Distributions"]["non-synonymous/synonymous rate ratio for *background*"]
+    }
 }
 
 json.dump (json_out, import_settings.output, sort_keys = True, indent = 1)

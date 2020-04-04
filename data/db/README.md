@@ -26,3 +26,11 @@ The master file and archived version, created by each non-trivial update, are st
 | `data/raw/20200328-1.json` | March 28 2020 (07:30) | **224** new sequences added. **0** duplicate sequences. **0** sequences errored | |
 | `data/raw/20200328-2.json` | March 28 2020 (07:31) | **26** new sequences added. **26** duplicate sequences. **2** sequences errored | |
 | `data/raw/20200329.json` | March 29 2020 (08:42) | **62** new sequences added. **73** duplicate sequences. **0** sequences errored | |
+| `data/raw/20200330.json` | March 30 2020 (07:17) | **26** new sequences added. **55** duplicate sequences. **0** sequences errored | |
+| `data/raw/20200330-1.json` | March 30 2020 (09:53) | **158** new sequences added. **3** duplicate sequences. **0** sequences errored | |
+| `data/raw/20200330-2.json` | March 30 2020 (09:54) | **1** new sequences added. **53** duplicate sequences. **0** sequences errored | |
+| `data/raw/20200331-1.fas` | March 30 2020 (23:40) | **216** new sequences added. **0** duplicate sequences. **0** sequences errored | |
+| `data/raw/20200331-2.fas` | March 31 2020 (20:06) | **133** new sequences added. **2** duplicate sequences. **0** sequences errored | |
+| `data/raw/20200331-3.fas` | March 31 2020 (20:07) | **11** new sequences added. **43** duplicate sequences. **0** sequences errored | |
+| `data/raw/20200401-1.json` | April 01 2020 (21:03) | **77** new sequences added. **4** duplicate sequences. **0** sequences errored | |
+| `data/raw/20200401-2.json` | April 01 2020 (21:03) | **7** new sequences added. **74** duplicate sequences. **0** sequences errored | |

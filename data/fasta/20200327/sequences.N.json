@@ -1,5 +1,145 @@
 {
  "L": 0.014111398328935723,
+ "all variant sites": [
+  {
+   "CAG": 117,
+   "CAT": 2
+  },
+  {
+   "GAT": 117,
+   "TAT": 2
+  },
+  {
+   "CTG": 6,
+   "TTG": 112
+  },
+  {
+   "CGC": 117,
+   "CTC": 2
+  },
+  {
+   "TCA": 117,
+   "TTA": 2
+  },
+  {
+   "AAT": 2,
+   "AGT": 117
+  },
+  {
+   "AAA": 15,
+   "AAG": 1,
+   "AGG": 103
+  },
+  {
+   "CGA": 15,
+   "GGA": 104
+  },
+  {
+   "GAA": 2,
+   "GAG": 117
+  },
+  {
+   "TTC": 117,
+   "TTT": 2
+  },
+  {
+   "CAG": 117,
+   "CAT": 2
+  },
+  {
+   "AAA": 115,
+   "AAG": 4
+  },
+  {
+   "AAG": 114,
+   "AAT": 1,
+   "CAA": 1,
+   "GAC": 3
+  },
+  {
+   "AAA": 1,
+   "AAG": 114,
+   "AAT": 2,
+   "CTG": 1
+  },
+  {
+   "CAA": 117,
+   "CAG": 2
+  },
+  {
+   "CCA": 2,
+   "CCG": 116,
+   "CCT": 1
+  },
+  {
+   "CTT": 1,
+   "GTG": 115,
+   "GTT": 2
+  },
+  {
+   "GAT": 116,
+   "TAT": 2
+  },
+  {
+   "AGT": 1,
+   "GCT": 116,
+   "TCT": 2
+  }
+ ],
+ "aminoacid variant sites": [
+  {
+   "H": 2,
+   "Q": 117
+  },
+  {
+   "D": 117,
+   "Y": 2
+  },
+  {
+   "L": 2,
+   "R": 117
+  },
+  {
+   "L": 2,
+   "S": 117
+  },
+  {
+   "N": 2,
+   "S": 117
+  },
+  {
+   "K": 16,
+   "R": 103
+  },
+  {
+   "G": 104,
+   "R": 15
+  },
+  {
+   "H": 2,
+   "Q": 117
+  },
+  {
+   "D": 3,
+   "K": 114,
+   "N": 1,
+   "Q": 1
+  },
+  {
+   "K": 115,
+   "L": 1,
+   "N": 2
+  },
+  {
+   "D": 116,
+   "Y": 2
+  },
+  {
+   "A": 116,
+   "S": 3
+  }
+ ],
+ "any variation": 119,
  "map": [
   0,
   1,
@@ -3473,5 +3613,6 @@
  },
  "sequences": 119,
  "sites": 419,
+ "total sequences": 1894,
  "tree": "(((epi_isl_412972_Mexico_City_20200227_Ion_3:0.000811,epi_isl_414450_Noord_Brabant_20200306_Nanopore_2:0.00081)Node2:1e-06,(epi_isl_413873_Guangdong_20200228_multiplex_pcr_nanopore_1:0.00081,epi_isl_414507_North_Rhine_Westphalia_20200303_Nanopore_6:0.000813)Node5:1e-06)Node1:1e-06,((((((epi_isl_416657_Washington_20200311_Illumina_1:0.00081,epi_isl_417084_Washington_20200302_Illumina_2:0.000811)Node13:1e-06,(epi_isl_416437_Washington_20200310_Illumina_8:0.00081,epi_isl_417730_Reykjavik_20200310_Illumina_1:0.002437)Node16:1e-06)Node12:1e-06,(((epi_isl_413693_China_2020_01_MGI_2:0.00081,epi_isl_417351_Washington_20200312_Illumina_1:0.00081)Node21:1e-06,(((epi_isl_413557_California_2020_Illumina_1:0.000811,epi_isl_413018_South_Korea_20200206_Illumina_1:0.00081)Node26:1e-06,(epi_isl_415585_British_Columbia_20200304_Nanopore_2:0.00081,epi_isl_416645_Washington_20200311_Illumina_1:0.000811)Node29:1e-06)Node25:1e-06,(((epi_isl_416042_Hangzhou_20200126_Novaseq_1:0.00081,epi_isl_416412_Victoria_20200302_Ilumina_1:0.000812)Node34:1e-06,(epi_isl_416354_Shanghai_20200204_Illumina_2:0.00081,epi_isl_416655_Washington_20200311_Illumina_1:0.00081)Node37:1e-06)Node33:1e-06,((((epi_isl_404253_Illinois_20200121_Sanger__28:0.00081,epi_isl_416697_Washington_20200313_Illumina_1:0.000811)Node43:1e-06,(epi_isl_417608_Reykjavik_20200317_Illumina_1:0.00081,epi_isl_416371_Shanghai_20200205_Illumina_1:0.00081)Node46:1e-06)Node42:1e-06,(epi_isl_416670_Washington_20200312_Illumina_3:0.000811,epi_isl_415454_Switzerland_20200228_null_4:0.00081)Node49:1e-06)Node41:1e-06,((((epi_isl_417767_Reykjavik_20200303_Illumina_1:0.00081,epi_isl_414477_Usti_nad_Labem_20200301_Nanopore_1:0.00081)Node55:1e-06,(epi_isl_414623_Grand_Est_20200225_Illumina_1:0.000811,epi_isl_417756_Reykjavik_20200306_Illumina_1:0.00081)Node58:1e-06)Node54:1e-06,((epi_isl_406534_Guangdong_20200122_null_1:0.000811,epi_isl_416571_unknown_20200215_Illumina_7:0.00081)Node62:1e-06,(((((epi_isl_413648_Portugal_20200301_Illumina_1:0.000402,epi_isl_413876_Guangdong_20200210_multiplex_pcr_nanopore_1:0.0008140000000000001)Node69:0.000408,epi_isl_415516_Noord_Brabant_20200311_Nanopore_1:0.00081)Node68:1e-06,((epi_isl_417624_Reykjavik_20200318_Illumina_1:0.00081,epi_isl_417878_Bratislava_20200307_Illumina_1:1e-06)Node74:0.00081,(epi_isl_416351_Shanghai_20200206_Illumina_1:0.000819,epi_isl_408008_California_20200129_Sanger_36:1e-06)Node77:0.000811)Node73:1e-06)Node67:1e-06,((epi_isl_408485_Beijing_20200118_Illumina_1:0.00081,epi_isl_417571_Reykjavik_20200317_Illumina_1:0.001622)Node81:1e-06,(epi_isl_406799_Wuhan_20191231_DNBSEQ_1:0.00081,(epi_isl_415503_Noord_Brabant_20200311_Nanopore_1:1e-06,epi_isl_417606_Reykjavik_20200317_Illumina_1:0.002491)Node86:0.000809)Node84:1e-06)Node80:1e-06)Node66:1e-06,(((((epi_isl_416389_Shanghai_20200121_Illumina_1:0.00081,epi_isl_413857_Guangdong_20200131_metagenomics_BGI_2:0.00081)Node93:1e-06,(epi_isl_416689_Washington_20200314_Illumina_1:0.00081,epi_isl_417217_England_20200301_Illumina_1:0.001622)Node96:1e-06)Node92:1e-06,(epi_isl_413563_Washington_20200303_Illumina_2:0.00081,epi_isl_417481_Reykjavik_20200313_Illumina_2:0.000812)Node99:1e-06)Node91:1e-06,(((epi_isl_414017_Sao_Paulo_20200304_Ion_15:0.00081,epi_isl_413623_USA_20200224_null_3:0.00081)Node104:1e-06,((epi_isl_414510_Shanghai_20200202_Illumina__12:0.001621,epi_isl_414586_Limerick_20200303_Nanopore_2:0.00081)Node108:1e-06,(epi_isl_415700_Switzerland_20200228_null_3:0.00081,epi_isl_417787_Reykjavik_20200312_Illumina_1:0.00081)Node111:1e-06)Node107:1e-06)Node103:1e-06,(((epi_isl_414540_Noord_Brabant_20200308_Nanopore_1:0.00081,epi_isl_412967_Guangzhou_20200129_Illumina_1:0.000813)Node116:1e-06,(((epi_isl_415584_British_Columbia_20200302_Nanopore_5:0.00081,epi_isl_415655_Wales_20200312_Nanopore_2:0.000811)Node121:1e-06,(epi_isl_415605_Washington_20200305_Illumina_1:0.00081,(epi_isl_417244_England_20200303_Illumina_1:0.0008140000000000001,epi_isl_410719_Singapore_20200202_Illumina_2:1e-06)Node126:0.00081)Node124:1e-06)Node120:1e-06,(((epi_isl_416360_Shanghai_20200201_Illumina_1:0.00081,epi_isl_417094_Washington_20200228_Illumina_1:0.000811)Node131:1e-06,((epi_isl_417290_England_20200306_Illumina_1:0.000811,epi_isl_417572_Reykjavik_20200317_Illumina_4:0.00081)Node135:1e-06,(epi_isl_415742_Taoyuan_20200227_Illumina_2:0.00081,((((epi_isl_417201_Wisconsin_20200321_Nanopore_1:0.001068,epi_isl_415787_Lima_20200310_Illumina_1:0.033438)Node143:0.001403,epi_isl_413928_California_20200305_Illumina_1:1e-06)Node142:1e-06,epi_isl_413925_California_20200305_Illumina_1:1e-06)Node141:0.002492,epi_isl_415528_Utrecht_20200312_Nanopore_1:1e-06)Node140:0.00081)Node138:1e-06)Node134:1e-06)Node130:1e-06,((epi_isl_416626_unknown_20200217_Illumina_2:0.00081,epi_isl_417287_England_20200306_Illumina_1:0.00081)Node150:1e-06,(((epi_isl_416446_Washington_20200310_Illumina_1:0.000811,(((((epi_isl_413595_NSW_20200228_Illumina_6:0.000813,epi_isl_417648_Reykjavik_20200318_Illumina_1:0.000812)Node161:1e-06,((epi_isl_417614_Reykjavik_20200318_Illumina_1:0.000816,epi_isl_415582_British_Columbia_20200304_Nanopore_1:0.000812)Node165:1e-06,(((epi_isl_414470_Zuid_Holland_20200306_Nanopore_7:0.000815,(epi_isl_417251_England_20200303_Illumina_2:0.000812,epi_isl_417550_Reykjavik_20200316_Illumina_7:0.000812)Node172:1e-06)Node170:1e-06,((epi_isl_413025_Washington_20200227_Illumina_1:0.000812,epi_isl_417740_Reykjavik_20200315_Illumina_2:0.000813)Node176:1e-06,(epi_isl_417285_England_20200306_Illumina_1:0.000812,epi_isl_414482_USA_20200218_Nanopore_1:0.000812)Node179:1e-06)Node175:1e-06)Node169:1e-06,epi_isl_412968_Japan_20200210_null_155:1e-06)Node168:1e-06)Node164:1e-06)Node160:1e-06,(epi_isl_414579_Santiago_20200303_Illumina_2:0.000812,epi_isl_417031_Queensland_20200311_null_1:0.000812)Node183:1e-06)Node159:1e-06,epi_isl_417841_Reykjavik_20200303_Illumina_2:0.000812)Node158:0.001632,epi_isl_417353_Washington_20200313_Illumina_1:1e-06)Node157:0.000811)Node155:1e-06,(epi_isl_417117_Washington_20200303_Illumina_1:0.00081,epi_isl_406594_Guandong_20200116_null_7:0.00081)Node188:1e-06)Node154:1e-06,(epi_isl_413647_Portugal_20200301_Illumina_1:0.00081,epi_isl_413879_Guangdong_20200205_multiplex_pcr_nanopore_3:0.000811)Node191:1e-06)Node153:1e-06)Node149:1e-06)Node129:1e-06)Node119:1e-06)Node115:1e-06,(((((epi_isl_413485_Anhui_20200124_null_5:0.000812,epi_isl_413603_Helsinki_20200303_Illumina_1:0.000812)Node198:1e-06,epi_isl_408488_Jiangsu_20200119_Illumina_120:1e-06)Node197:1e-06,(epi_isl_414578_Talca_20200304_Illumina_3:0.000812,epi_isl_414485_USA_20200224_Nanopore_1:0.000811)Node202:1e-06)Node196:1e-06,epi_isl_415978_Wales_20200308_null_5:0.000812)Node195:0.000811,epi_isl_417424_Kasterlee_20200304_Nanopore_1:0.000811)Node194:1e-06)Node114:1e-06)Node102:1e-06)Node90:1e-06,(epi_isl_414580_Santiago_20200305_Illumina_1:0.00081,(epi_isl_415643_Tbilisi_20200310_Illumina_2:1e-06,epi_isl_417259_England_20200304_Illumina_1:0.000811)Node209:0.000811)Node207:1e-06)Node89:1e-06)Node65:1e-06)Node61:1e-06)Node53:1e-06,epi_isl_402128_Hubei_20191230_MGISEQ_1309:1e-06)Node52:1e-06)Node40:1e-06)Node32:1e-06)Node24:1e-06)Node20:1e-06,((epi_isl_417631_Reykjavik_20200318_Illumina_1:0.0008229999999999999,(epi_isl_410218_Taipei_20200205_Sanger_7:1e-06,epi_isl_416361_Shanghai_20200201_Illumina_2:0.00081)Node216:0.000808)Node214:3e-06,(epi_isl_417610_Reykjavik_20200317_Illumina_1:0.004762,epi_isl_417638_Reykjavik_20200318_Illumina_1:1e-06)Node219:0.002761)Node213:1e-06)Node19:1e-06)Node11:1e-06,epi_isl_413609_USA_20200221_null_2:0.000813)Node10:1e-06,(epi_isl_416619_unknown_20200217_Illumina_1:0.00081,epi_isl_417163_Washington_20200305_Illumina_1:0.000811)Node223:1e-06)Node9:1e-06,epi_isl_414941_Shandong_20200130_null_1:0.000812)Node8:1e-06,(((epi_isl_406595_Guandong_20200116_null_1:0.000809,epi_isl_406798_Hubei_20191226_DNBSEQ_9:1e-06)Node229:0.00081,epi_isl_417520_Taoyuan_20200309_Illumina_2:0.000811)Node228:1e-06,(epi_isl_414584_Dublin_20200302_MinION_2:0.00081,epi_isl_413015_Ontario_20200123_Nanopore_1:0.000811)Node233:1e-06)Node227:1e-06)"
 }

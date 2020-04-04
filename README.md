@@ -1,6 +1,6 @@
 ### Daily analyses of SARS-CoV-2 genomic data
 
-> This project is a part of a larger effort with the Galaxy team: [covid19.galaxyproject.org](http://covid19.galaxyproject.org])
+> This project is a part of a larger effort with the Galaxy team: [covid19.galaxyproject.org](http://covid19.galaxyproject.org)
 
 #### TL;DR
 

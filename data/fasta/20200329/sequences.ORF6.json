@@ -1,5 +1,36 @@
 {
  "L": 0.02095425648755662,
+ "all variant sites": [
+  {
+   "ATG": 2,
+   "TTT": 11
+  },
+  {
+   "GAC": 2,
+   "GAT": 9
+  }
+ ],
+ "aminoacid variant sites": [
+  {
+   "F": 11,
+   "M": 2
+  }
+ ],
+ "any variation": 13,
+ "dN/dS": {
+  "internal": [
+   [
+    0.4045281869658594,
+    1
+   ]
+  ],
+  "leaves": [
+   [
+    1.194644631392212,
+    1
+   ]
+  ]
+ },
  "map": [
   0,
   1,
@@ -319,5 +350,6 @@
  },
  "sequences": 13,
  "sites": 61,
+ "total sequences": 2255,
  "tree": "((((epi_isl_418072_Washington_20200315_Illumina_1:1e-06,epi_isl_417556_Reykjavik_20200317_Illumina_1:0.011713)Node3:0.011196,epi_isl_415613_Washington_20200309_Illumina_9:0.005454)Node2:1e-06,((epi_isl_416625_unknown_20200217_Illumina_1:0.005454,epi_isl_415699_Switzerland_20200227_null_1:0.005454)Node8:1e-06,((epi_isl_417373_Washington_20200313_Illumina_1:0.005454,epi_isl_416641_Washington_20200311_Illumina_1:0.005432)Node12:1e-06,epi_isl_402128_Hubei_20191230_MGISEQ_2207:1e-06)Node11:1e-06)Node7:1e-06)Node1:1e-06,((epi_isl_415152_Panama_City_20200306_Illumina_18:1e-06,epi_isl_417362_Washington_20200313_Illumina_1:0.005451)Node17:1e-06,epi_isl_413855_Guangdong_20200207_metagenomics_BGI_2:0.011276)Node16:0.00545,(epi_isl_418102_Wales_20200315_Illumina_1:0.017138,epi_isl_418215_Touba_20200312_Illumina_11:0.002729)Node21:0.002733)"
 }

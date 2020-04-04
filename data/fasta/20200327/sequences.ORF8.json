@@ -1,5 +1,36 @@
 {
  "L": 0.02194821278607227,
+ "all variant sites": [
+  {
+   "AAA": 25,
+   "GAA": 2
+  },
+  {
+   "TCA": 11,
+   "TTA": 16
+  },
+  {
+   "GAG": 2,
+   "GAT": 24,
+   "TTA": 1
+  }
+ ],
+ "aminoacid variant sites": [
+  {
+   "E": 2,
+   "K": 25
+  },
+  {
+   "L": 16,
+   "S": 11
+  },
+  {
+   "D": 24,
+   "E": 2,
+   "L": 1
+  }
+ ],
+ "any variation": 23,
  "map": [
   0,
   1,
@@ -970,5 +1001,6 @@
  },
  "sequences": 27,
  "sites": 121,
+ "total sequences": 1971,
  "tree": "((((epi_isl_414363_Washington_20200304_Illumina_3:0.002812,epi_isl_417422_Dilbeek_20200304_Nanopore_2:0.002758)Node3:1e-06,epi_isl_402128_Hubei_20191230_MGISEQ_1470:1e-06)Node2:1e-06,((epi_isl_416666_Washington_20200312_Illumina_3:0.002756,epi_isl_417324_California_20200304_Illumina_1:0.002752)Node8:1e-06,(epi_isl_413928_California_20200305_Illumina_1:0.002758,((epi_isl_416411_Victoria_20200125_Ilumina_2:1e-06,epi_isl_417850_Reykjavik_20200305_Illumina_1:0.008838)Node14:0.002761,epi_isl_417281_England_20200306_Illumina_1:0.002756)Node13:1e-06)Node11:1e-06)Node7:1e-06)Node1:1e-06,(epi_isl_413873_Guangdong_20200228_multiplex_pcr_nanopore_2:0.002758,(((((epi_isl_408668_Thanh_Hoa_20200124_Illumina_2:0.002752,epi_isl_412116_England_20200209_Illumina_1:0.002752)Node24:1e-06,((((epi_isl_414934_Shandong_20200121_null_1:1e-06,epi_isl_413894_Guangdong_20200228_multiplex_pcr_nanopore_1:1e-06)Node30:0.01113,epi_isl_416349_Shanghai_20200130_Illumina_4:0.002749)Node29:1e-06,(epi_isl_416521_Saudi_Arabia_20200310_Illumina_2:0.002752,(epi_isl_417314_England_20200310_Illumina_1:0.002802,epi_isl_417773_Reykjavik_20200303_Illumina_1:1e-06)Node36:0.002808)Node34:1e-06)Node28:1e-06,(epi_isl_416684_Washington_20200314_Illumina_2:0.002752,epi_isl_417332_California_20200314_Illumina_1:0.002754)Node39:1e-06)Node27:1e-06)Node23:1e-06,epi_isl_404253_Illinois_20200121_Sanger__444:1e-06)Node22:1e-06,epi_isl_406534_Guangdong_20200122_null_15:0.002788)Node21:0.002753,epi_isl_412900_Hubei_20191230_Illumina_1:0.008357)Node20:1e-06)Node18:1e-06,((epi_isl_402129_Hubei_20191230_Illumina_1:0.002756,epi_isl_415538_Wales_20200312_Nanopore_1:0.002753)Node46:1e-06,(epi_isl_417529_Luxembourg_20200318_Illumina_2:0.002758,epi_isl_417440_Kinshasa_20200317_Illumina_5:0.002764)Node49:1e-06)Node45:1e-06)"
 }

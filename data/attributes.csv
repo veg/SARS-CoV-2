@@ -1,0 +1,1297 @@
+id,country,locality,state,subregion,submitted,collected
+epi_isl_402119,China,Wuhan,Hubei,Asia,20200110,20191230
+epi_isl_402120,China,Wuhan,Hubei,Asia,20200111,20200101
+epi_isl_402121,China,Wuhan,Hubei,Asia,20200110,20191230
+epi_isl_402123,China,Wuhan,Hubei,Asia,20200111,20191224
+epi_isl_402124,China,Wuhan,Hubei,Asia,20200111,20191230
+epi_isl_402125,China,,,Asia,20200112,20191231
+epi_isl_402126,Japan,,Kanagawa,Asia,20200116,20200114
+epi_isl_402127,China,Wuhan,Hubei,Asia,20200118,20191230
+epi_isl_402128,China,Wuhan,Hubei,Asia,20200118,20191230
+epi_isl_402129,China,Wuhan,Hubei,Asia,20200118,20191230
+epi_isl_402130,China,Wuhan,Hubei,Asia,20200118,20191230
+epi_isl_402131,China,Pu'er,Yunnan,Asia,20200124,20130724
+epi_isl_402132,China,Wuhan,Hubei,Asia,20200119,20191230
+epi_isl_403928,China,Wuhan,Hubei,Asia,20200121,20200101
+epi_isl_403929,China,Wuhan,Hubei,Asia,20200121,20191230
+epi_isl_403930,China,Wuhan,Hubei,Asia,20200121,20191230
+epi_isl_403931,China,Wuhan,Hubei,Asia,20200121,20191230
+epi_isl_403932,China,Shenzhen,Guandong,Asia,20200122,20200114
+epi_isl_403933,China,Shenzhen,Guandong,Asia,20200122,20200115
+epi_isl_403934,China,Shenzhen,Guandong,Asia,20200122,20200115
+epi_isl_403935,China,Shenzhen,Guangdong,Asia,20200122,20200115
+epi_isl_403936,China,Zhuhai,Guangdong,Asia,20200122,20200117
+epi_isl_403937,China,Zhuhai,Guangdong,Asia,20200122,20200118
+epi_isl_403962,Thailand,,Nonthaburi,Asia,20200117,20200108
+epi_isl_403963,Thailand,,Nonthaburi,Asia,20200117,20200113
+epi_isl_404227,China,,Zhejiang,Asia,20200121,20200116
+epi_isl_404228,China,,Zhejiang,Asia,20200121,20200117
+epi_isl_404253,USA,Chicago,Illinois,North America,20200125,20200121
+epi_isl_404895,USA,Snohomish County,Washington,North America,20200124,20200119
+epi_isl_405839,China,Shenzhen,Guangdong,Asia,20200124,20200111
+epi_isl_406030,China,Shenzhen,Guangdong,Asia,20200124,20200110
+epi_isl_406031,Taiwan,,Kaohsiung,Asia,20200127,20200123
+epi_isl_406034,USA,Los Angeles,California,North America,20200127,20200123
+epi_isl_406036,USA,Orange County,California,North America,20200127,20200122
+epi_isl_406223,USA,Phoenix,Arizona,North America,20200128,20200122
+epi_isl_406531,China,Zhuhai,Guangdong,Asia,20200129,20200122
+epi_isl_406533,China,Guangzhou,Guangdong,Asia,20200129,20200122
+epi_isl_406534,China,Foshan,Guangdong,Asia,20200129,20200122
+epi_isl_406535,China,Foshan,Guangdong,Asia,20200129,20200122
+epi_isl_406536,China,Foshan,Guangdong,Asia,20200129,20200122
+epi_isl_406538,China,,Guangdong,Asia,20200129,20200123
+epi_isl_406592,China,Shenzhen,Guandong,Asia,20200129,20200113
+epi_isl_406593,China,Shenzhen,Guandong,Asia,20200129,20200113
+epi_isl_406594,China,Shenzhen,Guandong,Asia,20200129,20200116
+epi_isl_406595,China,Shenzhen,Guandong,Asia,20200129,20200116
+epi_isl_406596,France,Paris,Ile-de-France,Europe,20200129,20200123
+epi_isl_406597,France,Paris,Ile-de-France,Europe,20200129,20200123
+epi_isl_406716,China,Wuhan,Hubei,Asia,20200130,20200102
+epi_isl_406717,China,Wuhan,Hubei,Asia,20200130,20200102
+epi_isl_406798,China,Wuhan,Hubei,Asia,20200130,20191226
+epi_isl_406799,China,,Wuhan,Asia,20200130,20191231
+epi_isl_406800,China,Wuhan,Hubei,Asia,20200130,20200101
+epi_isl_406801,China,Wuhan,Hubei,Asia,20200130,20200105
+epi_isl_406844,Australia,Clayton,Victoria,Oceania,20200131,20200125
+epi_isl_406862,Germany,Munich,Bavaria,Europe,20200131,20200128
+epi_isl_406959,Italy,,Rome,Europe,20200201,2020-01
+epi_isl_406960,Italy,,Rome,Europe,20200201,2020-01
+epi_isl_406970,China,Hangzhou,Zhejiang,Asia,20200203,20200120
+epi_isl_406973,Singapore,,,Asia,20200203,20200123
+epi_isl_407071,United Kingdom,,England,Europe,20200203,20200129
+epi_isl_407073,United Kingdom,,England,Europe,20200203,20200129
+epi_isl_407079,Finland,,Lapland,Europe,20200203,20200129
+epi_isl_407084,Japan,,Aichi,Asia,20200204,20200125
+epi_isl_407193,South Korea,,Gyeonggi-do,Asia,20200204,20200125
+epi_isl_407214,USA,,Washington,North America,20200204,20200125
+epi_isl_407215,USA,,Washington,North America,20200204,20200125
+epi_isl_407313,China,Hangzhou,Zhejiang,Asia,20200205,20200119
+epi_isl_407893,Australia,Sydney,New South Wales,Oceania,20200206,20200124
+epi_isl_407894,Australia,Gold Coast,Queensland,Oceania,20200206,20200128
+epi_isl_407896,Australia,Gold Coast,Queensland,Oceania,20200206,20200130
+epi_isl_407976,Belgium,,Leuven,Europe,20200207,20200203
+epi_isl_407987,Singapore,,,Asia,20200207,20200125
+epi_isl_407988,Singapore,,,Asia,20200207,20200201
+epi_isl_408008,USA,,California,North America,20200207,20200129
+epi_isl_408009,USA,,California,North America,20200207,20200129
+epi_isl_408010,USA,,California,North America,20200207,20200129
+epi_isl_408068,Italy,,Rome,Europe,20200207,20200129
+epi_isl_408430,France,Paris,Ile-de-France,Europe,20200208,20200129
+epi_isl_408431,France,Paris,Ile-de-France,Europe,20200208,20200129
+epi_isl_408478,China,Yongchuan,Chongqinq,Asia,20200209,20200121
+epi_isl_408479,China,Zhongxian,Chongqing,Asia,20200209,20200123
+epi_isl_408480,China,Kunming,Yunnan,Asia,20200209,20200117
+epi_isl_408481,China,,Chongqing,Asia,20200209,20200118
+epi_isl_408482,China,Qingdao,Shandong,Asia,20200209,20200119
+epi_isl_408483,China,,Shanghai,Asia,20200209,20200120
+epi_isl_408484,China,Chengdu,Sichuan,Asia,20200209,20200115
+epi_isl_408485,China,,Beijing,Asia,20200209,20200118
+epi_isl_408486,China,Pingxiang,Jiangxi,Asia,20200209,20200111
+epi_isl_408487,China,Zhengzhou,Henan,Asia,20200209,20200120
+epi_isl_408488,China,Huaian,Jiangsu,Asia,20200209,20200119
+epi_isl_408489,Taiwan,,Taipei,Asia,20200209,20200131
+epi_isl_408511,China,Wuhan,Hubei,Asia,20200209,20200101
+epi_isl_408512,China,Wuhan,Hubei,Asia,20200209,20200101
+epi_isl_408513,China,Wuhan,Hubei,Asia,20200209,20200101
+epi_isl_408514,China,Wuhan,Hubei,Asia,20200209,20200101
+epi_isl_408515,China,Wuhan,Hubei,Asia,20200209,20200101
+epi_isl_408665,Japan,,Tokyo,Asia,20200210,20200129
+epi_isl_408666,Japan,,Tokyo,Asia,20200210,20200131
+epi_isl_408667,Japan,,Tokyo,Asia,20200210,20200131
+epi_isl_408668,Vietnam,,Thanh Hoa,Asia,20200210,20200124
+epi_isl_408669,Japan,,Kyoto,Asia,20200210,20200129
+epi_isl_408670,USA,,Wisconsin,North America,20200210,20200131
+epi_isl_408975,Hong Kong,,,Asia,20200211,20200122
+epi_isl_408976,Australia,Sydney,New South Wales,Oceania,20200211,20200122
+epi_isl_408977,Australia,Sydney,New South Wales,Oceania,20200211,20200125
+epi_isl_408978,China,Wuhan,Hubei,Asia,20200211,20200207
+epi_isl_408994,Hong Kong,,,Asia,20200211,20200121
+epi_isl_408995,Hong Kong,,,Asia,20200211,20200124
+epi_isl_408996,Hong Kong,,,Asia,20200211,20200124
+epi_isl_408997,Hong Kong,,,Asia,20200211,20200124
+epi_isl_408998,Hong Kong,,,Asia,20200211,20200125
+epi_isl_408999,Hong Kong,,,Asia,20200211,20200125
+epi_isl_409000,Hong Kong,,,Asia,20200211,20200126
+epi_isl_409001,Hong Kong,,,Asia,20200211,20200129
+epi_isl_409002,Hong Kong,,,Asia,20200211,20200129
+epi_isl_409020,Hong Kong,,,Asia,20200211,20200130
+epi_isl_409022,Hong Kong,,,Asia,20200211,20200129
+epi_isl_409023,Hong Kong,,,Asia,20200211,20200131
+epi_isl_409024,Hong Kong,,,Asia,20200211,20200131
+epi_isl_409025,Hong Kong,,,Asia,20200211,20200201
+epi_isl_409026,Hong Kong,,,Asia,20200211,20200203
+epi_isl_409027,Hong Kong,,,Asia,20200211,20200203
+epi_isl_409067,USA,,Massachusetts,North America,20200211,20200129
+epi_isl_410044,USA,,California,North America,20200211,20200127
+epi_isl_410045,USA,,Illinois,North America,20200211,20200128
+epi_isl_410218,Taiwan,,Taipei,Asia,20200213,20200205
+epi_isl_410301,Nepal,,Kathmandu,Asia,20200214,20200113
+epi_isl_410302,Philippines,,,Asia,20200214,20200126
+epi_isl_410314,Philippines,,,Asia,20200214,20200206
+epi_isl_410344,Philippines,,,Asia,20200214,20200126
+epi_isl_410345,Philippines,,,Asia,20200214,20200123
+epi_isl_410486,France,Contamines,Rhone-Alpes,Europe,20200214,20200208
+epi_isl_410487,Malaysia,,,Asia,20200215,20200124
+epi_isl_410488,Malaysia,,,Asia,20200215,20200124
+epi_isl_410489,Malaysia,,,Asia,20200215,20200124
+epi_isl_410531,Japan,,Nara,Asia,20200217,20200125
+epi_isl_410532,Japan,,Osaka,Asia,20200217,20200123
+epi_isl_410535,Singapore,,,Asia,20200217,20200203
+epi_isl_410536,Singapore,,,Asia,20200217,20200206
+epi_isl_410537,Singapore,,,Asia,20200217,20200209
+epi_isl_410538,China,,Guangxi,Asia,20200217,2017
+epi_isl_410539,China,,Guangxi,Asia,20200217,2017
+epi_isl_410540,China,,Guangxi,Asia,20200217,2017
+epi_isl_410541,China,,Guangxi,Asia,20200217,2017
+epi_isl_410542,China,,Guangxi,Asia,20200217,2017
+epi_isl_410543,China,,Guangxi,Asia,20200217,2017
+epi_isl_410544,China,,Guangdong,Asia,20200217,2019
+epi_isl_410545,Italy,,Rome,Europe,20200217,20200129
+epi_isl_410546,Italy,,Rome,Europe,20200217,20200131
+epi_isl_410713,Singapore,,,Asia,20200218,20200127
+epi_isl_410714,Singapore,,,Asia,20200218,20200203
+epi_isl_410715,Singapore,,,Asia,20200218,20200204
+epi_isl_410716,Singapore,,,Asia,20200218,20200204
+epi_isl_410717,Australia,Gold Coast,Queensland,Oceania,20200218,20200205
+epi_isl_410718,Australia,Gold Coast,Queensland,Oceania,20200218,20200205
+epi_isl_410719,Singapore,,,Asia,20200218,20200202
+epi_isl_410720,France,Paris,Ile-de-France,Europe,20200218,20200123
+epi_isl_410721,China,,Guangdong,Asia,20200218,2019
+epi_isl_410984,France,Paris,Ile-de-France,Europe,20200218,20200129
+epi_isl_411060,China,,Fujian,Asia,20200219,20200121
+epi_isl_411066,China,,Fujian,Asia,20200219,20200122
+epi_isl_411218,France,Paris,Ile-de-France,Europe,20200219,20200202
+epi_isl_411219,France,Paris,Ile-de-France,Europe,20200219,20200128
+epi_isl_411220,France,Paris,Ile-de-France,Europe,20200219,20200128
+epi_isl_411902,Cambodia,,Sihanoukville,Asia,20200221,20200127
+epi_isl_411915,Taiwan,,Taoyuan,Asia,20200221,20200125
+epi_isl_411926,Taiwan,,Taipei,Asia,20200221,20200124
+epi_isl_411927,Taiwan,,Taipei,Asia,20200221,20200128
+epi_isl_411929,South Korea,,,Asia,20200221,2020-01
+epi_isl_411949,China,,Shanghai,Asia,20200222,20200116
+epi_isl_411950,China,,Jiangsu,Asia,20200222,20200123
+epi_isl_411951,Sweden,,,Europe,20200222,20200207
+epi_isl_411952,China,,Jiangsu,Asia,20200222,20200124
+epi_isl_411953,China,,Jiangsu,Asia,20200222,20200124
+epi_isl_411954,USA,,California,North America,20200222,20200206
+epi_isl_411955,USA,,California,North America,20200222,20200210
+epi_isl_411956,USA,,Texas,North America,20200222,20200211
+epi_isl_411957,China,,,Asia,20200222,20200108
+epi_isl_411958,China,,HuaShang,Asia,20200223,20200122
+epi_isl_411959,China,,HuaShang,Asia,20200223,20200123
+epi_isl_411960,China,,HuaShang,Asia,20200223,20200123
+epi_isl_411961,China,,HuaShang,Asia,20200223,20200125
+epi_isl_411962,China,,HuaShang,Asia,20200223,20200126
+epi_isl_411963,China,,HuaShang,Asia,20200223,20200128
+epi_isl_411964,China,,HuaShang,Asia,20200223,20200130
+epi_isl_411965,China,,HuaShang,Asia,20200223,20200130
+epi_isl_411966,China,,HuaShang,Asia,20200223,20200131
+epi_isl_411967,China,,HuaShang,Asia,20200223,20200206
+epi_isl_412026,China,Hefei,Anhui,Asia,20200224,20200223
+epi_isl_412028,Hong Kong,,,Asia,20200224,20200122
+epi_isl_412029,Hong Kong,,,Asia,20200224,20200130
+epi_isl_412030,Hong Kong,,,Asia,20200224,20200201
+epi_isl_412034,China,,Wuhan,Asia,20200224,2020-01
+epi_isl_412035,China,,Wuhan,Asia,20200224,2020-01
+epi_isl_412036,China,,Wuhan,Asia,20200224,2020-01
+epi_isl_412037,China,,Wuhan,Asia,20200224,2020-01
+epi_isl_412038,China,,Wuhan,Asia,20200224,2020-01
+epi_isl_412039,China,,Wuhan,Asia,20200224,2020-01
+epi_isl_412041,China,,Shenzhen,Asia,20200224,2020-01
+epi_isl_412042,China,,Shenzhen,Asia,20200224,2020-01
+epi_isl_412043,China,,Shenzhen,Asia,20200224,2020-01
+epi_isl_412044,China,,Shenzhen,Asia,20200224,2020-01
+epi_isl_412045,China,,Shenzhen,Asia,20200224,2020-01
+epi_isl_412046,China,,Shenzhen,Asia,20200224,2020-01
+epi_isl_412049,China,,,Asia,20200224,2020-01
+epi_isl_412050,China,,,Asia,20200224,2020-01
+epi_isl_412051,China,,,Asia,20200224,2020-01
+epi_isl_412052,China,,,Asia,20200224,2020-01
+epi_isl_412053,China,,,Asia,20200224,2020-01
+epi_isl_412054,China,,,Asia,20200224,2020-01
+epi_isl_412116,United Kingdom,,England,Europe,20200224,20200209
+epi_isl_412387,China,Linyi county,Shandong,Asia,20200225,20200121
+epi_isl_412418,China,Linyi,Shandong,Asia,20200225,20200121
+epi_isl_412419,China,Linyi,Shandong,Asia,20200225,20200123
+epi_isl_412420,China,Linyi,Shandong,Asia,20200225,20200126
+epi_isl_412421,China,Linyi,Shandong,Asia,20200225,20200124
+epi_isl_412422,China,Linyi,Shandong,Asia,20200225,20200124
+epi_isl_412423,China,Linyi,Shandong,Asia,20200225,20200125
+epi_isl_412424,China,Linyi,Shandong,Asia,20200225,20200130
+epi_isl_412425,China,Linyi,Shandong,Asia,20200225,20200126
+epi_isl_412426,China,Linyi,Shandong,Asia,20200225,20200126
+epi_isl_412459,China,Jingzhou,Hubei,Asia,20200226,20200108
+epi_isl_412860,China,,,Asia,20200227,20190319
+epi_isl_412862,USA,Solano,California,North America,20200227,20200223
+epi_isl_412869,South Korea,,Seoul,Asia,20200228,20200130
+epi_isl_412870,South Korea,,Seoul,Asia,20200228,20200130
+epi_isl_412871,South Korea,,Seoul,Asia,20200228,20200131
+epi_isl_412872,South Korea,,Gyeonggi-do,Asia,20200228,20200201
+epi_isl_412873,South Korea,,Chungcheongnam-do,Asia,20200228,20200206
+epi_isl_412898,China,Wuhan,Hubei,Asia,20200228,20191230
+epi_isl_412899,China,Wuhan,Hubei,Asia,20200228,20191230
+epi_isl_412900,China,Wuhan,Hubei,Asia,20200228,20191230
+epi_isl_412912,Germany,,Baden-Wuerttemberg,Europe,20200228,20200225
+epi_isl_412964,Brazil,Sao Paulo,Sao Paulo,South America,20200228,20200225
+epi_isl_412965,Canada,,British Columbia,North America,20200229,20200216
+epi_isl_412966,China,Guangzhou,Guangdong,Asia,20200229,20200205
+epi_isl_412967,China,,Guangzhou,Asia,20200229,20200129
+epi_isl_412968,Japan,,,Asia,20200229,20200210
+epi_isl_412969,Japan,,,Asia,20200229,20200210
+epi_isl_412970,USA,Snohomish County,Washington,North America,20200301,20200224
+epi_isl_412971,Finland,,Helsinki,Europe,20200301,20200225
+epi_isl_412972,Mexico,,Mexico City,North America,20200301,20200227
+epi_isl_412973,Italy,,Lombardy,Europe,20200301,20200220
+epi_isl_412974,Italy,,Rome,Europe,20200301,20200129
+epi_isl_412975,Australia,Sydney,New South Wales,Oceania,20200302,20200228
+epi_isl_412978,China,Wuhan,Hubei,Asia,20200302,20200117
+epi_isl_412979,China,Wuhan,Hubei,Asia,20200302,20200118
+epi_isl_412980,China,Wuhan,Hubei,Asia,20200302,20200118
+epi_isl_412981,China,Wuhan,Hubei,Asia,20200302,20200118
+epi_isl_412982,China,Wuhan,Hubei,Asia,20200302,20200207
+epi_isl_412983,China,Tianmen,Hubei,Asia,20200302,20200208
+epi_isl_413014,Canada,,Ontario,North America,20200302,20200125
+epi_isl_413015,Canada,,Ontario,North America,20200302,20200123
+epi_isl_413016,Brazil,Sao Paulo,Sao Paulo,South America,20200302,20200228
+epi_isl_413017,South Korea,,,Asia,20200303,20200206
+epi_isl_413018,South Korea,,,Asia,20200303,20200206
+epi_isl_413019,Switzerland,,Zurich,Europe,20200303,20200226
+epi_isl_413020,Switzerland,,Zurich,Europe,20200303,20200227
+epi_isl_413021,Switzerland,,Zurich,Europe,20200303,20200229
+epi_isl_413022,Switzerland,,Zurich,Europe,20200303,20200229
+epi_isl_413023,Switzerland,,Zurich,Europe,20200303,20200229
+epi_isl_413024,Switzerland,,Zurich,Europe,20200303,20200229
+epi_isl_413025,USA,,Washington,North America,20200303,20200227
+epi_isl_413213,Australia,Sydney,New South Wales,Oceania,20200304,20200229
+epi_isl_413214,Australia,Sydney,New South Wales,Oceania,20200304,20200229
+epi_isl_413219,Indonesia,Indramayu,West Java,Asia,20200304,20200302
+epi_isl_413221,United Kingdom,,Scotland,Europe,20200304,20200302
+epi_isl_413455,USA,,Washington,North America,20200304,20200228
+epi_isl_413456,USA,King County,Washington,North America,20200305,20200220
+epi_isl_413457,USA,,Washington,North America,20200305,20200229
+epi_isl_413458,USA,,Washington,North America,20200305,20200301
+epi_isl_413459,Japan,,Tokyo,Asia,20200305,20200220
+epi_isl_413485,China,Suzhou,Anhui,Asia,20200305,20200124
+epi_isl_413486,USA,,Washington,North America,20200305,20200301
+epi_isl_413487,USA,,Washington,North America,20200305,20200301
+epi_isl_413488,Germany,Heinsberg District,North Rhine Westphalia,Europe,20200305,20200228
+epi_isl_413489,Italy,Milan,Lombardy,Europe,20200305,20200303
+epi_isl_413490,New Zealand,,Auckland,Oceania,20200305,20200227
+epi_isl_413491,Hong Kong,,,Asia,20200306,20200209
+epi_isl_413492,Hong Kong,,,Asia,20200306,20200210
+epi_isl_413493,Hong Kong,,,Asia,20200306,20200210
+epi_isl_413494,Hong Kong,,,Asia,20200306,20200210
+epi_isl_413495,Hong Kong,,,Asia,20200306,20200212
+epi_isl_413496,Hong Kong,,,Asia,20200306,20200213
+epi_isl_413497,Hong Kong,,,Asia,20200306,20200213
+epi_isl_413498,Hong Kong,,,Asia,20200306,20200217
+epi_isl_413513,South Korea,,,Asia,20200306,20200227
+epi_isl_413514,South Korea,,,Asia,20200306,20200227
+epi_isl_413515,South Korea,,,Asia,20200306,20200227
+epi_isl_413516,South Korea,,,Asia,20200306,20200227
+epi_isl_413517,Iran,,,Asia,20200306,20200226
+epi_isl_413518,China,,Beijing,Asia,20200306,20200126
+epi_isl_413519,China,,Beijing,Asia,20200306,20200128
+epi_isl_413520,China,,Beijing,Asia,20200306,20200128
+epi_isl_413521,China,,Beijing,Asia,20200306,20200128
+epi_isl_413522,India,,Kerala,Asia,20200306,20200127
+epi_isl_413523,India,,Kerala,Asia,20200306,20200131
+epi_isl_413550,Nigeria,,Lagos,Africa,20200306,20200227
+epi_isl_413553,Iran,,Tehran,Asia,20200306,20200228
+epi_isl_413554,Iran,,Tehran,Asia,20200306,20200223
+epi_isl_413555,United Kingdom,,Wales,Europe,20200307,20200227
+epi_isl_413556,United Kingdom,,Wales,Europe,20200307,20200304
+epi_isl_413557,USA,Sonoma County,California,North America,20200307,2020
+epi_isl_413558,USA,Solano County,California,North America,20200307,20200227
+epi_isl_413559,USA,Solano County,California,North America,20200307,20200227
+epi_isl_413560,USA,,Washington,North America,20200307,20200228
+epi_isl_413561,USA,Solano County,California,North America,20200307,20200227
+epi_isl_413562,USA,,Washington,North America,20200307,20200302
+epi_isl_413563,USA,,Washington,North America,20200307,20200303
+epi_isl_413564,Netherlands,,Andel,Europe,20200307,20200301
+epi_isl_413565,Netherlands,,Berlicum,Europe,20200307,20200224
+epi_isl_413566,Netherlands,,Blaricum,Europe,20200307,20200302
+epi_isl_413567,Netherlands,,Coevorden,Europe,20200307,2020
+epi_isl_413568,Netherlands,,Dalen,Europe,20200307,20200301
+epi_isl_413569,Netherlands,,Delft,Europe,20200307,20200228
+epi_isl_413570,Netherlands,,Diemen,Europe,20200307,20200228
+epi_isl_413571,Netherlands,,Eindhoven,Europe,20200307,20200302
+epi_isl_413572,Netherlands,,Haarlem,Europe,20200307,20200301
+epi_isl_413573,Netherlands,,Hardinxveld Giessendam,Europe,20200307,20200302
+epi_isl_413574,Netherlands,,Helmond,Europe,20200307,20200229
+epi_isl_413575,Netherlands,,Houten,Europe,20200307,20200229
+epi_isl_413576,Netherlands,,Loon op zand,Europe,20200307,20200229
+epi_isl_413577,Netherlands,,Naarden,Europe,20200307,20200302
+epi_isl_413578,Netherlands,,Nieuwendijk,Europe,20200307,20200301
+epi_isl_413579,Netherlands,,Nootdorp,Europe,20200307,20200303
+epi_isl_413580,Netherlands,,Oisterwijk,Europe,20200307,20200302
+epi_isl_413581,Netherlands,,Oss,Europe,20200307,20200229
+epi_isl_413582,Netherlands,,Rotterdam,Europe,20200307,20200301
+epi_isl_413583,Netherlands,,Rotterdam,Europe,20200307,20200302
+epi_isl_413584,Netherlands,,Rotterdam,Europe,20200307,20200303
+epi_isl_413585,Netherlands,,Tilburg,Europe,20200307,2020
+epi_isl_413586,Netherlands,,Tilburg,Europe,20200307,20200227
+epi_isl_413587,Netherlands,,Tilburg,Europe,20200307,20200303
+epi_isl_413588,Netherlands,,Utrecht,Europe,20200307,20200301
+epi_isl_413589,Netherlands,,Utrecht,Europe,20200307,20200301
+epi_isl_413590,Netherlands,,Utrecht,Europe,20200307,20200302
+epi_isl_413591,Netherlands,,Zeewolde,Europe,20200307,20200302
+epi_isl_413592,Taiwan,,Taipei,Asia,20200307,20200302
+epi_isl_413593,Luxembourg,,,Europe,20200307,20200229
+epi_isl_413594,Australia,Sydney,NSW,Oceania,20200308,20200228
+epi_isl_413595,Australia,Sydney,NSW,Oceania,20200308,20200228
+epi_isl_413596,Australia,Sydney,NSW,Oceania,20200308,20200228
+epi_isl_413597,Australia,Sydney,NSW,Oceania,20200308,20200302
+epi_isl_413598,Australia,Sydney,NSW,Oceania,20200308,20200304
+epi_isl_413599,Australia,Sydney,NSW,Oceania,20200308,20200304
+epi_isl_413600,Australia,Sydney,NSW,Oceania,20200308,20200303
+epi_isl_413601,USA,,Washington,North America,20200308,20200302
+epi_isl_413602,Finland,,Helsinki,Europe,20200308,20200303
+epi_isl_413603,Finland,,Helsinki,Europe,20200308,20200303
+epi_isl_413604,Finland,,Helsinki,Europe,20200308,20200303
+epi_isl_413605,Finland,,Helsinki,Europe,20200308,20200301
+epi_isl_413606,USA,,,North America,20200308,20200217
+epi_isl_413607,USA,,,North America,20200308,20200218
+epi_isl_413608,USA,,,North America,20200308,20200218
+epi_isl_413609,USA,,,North America,20200308,20200221
+epi_isl_413610,USA,,,North America,20200308,20200221
+epi_isl_413611,USA,,,North America,20200308,20200221
+epi_isl_413612,USA,,,North America,20200308,20200217
+epi_isl_413613,USA,,,North America,20200308,20200217
+epi_isl_413614,USA,,,North America,20200308,20200217
+epi_isl_413615,USA,,,North America,20200308,20200217
+epi_isl_413616,USA,,,North America,20200308,20200217
+epi_isl_413617,USA,,,North America,20200308,20200220
+epi_isl_413618,USA,,,North America,20200308,20200220
+epi_isl_413619,USA,,,North America,20200308,20200225
+epi_isl_413620,USA,,,North America,20200308,20200218
+epi_isl_413621,USA,,,North America,20200308,20200218
+epi_isl_413622,USA,,,North America,20200308,20200224
+epi_isl_413623,USA,,,North America,20200308,20200224
+epi_isl_413647,Portugal,,,Europe,20200309,20200301
+epi_isl_413648,Portugal,,,Europe,20200309,20200301
+epi_isl_413649,USA,,Washington,North America,20200309,20200305
+epi_isl_413650,USA,,Washington,North America,20200309,20200305
+epi_isl_413651,USA,,Washington,North America,20200309,20200305
+epi_isl_413652,USA,,Washington,North America,20200309,20200305
+epi_isl_413653,USA,,Washington,North America,20200309,20200305
+epi_isl_413691,China,,,Asia,20200309,2020-01
+epi_isl_413692,China,,,Asia,20200309,2020-01
+epi_isl_413693,China,,,Asia,20200309,2020-01
+epi_isl_413694,China,,,Asia,20200309,2020-01
+epi_isl_413695,China,,,Asia,20200309,2020-01
+epi_isl_413696,China,,,Asia,20200309,2020-01
+epi_isl_413697,China,,,Asia,20200309,2020-02
+epi_isl_413711,China,,,Asia,20200309,2020-02
+epi_isl_413729,China,,,Asia,20200309,2020-02
+epi_isl_413746,China,,,Asia,20200309,2020-02
+epi_isl_413747,China,,,Asia,20200309,2020-02
+epi_isl_413748,China,,,Asia,20200309,2020-02
+epi_isl_413749,China,,,Asia,20200309,2020-02
+epi_isl_413750,China,,,Asia,20200309,2020-02
+epi_isl_413751,China,,,Asia,20200309,2020-02
+epi_isl_413752,China,,,Asia,20200309,2020-02
+epi_isl_413753,China,,,Asia,20200309,2020-02
+epi_isl_413761,China,,,Asia,20200309,2020-02
+epi_isl_413791,China,,,Asia,20200309,2020-02
+epi_isl_413809,China,,,Asia,20200309,2020-02
+epi_isl_413850,China,,Guangdong,Asia,20200309,20200210
+epi_isl_413851,China,,Guangdong,Asia,20200309,20200130
+epi_isl_413852,China,,Guangdong,Asia,20200309,20200130
+epi_isl_413853,China,,Guangdong,Asia,20200309,20200130
+epi_isl_413854,China,,Guangdong,Asia,20200309,20200130
+epi_isl_413855,China,,Guangdong,Asia,20200309,20200207
+epi_isl_413856,China,,Guangdong,Asia,20200309,20200207
+epi_isl_413857,China,,Guangdong,Asia,20200309,20200131
+epi_isl_413858,China,,Guangdong,Asia,20200309,20200130
+epi_isl_413859,China,,Guangdong,Asia,20200309,20200131
+epi_isl_413860,China,,Guangdong,Asia,20200309,20200130
+epi_isl_413861,China,,Guangdong,Asia,20200309,20200201
+epi_isl_413862,China,,Guangdong,Asia,20200309,20200201
+epi_isl_413863,China,,Guangdong,Asia,20200309,20200201
+epi_isl_413864,China,,Guangdong,Asia,20200309,20200209
+epi_isl_413865,China,,Guangdong,Asia,20200309,20200205
+epi_isl_413866,China,,Guangdong,Asia,20200309,20200205
+epi_isl_413867,China,,Guangdong,Asia,20200309,20200205
+epi_isl_413868,China,,Guangdong,Asia,20200309,20200228
+epi_isl_413869,China,,Guangdong,Asia,20200309,20200228
+epi_isl_413870,China,,Guangdong,Asia,20200309,20200228
+epi_isl_413871,China,,Guangdong,Asia,20200309,20200228
+epi_isl_413872,China,,Guangdong,Asia,20200309,20200228
+epi_isl_413873,China,,Guangdong,Asia,20200309,20200228
+epi_isl_413874,China,,Guangdong,Asia,20200309,20200212
+epi_isl_413875,China,,Guangdong,Asia,20200309,20200210
+epi_isl_413876,China,,Guangdong,Asia,20200309,20200210
+epi_isl_413877,China,,Guangdong,Asia,20200309,20200209
+epi_isl_413878,China,,Guangdong,Asia,20200309,20200209
+epi_isl_413879,China,,Guangdong,Asia,20200309,20200205
+epi_isl_413880,China,,Guangdong,Asia,20200309,20200205
+epi_isl_413881,China,,Guangdong,Asia,20200309,20200205
+epi_isl_413882,China,,Guangdong,Asia,20200309,20200202
+epi_isl_413883,China,,Guangdong,Asia,20200309,20200202
+epi_isl_413884,China,,Guangdong,Asia,20200309,20200201
+epi_isl_413885,China,,Guangdong,Asia,20200309,20200201
+epi_isl_413886,China,,Guangdong,Asia,20200309,20200201
+epi_isl_413887,China,,Guangdong,Asia,20200309,20200201
+epi_isl_413888,China,,Guangdong,Asia,20200309,20200130
+epi_isl_413889,China,,Guangdong,Asia,20200309,20200130
+epi_isl_413890,China,,Guangdong,Asia,20200309,20200228
+epi_isl_413891,China,,Guangdong,Asia,20200309,20200228
+epi_isl_413892,China,,Guangdong,Asia,20200309,20200228
+epi_isl_413893,China,,Guangdong,Asia,20200309,20200228
+epi_isl_413894,China,,Guangdong,Asia,20200309,20200228
+epi_isl_413895,China,,Guangdong,Asia,20200309,20200228
+epi_isl_413896,China,,Guangdong,Asia,20200309,20200228
+epi_isl_413897,China,,Guangdong,Asia,20200309,20200228
+epi_isl_413898,China,,Guangdong,Asia,20200309,20200228
+epi_isl_413899,China,,Guangdong,Asia,20200309,20200228
+epi_isl_413900,China,,Guangdong,Asia,20200309,20200228
+epi_isl_413901,China,,Guangdong,Asia,20200309,20200228
+epi_isl_413902,China,,Guangdong,Asia,20200309,20200228
+epi_isl_413904,Iran,,Qom,Asia,20200309,20200209
+epi_isl_413905,Iran,,Tehran,Asia,20200309,20200222
+epi_isl_413906,Iran,,Tehran,Asia,20200309,20200217
+epi_isl_413922,USA,San Francisco,California,North America,20200310,20200305
+epi_isl_413924,USA,San Francisco,California,North America,20200310,20200305
+epi_isl_413925,USA,San Francisco,California,North America,20200310,20200305
+epi_isl_413926,USA,San Francisco,California,North America,20200310,20200305
+epi_isl_413928,USA,San Francisco,California,North America,20200310,20200305
+epi_isl_413931,USA,San Francisco,California,North America,20200310,20200305
+epi_isl_413949,Iran,,Tehran,Asia,20200310,20200303
+epi_isl_413955,Iran,,Tehran,Asia,20200310,20200305
+epi_isl_413996,Switzerland,,Tessin,Europe,20200310,20200224
+epi_isl_413997,Switzerland,,Geneva,Europe,20200310,20200226
+epi_isl_413999,Switzerland,,Argovie,Europe,20200310,20200227
+epi_isl_414005,United Kingdom,,England,Europe,20200310,20200225
+epi_isl_414006,United Kingdom,,England,Europe,20200310,20200228
+epi_isl_414007,United Kingdom,,England,Europe,20200310,20200228
+epi_isl_414008,United Kingdom,,England,Europe,20200310,20200227
+epi_isl_414009,United Kingdom,,England,Europe,20200310,20200225
+epi_isl_414010,United Kingdom,,England,Europe,20200310,20200226
+epi_isl_414011,United Kingdom,,England,Europe,20200310,20200226
+epi_isl_414012,United Kingdom,,England,Europe,20200310,20200227
+epi_isl_414013,United Kingdom,,England,Europe,20200310,20200301
+epi_isl_414014,Brazil,,Sao Paulo,South America,20200310,20200302
+epi_isl_414015,Brazil,Sao Paulo,Sao Paulo,South America,20200310,20200229
+epi_isl_414016,Brazil,Sao Paulo,Sao Paulo,South America,20200310,20200229
+epi_isl_414017,Brazil,,Sao Paulo,South America,20200310,20200304
+epi_isl_414019,Switzerland,,Geneva,Europe,20200310,20200227
+epi_isl_414020,Switzerland,,Geneva,Europe,20200310,20200227
+epi_isl_414021,Switzerland,,Basel,Europe,20200310,20200227
+epi_isl_414022,Switzerland,,Geneva,Europe,20200310,20200227
+epi_isl_414023,Switzerland,,Vaud,Europe,20200310,20200301
+epi_isl_414024,United Kingdom,,Scotland,Europe,20200310,20200302
+epi_isl_414025,United Kingdom,,Scotland,Europe,20200310,20200301
+epi_isl_414026,United Kingdom,,Scotland,Europe,20200310,20200304
+epi_isl_414027,United Kingdom,,Scotland,Europe,20200310,20200304
+epi_isl_414040,United Kingdom,,England,Europe,20200311,20200205
+epi_isl_414041,United Kingdom,,England,Europe,20200311,20200208
+epi_isl_414042,United Kingdom,,England,Europe,20200311,20200208
+epi_isl_414043,United Kingdom,,England,Europe,20200311,20200207
+epi_isl_414044,United Kingdom,,England,Europe,20200311,20200208
+epi_isl_414045,Brazil,Rio de Janeiro,Rio de Janeiro,South America,20200311,20200304
+epi_isl_414363,USA,,Washington,North America,20200311,20200304
+epi_isl_414364,USA,,Washington,North America,20200311,20200305
+epi_isl_414365,USA,,Washington,North America,20200311,20200306
+epi_isl_414366,USA,,Washington,North America,20200311,20200305
+epi_isl_414367,USA,,Washington,North America,20200311,20200305
+epi_isl_414368,USA,,Washington,North America,20200311,20200305
+epi_isl_414369,USA,,Washington,North America,20200311,20200305
+epi_isl_414371,Iran,,Qom,Asia,20200311,20200216
+epi_isl_414372,Iran,,Qom,Asia,20200311,20200217
+epi_isl_414373,Iran,,Qom,Asia,20200311,20200216
+epi_isl_414374,Iran,,Qom,Asia,20200311,20200217
+epi_isl_414375,Indonesia,,Depok,Asia,20200312,20200301
+epi_isl_414376,Indonesia,,Jakarta,Asia,20200312,20200301
+epi_isl_414377,Indonesia,,Jakarta,Asia,20200312,20200301
+epi_isl_414378,Singapore,,,Asia,20200312,20200217
+epi_isl_414379,Singapore,,,Asia,20200312,20200218
+epi_isl_414380,Singapore,,,Asia,20200312,20200219
+epi_isl_414414,Australia,Gold Coast,Queensland,Oceania,20200312,20200229
+epi_isl_414423,Netherlands,,Gelderland,Europe,20200312,20200302
+epi_isl_414424,Netherlands,,Limburg,Europe,20200312,20200303
+epi_isl_414425,Netherlands,,Limburg,Europe,20200312,20200303
+epi_isl_414426,Netherlands,,Limburg,Europe,20200312,20200303
+epi_isl_414427,Netherlands,,Limburg,Europe,20200312,20200303
+epi_isl_414428,Netherlands,,Noord Brabant,Europe,20200312,20200302
+epi_isl_414429,Netherlands,,Noord Brabant,Europe,20200312,20200302
+epi_isl_414430,Netherlands,,Noord Brabant,Europe,20200312,20200305
+epi_isl_414431,Netherlands,,Noord Brabant,Europe,20200312,20200302
+epi_isl_414432,Netherlands,,Noord Brabant,Europe,20200312,20200302
+epi_isl_414433,Netherlands,,Noord Holland,Europe,20200312,20200303
+epi_isl_414434,Netherlands,,Overijssel,Europe,20200312,20200303
+epi_isl_414435,Netherlands,,Utrecht,Europe,20200312,20200303
+epi_isl_414436,Netherlands,,Utrecht,Europe,20200312,20200303
+epi_isl_414437,Netherlands,,Utrecht,Europe,20200312,20200303
+epi_isl_414438,Netherlands,,Utrecht,Europe,20200312,20200303
+epi_isl_414439,Netherlands,,Utrecht,Europe,20200312,20200302
+epi_isl_414440,Netherlands,,Utrecht,Europe,20200312,20200303
+epi_isl_414441,Netherlands,,Utrecht,Europe,20200312,20200303
+epi_isl_414442,Netherlands,,Utrecht,Europe,20200312,20200303
+epi_isl_414443,Netherlands,,Utrecht,Europe,20200312,20200303
+epi_isl_414444,Netherlands,,Zuid Holland,Europe,20200312,20200302
+epi_isl_414445,Netherlands,,Zuid Holland,Europe,20200312,20200303
+epi_isl_414446,Netherlands,,Zuid Holland,Europe,20200312,20200303
+epi_isl_414448,Netherlands,,Limburg,Europe,20200312,20200304
+epi_isl_414449,Netherlands,,Noord Brabant,Europe,20200312,20200303
+epi_isl_414450,Netherlands,,Noord Brabant,Europe,20200312,20200306
+epi_isl_414451,Netherlands,,Noord Brabant,Europe,20200312,20200306
+epi_isl_414452,Netherlands,,Noord Brabant,Europe,20200312,20200306
+epi_isl_414453,Netherlands,,Noord Brabant,Europe,20200312,20200306
+epi_isl_414454,Netherlands,,Noord Brabant,Europe,20200312,20200305
+epi_isl_414455,Netherlands,,Noord Brabant,Europe,20200312,20200306
+epi_isl_414456,Netherlands,,Noord Brabant,Europe,20200312,20200304
+epi_isl_414457,Netherlands,,Noord Brabant,Europe,20200312,20200306
+epi_isl_414458,Netherlands,,Noord Brabant,Europe,20200312,20200305
+epi_isl_414459,Netherlands,,Noord Brabant,Europe,20200312,20200306
+epi_isl_414460,Netherlands,,Overijssel,Europe,20200312,20200303
+epi_isl_414461,Netherlands,,Utrecht,Europe,20200312,20200304
+epi_isl_414462,Netherlands,,Utrecht,Europe,20200312,20200304
+epi_isl_414463,Netherlands,,Utrecht,Europe,20200312,20200304
+epi_isl_414464,Netherlands,,Utrecht,Europe,20200312,20200304
+epi_isl_414465,Netherlands,,Zuid Holland,Europe,20200312,20200304
+epi_isl_414466,Netherlands,,Zuid Holland,Europe,20200312,20200304
+epi_isl_414467,Netherlands,,Zuid Holland,Europe,20200312,20200305
+epi_isl_414468,Netherlands,,Zuid Holland,Europe,20200312,20200306
+epi_isl_414469,Netherlands,,Zuid Holland,Europe,20200312,20200304
+epi_isl_414470,Netherlands,,Zuid Holland,Europe,20200312,20200306
+epi_isl_414471,Netherlands,,Zuid Holland,Europe,20200312,20200305
+epi_isl_414475,Iran,,Tehran,Asia,20200312,20200301
+epi_isl_414476,USA,,New York,North America,20200312,20200229
+epi_isl_414477,Czech Republic,,Usti nad Labem,Europe,20200312,20200301
+epi_isl_414479,USA,,,North America,20200312,20200218
+epi_isl_414480,USA,,,North America,20200312,20200221
+epi_isl_414481,USA,,,North America,20200312,20200221
+epi_isl_414482,USA,,,North America,20200312,20200218
+epi_isl_414483,USA,,,North America,20200312,20200217
+epi_isl_414484,USA,,,North America,20200312,20200217
+epi_isl_414485,USA,,,North America,20200312,20200224
+epi_isl_414486,United Kingdom,,Wales,Europe,20200312,20200307
+epi_isl_414487,Ireland,,Cork,Europe,20200312,20200304
+epi_isl_414488,United Kingdom,,Wales,Europe,20200312,20200308
+epi_isl_414495,Spain,Valencia,Comunitat Valenciana,Europe,20200312,20200308
+epi_isl_414496,Spain,Valencia,Comunitat Valenciana,Europe,20200312,20200304
+epi_isl_414497,Germany,Heinsberg District,North Rhine Westphalia,Europe,20200312,20200225
+epi_isl_414498,Germany,Heinsberg District,North Rhine Westphalia,Europe,20200312,20200226
+epi_isl_414499,Germany,Heinsberg District,North Rhine Westphalia,Europe,20200312,20200226
+epi_isl_414500,United Kingdom,Yorkshire,England,Europe,20200312,20200304
+epi_isl_414501,United Kingdom,Yorkshire,England,Europe,20200312,20200303
+epi_isl_414503,China,,Guangdong,Asia,20200313,20200301
+epi_isl_414504,Germany,Heinsberg District,North Rhine Westphalia,Europe,20200313,20200226
+epi_isl_414505,Germany,Heinsberg District,North Rhine Westphalia,Europe,20200313,20200227
+epi_isl_414506,Germany,Heinsberg District,North Rhine Westphalia,Europe,20200313,20200227
+epi_isl_414507,Germany,Duesseldorf,North Rhine Westphalia,Europe,20200313,20200303
+epi_isl_414508,Germany,Heinsberg District,North Rhine Westphalia,Europe,20200313,20200227
+epi_isl_414509,Germany,Heinsberg District,North Rhine Westphalia,Europe,20200313,20200228
+epi_isl_414510,China,,Shanghai,Asia,20200313,20200202
+epi_isl_414511,Japan,,,Asia,20200313,2020-01
+epi_isl_414512,Italy,,,Europe,20200313,20200305
+epi_isl_414513,Iran,,,Asia,20200313,20200229
+epi_isl_414514,Iran,,,Asia,20200313,20200229
+epi_isl_414515,India,,,Asia,20200313,20200229
+epi_isl_414516,Iran,,,Asia,20200313,20200229
+epi_isl_414517,Hong Kong,,,Asia,20200313,20200225
+epi_isl_414518,Hong Kong,,,Asia,20200313,20200226
+epi_isl_414519,Hong Kong,,,Asia,20200313,20200224
+epi_isl_414520,Germany,,Munich,Europe,20200313,20200302
+epi_isl_414521,Germany,,Munich,Europe,20200313,20200302
+epi_isl_414522,United Kingdom,,England,Europe,20200313,20200228
+epi_isl_414523,United Kingdom,,England,Europe,20200313,20200227
+epi_isl_414524,United Kingdom,,England,Europe,20200313,20200301
+epi_isl_414525,United Kingdom,,England,Europe,20200313,20200302
+epi_isl_414526,United Kingdom,,England,Europe,20200313,20200303
+epi_isl_414527,Hong Kong,,,Asia,20200313,20200209
+epi_isl_414528,Hong Kong,,,Asia,20200313,20200210
+epi_isl_414529,Netherlands,,Noord Brabant,Europe,20200313,20200304
+epi_isl_414530,Netherlands,,Noord Brabant,Europe,20200313,20200304
+epi_isl_414531,Netherlands,,Noord Brabant,Europe,20200313,20200304
+epi_isl_414532,Netherlands,,Noord Brabant,Europe,20200313,20200305
+epi_isl_414533,Netherlands,,Noord Brabant,Europe,20200313,20200306
+epi_isl_414534,Netherlands,,Noord Brabant,Europe,20200313,20200306
+epi_isl_414535,Netherlands,,Noord Brabant,Europe,20200313,20200306
+epi_isl_414536,Netherlands,,Noord Brabant,Europe,20200313,20200308
+epi_isl_414537,Netherlands,,Noord Brabant,Europe,20200313,20200308
+epi_isl_414538,Netherlands,,Noord Brabant,Europe,20200313,20200308
+epi_isl_414539,Netherlands,,Noord Brabant,Europe,20200313,20200308
+epi_isl_414540,Netherlands,,Noord Brabant,Europe,20200313,20200308
+epi_isl_414541,Netherlands,,Noord Brabant,Europe,20200313,20200308
+epi_isl_414542,Netherlands,,Noord Brabant,Europe,20200313,2020-03
+epi_isl_414543,Netherlands,,Noord Brabant,Europe,20200313,2020-03
+epi_isl_414544,Netherlands,,Noord Brabant,Europe,20200313,20200309
+epi_isl_414545,Netherlands,,Noord Brabant,Europe,20200313,20200303
+epi_isl_414546,Netherlands,,Noord Brabant,Europe,20200313,20200306
+epi_isl_414547,Netherlands,,Noord Brabant,Europe,20200313,20200306
+epi_isl_414548,Netherlands,,Noord Brabant,Europe,20200313,20200304
+epi_isl_414549,Netherlands,,Noord Holland,Europe,20200313,20200303
+epi_isl_414550,Netherlands,,Overijssel,Europe,20200313,20200306
+epi_isl_414551,Netherlands,,Utrecht,Europe,20200313,20200307
+epi_isl_414552,Netherlands,,Utrecht,Europe,20200313,20200307
+epi_isl_414553,Netherlands,,Utrecht,Europe,20200313,20200309
+epi_isl_414554,Netherlands,,Utrecht,Europe,20200313,20200308
+epi_isl_414555,Netherlands,,Utrecht,Europe,20200313,20200308
+epi_isl_414556,Netherlands,,Zuid Holland,Europe,20200313,20200306
+epi_isl_414557,Netherlands,,Zuid Holland,Europe,20200313,20200308
+epi_isl_414558,Netherlands,,Zuid Holland,Europe,20200313,20200306
+epi_isl_414559,Netherlands,,Zuid Holland,Europe,20200313,20200307
+epi_isl_414560,Netherlands,,Zuid Holland,Europe,20200313,20200303
+epi_isl_414561,Netherlands,,Zuid Holland,Europe,20200313,20200305
+epi_isl_414562,Netherlands,,Zuid Holland,Europe,20200313,20200303
+epi_isl_414563,Netherlands,,Zuid Holland,Europe,20200313,20200303
+epi_isl_414564,Netherlands,,Zuid Holland,Europe,20200313,20200308
+epi_isl_414565,Netherlands,,Zuid Holland,Europe,20200313,20200309
+epi_isl_414566,Netherlands,,Zuid Holland,Europe,20200313,20200306
+epi_isl_414567,Hong Kong,,,Asia,20200313,20200210
+epi_isl_414568,Iran,,Qom,Asia,20200313,20200219
+epi_isl_414569,Hong Kong,,,Asia,20200313,20200212
+epi_isl_414571,Hong Kong,,,Asia,20200313,20200222
+epi_isl_414572,Iran,Nazi Abad,Tehran,Asia,20200313,20200220
+epi_isl_414573,Iran,,Tehran,Asia,20200313,20200220
+epi_isl_414574,Germany,Heinsberg District,North Rhine Westphalia,Europe,20200313,20200228
+epi_isl_414575,Iran,,Qom,Asia,20200313,20200219
+epi_isl_414577,Chile,,Talca,South America,20200313,20200302
+epi_isl_414578,Chile,,Talca,South America,20200313,20200304
+epi_isl_414579,Chile,,Santiago,South America,20200313,20200303
+epi_isl_414580,Chile,,Santiago,South America,20200313,20200305
+epi_isl_414584,Ireland,,Dublin,Europe,20200313,20200302
+epi_isl_414585,Ireland,,Limerick,Europe,20200313,20200303
+epi_isl_414586,Ireland,,Limerick,Europe,20200313,20200303
+epi_isl_414587,Ireland,,Limerick,Europe,20200313,20200303
+epi_isl_414588,USA,,Minnesota,North America,20200313,20200305
+epi_isl_414589,USA,,Minnesota,North America,20200313,20200307
+epi_isl_414590,USA,,Minnesota,North America,20200313,20200309
+epi_isl_414591,USA,Kirkland,Washington,North America,20200314,20200306
+epi_isl_414592,USA,Tacoma,Washington,North America,20200314,20200306
+epi_isl_414593,USA,Kirkland,Washington,North America,20200314,20200305
+epi_isl_414594,USA,Kirkland,Washington,North America,20200314,20200305
+epi_isl_414595,USA,Kirkland,Washington,North America,20200314,20200305
+epi_isl_414596,USA,Kirkland,Washington,North America,20200314,20200304
+epi_isl_414597,USA,Kirkland,Washington,North America,20200314,20200304
+epi_isl_414598,Spain,Valencia,Comunitat Valenciana,Europe,20200314,20200305
+epi_isl_414599,Italy,,Cagliari,Europe,20200314,2020-03
+epi_isl_414600,France,Strasbourg,Grand-Est,Europe,20200314,20200226
+epi_isl_414601,France,Rouen,Normandie,Europe,20200314,20200227
+epi_isl_414616,USA,Kirkland,Washington,North America,20200315,20200308
+epi_isl_414617,USA,,,North America,20200315,20200308
+epi_isl_414618,USA,,,North America,20200315,20200308
+epi_isl_414619,USA,,,North America,20200315,20200307
+epi_isl_414620,USA,,,North America,20200315,20200308
+epi_isl_414621,USA,Kirkland,Washington,North America,20200315,20200308
+epi_isl_414622,USA,Seattle,Washington,North America,20200315,20200308
+epi_isl_414623,France,Strasbourg,Grand-Est,Europe,20200315,20200225
+epi_isl_414624,France,Rouen,Normandie,Europe,20200315,20200226
+epi_isl_414625,France,Nantes,Pays de la Loire,Europe,20200315,20200226
+epi_isl_414626,France,Crépy en Valois,Hauts de France,Europe,20200315,20200229
+epi_isl_414627,France,Compiègne,Hauts de France,Europe,20200315,20200302
+epi_isl_414628,France,Compiègne,Hauts de France,Europe,20200315,20200302
+epi_isl_414629,France,Compiègne,Hauts de France,Europe,20200315,20200303
+epi_isl_414630,France,Compiègne,Hauts de France,Europe,20200315,20200303
+epi_isl_414631,France,Reims,Grand-Est,Europe,20200315,20200304
+epi_isl_414632,France,Reims,Grand-Est,Europe,20200315,20200304
+epi_isl_414633,France,Pontoise,Ile-de-France,Europe,20200315,20200304
+epi_isl_414634,France,Compiègne,Hauts de France,Europe,20200315,20200304
+epi_isl_414635,France,Compiègne,Hauts de France,Europe,20200315,20200304
+epi_isl_414636,France,Compiègne,Hauts de France,Europe,20200315,20200304
+epi_isl_414637,France,Compiègne,Hauts de France,Europe,20200315,20200304
+epi_isl_414638,France,Compiègne,Hauts de France,Europe,20200315,20200304
+epi_isl_414639,USA,Nassau County,New York,North America,20200315,20200304
+epi_isl_414640,Finland,,,Europe,20200315,20200301
+epi_isl_414641,Finland,,,Europe,20200315,20200305
+epi_isl_414642,Finland,,,Europe,20200315,20200308
+epi_isl_414643,Finland,,,Europe,20200315,20200307
+epi_isl_414644,Finland,,,Europe,20200315,20200304
+epi_isl_414645,Finland,,,Europe,20200315,20200304
+epi_isl_414646,Finland,,,Europe,20200315,20200304
+epi_isl_414647,Congo,,Kinshasa,Africa,20200315,20200309
+epi_isl_414648,USA,San Diego County,California,North America,20200316,20200311
+epi_isl_414663,China,Guangzhou,Guangdong,Asia,20200316,20200225
+epi_isl_414686,China,Guangzhou,Guangdong,Asia,20200316,20200227
+epi_isl_414687,China,Guangzhou,Guangdong,Asia,20200316,20200225
+epi_isl_414688,China,Guangzhou,Guangdong,Asia,20200316,20200225
+epi_isl_414689,China,Guangzhou,Guangdong,Asia,20200316,20200225
+epi_isl_414690,China,Guangzhou,Guangdong,Asia,20200316,20200225
+epi_isl_414691,China,Guangzhou,Guangdong,Asia,20200316,20200225
+epi_isl_414692,China,Guangzhou,Guangdong,Asia,20200316,20200225
+epi_isl_414934,China,,Shandong,Asia,20200316,20200121
+epi_isl_414935,China,,Shandong,Asia,20200316,20200121
+epi_isl_414936,China,,Shandong,Asia,20200316,20200123
+epi_isl_414937,China,,Shandong,Asia,20200316,20200126
+epi_isl_414938,China,,Shandong,Asia,20200316,20200124
+epi_isl_414939,China,,Shandong,Asia,20200316,20200125
+epi_isl_414940,China,,Shandong,Asia,20200316,20200125
+epi_isl_414941,China,,Shandong,Asia,20200316,20200130
+epi_isl_414945,Iran,,Qom,Asia,20200316,20200215
+epi_isl_414946,Iran,,Qom,Asia,20200316,20200217
+epi_isl_414948,Iran,,Tehran,Asia,20200316,20200308
+epi_isl_414949,United Kingdom,,Northern Ireland,Europe,20200316,20200226
+epi_isl_415041,United Kingdom,,Wales,Europe,20200316,20200307
+epi_isl_415105,Brazil,Feira de Santana,Bahia,South America,20200316,20200304
+epi_isl_415128,Brazil,Vila Velha,Espirito Santo,South America,20200316,20200229
+epi_isl_415129,United Kingdom,,England,Europe,20200316,20200229
+epi_isl_415130,United Kingdom,,England,Europe,20200316,20200301
+epi_isl_415131,United Kingdom,,England,Europe,20200316,20200229
+epi_isl_415132,United Kingdom,,England,Europe,20200316,20200228
+epi_isl_415133,United Kingdom,,England,Europe,20200316,20200229
+epi_isl_415134,United Kingdom,,England,Europe,20200316,20200229
+epi_isl_415135,United Kingdom,,England,Europe,20200316,20200228
+epi_isl_415136,United Kingdom,,England,Europe,20200316,20200229
+epi_isl_415137,United Kingdom,,England,Europe,20200316,20200302
+epi_isl_415138,United Kingdom,,England,Europe,20200316,20200302
+epi_isl_415139,United Kingdom,,England,Europe,20200316,20200301
+epi_isl_415140,United Kingdom,,England,Europe,20200316,20200229
+epi_isl_415141,United Kingdom,,England,Europe,20200316,20200229
+epi_isl_415142,United Kingdom,,England,Europe,20200316,20200302
+epi_isl_415143,United Kingdom,,England,Europe,20200316,20200302
+epi_isl_415144,United Kingdom,,England,Europe,20200316,20200227
+epi_isl_415145,United Kingdom,,England,Europe,20200316,20200301
+epi_isl_415146,United Kingdom,,England,Europe,20200316,20200301
+epi_isl_415147,United Kingdom,,England,Europe,20200316,20200301
+epi_isl_415148,United Kingdom,,England,Europe,20200316,20200303
+epi_isl_415149,United Kingdom,,England,Europe,20200316,20200301
+epi_isl_415150,United Kingdom,,England,Europe,20200316,20200309
+epi_isl_415151,USA,,New York,North America,20200316,20200304
+epi_isl_415152,Panama,,Panama City,Central America,20200316,20200306
+epi_isl_415153,Belgium,,Huldenberg,Europe,20200316,20200303
+epi_isl_415154,Belgium,,Kraainem,Europe,20200316,20200301
+epi_isl_415155,Belgium,,Huldenberg,Europe,20200316,20200301
+epi_isl_415156,Belgium,,Huldenberg,Europe,20200316,20200301
+epi_isl_415157,Belgium,,Sint-Niklaas,Europe,20200316,20200301
+epi_isl_415158,Belgium,,Brussels,Europe,20200316,20200301
+epi_isl_415159,Belgium,,Leuven,Europe,20200316,20200229
+epi_isl_415435,United Kingdom,,Wales,Europe,20200317,20200306
+epi_isl_415453,United Kingdom,Cardiff,Wales,Europe,20200317,20200310
+epi_isl_415454,Switzerland,,,Europe,20200317,20200228
+epi_isl_415455,Switzerland,,,Europe,20200317,20200228
+epi_isl_415456,Switzerland,,,Europe,20200317,20200229
+epi_isl_415457,Switzerland,,,Europe,20200317,20200229
+epi_isl_415458,Switzerland,,,Europe,20200317,20200301
+epi_isl_415459,Switzerland,,Genève,Europe,20200317,20200229
+epi_isl_415460,Netherlands,,Flevoland,Europe,20200317,20200309
+epi_isl_415461,Netherlands,,Gelderland,Europe,20200317,20200310
+epi_isl_415462,Netherlands,,Gelderland,Europe,20200317,20200309
+epi_isl_415463,Netherlands,,Gelderland,Europe,20200317,20200309
+epi_isl_415464,Netherlands,,Limburg,Europe,20200317,2020
+epi_isl_415465,Netherlands,,,Europe,20200317,20200310
+epi_isl_415466,Netherlands,,,Europe,20200317,20200309
+epi_isl_415467,Netherlands,,,Europe,20200317,20200310
+epi_isl_415468,Netherlands,,,Europe,20200317,20200310
+epi_isl_415469,Netherlands,,,Europe,20200317,20200310
+epi_isl_415470,Netherlands,,,Europe,20200317,20200310
+epi_isl_415471,Netherlands,,,Europe,20200317,20200311
+epi_isl_415472,Netherlands,,,Europe,20200317,20200311
+epi_isl_415473,Netherlands,,,Europe,20200317,20200309
+epi_isl_415474,Netherlands,,,Europe,20200317,20200309
+epi_isl_415475,Netherlands,,,Europe,20200317,20200312
+epi_isl_415476,Netherlands,,,Europe,20200317,20200310
+epi_isl_415477,Netherlands,,,Europe,20200317,20200312
+epi_isl_415478,Netherlands,,,Europe,20200317,20200308
+epi_isl_415479,Netherlands,,,Europe,20200317,20200308
+epi_isl_415480,Netherlands,,,Europe,20200317,20200309
+epi_isl_415481,Netherlands,,,Europe,20200317,20200308
+epi_isl_415482,Netherlands,,,Europe,20200317,20200309
+epi_isl_415483,Netherlands,,,Europe,20200317,20200309
+epi_isl_415484,Netherlands,,,Europe,20200317,20200313
+epi_isl_415485,Netherlands,,,Europe,20200317,20200312
+epi_isl_415486,Netherlands,,,Europe,20200317,20200313
+epi_isl_415487,Netherlands,,,Europe,20200317,20200313
+epi_isl_415488,Netherlands,,,Europe,20200317,20200313
+epi_isl_415489,Netherlands,,,Europe,20200317,20200313
+epi_isl_415490,Netherlands,,,Europe,20200317,20200307
+epi_isl_415491,Netherlands,,,Europe,20200317,20200307
+epi_isl_415492,Netherlands,,,Europe,20200317,20200310
+epi_isl_415493,Netherlands,,,Europe,20200317,2020
+epi_isl_415494,Netherlands,,,Europe,20200317,2020
+epi_isl_415495,Netherlands,,,Europe,20200317,20200310
+epi_isl_415496,Netherlands,,,Europe,20200317,20200309
+epi_isl_415497,Netherlands,,,Europe,20200317,20200309
+epi_isl_415498,Netherlands,,,Europe,20200317,20200309
+epi_isl_415499,Netherlands,,Noord Brabant,Europe,20200317,2020
+epi_isl_415500,Netherlands,,Noord Brabant,Europe,20200317,20200310
+epi_isl_415501,Netherlands,,Noord Brabant,Europe,20200317,20200311
+epi_isl_415502,Netherlands,,Noord Brabant,Europe,20200317,20200309
+epi_isl_415503,Netherlands,,Noord Brabant,Europe,20200317,20200311
+epi_isl_415504,Netherlands,,Noord Brabant,Europe,20200317,20200309
+epi_isl_415505,Netherlands,,Noord Brabant,Europe,20200317,20200311
+epi_isl_415506,Netherlands,,Noord Brabant,Europe,20200317,20200311
+epi_isl_415507,Netherlands,,Noord Brabant,Europe,20200317,2020
+epi_isl_415508,Netherlands,,Noord Brabant,Europe,20200317,20200309
+epi_isl_415509,Netherlands,,Noord Brabant,Europe,20200317,2020
+epi_isl_415510,Netherlands,,Noord Brabant,Europe,20200317,20200309
+epi_isl_415511,Netherlands,,Noord Brabant,Europe,20200317,20200309
+epi_isl_415512,Netherlands,,Noord Brabant,Europe,20200317,20200309
+epi_isl_415513,Netherlands,,Noord Brabant,Europe,20200317,20200311
+epi_isl_415514,Netherlands,,Noord Brabant,Europe,20200317,20200311
+epi_isl_415515,Netherlands,,Noord Brabant,Europe,20200317,20200311
+epi_isl_415516,Netherlands,,Noord Brabant,Europe,20200317,20200311
+epi_isl_415517,Netherlands,,Noord Brabant,Europe,20200317,2020
+epi_isl_415518,Netherlands,,Noord Brabant,Europe,20200317,2020
+epi_isl_415519,Netherlands,,Noord Brabant,Europe,20200317,2020
+epi_isl_415520,Netherlands,,Noord Brabant,Europe,20200317,2020
+epi_isl_415521,Netherlands,,Noord Brabant,Europe,20200317,2020
+epi_isl_415522,Netherlands,,Noord Brabant,Europe,20200317,2020
+epi_isl_415523,Netherlands,,Noord Brabant,Europe,20200317,2020
+epi_isl_415524,Netherlands,,Noord Brabant,Europe,20200317,20200312
+epi_isl_415525,Netherlands,,Noord Holland,Europe,20200317,20200312
+epi_isl_415526,Netherlands,,Utrecht,Europe,20200317,20200310
+epi_isl_415527,Netherlands,,Utrecht,Europe,20200317,20200312
+epi_isl_415528,Netherlands,,Utrecht,Europe,20200317,20200312
+epi_isl_415529,Netherlands,,Zuid Holland,Europe,20200317,20200309
+epi_isl_415530,Netherlands,,Zuid Holland,Europe,20200317,20200309
+epi_isl_415531,Netherlands,,Zuid Holland,Europe,20200317,20200309
+epi_isl_415532,Netherlands,,Zuid Holland,Europe,20200317,20200309
+epi_isl_415533,Netherlands,,Zuid Holland,Europe,20200317,20200309
+epi_isl_415534,Netherlands,,Zuid Holland,Europe,20200317,20200311
+epi_isl_415535,Netherlands,,Zuid Holland,Europe,20200317,20200312
+epi_isl_415536,United Kingdom,,Wales,Europe,20200317,20200310
+epi_isl_415537,United Kingdom,,Wales,Europe,20200317,20200308
+epi_isl_415538,United Kingdom,,Wales,Europe,20200317,20200312
+epi_isl_415539,USA,,Utah,North America,20200317,20200313
+epi_isl_415541,USA,,Utah,North America,20200317,20200313
+epi_isl_415542,USA,,Utah,North America,20200317,20200313
+epi_isl_415543,USA,,Utah,North America,20200317,20200313
+epi_isl_415544,USA,,Utah,North America,20200317,20200313
+epi_isl_415577,Canada,,British Columbia,North America,20200318,20200220
+epi_isl_415578,Canada,,British Columbia,North America,20200318,20200227
+epi_isl_415579,Canada,,British Columbia,North America,20200318,20200302
+epi_isl_415580,Canada,,British Columbia,North America,20200318,20200228
+epi_isl_415581,Canada,,British Columbia,North America,20200318,20200301
+epi_isl_415582,Canada,,British Columbia,North America,20200318,20200304
+epi_isl_415583,Canada,,British Columbia,North America,20200318,20200303
+epi_isl_415584,Canada,,British Columbia,North America,20200318,20200302
+epi_isl_415585,Canada,,British Columbia,North America,20200318,20200304
+epi_isl_415586,Canada,,British Columbia,North America,20200318,20200305
+epi_isl_415587,Canada,,British Columbia,North America,20200318,20200304
+epi_isl_415588,Canada,,British Columbia,North America,20200318,20200305
+epi_isl_415589,Canada,,British Columbia,North America,20200318,20200305
+epi_isl_415590,Canada,,British Columbia,North America,20200318,20200305
+epi_isl_415591,USA,,Washington,North America,20200318,20200310
+epi_isl_415592,USA,,Washington,North America,20200318,20200309
+epi_isl_415593,USA,,Washington,North America,20200318,20200310
+epi_isl_415594,USA,,Washington,North America,20200318,20200310
+epi_isl_415595,USA,,Washington,North America,20200318,20200309
+epi_isl_415596,USA,,Washington,North America,20200318,20200309
+epi_isl_415597,USA,Seattle,Washington,North America,20200318,20200310
+epi_isl_415598,USA,,Washington,North America,20200318,20200310
+epi_isl_415599,USA,,Washington,North America,20200318,20200309
+epi_isl_415600,USA,,,North America,20200318,20200309
+epi_isl_415601,USA,,Washington,North America,20200318,20200310
+epi_isl_415602,USA,Seattle,Washington,North America,20200318,20200310
+epi_isl_415603,USA,Seattle,Washington,North America,20200318,20200310
+epi_isl_415604,USA,,Washington,North America,20200318,20200310
+epi_isl_415605,USA,,Washington,North America,20200318,20200305
+epi_isl_415606,USA,,Washington,North America,20200318,20200308
+epi_isl_415607,USA,,Washington,North America,20200318,20200309
+epi_isl_415608,USA,,Washington,North America,20200318,20200308
+epi_isl_415609,USA,,Washington,North America,20200318,20200308
+epi_isl_415610,USA,,Washington,North America,20200318,20200308
+epi_isl_415611,USA,,Washington,North America,20200318,20200309
+epi_isl_415612,USA,Seattle,Washington,North America,20200318,20200309
+epi_isl_415613,USA,,Washington,North America,20200318,20200309
+epi_isl_415614,USA,,Washington,North America,20200318,20200309
+epi_isl_415615,USA,,Washington,North America,20200318,20200308
+epi_isl_415616,USA,,Washington,North America,20200318,20200308
+epi_isl_415617,USA,,Washington,North America,20200318,20200309
+epi_isl_415618,USA,,Washington,North America,20200318,20200309
+epi_isl_415619,USA,,Washington,North America,20200318,20200309
+epi_isl_415620,USA,,Washington,North America,20200318,20200309
+epi_isl_415621,USA,Seattle,Washington,North America,20200318,20200309
+epi_isl_415622,USA,,Washington,North America,20200318,20200309
+epi_isl_415623,USA,,Washington,North America,20200318,20200309
+epi_isl_415624,USA,,Washington,North America,20200318,20200309
+epi_isl_415625,USA,,Washington,North America,20200318,20200309
+epi_isl_415626,USA,,Washington,North America,20200318,20200310
+epi_isl_415627,USA,,Washington,North America,20200318,20200309
+epi_isl_415628,United Kingdom,,Scotland,Europe,20200318,20200307
+epi_isl_415629,United Kingdom,,Scotland,Europe,20200318,20200304
+epi_isl_415630,United Kingdom,,Scotland,Europe,20200318,20200309
+epi_isl_415631,United Kingdom,,Scotland,Europe,20200318,20200310
+epi_isl_415632,United Kingdom,,Scotland,Europe,20200318,20200307
+epi_isl_415633,United Kingdom,,Scotland,Europe,20200318,20200309
+epi_isl_415634,United Kingdom,,Scotland,Europe,20200318,20200306
+epi_isl_415635,United Kingdom,,Scotland,Europe,20200318,20200309
+epi_isl_415636,United Kingdom,,Scotland,Europe,20200318,20200306
+epi_isl_415637,United Kingdom,,Scotland,Europe,20200318,20200304
+epi_isl_415638,United Kingdom,,Scotland,Europe,20200318,20200307
+epi_isl_415639,United Kingdom,,Scotland,Europe,20200318,20200310
+epi_isl_415640,United Kingdom,,Scotland,Europe,20200318,20200308
+epi_isl_415641,Georgia,,Tbilisi,Asia,20200318,20200227
+epi_isl_415642,Georgia,,Tbilisi,Asia,20200318,20200310
+epi_isl_415643,Georgia,,Tbilisi,Asia,20200318,20200310
+epi_isl_415644,Georgia,,Tbilisi,Asia,20200318,20200228
+epi_isl_415646,Italy,,,Europe,20200318,20200303
+epi_isl_415647,Denmark,,Copenhagen,Europe,20200318,20200303
+epi_isl_415648,Italy,,,Europe,20200318,20200303
+epi_isl_415649,France,Crépy-en -Valois,Hauts-de-France,Europe,20200318,20200305
+epi_isl_415650,France,,IDF,Europe,20200318,20200302
+epi_isl_415651,France,Montreux-Chateau,Bourgogne-France-Comté,Europe,20200318,20200305
+epi_isl_415652,France,Thise,Bourgogne-France-Comté,Europe,20200318,20200305
+epi_isl_415653,France,Compiègne,Hauts de France,Europe,20200318,20200308
+epi_isl_415654,France,Compiègne,Hauts de France,Europe,20200318,20200309
+epi_isl_415655,United Kingdom,,Wales,Europe,20200319,20200312
+epi_isl_415656,United Kingdom,,Wales,Europe,20200319,20200312
+epi_isl_415657,United Kingdom,,Wales,Europe,20200319,20200312
+epi_isl_415658,Chile,,Santiago,South America,20200319,20200306
+epi_isl_415659,United Kingdom,,Wales,Europe,20200319,20200312
+epi_isl_415660,Chile,,Santiago,South America,20200319,20200307
+epi_isl_415661,Chile,,Santiago,South America,20200319,20200308
+epi_isl_415692,France,Crépy-en -Valois,Hauts-de-France,Europe,20200319,20200305
+epi_isl_415693,France,,IDF,Europe,20200319,20200302
+epi_isl_415694,France,Montreux-Chateau,Bourgogne-France-Comté,Europe,20200319,20200305
+epi_isl_415695,France,Thise,Bourgogne-France-Comté,Europe,20200319,20200305
+epi_isl_415696,France,Compiègne,Hauts de France,Europe,20200319,20200308
+epi_isl_415697,France,Compiègne,Hauts de France,Europe,20200319,20200309
+epi_isl_415698,Switzerland,,,Europe,20200319,20200227
+epi_isl_415699,Switzerland,,,Europe,20200319,20200227
+epi_isl_415700,Switzerland,,,Europe,20200319,20200228
+epi_isl_415701,Switzerland,,,Europe,20200319,20200302
+epi_isl_415702,Switzerland,,,Europe,20200319,20200302
+epi_isl_415703,Switzerland,,,Europe,20200319,20200301
+epi_isl_415704,Switzerland,,,Europe,20200319,20200304
+epi_isl_415705,Switzerland,,,Europe,20200319,20200306
+epi_isl_415706,Switzerland,,,Europe,20200319,20200306
+epi_isl_415707,Switzerland,,,Europe,20200319,20200308
+epi_isl_415708,Switzerland,,,Europe,20200319,20200307
+epi_isl_415709,China,,Hangzhou,Asia,20200319,20200125
+epi_isl_415710,Russia,,Saint Petersburg,Europe,20200319,20200315
+epi_isl_415711,China,,Hangzhou,Asia,20200319,20200122
+epi_isl_415741,Taiwan,,Taoyuan,Asia,20200319,20200226
+epi_isl_415742,Taiwan,,Taoyuan,Asia,20200319,20200227
+epi_isl_415743,Taiwan,,Taoyuan,Asia,20200319,20200227
+epi_isl_415787,Peru,,Lima,South America,20200319,20200310
+epi_isl_415916,United Kingdom,,Wales,Europe,20200319,20200311
+epi_isl_415918,United Kingdom,,Wales,Europe,20200319,20200311
+epi_isl_415919,United Kingdom,,Wales,Europe,20200319,20200311
+epi_isl_415920,United Kingdom,,Wales,Europe,20200319,20200312
+epi_isl_415977,United Kingdom,,Wales,Europe,20200319,20200308
+epi_isl_415978,United Kingdom,,Wales,Europe,20200319,20200308
+epi_isl_415991,United Kingdom,,Wales,Europe,20200319,20200309
+epi_isl_416024,United Kingdom,,Wales,Europe,20200319,20200311
+epi_isl_416026,United Kingdom,,Wales,Europe,20200319,20200311
+epi_isl_416027,United Kingdom,,Wales,Europe,20200319,20200309
+epi_isl_416028,Brazil,Sao Paulo,Sao Paulo,South America,20200320,20200303
+epi_isl_416029,Brazil,Sao Paulo,Sao Paulo,South America,20200320,20200304
+epi_isl_416031,Brazil,Sao Paulo,Sao Paulo,South America,20200320,20200304
+epi_isl_416032,Brazil,Brasilia,Distrito Federal,South America,20200320,20200304
+epi_isl_416033,Brazil,Sao Paulo,Sao Paulo,South America,20200320,20200303
+epi_isl_416034,Brazil,Sao Paulo,Sao Paulo,South America,20200320,20200304
+epi_isl_416035,Brazil,Sao Paulo,Sao Paulo,South America,20200320,20200305
+epi_isl_416036,Brazil,Sao Paulo,Sao Paulo,South America,20200320,20200305
+epi_isl_416042,China,,Hangzhou,Asia,20200320,20200126
+epi_isl_416044,China,,Hangzhou,Asia,20200320,20200125
+epi_isl_416046,China,,Hangzhou,Asia,20200320,20200124
+epi_isl_416047,China,,Hangzhou,Asia,20200320,20200202
+epi_isl_416140,Denmark,,Copenhagen,Europe,20200320,20200302
+epi_isl_416141,Denmark,,Copenhagen,Europe,20200320,20200303
+epi_isl_416314,China,,Hong Kong,Asia,20200320,20200207
+epi_isl_416315,China,,Hong Kong,Asia,20200320,20200219
+epi_isl_416316,China,,Shanghai,Asia,20200320,20200125
+epi_isl_416317,China,,Shanghai,Asia,20200320,20200125
+epi_isl_416318,China,,Shanghai,Asia,20200320,20200128
+epi_isl_416319,China,,Shanghai,Asia,20200320,20200128
+epi_isl_416320,China,,Shanghai,Asia,20200320,20200128
+epi_isl_416321,China,,Shanghai,Asia,20200320,20200128
+epi_isl_416322,China,,Shanghai,Asia,20200320,20200129
+epi_isl_416323,China,,Shanghai,Asia,20200320,20200129
+epi_isl_416324,China,,Shanghai,Asia,20200320,20200129
+epi_isl_416325,China,,Shanghai,Asia,20200320,20200202
+epi_isl_416326,China,,Shanghai,Asia,20200320,20200130
+epi_isl_416327,China,,Shanghai,Asia,20200320,20200128
+epi_isl_416328,China,,Shanghai,Asia,20200320,20200201
+epi_isl_416329,China,,Shanghai,Asia,20200320,20200201
+epi_isl_416330,China,,Shanghai,Asia,20200320,20200202
+epi_isl_416331,China,,Shanghai,Asia,20200320,20200130
+epi_isl_416332,China,,Shanghai,Asia,20200320,20200130
+epi_isl_416333,China,,Shanghai,Asia,20200320,20200130
+epi_isl_416334,China,,Shanghai,Asia,20200320,20200206
+epi_isl_416335,China,,Shanghai,Asia,20200320,20200202
+epi_isl_416336,China,,Shanghai,Asia,20200320,20200201
+epi_isl_416337,China,,Shanghai,Asia,20200320,20200204
+epi_isl_416338,China,,Shanghai,Asia,20200320,20200201
+epi_isl_416339,China,,Shanghai,Asia,20200320,20200203
+epi_isl_416340,China,,Shanghai,Asia,20200320,20200202
+epi_isl_416341,China,,Shanghai,Asia,20200320,20200201
+epi_isl_416342,China,,Shanghai,Asia,20200320,20200204
+epi_isl_416343,China,,Shanghai,Asia,20200320,20200204
+epi_isl_416344,China,,Shanghai,Asia,20200320,20200130
+epi_isl_416345,China,,Shanghai,Asia,20200320,20200204
+epi_isl_416346,China,,Shanghai,Asia,20200320,20200130
+epi_isl_416347,China,,Shanghai,Asia,20200320,20200206
+epi_isl_416348,China,,Shanghai,Asia,20200320,20200206
+epi_isl_416349,China,,Shanghai,Asia,20200320,20200130
+epi_isl_416350,China,,Shanghai,Asia,20200320,20200129
+epi_isl_416351,China,,Shanghai,Asia,20200320,20200206
+epi_isl_416352,China,,Shanghai,Asia,20200320,20200130
+epi_isl_416353,China,,Shanghai,Asia,20200320,20200204
+epi_isl_416354,China,,Shanghai,Asia,20200320,20200204
+epi_isl_416355,China,,Shanghai,Asia,20200320,20200204
+epi_isl_416356,China,,Shanghai,Asia,20200320,20200201
+epi_isl_416357,China,,Shanghai,Asia,20200320,20200201
+epi_isl_416358,China,,Shanghai,Asia,20200320,20200205
+epi_isl_416359,China,,Shanghai,Asia,20200320,20200206
+epi_isl_416360,China,,Shanghai,Asia,20200320,20200201
+epi_isl_416361,China,,Shanghai,Asia,20200320,20200201
+epi_isl_416362,China,,Shanghai,Asia,20200320,20200202
+epi_isl_416363,China,,Shanghai,Asia,20200320,20200208
+epi_isl_416364,China,,Shanghai,Asia,20200320,20200208
+epi_isl_416365,China,,Shanghai,Asia,20200320,20200130
+epi_isl_416366,China,,Shanghai,Asia,20200320,20200130
+epi_isl_416367,China,,Shanghai,Asia,20200320,20200201
+epi_isl_416368,China,,Shanghai,Asia,20200320,20200205
+epi_isl_416369,China,,Shanghai,Asia,20200320,20200205
+epi_isl_416370,China,,Shanghai,Asia,20200320,20200201
+epi_isl_416371,China,,Shanghai,Asia,20200320,20200205
+epi_isl_416372,China,,Shanghai,Asia,20200320,20200201
+epi_isl_416373,China,,Shanghai,Asia,20200320,20200207
+epi_isl_416374,China,,Shanghai,Asia,20200320,20200207
+epi_isl_416375,China,,Shanghai,Asia,20200320,20200201
+epi_isl_416376,China,,Shanghai,Asia,20200320,20200205
+epi_isl_416377,China,,Shanghai,Asia,20200320,20200207
+epi_isl_416378,China,,Shanghai,Asia,20200320,20200130
+epi_isl_416379,China,,Shanghai,Asia,20200320,20200201
+epi_isl_416380,China,,Shanghai,Asia,20200320,20200209
+epi_isl_416381,China,,Shanghai,Asia,20200320,20200201
+epi_isl_416382,China,,Shanghai,Asia,20200320,20200208
+epi_isl_416383,China,,Shanghai,Asia,20200320,20200201
+epi_isl_416384,China,,Shanghai,Asia,20200320,20200204
+epi_isl_416385,China,,Shanghai,Asia,20200320,20200130
+epi_isl_416386,China,,Shanghai,Asia,20200320,20200131
+epi_isl_416387,China,,Shanghai,Asia,20200320,20200201
+epi_isl_416388,China,,Shanghai,Asia,20200320,20200205
+epi_isl_416389,China,,Shanghai,Asia,20200320,20200121
+epi_isl_416390,China,,Shanghai,Asia,20200320,20200131
+epi_isl_416391,China,,Shanghai,Asia,20200320,20200202
+epi_isl_416392,China,,Shanghai,Asia,20200320,20200202
+epi_isl_416393,China,,Shanghai,Asia,20200320,20200209
+epi_isl_416394,China,,Shanghai,Asia,20200320,20200214
+epi_isl_416395,China,,Shanghai,Asia,20200320,20200209
+epi_isl_416396,China,,Shanghai,Asia,20200320,20200210
+epi_isl_416397,China,,Shanghai,Asia,20200320,20200202
+epi_isl_416398,China,,Shanghai,Asia,20200320,20200202
+epi_isl_416399,China,,Shanghai,Asia,20200320,20200213
+epi_isl_416400,China,,Shanghai,Asia,20200320,20200202
+epi_isl_416401,China,,Shanghai,Asia,20200320,20200202
+epi_isl_416402,China,,Shanghai,Asia,20200320,20200211
+epi_isl_416403,China,,Shanghai,Asia,20200320,20200202
+epi_isl_416404,China,,Shanghai,Asia,20200320,20200209
+epi_isl_416405,China,,Shanghai,Asia,20200320,20200202
+epi_isl_416406,China,,Shanghai,Asia,20200320,20200215
+epi_isl_416407,China,,Shanghai,Asia,20200320,20200215
+epi_isl_416408,China,,Shanghai,Asia,20200320,20200212
+epi_isl_416409,China,,Shanghai,Asia,20200320,20200202
+epi_isl_416410,Australia,Melbourne,Victoria,Oceania,20200320,20200124
+epi_isl_416411,Australia,Melbourne,Victoria,Oceania,20200320,20200125
+epi_isl_416412,Australia,Melbourne,Victoria,Oceania,20200320,20200302
+epi_isl_416413,Australia,Melbourne,Victoria,Oceania,20200320,20200305
+epi_isl_416414,Australia,Melbourne,Victoria,Oceania,20200320,20200306
+epi_isl_416415,Australia,Melbourne,Victoria,Oceania,20200320,20200208
+epi_isl_416416,USA,,Connecticut,North America,20200320,20200306
+epi_isl_416417,USA,,Connecticut,North America,20200320,20200310
+epi_isl_416418,USA,,Connecticut,North America,20200320,20200308
+epi_isl_416419,USA,,Connecticut,North America,20200320,20200309
+epi_isl_416420,USA,,Connecticut,North America,20200320,20200313
+epi_isl_416421,USA,,Connecticut,North America,20200320,20200313
+epi_isl_416422,USA,,Connecticut,North America,20200320,20200313
+epi_isl_416423,USA,,Connecticut,North America,20200320,20200313
+epi_isl_416424,USA,,Connecticut,North America,20200320,20200314
+epi_isl_416425,China,,Hangzhou,Asia,20200321,20200203
+epi_isl_416426,Hungary,,Budapest,Europe,20200321,20200317
+epi_isl_416427,Vietnam,,Thanhhoa,Asia,20200321,20200124
+epi_isl_416428,Vietnam,,Quangning,Asia,20200321,20200307
+epi_isl_416429,Vietnam,,Vinhphuc,Asia,20200321,20200211
+epi_isl_416430,Vietnam,,Hanoi,Asia,20200321,20200306
+epi_isl_416431,Vietnam,,Hanoi,Asia,20200321,20200306
+epi_isl_416432,Saudi Arabia,,Riyadh,Asia,20200321,20200307
+epi_isl_416433,USA,,Washington,North America,20200321,20200310
+epi_isl_416434,USA,,Washington,North America,20200321,20200310
+epi_isl_416435,USA,,Washington,North America,20200321,20200310
+epi_isl_416436,USA,,Washington,North America,20200321,20200310
+epi_isl_416437,USA,,Washington,North America,20200321,20200310
+epi_isl_416438,USA,,Washington,North America,20200321,20200310
+epi_isl_416439,USA,,Washington,North America,20200321,20200310
+epi_isl_416440,USA,,Washington,North America,20200321,20200310
+epi_isl_416441,USA,,Washington,North America,20200321,20200310
+epi_isl_416442,USA,,Washington,North America,20200321,20200310
+epi_isl_416443,USA,,Washington,North America,20200321,20200310
+epi_isl_416444,USA,,Washington,North America,20200321,20200310
+epi_isl_416445,USA,,Washington,North America,20200321,20200310
+epi_isl_416446,USA,,Washington,North America,20200321,20200310
+epi_isl_416447,USA,,Washington,North America,20200321,20200310
+epi_isl_416448,USA,,Washington,North America,20200321,20200311
+epi_isl_416449,USA,,Washington,North America,20200321,20200311
+epi_isl_416450,USA,,Washington,North America,20200321,20200311
+epi_isl_416451,USA,,Washington,North America,20200321,20200310
+epi_isl_416452,USA,,Washington,North America,20200321,20200310
+epi_isl_416453,USA,,Washington,North America,20200321,20200307
+epi_isl_416454,USA,,Washington,North America,20200321,20200306
+epi_isl_416455,USA,,Washington,North America,20200321,20200307
+epi_isl_416456,USA,,Washington,North America,20200321,20200306
+epi_isl_416457,USA,San Diego County,California,North America,20200322,20200318
+epi_isl_416459,USA,King County,Washington,North America,20200322,20200301
+epi_isl_416460,USA,King County,Washington,North America,20200322,20200229
+epi_isl_416461,USA,King County,Washington,North America,20200322,20200229
+epi_isl_416462,USA,,Washington,North America,20200322,20200224
+epi_isl_416463,USA,King County,Washington,North America,20200322,20200224
+epi_isl_416464,USA,Snohomish County,Washington,North America,20200322,20200301
+epi_isl_416465,USA,King County,Washington,North America,20200322,20200229
+epi_isl_416466,USA,King County,Washington,North America,20200322,20200303
+epi_isl_416473,China,,Hangzhou,Asia,20200322,20200126
+epi_isl_416492,USA,Dane county,Wisconsin,North America,20200322,20200315
+epi_isl_416521,Saudi Arabia,,,Asia,20200322,20200310
+epi_isl_416522,Saudi Arabia,,,Asia,20200322,20200310
+epi_isl_416523,USA,Dane county,Wisconsin,North America,20200322,20200314
+epi_isl_416524,Japan,,Saitama,Asia,20200322,20200311
+epi_isl_416525,Japan,,Saitama,Asia,20200322,20200311
+epi_isl_416526,New Zealand,,Auckland,Oceania,20200322,20200305
+epi_isl_416538,New Zealand,,Wellington,Oceania,20200323,20200315
+epi_isl_416539,New Zealand,,Wellington,Oceania,20200323,20200315
+epi_isl_416541,Kuwait,,Dasman,Asia,20200323,20200302
+epi_isl_416542,Kuwait,,Dasman,Asia,20200323,20200302
+epi_isl_416543,Kuwait,,Dasman,Asia,20200323,20200302
+epi_isl_416565,Japan,,unknown,Asia,20200323,20200215
+epi_isl_416566,Japan,,unknown,Asia,20200323,20200215
+epi_isl_416567,Japan,,unknown,Asia,20200323,20200215
+epi_isl_416568,Japan,,unknown,Asia,20200323,20200215
+epi_isl_416569,Japan,,unknown,Asia,20200323,20200215
+epi_isl_416570,Japan,,unknown,Asia,20200323,20200215
+epi_isl_416571,Japan,,unknown,Asia,20200323,20200215
+epi_isl_416572,Japan,,unknown,Asia,20200323,20200215
+epi_isl_416573,Japan,,unknown,Asia,20200323,20200215
+epi_isl_416574,Japan,,unknown,Asia,20200323,20200215
+epi_isl_416575,Japan,,unknown,Asia,20200323,20200215
+epi_isl_416576,Japan,,unknown,Asia,20200323,20200215
+epi_isl_416577,Japan,,unknown,Asia,20200323,20200215
+epi_isl_416578,Japan,,unknown,Asia,20200323,20200215
+epi_isl_416606,Japan,,unknown,Asia,20200323,20200216
+epi_isl_416607,Japan,,unknown,Asia,20200323,20200217
+epi_isl_416608,Japan,,unknown,Asia,20200323,20200217
+epi_isl_416609,Japan,,unknown,Asia,20200323,20200217
+epi_isl_416610,Japan,,unknown,Asia,20200323,20200217
+epi_isl_416611,Japan,,unknown,Asia,20200323,20200217
+epi_isl_416612,Japan,,unknown,Asia,20200323,20200217
+epi_isl_416613,Japan,,unknown,Asia,20200323,20200217
+epi_isl_416614,Japan,,unknown,Asia,20200323,20200217
+epi_isl_416615,Japan,,unknown,Asia,20200323,20200217
+epi_isl_416616,Japan,,unknown,Asia,20200323,20200217
+epi_isl_416617,Japan,,unknown,Asia,20200323,20200217
+epi_isl_416618,Japan,,unknown,Asia,20200323,20200217
+epi_isl_416619,Japan,,unknown,Asia,20200323,20200217
+epi_isl_416620,Japan,,unknown,Asia,20200323,20200217
+epi_isl_416621,Japan,,unknown,Asia,20200323,20200217
+epi_isl_416622,Japan,,unknown,Asia,20200323,20200217
+epi_isl_416623,Japan,,unknown,Asia,20200323,20200217
+epi_isl_416624,Japan,,unknown,Asia,20200323,20200217
+epi_isl_416625,Japan,,unknown,Asia,20200323,20200217
+epi_isl_416626,Japan,,unknown,Asia,20200323,20200217
+epi_isl_416627,Japan,,unknown,Asia,20200323,20200217
+epi_isl_416628,Japan,,unknown,Asia,20200323,20200217
+epi_isl_416629,Japan,,unknown,Asia,20200323,20200217
+epi_isl_416630,Japan,,unknown,Asia,20200323,20200217
+epi_isl_416631,Japan,,unknown,Asia,20200323,20200217
+epi_isl_416632,Japan,,unknown,Asia,20200323,20200217
+epi_isl_416633,Japan,,unknown,Asia,20200323,20200217
+epi_isl_416634,Japan,,unknown,Asia,20200323,20200217
+epi_isl_416635,USA,,Washington,North America,20200323,20200312
+epi_isl_416636,USA,,Washington,North America,20200323,20200312
+epi_isl_416637,USA,,Washington,North America,20200323,20200312
+epi_isl_416638,USA,,Washington,North America,20200323,20200312
+epi_isl_416639,USA,,Washington,North America,20200323,20200310
+epi_isl_416640,USA,,Washington,North America,20200323,20200311
+epi_isl_416641,USA,,Washington,North America,20200323,20200311
+epi_isl_416642,USA,,Washington,North America,20200323,20200311
+epi_isl_416643,USA,,Washington,North America,20200323,20200311
+epi_isl_416644,USA,,Washington,North America,20200323,20200311
+epi_isl_416645,USA,,Washington,North America,20200323,20200311
+epi_isl_416646,USA,,Washington,North America,20200323,20200311
+epi_isl_416647,USA,,Washington,North America,20200323,20200311
+epi_isl_416648,USA,,Washington,North America,20200323,20200311
+epi_isl_416649,USA,,Washington,North America,20200323,20200311
+epi_isl_416650,USA,,,North America,20200323,20200310
+epi_isl_416651,USA,,,North America,20200323,20200311
+epi_isl_416652,USA,,Washington,North America,20200323,20200311
+epi_isl_416653,USA,,Washington,North America,20200323,20200311
+epi_isl_416654,USA,,Washington,North America,20200323,20200311
+epi_isl_416655,USA,,Washington,North America,20200323,20200311
+epi_isl_416656,USA,,Washington,North America,20200323,20200311
+epi_isl_416657,USA,,Washington,North America,20200323,20200311
+epi_isl_416658,USA,,Washington,North America,20200323,20200311
+epi_isl_416659,USA,,Washington,North America,20200323,20200311
+epi_isl_416660,USA,,,North America,20200323,20200310
+epi_isl_416661,USA,,Washington,North America,20200323,20200312
+epi_isl_416662,USA,,Washington,North America,20200323,20200312
+epi_isl_416663,USA,,Washington,North America,20200323,20200312
+epi_isl_416664,USA,,Washington,North America,20200323,20200312
+epi_isl_416665,USA,,Washington,North America,20200323,20200312
+epi_isl_416666,USA,,Washington,North America,20200323,20200312
+epi_isl_416667,USA,,Washington,North America,20200323,20200312
+epi_isl_416668,USA,,Washington,North America,20200323,20200311
+epi_isl_416669,USA,,Washington,North America,20200323,20200311
+epi_isl_416670,USA,,Washington,North America,20200323,20200312
+epi_isl_416671,USA,,Washington,North America,20200323,20200312
+epi_isl_416672,USA,,,North America,20200323,20200310
+epi_isl_416673,USA,,Washington,North America,20200323,20200311
+epi_isl_416674,USA,,,North America,20200323,20200311
+epi_isl_416675,USA,,,North America,20200323,20200311
+epi_isl_416676,USA,,,North America,20200323,20200311
+epi_isl_416677,USA,,Washington,North America,20200323,20200312
+epi_isl_416678,USA,,Washington,North America,20200323,20200311
+epi_isl_416679,USA,,Washington,North America,20200323,20200311
+epi_isl_416680,USA,,Washington,North America,20200323,20200311
+epi_isl_416681,USA,,Washington,North America,20200323,20200311
+epi_isl_416682,USA,,,North America,20200323,20200309
+epi_isl_416683,USA,,Washington,North America,20200323,20200315
+epi_isl_416684,USA,,Washington,North America,20200323,20200314
+epi_isl_416685,USA,,Washington,North America,20200323,20200315
+epi_isl_416686,USA,,Washington,North America,20200323,20200314
+epi_isl_416687,USA,,Washington,North America,20200323,20200314
+epi_isl_416688,USA,,Washington,North America,20200323,20200314
+epi_isl_416689,USA,,Washington,North America,20200323,20200314
+epi_isl_416690,USA,,Washington,North America,20200323,20200313
+epi_isl_416691,USA,,Washington,North America,20200323,20200313
+epi_isl_416692,USA,,Washington,North America,20200323,20200314
+epi_isl_416693,USA,,Washington,North America,20200323,20200312
+epi_isl_416694,USA,,Washington,North America,20200323,20200313
+epi_isl_416695,USA,,Washington,North America,20200323,20200313
+epi_isl_416696,USA,,Washington,North America,20200323,20200313
+epi_isl_416697,USA,,Washington,North America,20200323,20200313
+epi_isl_416698,USA,,Washington,North America,20200323,20200313
+epi_isl_416699,USA,,Washington,North America,20200323,20200313
+epi_isl_416700,USA,,Washington,North America,20200323,20200313
+epi_isl_416701,USA,,Washington,North America,20200323,20200313
+epi_isl_416702,USA,,Washington,North America,20200323,20200313
+epi_isl_416703,USA,,Washington,North America,20200323,20200313
+epi_isl_416704,USA,,Washington,North America,20200323,20200315
+epi_isl_416705,USA,,Washington,North America,20200323,20200313
+epi_isl_416706,USA,,Washington,North America,20200323,20200313
+epi_isl_416707,USA,,Washington,North America,20200323,20200314
+epi_isl_416708,USA,,Washington,North America,20200323,20200314
+epi_isl_416709,USA,,Washington,North America,20200323,20200313
+epi_isl_416710,USA,,Washington,North America,20200323,20200313
+epi_isl_416711,USA,,Washington,North America,20200323,20200315
+epi_isl_416712,USA,,Washington,North America,20200323,20200314
+epi_isl_416713,USA,,Washington,North America,20200323,20200315
+epi_isl_416714,USA,,Washington,North America,20200323,20200314
+epi_isl_416715,USA,,Washington,North America,20200323,20200315
+epi_isl_416716,USA,,Washington,North America,20200323,20200313
+epi_isl_416717,USA,,Washington,North America,20200323,20200315
+epi_isl_416718,USA,,Washington,North America,20200323,20200314
+epi_isl_416719,USA,,Washington,North America,20200323,20200314
+epi_isl_416720,USA,,Washington,North America,20200323,20200313
+epi_isl_416721,USA,,Washington,North America,20200323,20200313
+epi_isl_416722,USA,,Washington,North America,20200323,20200312
+epi_isl_416723,USA,,Washington,North America,20200323,20200314
+epi_isl_416724,USA,,Washington,North America,20200323,20200313
+epi_isl_416725,USA,,Washington,North America,20200323,20200313
+epi_isl_416726,USA,,Washington,North America,20200323,20200313
+epi_isl_416727,USA,,Washington,North America,20200323,20200313
+epi_isl_416728,USA,,Washington,North America,20200323,20200313
+epi_isl_416729,USA,,Washington,North America,20200323,20200313
+epi_isl_416730,England,,South Yorkshire,Europe,20200323,20200303
+epi_isl_416731,England,,Northamtonshire,Europe,20200323,20200303
+epi_isl_416732,England,,London,Europe,20200323,20200303
+epi_isl_416733,England,,South Yorkshire,Europe,20200323,20200307
+epi_isl_416734,England,,South Yorkshire,Europe,20200323,20200309
+epi_isl_416735,England,,South Yorkshire,Europe,20200323,20200309
+epi_isl_416736,England,,South Yorkshire,Europe,20200323,20200309
+epi_isl_416737,England,,London,Europe,20200323,20200303
+epi_isl_416738,England,,Nottinghamhisre,Europe,20200323,20200309
+epi_isl_416739,England,,South Yorkshire,Europe,20200323,20200309
+epi_isl_416740,England,,South Yorkshire,Europe,20200323,20200303
