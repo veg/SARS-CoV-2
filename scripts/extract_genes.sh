@@ -1,24 +1,27 @@
 #!/bin/bash
-#PBS -l nodes=1:ppn=16
+#PBS -l nodes=4:ppn=16
 #PBS -l walltime=99:0:0:0
 
 export PATH=/usr/local/bin:$PATH
 source /etc/profile.d/modules.sh
 module load aocc/1.3.0
 module load openmpi/gnu/3.0.2
+export LC_ALL="en_US.UTF-8"
+export LC_CTYPE="en_US.UTF-8"
 
 DIRECTORY=$1
 FILE=$1/sequences
 ATTRIBUTES=$1/attributes.csv
+LOG=$1/log.txt
 MASTER=$1/master.json
 MASTERNOFASTA=$1/master-no-fasta.json
 GENE=$2
-NP=16
+NP=64
 HYPHY=/data/shares/veg/SARS-CoV-2/hyphy/hyphy
 HYPHYMPI=/data/shares/veg/SARS-CoV-2/hyphy/HYPHYMPI
 HYPHYLIBPATH=/data/shares/veg/SARS-CoV-2/hyphy/res
 MAFFT=/usr/local/bin/mafft
-RAXML=/usr/local/bin/raxml-ng
+RAXML=/usr/local/bin/raxml-ng-mpi
 TN93=/usr/local/bin/tn93
 #PREMSA=/Users/sergei/Development/hyphy-analyses/codon-msa/pre-msa.bf
 #POSTMSA=/Users/sergei/Development/hyphy-analyses/codon-msa/post-msa.bf
@@ -82,8 +85,8 @@ else
     then
         echo "Already computed TN93"
     else
-        $TN93 -q -t 0.05 $WORKING_DIR/${FILE}.${GENE}.withref.fas > ${FILE}.${GENE}.tn93 2> ${FILE}.${GENE}.tn93.json
-        echo 'python3 $WORKING_DIR/python/tabulate-diversity-divergence.py -j $MASTER -t ${FILE}.${GENE}.tn93 > $WORKING_DIR/data/evolution.${GENE}.csv'
+        $TN93 -q -t 0.05 ${FILE}.${GENE}.withref.fas > ${FILE}.${GENE}.tn93 2> ${FILE}.${GENE}.tn93.json
+        echo python3 $WORKING_DIR/python/tabulate-diversity-divergence.py -j $MASTER -t ${FILE}.${GENE}.tn93 > $WORKING_DIR/data/evolution.${GENE}.csv
         python3 $WORKING_DIR/python/tabulate-diversity-divergence.py -j $MASTER -t ${FILE}.${GENE}.tn93 > $WORKING_DIR/data/evolution.${GENE}.csv
     fi
 
@@ -91,13 +94,14 @@ else
     then
         echo "Already has tree"
     else
-        $RAXML --msa ${FILE}.${GENE}.compressed.fas --model GTR+G --force
+        $RAXML --msa ${FILE}.${GENE}.compressed.fas --threads 4 --model GTR+G --force
     fi
     
     if [ -s $WORKING_DIR/${FILE}.${GENE}.SLAC.json ] 
     then
         echo "Already has SLAC results"
     else
+        echo mpirun -np $NP $HYPHYMPI LIBPATH=$HYPHYLIBPATH slac --alignment ${FILE}.${GENE}.compressed.fas --tree ${FILE}.${GENE}.compressed.fas.raxml.bestTree --branches Internal --output ${FILE}.${GENE}.SLAC.json
         mpirun -np $NP $HYPHYMPI LIBPATH=$HYPHYLIBPATH slac --alignment ${FILE}.${GENE}.compressed.fas --tree ${FILE}.${GENE}.compressed.fas.raxml.bestTree --branches Internal --output ${FILE}.${GENE}.SLAC.json
     fi
 
@@ -105,6 +109,7 @@ else
     then
         echo "Already has FEL results"
     else
+        echo mpirun -np $NP $HYPHYMPI LIBPATH=$HYPHYLIBPATH fel --alignment ${FILE}.${GENE}.compressed.fas --tree ${FILE}.${GENE}.compressed.fas.raxml.bestTree --branches Internal --output ${FILE}.${GENE}.FEL.json
         mpirun -np $NP $HYPHYMPI LIBPATH=$HYPHYLIBPATH fel --alignment ${FILE}.${GENE}.compressed.fas --tree ${FILE}.${GENE}.compressed.fas.raxml.bestTree --branches Internal --output ${FILE}.${GENE}.FEL.json
     fi
 
@@ -112,20 +117,27 @@ else
     then
         echo "Already has MEME results"
     else
+        echo mpirun -np $NP $HYPHYMPI LIBPATH=$HYPHYLIBPATH meme --alignment ${FILE}.${GENE}.compressed.fas --tree ${FILE}.${GENE}.compressed.fas.raxml.bestTree --branches Internal --output ${FILE}.${GENE}.MEME.json
         mpirun -np $NP $HYPHYMPI LIBPATH=$HYPHYLIBPATH meme --alignment ${FILE}.${GENE}.compressed.fas --tree ${FILE}.${GENE}.compressed.fas.raxml.bestTree --branches Internal --output ${FILE}.${GENE}.MEME.json
     fi
-    
+
     if [ -s ${FILE}.${GENE}.PRIME.json ] 
     then
         echo "Already has PRIME results"
     else
+        echo mpirun -np $NP $HYPHYMPI LIBPATH=$HYPHYLIBPATH prime --alignment ${FILE}.${GENE}.compressed.fas --tree ${FILE}.${GENE}.compressed.fas.raxml.bestTree --branches Internal --output ${FILE}.${GENE}.PRIME.json
         mpirun -np $NP $HYPHYMPI LIBPATH=$HYPHYLIBPATH prime --alignment ${FILE}.${GENE}.compressed.fas --tree ${FILE}.${GENE}.compressed.fas.raxml.bestTree --branches Internal --output ${FILE}.${GENE}.PRIME.json
     fi
+
+    echo python3 $WORKING_DIR/python/summarize-gene.py -D $MASTERNOFASTA -d ${FILE}.${GENE}.duplicates.json -s ${FILE}.${GENE}.SLAC.json -f ${FILE}.${GENE}.FEL.json -m ${FILE}.${GENE}.MEME.json -P 0.1 -p ${FILE}.${GENE}.PRIME.json --output  ${FILE}.${GENE}.json -c ${FILE}.${GENE}.withref.fas
+    python3 $WORKING_DIR/python/summarize-gene.py -D $MASTERNOFASTA -d ${FILE}.${GENE}.duplicates.json -s ${FILE}.${GENE}.SLAC.json -f ${FILE}.${GENE}.FEL.json -m ${FILE}.${GENE}.MEME.json -P 0.1 -p ${FILE}.${GENE}.PRIME.json --output  ${FILE}.${GENE}.json -c ${FILE}.${GENE}.withref.fas
+
 
     if [ -s ${FILE}.${GENE}.BGM.json ] 
     then
         echo "Already has BGM results"
     else
+        echo mpirun -np $NP $HYPHYMPI LIBPATH=$HYPHYLIBPATH bgm --alignment ${FILE}.${GENE}.compressed.fas --tree ${FILE}.${GENE}.compressed.fas.raxml.bestTree --branches Internal --min-subs 2 --type codon
         mpirun -np $NP $HYPHYMPI LIBPATH=$HYPHYLIBPATH bgm --alignment ${FILE}.${GENE}.compressed.fas --tree ${FILE}.${GENE}.compressed.fas.raxml.bestTree --branches Internal --min-subs 2 --type codon
     fi
 
@@ -133,6 +145,7 @@ else
     then
         echo "Already has BUSTED results"
     else
+        echo $HYPHY LIBPATH=$HYPHYLIBPATH busted --alignment ${FILE}.${GENE}.compressed.fas --tree ${FILE}.${GENE}.compressed.fas.raxml.bestTree --branches Internal --output ${FILE}.${GENE}.BUSTED.json --rates 2 --syn-rates 2 --starting-points 10
         $HYPHY LIBPATH=$HYPHYLIBPATH busted --alignment ${FILE}.${GENE}.compressed.fas --tree ${FILE}.${GENE}.compressed.fas.raxml.bestTree --branches Internal --output ${FILE}.${GENE}.BUSTED.json --rates 2 --syn-rates 2 --starting-points 10
     fi
 
@@ -155,7 +168,6 @@ else
         $HYPHY LIBPATH=$HYPHYLIBPATH fade --alignment ${FILE}.${GENE}.compressed.fas.prot --tree ${FILE}.${GENE}.compressed.fas.rooted --branches Internal
     fi
 
-    python3 $WORKING_DIR/python/summarize-gene.py -D $MASTERNOFASTA -d ${FILE}.${GENE}.duplicates.json -s ${FILE}.${GENE}.SLAC.json -f ${FILE}.${GENE}.FEL.json -m ${FILE}.${GENE}.MEME.json -P 0.1 -p ${FILE}.${GENE}.PRIME.json --output  ${FILE}.${GENE}.json -c ${FILE}.${GENE}.withref.fas
     
 fi
 

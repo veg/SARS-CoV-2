@@ -25,7 +25,6 @@ from   os import  path
 from   Bio import SeqIO
 
 
-
 arguments = argparse.ArgumentParser(description='Summarize selection analysis results.')
 
 arguments.add_argument('-o', '--output', help = 'Write results here', type = argparse.FileType('w'), default = sys.stdout)
@@ -43,8 +42,8 @@ arguments.add_argument('-d', '--duplicates', help ='The JSON file recording comp
 
 import_settings = arguments.parse_args()
 
-db = json.load (import_settings.database)
-dups = json.load (import_settings.duplicates)
+db = json.load (import_settings.database, encoding="utf-8")
+dups = json.load (import_settings.duplicates, encoding="utf-8")
 
 sequences_with_dates = {}
 
@@ -53,12 +52,12 @@ now = datetime.datetime.now()
 for id, record in db.items():
     try:
         date_check = datetime.datetime.strptime (record['collected'], "%Y%m%d")
-        if date_check.year < 2019 or date_check.year == 2019 and date_check.month < 10 or date_check >= now: 
+        if date_check.year < 2019 or date_check.year == 2019 and date_check.month < 10 or date_check >= now:
             continue
         sequences_with_dates[id] = record['collected']
     except Exception as e:
         pass
-        
+
 date_dups = {}
 for seq, copies in dups.items():
     date_collection = {}
@@ -70,19 +69,19 @@ for seq, copies in dups.items():
                 date_collection[cdate] = 1
             else:
                 date_collection[cdate] += 1
-    date_dups[seq] = date_collection   
-           
-                
+    date_dups[seq] = date_collection
 
-slac = json.load (import_settings.slac)
-fel  = json.load (import_settings.fel)
-meme = json.load (import_settings.meme)
+
+
+slac = json.load (import_settings.slac, encoding="utf-8")
+fel  = json.load (import_settings.fel, encoding="utf-8")
+meme = json.load (import_settings.meme, encoding="utf-8")
 
 if import_settings.prime:
-    prime  = json.load (import_settings.prime)
+    prime  = json.load (import_settings.prime, encoding="utf-8")
 else:
     prime = None
-    
+
 ref_seq_map = None
 ref_seq_re = re.compile ("^NC")
 
@@ -99,11 +98,11 @@ for seq_record in SeqIO.parse(import_settings.coordinates, "fasta"):
                 c += 1
             i+=3
         break
-        
+
 if ref_seq_map is None:
     raise Exception ("Misssing reference sequence for coordinate mapping")
 
-    
+
 # compile the list of sites that are under selection by either MEME or FEL
 
 site_list = {}
@@ -115,12 +114,12 @@ L = 0
 for b,v in slac["tested"]["0"].items():
     if v == "test":
         L += slac["branch attributes"]["0"][b]["Global MG94xREV"]
-        
-    
+
+
 for i, row in enumerate (fel["MLE"]["content"]["0"]):
     if row[4] < import_settings.pvalue :
         site_list[i] = {'fel' : row[4], 'kind' : 'positive' if row[1] > row[0] else 'negative'}
-    
+
 for i, row in enumerate (meme["MLE"]["content"]["0"]):
     if row[6] < import_settings.pvalue or i in site_list:
         if i in site_list:
@@ -136,9 +135,9 @@ for site in site_list:
     labels      = {}
     composition = {}
     timing      = {}
-    ''' 
+    '''
         for each amino acid, this will record "date" : count for when they were sampled
-        timing -> 
+        timing ->
             "residue" ->
                 "date" -> count
     '''
@@ -148,7 +147,7 @@ for site in site_list:
             composition[aa_value] = 1
         else:
             composition[aa_value] += 1
-            
+
         if node in date_dups:
             if aa_value not in timing:
                 timing [aa_value] = {}
@@ -157,14 +156,14 @@ for site in site_list:
                     timing [aa_value][dt] = cnt
                 else:
                     timing [aa_value][dt] += cnt
-            
-        
-             
+
+
+
         labels[node] = [aa_value,value["codon"][0][site],value["nonsynonymous substitution count"][0][site],value["synonymous substitution count"][0][site]]
     site_list[site]['composition'] = composition
     site_list[site]['labels'] = labels
     site_list[site]['timing'] = timing
-    
+
     if prime:
         site_list[site]['prime'] = []
         prime_row = prime["MLE"]["content"]["0"][site]
@@ -175,8 +174,8 @@ for site in site_list:
                     site_list[site]['prime'].append (['Overall', prime_row[idx], 0])
                else:
                     site_list[site]['prime'].append ([prime_headers[idx][1].replace ('p-value for non-zero effect of ',''), prime_row[idx], prime_row[idx-1]])
-                    
-        
+
+
 json_out = {
     'sequences' : sequences,
     'sites' : sites,
@@ -188,5 +187,5 @@ json_out = {
 }
 
 json.dump (json_out, import_settings.output, sort_keys = True, indent = 1)
-    
+
 

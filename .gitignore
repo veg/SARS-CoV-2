@@ -2,3 +2,9 @@
 *.txt
 hosts
 *.log*
+*.btr
+data/fasta/**/sequences
+data/fasta/**/*.tmp
+data/fasta/**/master.json
+data/fasta/**/*.fas
+data/fasta/**/*.cache
