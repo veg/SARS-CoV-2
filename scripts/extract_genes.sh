@@ -86,8 +86,8 @@ else
         echo "Already computed TN93"
     else
         $TN93 -q -t 0.05 ${FILE}.${GENE}.withref.fas > ${FILE}.${GENE}.tn93 2> ${FILE}.${GENE}.tn93.json
-        echo python3 $WORKING_DIR/python/tabulate-diversity-divergence.py -j $MASTER -t ${FILE}.${GENE}.tn93 > $WORKING_DIR/data/evolution.${GENE}.csv
-        python3 $WORKING_DIR/python/tabulate-diversity-divergence.py -j $MASTER -t ${FILE}.${GENE}.tn93 > $WORKING_DIR/data/evolution.${GENE}.csv
+        echo python3 $WORKING_DIR/python/tabulate-diversity-divergence.py -j $MASTER -t ${FILE}.${GENE}.tn93 > $DIRECTORY/evolution.${GENE}.csv
+        python3 $WORKING_DIR/python/tabulate-diversity-divergence.py -j $MASTER -t ${FILE}.${GENE}.tn93 > $DIRECTORY/evolution.${GENE}.csv
     fi
 
     if [ -s ${FILE}.${GENE}.compressed.fas.raxml.bestTree ] 
@@ -156,17 +156,17 @@ else
     #    mpirun -np $NP $HYPHYMPI LIBPATH=$HYPHYLIBPATH absrel --alignment ${FILE}.${GENE}.compressed.fas --tree ${FILE}.${GENE}.compressed.fas.raxml.bestTree --branches Internal --output ${FILE}.${GENE}.ABSREL.json
     #fi
     
-    if [ -s ${FILE}.${GENE}.FADE.json ] 
-    then
-        echo "Already has FADE results"
-    else
-        echo $HYPHY LIBPATH=$HYPHYLIBPATH scripts/reroot-on-oldest.bf --tree ${FILE}.${GENE}.compressed.fas.raxml.bestTree --csv $ATTRIBUTES --output ${FILE}.${GENE}.compressed.fas.rooted
-        $HYPHY LIBPATH=$HYPHYLIBPATH scripts/reroot-on-oldest.bf --tree ${FILE}.${GENE}.compressed.fas.raxml.bestTree --csv $ATTRIBUTES --output ${FILE}.${GENE}.compressed.fas.rooted
-        echo $HYPHY LIBPATH=$HYPHYLIBPATH conv Universal "Keep Deletions" ${FILE}.${GENE}.compressed.fas  ${FILE}.${GENE}.compressed.fas.prot
-        $HYPHY LIBPATH=$HYPHYLIBPATH conv Universal "Keep Deletions" ${FILE}.${GENE}.compressed.fas  ${FILE}.${GENE}.compressed.fas.prot
-        echo $HYPHY LIBPATH=$HYPHYLIBPATH fade --alignment ${FILE}.${GENE}.compressed.fas.prot --tree ${FILE}.${GENE}.compressed.fas.rooted --branches Internal
-        $HYPHY LIBPATH=$HYPHYLIBPATH fade --alignment ${FILE}.${GENE}.compressed.fas.prot --tree ${FILE}.${GENE}.compressed.fas.rooted --branches Internal
-    fi
+    #if [ -s ${FILE}.${GENE}.FADE.json ] 
+    #then
+    #    echo "Already has FADE results"
+    #else
+    #    echo $HYPHY LIBPATH=$HYPHYLIBPATH scripts/reroot-on-oldest.bf --tree ${FILE}.${GENE}.compressed.fas.raxml.bestTree --csv $ATTRIBUTES --output ${FILE}.${GENE}.compressed.fas.rooted
+    #    $HYPHY LIBPATH=$HYPHYLIBPATH scripts/reroot-on-oldest.bf --tree ${FILE}.${GENE}.compressed.fas.raxml.bestTree --csv $ATTRIBUTES --output ${FILE}.${GENE}.compressed.fas.rooted
+    #    echo $HYPHY LIBPATH=$HYPHYLIBPATH conv Universal "Keep Deletions" ${FILE}.${GENE}.compressed.fas  ${FILE}.${GENE}.compressed.fas.prot
+    #    $HYPHY LIBPATH=$HYPHYLIBPATH conv Universal "Keep Deletions" ${FILE}.${GENE}.compressed.fas  ${FILE}.${GENE}.compressed.fas.prot
+    #    echo $HYPHY LIBPATH=$HYPHYLIBPATH fade --alignment ${FILE}.${GENE}.compressed.fas.prot --tree ${FILE}.${GENE}.compressed.fas.rooted --branches Internal
+    #    $HYPHY LIBPATH=$HYPHYLIBPATH fade --alignment ${FILE}.${GENE}.compressed.fas.prot --tree ${FILE}.${GENE}.compressed.fas.rooted --branches Internal
+    #fi
 
     
 fi
