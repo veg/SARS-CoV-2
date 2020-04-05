@@ -8,3 +8,7 @@ data/fasta/**/*.tmp
 data/fasta/**/master.json
 data/fasta/**/*.fas
 data/fasta/**/*.cache
+data/fasta/**/*.raxml*
+data/fasta/**/*.msa
+data/fasta/**/*.tn93
+data/fasta/**/*.prot
