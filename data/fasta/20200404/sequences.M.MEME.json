@@ -1,0 +1,1475 @@
+{
+ "MLE":{
+   "content":{
+     "0":      [
+[0.8581285833841654, 0, 0.9999999999999999, 0.4344257423087212, 1.110223024625157e-16, 0, 0.6666666666666666, 0, 0.0008634443358856585, -4.029771762507964, -4.029771762507964],
+      [0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0],
+      [0, 0, 1e-08, 75.10114595368229, 0.9999999899999999, 4.41753058947565, 0.05094471000540735, 1, 0.1545691603746526, -8.830617650751774, -8.830617961913125],
+      [0, 0, 1e-08, 36.49908262140646, 0.9999999899999999, 4.213304445369262, 0.05663543190799503, 1, 0.07512045899692764, -7.992459337187467, -7.992459622278749],
+      [0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0],
+      [0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0],
+      [0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0],
+      [0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0],
+      [0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0],
+      [0, 0, 0.7208015901838372, 0, 0.2791984098161628, 0, 0.6666666666666666, 0, 0, -7.831177326552963, -7.831177326517314],
+      [0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0],
+      [0, 0, 0.7208015901838372, 0, 0.2791984098161628, 0, 0.6666666666666666, 0, 0, -4.583011775295195, -4.583011775295195],
+      [0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0],
+      [0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0],
+      [0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0],
+      [0, 0, 0.7208015901838372, 0, 0.2791984098161628, 0, 0.6666666666666666, 0, 0, -9.577483645123516, -9.577483640895874],
+      [0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0],
+      [0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0],
+      [0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0],
+      [0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0],
+      [0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0],
+      [0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0],
+      [0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0],
+      [0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0],
+      [0, 0, 0.7208015901838372, 0, 0.2791984098161628, 0, 0.6666666666666666, 0, 0, -9.59779956758881, -9.597799567090572],
+      [0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0],
+      [0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0],
+      [0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0],
+      [0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0],
+      [0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0],
+      [0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0],
+      [0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0],
+      [0, 0, 0.7208015901838372, 0, 0.2791984098161628, 0, 0.6666666666666666, 0, 0, -10.02863746227431, -10.02863735620479],
+      [0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0],
+      [6.363523091003482, 0, 0.9999999999999999, 0.1850101918528516, 1.110223024625157e-16, 0, 0.6666666666666666, 0, 0.00640294249089797, -8.83702059768078, -8.837021024721279],
+      [0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0],
+      [0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0],
+      [0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0],
+      [0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0],
+      [5.031189684640187, 0, 0.9233283107817533, 0, 0.07667168921824674, 0, 0.6666666666666666, 0, 0.005062355828816553, -14.95747427900408, -14.9574763081707],
+      [0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0],
+      [0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0],
+      [0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0],
+      [0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0],
+      [0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0],
+      [0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0],
+      [0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0],
+      [0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0],
+      [0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0],
+      [0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0],
+      [0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0],
+      [0, 0, 0.7208015901838372, 0, 0.2791984098161628, 0, 0.6666666666666666, 0, 0, -7.98831399618151, -7.988313826396563],
+      [11.67184034902972, 0, 0.7701351957026785, 0, 0.2298648042973215, 0, 0.6666666666666666, 0, 0.01174414258407205, -11.84902970095521, -11.84902564565506],
+      [5.031968390849159, 0, 0.9999999999999999, 0.3161874754802251, 1.110223024625157e-16, 0, 0.6666666666666666, 0, 0.005063139358789187, -8.858821127415265, -8.85882119159603],
+      [0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0],
+      [0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0],
+      [0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0],
+      [0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0],
+      [0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0],
+      [0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0],
+      [0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0],
+      [0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0],
+      [0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0],
+      [0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0],
+      [0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0],
+      [8.84536414776149, 0, 0.9221629672630507, 0, 0.07783703273694931, 0, 0.6666666666666666, 0, 0.008900157528969756, -10.61206776513725, -10.61206787266521],
+      [0, 0, 0.7208015901838372, 0, 0.2791984098161628, 0, 0.6666666666666666, 0, 0, -3.575100465495491, -3.575100465495491],
+      [0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0],
+      [6.546896418862863, 0, 0.9999999999999999, 0.1685577396801308, 1.110223024625157e-16, 0, 0.6666666666666666, 0, 0.006587451740861739, -9.686027227186321, -9.686028018152982],
+      [0, 0, 0.7208015901838372, 0, 0.2791984098161628, 0, 0.6666666666666666, 0, 0, -10.24584324556958, -10.2458431279747],
+      [5.739330414202109, 0, 0.9999999999999999, 0.2529758468105968, 1.110223024625157e-16, 0, 0.6666666666666666, 0, 0.005774883198012053, -9.657517056287389, -9.657517091096683],
+      [0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0],
+      [0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0],
+      [0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0],
+      [0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0],
+      [0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0],
+      [5.055661146368834, 0, 0.9363947479066965, 0, 0.06360525209330348, 0, 0.6666666666666666, 0, 0.005086978881153436, -8.015599334034437, -8.015599094730415],
+      [0, 0, 0.7208015901838372, 0, 0.2791984098161628, 0, 0.6666666666666666, 0, 0, -10.28194453710893, -10.28194287248216],
+      [28.88262644999283, 0, 0.7866624304747244, 0, 0.2133375695252756, 0, 0.6666666666666666, 0, 0.02906154240358542, -9.158324689423887, -9.158324649018116],
+      [0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0],
+      [0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0],
+      [0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0],
+      [0, 0, 0.7208015901838372, 0, 0.2791984098161628, 0, 0.6666666666666666, 0, 0, -4.313618063877596, -4.313618063877596],
+      [0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0],
+      [0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0],
+      [0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0],
+      [0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0],
+      [0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0],
+      [0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0],
+      [0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0],
+      [0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0],
+      [0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0],
+      [0, 0, 0.7208015901838372, 0, 0.2791984098161628, 0, 0.6666666666666666, 0, 0, -4.060272577864869, -4.060272577864869],
+      [0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0],
+      [0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0],
+      [0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0],
+      [0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0],
+      [0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0],
+      [0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0],
+      [0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0],
+      [0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0],
+      [0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0],
+      [0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0],
+      [8.561521037549818, 0, 0.8085288384977989, 0, 0.1914711615022011, 0, 0.6666666666666666, 0, 0.008614556127806875, -9.902892036982246, -9.902888719644892],
+      [0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0],
+      [0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0],
+      [0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0],
+      [0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0],
+      [0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0],
+      [0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0],
+      [0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0],
+      [5.692929425192863, 0, 0.9999999999999999, 0.267573684622882, 1.110223024625157e-16, 0, 0.6666666666666666, 0, 0.005728194774021413, -8.58702179387671, -8.587021794381055],
+      [0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0],
+      [27.61213110851008, 0, 0.8970167633253175, 0, 0.1029832366746825, 0, 0.6666666666666666, 0, 0.02778317686768147, -10.04387584929262, -10.04387578482534],
+      [0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0],
+      [0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0],
+      [0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0],
+      [0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0],
+      [0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0],
+      [0, 0, 0.7208015901838372, 0, 0.2791984098161628, 0, 0.6666666666666666, 0, 0, -4.060272577864869, -4.060272577864869],
+      [11.65611906444544, 0, 0.7303089965244651, 0, 0.2696910034755349, 0, 0.6666666666666666, 0, 0.01172832391261653, -12.08915608002469, -12.08915552696788],
+      [0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0],
+      [0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0],
+      [5.031968408299526, 0, 0.9999999999999999, 0.3161873240229304, 1.110223024625157e-16, 0, 0.6666666666666666, 0, 0.005063139376347653, -8.858821125043489, -8.858821189227315],
+      [0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0],
+      [0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0],
+      [0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0],
+      [0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0],
+      [0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0],
+      [0, 0, 0.7208015901838372, 0, 0.2791984098161628, 0, 0.6666666666666666, 0, 0, -12.56414589634931, -12.56414587056351],
+      [0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0],
+      [0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0],
+      [0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0],
+      [0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0],
+      [0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0],
+      [0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0],
+      [0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0],
+      [5.031968406512157, 0, 0.9999999999999999, 0.3161873239619248, 1.110223024625157e-16, 0, 0.6666666666666666, 0, 0.005063139374549211, -8.858821127702271, -8.858821191886054],
+      [0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0],
+      [0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0],
+      [28.45255098871876, 0, 0.8127968108482162, 0, 0.1872031891517838, 0, 0.6666666666666666, 0, 0.02862880280228225, -9.870350444462821, -9.870350421306203],
+      [0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0],
+      [8.555360011596127, 0, 0.8637448691496331, 0, 0.1362551308503669, 0, 0.6666666666666666, 0, 0.008608356936839501, -9.322138649614564, -9.322138361008543],
+      [0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0],
+      [0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0],
+      [0, 0, 0.7208015901838372, 0, 0.2791984098161628, 0, 0.6666666666666666, 0, 0, -4.110718105179689, -4.110718105179689],
+      [0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0],
+      [0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0],
+      [0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0],
+      [0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0],
+      [0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0],
+      [0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0],
+      [0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0],
+      [0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0],
+      [0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0],
+      [0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0],
+      [0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0],
+      [0, 0, 0.7208015901838372, 0, 0.2791984098161628, 0, 0.6666666666666666, 0, 0, -9.978507635990072, -9.978507293771191],
+      [0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0],
+      [5.69326819648423, 0, 0.9999999999999999, 0.2524812500858912, 1.110223024625157e-16, 0, 0.6666666666666666, 0, 0.005728535643861148, -8.976557477322041, -8.976557477669747],
+      [5.442925967752192, 0, 0.9999999999999999, 0.288726164429883, 1.110223024625157e-16, 0, 0.6666666666666666, 0, 0.005476642648315863, -8.466875752723208, -8.466875924122045],
+      [0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0],
+      [0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0],
+      [0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0],
+      [0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0],
+      [0, 0, 0.7208015901838372, 0, 0.2791984098161628, 0, 0.6666666666666666, 0, 0, -3.99469162596105, -3.99469162596105],
+      [0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0],
+      [0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0],
+      [0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0],
+      [0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0],
+      [0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0],
+      [0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0],
+      [0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0],
+      [0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0],
+      [0, 0, 0.7208015901838372, 0, 0.2791984098161628, 0, 0.6666666666666666, 0, 0, -9.528238888378381, -9.528238887821788],
+      [0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0],
+      [0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0],
+      [9.400657812072374, 0, 0.9536069378297971, 0, 0.04639306217020289, 0, 0.6666666666666666, 0, 0.009458891008411239, -8.506434035528812, -8.506437592385581],
+      [5.696656828311517, 0, 0.9618022754995459, 0, 0.03819772450045411, 0, 0.6666666666666666, 0, 0.005731945266864423, -8.993754771440976, -8.993754899096961],
+      [0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0],
+      [0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0],
+      [0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0],
+      [0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0],
+      [0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0],
+      [0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0],
+      [0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0],
+      [0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0],
+      [0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0],
+      [0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0],
+      [5.69326805619621, 0, 0.9999999999999999, 0.2524811826450546, 1.110223024625157e-16, 0, 0.6666666666666666, 0, 0.005728535502704102, -8.976557323747672, -8.976557324094717],
+      [0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0],
+      [0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0],
+      [0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0],
+      [0, 0, 0.7208015901838372, 0, 0.2791984098161628, 0, 0.6666666666666666, 0, 0, -8.006264645454326, -8.006264319715896],
+      [0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0],
+      [0, 0, 0.7208015901838372, 0, 0.2791984098161628, 0, 0.6666666666666666, 0, 0, -4.317158172088709, -4.317158172088709],
+      [0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0],
+      [0, 0, 0.7208015901838372, 0, 0.2791984098161628, 0, 0.6666666666666666, 0, 0, -4.595890217549067, -4.595890217549067],
+      [0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0],
+      [0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0],
+      [0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0],
+      [0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0],
+      [5.698140650373856, 0, 0.9999999999999999, 0.2484819488857129, 1.110223024625157e-16, 0, 0.6666666666666666, 0, 0.005733438280592198, -8.829515195285177, -8.829515570865146],
+      [0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0],
+      [0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0],
+      [0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0],
+      [0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0],
+      [0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0],
+      [0, 0, 1e-08, 167.2837672938898, 0.9999999899999999, 10.90910014750072, 0.001855239212989912, 2, 0.344294499459066, -10.06157626395271, -10.06157602978353],
+      [0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0],
+      [0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0],
+      [0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0],
+      [0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0],
+      [0, 0, 0.7208015901838372, 0, 0.2791984098161628, 0, 0.6666666666666666, 0, 0, -9.386930042598419, -9.386929937505643],
+      [5.693268198657519, 0, 0.9999999999999999, 0.2524809378782302, 1.110223024625157e-16, 0, 0.6666666666666666, 0, 0.005728535646047899, -8.97655745383601, -8.976557454183721],
+      [0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0],
+      [0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0],
+      [0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0],
+      [0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0],
+      [0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0],
+      [0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0],
+      [0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0] 
+      ]
+    },
+   "headers":    [
+["alpha;", "Synonymous substitution rate at a site"],
+    ["&beta;<sup>-</sup>", "Non-synonymous substitution rate at a site for the negative/neutral evolution component"],
+    ["p<sup>-</sup>", "Mixture distribution weight allocated to &beta;<sup>-</sup>; loosely -- the proportion of the tree evolving neutrally or under negative selection"],
+    ["&beta;<sup>+</sup>", "Non-synonymous substitution rate at a site for the positive/neutral evolution component"],
+    ["p<sup>+</sup>", "Mixture distribution weight allocated to &beta;<sup>+</sup>; loosely -- the proportion of the tree evolving neutrally or under positive selection"],
+    ["LRT", "Likelihood ratio test statistic for episodic diversification, i.e., p<sup>+</sup> &gt; 0 <emph>and<emph> &beta;<sup>+</sup> &gt; &alpha;"],
+    ["p-value", "Asymptotic p-value for episodic diversification, i.e., p<sup>+</sup> &gt; 0 <emph>and<emph> &beta;<sup>+</sup> &gt; &alpha;"],
+    ["# branches under selection", "The (very approximate and rough) estimate of how many branches may have been under selection at this site, i.e., had an empirical Bayes factor of 100 or more for the &beta;<sup>+</sup> rate"],
+    ["Total branch length", "The total length of branches contributing to inference at this site, and used to scale dN-dS"],
+    ["MEME LogL", "Site Log-likelihood under the MEME model"],
+    ["FEL LogL", "Site Log-likelihood under the FEL model"] 
+    ]
+  },
+ "analysis":{
+   "authors":"Sergei L. Kosakovsky Pond, Steven Weaver",
+   "citation":"Detecting Individual Sites Subject to Episodic Diversifying Selection. _PLoS Genet_ 8(7): e1002764.",
+   "contact":"spond@temple.edu",
+   "info":"MEME (Mixed Effects Model of Evolution)\n    estimates a site-wise synonymous (&alpha;) and a two-category mixture of non-synonymous\n    (&beta;-, with proportion p-, and &beta;+ with proportion [1-p-]) rates, and\n    uses a likelihood ratio test to determine if &beta;+ > &alpha; at a site.\n    The estimates aggregate information over a proportion of branches at a site,\n    so the signal is derived from\n    episodic diversification, which is a combination of strength of selection [effect size] and\n    the proportion of the tree affected. A subset of branches can be selected\n    for testing as well, in which case an additional (nuisance) parameter will be\n    inferred -- the non-synonymous rate on branches NOT selected for testing. Multiple partitions within a NEXUS file are also supported\n    for recombination - aware analysis.\n    ",
+   "requirements":"in-frame codon alignment and a phylogenetic tree",
+   "version":"2.1.2"
+  },
+ "branch attributes":{
+   "0":{
+     "Node101":{
+       "EBF site 1 (partition 1)":1,
+       "EBF site 10 (partition 1)":1,
+       "EBF site 104 (partition 1)":1,
+       "EBF site 112 (partition 1)":1,
+       "EBF site 114 (partition 1)":1,
+       "EBF site 12 (partition 1)":1,
+       "EBF site 120 (partition 1)":1,
+       "EBF site 121 (partition 1)":1,
+       "EBF site 124 (partition 1)":1,
+       "EBF site 130 (partition 1)":1,
+       "EBF site 138 (partition 1)":1,
+       "EBF site 141 (partition 1)":1,
+       "EBF site 143 (partition 1)":1,
+       "EBF site 146 (partition 1)":1,
+       "EBF site 158 (partition 1)":1,
+       "EBF site 16 (partition 1)":1,
+       "EBF site 160 (partition 1)":1,
+       "EBF site 161 (partition 1)":1,
+       "EBF site 166 (partition 1)":1,
+       "EBF site 175 (partition 1)":1,
+       "EBF site 178 (partition 1)":1,
+       "EBF site 179 (partition 1)":1,
+       "EBF site 190 (partition 1)":1,
+       "EBF site 194 (partition 1)":1,
+       "EBF site 196 (partition 1)":1,
+       "EBF site 198 (partition 1)":1,
+       "EBF site 203 (partition 1)":1,
+       "EBF site 209 (partition 1)":0.9999999949752406,
+       "EBF site 214 (partition 1)":1,
+       "EBF site 215 (partition 1)":1,
+       "EBF site 25 (partition 1)":1,
+       "EBF site 3 (partition 1)":0.9999999949752406,
+       "EBF site 33 (partition 1)":1,
+       "EBF site 35 (partition 1)":1,
+       "EBF site 4 (partition 1)":0.9999999949752406,
+       "EBF site 40 (partition 1)":1,
+       "EBF site 52 (partition 1)":1,
+       "EBF site 53 (partition 1)":1,
+       "EBF site 54 (partition 1)":1,
+       "EBF site 66 (partition 1)":1,
+       "EBF site 67 (partition 1)":1,
+       "EBF site 69 (partition 1)":1,
+       "EBF site 70 (partition 1)":1,
+       "EBF site 71 (partition 1)":1,
+       "EBF site 77 (partition 1)":1,
+       "EBF site 78 (partition 1)":1,
+       "EBF site 79 (partition 1)":1,
+       "EBF site 83 (partition 1)":1,
+       "EBF site 93 (partition 1)":1,
+       "Global MG94xREV":0,
+       "Nucleotide GTR":9.705836360301618e-05
+      },
+     "Node12":{
+       "EBF site 1 (partition 1)":1,
+       "EBF site 10 (partition 1)":1,
+       "EBF site 104 (partition 1)":1,
+       "EBF site 112 (partition 1)":1,
+       "EBF site 114 (partition 1)":1,
+       "EBF site 12 (partition 1)":1,
+       "EBF site 120 (partition 1)":1,
+       "EBF site 121 (partition 1)":1,
+       "EBF site 124 (partition 1)":1,
+       "EBF site 130 (partition 1)":1,
+       "EBF site 138 (partition 1)":1,
+       "EBF site 141 (partition 1)":1,
+       "EBF site 143 (partition 1)":1,
+       "EBF site 146 (partition 1)":1,
+       "EBF site 158 (partition 1)":1,
+       "EBF site 16 (partition 1)":1,
+       "EBF site 160 (partition 1)":1,
+       "EBF site 161 (partition 1)":1,
+       "EBF site 166 (partition 1)":1,
+       "EBF site 175 (partition 1)":1,
+       "EBF site 178 (partition 1)":1,
+       "EBF site 179 (partition 1)":1,
+       "EBF site 190 (partition 1)":1,
+       "EBF site 194 (partition 1)":1,
+       "EBF site 196 (partition 1)":1,
+       "EBF site 198 (partition 1)":1,
+       "EBF site 203 (partition 1)":1,
+       "EBF site 209 (partition 1)":0.7197538174891888,
+       "EBF site 214 (partition 1)":1,
+       "EBF site 215 (partition 1)":1,
+       "EBF site 25 (partition 1)":1,
+       "EBF site 3 (partition 1)":0.8432583438879897,
+       "EBF site 33 (partition 1)":1,
+       "EBF site 35 (partition 1)":1,
+       "EBF site 4 (partition 1)":0.8426539070390155,
+       "EBF site 40 (partition 1)":1,
+       "EBF site 52 (partition 1)":1,
+       "EBF site 53 (partition 1)":1,
+       "EBF site 54 (partition 1)":1,
+       "EBF site 66 (partition 1)":1,
+       "EBF site 67 (partition 1)":1,
+       "EBF site 69 (partition 1)":1,
+       "EBF site 70 (partition 1)":1,
+       "EBF site 71 (partition 1)":1,
+       "EBF site 77 (partition 1)":1,
+       "EBF site 78 (partition 1)":1,
+       "EBF site 79 (partition 1)":1,
+       "EBF site 83 (partition 1)":1,
+       "EBF site 93 (partition 1)":1,
+       "Global MG94xREV":0.001506023419782899,
+       "Nucleotide GTR":0.001504242855998665
+      },
+     "Node17":{
+       "EBF site 1 (partition 1)":1,
+       "EBF site 10 (partition 1)":1,
+       "EBF site 104 (partition 1)":1,
+       "EBF site 112 (partition 1)":1,
+       "EBF site 114 (partition 1)":1,
+       "EBF site 12 (partition 1)":1,
+       "EBF site 120 (partition 1)":1,
+       "EBF site 121 (partition 1)":1,
+       "EBF site 124 (partition 1)":1,
+       "EBF site 130 (partition 1)":1,
+       "EBF site 138 (partition 1)":1,
+       "EBF site 141 (partition 1)":1,
+       "EBF site 143 (partition 1)":1,
+       "EBF site 146 (partition 1)":1,
+       "EBF site 158 (partition 1)":1,
+       "EBF site 16 (partition 1)":1,
+       "EBF site 160 (partition 1)":1,
+       "EBF site 161 (partition 1)":1,
+       "EBF site 166 (partition 1)":1,
+       "EBF site 175 (partition 1)":1,
+       "EBF site 178 (partition 1)":1,
+       "EBF site 179 (partition 1)":1,
+       "EBF site 190 (partition 1)":1,
+       "EBF site 194 (partition 1)":1,
+       "EBF site 196 (partition 1)":1,
+       "EBF site 198 (partition 1)":1,
+       "EBF site 203 (partition 1)":1,
+       "EBF site 209 (partition 1)":0.9999999949752406,
+       "EBF site 214 (partition 1)":1,
+       "EBF site 215 (partition 1)":1,
+       "EBF site 25 (partition 1)":1,
+       "EBF site 3 (partition 1)":0.9999999949752406,
+       "EBF site 33 (partition 1)":1,
+       "EBF site 35 (partition 1)":1,
+       "EBF site 4 (partition 1)":0.9999999949752406,
+       "EBF site 40 (partition 1)":1,
+       "EBF site 52 (partition 1)":1,
+       "EBF site 53 (partition 1)":1,
+       "EBF site 54 (partition 1)":1,
+       "EBF site 66 (partition 1)":1,
+       "EBF site 67 (partition 1)":1,
+       "EBF site 69 (partition 1)":1,
+       "EBF site 70 (partition 1)":1,
+       "EBF site 71 (partition 1)":1,
+       "EBF site 77 (partition 1)":1,
+       "EBF site 78 (partition 1)":1,
+       "EBF site 79 (partition 1)":1,
+       "EBF site 83 (partition 1)":1,
+       "EBF site 93 (partition 1)":1,
+       "Global MG94xREV":0,
+       "Nucleotide GTR":8.335046728338544e-05
+      },
+     "Node44":{
+       "EBF site 1 (partition 1)":1,
+       "EBF site 10 (partition 1)":1,
+       "EBF site 104 (partition 1)":1,
+       "EBF site 112 (partition 1)":1,
+       "EBF site 114 (partition 1)":1,
+       "EBF site 12 (partition 1)":1,
+       "EBF site 120 (partition 1)":1,
+       "EBF site 121 (partition 1)":1,
+       "EBF site 124 (partition 1)":1,
+       "EBF site 130 (partition 1)":1,
+       "EBF site 138 (partition 1)":1,
+       "EBF site 141 (partition 1)":1,
+       "EBF site 143 (partition 1)":1,
+       "EBF site 146 (partition 1)":1,
+       "EBF site 158 (partition 1)":1,
+       "EBF site 16 (partition 1)":1,
+       "EBF site 160 (partition 1)":1,
+       "EBF site 161 (partition 1)":1,
+       "EBF site 166 (partition 1)":1,
+       "EBF site 175 (partition 1)":1,
+       "EBF site 178 (partition 1)":1,
+       "EBF site 179 (partition 1)":1,
+       "EBF site 190 (partition 1)":1,
+       "EBF site 194 (partition 1)":1,
+       "EBF site 196 (partition 1)":1,
+       "EBF site 198 (partition 1)":1,
+       "EBF site 203 (partition 1)":1,
+       "EBF site 209 (partition 1)":0.9999999949752406,
+       "EBF site 214 (partition 1)":1,
+       "EBF site 215 (partition 1)":1,
+       "EBF site 25 (partition 1)":1,
+       "EBF site 3 (partition 1)":0.9999999949752406,
+       "EBF site 33 (partition 1)":1,
+       "EBF site 35 (partition 1)":1,
+       "EBF site 4 (partition 1)":0.9999999949752406,
+       "EBF site 40 (partition 1)":1,
+       "EBF site 52 (partition 1)":1,
+       "EBF site 53 (partition 1)":1,
+       "EBF site 54 (partition 1)":1,
+       "EBF site 66 (partition 1)":1,
+       "EBF site 67 (partition 1)":1,
+       "EBF site 69 (partition 1)":1,
+       "EBF site 70 (partition 1)":1,
+       "EBF site 71 (partition 1)":1,
+       "EBF site 77 (partition 1)":1,
+       "EBF site 78 (partition 1)":1,
+       "EBF site 79 (partition 1)":1,
+       "EBF site 83 (partition 1)":1,
+       "EBF site 93 (partition 1)":1,
+       "Global MG94xREV":0,
+       "Nucleotide GTR":6.900643112442226e-05
+      },
+     "Node45":{
+       "EBF site 1 (partition 1)":1,
+       "EBF site 10 (partition 1)":1,
+       "EBF site 104 (partition 1)":1,
+       "EBF site 112 (partition 1)":1,
+       "EBF site 114 (partition 1)":1,
+       "EBF site 12 (partition 1)":1,
+       "EBF site 120 (partition 1)":1,
+       "EBF site 121 (partition 1)":1,
+       "EBF site 124 (partition 1)":1,
+       "EBF site 130 (partition 1)":1,
+       "EBF site 138 (partition 1)":1,
+       "EBF site 141 (partition 1)":1,
+       "EBF site 143 (partition 1)":1,
+       "EBF site 146 (partition 1)":1,
+       "EBF site 158 (partition 1)":1,
+       "EBF site 16 (partition 1)":1,
+       "EBF site 160 (partition 1)":1,
+       "EBF site 161 (partition 1)":1,
+       "EBF site 166 (partition 1)":1,
+       "EBF site 175 (partition 1)":1,
+       "EBF site 178 (partition 1)":1,
+       "EBF site 179 (partition 1)":1,
+       "EBF site 190 (partition 1)":1,
+       "EBF site 194 (partition 1)":1,
+       "EBF site 196 (partition 1)":1,
+       "EBF site 198 (partition 1)":1,
+       "EBF site 203 (partition 1)":1,
+       "EBF site 209 (partition 1)":0.7201882170511236,
+       "EBF site 214 (partition 1)":1,
+       "EBF site 215 (partition 1)":1,
+       "EBF site 25 (partition 1)":1,
+       "EBF site 3 (partition 1)":0.8435261277522696,
+       "EBF site 33 (partition 1)":1,
+       "EBF site 35 (partition 1)":1,
+       "EBF site 4 (partition 1)":0.842921890827673,
+       "EBF site 40 (partition 1)":1,
+       "EBF site 52 (partition 1)":1,
+       "EBF site 53 (partition 1)":1,
+       "EBF site 54 (partition 1)":1,
+       "EBF site 66 (partition 1)":1,
+       "EBF site 67 (partition 1)":1,
+       "EBF site 69 (partition 1)":1,
+       "EBF site 70 (partition 1)":1,
+       "EBF site 71 (partition 1)":1,
+       "EBF site 77 (partition 1)":1,
+       "EBF site 78 (partition 1)":1,
+       "EBF site 79 (partition 1)":1,
+       "EBF site 83 (partition 1)":1,
+       "EBF site 93 (partition 1)":1,
+       "Global MG94xREV":0.001503163248997124,
+       "Nucleotide GTR":0.001432484811776835
+      },
+     "Node58":{
+       "EBF site 1 (partition 1)":1,
+       "EBF site 10 (partition 1)":1,
+       "EBF site 104 (partition 1)":1,
+       "EBF site 112 (partition 1)":1,
+       "EBF site 114 (partition 1)":1,
+       "EBF site 12 (partition 1)":1,
+       "EBF site 120 (partition 1)":1,
+       "EBF site 121 (partition 1)":1,
+       "EBF site 124 (partition 1)":1,
+       "EBF site 130 (partition 1)":1,
+       "EBF site 138 (partition 1)":1,
+       "EBF site 141 (partition 1)":1,
+       "EBF site 143 (partition 1)":1,
+       "EBF site 146 (partition 1)":1,
+       "EBF site 158 (partition 1)":1,
+       "EBF site 16 (partition 1)":1,
+       "EBF site 160 (partition 1)":1,
+       "EBF site 161 (partition 1)":1,
+       "EBF site 166 (partition 1)":1,
+       "EBF site 175 (partition 1)":1,
+       "EBF site 178 (partition 1)":1,
+       "EBF site 179 (partition 1)":1,
+       "EBF site 190 (partition 1)":1,
+       "EBF site 194 (partition 1)":1,
+       "EBF site 196 (partition 1)":1,
+       "EBF site 198 (partition 1)":1,
+       "EBF site 203 (partition 1)":1,
+       "EBF site 209 (partition 1)":0.719756210104986,
+       "EBF site 214 (partition 1)":1,
+       "EBF site 215 (partition 1)":1,
+       "EBF site 25 (partition 1)":1,
+       "EBF site 3 (partition 1)":0.8432598201855327,
+       "EBF site 33 (partition 1)":1,
+       "EBF site 35 (partition 1)":1,
+       "EBF site 4 (partition 1)":1e+26,
+       "EBF site 40 (partition 1)":1,
+       "EBF site 52 (partition 1)":1,
+       "EBF site 53 (partition 1)":1,
+       "EBF site 54 (partition 1)":1,
+       "EBF site 66 (partition 1)":1,
+       "EBF site 67 (partition 1)":1,
+       "EBF site 69 (partition 1)":1,
+       "EBF site 70 (partition 1)":1,
+       "EBF site 71 (partition 1)":1,
+       "EBF site 77 (partition 1)":1,
+       "EBF site 78 (partition 1)":1,
+       "EBF site 79 (partition 1)":1,
+       "EBF site 83 (partition 1)":1,
+       "EBF site 93 (partition 1)":1,
+       "Global MG94xREV":0.001506007649076392,
+       "Nucleotide GTR":7.733015500788562e-05
+      },
+     "Node67":{
+       "EBF site 1 (partition 1)":1,
+       "EBF site 10 (partition 1)":1,
+       "EBF site 104 (partition 1)":1,
+       "EBF site 112 (partition 1)":1,
+       "EBF site 114 (partition 1)":1,
+       "EBF site 12 (partition 1)":1,
+       "EBF site 120 (partition 1)":1,
+       "EBF site 121 (partition 1)":1,
+       "EBF site 124 (partition 1)":1,
+       "EBF site 130 (partition 1)":1,
+       "EBF site 138 (partition 1)":1,
+       "EBF site 141 (partition 1)":1,
+       "EBF site 143 (partition 1)":1,
+       "EBF site 146 (partition 1)":1,
+       "EBF site 158 (partition 1)":1,
+       "EBF site 16 (partition 1)":1,
+       "EBF site 160 (partition 1)":1,
+       "EBF site 161 (partition 1)":1,
+       "EBF site 166 (partition 1)":1,
+       "EBF site 175 (partition 1)":1,
+       "EBF site 178 (partition 1)":1,
+       "EBF site 179 (partition 1)":1,
+       "EBF site 190 (partition 1)":1,
+       "EBF site 194 (partition 1)":1,
+       "EBF site 196 (partition 1)":1,
+       "EBF site 198 (partition 1)":1,
+       "EBF site 203 (partition 1)":1,
+       "EBF site 209 (partition 1)":0.9999999949752406,
+       "EBF site 214 (partition 1)":1,
+       "EBF site 215 (partition 1)":1,
+       "EBF site 25 (partition 1)":1,
+       "EBF site 3 (partition 1)":0.9999999949752406,
+       "EBF site 33 (partition 1)":1,
+       "EBF site 35 (partition 1)":1,
+       "EBF site 4 (partition 1)":0.9999999949752406,
+       "EBF site 40 (partition 1)":1,
+       "EBF site 52 (partition 1)":1,
+       "EBF site 53 (partition 1)":1,
+       "EBF site 54 (partition 1)":1,
+       "EBF site 66 (partition 1)":1,
+       "EBF site 67 (partition 1)":1,
+       "EBF site 69 (partition 1)":1,
+       "EBF site 70 (partition 1)":1,
+       "EBF site 71 (partition 1)":1,
+       "EBF site 77 (partition 1)":1,
+       "EBF site 78 (partition 1)":1,
+       "EBF site 79 (partition 1)":1,
+       "EBF site 83 (partition 1)":1,
+       "EBF site 93 (partition 1)":1,
+       "Global MG94xREV":0,
+       "Nucleotide GTR":5.468796201196892e-05
+      },
+     "Node68":{
+       "EBF site 1 (partition 1)":1,
+       "EBF site 10 (partition 1)":1,
+       "EBF site 104 (partition 1)":1,
+       "EBF site 112 (partition 1)":1,
+       "EBF site 114 (partition 1)":1,
+       "EBF site 12 (partition 1)":1,
+       "EBF site 120 (partition 1)":1,
+       "EBF site 121 (partition 1)":1,
+       "EBF site 124 (partition 1)":1,
+       "EBF site 130 (partition 1)":1,
+       "EBF site 138 (partition 1)":1,
+       "EBF site 141 (partition 1)":1,
+       "EBF site 143 (partition 1)":1,
+       "EBF site 146 (partition 1)":1,
+       "EBF site 158 (partition 1)":1,
+       "EBF site 16 (partition 1)":1,
+       "EBF site 160 (partition 1)":1,
+       "EBF site 161 (partition 1)":1,
+       "EBF site 166 (partition 1)":1,
+       "EBF site 175 (partition 1)":1,
+       "EBF site 178 (partition 1)":1,
+       "EBF site 179 (partition 1)":1,
+       "EBF site 190 (partition 1)":1,
+       "EBF site 194 (partition 1)":1,
+       "EBF site 196 (partition 1)":1,
+       "EBF site 198 (partition 1)":1,
+       "EBF site 203 (partition 1)":1,
+       "EBF site 209 (partition 1)":0.7199270874500657,
+       "EBF site 214 (partition 1)":1,
+       "EBF site 215 (partition 1)":1,
+       "EBF site 25 (partition 1)":1,
+       "EBF site 3 (partition 1)":1e+26,
+       "EBF site 33 (partition 1)":1,
+       "EBF site 35 (partition 1)":1,
+       "EBF site 4 (partition 1)":0.8427608104265754,
+       "EBF site 40 (partition 1)":1,
+       "EBF site 52 (partition 1)":1,
+       "EBF site 53 (partition 1)":1,
+       "EBF site 54 (partition 1)":1,
+       "EBF site 66 (partition 1)":1,
+       "EBF site 67 (partition 1)":1,
+       "EBF site 69 (partition 1)":1,
+       "EBF site 70 (partition 1)":1,
+       "EBF site 71 (partition 1)":1,
+       "EBF site 77 (partition 1)":1,
+       "EBF site 78 (partition 1)":1,
+       "EBF site 79 (partition 1)":1,
+       "EBF site 83 (partition 1)":1,
+       "EBF site 93 (partition 1)":1,
+       "Global MG94xREV":0.001504882329589704,
+       "Nucleotide GTR":0.001446510333863129
+      },
+     "Node90":{
+       "EBF site 1 (partition 1)":1,
+       "EBF site 10 (partition 1)":1,
+       "EBF site 104 (partition 1)":1,
+       "EBF site 112 (partition 1)":1,
+       "EBF site 114 (partition 1)":1,
+       "EBF site 12 (partition 1)":1,
+       "EBF site 120 (partition 1)":1,
+       "EBF site 121 (partition 1)":1,
+       "EBF site 124 (partition 1)":1,
+       "EBF site 130 (partition 1)":1,
+       "EBF site 138 (partition 1)":1,
+       "EBF site 141 (partition 1)":1,
+       "EBF site 143 (partition 1)":1,
+       "EBF site 146 (partition 1)":1,
+       "EBF site 158 (partition 1)":1,
+       "EBF site 16 (partition 1)":1,
+       "EBF site 160 (partition 1)":1,
+       "EBF site 161 (partition 1)":1,
+       "EBF site 166 (partition 1)":1,
+       "EBF site 175 (partition 1)":1,
+       "EBF site 178 (partition 1)":1,
+       "EBF site 179 (partition 1)":1,
+       "EBF site 190 (partition 1)":1,
+       "EBF site 194 (partition 1)":1,
+       "EBF site 196 (partition 1)":1,
+       "EBF site 198 (partition 1)":1,
+       "EBF site 203 (partition 1)":1,
+       "EBF site 209 (partition 1)":1e+26,
+       "EBF site 214 (partition 1)":1,
+       "EBF site 215 (partition 1)":1,
+       "EBF site 25 (partition 1)":1,
+       "EBF site 3 (partition 1)":0.8433711415933711,
+       "EBF site 33 (partition 1)":1,
+       "EBF site 35 (partition 1)":1,
+       "EBF site 4 (partition 1)":0.8427667796502879,
+       "EBF site 40 (partition 1)":1,
+       "EBF site 52 (partition 1)":1,
+       "EBF site 53 (partition 1)":1,
+       "EBF site 54 (partition 1)":1,
+       "EBF site 66 (partition 1)":1,
+       "EBF site 67 (partition 1)":1,
+       "EBF site 69 (partition 1)":1,
+       "EBF site 70 (partition 1)":1,
+       "EBF site 71 (partition 1)":1,
+       "EBF site 77 (partition 1)":1,
+       "EBF site 78 (partition 1)":1,
+       "EBF site 79 (partition 1)":1,
+       "EBF site 83 (partition 1)":1,
+       "EBF site 93 (partition 1)":1,
+       "Global MG94xREV":0.001504818526154046,
+       "Nucleotide GTR":0.001502941727337366
+      },
+     "Node92":{
+       "EBF site 1 (partition 1)":1,
+       "EBF site 10 (partition 1)":1,
+       "EBF site 104 (partition 1)":1,
+       "EBF site 112 (partition 1)":1,
+       "EBF site 114 (partition 1)":1,
+       "EBF site 12 (partition 1)":1,
+       "EBF site 120 (partition 1)":1,
+       "EBF site 121 (partition 1)":1,
+       "EBF site 124 (partition 1)":1,
+       "EBF site 130 (partition 1)":1,
+       "EBF site 138 (partition 1)":1,
+       "EBF site 141 (partition 1)":1,
+       "EBF site 143 (partition 1)":1,
+       "EBF site 146 (partition 1)":1,
+       "EBF site 158 (partition 1)":1,
+       "EBF site 16 (partition 1)":1,
+       "EBF site 160 (partition 1)":1,
+       "EBF site 161 (partition 1)":1,
+       "EBF site 166 (partition 1)":1,
+       "EBF site 175 (partition 1)":1,
+       "EBF site 178 (partition 1)":1,
+       "EBF site 179 (partition 1)":1,
+       "EBF site 190 (partition 1)":1,
+       "EBF site 194 (partition 1)":1,
+       "EBF site 196 (partition 1)":1,
+       "EBF site 198 (partition 1)":1,
+       "EBF site 203 (partition 1)":1,
+       "EBF site 209 (partition 1)":1e+26,
+       "EBF site 214 (partition 1)":1,
+       "EBF site 215 (partition 1)":1,
+       "EBF site 25 (partition 1)":1,
+       "EBF site 3 (partition 1)":0.8434247717486977,
+       "EBF site 33 (partition 1)":1,
+       "EBF site 35 (partition 1)":1,
+       "EBF site 4 (partition 1)":0.8428204512641089,
+       "EBF site 40 (partition 1)":1,
+       "EBF site 52 (partition 1)":1,
+       "EBF site 53 (partition 1)":1,
+       "EBF site 54 (partition 1)":1,
+       "EBF site 66 (partition 1)":1,
+       "EBF site 67 (partition 1)":1,
+       "EBF site 69 (partition 1)":1,
+       "EBF site 70 (partition 1)":1,
+       "EBF site 71 (partition 1)":1,
+       "EBF site 77 (partition 1)":1,
+       "EBF site 78 (partition 1)":1,
+       "EBF site 79 (partition 1)":1,
+       "EBF site 83 (partition 1)":1,
+       "EBF site 93 (partition 1)":1,
+       "Global MG94xREV":0.001504245727416583,
+       "Nucleotide GTR":0.001501945013373752
+      },
+     "epi_isl_402120_Hubei_20200101_null_3086":{
+       "Global MG94xREV":0,
+       "Nucleotide GTR":0,
+       "original name":"epi_isl_402120_Hubei_20200101_null_3086"
+      },
+     "epi_isl_404253_Illinois_20200121_Sanger__1":{
+       "Global MG94xREV":0,
+       "Nucleotide GTR":0,
+       "original name":"epi_isl_404253_Illinois_20200121_Sanger__1"
+      },
+     "epi_isl_406034_California_20200123_Sanger__40":{
+       "Global MG94xREV":0,
+       "Nucleotide GTR":0,
+       "original name":"epi_isl_406034_California_20200123_Sanger__40"
+      },
+     "epi_isl_406592_Guandong_20200113_null_1":{
+       "Global MG94xREV":0.003033734363350615,
+       "Nucleotide GTR":0.003018289907015486,
+       "original name":"epi_isl_406592_Guandong_20200113_null_1"
+      },
+     "epi_isl_407987_Singapore_20200125_Illumina_4":{
+       "Global MG94xREV":0,
+       "Nucleotide GTR":0,
+       "original name":"epi_isl_407987_Singapore_20200125_Illumina_4"
+      },
+     "epi_isl_408485_Beijing_20200118_Illumina_1":{
+       "Global MG94xREV":0.001509546488910336,
+       "Nucleotide GTR":0.001502351491970244,
+       "original name":"epi_isl_408485_Beijing_20200118_Illumina_1"
+      },
+     "epi_isl_413017_South_Korea_20200206_Illumina_2":{
+       "Global MG94xREV":0.003027676330800148,
+       "Nucleotide GTR":0.003010017063023708,
+       "original name":"epi_isl_413017_South_Korea_20200206_Illumina_2"
+      },
+     "epi_isl_413019_Zurich_20200226_Illumina_1":{
+       "Global MG94xREV":0.001512375916174914,
+       "Nucleotide GTR":0.001504242883071875,
+       "original name":"epi_isl_413019_Zurich_20200226_Illumina_1"
+      },
+     "epi_isl_413487_Washington_20200301_Illumina_3":{
+       "Global MG94xREV":0.001512106140732863,
+       "Nucleotide GTR":0.001504389531145826,
+       "original name":"epi_isl_413487_Washington_20200301_Illumina_3"
+      },
+     "epi_isl_413565_Berlicum_20200224_Nanopore_169":{
+       "Global MG94xREV":0.001513011209384253,
+       "Nucleotide GTR":0.001504242911992847,
+       "original name":"epi_isl_413565_Berlicum_20200224_Nanopore_169"
+      },
+     "epi_isl_413850_Guangdong_20200210_metagenomics_BGI_13":{
+       "Global MG94xREV":0.001512375912166326,
+       "Nucleotide GTR":0.001504242886512207,
+       "original name":"epi_isl_413850_Guangdong_20200210_metagenomics_BGI_13"
+      },
+     "epi_isl_413999_Argovie_20200227_null_45":{
+       "Global MG94xREV":0,
+       "Nucleotide GTR":0,
+       "original name":"epi_isl_413999_Argovie_20200227_null_45"
+      },
+     "epi_isl_414630_Hauts_de_France_20200303_Illumina_2":{
+       "Global MG94xREV":0.001512295326265007,
+       "Nucleotide GTR":0.001504242857609612,
+       "original name":"epi_isl_414630_Hauts_de_France_20200303_Illumina_2"
+      },
+     "epi_isl_415105_Bahia_20200304_Nanopore_1":{
+       "Global MG94xREV":0.001511757844962852,
+       "Nucleotide GTR":0.001503929145972605,
+       "original name":"epi_isl_415105_Bahia_20200304_Nanopore_1"
+      },
+     "epi_isl_415132_England_20200228_Illumina_3":{
+       "Global MG94xREV":0.001511781198524449,
+       "Nucleotide GTR":0.001504242672818991,
+       "original name":"epi_isl_415132_England_20200228_Illumina_3"
+      },
+     "epi_isl_415140_England_20200229_Illumina_4":{
+       "Global MG94xREV":0.001512055828835244,
+       "Nucleotide GTR":0.001504242884954004,
+       "original name":"epi_isl_415140_England_20200229_Illumina_4"
+      },
+     "epi_isl_415615_Washington_20200308_Illumina_1":{
+       "Global MG94xREV":0.00151205589550263,
+       "Nucleotide GTR":0.001504242857609612,
+       "original name":"epi_isl_415615_Washington_20200308_Illumina_1"
+      },
+     "epi_isl_416321_Shanghai_20200128_Illumina_1":{
+       "Global MG94xREV":0,
+       "Nucleotide GTR":0.001425048125428645,
+       "original name":"epi_isl_416321_Shanghai_20200128_Illumina_1"
+      },
+     "epi_isl_416383_Shanghai_20200201_Illumina_1":{
+       "Global MG94xREV":0.001512912147030617,
+       "Nucleotide GTR":0.001505044799684899,
+       "original name":"epi_isl_416383_Shanghai_20200201_Illumina_1"
+      },
+     "epi_isl_416452_Washington_20200310_Illumina_2":{
+       "Global MG94xREV":0.001512006027651284,
+       "Nucleotide GTR":0.001504242884916383,
+       "original name":"epi_isl_416452_Washington_20200310_Illumina_2"
+      },
+     "epi_isl_416521_Saudi_Arabia_20200310_Illumina_10":{
+       "Global MG94xREV":0,
+       "Nucleotide GTR":0,
+       "original name":"epi_isl_416521_Saudi_Arabia_20200310_Illumina_10"
+      },
+     "epi_isl_416543_Dasman_20200302_Illumina_1":{
+       "Global MG94xREV":0,
+       "Nucleotide GTR":0,
+       "original name":"epi_isl_416543_Dasman_20200302_Illumina_1"
+      },
+     "epi_isl_416687_Washington_20200314_Illumina_1":{
+       "Global MG94xREV":0.00151124453415783,
+       "Nucleotide GTR":0.001503057424209406,
+       "original name":"epi_isl_416687_Washington_20200314_Illumina_1"
+      },
+     "epi_isl_416829_Selangor_20200220_Illumina_1":{
+       "Global MG94xREV":0.001513101188442347,
+       "Nucleotide GTR":0.0015019450146795,
+       "original name":"epi_isl_416829_Selangor_20200220_Illumina_1"
+      },
+     "epi_isl_417026_Utah_20200320_Illumina_1":{
+       "Global MG94xREV":0.00151237591260088,
+       "Nucleotide GTR":0.001504242884938306,
+       "original name":"epi_isl_417026_Utah_20200320_Illumina_1"
+      },
+     "epi_isl_417034_Amazonas_State_20200316_Illumina_2":{
+       "Global MG94xREV":0.00151237628410349,
+       "Nucleotide GTR":0.001504242910392191,
+       "original name":"epi_isl_417034_Amazonas_State_20200316_Illumina_2"
+      },
+     "epi_isl_417088_Washington_20200302_Illumina_1":{
+       "Global MG94xREV":0.00151112359199828,
+       "Nucleotide GTR":0.001502927964675004,
+       "original name":"epi_isl_417088_Washington_20200302_Illumina_1"
+      },
+     "epi_isl_417237_England_20200303_Illumina_2":{
+       "Global MG94xREV":0,
+       "Nucleotide GTR":0,
+       "original name":"epi_isl_417237_England_20200303_Illumina_2"
+      },
+     "epi_isl_417413_Turkey_20200317_Nanopore_1":{
+       "Global MG94xREV":0.004556908104041281,
+       "Nucleotide GTR":0.004523097048379604,
+       "original name":"epi_isl_417413_Turkey_20200317_Nanopore_1"
+      },
+     "epi_isl_417516_Wisconsin_20200326_Nanpore_1":{
+       "Global MG94xREV":0.001511778919591231,
+       "Nucleotide GTR":0.001504242884890934,
+       "original name":"epi_isl_417516_Wisconsin_20200326_Nanpore_1"
+      },
+     "epi_isl_417523_Taoyuan_20200313_Illumina_3":{
+       "Global MG94xREV":0.001517855317910813,
+       "Nucleotide GTR":0.001506766210082432,
+       "original name":"epi_isl_417523_Taoyuan_20200313_Illumina_3"
+      },
+     "epi_isl_417653_Reykjavik_20200318_Illumina_1":{
+       "Global MG94xREV":0.001511006250417356,
+       "Nucleotide GTR":0.001502927969366087,
+       "original name":"epi_isl_417653_Reykjavik_20200318_Illumina_1"
+      },
+     "epi_isl_417938_California_20200318_Illumina_1":{
+       "Global MG94xREV":0,
+       "Nucleotide GTR":0,
+       "original name":"epi_isl_417938_California_20200318_Illumina_1"
+      },
+     "epi_isl_417961_Madrid_20200312_Ion_2":{
+       "Global MG94xREV":0.001512156430705432,
+       "Nucleotide GTR":0.001405065777159329,
+       "original name":"epi_isl_417961_Madrid_20200312_Ion_2"
+      },
+     "epi_isl_418089_Wales_20200312_Illumina_1":{
+       "Global MG94xREV":0,
+       "Nucleotide GTR":0,
+       "original name":"epi_isl_418089_Wales_20200312_Illumina_1"
+      },
+     "epi_isl_418098_Wales_20200313_Illumina_1":{
+       "Global MG94xREV":0,
+       "Nucleotide GTR":0,
+       "original name":"epi_isl_418098_Wales_20200313_Illumina_1"
+      },
+     "epi_isl_418112_Wales_20200313_Illumina_1":{
+       "Global MG94xREV":0.001511697320553778,
+       "Nucleotide GTR":0.001504242857609612,
+       "original name":"epi_isl_418112_Wales_20200313_Illumina_1"
+      },
+     "epi_isl_418250_Catalonia_2020_Illumina_1":{
+       "Global MG94xREV":0.001511476114873149,
+       "Nucleotide GTR":0.001502927964616423,
+       "original name":"epi_isl_418250_Catalonia_2020_Illumina_1"
+      },
+     "epi_isl_418255_Abruzzo_20200314_Illumina_1":{
+       "Global MG94xREV":0,
+       "Nucleotide GTR":0,
+       "original name":"epi_isl_418255_Abruzzo_20200314_Illumina_1"
+      },
+     "epi_isl_418286_South_Yorkshire_20200318_Nanopore_13":{
+       "Global MG94xREV":0.001515107276003946,
+       "Nucleotide GTR":0.001504075498330137,
+       "original name":"epi_isl_418286_South_Yorkshire_20200318_Nanopore_13"
+      },
+     "epi_isl_418676_England_20200310_Illumina_1":{
+       "Global MG94xREV":0,
+       "Nucleotide GTR":0,
+       "original name":"epi_isl_418676_England_20200310_Illumina_1"
+      },
+     "epi_isl_418703_England_20200317_Illumina_1":{
+       "Global MG94xREV":0,
+       "Nucleotide GTR":0,
+       "original name":"epi_isl_418703_England_20200317_Illumina_1"
+      },
+     "epi_isl_418708_England_20200317_Illumina_1":{
+       "Global MG94xREV":0,
+       "Nucleotide GTR":0,
+       "original name":"epi_isl_418708_England_20200317_Illumina_1"
+      },
+     "epi_isl_418714_England_20200317_Illumina_1":{
+       "Global MG94xREV":0,
+       "Nucleotide GTR":0,
+       "original name":"epi_isl_418714_England_20200317_Illumina_1"
+      },
+     "epi_isl_419248_Hong_Kong_20200224_Nanopore_1":{
+       "Global MG94xREV":0.001512055860154789,
+       "Nucleotide GTR":0.001504242884961712,
+       "original name":"epi_isl_419248_Hong_Kong_20200224_Nanopore_1"
+      },
+     "epi_isl_419249_Hong_Kong_20200225_Nanopore_1":{
+       "Global MG94xREV":0,
+       "Nucleotide GTR":0,
+       "original name":"epi_isl_419249_Hong_Kong_20200225_Nanopore_1"
+      },
+     "epi_isl_419493_Wales_20200320_Illumina_1":{
+       "Global MG94xREV":0,
+       "Nucleotide GTR":0,
+       "original name":"epi_isl_419493_Wales_20200320_Illumina_1"
+      },
+     "epi_isl_419576_Luxembourg_20200317_Illumina_1":{
+       "Global MG94xREV":0.0015104169006214,
+       "Nucleotide GTR":0.001502606210596737,
+       "original name":"epi_isl_419576_Luxembourg_20200317_Illumina_1"
+      },
+     "epi_isl_419590_Luxembourg_20200311_Illumina_1":{
+       "Global MG94xREV":0,
+       "Nucleotide GTR":0,
+       "original name":"epi_isl_419590_Luxembourg_20200311_Illumina_1"
+      },
+     "epi_isl_419659_Austria_20200310_Illumina_1":{
+       "Global MG94xREV":0.00151205609129315,
+       "Nucleotide GTR":0.001504242695699159,
+       "original name":"epi_isl_419659_Austria_20200310_Illumina_1"
+      },
+     "epi_isl_419661_Austria_20200310_Illumina_1":{
+       "Global MG94xREV":0,
+       "Nucleotide GTR":0,
+       "original name":"epi_isl_419661_Austria_20200310_Illumina_1"
+      },
+     "epi_isl_419844_Victoria_20200317_Illumina_2":{
+       "Global MG94xREV":0.001510826509512023,
+       "Nucleotide GTR":0.001502927969307504,
+       "original name":"epi_isl_419844_Victoria_20200317_Illumina_2"
+      },
+     "epi_isl_419913_Victoria_20200320_Illumina_1":{
+       "Global MG94xREV":0.00151205585740259,
+       "Nucleotide GTR":0.001504242883317506,
+       "original name":"epi_isl_419913_Victoria_20200320_Illumina_1"
+      },
+     "epi_isl_419922_Victoria_20200320_Illumina_1":{
+       "Global MG94xREV":0,
+       "Nucleotide GTR":0,
+       "original name":"epi_isl_419922_Victoria_20200320_Illumina_1"
+      },
+     "epi_isl_420010_Victoria_20200324_Illumina_1":{
+       "Global MG94xREV":0.00151054685377065,
+       "Nucleotide GTR":0.001417902288467597,
+       "original name":"epi_isl_420010_Victoria_20200324_Illumina_1"
+      },
+     "epi_isl_420014_Victoria_20200324_Illumina_1":{
+       "Global MG94xREV":0,
+       "Nucleotide GTR":0,
+       "original name":"epi_isl_420014_Victoria_20200324_Illumina_1"
+      }
+    },
+   "attributes":{
+     "EBF site 1 (partition 1)":{
+       "attribute type":"branch label",
+       "display order":3
+      },
+     "EBF site 10 (partition 1)":{
+       "attribute type":"branch label",
+       "display order":12
+      },
+     "EBF site 104 (partition 1)":{
+       "attribute type":"branch label",
+       "display order":106
+      },
+     "EBF site 112 (partition 1)":{
+       "attribute type":"branch label",
+       "display order":114
+      },
+     "EBF site 114 (partition 1)":{
+       "attribute type":"branch label",
+       "display order":116
+      },
+     "EBF site 12 (partition 1)":{
+       "attribute type":"branch label",
+       "display order":14
+      },
+     "EBF site 120 (partition 1)":{
+       "attribute type":"branch label",
+       "display order":122
+      },
+     "EBF site 121 (partition 1)":{
+       "attribute type":"branch label",
+       "display order":123
+      },
+     "EBF site 124 (partition 1)":{
+       "attribute type":"branch label",
+       "display order":126
+      },
+     "EBF site 130 (partition 1)":{
+       "attribute type":"branch label",
+       "display order":132
+      },
+     "EBF site 138 (partition 1)":{
+       "attribute type":"branch label",
+       "display order":140
+      },
+     "EBF site 141 (partition 1)":{
+       "attribute type":"branch label",
+       "display order":143
+      },
+     "EBF site 143 (partition 1)":{
+       "attribute type":"branch label",
+       "display order":145
+      },
+     "EBF site 146 (partition 1)":{
+       "attribute type":"branch label",
+       "display order":148
+      },
+     "EBF site 158 (partition 1)":{
+       "attribute type":"branch label",
+       "display order":160
+      },
+     "EBF site 16 (partition 1)":{
+       "attribute type":"branch label",
+       "display order":18
+      },
+     "EBF site 160 (partition 1)":{
+       "attribute type":"branch label",
+       "display order":162
+      },
+     "EBF site 161 (partition 1)":{
+       "attribute type":"branch label",
+       "display order":163
+      },
+     "EBF site 166 (partition 1)":{
+       "attribute type":"branch label",
+       "display order":168
+      },
+     "EBF site 175 (partition 1)":{
+       "attribute type":"branch label",
+       "display order":177
+      },
+     "EBF site 178 (partition 1)":{
+       "attribute type":"branch label",
+       "display order":180
+      },
+     "EBF site 179 (partition 1)":{
+       "attribute type":"branch label",
+       "display order":181
+      },
+     "EBF site 190 (partition 1)":{
+       "attribute type":"branch label",
+       "display order":192
+      },
+     "EBF site 194 (partition 1)":{
+       "attribute type":"branch label",
+       "display order":196
+      },
+     "EBF site 196 (partition 1)":{
+       "attribute type":"branch label",
+       "display order":198
+      },
+     "EBF site 198 (partition 1)":{
+       "attribute type":"branch label",
+       "display order":200
+      },
+     "EBF site 203 (partition 1)":{
+       "attribute type":"branch label",
+       "display order":205
+      },
+     "EBF site 209 (partition 1)":{
+       "attribute type":"branch label",
+       "display order":211
+      },
+     "EBF site 214 (partition 1)":{
+       "attribute type":"branch label",
+       "display order":216
+      },
+     "EBF site 215 (partition 1)":{
+       "attribute type":"branch label",
+       "display order":217
+      },
+     "EBF site 25 (partition 1)":{
+       "attribute type":"branch label",
+       "display order":27
+      },
+     "EBF site 3 (partition 1)":{
+       "attribute type":"branch label",
+       "display order":5
+      },
+     "EBF site 33 (partition 1)":{
+       "attribute type":"branch label",
+       "display order":35
+      },
+     "EBF site 35 (partition 1)":{
+       "attribute type":"branch label",
+       "display order":37
+      },
+     "EBF site 4 (partition 1)":{
+       "attribute type":"branch label",
+       "display order":6
+      },
+     "EBF site 40 (partition 1)":{
+       "attribute type":"branch label",
+       "display order":42
+      },
+     "EBF site 52 (partition 1)":{
+       "attribute type":"branch label",
+       "display order":54
+      },
+     "EBF site 53 (partition 1)":{
+       "attribute type":"branch label",
+       "display order":55
+      },
+     "EBF site 54 (partition 1)":{
+       "attribute type":"branch label",
+       "display order":56
+      },
+     "EBF site 66 (partition 1)":{
+       "attribute type":"branch label",
+       "display order":68
+      },
+     "EBF site 67 (partition 1)":{
+       "attribute type":"branch label",
+       "display order":69
+      },
+     "EBF site 69 (partition 1)":{
+       "attribute type":"branch label",
+       "display order":71
+      },
+     "EBF site 70 (partition 1)":{
+       "attribute type":"branch label",
+       "display order":72
+      },
+     "EBF site 71 (partition 1)":{
+       "attribute type":"branch label",
+       "display order":73
+      },
+     "EBF site 77 (partition 1)":{
+       "attribute type":"branch label",
+       "display order":79
+      },
+     "EBF site 78 (partition 1)":{
+       "attribute type":"branch label",
+       "display order":80
+      },
+     "EBF site 79 (partition 1)":{
+       "attribute type":"branch label",
+       "display order":81
+      },
+     "EBF site 83 (partition 1)":{
+       "attribute type":"branch label",
+       "display order":85
+      },
+     "EBF site 93 (partition 1)":{
+       "attribute type":"branch label",
+       "display order":95
+      },
+     "Global MG94xREV":{
+       "attribute type":"branch length",
+       "display order":1
+      },
+     "Nucleotide GTR":{
+       "attribute type":"branch length",
+       "display order":0
+      },
+     "original name":{
+       "attribute type":"node label",
+       "display order":-1
+      }
+    }
+  },
+ "data partitions":{
+   "0":{
+     "coverage":      [
+[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 123, 124, 125, 126, 127, 128, 129, 130, 131, 132, 133, 134, 135, 136, 137, 138, 139, 140, 141, 142, 143, 144, 145, 146, 147, 148, 149, 150, 151, 152, 153, 154, 155, 156, 157, 158, 159, 160, 161, 162, 163, 164, 165, 166, 167, 168, 169, 170, 171, 172, 173, 174, 175, 176, 177, 178, 179, 180, 181, 182, 183, 184, 185, 186, 187, 188, 189, 190, 191, 192, 193, 194, 195, 196, 197, 198, 199, 200, 201, 202, 203, 204, 205, 206, 207, 208, 209, 210, 211, 212, 213, 214, 215, 216, 217, 218, 219, 220, 221] 
+      ],
+     "name":"meme.filter.default"
+    }
+  },
+ "fits":{
+   "Global MG94xREV":{
+     "AIC-c":2599.90084867292,
+     "Equilibrium frequencies":      [
+[0.01841312366462752],
+      [0.01571006226100855],
+      [0.01183535791404923],
+      [0.02552028249003578],
+      [0.01549450114162145],
+      [0.01321989587816442],
+      [0.009959362140331551],
+      [0.02147512032062163],
+      [0.01618909787971487],
+      [0.01381252525493354],
+      [0.01040582636611955],
+      [0.02243781982211112],
+      [0.02765912481691904],
+      [0.02359874298751118],
+      [0.01777838718513925],
+      [0.03833508597516999],
+      [0.01345502855944525],
+      [0.01147981951582733],
+      [0.008648455397641525],
+      [0.01864844531556499],
+      [0.01132230246057445],
+      [0.009660179328252671],
+      [0.007277608322885807],
+      [0.01569252249071517],
+      [0.01182986538789558],
+      [0.01009323160850824],
+      [0.007603853289148009],
+      [0.01639599624794564],
+      [0.0202113623478146],
+      [0.01724431805527628],
+      [0.01299120734068904],
+      [0.02801261133196954],
+      [0.01590630660170112],
+      [0.0135712479645952],
+      [0.01022405731643388],
+      [0.02204587582433669],
+      [0.01338503397294294],
+      [0.01142010019107217],
+      [0.008603465150555304],
+      [0.01855143398533949],
+      [0.01398506625871311],
+      [0.0119320472533826],
+      [0.008989146417428972],
+      [0.01938306873210511],
+      [0.02389352983697211],
+      [0.02038594038746389],
+      [0.01535798502205409],
+      [0.03311603409773557],
+      [0.0133377332784569],
+      [0.02166654182445737],
+      [0.01315472339168347],
+      [0.01122359938888041],
+      [0.008455428988400213],
+      [0.01823222735852054],
+      [0.01172673759603715],
+      [0.008834474001908059],
+      [0.01904955252024436],
+      [0.02348240404108564],
+      [0.02003516818997462],
+      [0.01509372671202264],
+      [0.03254622059726367] 
+      ],
+     "Log Likelihood":-1217.399286592513,
+     "Rate Distributions":{
+       "non-synonymous/synonymous rate ratio for *background*":        [
+[0.2615279729305855, 1] 
+        ],
+       "non-synonymous/synonymous rate ratio for *test*":        [
+[0.9734579294243647, 1] 
+        ]
+      },
+     "display order":1,
+     "estimated parameters":82
+    },
+   "Nucleotide GTR":{
+     "AIC-c":2725.920728239028,
+     "Equilibrium frequencies":      [
+[0.2536018161018161],
+      [0.2187365937365937],
+      [0.2084763334763335],
+      [0.3191852566852567] 
+      ],
+     "Log Likelihood":-1245.589015472465,
+     "Rate Distributions":{
+       "Substitution rate from nucleotide A to nucleotide C":0.3079899726445178,
+       "Substitution rate from nucleotide A to nucleotide G":1,
+       "Substitution rate from nucleotide A to nucleotide T":0.4224991042052261,
+       "Substitution rate from nucleotide C to nucleotide G":0.7480663633358532,
+       "Substitution rate from nucleotide C to nucleotide T":6.85317823108259,
+       "Substitution rate from nucleotide G to nucleotide T":1.803075152158536
+      },
+     "display order":0,
+     "estimated parameters":117
+    }
+  },
+ "input":{
+   "file name":"/home/sergei/Projects/SARS-CoV-2/sequences.M.compressed.fas",
+   "number of sequences":56,
+   "number of sites":222,
+   "partition count":1,
+   "trees":{
+     "0":"(epi_isl_419913_Victoria_20200320_Illumina_1,epi_isl_414630_Hauts_de_France_20200303_Illumina_2,epi_isl_417413_Turkey_20200317_Nanopore_1,epi_isl_419248_Hong_Kong_20200224_Nanopore_1,(epi_isl_417961_Madrid_20200312_Ion_2,epi_isl_418714_England_20200317_Illumina_1)Node101,epi_isl_417516_Wisconsin_20200326_Nanpore_1,epi_isl_417088_Washington_20200302_Illumina_1,epi_isl_406592_Guandong_20200113_null_1,((epi_isl_406034_California_20200123_Sanger__40,epi_isl_408485_Beijing_20200118_Illumina_1)Node45,epi_isl_404253_Illinois_20200121_Sanger__1)Node44,epi_isl_415615_Washington_20200308_Illumina_1,epi_isl_413019_Zurich_20200226_Illumina_1,epi_isl_417523_Taoyuan_20200313_Illumina_3,epi_isl_416383_Shanghai_20200201_Illumina_1,epi_isl_413017_South_Korea_20200206_Illumina_2,(epi_isl_416321_Shanghai_20200128_Illumina_1,epi_isl_418255_Abruzzo_20200314_Illumina_1)Node58,epi_isl_418676_England_20200310_Illumina_1,epi_isl_416543_Dasman_20200302_Illumina_1,((epi_isl_413999_Argovie_20200227_null_45,epi_isl_419576_Luxembourg_20200317_Illumina_1)Node68,epi_isl_417237_England_20200303_Illumina_2)Node67,epi_isl_418089_Wales_20200312_Illumina_1,epi_isl_419493_Wales_20200320_Illumina_1,epi_isl_418112_Wales_20200313_Illumina_1,epi_isl_416452_Washington_20200310_Illumina_2,epi_isl_417026_Utah_20200320_Illumina_1,epi_isl_413565_Berlicum_20200224_Nanopore_169,epi_isl_418708_England_20200317_Illumina_1,epi_isl_413487_Washington_20200301_Illumina_3,epi_isl_416687_Washington_20200314_Illumina_1,epi_isl_415140_England_20200229_Illumina_4,epi_isl_418098_Wales_20200313_Illumina_1,epi_isl_419661_Austria_20200310_Illumina_1,epi_isl_419590_Luxembourg_20200311_Illumina_1,epi_isl_413850_Guangdong_20200210_metagenomics_BGI_13,epi_isl_417034_Amazonas_State_20200316_Illumina_2,epi_isl_419844_Victoria_20200317_Illumina_2,epi_isl_418250_Catalonia_2020_Illumina_1,epi_isl_415105_Bahia_20200304_Nanopore_1,epi_isl_417938_California_20200318_Illumina_1,epi_isl_418703_England_20200317_Illumina_1,(epi_isl_419249_Hong_Kong_20200225_Nanopore_1,(epi_isl_416829_Selangor_20200220_Illumina_1,epi_isl_407987_Singapore_20200125_Illumina_4)Node92)Node90,epi_isl_419659_Austria_20200310_Illumina_1,epi_isl_415132_England_20200228_Illumina_3,(epi_isl_418286_South_Yorkshire_20200318_Nanopore_13,epi_isl_416521_Saudi_Arabia_20200310_Illumina_10)Node12,epi_isl_417653_Reykjavik_20200318_Illumina_1,(epi_isl_420010_Victoria_20200324_Illumina_1,epi_isl_420014_Victoria_20200324_Illumina_1)Node17,epi_isl_419922_Victoria_20200320_Illumina_1,epi_isl_402120_Hubei_20200101_null_3086)"
+    }
+  },
+ "tested":{
+   "0":{
+     "Node101":"test",
+     "Node12":"test",
+     "Node17":"test",
+     "Node44":"test",
+     "Node45":"test",
+     "Node58":"test",
+     "Node67":"test",
+     "Node68":"test",
+     "Node90":"test",
+     "Node92":"test",
+     "epi_isl_402120_Hubei_20200101_null_3086":"background",
+     "epi_isl_404253_Illinois_20200121_Sanger__1":"background",
+     "epi_isl_406034_California_20200123_Sanger__40":"background",
+     "epi_isl_406592_Guandong_20200113_null_1":"background",
+     "epi_isl_407987_Singapore_20200125_Illumina_4":"background",
+     "epi_isl_408485_Beijing_20200118_Illumina_1":"background",
+     "epi_isl_413017_South_Korea_20200206_Illumina_2":"background",
+     "epi_isl_413019_Zurich_20200226_Illumina_1":"background",
+     "epi_isl_413487_Washington_20200301_Illumina_3":"background",
+     "epi_isl_413565_Berlicum_20200224_Nanopore_169":"background",
+     "epi_isl_413850_Guangdong_20200210_metagenomics_BGI_13":"background",
+     "epi_isl_413999_Argovie_20200227_null_45":"background",
+     "epi_isl_414630_Hauts_de_France_20200303_Illumina_2":"background",
+     "epi_isl_415105_Bahia_20200304_Nanopore_1":"background",
+     "epi_isl_415132_England_20200228_Illumina_3":"background",
+     "epi_isl_415140_England_20200229_Illumina_4":"background",
+     "epi_isl_415615_Washington_20200308_Illumina_1":"background",
+     "epi_isl_416321_Shanghai_20200128_Illumina_1":"background",
+     "epi_isl_416383_Shanghai_20200201_Illumina_1":"background",
+     "epi_isl_416452_Washington_20200310_Illumina_2":"background",
+     "epi_isl_416521_Saudi_Arabia_20200310_Illumina_10":"background",
+     "epi_isl_416543_Dasman_20200302_Illumina_1":"background",
+     "epi_isl_416687_Washington_20200314_Illumina_1":"background",
+     "epi_isl_416829_Selangor_20200220_Illumina_1":"background",
+     "epi_isl_417026_Utah_20200320_Illumina_1":"background",
+     "epi_isl_417034_Amazonas_State_20200316_Illumina_2":"background",
+     "epi_isl_417088_Washington_20200302_Illumina_1":"background",
+     "epi_isl_417237_England_20200303_Illumina_2":"background",
+     "epi_isl_417413_Turkey_20200317_Nanopore_1":"background",
+     "epi_isl_417516_Wisconsin_20200326_Nanpore_1":"background",
+     "epi_isl_417523_Taoyuan_20200313_Illumina_3":"background",
+     "epi_isl_417653_Reykjavik_20200318_Illumina_1":"background",
+     "epi_isl_417938_California_20200318_Illumina_1":"background",
+     "epi_isl_417961_Madrid_20200312_Ion_2":"background",
+     "epi_isl_418089_Wales_20200312_Illumina_1":"background",
+     "epi_isl_418098_Wales_20200313_Illumina_1":"background",
+     "epi_isl_418112_Wales_20200313_Illumina_1":"background",
+     "epi_isl_418250_Catalonia_2020_Illumina_1":"background",
+     "epi_isl_418255_Abruzzo_20200314_Illumina_1":"background",
+     "epi_isl_418286_South_Yorkshire_20200318_Nanopore_13":"background",
+     "epi_isl_418676_England_20200310_Illumina_1":"background",
+     "epi_isl_418703_England_20200317_Illumina_1":"background",
+     "epi_isl_418708_England_20200317_Illumina_1":"background",
+     "epi_isl_418714_England_20200317_Illumina_1":"background",
+     "epi_isl_419248_Hong_Kong_20200224_Nanopore_1":"background",
+     "epi_isl_419249_Hong_Kong_20200225_Nanopore_1":"background",
+     "epi_isl_419493_Wales_20200320_Illumina_1":"background",
+     "epi_isl_419576_Luxembourg_20200317_Illumina_1":"background",
+     "epi_isl_419590_Luxembourg_20200311_Illumina_1":"background",
+     "epi_isl_419659_Austria_20200310_Illumina_1":"background",
+     "epi_isl_419661_Austria_20200310_Illumina_1":"background",
+     "epi_isl_419844_Victoria_20200317_Illumina_2":"background",
+     "epi_isl_419913_Victoria_20200320_Illumina_1":"background",
+     "epi_isl_419922_Victoria_20200320_Illumina_1":"background",
+     "epi_isl_420010_Victoria_20200324_Illumina_1":"background",
+     "epi_isl_420014_Victoria_20200324_Illumina_1":"background"
+    }
+  },
+ "timers":{
+   "MEME analysis":{
+     "order":2,
+     "timer":6
+    },
+   "Model fitting":{
+     "order":1,
+     "timer":8
+    },
+   "Total time":{
+     "order":0,
+     "timer":15
+    }
+  }
+}
