@@ -1,5 +1,5 @@
 {
- "L": 0.009444537822757304,
+ "L": 0.009444535488447205,
  "MAF": 0.2,
  "all variant sites": [
   {
@@ -35,14 +35,9 @@
  "aminoacid variant sites": [
   {
    "D": 53,
+   "DG": 1,
    "G": 2,
-   "KN": 1,
    "Y": 1
-  },
-  {
-   "F": 1,
-   "KN": 3,
-   "S": 53
   },
   {
    "D": 54,
@@ -52,73 +47,73 @@
  ],
  "any variation": 49,
  "bl": {
-  "Node108": 0.001784047581559686,
-  "Node13": 0.0001720306450844487,
-  "Node14": 0.001609192107363052,
-  "Node55": 0.001784446001363429,
-  "Node7": 0.0001841180375344787,
-  "Node70": 0.0001720303669519423,
-  "Node81": 0.001783392843811541,
-  "Node82": 0.001782156402826935,
-  "Node92": 6.758448329899213e-07,
-  "Node94": 0.0001724479914288018,
+  "Node108": 0.001784048235747849,
+  "Node13": 0.0001720281104818153,
+  "Node14": 0.001609195294590242,
+  "Node55": 0.001784446660513466,
+  "Node7": 0.000184113777403104,
+  "Node70": 0.0001720280899112383,
+  "Node81": 0.001783393569401591,
+  "Node82": 0.0017821569674403,
+  "Node92": 6.758963529550961e-07,
+  "Node94": 0.0001724488866046421,
   "epi_isl_402125_China_20191231_Illumina_3138": 0,
   "epi_isl_404253_Illinois_20200121_Sanger__1": 0,
   "epi_isl_406034_California_20200123_Sanger__40": 0,
-  "epi_isl_406592_Guandong_20200113_null_1": 0.002954800153948714,
+  "epi_isl_406592_Guandong_20200113_null_1": 0.002954799890983335,
   "epi_isl_407987_Singapore_20200125_Illumina_4": 0,
-  "epi_isl_408485_Beijing_20200118_Illumina_1": 0.001470878895657824,
-  "epi_isl_413017_South_Korea_20200206_Illumina_2": 0.002946794363843745,
-  "epi_isl_413019_Zurich_20200226_Illumina_1": 0.001471765038169699,
-  "epi_isl_413487_Washington_20200301_Illumina_3": 0.001471833210761966,
-  "epi_isl_413565_Berlicum_20200224_Nanopore_169": 0.001471765034409983,
-  "epi_isl_413850_Guangdong_20200210_metagenomics_BGI_13": 0.001471765034438429,
+  "epi_isl_408485_Beijing_20200118_Illumina_1": 0.001470878771395814,
+  "epi_isl_413017_South_Korea_20200206_Illumina_2": 0.002946794883490548,
+  "epi_isl_413019_Zurich_20200226_Illumina_1": 0.001471764905350799,
+  "epi_isl_413487_Washington_20200301_Illumina_3": 0.00147183307776839,
+  "epi_isl_413565_Berlicum_20200224_Nanopore_169": 0.001471764909059933,
+  "epi_isl_413850_Guangdong_20200210_metagenomics_BGI_13": 0.001471764909164732,
   "epi_isl_413999_Argovie_20200227_null_45": 0,
-  "epi_isl_414630_Hauts_de_France_20200303_Illumina_2": 0.001471765034694031,
-  "epi_isl_415105_Bahia_20200304_Nanopore_1": 0.001471681472183199,
-  "epi_isl_415132_England_20200228_Illumina_3": 0.001471765034803087,
-  "epi_isl_415140_England_20200229_Illumina_4": 0.001471765034443161,
-  "epi_isl_415615_Washington_20200308_Illumina_1": 0.001471765034800097,
-  "epi_isl_416321_Shanghai_20200128_Illumina_1": 0.001327003446883827,
-  "epi_isl_416383_Shanghai_20200201_Illumina_1": 0.001472666668977152,
-  "epi_isl_416452_Washington_20200310_Illumina_2": 0.001471765034529024,
+  "epi_isl_414630_Hauts_de_France_20200303_Illumina_2": 0.001471764905416691,
+  "epi_isl_415105_Bahia_20200304_Nanopore_1": 0.001471681344170961,
+  "epi_isl_415132_England_20200228_Illumina_3": 0.001471764905208446,
+  "epi_isl_415140_England_20200229_Illumina_4": 0.001471764905197018,
+  "epi_isl_415615_Washington_20200308_Illumina_1": 0.001471764905114592,
+  "epi_isl_416321_Shanghai_20200128_Illumina_1": 0.001327002584914263,
+  "epi_isl_416383_Shanghai_20200201_Illumina_1": 0.001472666540646429,
+  "epi_isl_416452_Washington_20200310_Illumina_2": 0.001471764905165342,
   "epi_isl_416521_Saudi_Arabia_20200310_Illumina_10": 0,
   "epi_isl_416543_Dasman_20200302_Illumina_1": 0,
-  "epi_isl_416687_Washington_20200314_Illumina_1": 0.001471343638746673,
-  "epi_isl_416829_Selangor_20200220_Illumina_1": 0.001469481818125543,
-  "epi_isl_417026_Utah_20200320_Illumina_1": 0.001471765038260521,
-  "epi_isl_417034_Amazonas_State_20200316_Illumina_2": 0.001471765038828946,
-  "epi_isl_417088_Washington_20200302_Illumina_1": 0.001470896238284856,
+  "epi_isl_416687_Washington_20200314_Illumina_1": 0.001471343509570884,
+  "epi_isl_416829_Selangor_20200220_Illumina_1": 0.001469481689012486,
+  "epi_isl_417026_Utah_20200320_Illumina_1": 0.001471764909072365,
+  "epi_isl_417034_Amazonas_State_20200316_Illumina_2": 0.001471764909072147,
+  "epi_isl_417088_Washington_20200302_Illumina_1": 0.001470896347637517,
   "epi_isl_417237_England_20200303_Illumina_2": 0,
-  "epi_isl_417413_Turkey_20200317_Nanopore_1": 0.004426398250686682,
-  "epi_isl_417516_Wisconsin_20200326_Nanpore_1": 0.001471765038169699,
-  "epi_isl_417523_Taoyuan_20200313_Illumina_3": 0.001475073186589475,
-  "epi_isl_417653_Reykjavik_20200318_Illumina_1": 0.001470896476302603,
+  "epi_isl_417413_Turkey_20200317_Nanopore_1": 0.004426399422637489,
+  "epi_isl_417516_Wisconsin_20200326_Nanpore_1": 0.001471764905361214,
+  "epi_isl_417523_Taoyuan_20200313_Illumina_3": 0.00147507285483152,
+  "epi_isl_417653_Reykjavik_20200318_Illumina_1": 0.001470896109228266,
   "epi_isl_417938_California_20200318_Illumina_1": 0,
-  "epi_isl_417961_Madrid_20200312_Ion_2": 0.001318162744129596,
+  "epi_isl_417961_Madrid_20200312_Ion_2": 0.00131816627955854,
   "epi_isl_418089_Wales_20200312_Illumina_1": 0,
   "epi_isl_418098_Wales_20200313_Illumina_1": 0,
-  "epi_isl_418112_Wales_20200313_Illumina_1": 0.001471765038433113,
-  "epi_isl_418250_Catalonia_2020_Illumina_1": 0.00147089642110936,
+  "epi_isl_418112_Wales_20200313_Illumina_1": 0.001471764905176753,
+  "epi_isl_418250_Catalonia_2020_Illumina_1": 0.001470896112920559,
   "epi_isl_418255_Abruzzo_20200314_Illumina_1": 0,
-  "epi_isl_418286_South_Yorkshire_20200318_Nanopore_13": 0.001472540480322184,
+  "epi_isl_418286_South_Yorkshire_20200318_Nanopore_13": 0.001472540200088822,
   "epi_isl_418676_England_20200310_Illumina_1": 0,
   "epi_isl_418703_England_20200317_Illumina_1": 0,
   "epi_isl_418708_England_20200317_Illumina_1": 0,
   "epi_isl_418714_England_20200317_Illumina_1": 0,
-  "epi_isl_419248_Hong_Kong_20200224_Nanopore_1": 0.001471765034003107,
+  "epi_isl_419248_Hong_Kong_20200224_Nanopore_1": 0.001471764909060088,
   "epi_isl_419249_Hong_Kong_20200225_Nanopore_1": 0,
   "epi_isl_419493_Wales_20200320_Illumina_1": 0,
-  "epi_isl_419576_Luxembourg_20200317_Illumina_1": 0.001471521387143544,
+  "epi_isl_419576_Luxembourg_20200317_Illumina_1": 0.001471521257803027,
   "epi_isl_419590_Luxembourg_20200311_Illumina_1": 0,
-  "epi_isl_419659_Austria_20200310_Illumina_1": 0.001471765034803551,
+  "epi_isl_419659_Austria_20200310_Illumina_1": 0.001471764905429497,
   "epi_isl_419661_Austria_20200310_Illumina_1": 0,
-  "epi_isl_419844_Victoria_20200317_Illumina_2": 0.001470896238305352,
-  "epi_isl_419913_Victoria_20200320_Illumina_1": 0.001471765038776984,
+  "epi_isl_419844_Victoria_20200317_Illumina_2": 0.001470896347639749,
+  "epi_isl_419913_Victoria_20200320_Illumina_1": 0.001471764905342392,
   "epi_isl_419922_Victoria_20200320_Illumina_1": 0,
-  "epi_isl_420010_Victoria_20200324_Illumina_1": 0.001327220261157559,
+  "epi_isl_420010_Victoria_20200324_Illumina_1": 0.001327222120201739,
   "epi_isl_420014_Victoria_20200324_Illumina_1": 0,
-  "epi_isl_420095_Connecticut_20200319_Oxford_1": 0.001470896476351919
+  "epi_isl_420095_Connecticut_20200319_Oxford_1": 0.001470896108817265
  },
  "dN/dS": {
   "internal": [
@@ -364,8 +359,8 @@
    "MAF": 0.07017543859649122,
    "composition": {
     "D": 63,
+    "DG": 1,
     "G": 3,
-    "KN": 1,
     "Y": 1
    },
    "fel": 0.03742228895988053,
@@ -600,7 +595,7 @@
      0
     ],
     "epi_isl_417237_England_20200303_Illumina_2": [
-     "KN",
+     "DG",
      "GRT",
      1,
      0
@@ -4307,6 +4302,20 @@
       1
      ]
     ],
+    "DG": [
+     [
+      "20200303",
+      "United Kingdom",
+      "Europe",
+      1
+     ],
+     [
+      "20200302",
+      "United Kingdom",
+      "Europe",
+      1
+     ]
+    ],
     "G": [
      [
       "20200227",
@@ -4525,20 +4534,6 @@
       1
      ]
     ],
-    "KN": [
-     [
-      "20200303",
-      "United Kingdom",
-      "Europe",
-      1
-     ],
-     [
-      "20200302",
-      "United Kingdom",
-      "Europe",
-      1
-     ]
-    ],
     "Y": [
      [
       "20200319",
@@ -4554,8 +4549,9 @@
    "MAF": 0.07017543859649122,
    "composition": {
     "F": 1,
-    "KN": 3,
-    "S": 64
+    "S": 65,
+    "SF": 1,
+    "TISF": 1
    },
    "fel": 0.04083581211413922,
    "kind": "positive",
@@ -4855,7 +4851,7 @@
      0
     ],
     "epi_isl_418255_Abruzzo_20200314_Illumina_1": [
-     "KN",
+     "TISF",
      "WYC",
      4,
      0
@@ -4867,7 +4863,7 @@
      0
     ],
     "epi_isl_418676_England_20200310_Illumina_1": [
-     "KN",
+     "SF",
      "TYC",
      1,
      0
@@ -4879,7 +4875,7 @@
      0
     ],
     "epi_isl_418708_England_20200317_Illumina_1": [
-     "KN",
+     "S",
      "TCY",
      0,
      1
@@ -4983,26 +4979,6 @@
       "20200128",
       "China",
       "Asia",
-      1
-     ]
-    ],
-    "KN": [
-     [
-      "20200314",
-      "Italy",
-      "Europe",
-      1
-     ],
-     [
-      "20200310",
-      "United Kingdom",
-      "Europe",
-      1
-     ],
-     [
-      "20200317",
-      "United Kingdom",
-      "Europe",
       1
      ]
     ],
@@ -6679,7 +6655,7 @@
       "20200317",
       "United Kingdom",
       "Europe",
-      57
+      58
      ],
      [
       "20200317",
@@ -8547,9 +8523,25 @@
       "Europe",
       1
      ]
+    ],
+    "SF": [
+     [
+      "20200310",
+      "United Kingdom",
+      "Europe",
+      1
+     ]
+    ],
+    "TISF": [
+     [
+      "20200314",
+      "Italy",
+      "Europe",
+      1
+     ]
     ]
    },
-   "trend": 1.3504983525000085
+   "trend": 0.8165687690337522
   },
   "208": {
    "MAF": 0.052631578947368474,

@@ -21,6 +21,7 @@ if [ -s ${FILE}.${GENE}.1.json ]
 then 
    echo "$GENE alignment already processed"
 else
+
     echo "EXTRACTING $GENE"
     if [ -s ${FILE}.${GENE}_protein.fas ] 
     then

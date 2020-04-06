@@ -1,5 +1,5 @@
 {
- "L": 0.025798445824062384,
+ "L": 0.025798446060441186,
  "MAF": 0.2,
  "all variant sites": [
   {
@@ -38,13 +38,13 @@
    "S": 49
   },
   {
-   "KN": 1,
    "L": 3,
+   "LV": 1,
    "V": 47
   },
   {
    "A": 48,
-   "KN": 1,
+   "AS": 1,
    "S": 2
   },
   {
@@ -52,9 +52,9 @@
    "K": 49
   },
   {
-   "KN": 2,
    "L": 37,
-   "S": 12
+   "S": 12,
+   "SL": 2
   },
   {
    "D": 49,
@@ -63,64 +63,64 @@
  ],
  "any variation": 37,
  "bl": {
-  "Node32": 2.136370892508837e-05,
-  "Node54": 0.003500625693819081,
-  "Node66": 6.19904260174804e-06,
-  "Node69": 0.003484543027766445,
-  "Node73": 0.003538574666863378,
-  "Node78": 0.004679123725922249,
-  "Node84": 0.003499977925113628,
-  "Node85": 0.003501967062511169,
-  "Node95": 0.003566070970539599,
-  "epi_isl_402120_Hubei_20200101_null_2": 0.002633999747559233,
+  "Node32": 2.136409382350923e-05,
+  "Node54": 0.003500627021876899,
+  "Node66": 6.200728980078438e-06,
+  "Node69": 0.00348454109127207,
+  "Node73": 0.003538574443644796,
+  "Node78": 0.004679124195291247,
+  "Node84": 0.003499977660877006,
+  "Node85": 0.003501966123912862,
+  "Node95": 0.003566070700762717,
+  "epi_isl_402120_Hubei_20200101_null_2": 0.002633999442534492,
   "epi_isl_402125_China_20191231_Illumina_2708": 0,
   "epi_isl_404253_Illinois_20200121_Sanger__1": 0,
   "epi_isl_404895_Washington_20200119_unknown_736": 0,
   "epi_isl_406034_California_20200123_Sanger__42": 0,
-  "epi_isl_408487_Henan_20200120_Illumina_1": 0.002652631203104232,
-  "epi_isl_411956_Texas_20200211_Sanger_1": 0.002652631214286334,
-  "epi_isl_412459_Hubei_20200108_Illumina_1": 0.008009281342849558,
-  "epi_isl_413868_Guangdong_20200228_multiplex_pcr_nanopore_1": 0.002657436859341767,
+  "epi_isl_408487_Henan_20200120_Illumina_1": 0.002652631228130125,
+  "epi_isl_411956_Texas_20200211_Sanger_1": 0.002652631136744923,
+  "epi_isl_412459_Hubei_20200108_Illumina_1": 0.008009281407390203,
+  "epi_isl_413868_Guangdong_20200228_multiplex_pcr_nanopore_1": 0.002657436877118665,
   "epi_isl_413889_Guangdong_20200130_multiplex_pcr_nanopore_1": 0,
-  "epi_isl_413902_Guangdong_20200228_multiplex_pcr_nanopore_1": 0.002655538498388349,
+  "epi_isl_413902_Guangdong_20200228_multiplex_pcr_nanopore_1": 0.002655537892994035,
   "epi_isl_414040_England_20200205_Illumina_1": 0,
   "epi_isl_414041_England_20200208_Illumina_8": 0,
-  "epi_isl_414688_Guangdong_20200225_DNBSEQ_T7_1": 0.007123144970664613,
-  "epi_isl_415516_Noord_Brabant_20200311_Nanopore_2": 0.002654526508012322,
-  "epi_isl_416343_Shanghai_20200204_Illumina_1": 0.002653762625687311,
-  "epi_isl_416397_Shanghai_20200202_Illumina_2": 0.002659004982454626,
-  "epi_isl_416464_Washington_20200301_Illumina_1": 0.002665177200510049,
+  "epi_isl_414688_Guangdong_20200225_DNBSEQ_T7_1": 0.007123146302897062,
+  "epi_isl_415516_Noord_Brabant_20200311_Nanopore_2": 0.002654526525851231,
+  "epi_isl_416343_Shanghai_20200204_Illumina_1": 0.002653762643485882,
+  "epi_isl_416397_Shanghai_20200202_Illumina_2": 0.002659004999870671,
+  "epi_isl_416464_Washington_20200301_Illumina_1": 0.002665177180906168,
   "epi_isl_416661_Washington_20200312_Illumina_20": 0,
-  "epi_isl_416679_Washington_20200311_Illumina_2": 0.002651723271056424,
-  "epi_isl_417276_England_20200307_Illumina_2": 0.002655855961574897,
-  "epi_isl_417308_England_20200306_Illumina_2": 0.002701171805408464,
-  "epi_isl_417319_California_20200305_Illumina_1": 0.002650745081007587,
+  "epi_isl_416679_Washington_20200311_Illumina_2": 0.002651723255594609,
+  "epi_isl_417276_England_20200307_Illumina_2": 0.002655855979590863,
+  "epi_isl_417308_England_20200306_Illumina_2": 0.002701171823043913,
+  "epi_isl_417319_California_20200305_Illumina_1": 0.002650745075456409,
   "epi_isl_417327_California_20200309_Illumina_1": 0,
-  "epi_isl_417413_Turkey_20200317_Nanopore_1": 0.002655538105401525,
-  "epi_isl_417435_Kinshasa_20200315_Nanopore_7": 0.002659004982454626,
-  "epi_isl_417523_Taoyuan_20200313_Illumina_2": 0.002657436858659326,
+  "epi_isl_417413_Turkey_20200317_Nanopore_1": 0.002655537610893372,
+  "epi_isl_417435_Kinshasa_20200315_Nanopore_7": 0.002659004999949642,
+  "epi_isl_417523_Taoyuan_20200313_Illumina_2": 0.002657436876427956,
   "epi_isl_417762_Reykjavik_20200316_Illumina_1": 0,
-  "epi_isl_418045_Washington_20200314_Illumina_1": 0.002656103586712845,
-  "epi_isl_418049_Washington_20200313_Illumina_2": 0.002657044727800601,
-  "epi_isl_418279_Basel_20200303_Nanopore_2": 0.002659306454905013,
-  "epi_isl_418290_South_Yorkshire_20200318_Nanopore_1": 0.002655537593468027,
-  "epi_isl_418319_Derbyshire_20200325_Nanopore_1": 0.002655537593465663,
-  "epi_isl_418373_Ontario_20200314_Illumina_2": 0.00265705508375889,
-  "epi_isl_418429_ARA_20200318_Illumina_1": 0.002655537875558625,
+  "epi_isl_418045_Washington_20200314_Illumina_1": 0.002656103692757337,
+  "epi_isl_418049_Washington_20200313_Illumina_2": 0.002657044711702497,
+  "epi_isl_418279_Basel_20200303_Nanopore_2": 0.002659306472387315,
+  "epi_isl_418290_South_Yorkshire_20200318_Nanopore_1": 0.002655537610830283,
+  "epi_isl_418319_Derbyshire_20200325_Nanopore_1": 0.002655537892960138,
+  "epi_isl_418373_Ontario_20200314_Illumina_2": 0.002657055101107171,
+  "epi_isl_418429_ARA_20200318_Illumina_1": 0.002655537610908899,
   "epi_isl_418430_ARA_20200318_Illumina_2": 0,
-  "epi_isl_418625_Li_ge_20200314_Nanopore_1": 0.002650745090436861,
-  "epi_isl_418696_England_20200318_Illumina_1": 0.00265415543590009,
-  "epi_isl_418703_England_20200317_Illumina_1": 0.002655855975741448,
+  "epi_isl_418625_Li_ge_20200314_Nanopore_1": 0.002650745074938758,
+  "epi_isl_418696_England_20200318_Illumina_1": 0.002654155453285151,
+  "epi_isl_418703_England_20200317_Illumina_1": 0.00265585598258729,
   "epi_isl_418707_England_20200317_Illumina_1": 0,
   "epi_isl_419438_Wales_20200318_Illumina_1": 0,
-  "epi_isl_419471_Wales_20200319_Illumina_1": 0.002659004982533602,
-  "epi_isl_419488_Wales_20200320_Illumina_1": 0.00265645102770053,
-  "epi_isl_419523_New_York_20200317_Oxford_1": 0.002655855965111573,
+  "epi_isl_419471_Wales_20200319_Illumina_1": 0.002659004999949642,
+  "epi_isl_419488_Wales_20200320_Illumina_1": 0.0026564508106504,
+  "epi_isl_419523_New_York_20200317_Oxford_1": 0.002655855982528149,
   "epi_isl_419660_Austria_20200313_Illumina_1": 0,
   "epi_isl_419748_Victoria_20200310_Illumina_1": 0,
-  "epi_isl_419790_Victoria_20200314_Illumina_1": 0.002655537887675157,
-  "epi_isl_419846_Victoria_20200317_Illumina_1": 0.002655537541212705,
-  "epi_isl_419974_Victoria_20200322_Illumina_1": 0.002657436859341767,
+  "epi_isl_419790_Victoria_20200314_Illumina_1": 0.002655537612921431,
+  "epi_isl_419846_Victoria_20200317_Illumina_1": 0.002655537612954108,
+  "epi_isl_419974_Victoria_20200322_Illumina_1": 0.002657436877118149,
   "epi_isl_419982_Victoria_20200323_Illumina_1": 0,
   "epi_isl_420103_Singapore_20200305_Illumina_1": 0
  },
@@ -4216,8 +4216,8 @@
   "61": {
    "MAF": 0.07843137254901966,
    "composition": {
-    "KN": 1,
     "L": 4,
+    "LV": 1,
     "V": 56
    },
    "fel": 0.00270284467128179,
@@ -4296,7 +4296,7 @@
      0
     ],
     "epi_isl_404253_Illinois_20200121_Sanger__1": [
-     "KN",
+     "LV",
      "STG",
      1,
      0
@@ -4599,14 +4599,6 @@
     1
    ],
    "timing": {
-    "KN": [
-     [
-      "20200121",
-      "USA",
-      "North America",
-      1
-     ]
-    ],
     "L": [
      [
       "20200123",
@@ -4762,6 +4754,14 @@
       "20200313",
       "United Kingdom",
       "Europe",
+      1
+     ]
+    ],
+    "LV": [
+     [
+      "20200121",
+      "USA",
+      "North America",
       1
      ]
     ],
@@ -8224,7 +8224,7 @@
    "MAF": 0.05882352941176472,
    "composition": {
     "A": 56,
-    "KN": 1,
+    "AS": 1,
     "S": 4
    },
    "fel": 0.006045109867878096,
@@ -8585,7 +8585,7 @@
      0
     ],
     "epi_isl_419982_Victoria_20200323_Illumina_1": [
-     "KN",
+     "AS",
      "KCT",
      1,
      0
@@ -12094,7 +12094,7 @@
       1
      ]
     ],
-    "KN": [
+    "AS": [
      [
       "20200323",
       "Australia",
@@ -16024,9 +16024,9 @@
   "83": {
    "MAF": 0.27450980392156865,
    "composition": {
-    "KN": 2,
     "L": 42,
-    "S": 17
+    "S": 17,
+    "SL": 2
    },
    "fel": 0.0001377058570862788,
    "kind": "positive",
@@ -16104,7 +16104,7 @@
      0
     ],
     "epi_isl_404253_Illinois_20200121_Sanger__1": [
-     "KN",
+     "SL",
      "TYA",
      1,
      0
@@ -16332,7 +16332,7 @@
      0
     ],
     "epi_isl_419438_Wales_20200318_Illumina_1": [
-     "KN",
+     "SL",
      "TYA",
      1,
      0
@@ -16407,20 +16407,6 @@
     2
    ],
    "timing": {
-    "KN": [
-     [
-      "20200121",
-      "USA",
-      "North America",
-      1
-     ],
-     [
-      "20200318",
-      "United Kingdom",
-      "Europe",
-      1
-     ]
-    ],
     "L": [
      [
       "20200101",
@@ -20568,6 +20554,20 @@
       "20200204",
       "China",
       "Asia",
+      1
+     ]
+    ],
+    "SL": [
+     [
+      "20200121",
+      "USA",
+      "North America",
+      1
+     ],
+     [
+      "20200318",
+      "United Kingdom",
+      "Europe",
       1
      ]
     ]
