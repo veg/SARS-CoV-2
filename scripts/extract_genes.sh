@@ -130,12 +130,12 @@ else
     #fi
 
 
-    if [ -s ${FILE}.${GENE}.MEME.json ] 
-    then
-        echo "Already has MEME results"
-    else
-        mpirun --use-hwthread-cpus -np $NP $HYPHYMPI meme --alignment ${FILE}.${GENE}.compressed.fas --tree ${FILE}.${GENE}.compressed.fas.raxml.bestTree --branches Internal --output ${FILE}.${GENE}.MEME.json
-    fi
+    #if [ -s ${FILE}.${GENE}.MEME.json ] 
+    #then
+    #    echo "Already has MEME results"
+    #else
+    #    mpirun --use-hwthread-cpus -np $NP $HYPHYMPI meme --alignment ${FILE}.${GENE}.compressed.fas --tree ${FILE}.${GENE}.compressed.fas.raxml.bestTree --branches Internal --output ${FILE}.${GENE}.MEME.json
+    #fi
     
 
     #if [ -s ${FILE}.${GENE}.MEME.strict.json ] 
@@ -145,12 +145,12 @@ else
     #    mpirun --use-hwthread-cpus -np $NP $HYPHYMPI meme --alignment ${FILE}.${GENE}.compressed.strict.fas --tree ${FILE}.${GENE}.compressed.strict.fas.raxml.bestTree --branches Internal --output ${FILE}.${GENE}.MEME.strict.json
     #fi
 
-    if [ -s ${FILE}.${GENE}.PRIME.json ] 
-    then
-        echo "Already has PRIME results"
-    else
-        mpirun --use-hwthread-cpus -np $NP $HYPHYMPI prime --alignment ${FILE}.${GENE}.compressed.fas --tree ${FILE}.${GENE}.compressed.fas.raxml.bestTree --branches Internal --output ${FILE}.${GENE}.PRIME.json
-    fi
+    #if [ -s ${FILE}.${GENE}.PRIME.json ] 
+    #then
+    #    echo "Already has PRIME results"
+    #else
+    #    mpirun --use-hwthread-cpus -np $NP $HYPHYMPI prime --alignment ${FILE}.${GENE}.compressed.fas --tree ${FILE}.${GENE}.compressed.fas.raxml.bestTree --branches Internal --output ${FILE}.${GENE}.PRIME.json
+    #fi
     
     #if [ -s ${FILE}.${GENE}.PRIME.strict.json ] 
     #then
@@ -162,13 +162,13 @@ else
     python3 python/summarize-gene.py -D data/db/master-no-fasta.json -d ${FILE}.${GENE}.duplicates.json -s ${FILE}.${GENE}.SLAC.json -f ${FILE}.${GENE}.FEL.json -m ${FILE}.${GENE}.MEME.json -P 0.1 -p ${FILE}.${GENE}.PRIME.json --output  ${FILE}.${GENE}.json -c ${FILE}.${GENE}.withref.fas
     #python3 python/summarize-gene.py -D data/db/master-no-fasta.json -d ${FILE}.${GENE}.duplicates.strict.json -s ${FILE}.${GENE}.SLAC.strict.json -f ${FILE}.${GENE}.FEL.strict.json -m ${FILE}.${GENE}.MEME.strict.json -P 0.1 -p ${FILE}.${GENE}.PRIME.strict.json --output  ${FILE}.${GENE}.json -c ${FILE}.${GENE}.withref.strict.fas
 
-    #if [ -s ${FILE}.${GENE}.BGM.json ] 
-    #then
-    #    echo "Already has BGM results"
-    #else
-    #   $HYPHY bgm --alignment ${FILE}.${GENE}.compressed.fas --tree ${FILE}.${GENE}.compressed.fas.raxml.bestTree --min-subs 2 --type codon
-    #   mv ${FILE}.${GENE}.compressed.fas.BGM.json ${FILE}.${GENE}.BGM.json
-    #fi
+    if [ -s ${FILE}.${GENE}.BGM.json ] 
+    then
+        echo "Already has BGM results"
+    else
+       $HYPHY bgm --alignment ${FILE}.${GENE}.compressed.fas --tree ${FILE}.${GENE}.compressed.fas.raxml.bestTree --min-subs 2 --type codon
+       mv ${FILE}.${GENE}.compressed.fas.BGM.json ${FILE}.${GENE}.BGM.json
+    fi
 
     #if [ -s ${FILE}.${GENE}.FADE.json ] 
     #then

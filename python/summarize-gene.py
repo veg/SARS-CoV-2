@@ -21,9 +21,10 @@ import json
 import re
 import datetime
 import os
+import math
 from   os import  path
 from   Bio import SeqIO
-
+import operator
 
 
 arguments = argparse.ArgumentParser(description='Summarize selection analysis results.')
@@ -38,6 +39,7 @@ arguments.add_argument('-c', '--coordinates',  help = 'An alignment with referen
 
 arguments.add_argument('-D', '--database', help ='Primary database record to extract sequence information from', required = True, type = argparse.FileType('r'))
 arguments.add_argument('-d', '--duplicates', help ='The JSON file recording compressed sequence duplicates', required = True, type = argparse.FileType('r'))
+arguments.add_argument('-M', '--MAF', help ='Also include sites with hapoltype MAF >= this frequency', required = False, type = float, default = 0.2)
 
 
 
@@ -47,33 +49,58 @@ db = json.load (import_settings.database)
 dups = json.load (import_settings.duplicates)
 
 sequences_with_dates = {}
+sequences_with_locations = {}
+contry_to_sub = {}
 
-now = datetime.datetime.now()
+def get_location (v):
+    if 'country' in v['location']:
+        contry_to_sub[v['location']['country']] = v['location']['subregion']
+        return v['location']['country']
+    if 'subregion' in v['location']:
+        contry_to_sub[v['location']['subregion']] = v['location']['subregion']
+        return v['location']['subregion']
+    return None
+
+
+now      = datetime.datetime.now()
+min_date = now
+max_date = datetime.datetime (1900,1,1)
 
 for id, record in db.items():
     try:
         date_check = datetime.datetime.strptime (record['collected'], "%Y%m%d")
         if date_check.year < 2019 or date_check.year == 2019 and date_check.month < 10 or date_check >= now: 
             continue
+        if date_check < min_date:
+            min_date = date_check
+        if date_check > max_date:
+            max_date = date_check
         sequences_with_dates[id] = record['collected']
+        sequences_with_locations[id] = get_location (record)
     except Exception as e:
         pass
         
-date_dups = {}
+date_dups     = {}
+
 for seq, copies in dups.items():
     date_collection = {}
+    location_collection = []
     for cp in copies.values():
         cpv = "_".join (cp.split ('_')[:3])
         if cpv in sequences_with_dates:
             cdate = sequences_with_dates[cpv]
-            if not cdate in date_collection:
-                date_collection[cdate] = 1
+            location = sequences_with_locations[cpv]
+            
+            tag = (cdate, location)
+ 
+            if not tag in date_collection:
+                date_collection[tag] = 1
             else:
-                date_collection[cdate] += 1
-    date_dups[seq] = date_collection   
-           
+                date_collection[tag] += 1
+            
                 
-
+    date_dups[seq] = date_collection   
+ 
 slac = json.load (import_settings.slac)
 fel  = json.load (import_settings.fel)
 meme = json.load (import_settings.meme)
@@ -117,8 +144,15 @@ L = 0
 variants_by_site   = [{} for k in range (sites)]
 aa_variants_by_site = [{} for k in range (sites)]
 
+def compute_site_MAF (site):
+    variants = variants_by_site [site]
+    total = sum (variants.values())
+    majority = max (variants.values()) / total
+    return 1-majority
+    
+
 for b,v in slac["tested"]["0"].items():
-    branch_lengths[b] = meme["branch attributes"]["0"][b]["Global MG94xREV"]
+    branch_lengths[b] = slac["branch attributes"]["0"][b]["Global MG94xREV"]
     if v == "test":
         L += slac["branch attributes"]["0"][b]["Global MG94xREV"]
     else:
@@ -143,8 +177,13 @@ variant_count_NS    = 0
         
     
 for i, row in enumerate (fel["MLE"]["content"]["0"]):
+    maf = compute_site_MAF (i)
     if row[4] < import_settings.pvalue :
-        site_list[i] = {'fel' : row[4], 'kind' : 'positive' if row[1] > row[0] else 'negative'}
+        site_list[i] = {'fel' : row[4], 'kind' : 'positive' if row[1] > row[0] else 'negative', 'MAF' : maf}
+    else:
+        if maf >= import_settings.MAF:
+            site_list[i] = {'fel' : row[4],  'MAF' : maf}
+        
     
 for i, row in enumerate (meme["MLE"]["content"]["0"]):
     if row[6] < import_settings.pvalue or i in site_list:
@@ -152,8 +191,82 @@ for i, row in enumerate (meme["MLE"]["content"]["0"]):
             site_list[i]['meme'] = row[6]
             site_list[i]['meme-fraction'] = row[4]
         else:
-            site_list[i] = {'meme' : row[6], 'fel' : fel["MLE"]["content"]["0"][i][4], 'meme-fraction' : row[4]}
+            site_list[i] = {'meme' : row[6], 'fel' : fel["MLE"]["content"]["0"][i][4], 'meme-fraction' : row[4], 'MAF' : compute_site_MAF (i)}
 
+
+def compute_JH (timing, min_date, max_date):
+    #print (timing, file = sys.stderr)
+    residue_counts = {}
+    mafs_by_date = {}
+    
+    for residue, dates in timing.items():
+        residue_counts [residue ] = 0
+        for key, value in dates.items():
+           #this_date =  datetime.datetime.strptime (key[0], "%Y%m%d")
+           this_date = key[0]
+           if this_date not in mafs_by_date:
+              mafs_by_date [this_date]= {}
+           if residue not in mafs_by_date[this_date]:
+                mafs_by_date [this_date][residue] = 0
+           mafs_by_date[this_date][residue] += value
+           residue_counts[residue] += value
+            
+    consensus = max(residue_counts.items(), key=operator.itemgetter(1))[0]
+    mafs = []
+    
+    for date, counts in mafs_by_date.items():
+        all = sum (counts.values())
+        minority = sum ([v for k, v in counts.items() if k != consensus])
+        #print (all, minority, counts, [v for k, v in counts.items() if k != consensus], file = sys.stderr)
+        mafs.append ([date, minority/all])
+  
+    bin_count = math.ceil ((max_date - min_date).days/10)
+    values_by_bins = [[] for k in range (bin_count)]
+    unique_values = set ()
+    for v in mafs:
+        bin = (datetime.datetime.strptime (v[0], "%Y%m%d")  - min_date).days // 10
+        values_by_bins[bin].append (v[1])
+        unique_values.add (v[1])
+    
+    contingency_table = [[0 for k in range (bin_count)] for v in unique_values]
+    value_to_index = {}
+    for i,v in enumerate (sorted (list(unique_values))):
+        value_to_index[v] = i
+    
+    for i,bin in enumerate (values_by_bins):
+        for v in bin:
+            contingency_table[value_to_index[v]][i] += 1
+           
+    value_count = len (unique_values) 
+    if value_count == 1:
+        return 0.
+    row_sums = [sum (row) for row in contingency_table]
+    column_sums = [sum ([row[j] for row in contingency_table]) for j in range (bin_count)]
+    N = sum (row_sums)
+    P = 0
+    Q = 0
+    
+    r3 = sum ([k*k*k for k in row_sums])
+    r2 = sum ([k*k for k in row_sums])
+    c3 = sum ([k*k*k for k in column_sums])
+    c2 = sum ([k*k for k in column_sums])
+    
+    
+    varS = (2.*(N*N*N-r3-c3)+3.*(N*N-r2-c2)+5*N) / 18. + (r3-3*r2+2*N)*(c3-3*c2+2*N)/(9.*N*(N-1)*(N-2)) + (r2-N)*(c2-N)/(2.*N*(N-1))
+ 
+   
+    for i,bin in enumerate (values_by_bins):
+        for v in bin:
+            for j in range (i+1,bin_count):
+                for e in values_by_bins[j]:
+                    if e < v:
+                        Q += 1
+                    elif e > v:
+                        P += 1
+            
+    Z = (P-Q) / math.sqrt (varS)            
+    return Z
+    
 
 for site in site_list:
     site_list[site]['meme-branches'] = meme["MLE"]["content"]["0"][site][7]
@@ -188,7 +301,14 @@ for site in site_list:
     
     site_list[site]['composition'] = composition
     site_list[site]['labels'] = labels
-    site_list[site]['timing'] = timing
+    
+    timing_as_array = {}
+    
+    for aa, t in timing.items():
+        timing_as_array [aa] = [[k[0],k[1],contry_to_sub[k[1]],v] for k, v in timing[aa].items()]
+    
+    site_list[site]['timing'] = timing_as_array
+    site_list[site]['trend'] = compute_JH (timing, min_date, max_date)
     
     if prime:
         site_list[site]['prime'] = []
@@ -211,6 +331,7 @@ json_out = {
     'any variation' : len ([v for v in variants_by_site if len (v) > 1]),
     'sites' : sites,
     'tree' : tree,
+    'MAF' : import_settings.MAF,
     'L' : L,
     'p' : import_settings.pvalue,
     'selection' : site_list,
