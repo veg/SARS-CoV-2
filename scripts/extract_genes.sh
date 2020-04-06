@@ -116,12 +116,12 @@ else
     #    mpirun --use-hwthread-cpus -np $NP $HYPHYMPI slac --alignment ${FILE}.${GENE}.compressed.strict.fas --tree ${FILE}.${GENE}.compressed.strict.fas.raxml.bestTree --branches Internal --output ${FILE}.${GENE}.SLAC.strict.json
     #fi
 
-    if [ -s ${FILE}.${GENE}.FEL.json ] 
-    then
-        echo "Already has FEL results"
-    else
-        mpirun --use-hwthread-cpus -np $NP $HYPHYMPI fel --alignment ${FILE}.${GENE}.compressed.fas --tree ${FILE}.${GENE}.compressed.fas.raxml.bestTree --branches Internal --output ${FILE}.${GENE}.FEL.json
-    fi
+    #if [ -s ${FILE}.${GENE}.FEL.json ] 
+    #then
+    #    echo "Already has FEL results"
+    #else
+    #    mpirun --use-hwthread-cpus -np $NP $HYPHYMPI fel --alignment ${FILE}.${GENE}.compressed.fas --tree ${FILE}.${GENE}.compressed.fas.raxml.bestTree --branches Internal --output ${FILE}.${GENE}.FEL.json
+    #fi
 
     #if [ -s ${FILE}.${GENE}.FEL.strict.json ] 
     #then

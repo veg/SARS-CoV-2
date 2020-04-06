@@ -1,0 +1,819 @@
+{
+ "MLE":{
+   "content":{
+     "0":      [
+[0.9250456258343698, 0, 0, 0, 1, 0.00279812875777516],
+      [0, 0, 0, 0, 1, 0],
+      [0, 66.68929262532858, 7.545624298149649, 4.351758387559599, 0.03697075573522424, 0.4298191799675426],
+      [0, 36.68979145332394, 4.103075764481506, 4.346110497676591, 0.03709356919731588, 0.2364693859364527],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, -2.32330670257852e-07, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, -3.617812502909601e-07, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, -4.121147867408581e-12, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [5.750600707355495, 0, 5.314358520484398, 0.1569107618175209, 0.6920167771291874, 0.01739473250221571],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [4.647743959243855, 0, 4.193320495717032, 0.2084131465445189, 0.6480140165868813, 0.01405875090691425],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, -3.505105254930641e-07, 1, 0],
+      [10.71180461868717, 0, 9.321796759296166, 0.5383372840914404, 0.4631226278682854, 0.03240165426887174],
+      [4.659116774452493, 0, 4.197019675324228, 0.2068973671973922, 0.6492101611036604, 0.01409315202227918],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [6.924334605294057, 0, 6.06590061423974, 0.2650627319417573, 0.6066631301117366, 0.02094510718869141],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [5.78112931692867, 0, 5.076459692731658, 0.2552884389122099, 0.6133756973944334, 0.01748707711527687],
+      [0, 0, 0, -3.678125395367715e-07, 1, 0],
+      [5.275937326129391, 0, 4.844004025789489, 0.168348989621748, 0.6815833003677707, 0.01595894466626591],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [4.682213696545387, 0, 4.304930596835958, 0.1650084182691494, 0.6845866303253318, 0.0141630168593416],
+      [0, 0, 0, -1.314569608723559e-07, 1, 0],
+      [25.16610543331332, 0, 18.6999917534215, 0.5975679143372936, 0.4395074844291486, 0.07612381634758857],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [6.67388581076318, 0, 5.75663587684824, 0.2920754326821928, 0.5888936037494434, 0.02018753593517095],
+      [0, 0, 0, 0, 1, 0],
+      [6.670894346426066, 0, 5.934855906429988, 0.2313029076931841, 0.630559420537897, 0.02017848718972989],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [5.236737540415565, 0, 4.583994458147404, 0.2647764167088198, 0.6068575187871603, 0.01584037100390678],
+      [0, 0, 0, 0, 1, 0],
+      [23.62529228712192, 0, 14.56766665718668, 0.9657082290703798, 0.3257528716431264, 0.07146308021273316],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [10.71198123145123, 0, 10.25194597590735, 0.1695845864519399, 0.6804812630029441, 0.03240218849684961],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [4.659116771671099, 0, 4.19701968153587, 0.206897367196909, 0.6492101611040424, 0.01409315201386587],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, -7.006281208532528e-07, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [4.659116777493913, 0, 4.19701966771207, 0.2068973671959498, 0.649210161104801, 0.01409315203147904],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [24.61735650807938, 0, 18.40169448221717, 0.5858140783775418, 0.4440423689945716, 0.07446393049373098],
+      [0, 0, 0, 0, 1, 0],
+      [6.670784890225228, 0, 5.859419638155484, 0.2561041497989542, 0.6128093791837497, 0.02017815610060874],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [5.238894637571802, 0, 4.893631446179408, 0.134583536631407, 0.713726218027987, 0.01584689590972505],
+      [5.026685664649732, 0, 4.640129835353951, 0.157829938935965, 0.6911623484983045, 0.01520499456647446],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, -3.19344351851214e-07, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [8.631992859838125, 0, 7.522026024454343, 0.2680229047515184, 0.6046611184099042, 0.02611052556054958],
+      [5.240503986064413, 0, 4.813560548686246, 0.1672447094818104, 0.6825722210556592, 0.01585176395533566],
+      [0, 0, 0, 0, 1, 0],
+      [6.801868971459992, 0, 5.805809094930949, 0.3135275754243878, 0.5755235483933973, 0.02057466642090638],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [6.722948254994287, 0, 5.666522388051715, 0.3456365656139191, 0.5565936187842055, 0.02033594270808658],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [5.238894627563264, 0, 4.89363142630532, 0.1345835366314461, 0.7137262180279473, 0.01584689587945068],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [5.239302319757607, 0, 5.02327590346495, 0.08307487598849406, 0.7731728861339647, 0.01584812908916645],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [0, 155.4970062757262, 9.882088614685152, 10.9407337541155, 0.0009407290669236623, 1.002193801939598],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, -3.473093883599176e-07, 1, 0],
+      [5.238894631764241, 0, 4.893631445672291, 0.1345835366320109, 0.7137262180273729, 0.01584689589215802],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, 0, 1, 0] 
+      ]
+    },
+   "headers":    [
+["alpha", "Synonymous substitution rate at a site"],
+    ["beta", "Non-synonymous substitution rate at a site"],
+    ["alpha=beta", "The rate estimate under the neutral model"],
+    ["LRT", "Likelihood ration test statistic for beta = alpha, versus beta &neq; alpha"],
+    ["p-value", "Asymptotic p-value for evidence of selection, i.e. beta &neq; alpha"],
+    ["Total branch length", "The total length of branches contributing to inference at this site, and used to scale dN-dS"] 
+    ]
+  },
+ "analysis":{
+   "authors":"Sergei L Kosakovsky Pond and Simon DW Frost",
+   "citation":"Not So Different After All: A Comparison of Methods for Detecting Amino Acid Sites Under Selection (2005). _Mol Biol Evol_ 22 (5): 1208-1222",
+   "contact":"spond@temple.edu",
+   "info":"FEL (Fixed Effects Likelihood)\n    estimates site-wise synonymous (&alpha;) and non-synonymous (&beta;) rates, and\n    uses a likelihood ratio test to determine if beta &neq; alpha at a site.\n    The estimates aggregate information over all branches,\n    so the signal is derived from\n    pervasive diversification or conservation. A subset of branches can be selected\n    for testing as well, in which case an additional (nuisance) parameter will be\n    inferred -- the non-synonymous rate on branches NOT selected for testing.\n    Multiple partitions within a NEXUS file are also supported\n    for recombination - aware analysis.\n    ",
+   "requirements":"in-frame codon alignment and a phylogenetic tree",
+   "version":"2.1"
+  },
+ "branch attributes":{
+   "0":{
+     "Node102":{
+       "Global MG94xREV":0,
+       "Nucleotide GTR":5.74853895563853e-05
+      },
+     "Node17":{
+       "Global MG94xREV":0.001508204063897729,
+       "Nucleotide GTR":0.001504143519962474
+      },
+     "Node36":{
+       "Global MG94xREV":0.001240061337901168,
+       "Nucleotide GTR":2.397604687620464e-06
+      },
+     "Node37":{
+       "Global MG94xREV":0.0002661502387155741,
+       "Nucleotide GTR":5.562932578419393e-05
+      },
+     "Node44":{
+       "Global MG94xREV":0,
+       "Nucleotide GTR":2.835911945706324e-05
+      },
+     "Node54":{
+       "Global MG94xREV":0,
+       "Nucleotide GTR":4.97280206911751e-05
+      },
+     "Node55":{
+       "Global MG94xREV":0.001506291008758987,
+       "Nucleotide GTR":0.00145182223742125
+      },
+     "Node61":{
+       "Global MG94xREV":0,
+       "Nucleotide GTR":2.836056568422766e-05
+      },
+     "Node62":{
+       "Global MG94xREV":0.001505193372891419,
+       "Nucleotide GTR":0.001472759518206899
+      },
+     "Node93":{
+       "Global MG94xREV":0.001505788736019732,
+       "Nucleotide GTR":0.00150340580725479
+      },
+     "Node94":{
+       "Global MG94xREV":0.001505143292802817,
+       "Nucleotide GTR":0.001501396404511697
+      },
+     "epi_isl_402127_Hubei_20191230_Illumina_3300":{
+       "Global MG94xREV":0,
+       "Nucleotide GTR":0,
+       "original name":"epi_isl_402127_Hubei_20191230_Illumina_3300"
+      },
+     "epi_isl_404253_Illinois_20200121_Sanger__1":{
+       "Global MG94xREV":0,
+       "Nucleotide GTR":0,
+       "original name":"epi_isl_404253_Illinois_20200121_Sanger__1"
+      },
+     "epi_isl_406034_California_20200123_Sanger__40":{
+       "Global MG94xREV":0,
+       "Nucleotide GTR":0,
+       "original name":"epi_isl_406034_California_20200123_Sanger__40"
+      },
+     "epi_isl_406592_Guandong_20200113_null_1":{
+       "Global MG94xREV":0.003039666089262929,
+       "Nucleotide GTR":0.003020133420759334,
+       "original name":"epi_isl_406592_Guandong_20200113_null_1"
+      },
+     "epi_isl_407987_Singapore_20200125_Illumina_4":{
+       "Global MG94xREV":0,
+       "Nucleotide GTR":0,
+       "original name":"epi_isl_407987_Singapore_20200125_Illumina_4"
+      },
+     "epi_isl_408485_Beijing_20200118_Illumina_1":{
+       "Global MG94xREV":0.001512027044435425,
+       "Nucleotide GTR":0.00150284287884043,
+       "original name":"epi_isl_408485_Beijing_20200118_Illumina_1"
+      },
+     "epi_isl_413017_South_Korea_20200206_Illumina_2":{
+       "Global MG94xREV":0.003029966153399458,
+       "Nucleotide GTR":0.003008870010610505,
+       "original name":"epi_isl_413017_South_Korea_20200206_Illumina_2"
+      },
+     "epi_isl_413019_Zurich_20200226_Illumina_2":{
+       "Global MG94xREV":0.001515044437213872,
+       "Nucleotide GTR":0.001504143524288131,
+       "original name":"epi_isl_413019_Zurich_20200226_Illumina_2"
+      },
+     "epi_isl_413487_Washington_20200301_Illumina_3":{
+       "Global MG94xREV":0.001514133599412658,
+       "Nucleotide GTR":0.001504286025866811,
+       "original name":"epi_isl_413487_Washington_20200301_Illumina_3"
+      },
+     "epi_isl_413565_Berlicum_20200224_Nanopore_170":{
+       "Global MG94xREV":0.001515220706125441,
+       "Nucleotide GTR":0.001504143522615436,
+       "original name":"epi_isl_413565_Berlicum_20200224_Nanopore_170"
+      },
+     "epi_isl_413850_Guangdong_20200210_metagenomics_BGI_13":{
+       "Global MG94xREV":0.001515044438060566,
+       "Nucleotide GTR":0.001504143522615436,
+       "original name":"epi_isl_413850_Guangdong_20200210_metagenomics_BGI_13"
+      },
+     "epi_isl_413999_Argovie_20200227_null_50":{
+       "Global MG94xREV":0,
+       "Nucleotide GTR":0,
+       "original name":"epi_isl_413999_Argovie_20200227_null_50"
+      },
+     "epi_isl_414630_Hauts_de_France_20200303_Illumina_2":{
+       "Global MG94xREV":0.001514743139329002,
+       "Nucleotide GTR":0.001504143522091325,
+       "original name":"epi_isl_414630_Hauts_de_France_20200303_Illumina_2"
+      },
+     "epi_isl_415105_Bahia_20200304_Nanopore_1":{
+       "Global MG94xREV":0.001514395401486449,
+       "Nucleotide GTR":0.001503840891633101,
+       "original name":"epi_isl_415105_Bahia_20200304_Nanopore_1"
+      },
+     "epi_isl_415132_England_20200228_Illumina_3":{
+       "Global MG94xREV":0.001513269156916954,
+       "Nucleotide GTR":0.001504143522490878,
+       "original name":"epi_isl_415132_England_20200228_Illumina_3"
+      },
+     "epi_isl_415140_England_20200229_Illumina_4":{
+       "Global MG94xREV":0.00151553434486883,
+       "Nucleotide GTR":0.001504143524503119,
+       "original name":"epi_isl_415140_England_20200229_Illumina_4"
+      },
+     "epi_isl_415615_Washington_20200308_Illumina_1":{
+       "Global MG94xREV":0.00151553437435227,
+       "Nucleotide GTR":0.001504143522156876,
+       "original name":"epi_isl_415615_Washington_20200308_Illumina_1"
+      },
+     "epi_isl_416321_Shanghai_20200128_Illumina_1":{
+       "Global MG94xREV":0,
+       "Nucleotide GTR":0.001443984991014656,
+       "original name":"epi_isl_416321_Shanghai_20200128_Illumina_1"
+      },
+     "epi_isl_416383_Shanghai_20200201_Illumina_1":{
+       "Global MG94xREV":0.001513711201698697,
+       "Nucleotide GTR":0.00150438183904446,
+       "original name":"epi_isl_416383_Shanghai_20200201_Illumina_1"
+      },
+     "epi_isl_416452_Washington_20200310_Illumina_2":{
+       "Global MG94xREV":0.001515498183571696,
+       "Nucleotide GTR":0.001504143521923818,
+       "original name":"epi_isl_416452_Washington_20200310_Illumina_2"
+      },
+     "epi_isl_416521_Saudi_Arabia_20200310_Illumina_11":{
+       "Global MG94xREV":0,
+       "Nucleotide GTR":0,
+       "original name":"epi_isl_416521_Saudi_Arabia_20200310_Illumina_11"
+      },
+     "epi_isl_416543_Dasman_20200302_Illumina_1":{
+       "Global MG94xREV":0,
+       "Nucleotide GTR":0,
+       "original name":"epi_isl_416543_Dasman_20200302_Illumina_1"
+      },
+     "epi_isl_416687_Washington_20200314_Illumina_1":{
+       "Global MG94xREV":0.001511235443877563,
+       "Nucleotide GTR":0.001503390050269928,
+       "original name":"epi_isl_416687_Washington_20200314_Illumina_1"
+      },
+     "epi_isl_416829_Selangor_20200220_Illumina_1":{
+       "Global MG94xREV":0.001514311373280092,
+       "Nucleotide GTR":0.001501624187541075,
+       "original name":"epi_isl_416829_Selangor_20200220_Illumina_1"
+      },
+     "epi_isl_417026_Utah_20200320_Illumina_1":{
+       "Global MG94xREV":0.001515044440640187,
+       "Nucleotide GTR":0.001504143522455527,
+       "original name":"epi_isl_417026_Utah_20200320_Illumina_1"
+      },
+     "epi_isl_417034_Amazonas_State_20200316_Illumina_2":{
+       "Global MG94xREV":0.001515044802464623,
+       "Nucleotide GTR":0.001504143522104578,
+       "original name":"epi_isl_417034_Amazonas_State_20200316_Illumina_2"
+      },
+     "epi_isl_417088_Washington_20200302_Illumina_1":{
+       "Global MG94xREV":0.00151250968538183,
+       "Nucleotide GTR":0.001502792352355588,
+       "original name":"epi_isl_417088_Washington_20200302_Illumina_1"
+      },
+     "epi_isl_417237_England_20200303_Illumina_2":{
+       "Global MG94xREV":0,
+       "Nucleotide GTR":0,
+       "original name":"epi_isl_417237_England_20200303_Illumina_2"
+      },
+     "epi_isl_417413_Turkey_20200317_Nanopore_1":{
+       "Global MG94xREV":0.004559937229487494,
+       "Nucleotide GTR":0.004522869748456678,
+       "original name":"epi_isl_417413_Turkey_20200317_Nanopore_1"
+      },
+     "epi_isl_417516_Wisconsin_20200326_Nanpore_1":{
+       "Global MG94xREV":0.001513407928949984,
+       "Nucleotide GTR":0.001504143522459632,
+       "original name":"epi_isl_417516_Wisconsin_20200326_Nanpore_1"
+      },
+     "epi_isl_417523_Taoyuan_20200313_Illumina_3":{
+       "Global MG94xREV":0.00152305745832898,
+       "Nucleotide GTR":0.001507703268674951,
+       "original name":"epi_isl_417523_Taoyuan_20200313_Illumina_3"
+      },
+     "epi_isl_417653_Reykjavik_20200318_Illumina_1":{
+       "Global MG94xREV":0.001513584443158851,
+       "Nucleotide GTR":0.001502792350244177,
+       "original name":"epi_isl_417653_Reykjavik_20200318_Illumina_1"
+      },
+     "epi_isl_417938_California_20200318_Illumina_1":{
+       "Global MG94xREV":0,
+       "Nucleotide GTR":0,
+       "original name":"epi_isl_417938_California_20200318_Illumina_1"
+      },
+     "epi_isl_417961_Madrid_20200312_Ion_2":{
+       "Global MG94xREV":0.001514164275933195,
+       "Nucleotide GTR":0.001444598716209749,
+       "original name":"epi_isl_417961_Madrid_20200312_Ion_2"
+      },
+     "epi_isl_418089_Wales_20200312_Illumina_1":{
+       "Global MG94xREV":0,
+       "Nucleotide GTR":0,
+       "original name":"epi_isl_418089_Wales_20200312_Illumina_1"
+      },
+     "epi_isl_418098_Wales_20200313_Illumina_1":{
+       "Global MG94xREV":0,
+       "Nucleotide GTR":0,
+       "original name":"epi_isl_418098_Wales_20200313_Illumina_1"
+      },
+     "epi_isl_418112_Wales_20200313_Illumina_1":{
+       "Global MG94xREV":0.0015132065395308,
+       "Nucleotide GTR":0.00150414352212141,
+       "original name":"epi_isl_418112_Wales_20200313_Illumina_1"
+      },
+     "epi_isl_418250_Catalonia_2020_Illumina_1":{
+       "Global MG94xREV":0.001514829208408492,
+       "Nucleotide GTR":0.001502792350263214,
+       "original name":"epi_isl_418250_Catalonia_2020_Illumina_1"
+      },
+     "epi_isl_418255_Abruzzo_20200314_Illumina_1":{
+       "Global MG94xREV":0,
+       "Nucleotide GTR":0,
+       "original name":"epi_isl_418255_Abruzzo_20200314_Illumina_1"
+      },
+     "epi_isl_418286_South_Yorkshire_20200318_Nanopore_15":{
+       "Global MG94xREV":0.001517237567598865,
+       "Nucleotide GTR":0.001504427077844779,
+       "original name":"epi_isl_418286_South_Yorkshire_20200318_Nanopore_15"
+      },
+     "epi_isl_418676_England_20200310_Illumina_1":{
+       "Global MG94xREV":0,
+       "Nucleotide GTR":0,
+       "original name":"epi_isl_418676_England_20200310_Illumina_1"
+      },
+     "epi_isl_418703_England_20200317_Illumina_1":{
+       "Global MG94xREV":0,
+       "Nucleotide GTR":0,
+       "original name":"epi_isl_418703_England_20200317_Illumina_1"
+      },
+     "epi_isl_418708_England_20200317_Illumina_1":{
+       "Global MG94xREV":0,
+       "Nucleotide GTR":0,
+       "original name":"epi_isl_418708_England_20200317_Illumina_1"
+      },
+     "epi_isl_418714_England_20200317_Illumina_1":{
+       "Global MG94xREV":0,
+       "Nucleotide GTR":0,
+       "original name":"epi_isl_418714_England_20200317_Illumina_1"
+      },
+     "epi_isl_419248_Hong_Kong_20200224_Nanopore_1":{
+       "Global MG94xREV":0.001515534372098603,
+       "Nucleotide GTR":0.001504143522156865,
+       "original name":"epi_isl_419248_Hong_Kong_20200224_Nanopore_1"
+      },
+     "epi_isl_419249_Hong_Kong_20200225_Nanopore_1":{
+       "Global MG94xREV":0,
+       "Nucleotide GTR":0,
+       "original name":"epi_isl_419249_Hong_Kong_20200225_Nanopore_1"
+      },
+     "epi_isl_419493_Wales_20200320_Illumina_1":{
+       "Global MG94xREV":0,
+       "Nucleotide GTR":0,
+       "original name":"epi_isl_419493_Wales_20200320_Illumina_1"
+      },
+     "epi_isl_419576_Luxembourg_20200317_Illumina_1":{
+       "Global MG94xREV":0.001512030215954936,
+       "Nucleotide GTR":0.001502822535594013,
+       "original name":"epi_isl_419576_Luxembourg_20200317_Illumina_1"
+      },
+     "epi_isl_419590_Luxembourg_20200311_Illumina_1":{
+       "Global MG94xREV":0,
+       "Nucleotide GTR":0,
+       "original name":"epi_isl_419590_Luxembourg_20200311_Illumina_1"
+      },
+     "epi_isl_419659_Austria_20200310_Illumina_1":{
+       "Global MG94xREV":0.001515534374272966,
+       "Nucleotide GTR":0.001504143522091325,
+       "original name":"epi_isl_419659_Austria_20200310_Illumina_1"
+      },
+     "epi_isl_419661_Austria_20200310_Illumina_1":{
+       "Global MG94xREV":0,
+       "Nucleotide GTR":0,
+       "original name":"epi_isl_419661_Austria_20200310_Illumina_1"
+      },
+     "epi_isl_419844_Victoria_20200317_Illumina_2":{
+       "Global MG94xREV":0.00151343853199125,
+       "Nucleotide GTR":0.001502792352653663,
+       "original name":"epi_isl_419844_Victoria_20200317_Illumina_2"
+      },
+     "epi_isl_419913_Victoria_20200320_Illumina_1":{
+       "Global MG94xREV":0.001515534458259785,
+       "Nucleotide GTR":0.001504143394388298,
+       "original name":"epi_isl_419913_Victoria_20200320_Illumina_1"
+      },
+     "epi_isl_419922_Victoria_20200320_Illumina_1":{
+       "Global MG94xREV":0,
+       "Nucleotide GTR":0,
+       "original name":"epi_isl_419922_Victoria_20200320_Illumina_1"
+      },
+     "epi_isl_420010_Victoria_20200324_Illumina_1":{
+       "Global MG94xREV":0.001512209881628214,
+       "Nucleotide GTR":0.001472760968151297,
+       "original name":"epi_isl_420010_Victoria_20200324_Illumina_1"
+      },
+     "epi_isl_420014_Victoria_20200324_Illumina_1":{
+       "Global MG94xREV":0,
+       "Nucleotide GTR":0,
+       "original name":"epi_isl_420014_Victoria_20200324_Illumina_1"
+      },
+     "epi_isl_420095_Connecticut_20200319_Oxford_1":{
+       "Global MG94xREV":0.001512630876223825,
+       "Nucleotide GTR":0.001502792222259917,
+       "original name":"epi_isl_420095_Connecticut_20200319_Oxford_1"
+      },
+     "epi_isl_420198_South_Yorkshire_20200328_Nanopore_1":{
+       "Global MG94xREV":0.001511007094420897,
+       "Nucleotide GTR":0.001503390052090815,
+       "original name":"epi_isl_420198_South_Yorkshire_20200328_Nanopore_1"
+      },
+     "epi_isl_420228_South_Yorkshire_20200325_Nanopore_1":{
+       "Global MG94xREV":0.001513336980862449,
+       "Nucleotide GTR":0.00150414352213539,
+       "original name":"epi_isl_420228_South_Yorkshire_20200325_Nanopore_1"
+      },
+     "epi_isl_420268_South_Yorkshire_20200323_Nanopore_1":{
+       "Global MG94xREV":0.00151482888688309,
+       "Nucleotide GTR":0.001502792351856363,
+       "original name":"epi_isl_420268_South_Yorkshire_20200323_Nanopore_1"
+      },
+     "epi_isl_420298_New_York_20200319_Ribo_depleted__1":{
+       "Global MG94xREV":0.001515732936449156,
+       "Nucleotide GTR":0.001504285901790898,
+       "original name":"epi_isl_420298_New_York_20200319_Ribo_depleted__1"
+      }
+    },
+   "attributes":{
+     "Global MG94xREV":{
+       "attribute type":"branch length",
+       "display order":1
+      },
+     "Nucleotide GTR":{
+       "attribute type":"branch length",
+       "display order":0
+      },
+     "original name":{
+       "attribute type":"node label",
+       "display order":-1
+      }
+    }
+  },
+ "data partitions":{
+   "0":{
+     "coverage":      [
+[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 123, 124, 125, 126, 127, 128, 129, 130, 131, 132, 133, 134, 135, 136, 137, 138, 139, 140, 141, 142, 143, 144, 145, 146, 147, 148, 149, 150, 151, 152, 153, 154, 155, 156, 157, 158, 159, 160, 161, 162, 163, 164, 165, 166, 167, 168, 169, 170, 171, 172, 173, 174, 175, 176, 177, 178, 179, 180, 181, 182, 183, 184, 185, 186, 187, 188, 189, 190, 191, 192, 193, 194, 195, 196, 197, 198, 199, 200, 201, 202, 203, 204, 205, 206, 207, 208, 209, 210, 211, 212, 213, 214, 215, 216, 217, 218, 219, 220, 221] 
+      ],
+     "name":"fel.filter.default"
+    }
+  },
+ "fits":{
+   "Global MG94xREV":{
+     "AIC-c":2691.046004913672,
+     "Equilibrium frequencies":      [
+[0.01842205749187825],
+      [0.01571730632155835],
+      [0.01182562334575324],
+      [0.02551689106237483],
+      [0.01550135915388643],
+      [0.01322542882788957],
+      [0.009950747074908574],
+      [0.02147135264466806],
+      [0.01619661339078193],
+      [0.01381860490593978],
+      [0.01039704981490871],
+      [0.02243436812930316],
+      [0.02766817100262092],
+      [0.02360589305495178],
+      [0.01776095689024621],
+      [0.0383239334520747],
+      [0.01346264512563154],
+      [0.01148604152556098],
+      [0.008642040692981653],
+      [0.01864747459579917],
+      [0.0113282296152717],
+      [0.009665003760989841],
+      [0.007271900908108163],
+      [0.01569103783059493],
+      [0.01183631407150262],
+      [0.01009849057641882],
+      [0.007598054238693941],
+      [0.0163947993798055],
+      [0.02021960726416108],
+      [0.01725093742718661],
+      [0.01297951978547681],
+      [0.02800672596484213],
+      [0.01591256544488706],
+      [0.01357626126014412],
+      [0.01021471165741634],
+      [0.0220409256218587],
+      [0.01338973087721961],
+      [0.01142383264482104],
+      [0.008595235039561113],
+      [0.01854647909437691],
+      [0.01399027609592344],
+      [0.01193620500966014],
+      [0.008980741466387512],
+      [0.01937831055133831],
+      [0.02389915361048216],
+      [0.02039024784758868],
+      [0.01534152138025086],
+      [0.03310336532336265],
+      [0.0133462945377403],
+      [0.02166757692689175],
+      [0.01316292377144131],
+      [0.01123032566228148],
+      [0.00844964134535746],
+      [0.01823232242578172],
+      [0.01173401901077472],
+      [0.008828617723318116],
+      [0.01905006358571036],
+      [0.0234943286061076],
+      [0.02004485979290552],
+      [0.01508165312043314],
+      [0.03254263123920809] 
+      ],
+     "Log Likelihood":-1256.940827477278,
+     "Rate Distributions":{
+       "non-synonymous/synonymous rate ratio for *background*":        [
+[0.2573255712842668, 1] 
+        ],
+       "non-synonymous/synonymous rate ratio for *test*":        [
+[0.9327980806321605, 1] 
+        ]
+      },
+     "display order":1,
+     "estimated parameters":88
+    },
+   "Nucleotide GTR":{
+     "AIC-c":2827.08205226613,
+     "Equilibrium frequencies":      [
+[0.2536388847864258],
+      [0.2187761532023827],
+      [0.2084215362903887],
+      [0.3191634257208028] 
+      ],
+     "Log Likelihood":-1286.139623594668,
+     "Rate Distributions":{
+       "Substitution rate from nucleotide A to nucleotide C":0.2335574763109895,
+       "Substitution rate from nucleotide A to nucleotide G":1,
+       "Substitution rate from nucleotide A to nucleotide T":0.3202928721850161,
+       "Substitution rate from nucleotide C to nucleotide G":0.5666182949252818,
+       "Substitution rate from nucleotide C to nucleotide T":5.572824343861638,
+       "Substitution rate from nucleotide G to nucleotide T":1.757093783077752
+      },
+     "display order":0,
+     "estimated parameters":127
+    }
+  },
+ "input":{
+   "file name":"/Volumes/sergei-raid/Dropbox/COVID-19/data/fasta/20200405/sequences.M.compressed.fas",
+   "number of sequences":61,
+   "number of sites":222,
+   "partition count":1,
+   "trees":{
+     "0":"(epi_isl_418089_Wales_20200312_Illumina_1,epi_isl_402127_Hubei_20191230_Illumina_3300,epi_isl_418250_Catalonia_2020_Illumina_1,epi_isl_417523_Taoyuan_20200313_Illumina_3,((epi_isl_416321_Shanghai_20200128_Illumina_1,epi_isl_418255_Abruzzo_20200314_Illumina_1)Node37,epi_isl_418676_England_20200310_Illumina_1)Node36,epi_isl_419659_Austria_20200310_Illumina_1,epi_isl_406592_Guandong_20200113_null_1,(epi_isl_420010_Victoria_20200324_Illumina_1,epi_isl_420014_Victoria_20200324_Illumina_1)Node44,epi_isl_414630_Hauts_de_France_20200303_Illumina_2,epi_isl_417088_Washington_20200302_Illumina_1,epi_isl_418098_Wales_20200313_Illumina_1,epi_isl_419493_Wales_20200320_Illumina_1,epi_isl_419844_Victoria_20200317_Illumina_2,epi_isl_413850_Guangdong_20200210_metagenomics_BGI_13,epi_isl_417413_Turkey_20200317_Nanopore_1,((epi_isl_406034_California_20200123_Sanger__40,epi_isl_408485_Beijing_20200118_Illumina_1)Node55,epi_isl_404253_Illinois_20200121_Sanger__1)Node54,epi_isl_420198_South_Yorkshire_20200328_Nanopore_1,epi_isl_416452_Washington_20200310_Illumina_2,epi_isl_413019_Zurich_20200226_Illumina_2,epi_isl_419248_Hong_Kong_20200224_Nanopore_1,epi_isl_413487_Washington_20200301_Illumina_3,epi_isl_416687_Washington_20200314_Illumina_1,((epi_isl_413999_Argovie_20200227_null_50,epi_isl_419576_Luxembourg_20200317_Illumina_1)Node62,epi_isl_417237_England_20200303_Illumina_2)Node61,epi_isl_415140_England_20200229_Illumina_4,(epi_isl_417961_Madrid_20200312_Ion_2,epi_isl_418714_England_20200317_Illumina_1)Node102,epi_isl_419661_Austria_20200310_Illumina_1,epi_isl_418703_England_20200317_Illumina_1,epi_isl_416383_Shanghai_20200201_Illumina_1,epi_isl_418708_England_20200317_Illumina_1,epi_isl_413017_South_Korea_20200206_Illumina_2,epi_isl_415615_Washington_20200308_Illumina_1,epi_isl_415132_England_20200228_Illumina_3,epi_isl_420298_New_York_20200319_Ribo_depleted__1,epi_isl_420228_South_Yorkshire_20200325_Nanopore_1,epi_isl_417516_Wisconsin_20200326_Nanpore_1,epi_isl_417938_California_20200318_Illumina_1,epi_isl_415105_Bahia_20200304_Nanopore_1,epi_isl_418112_Wales_20200313_Illumina_1,epi_isl_417026_Utah_20200320_Illumina_1,epi_isl_417034_Amazonas_State_20200316_Illumina_2,epi_isl_416543_Dasman_20200302_Illumina_1,epi_isl_420268_South_Yorkshire_20200323_Nanopore_1,(epi_isl_416521_Saudi_Arabia_20200310_Illumina_11,epi_isl_418286_South_Yorkshire_20200318_Nanopore_15)Node17,epi_isl_420095_Connecticut_20200319_Oxford_1,epi_isl_419590_Luxembourg_20200311_Illumina_1,epi_isl_419922_Victoria_20200320_Illumina_1,epi_isl_413565_Berlicum_20200224_Nanopore_170,epi_isl_417653_Reykjavik_20200318_Illumina_1,((epi_isl_407987_Singapore_20200125_Illumina_4,epi_isl_416829_Selangor_20200220_Illumina_1)Node94,epi_isl_419249_Hong_Kong_20200225_Nanopore_1)Node93,epi_isl_419913_Victoria_20200320_Illumina_1)"
+    }
+  },
+ "tested":{
+   "0":{
+     "Node102":"test",
+     "Node17":"test",
+     "Node36":"test",
+     "Node37":"test",
+     "Node44":"test",
+     "Node54":"test",
+     "Node55":"test",
+     "Node61":"test",
+     "Node62":"test",
+     "Node93":"test",
+     "Node94":"test",
+     "epi_isl_402127_Hubei_20191230_Illumina_3300":"background",
+     "epi_isl_404253_Illinois_20200121_Sanger__1":"background",
+     "epi_isl_406034_California_20200123_Sanger__40":"background",
+     "epi_isl_406592_Guandong_20200113_null_1":"background",
+     "epi_isl_407987_Singapore_20200125_Illumina_4":"background",
+     "epi_isl_408485_Beijing_20200118_Illumina_1":"background",
+     "epi_isl_413017_South_Korea_20200206_Illumina_2":"background",
+     "epi_isl_413019_Zurich_20200226_Illumina_2":"background",
+     "epi_isl_413487_Washington_20200301_Illumina_3":"background",
+     "epi_isl_413565_Berlicum_20200224_Nanopore_170":"background",
+     "epi_isl_413850_Guangdong_20200210_metagenomics_BGI_13":"background",
+     "epi_isl_413999_Argovie_20200227_null_50":"background",
+     "epi_isl_414630_Hauts_de_France_20200303_Illumina_2":"background",
+     "epi_isl_415105_Bahia_20200304_Nanopore_1":"background",
+     "epi_isl_415132_England_20200228_Illumina_3":"background",
+     "epi_isl_415140_England_20200229_Illumina_4":"background",
+     "epi_isl_415615_Washington_20200308_Illumina_1":"background",
+     "epi_isl_416321_Shanghai_20200128_Illumina_1":"background",
+     "epi_isl_416383_Shanghai_20200201_Illumina_1":"background",
+     "epi_isl_416452_Washington_20200310_Illumina_2":"background",
+     "epi_isl_416521_Saudi_Arabia_20200310_Illumina_11":"background",
+     "epi_isl_416543_Dasman_20200302_Illumina_1":"background",
+     "epi_isl_416687_Washington_20200314_Illumina_1":"background",
+     "epi_isl_416829_Selangor_20200220_Illumina_1":"background",
+     "epi_isl_417026_Utah_20200320_Illumina_1":"background",
+     "epi_isl_417034_Amazonas_State_20200316_Illumina_2":"background",
+     "epi_isl_417088_Washington_20200302_Illumina_1":"background",
+     "epi_isl_417237_England_20200303_Illumina_2":"background",
+     "epi_isl_417413_Turkey_20200317_Nanopore_1":"background",
+     "epi_isl_417516_Wisconsin_20200326_Nanpore_1":"background",
+     "epi_isl_417523_Taoyuan_20200313_Illumina_3":"background",
+     "epi_isl_417653_Reykjavik_20200318_Illumina_1":"background",
+     "epi_isl_417938_California_20200318_Illumina_1":"background",
+     "epi_isl_417961_Madrid_20200312_Ion_2":"background",
+     "epi_isl_418089_Wales_20200312_Illumina_1":"background",
+     "epi_isl_418098_Wales_20200313_Illumina_1":"background",
+     "epi_isl_418112_Wales_20200313_Illumina_1":"background",
+     "epi_isl_418250_Catalonia_2020_Illumina_1":"background",
+     "epi_isl_418255_Abruzzo_20200314_Illumina_1":"background",
+     "epi_isl_418286_South_Yorkshire_20200318_Nanopore_15":"background",
+     "epi_isl_418676_England_20200310_Illumina_1":"background",
+     "epi_isl_418703_England_20200317_Illumina_1":"background",
+     "epi_isl_418708_England_20200317_Illumina_1":"background",
+     "epi_isl_418714_England_20200317_Illumina_1":"background",
+     "epi_isl_419248_Hong_Kong_20200224_Nanopore_1":"background",
+     "epi_isl_419249_Hong_Kong_20200225_Nanopore_1":"background",
+     "epi_isl_419493_Wales_20200320_Illumina_1":"background",
+     "epi_isl_419576_Luxembourg_20200317_Illumina_1":"background",
+     "epi_isl_419590_Luxembourg_20200311_Illumina_1":"background",
+     "epi_isl_419659_Austria_20200310_Illumina_1":"background",
+     "epi_isl_419661_Austria_20200310_Illumina_1":"background",
+     "epi_isl_419844_Victoria_20200317_Illumina_2":"background",
+     "epi_isl_419913_Victoria_20200320_Illumina_1":"background",
+     "epi_isl_419922_Victoria_20200320_Illumina_1":"background",
+     "epi_isl_420010_Victoria_20200324_Illumina_1":"background",
+     "epi_isl_420014_Victoria_20200324_Illumina_1":"background",
+     "epi_isl_420095_Connecticut_20200319_Oxford_1":"background",
+     "epi_isl_420198_South_Yorkshire_20200328_Nanopore_1":"background",
+     "epi_isl_420228_South_Yorkshire_20200325_Nanopore_1":"background",
+     "epi_isl_420268_South_Yorkshire_20200323_Nanopore_1":"background",
+     "epi_isl_420298_New_York_20200319_Ribo_depleted__1":"background"
+    }
+  },
+ "timers":{
+   "FEL analysis":{
+     "order":2,
+     "timer":20
+    },
+   "Model fitting":{
+     "order":1,
+     "timer":10
+    },
+   "Total time":{
+     "order":0,
+     "timer":31
+    }
+  }
+}
