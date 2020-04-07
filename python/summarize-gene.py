@@ -50,14 +50,14 @@ dups = json.load (import_settings.duplicates)
 
 sequences_with_dates = {}
 sequences_with_locations = {}
-contry_to_sub = {}
+country_to_sub = {}
 
 def get_location (v):
     if 'country' in v['location']:
-        contry_to_sub[v['location']['country']] = v['location']['subregion']
+        country_to_sub[v['location']['country']] = v['location']['subregion']
         return v['location']['country']
     if 'subregion' in v['location']:
-        contry_to_sub[v['location']['subregion']] = v['location']['subregion']
+        country_to_sub[v['location']['subregion']] = v['location']['subregion']
         return v['location']['subregion']
     return None
 
@@ -82,6 +82,33 @@ for id, record in db.items():
         
 date_dups     = {}
 
+'''
+"epi_isl_417487": {
+  "address": "Norwegian Inst. of Public Health,\nP.O.Box 222 Skoyen\n0213 Oslo\nNorway",
+  "age": "unknown",
+  "assembly": "Assembly by reference based mapping using Tanoti",
+  "authors": "Kathrine Stene-Johansen, Kamilla Heddeland Instefjord, Hilde Elshaug, Karoline Bragstad, Olav Hungnes",
+  "collected": "20200301",
+  "coverage": 1258,
+  "gender": "unknown",
+  "host": "Human",
+  "id": "epi_isl_417487",
+  "lab": "Hospital of Southern Norway - Kristiansand, Department of Medical Microbiology",
+  "location": {
+   "country": "Norway",
+   "locality": null,
+   "state": "Oslo",
+   "subregion": "Europe"
+  },
+  "name": "hCoV-19/Norway/1539/2020",
+  "passage": "Original",
+  "submitted": "20200326",
+  "submitter": "Olav Hungnes",
+  "technology": "Illumina MiSeq",
+  "type": "betacoronavirus"
+ },
+'''
+
 for seq, copies in dups.items():
     date_collection = {}
     location_collection = []
@@ -91,7 +118,7 @@ for seq, copies in dups.items():
             cdate = sequences_with_dates[cpv]
             location = sequences_with_locations[cpv]
             
-            tag = (cdate, location)
+            tag = (cdate, location,db[cpv]['age'],db[cpv]['gender'].lower())
  
             if not tag in date_collection:
                 date_collection[tag] = 1
@@ -140,6 +167,7 @@ tree = slac["input"]["trees"]["0"]
 branch_lengths = {}
 
 L = 0
+
 
 variants_by_site   = [{} for k in range (sites)]
 aa_variants_by_site = [{} for k in range (sites)]
@@ -305,7 +333,7 @@ for site in site_list:
     timing_as_array = {}
     
     for aa, t in timing.items():
-        timing_as_array [aa] = [[k[0],k[1],contry_to_sub[k[1]],v] for k, v in timing[aa].items()]
+        timing_as_array [aa] = [[k[0],k[1],country_to_sub[k[1]],v,k[2],k[3]] for k, v in timing[aa].items()]
     
     site_list[site]['timing'] = timing_as_array
     site_list[site]['trend'] = compute_JH (timing, min_date, max_date)
