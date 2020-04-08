@@ -1,0 +1,416 @@
+{
+ "MLE":{
+   "content":{
+     "0":      [
+[0, 0, 0, 0, 1, 0],
+      [22.57997897062653, 0, 5.164998191992519, 2.602860801053238, 0.1066710077224151, 0.2822167394232096],
+      [0, 0, 0, 0, 1, 0],
+      [3.674164691994251, 0, 2.655766092990798, 0.654839542544817, 0.4183877123823416, 0.04592168933493596],
+      [0, 0, 0, -1.337313943139407e-06, 1, 0],
+      [0, 0, 0, -4.942187104006734e-09, 1, 0],
+      [15.73807374811464, 0, 5.007993552078114, 2.161780261992291, 0.1414806894204034, 0.1967029226985892],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, -1.33731215967714e-06, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, -1.404928354986623e-06, 1, 0],
+      [21.24493101408938, 0, 4.970889131999012, 2.902257003150183, 0.08845561971596583, 0.2655305909658674],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, -4.141200911078613e-07, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [3.67597617277495, 0, 2.349761823225878, 0.8968606945355617, 0.3436248713538023, 0.04594433019745054],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, -5.499600774783175e-12, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, -4.932029895599044e-09, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, -5.459673602103976e-08, 1, 0],
+      [0, 0, 0, -1.40484680599684e-06, 1, 0],
+      [0, 0, 0, -1.550230983582424e-07, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, -1.175948227682966e-12, 1, 0],
+      [0, 0, 0, -9.166684833417094e-08, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, -7.535554402693379e-10, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, -9.484635299372712e-08, 1, 0],
+      [0, 0, 0, -3.304425600703098e-06, 1, 0],
+      [0, 0, 0, -3.574671545436559e-07, 1, 0],
+      [15.83861069544059, 0, 5.696636852362848, 1.985808595993518, 0.1587798183918107, 0.1979594876184593],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, 0, 1, 0] 
+      ]
+    },
+   "headers":    [
+["alpha", "Synonymous substitution rate at a site"],
+    ["beta", "Non-synonymous substitution rate at a site"],
+    ["alpha=beta", "The rate estimate under the neutral model"],
+    ["LRT", "Likelihood ration test statistic for beta = alpha, versus beta &neq; alpha"],
+    ["p-value", "Asymptotic p-value for evidence of selection, i.e. beta &neq; alpha"],
+    ["Total branch length", "The total length of branches contributing to inference at this site, and used to scale dN-dS"] 
+    ]
+  },
+ "analysis":{
+   "authors":"Sergei L Kosakovsky Pond and Simon DW Frost",
+   "citation":"Not So Different After All: A Comparison of Methods for Detecting Amino Acid Sites Under Selection (2005). _Mol Biol Evol_ 22 (5): 1208-1222",
+   "contact":"spond@temple.edu",
+   "info":"FEL (Fixed Effects Likelihood)\n    estimates site-wise synonymous (&alpha;) and non-synonymous (&beta;) rates, and\n    uses a likelihood ratio test to determine if beta &neq; alpha at a site.\n    The estimates aggregate information over all branches,\n    so the signal is derived from\n    pervasive diversification or conservation. A subset of branches can be selected\n    for testing as well, in which case an additional (nuisance) parameter will be\n    inferred -- the non-synonymous rate on branches NOT selected for testing.\n    Multiple partitions within a NEXUS file are also supported\n    for recombination - aware analysis.\n    ",
+   "requirements":"in-frame codon alignment and a phylogenetic tree",
+   "version":"2.1"
+  },
+ "branch attributes":{
+   "0":{
+     "Node27":{
+       "Global MG94xREV":0.00625091590226248,
+       "Nucleotide GTR":0.005474959297527722
+      },
+     "Node38":{
+       "Global MG94xREV":0,
+       "Nucleotide GTR":0.0001431189828491087
+      },
+     "Node49":{
+       "Global MG94xREV":0.006247622727482696,
+       "Nucleotide GTR":0.0001431187547932117
+      },
+     "epi_isl_402120_Hubei_20200101_null_4129":{
+       "Global MG94xREV":0,
+       "Nucleotide GTR":0,
+       "original name":"epi_isl_402120_Hubei_20200101_null_4129"
+      },
+     "epi_isl_414010_England_20200226_Illumina_1":{
+       "Global MG94xREV":0,
+       "Nucleotide GTR":0,
+       "original name":"epi_isl_414010_England_20200226_Illumina_1"
+      },
+     "epi_isl_415144_England_20200227_Illumina_24":{
+       "Global MG94xREV":0,
+       "Nucleotide GTR":0,
+       "original name":"epi_isl_415144_England_20200227_Illumina_24"
+      },
+     "epi_isl_415608_Washington_20200308_Illumina_7":{
+       "Global MG94xREV":0.005502984235543164,
+       "Nucleotide GTR":0.005493846624390618,
+       "original name":"epi_isl_415608_Washington_20200308_Illumina_7"
+      },
+     "epi_isl_415655_Wales_20200312_Nanopore_1":{
+       "Global MG94xREV":0.005486506679180885,
+       "Nucleotide GTR":0.005493846596895649,
+       "original name":"epi_isl_415655_Wales_20200312_Nanopore_1"
+      },
+     "epi_isl_416620_unknown_20200217_Illumina_1":{
+       "Global MG94xREV":0.005490054232913234,
+       "Nucleotide GTR":0.005493846597070617,
+       "original name":"epi_isl_416620_unknown_20200217_Illumina_1"
+      },
+     "epi_isl_416636_Washington_20200312_Illumina_1":{
+       "Global MG94xREV":0.00549734665465462,
+       "Nucleotide GTR":0.00548116488980926,
+       "original name":"epi_isl_416636_Washington_20200312_Illumina_1"
+      },
+     "epi_isl_417356_Washington_20200313_Illumina_2":{
+       "Global MG94xREV":0.005492960659494958,
+       "Nucleotide GTR":0.005474959297779849,
+       "original name":"epi_isl_417356_Washington_20200313_Illumina_2"
+      },
+     "epi_isl_417368_USA_20200313_Illumina_1":{
+       "Global MG94xREV":0.005490054234240725,
+       "Nucleotide GTR":0.005493846624390618,
+       "original name":"epi_isl_417368_USA_20200313_Illumina_1"
+      },
+     "epi_isl_417952_Madrid_20200309_Ion_1":{
+       "Global MG94xREV":0.03514817243977351,
+       "Nucleotide GTR":0.03502557033409382,
+       "original name":"epi_isl_417952_Madrid_20200309_Ion_1"
+      },
+     "epi_isl_418099_Wales_20200313_Illumina_1":{
+       "Global MG94xREV":0,
+       "Nucleotide GTR":0,
+       "original name":"epi_isl_418099_Wales_20200313_Illumina_1"
+      },
+     "epi_isl_418141_Wales_20200313_Illumina_1":{
+       "Global MG94xREV":0,
+       "Nucleotide GTR":0,
+       "original name":"epi_isl_418141_Wales_20200313_Illumina_1"
+      },
+     "epi_isl_418210_Touba_20200310_Illumina_6":{
+       "Global MG94xREV":0.005504849731208497,
+       "Nucleotide GTR":0.005493846595869245,
+       "original name":"epi_isl_418210_Touba_20200310_Illumina_6"
+      },
+     "epi_isl_418305_South_Yorkshire_20200325_Nanopore_1":{
+       "Global MG94xREV":0,
+       "Nucleotide GTR":0.005307434003228917,
+       "original name":"epi_isl_418305_South_Yorkshire_20200325_Nanopore_1"
+      },
+     "epi_isl_418311_Derbyshire_20200325_Nanopore_1":{
+       "Global MG94xREV":0.00550060025169239,
+       "Nucleotide GTR":0.005489281399625701,
+       "original name":"epi_isl_418311_Derbyshire_20200325_Nanopore_1"
+      },
+     "epi_isl_418371_Ontario_20200307_Illumina_2":{
+       "Global MG94xREV":0.005474475833082221,
+       "Nucleotide GTR":0.005307433776491344,
+       "original name":"epi_isl_418371_Ontario_20200307_Illumina_2"
+      },
+     "epi_isl_418431_ARA_20200318_Illumina_1":{
+       "Global MG94xREV":0.005512084764398298,
+       "Nucleotide GTR":0.005493846597204324,
+       "original name":"epi_isl_418431_ARA_20200318_Illumina_1"
+      },
+     "epi_isl_418750_England_20200318_Illumina_1":{
+       "Global MG94xREV":0.005499115780766816,
+       "Nucleotide GTR":0.005489281398618779,
+       "original name":"epi_isl_418750_England_20200318_Illumina_1"
+      },
+     "epi_isl_418861_Barcelona_20200324_null_1":{
+       "Global MG94xREV":0.005464424779080063,
+       "Nucleotide GTR":0.00546274118106117,
+       "original name":"epi_isl_418861_Barcelona_20200324_null_1"
+      },
+     "epi_isl_419184_ARA_20200322_Illumina_1":{
+       "Global MG94xREV":0.005476332921298863,
+       "Nucleotide GTR":0.005474959295971501,
+       "original name":"epi_isl_419184_ARA_20200322_Illumina_1"
+      },
+     "epi_isl_419546_Duesseldorf_20200315_Nanopore_1":{
+       "Global MG94xREV":0,
+       "Nucleotide GTR":0,
+       "original name":"epi_isl_419546_Duesseldorf_20200315_Nanopore_1"
+      },
+     "epi_isl_419875_Victoria_20200318_Illumina_1":{
+       "Global MG94xREV":0.005475429369388434,
+       "Nucleotide GTR":0.005474959297436784,
+       "original name":"epi_isl_419875_Victoria_20200318_Illumina_1"
+      },
+     "epi_isl_419898_Victoria_20200319_Illumina_1":{
+       "Global MG94xREV":0.005503354417236265,
+       "Nucleotide GTR":0.005493846623854171,
+       "original name":"epi_isl_419898_Victoria_20200319_Illumina_1"
+      },
+     "epi_isl_419947_Victoria_20200321_Illumina_2":{
+       "Global MG94xREV":0.005514934319200852,
+       "Nucleotide GTR":0.00549384662452432,
+       "original name":"epi_isl_419947_Victoria_20200321_Illumina_2"
+      },
+     "epi_isl_420131_Comunitat_Valenciana_20200318_Illumina_2":{
+       "Global MG94xREV":0.005501557182426853,
+       "Nucleotide GTR":0.005489281399318906,
+       "original name":"epi_isl_420131_Comunitat_Valenciana_20200318_Illumina_2"
+      },
+     "epi_isl_420168_South_Yorkshire_20200325_Nanopore_1":{
+       "Global MG94xREV":0.005495135201765377,
+       "Nucleotide GTR":0.005474959270535439,
+       "original name":"epi_isl_420168_South_Yorkshire_20200325_Nanopore_1"
+      },
+     "epi_isl_420198_South_Yorkshire_20200328_Nanopore_1":{
+       "Global MG94xREV":0.01110199837612278,
+       "Nucleotide GTR":0.01106232600800338,
+       "original name":"epi_isl_420198_South_Yorkshire_20200328_Nanopore_1"
+      }
+    },
+   "attributes":{
+     "Global MG94xREV":{
+       "attribute type":"branch length",
+       "display order":1
+      },
+     "Nucleotide GTR":{
+       "attribute type":"branch length",
+       "display order":0
+      },
+     "original name":{
+       "attribute type":"node label",
+       "display order":-1
+      }
+    }
+  },
+ "data partitions":{
+   "0":{
+     "coverage":      [
+[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62] 
+      ],
+     "name":"fel.filter.default"
+    }
+  },
+ "fits":{
+   "Global MG94xREV":{
+     "AIC-c":897.719285502165,
+     "Equilibrium frequencies":      [
+[0.05271927571022802],
+      [0.01862204147424166],
+      [0.03167493131326844],
+      [0.06505166120447092],
+      [0.01814798843242481],
+      [0.006410417986776454],
+      [0.01090372125426455],
+      [0.02239326658313171],
+      [0.004365883250864843],
+      [0.001542161910876344],
+      [0.002623121244172625],
+      [0.005387174885607045],
+      [0.05410726621377707],
+      [0.01911232166824534],
+      [0.03250886735034596],
+      [0.06676433814806518],
+      [0.0209423824902767],
+      [0.007397482420793261],
+      [0.01258265630510197],
+      [0.02584134080407365],
+      [0.00720916799521246],
+      [0.00254649601294838],
+      [0.004331430923468963],
+      [0.008895576573706451],
+      [0.001734318154332412],
+      [0.0006126135870497666],
+      [0.001042017510175616],
+      [0.002140019480095157],
+      [0.02149375250867315],
+      [0.007592242974915216],
+      [0.01291393186277271],
+      [0.0265216903565253],
+      [0.02664017208943965],
+      [0.009410113907051144],
+      [0.01600601695942765],
+      [0.0328719889612371],
+      [0.009170564815312145],
+      [0.003239320647567853],
+      [0.005509882423755174],
+      [0.01131579422104217],
+      [0.002206173729789632],
+      [0.0007792872368228375],
+      [0.001325518994993825],
+      [0.002722254129918478],
+      [0.02734155323276749],
+      [0.009657862924167628],
+      [0.01642742258839422],
+      [0.03373744107332131],
+      [0.01240265701101563],
+      [0.0433257246812517],
+      [0.01208692807813705],
+      [0.004269468290960907],
+      [0.007262099327156154],
+      [0.01491436936014722],
+      [0.001027111085672773],
+      [0.001747051908072636],
+      [0.003587967648818828],
+      [0.03603653582135088],
+      [0.01272919355610564],
+      [0.02165156447109485],
+      [0.04446640223432536] 
+      ],
+     "Log Likelihood":-401.5525085310099,
+     "Rate Distributions":{
+       "non-synonymous/synonymous rate ratio for *background*":        [
+[1.75159512555426, 1] 
+        ],
+       "non-synonymous/synonymous rate ratio for *test*":        [
+[0, 1] 
+        ]
+      },
+     "display order":1,
+     "estimated parameters":46
+    },
+   "Nucleotide GTR":{
+     "AIC-c":956.283764729453,
+     "Equilibrium frequencies":      [
+[0.3607402912621359],
+      [0.1433050161812298],
+      [0.1398665048543689],
+      [0.3560881877022654] 
+      ],
+     "Log Likelihood":-418.4399192475344,
+     "Rate Distributions":{
+       "Substitution rate from nucleotide A to nucleotide C":0,
+       "Substitution rate from nucleotide A to nucleotide G":1,
+       "Substitution rate from nucleotide A to nucleotide T":0.3839171541506435,
+       "Substitution rate from nucleotide C to nucleotide G":1.62017747778452,
+       "Substitution rate from nucleotide C to nucleotide T":3.623233016278478,
+       "Substitution rate from nucleotide G to nucleotide T":3.035888900229081
+      },
+     "display order":0,
+     "estimated parameters":59
+    }
+  },
+ "input":{
+   "file name":"/home/sergei/Projects/SARS-CoV-2/sequences.ORF6.compressed.fas",
+   "number of sequences":27,
+   "number of sites":63,
+   "partition count":1,
+   "trees":{
+     "0":"(epi_isl_418311_Derbyshire_20200325_Nanopore_1,(epi_isl_418305_South_Yorkshire_20200325_Nanopore_1,epi_isl_414010_England_20200226_Illumina_1)Node49,epi_isl_419947_Victoria_20200321_Illumina_2,epi_isl_416636_Washington_20200312_Illumina_1,epi_isl_418210_Touba_20200310_Illumina_6,epi_isl_418141_Wales_20200313_Illumina_1,epi_isl_418099_Wales_20200313_Illumina_1,epi_isl_402120_Hubei_20200101_null_4129,epi_isl_415655_Wales_20200312_Nanopore_1,epi_isl_420131_Comunitat_Valenciana_20200318_Illumina_2,epi_isl_418861_Barcelona_20200324_null_1,epi_isl_420168_South_Yorkshire_20200325_Nanopore_1,epi_isl_419898_Victoria_20200319_Illumina_1,epi_isl_418431_ARA_20200318_Illumina_1,(epi_isl_415144_England_20200227_Illumina_24,epi_isl_417356_Washington_20200313_Illumina_2,epi_isl_420198_South_Yorkshire_20200328_Nanopore_1)Node27,epi_isl_419184_ARA_20200322_Illumina_1,epi_isl_417952_Madrid_20200309_Ion_1,(epi_isl_418371_Ontario_20200307_Illumina_2,epi_isl_419546_Duesseldorf_20200315_Nanopore_1)Node38,epi_isl_415608_Washington_20200308_Illumina_7,epi_isl_417368_USA_20200313_Illumina_1,epi_isl_416620_unknown_20200217_Illumina_1,epi_isl_418750_England_20200318_Illumina_1,epi_isl_419875_Victoria_20200318_Illumina_1)"
+    }
+  },
+ "tested":{
+   "0":{
+     "Node27":"test",
+     "Node38":"test",
+     "Node49":"test",
+     "epi_isl_402120_Hubei_20200101_null_4129":"background",
+     "epi_isl_414010_England_20200226_Illumina_1":"background",
+     "epi_isl_415144_England_20200227_Illumina_24":"background",
+     "epi_isl_415608_Washington_20200308_Illumina_7":"background",
+     "epi_isl_415655_Wales_20200312_Nanopore_1":"background",
+     "epi_isl_416620_unknown_20200217_Illumina_1":"background",
+     "epi_isl_416636_Washington_20200312_Illumina_1":"background",
+     "epi_isl_417356_Washington_20200313_Illumina_2":"background",
+     "epi_isl_417368_USA_20200313_Illumina_1":"background",
+     "epi_isl_417952_Madrid_20200309_Ion_1":"background",
+     "epi_isl_418099_Wales_20200313_Illumina_1":"background",
+     "epi_isl_418141_Wales_20200313_Illumina_1":"background",
+     "epi_isl_418210_Touba_20200310_Illumina_6":"background",
+     "epi_isl_418305_South_Yorkshire_20200325_Nanopore_1":"background",
+     "epi_isl_418311_Derbyshire_20200325_Nanopore_1":"background",
+     "epi_isl_418371_Ontario_20200307_Illumina_2":"background",
+     "epi_isl_418431_ARA_20200318_Illumina_1":"background",
+     "epi_isl_418750_England_20200318_Illumina_1":"background",
+     "epi_isl_418861_Barcelona_20200324_null_1":"background",
+     "epi_isl_419184_ARA_20200322_Illumina_1":"background",
+     "epi_isl_419546_Duesseldorf_20200315_Nanopore_1":"background",
+     "epi_isl_419875_Victoria_20200318_Illumina_1":"background",
+     "epi_isl_419898_Victoria_20200319_Illumina_1":"background",
+     "epi_isl_419947_Victoria_20200321_Illumina_2":"background",
+     "epi_isl_420131_Comunitat_Valenciana_20200318_Illumina_2":"background",
+     "epi_isl_420168_South_Yorkshire_20200325_Nanopore_1":"background",
+     "epi_isl_420198_South_Yorkshire_20200328_Nanopore_1":"background"
+    }
+  },
+ "timers":{
+   "FEL analysis":{
+     "order":2,
+     "timer":6
+    },
+   "Model fitting":{
+     "order":1,
+     "timer":7
+    },
+   "Total time":{
+     "order":0,
+     "timer":13
+    }
+  }
+}
