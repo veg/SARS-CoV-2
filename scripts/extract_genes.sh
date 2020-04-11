@@ -192,17 +192,17 @@ case $GENE in
 
   ORF3a)
     echo -n "Analyzing ORF3a gene"
-    run_a_gene "ORF3a" "$WORKING_DIR/data/reference_genes/ORF3a.fas" "24000" "27000" 0.05
+    run_a_gene "ORF3a" "$WORKING_DIR/data/reference_genes/ORF3a.fas" "24000" "27000" 0.01
     ;;
 
   ORF7a)
     echo -n "Analyzing ORF7a gene"
-    run_a_gene "ORF7a" "$WORKING_DIR/data/reference_genes/ORF7a.fas" "26000" "35000" 0.05
+    run_a_gene "ORF7a" "$WORKING_DIR/data/reference_genes/ORF7a.fas" "26000" "35000" 0.01
     ;;
 
   ORF8)
     echo -n "Analyzing ORF8 gene"
-    run_a_gene "ORF8" "$WORKING_DIR/data/reference_genes/ORF8.fas" "26000" "35000" 0.05
+    run_a_gene "ORF8" "$WORKING_DIR/data/reference_genes/ORF8.fas" "26000" "35000" 0.01
     ;;
 
   ORF1a)
