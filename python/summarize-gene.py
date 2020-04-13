@@ -40,6 +40,8 @@ arguments.add_argument('-c', '--coordinates',  help = 'An alignment with referen
 arguments.add_argument('-D', '--database', help ='Primary database record to extract sequence information from', required = True, type = argparse.FileType('r'))
 arguments.add_argument('-d', '--duplicates', help ='The JSON file recording compressed sequence duplicates', required = True, type = argparse.FileType('r'))
 arguments.add_argument('-M', '--MAF', help ='Also include sites with hapoltype MAF >= this frequency', required = False, type = float, default = 0.2)
+arguments.add_argument('-E', '--evolutionary_annotation', help ='If provided use evolutionary likelihood annotation', required = False, type = argparse.FileType('r'))
+arguments.add_argument('-F', '--evolutionary_fragment', help ='Used in conjunction with evolutionary annotation to designate the fragment to look up', required = False, type = str)
 
 
 
@@ -82,32 +84,16 @@ for id, record in db.items():
         
 date_dups     = {}
 
-'''
-"epi_isl_417487": {
-  "address": "Norwegian Inst. of Public Health,\nP.O.Box 222 Skoyen\n0213 Oslo\nNorway",
-  "age": "unknown",
-  "assembly": "Assembly by reference based mapping using Tanoti",
-  "authors": "Kathrine Stene-Johansen, Kamilla Heddeland Instefjord, Hilde Elshaug, Karoline Bragstad, Olav Hungnes",
-  "collected": "20200301",
-  "coverage": 1258,
-  "gender": "unknown",
-  "host": "Human",
-  "id": "epi_isl_417487",
-  "lab": "Hospital of Southern Norway - Kristiansand, Department of Medical Microbiology",
-  "location": {
-   "country": "Norway",
-   "locality": null,
-   "state": "Oslo",
-   "subregion": "Europe"
-  },
-  "name": "hCoV-19/Norway/1539/2020",
-  "passage": "Original",
-  "submitted": "20200326",
-  "submitter": "Olav Hungnes",
-  "technology": "Illumina MiSeq",
-  "type": "betacoronavirus"
- },
-'''
+evo_annotation = None
+
+if import_settings.evolutionary_annotation:
+    evo_annotation = json.load (import_settings.evolutionary_annotation)
+    if import_settings.evolutionary_fragment not in evo_annotation:
+        evo_annotation = None
+    else:
+        evo_annotation = evo_annotation[import_settings.evolutionary_fragment]
+
+
 
 for seq, copies in dups.items():
     date_collection = {}
@@ -118,7 +104,7 @@ for seq, copies in dups.items():
             cdate = sequences_with_dates[cpv]
             location = sequences_with_locations[cpv]
             
-            tag = (cdate, location,db[cpv]['age'],db[cpv]['gender'].lower())
+            tag = (cdate, location,db[cpv]['age'],db[cpv]['gender'])
  
             if not tag in date_collection:
                 date_collection[tag] = 1
@@ -171,6 +157,8 @@ L = 0
 
 variants_by_site   = [{} for k in range (sites)]
 aa_variants_by_site = [{} for k in range (sites)]
+counts_by_site      = [{} for k in range (sites)]
+aa_counts_by_site      = [{} for k in range (sites)]
 
 def compute_site_MAF (site):
     variants = variants_by_site [site]
@@ -189,13 +177,17 @@ for b,v in slac["tested"]["0"].items():
             if codon != '---':
                 if codon not in variants_by_site[k]:
                     variants_by_site[k][codon] = 1
+                    counts_by_site[k][codon] = len (dups[b])
                 else:
                     variants_by_site[k][codon] += 1
+                    counts_by_site[k][codon] += len (dups[b])
                 aa = slac["branch attributes"]["0"][b]["amino-acid"][0][k]
                 if aa not in aa_variants_by_site[k]:
                     aa_variants_by_site[k][aa] = 1
+                    aa_counts_by_site[k][aa] = len (dups[b])
                 else:
                     aa_variants_by_site[k][aa] += 1
+                    aa_counts_by_site[k][aa] += len (dups[b])
                 
  
                           
@@ -225,7 +217,8 @@ for i, row in enumerate (meme["MLE"]["content"]["0"]):
 def compute_JH (timing, min_date, max_date):
     #print (timing, file = sys.stderr)
     residue_counts = {}
-    mafs_by_date = {}
+    mafs_by_date   = {}
+    date_cutoff    = min_date + datetime.timedelta(days = 45)
     
     for residue, dates in timing.items():
         residue_counts [residue ] = 0
@@ -237,7 +230,8 @@ def compute_JH (timing, min_date, max_date):
            if residue not in mafs_by_date[this_date]:
                 mafs_by_date [this_date][residue] = 0
            mafs_by_date[this_date][residue] += value
-           residue_counts[residue] += value
+           if datetime.datetime.strptime (key[0], "%Y%m%d") <= date_cutoff:
+                residue_counts[residue] += value
             
     consensus = max(residue_counts.items(), key=operator.itemgetter(1))[0]
     mafs = []
@@ -300,7 +294,7 @@ for site in site_list:
     site_list[site]['meme-branches'] = meme["MLE"]["content"]["0"][site][7]
     site_list[site]['substitutions'] = [slac["MLE"]["content"]["0"]['by-site']['RESOLVED'][site][2],slac["MLE"]["content"]["0"]['by-site']['RESOLVED'][site][3]]
     labels      = {}
-    composition = {}
+    evo_composition = {}
     timing      = {}
     ''' 
         for each amino acid, this will record "date" : count for when they were sampled
@@ -310,11 +304,21 @@ for site in site_list:
     '''
     for node,value in slac["branch attributes"]["0"].items():
         if "amino-acid" in value:
-            aa_value = value["amino-acid"][0][site]
-            if aa_value not in composition:
-                composition[aa_value] = 1
-            else:
-                composition[aa_value] += 1
+            aa_value    = value["amino-acid"][0][site]
+            codon_value = value["codon"][0][site]
+            
+            check_key = "%d" % ref_seq_map[site]
+            if len (aa_value) == 1 and evo_annotation and check_key in evo_annotation:
+                if codon_value not in evo_composition:
+                    try:
+                        evo_composition[codon_value] = {
+                            "support" : evo_annotation[check_key][codon_value], "aa" : aa_value
+                            }
+                    except Exception as e:
+                        evo_composition[codon_value] = {
+                            "support" : 0.0, "aa" : aa_value
+                            }
+                            
             
             if node in date_dups:
                 if aa_value not in timing:
@@ -327,8 +331,11 @@ for site in site_list:
              
             labels[node] = [aa_value,value["codon"][0][site],value["nonsynonymous substitution count"][0][site],value["synonymous substitution count"][0][site]]
     
-    site_list[site]['composition'] = composition
+    site_list[site]['composition'] = aa_counts_by_site
     site_list[site]['labels'] = labels
+    if len (evo_composition):
+        site_list[site]['evolutionary_support'] = evo_composition
+        print (site, evo_composition,aa_counts_by_site[site], file = sys.stderr)
     
     timing_as_array = {}
     

@@ -27,10 +27,10 @@ else
     then
         echo "Already extracted"
     else
-        mpirun -np $NP --use-hwthread-cpus $HYPHYMPI  /Users/sergei/Development/hyphy-analyses/codon-msa/pre-msa.bf --input $FILE --reference $REFERENCE_SEQUENCE --E 0.01 --trim-from $TRIM_FROM --trim-to $TRIM_TO --N-fraction $N_FRAC
+        mpirun -np $NP --use-hwthread-cpus $HYPHYMPI  /Users/sergei/Development/hyphy-analyses/codon-msa/pre-msa.bf --input $FILE --reference $REFERENCE_SEQUENCE --E 0.000001 --trim-from $TRIM_FROM --trim-to $TRIM_TO --N-fraction $N_FRAC --keep-reference Yes
         mv ${FILE}_protein.fas ${FILE}.${GENE}_protein.fas
         mv ${FILE}_nuc.fas ${FILE}.${GENE}_nuc.fas
-    #    #$HYPHY scripts/filter_on_N.bf --nuc ${FILE}.${GENE}_nuc.fas --prot ${FILE}.${GENE}_protein.fas --N $N_FRAC_STRICT --output-nuc ${FILE}.${GENE}_nuc.strict.fas --output-prot ${FILE}.${GENE}_protein.strict.fas
+        #$HYPHY scripts/filter_on_N.bf --nuc ${FILE}.${GENE}_nuc.fas --prot ${FILE}.${GENE}_protein.fas --N $N_FRAC_STRICT --output-nuc ${FILE}.${GENE}_nuc.strict.fas --output-prot ${FILE}.${GENE}_protein.strict.fas
     fi
     
     
@@ -54,7 +54,7 @@ else
         echo "Already reverse translated"
     else
         $HYPHY /Users/sergei/Development/hyphy-analyses/codon-msa/post-msa.bf --protein-msa ${FILE}.${GENE}.msa --nucleotide-sequences ${FILE}.${GENE}_nuc.fas --output ${FILE}.${GENE}.compressed.fas --duplicates ${FILE}.${GENE}.duplicates.json
-    #    $HYPHY /Users/sergei/Development/hyphy-analyses/codon-msa/post-msa.bf --protein-msa ${FILE}.${GENE}.msa --nucleotide-sequences ${FILE}.${GENE}_nuc.fas --compress No --output ${FILE}.${GENE}.all.fas    
+        $HYPHY /Users/sergei/Development/hyphy-analyses/codon-msa/post-msa.bf --protein-msa ${FILE}.${GENE}.msa --nucleotide-sequences ${FILE}.${GENE}_nuc.fas --compress No --output ${FILE}.${GENE}.all.fas    
     fi
 
     #if [ -s ${FILE}.${GENE}.duplicates.strict.json ] 
@@ -65,13 +65,13 @@ else
     #fi
     
      
-    if [ -s ${FILE}.${GENE}.withref.fas ]
-    then 
-        echo "Already has alignment with reference"
-    else
-        $MAFFT --add $REFERENCE_SEQUENCE --reorder ${FILE}.${GENE}.compressed.fas > ${FILE}.${GENE}.withref.fas
-        cp ${FILE}.${GENE}.withref.fas ${FILE}.${GENE}.bkup.withref.fas
-    fi 
+    #if [ -s ${FILE}.${GENE}.withref.fas ]
+    #then 
+    #    echo "Already has alignment with reference"
+    #else
+    #    $MAFFT --add $REFERENCE_SEQUENCE --reorder ${FILE}.${GENE}.all.fas > ${FILE}.${GENE}.withref.fas
+    #    cp ${FILE}.${GENE}.withref.fas ${FILE}.${GENE}.bkup.withref.fas
+    #fi 
 
     #if [ -s ${FILE}.${GENE}.withref.strict.fas ]
     #then 
@@ -81,13 +81,6 @@ else
     #fi 
     
  
-    #if [ -s ${FILE}.${GENE}.tn93.json ] 
-    #then
-    #    echo "Already computed TN93"
-    #else
-    #    $TN93 -q -t 0.05 ${FILE}.${GENE}.withref.fas > ${FILE}.${GENE}.tn93 2> ${FILE}.${GENE}.tn93.json
-    #    python3 python/tabulate-diversity-divergence.py -j data/db/master.json -t ${FILE}.${GENE}.tn93 > data/evolution.${GENE}.csv
-    #fi
     
     if [ -s ${FILE}.${GENE}.compressed.fas.raxml.bestTree ] 
     then
@@ -118,12 +111,12 @@ else
     #    mpirun --use-hwthread-cpus -np $NP $HYPHYMPI slac --alignment ${FILE}.${GENE}.compressed.strict.fas --tree ${FILE}.${GENE}.compressed.strict.fas.raxml.bestTree --branches Internal --output ${FILE}.${GENE}.SLAC.strict.json
     #fi
 
-    if [ -s ${FILE}.${GENE}.FEL.json ] 
-    then
-        echo "Already has FEL results"
-    else
-        mpirun --use-hwthread-cpus -np $NP $HYPHYMPI fel --alignment ${FILE}.${GENE}.compressed.fas --tree ${FILE}.${GENE}.compressed.fas.raxml.bestTree --branches Internal --output ${FILE}.${GENE}.FEL.json
-    fi
+    #if [ -s ${FILE}.${GENE}.FEL.json ] 
+    #then
+    #    echo "Already has FEL results"
+    #else
+    #    mpirun --use-hwthread-cpus -np $NP $HYPHYMPI fel --alignment ${FILE}.${GENE}.compressed.fas --tree ${FILE}.${GENE}.compressed.fas.raxml.bestTree --branches Internal --output ${FILE}.${GENE}.FEL.json
+    #fi
 
     #if [ -s ${FILE}.${GENE}.FEL.strict.json ] 
     #then
@@ -133,12 +126,12 @@ else
     #fi
 
 
-    if [ -s ${FILE}.${GENE}.MEME.json ] 
-    then
-        echo "Already has MEME results"
-    else
-        mpirun --use-hwthread-cpus -np $NP $HYPHYMPI meme --alignment ${FILE}.${GENE}.compressed.fas --tree ${FILE}.${GENE}.compressed.fas.raxml.bestTree --branches Internal --output ${FILE}.${GENE}.MEME.json
-    fi
+    #if [ -s ${FILE}.${GENE}.MEME.json ] 
+    #then
+    #    echo "Already has MEME results"
+    #else
+    #    mpirun --use-hwthread-cpus -np $NP $HYPHYMPI meme --alignment ${FILE}.${GENE}.compressed.fas --tree ${FILE}.${GENE}.compressed.fas.raxml.bestTree --branches Internal --output ${FILE}.${GENE}.MEME.json
+    #fi
     
 
     #if [ -s ${FILE}.${GENE}.MEME.strict.json ] 
@@ -148,12 +141,12 @@ else
     #    mpirun --use-hwthread-cpus -np $NP $HYPHYMPI meme --alignment ${FILE}.${GENE}.compressed.strict.fas --tree ${FILE}.${GENE}.compressed.strict.fas.raxml.bestTree --branches Internal --output ${FILE}.${GENE}.MEME.strict.json
     #fi
 
-    if [ -s ${FILE}.${GENE}.PRIME.json ] 
-    then
-        echo "Already has PRIME results"
-    else
-        mpirun --use-hwthread-cpus -np $NP $HYPHYMPI prime --alignment ${FILE}.${GENE}.compressed.fas --tree ${FILE}.${GENE}.compressed.fas.raxml.bestTree --branches Internal --output ${FILE}.${GENE}.PRIME.json
-    fi
+    #if [ -s ${FILE}.${GENE}.PRIME.json ] 
+    #then
+    #    echo "Already has PRIME results"
+    #else
+    #    mpirun --use-hwthread-cpus -np $NP $HYPHYMPI prime --alignment ${FILE}.${GENE}.compressed.fas --tree ${FILE}.${GENE}.compressed.fas.raxml.bestTree --branches Internal --output ${FILE}.${GENE}.PRIME.json
+    #fi
     
     #if [ -s ${FILE}.${GENE}.PRIME.strict.json ] 
     #then
@@ -162,7 +155,7 @@ else
     #    mpirun --use-hwthread-cpus -np $NP $HYPHYMPI prime --alignment ${FILE}.${GENE}.compressed.strict.fas --tree ${FILE}.${GENE}.compressed.strict.fas.raxml.bestTree --branches Internal --output ${FILE}.${GENE}.PRIME.strict.json
     #fi
 
-    python3 python/summarize-gene.py -D data/db/master-no-fasta.json -d ${FILE}.${GENE}.duplicates.json -s ${FILE}.${GENE}.SLAC.json -f ${FILE}.${GENE}.FEL.json -m ${FILE}.${GENE}.MEME.json -P 0.1 -p ${FILE}.${GENE}.PRIME.json --output  ${FILE}.${GENE}.json -c ${FILE}.${GENE}.withref.fas -E data/evo_annotation.json -F $GENE
+    #python3 python/summarize-gene.py -D data/db/master-no-fasta.json -d ${FILE}.${GENE}.duplicates.json -s ${FILE}.${GENE}.SLAC.json -f ${FILE}.${GENE}.FEL.json -m ${FILE}.${GENE}.MEME.json -P 0.1 -p ${FILE}.${GENE}.PRIME.json --output  ${FILE}.${GENE}.json -c ${FILE}.${GENE}.withref.fas
     #python3 python/summarize-gene.py -D data/db/master-no-fasta.json -d ${FILE}.${GENE}.duplicates.strict.json -s ${FILE}.${GENE}.SLAC.strict.json -f ${FILE}.${GENE}.FEL.strict.json -m ${FILE}.${GENE}.MEME.strict.json -P 0.1 -p ${FILE}.${GENE}.PRIME.strict.json --output  ${FILE}.${GENE}.json -c ${FILE}.${GENE}.withref.strict.fas
 
     #if [ -s ${FILE}.${GENE}.BGM.json ] 
@@ -203,14 +196,20 @@ fi
 
 }
 
-RunAGene "S" "data/reference_genes/S.fas" "20000" "27000" 0.005 0.0005
+RunAGene "leader" "data/reference_genes/leader.fas" "0" "2000" 0.005 0.0005
+RunAGene "nsp2" "data/reference_genes/nsp2.fas" "0" "10000" 0.005 0.0005
+RunAGene "nsp3" "data/reference_genes/nsp3.fas" "1000" "10000" 0.005 0.0005
+RunAGene "nsp4" "data/reference_genes/nsp4.fas" "7000" "12000" 0.005 0.0005
+RunAGene "3C" "data/reference_genes/3C.fas" "8000" "13000" 0.005 0.0005
+RunAGene "nsp7" "data/reference_genes/nsp7.fas" "10000" "15000" 0.005 0.0005
+RunAGene "nsp8" "data/reference_genes/nsp8.fas" "10000" "15000" 0.005 0.0005
+RunAGene "nsp9" "data/reference_genes/nsp9.fas" "10000" "15000" 0.005 0.0005
+RunAGene "nsp10" "data/reference_genes/nsp10.fas" "10000" "15000" 0.005 0.0005
 RunAGene "M" "data/reference_genes/M.fas" "25000" "30000" 0.01 0.001
 RunAGene "N" "data/reference_genes/N.fas" "26000" "35000" 0.01 0.001
 RunAGene "ORF3a" "data/reference_genes/ORF3a.fas" "24000" "27000" 0.01 0.001
 RunAGene "ORF6" "data/reference_genes/ORF6.fas" "26000" "30000" 0.01 0.001
 RunAGene "ORF7a" "data/reference_genes/ORF7a.fas" "26000" "35000" 0.01 0.001
 RunAGene "ORF8" "data/reference_genes/ORF8.fas" "26000" "35000" 0.01 0.001
-RunAGene "ORF1b" "data/reference_genes/ORF1b.fas" "12000" "24000" 0.001 0.00005
-RunAGene "ORF1a" "data/reference_genes/ORF1a.fas" "1" "15000" 0.001 0.00005
 
 
