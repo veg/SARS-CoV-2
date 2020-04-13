@@ -131,7 +131,7 @@ def update_json (json_object, file_name):
 
 arguments = argparse.ArgumentParser(description='Import FASTA sequences into the PIRC sequence database.')
 
-arguments.add_argument('-f', '--file', help = 'Read sequences from this JSON file', required = True, type = argparse.FileType('r'))
+arguments.add_argument('-f', '--file', help = 'Read sequences from this JSON file', required = True, type = argparse.FileType('r'), nargs = '*')
 arguments.add_argument('-j', '--json', help = 'The master JSON cache file where sequence records live', required = True, type = str)
 
 arguments.add_argument('-t', '--dformat',  help = 'The strptime for the date field (e.g. %%Y%%m%%D)', required = False, default = '%Y-%m-%d')
@@ -193,55 +193,57 @@ successfully_imported   = 0
 already_in_db           = 0
 json_changed            = False
 
-for seq_id, match_dict in json.load(import_settings.file).items():
+for input_file in import_settings.file:
+    for seq_id, match_dict in json.load(input_file).items():
 
-    components = {}
+        components = {}
 
-    try:
-        for field in expected_fields:
-            if field[1] in match_dict:
-               components [field[0]] = field[3] ( match_dict[field[1]]) if field[3] else match_dict[field[1]]
-            else:
-                if field[2]:
-                    print ('Required field "%s" was not extracted from %s' % (field[1], seq_id), file = sys.stderr)
-                    failed_ids.add (seq_id)
-                    break
+        try:
+            for field in expected_fields:
+                if field[1] in match_dict:
+                   components [field[0]] = field[3] ( match_dict[field[1]]) if field[3] else match_dict[field[1]]
                 else:
-                    if field[0] in default_values:
-                        components [field[0]] = field[3] ( default_values[field[0]]) if field[3] else default_values[field[0]]
+                    if field[2]:
+                        print ('Required field "%s" was not extracted from %s' % (field[1], seq_id), file = sys.stderr)
+                        failed_ids.add (seq_id)
+                        break
                     else:
-                        components [field[0]] = None
+                        if field[0] in default_values:
+                            components [field[0]] = field[3] ( default_values[field[0]]) if field[3] else default_values[field[0]]
+                        else:
+                            components [field[0]] = None
 
 
 
-    except Exception as e:
-       print ('Sequence %s generated a processing error(%s)' % (seq_id, e), file = sys.stderr)
-       failed_ids.add (seq_id)
+        except Exception as e:
+           print ('Sequence %s generated a processing error(%s)' % (seq_id, e), file = sys.stderr)
+           failed_ids.add (seq_id)
 
-    except:
-        raise
+        except:
+            raise
 
-    if seq_id not in failed_ids:
+        if seq_id not in failed_ids:
 
-        seq_index = components['id']
-        seq_label = seq_index
-        if seq_index not in current_sequence_db:
-            current_sequence_db [seq_index] = {}
-            json_changed = True
+            seq_index = components['id']
+            seq_label = seq_index
+            if seq_index not in current_sequence_db:
+                current_sequence_db [seq_index] = {}
+                json_changed = True
             
-        seq_data = components['sequence']
+            seq_data = components['sequence']
 
-        if 'sequence' in current_sequence_db[seq_index]:
-            if seq_data == current_sequence_db[seq_index]['sequence']:
-                already_in_db += 1
+            if 'sequence' in current_sequence_db[seq_index]:
+                if seq_data == current_sequence_db[seq_index]['sequence']:
+                    already_in_db += 1
+                else:
+                    #failed_ids.add (seq_id)
+                    print ("Sequence %s has a duplicate tag, but different nucleotides than what's already in the database "% (seq_id), file = sys.stderr)     
+                    current_sequence_db[seq_index]['sequence'] = seq_data
             else:
-                failed_ids.add (seq_id)
-                print ("Sequence %s has a duplicate tag, but different nucleotides than what's already in the database "% (seq_id), file = sys.stderr)           
-        else:
-            current_sequence_db [seq_index] = components
-            json_changed = True
-            successfully_imported += 1
-            print ("Imported %s (%d nucs)" % (seq_id, len (seq_data)), file = sys.stderr)
+                current_sequence_db [seq_index] = components
+                json_changed = True
+                successfully_imported += 1
+                print ("Imported %s (%d nucs)" % (seq_id, len (seq_data)), file = sys.stderr)
 
 if import_settings.log:
     import_settings.log.seek (0,2)
@@ -249,7 +251,7 @@ if import_settings.log:
 if json_changed and import_settings.update:
     update_json (current_sequence_db, import_settings.json)
 
-print ("| `%s` | %s | % s | % s|" % (import_settings.file.name, datetime.datetime.now().strftime ("%B %d %Y (%H:%M)"),
+print ("| `%s` | %s | % s | % s|" % (",".join([k.name for k in import_settings.file]), datetime.datetime.now().strftime ("%B %d %Y (%H:%M)"),
        "**%d** new sequences added. **%d** duplicate sequences. **%d** sequences errored" % (successfully_imported, already_in_db, len (failed_ids)), import_settings.Comment),
        file = import_settings.log if import_settings.log and import_settings.update else sys.stdout)
 
