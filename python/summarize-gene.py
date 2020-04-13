@@ -331,7 +331,7 @@ for site in site_list:
              
             labels[node] = [aa_value,value["codon"][0][site],value["nonsynonymous substitution count"][0][site],value["synonymous substitution count"][0][site]]
     
-    site_list[site]['composition'] = aa_counts_by_site
+    site_list[site]['composition'] = aa_counts_by_site[site]
     site_list[site]['labels'] = labels
     if len (evo_composition):
         site_list[site]['evolutionary_support'] = evo_composition
