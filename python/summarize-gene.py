@@ -21,7 +21,7 @@ import json
 import re
 import datetime
 import os
-import math
+import math, csv
 from   os import  path
 from   Bio import SeqIO
 import operator
@@ -42,6 +42,7 @@ arguments.add_argument('-d', '--duplicates', help ='The JSON file recording comp
 arguments.add_argument('-M', '--MAF', help ='Also include sites with hapoltype MAF >= this frequency', required = False, type = float, default = 0.2)
 arguments.add_argument('-E', '--evolutionary_annotation', help ='If provided use evolutionary likelihood annotation', required = False, type = argparse.FileType('r'))
 arguments.add_argument('-F', '--evolutionary_fragment', help ='Used in conjunction with evolutionary annotation to designate the fragment to look up', required = False, type = str)
+arguments.add_argument('-A', '--mafs', help ='If provided, write a CSV file with MAF/p-value tables', required = False, type = str)
 
 
 
@@ -83,6 +84,20 @@ for id, record in db.items():
         pass
         
 date_dups     = {}
+
+maf_writer = None
+
+if import_settings.mafs:
+    try:
+        maf_file = open (import_settings.mafs, "r+")
+        maf_writer = csv.writer (maf_file)
+    except FileNotFoundError as fnf:
+        maf_file = open (import_settings.mafs, "w")
+        maf_writer = csv.writer (maf_file)
+        maf_writer.writerow (["MAF","MAF_aa","Entropy","Entropy_aa","p"])
+    
+    
+        
 
 evo_annotation = None
 
@@ -155,16 +170,23 @@ branch_lengths = {}
 L = 0
 
 
-variants_by_site   = [{} for k in range (sites)]
-aa_variants_by_site = [{} for k in range (sites)]
-counts_by_site      = [{} for k in range (sites)]
+variants_by_site       = [{} for k in range (sites)]
+aa_variants_by_site    = [{} for k in range (sites)]
+counts_by_site         = [{} for k in range (sites)]
 aa_counts_by_site      = [{} for k in range (sites)]
 
-def compute_site_MAF (site):
-    variants = variants_by_site [site]
+def compute_site_MAF (site, source = None):
+    variants = source[site] if source else counts_by_site [site]
     total = sum (variants.values())
     majority = max (variants.values()) / total
     return 1-majority
+
+def compute_site_entropy (site, source = None):
+    variants = source[site] if source else counts_by_site [site]
+    total = sum (variants.values())
+    return -sum ([k/total * math.log (k/total,2) for k in variants.values()])
+        
+    
     
 
 for b,v in slac["tested"]["0"].items():
@@ -197,12 +219,15 @@ variant_count_NS    = 0
         
     
 for i, row in enumerate (fel["MLE"]["content"]["0"]):
-    maf = compute_site_MAF (i)
-    if row[4] < import_settings.pvalue :
-        site_list[i] = {'fel' : row[4], 'kind' : 'positive' if row[1] > row[0] else 'negative', 'MAF' : maf}
-    else:
-        if maf >= import_settings.MAF:
-            site_list[i] = {'fel' : row[4],  'MAF' : maf}
+    if row[0] + row[1] > 0:
+        maf = compute_site_MAF (i)
+        if maf_writer:
+            maf_writer.writerow (["%g" % maf, "%g" % compute_site_MAF (i, aa_counts_by_site), "%g" % compute_site_entropy (i), "%g" % compute_site_entropy (i,aa_counts_by_site), "%g" % meme["MLE"]["content"]["0"][i][6]])
+        if row[4] < import_settings.pvalue :
+            site_list[i] = {'fel' : row[4], 'kind' : 'positive' if row[1] > row[0] else 'negative', 'MAF' : maf}
+        else:
+            if maf >= import_settings.MAF:
+                site_list[i] = {'fel' : row[4],  'MAF' : maf}
         
     
 for i, row in enumerate (meme["MLE"]["content"]["0"]):
@@ -335,7 +360,12 @@ for site in site_list:
     site_list[site]['labels'] = labels
     if len (evo_composition):
         site_list[site]['evolutionary_support'] = evo_composition
-        print (site, evo_composition,aa_counts_by_site[site], file = sys.stderr)
+        print ("Site %d" % site, file = sys.stderr)
+        print ("Codon\tAmino-Acid\tFrequency\tSupport", file = sys.stderr)
+        all_count = sum (counts_by_site[site].values())
+        for codon, support in evo_composition.items():
+            print ("%s\t%s\t%.3g\t%.3g" % (codon,support["aa"],[v for k,v in counts_by_site[site].items()if k == codon][0]/all_count,support["support"]), file = sys.stderr)
+        #print (site, evo_composition,aa_counts_by_site[site], file = sys.stderr)
     
     timing_as_array = {}
     
