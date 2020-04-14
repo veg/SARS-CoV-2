@@ -94,10 +94,10 @@ else
     then
         echo "Already has tree"
     else
-        $RAXML --msa ${FILE}.${GENE}.compressed.fas --threads 4 --model GTR+G --force
+        $RAXML --tree pars{5} --msa ${FILE}.${GENE}.compressed.fas --threads 4 --model GTR+G --force
     fi
     
-    if [ -s $WORKING_DIR/${FILE}.${GENE}.SLAC.json ] 
+    if [ -s ${FILE}.${GENE}.SLAC.json ] 
     then
         echo "Already has SLAC results"
     else
@@ -129,8 +129,8 @@ else
         mpirun -np $NP $HYPHYMPI LIBPATH=$HYPHYLIBPATH prime --alignment ${FILE}.${GENE}.compressed.fas --tree ${FILE}.${GENE}.compressed.fas.raxml.bestTree --branches Internal --output ${FILE}.${GENE}.PRIME.json
     fi
 
-    echo python3 $WORKING_DIR/python/summarize-gene.py -D $MASTERNOFASTA -d ${FILE}.${GENE}.duplicates.json -s ${FILE}.${GENE}.SLAC.json -f ${FILE}.${GENE}.FEL.json -m ${FILE}.${GENE}.MEME.json -P 0.1 -p ${FILE}.${GENE}.PRIME.json --output  ${FILE}.${GENE}.json -E ${FILE}.${GENE}.evo_annotation.json -c ${FILE}.${GENE}.withref.fas
-    python3 $WORKING_DIR/python/summarize-gene.py -D $MASTERNOFASTA -d ${FILE}.${GENE}.duplicates.json -s ${FILE}.${GENE}.SLAC.json -f ${FILE}.${GENE}.FEL.json -m ${FILE}.${GENE}.MEME.json -P 0.1 -p ${FILE}.${GENE}.PRIME.json --output  ${FILE}.${GENE}.json -E ${FILE}.${GENE}.evo_annotation.json -c ${FILE}.${GENE}.withref.fas
+    echo python3 $WORKING_DIR/python/summarize-gene.py -D $MASTERNOFASTA -d ${FILE}.${GENE}.duplicates.json -s ${FILE}.${GENE}.SLAC.json -f ${FILE}.${GENE}.FEL.json -m ${FILE}.${GENE}.MEME.json -P 0.1 -p ${FILE}.${GENE}.PRIME.json --output  ${FILE}.${GENE}.json -E data/evo_annotation.json -c ${FILE}.${GENE}.withref.fas
+    python3 $WORKING_DIR/python/summarize-gene.py -D $MASTERNOFASTA -d ${FILE}.${GENE}.duplicates.json -s ${FILE}.${GENE}.SLAC.json -f ${FILE}.${GENE}.FEL.json -m ${FILE}.${GENE}.MEME.json -P 0.1 -p ${FILE}.${GENE}.PRIME.json --output  ${FILE}.${GENE}.json -E data/evo_annotation.json -c ${FILE}.${GENE}.withref.fas
 
 
     #if [ -s ${FILE}.${GENE}.BGM.json ] 
@@ -213,6 +213,11 @@ case $GENE in
   ORF1b)
     echo -n "Analyzing ORF1b gene"
     run_a_gene "ORF1b" "$WORKING_DIR/data/reference_genes/ORF1b.fas" "12000" "24000" 0.001
+    ;;
+
+  ORF6)
+    echo -n "Analyzing ORF6 gene"
+    run_a_gene "ORF6" "$WORKING_DIR/data/reference_genes/ORF6.fas" "26000" "30000" 0.01
     ;;
 
   *)
