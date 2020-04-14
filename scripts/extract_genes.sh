@@ -1,5 +1,5 @@
 #!/bin/bash
-#PBS -l nodes=4:ppn=16
+#PBS -l nodes=1:ppn=16
 #PBS -l walltime=99:0:0:0
 
 export PATH=/usr/local/bin:$PATH
@@ -16,7 +16,7 @@ LOG=$1/log.txt
 MASTER=$1/master.json
 MASTERNOFASTA=$1/master-no-fasta.json
 GENE=$2
-NP=64
+NP=16
 HYPHY=/data/shares/veg/SARS-CoV-2/hyphy/hyphy
 HYPHYMPI=/data/shares/veg/SARS-CoV-2/hyphy/HYPHYMPI
 HYPHYLIBPATH=/data/shares/veg/SARS-CoV-2/hyphy/res
@@ -50,8 +50,8 @@ else
     else
         TMP_FILE=${FILE}.${GENE}.tmp
         cp ${FILE} ${TMP_FILE}
-        echo "mpirun -np $NP $HYPHYMPI LIBPATH=$HYPHYLIBPATH $PREMSA --input $TMP_FILE --reference $REFERENCE_SEQUENCE --trim-from $TRIM_FROM --trim-to $TRIM_TO --N-fraction $N_FRAC"
-        mpirun -np $NP $HYPHYMPI LIBPATH=$HYPHYLIBPATH $PREMSA --input $TMP_FILE --reference $REFERENCE_SEQUENCE --trim-from $TRIM_FROM --trim-to $TRIM_TO --N-fraction $N_FRAC
+        echo "mpirun -np $NP $HYPHYMPI LIBPATH=$HYPHYLIBPATH $PREMSA --input $TMP_FILE --reference $REFERENCE_SEQUENCE --trim-from $TRIM_FROM --trim-to $TRIM_TO --E 0.01 --N-fraction $N_FRAC"
+        mpirun -np $NP $HYPHYMPI LIBPATH=$HYPHYLIBPATH $PREMSA --input $TMP_FILE --reference $REFERENCE_SEQUENCE --trim-from $TRIM_FROM --trim-to $TRIM_TO --E 0.01 --N-fraction $N_FRAC
         mv ${TMP_FILE}_protein.fas ${FILE}.${GENE}_protein.fas
         mv ${TMP_FILE}_nuc.fas ${FILE}.${GENE}_nuc.fas
     fi
@@ -129,25 +129,25 @@ else
         mpirun -np $NP $HYPHYMPI LIBPATH=$HYPHYLIBPATH prime --alignment ${FILE}.${GENE}.compressed.fas --tree ${FILE}.${GENE}.compressed.fas.raxml.bestTree --branches Internal --output ${FILE}.${GENE}.PRIME.json
     fi
 
-    echo python3 $WORKING_DIR/python/summarize-gene.py -D $MASTERNOFASTA -d ${FILE}.${GENE}.duplicates.json -s ${FILE}.${GENE}.SLAC.json -f ${FILE}.${GENE}.FEL.json -m ${FILE}.${GENE}.MEME.json -P 0.1 -p ${FILE}.${GENE}.PRIME.json --output  ${FILE}.${GENE}.json -c ${FILE}.${GENE}.withref.fas
-    python3 $WORKING_DIR/python/summarize-gene.py -D $MASTERNOFASTA -d ${FILE}.${GENE}.duplicates.json -s ${FILE}.${GENE}.SLAC.json -f ${FILE}.${GENE}.FEL.json -m ${FILE}.${GENE}.MEME.json -P 0.1 -p ${FILE}.${GENE}.PRIME.json --output  ${FILE}.${GENE}.json -c ${FILE}.${GENE}.withref.fas
+    echo python3 $WORKING_DIR/python/summarize-gene.py -D $MASTERNOFASTA -d ${FILE}.${GENE}.duplicates.json -s ${FILE}.${GENE}.SLAC.json -f ${FILE}.${GENE}.FEL.json -m ${FILE}.${GENE}.MEME.json -P 0.1 -p ${FILE}.${GENE}.PRIME.json --output  ${FILE}.${GENE}.json -E ${FILE}.${GENE}.evo_annotation.json -c ${FILE}.${GENE}.withref.fas
+    python3 $WORKING_DIR/python/summarize-gene.py -D $MASTERNOFASTA -d ${FILE}.${GENE}.duplicates.json -s ${FILE}.${GENE}.SLAC.json -f ${FILE}.${GENE}.FEL.json -m ${FILE}.${GENE}.MEME.json -P 0.1 -p ${FILE}.${GENE}.PRIME.json --output  ${FILE}.${GENE}.json -E ${FILE}.${GENE}.evo_annotation.json -c ${FILE}.${GENE}.withref.fas
 
 
-    if [ -s ${FILE}.${GENE}.BGM.json ] 
-    then
-        echo "Already has BGM results"
-    else
-        echo mpirun -np $NP $HYPHYMPI LIBPATH=$HYPHYLIBPATH bgm --alignment ${FILE}.${GENE}.compressed.fas --tree ${FILE}.${GENE}.compressed.fas.raxml.bestTree --branches Internal --min-subs 2 --type codon
-        mpirun -np $NP $HYPHYMPI LIBPATH=$HYPHYLIBPATH bgm --alignment ${FILE}.${GENE}.compressed.fas --tree ${FILE}.${GENE}.compressed.fas.raxml.bestTree --branches Internal --min-subs 2 --type codon
-    fi
+    #if [ -s ${FILE}.${GENE}.BGM.json ] 
+    #then
+    #    echo "Already has BGM results"
+    #else
+    #    echo mpirun -np $NP $HYPHYMPI LIBPATH=$HYPHYLIBPATH bgm --alignment ${FILE}.${GENE}.compressed.fas --tree ${FILE}.${GENE}.compressed.fas.raxml.bestTree --branches Internal --min-subs 2 --type codon
+    #    mpirun -np $NP $HYPHYMPI LIBPATH=$HYPHYLIBPATH bgm --alignment ${FILE}.${GENE}.compressed.fas --tree ${FILE}.${GENE}.compressed.fas.raxml.bestTree --branches Internal --min-subs 2 --type codon
+    #fi
 
-    if [ -s ${FILE}.${GENE}.BUSTED.json ] 
-    then
-        echo "Already has BUSTED results"
-    else
-        echo $HYPHY LIBPATH=$HYPHYLIBPATH busted --alignment ${FILE}.${GENE}.compressed.fas --tree ${FILE}.${GENE}.compressed.fas.raxml.bestTree --branches Internal --output ${FILE}.${GENE}.BUSTED.json --rates 2 --syn-rates 2 --starting-points 10
-        $HYPHY LIBPATH=$HYPHYLIBPATH busted --alignment ${FILE}.${GENE}.compressed.fas --tree ${FILE}.${GENE}.compressed.fas.raxml.bestTree --branches Internal --output ${FILE}.${GENE}.BUSTED.json --rates 2 --syn-rates 2 --starting-points 10
-    fi
+    #if [ -s ${FILE}.${GENE}.BUSTED.json ] 
+    #then
+    #    echo "Already has BUSTED results"
+    #else
+    #    echo $HYPHY LIBPATH=$HYPHYLIBPATH busted --alignment ${FILE}.${GENE}.compressed.fas --tree ${FILE}.${GENE}.compressed.fas.raxml.bestTree --branches Internal --output ${FILE}.${GENE}.BUSTED.json --rates 2 --syn-rates 2 --starting-points 10
+    #    $HYPHY LIBPATH=$HYPHYLIBPATH busted --alignment ${FILE}.${GENE}.compressed.fas --tree ${FILE}.${GENE}.compressed.fas.raxml.bestTree --branches Internal --output ${FILE}.${GENE}.BUSTED.json --rates 2 --syn-rates 2 --starting-points 10
+    #fi
 
     #if [ -s ${FILE}.${GENE}.ABSREL.json ] 
     #then
