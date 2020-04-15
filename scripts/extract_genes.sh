@@ -1,5 +1,5 @@
 #!/bin/bash
-#PBS -l nodes=1:ppn=16
+#PBS -l nodes=2:ppn=16
 #PBS -l walltime=99:0:0:0
 
 export PATH=/usr/local/bin:$PATH
@@ -16,7 +16,7 @@ LOG=$1/log.txt
 MASTER=$1/master.json
 MASTERNOFASTA=$1/master-no-fasta.json
 GENE=$2
-NP=16
+NP=32
 HYPHY=/data/shares/veg/SARS-CoV-2/hyphy/hyphy
 HYPHYMPI=/data/shares/veg/SARS-CoV-2/hyphy/HYPHYMPI
 HYPHYLIBPATH=/data/shares/veg/SARS-CoV-2/hyphy/res
