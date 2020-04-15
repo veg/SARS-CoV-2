@@ -1,6 +1,6 @@
 #!/bin/bash
-#fdate=$(date +"%Y-%m-%d")
-fdate="2020-04-13"
+fdate=$(date +"%Y-%m-%d")
+#fdate="2020-04-13"
 
 qsub -d `pwd` -q epyc -F "/data/shares/veg/SARS-CoV-2/SARS-CoV-2/data/fasta/$fdate ORF1a" /data/shares/veg/SARS-CoV-2/SARS-CoV-2/scripts/extract_genes.sh
 qsub -d `pwd` -q epyc -F "/data/shares/veg/SARS-CoV-2/SARS-CoV-2/data/fasta/$fdate ORF1b" /data/shares/veg/SARS-CoV-2/SARS-CoV-2/scripts/extract_genes.sh
