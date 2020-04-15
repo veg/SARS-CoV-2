@@ -189,9 +189,11 @@ aa_counts_by_site      = [{} for k in range (sites)]
 
 def compute_site_MAF (site, source = None):
     variants = source[site] if source else counts_by_site [site]
-    total = sum (variants.values())
-    majority = max (variants.values()) / total
-    return 1-majority
+    if len (variants):
+        total = sum (variants.values())
+        majority = max (variants.values()) / total
+        return 1-majority
+    return 0
 
 def compute_site_entropy (site, source = None):
     variants = source[site] if source else counts_by_site [site]
@@ -199,7 +201,7 @@ def compute_site_entropy (site, source = None):
     return -sum ([k/total * math.log (k/total,2) for k in variants.values()])
         
     
-    
+aa_letters = set ("ACDEFGHIKLMNPQRSTVWY")
 
 for b,v in slac["tested"]["0"].items():
     branch_lengths[b] = slac["branch attributes"]["0"][b]["Global MG94xREV"]
@@ -216,12 +218,13 @@ for b,v in slac["tested"]["0"].items():
                     variants_by_site[k][codon] += 1
                     counts_by_site[k][codon] += len (dups[b])
                 aa = slac["branch attributes"]["0"][b]["amino-acid"][0][k]
-                if aa not in aa_variants_by_site[k]:
-                    aa_variants_by_site[k][aa] = 1
-                    aa_counts_by_site[k][aa] = len (dups[b])
-                else:
-                    aa_variants_by_site[k][aa] += 1
-                    aa_counts_by_site[k][aa] += len (dups[b])
+                if aa in aa_letters:
+                    if aa not in aa_variants_by_site[k]:
+                        aa_variants_by_site[k][aa] = 1
+                        aa_counts_by_site[k][aa] = len (dups[b])
+                    else:
+                        aa_variants_by_site[k][aa] += 1
+                        aa_counts_by_site[k][aa] += len (dups[b])
                 
  
                           
