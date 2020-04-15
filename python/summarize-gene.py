@@ -43,6 +43,7 @@ arguments.add_argument('-M', '--MAF', help ='Also include sites with hapoltype M
 arguments.add_argument('-E', '--evolutionary_annotation', help ='If provided use evolutionary likelihood annotation', required = False, type = argparse.FileType('r'))
 arguments.add_argument('-F', '--evolutionary_fragment', help ='Used in conjunction with evolutionary annotation to designate the fragment to look up', required = False, type = str)
 arguments.add_argument('-A', '--mafs', help ='If provided, write a CSV file with MAF/p-value tables', required = False, type = str)
+arguments.add_argument('-V', '--evolutionary_csv', help ='If provided, write a CSV file with observed/predicted frequncies', required = False, type = str)
 
 
 
@@ -91,12 +92,23 @@ if import_settings.mafs:
     try:
         maf_file = open (import_settings.mafs, "r+")
         maf_writer = csv.writer (maf_file)
+        maf_file.seek (0,2)
     except FileNotFoundError as fnf:
         maf_file = open (import_settings.mafs, "w")
         maf_writer = csv.writer (maf_file)
-        maf_writer.writerow (["MAF","MAF_aa","Entropy","Entropy_aa","p"])
+        maf_writer.writerow (["Gene","Site","MAF","MAF_aa","Entropy","Entropy_aa","p"])
     
-    
+evo_writer = None  
+
+if import_settings.evolutionary_csv:
+    try:
+        evo_file = open (import_settings.evolutionary_csv, "r+")
+        evo_writer = csv.writer (evo_file)
+        evo_file.seek (0,2)
+    except FileNotFoundError as fnf:
+        evo_file = open (import_settings.evolutionary_csv, "w")
+        evo_writer = csv.writer (evo_file)
+        evo_writer.writerow (["Gene","Site","Codon","Count","Observed","Predicted","Mostlikely"])
         
 
 evo_annotation = None
@@ -217,12 +229,26 @@ for b,v in slac["tested"]["0"].items():
 variant_count_total = 0
 variant_count_NS    = 0
         
+valid_nucs = set (["A","C","G","T"])       
     
 for i, row in enumerate (fel["MLE"]["content"]["0"]):
     if row[0] + row[1] > 0:
         maf = compute_site_MAF (i)
         if maf_writer:
-            maf_writer.writerow (["%g" % maf, "%g" % compute_site_MAF (i, aa_counts_by_site), "%g" % compute_site_entropy (i), "%g" % compute_site_entropy (i,aa_counts_by_site), "%g" % meme["MLE"]["content"]["0"][i][6]])
+            ##print (variants_by_site[i], file = sys.stderr)
+            maf_writer.writerow ([import_settings.evolutionary_fragment, "%d" % (ref_seq_map[i] + 1), "%g" % maf, "%g" % compute_site_MAF (i, aa_counts_by_site), "%g" % compute_site_entropy (i), "%g" % compute_site_entropy (i,aa_counts_by_site), "%g" % meme["MLE"]["content"]["0"][i][6]])
+        
+        if evo_writer and evo_annotation:
+            check_key = "%d" % ref_seq_map[i]
+            if evo_annotation and check_key in evo_annotation:
+                total = sum (counts_by_site[i].values())
+                for codon, freq in counts_by_site[i].items():
+                    if codon[0] in valid_nucs and codon[1] in valid_nucs and codon[2] in valid_nucs:
+                        evo_writer.writerow ([import_settings.evolutionary_fragment, "%d" % (ref_seq_map[i] + 1), codon, "%g" % freq, "%g" % (freq/total), 
+                                              "%g" % (evo_annotation[check_key][codon] if codon in evo_annotation[check_key] else 1e-8), max(evo_annotation[check_key].items(), key=operator.itemgetter(1))[0] ])
+            
+            
+            
         if row[4] < import_settings.pvalue :
             site_list[i] = {'fel' : row[4], 'kind' : 'positive' if row[1] > row[0] else 'negative', 'MAF' : maf}
         else:

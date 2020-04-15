@@ -196,6 +196,7 @@ fi
 
 }
 
+RunAGene "S" "data/reference_genes/S.fas" "20000" "27000" 0.01 0.001
 RunAGene "leader" "data/reference_genes/leader.fas" "0" "2000" 0.005 0.0005
 RunAGene "nsp2" "data/reference_genes/nsp2.fas" "0" "10000" 0.005 0.0005
 RunAGene "nsp3" "data/reference_genes/nsp3.fas" "1000" "10000" 0.005 0.0005
