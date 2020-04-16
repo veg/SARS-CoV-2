@@ -393,7 +393,9 @@ for site in site_list:
         print ("Codon\tAmino-Acid\tFrequency\tSupport", file = sys.stderr)
         all_count = sum (counts_by_site[site].values())
         for codon, support in evo_composition.items():
-            print ("%s\t%s\t%.3g\t%.3g" % (codon,support["aa"],[v for k,v in counts_by_site[site].items()if k == codon][0]/all_count,support["support"]), file = sys.stderr)
+            codon_freq = [v for k,v in counts_by_site[site].items() if k == codon]
+            if len (codon_freq):
+                print ("%s\t%s\t%.3g\t%.3g" % (codon,support["aa"],[v for k,v in counts_by_site[site].items()if k == codon][0]/all_count,support["support"]), file = sys.stderr)
         #print (site, evo_composition,aa_counts_by_site[site], file = sys.stderr)
     
     timing_as_array = {}
