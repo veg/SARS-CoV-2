@@ -1,6 +1,6 @@
 #!/bin/bash
 fdate=$(date +"%Y-%m-%d")
-#fdate="2020-04-13"
+#fdate="2020-04-14"
 
 qsub -d `pwd` -q epyc -F "/data/shares/veg/SARS-CoV-2/SARS-CoV-2/data/fasta/$fdate ORF1a" /data/shares/veg/SARS-CoV-2/SARS-CoV-2/scripts/extract_genes.sh
 qsub -d `pwd` -q epyc -F "/data/shares/veg/SARS-CoV-2/SARS-CoV-2/data/fasta/$fdate ORF1b" /data/shares/veg/SARS-CoV-2/SARS-CoV-2/scripts/extract_genes.sh
@@ -10,3 +10,4 @@ qsub -d `pwd` -q epyc -F "/data/shares/veg/SARS-CoV-2/SARS-CoV-2/data/fasta/$fda
 qsub -d `pwd` -q epyc -F "/data/shares/veg/SARS-CoV-2/SARS-CoV-2/data/fasta/$fdate ORF3a" /data/shares/veg/SARS-CoV-2/SARS-CoV-2/scripts/extract_genes.sh
 qsub -d `pwd` -q epyc -F "/data/shares/veg/SARS-CoV-2/SARS-CoV-2/data/fasta/$fdate ORF7a" /data/shares/veg/SARS-CoV-2/SARS-CoV-2/scripts/extract_genes.sh
 qsub -d `pwd` -q epyc -F "/data/shares/veg/SARS-CoV-2/SARS-CoV-2/data/fasta/$fdate ORF8" /data/shares/veg/SARS-CoV-2/SARS-CoV-2/scripts/extract_genes.sh 
+qsub -d `pwd` -q epyc -F "/data/shares/veg/SARS-CoV-2/SARS-CoV-2/data/fasta/$fdate ORF6" /data/shares/veg/SARS-CoV-2/SARS-CoV-2/scripts/extract_genes.sh
