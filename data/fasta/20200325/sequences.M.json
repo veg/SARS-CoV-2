@@ -1,22 +1,72 @@
 {
- "L": 0.003294012375642524,
+ "L": 0.003290336822383821,
+ "MAF": 0.2,
  "all variant sites": [
   {
    "GCC": 2,
-   "GCT": 24
+   "GCT": 25,
+   "GCY": 1
   },
   {
    "CAC": 2,
-   "GAC": 24
+   "GAC": 26
   }
  ],
  "aminoacid variant sites": [
   {
-   "D": 24,
+   "D": 26,
    "H": 2
   }
  ],
  "any variation": 26,
+ "bl": {
+  "Node34": 2.922277611806098e-05,
+  "Node41": 2.08521922036047e-05,
+  "Node42": 0.001608337963519087,
+  "Node49": 0.001631923890543068,
+  "epi_isl_402120_Hubei_20200101_null_1355": 0,
+  "epi_isl_404253_Illinois_20200121_Sanger__1": 0,
+  "epi_isl_406034_California_20200123_Sanger__15": 0,
+  "epi_isl_406592_Guandong_20200113_null_1": 0.002997415611515597,
+  "epi_isl_407987_Singapore_20200125_Illumina_4": 0,
+  "epi_isl_408485_Beijing_20200118_Illumina_1": 0.00149640615851021,
+  "epi_isl_413017_South_Korea_20200206_Illumina_2": 0.002997162376940118,
+  "epi_isl_413019_Zurich_20200226_Illumina_1": 0.001497338638283898,
+  "epi_isl_413487_Washington_20200301_Illumina_3": 0.001497393902223153,
+  "epi_isl_413565_Berlicum_20200224_Nanopore_93": 0.001497338643671339,
+  "epi_isl_413850_Guangdong_20200210_metagenomics_BGI_8": 0.001497338643679554,
+  "epi_isl_413999_Argovie_20200227_null_11": 0.001467978767824984,
+  "epi_isl_414630_Hauts_de_France_20200303_Illumina_1": 0.001497338638642083,
+  "epi_isl_415105_Bahia_20200304_Nanopore_1": 0.001496877124928782,
+  "epi_isl_415132_England_20200228_Illumina_3": 0.001497338643702184,
+  "epi_isl_415140_England_20200229_Illumina_4": 0.001497338643705986,
+  "epi_isl_415615_Washington_20200308_Illumina_1": 0.001497338643696891,
+  "epi_isl_416321_Shanghai_20200128_Illumina_1": 0.001497338643675823,
+  "epi_isl_416383_Shanghai_20200201_Illumina_1": 0.001497982910135816,
+  "epi_isl_416452_Washington_20200310_Illumina_1": 0.001497338638285795,
+  "epi_isl_416521_Saudi_Arabia_20200310_Illumina_3": 0.001497536675777679,
+  "epi_isl_416543_Dasman_20200302_Illumina_1": 0,
+  "epi_isl_416687_Washington_20200314_Illumina_1": 0.001496227609368997,
+  "epi_isl_416829_Selangor_20200220_Illumina_1": 0.001495074028315564,
+  "epi_isl_417026_Utah_20200320_Illumina_1": 0.001497338643737385,
+  "epi_isl_417034_Amazonas_State_20200316_Illumina_1": 0.001497338638592201,
+  "epi_isl_417088_Washington_20200302_Illumina_1": 0.001497261941023553,
+  "epi_isl_417237_England_20200303_Illumina_2": 0
+ },
+ "dN/dS": {
+  "internal": [
+   [
+    0.9565058445367686,
+    1
+   ]
+  ],
+  "leaves": [
+   [
+    0.3041952031191396,
+    1
+   ]
+  ]
+ },
  "map": [
   0,
   1,
@@ -243,421 +293,6057 @@
  ],
  "p": 0.1,
  "selection": {
-  "208": {
+  "2": {
+   "MAF": 0.008558262014483176,
    "composition": {
-    "D": 47,
-    "H": 3
+    "D": 1506,
+    "G": 11
    },
-   "fel": 0.01591447311098104,
+   "fel": 0.03289604391598921,
    "kind": "positive",
    "labels": {
-    "Node1": [
+    "Node32": [
      "D",
-     "GAC",
+     "GAT",
      0,
      0
     ],
-    "Node10": [
+    "Node34": [
      "D",
-     "GAC",
+     "GAT",
      0,
      0
     ],
-    "Node11": [
+    "Node41": [
      "D",
-     "GAC",
+     "GAT",
      0,
      0
     ],
-    "Node12": [
+    "Node42": [
      "D",
-     "GAC",
+     "GAT",
      0,
      0
     ],
-    "Node13": [
+    "Node49": [
      "D",
-     "GAC",
+     "GAT",
      0,
      0
     ],
-    "Node14": [
+    "epi_isl_402120_Hubei_20200101_null_1355": [
      "D",
-     "GAC",
+     "GAT",
      0,
      0
     ],
-    "Node17": [
+    "epi_isl_404253_Illinois_20200121_Sanger__1": [
      "D",
-     "GAC",
+     "GAT",
      0,
      0
     ],
-    "Node20": [
+    "epi_isl_406034_California_20200123_Sanger__15": [
      "D",
-     "GAC",
+     "GAT",
      0,
      0
     ],
-    "Node23": [
+    "epi_isl_406592_Guandong_20200113_null_1": [
      "D",
-     "GAC",
+     "GAT",
      0,
      0
     ],
-    "Node24": [
+    "epi_isl_407987_Singapore_20200125_Illumina_4": [
      "D",
-     "GAC",
+     "GAT",
      0,
      0
     ],
-    "Node25": [
+    "epi_isl_408485_Beijing_20200118_Illumina_1": [
      "D",
-     "GAC",
+     "GAT",
      0,
      0
     ],
-    "Node29": [
+    "epi_isl_413017_South_Korea_20200206_Illumina_2": [
      "D",
-     "GAC",
+     "GAT",
      0,
      0
     ],
-    "Node3": [
+    "epi_isl_413019_Zurich_20200226_Illumina_1": [
      "D",
-     "GAC",
+     "GAT",
      0,
      0
     ],
-    "Node30": [
+    "epi_isl_413487_Washington_20200301_Illumina_3": [
      "D",
-     "GAC",
+     "GAT",
      0,
      0
     ],
-    "Node31": [
+    "epi_isl_413565_Berlicum_20200224_Nanopore_93": [
      "D",
-     "GAC",
+     "GAT",
      0,
      0
     ],
+    "epi_isl_413850_Guangdong_20200210_metagenomics_BGI_8": [
+     "D",
+     "GAT",
+     0,
+     0
+    ],
+    "epi_isl_413999_Argovie_20200227_null_11": [
+     "G",
+     "GGT",
+     1,
+     0
+    ],
+    "epi_isl_414630_Hauts_de_France_20200303_Illumina_1": [
+     "D",
+     "GAT",
+     0,
+     0
+    ],
+    "epi_isl_415105_Bahia_20200304_Nanopore_1": [
+     "D",
+     "GAT",
+     0,
+     0
+    ],
+    "epi_isl_415132_England_20200228_Illumina_3": [
+     "D",
+     "GAT",
+     0,
+     0
+    ],
+    "epi_isl_415140_England_20200229_Illumina_4": [
+     "D",
+     "GAT",
+     0,
+     0
+    ],
+    "epi_isl_415615_Washington_20200308_Illumina_1": [
+     "D",
+     "GAT",
+     0,
+     0
+    ],
+    "epi_isl_416321_Shanghai_20200128_Illumina_1": [
+     "D",
+     "GAT",
+     0,
+     0
+    ],
+    "epi_isl_416383_Shanghai_20200201_Illumina_1": [
+     "D",
+     "GAT",
+     0,
+     0
+    ],
+    "epi_isl_416452_Washington_20200310_Illumina_1": [
+     "D",
+     "GAT",
+     0,
+     0
+    ],
+    "epi_isl_416521_Saudi_Arabia_20200310_Illumina_3": [
+     "D",
+     "GAT",
+     0,
+     0
+    ],
+    "epi_isl_416543_Dasman_20200302_Illumina_1": [
+     "D",
+     "GAT",
+     0,
+     0
+    ],
+    "epi_isl_416687_Washington_20200314_Illumina_1": [
+     "D",
+     "GAT",
+     0,
+     0
+    ],
+    "epi_isl_416829_Selangor_20200220_Illumina_1": [
+     "D",
+     "GAT",
+     0,
+     0
+    ],
+    "epi_isl_417026_Utah_20200320_Illumina_1": [
+     "D",
+     "GAT",
+     0,
+     0
+    ],
+    "epi_isl_417034_Amazonas_State_20200316_Illumina_1": [
+     "D",
+     "GAT",
+     0,
+     0
+    ],
+    "epi_isl_417088_Washington_20200302_Illumina_1": [
+     "D",
+     "GAT",
+     0,
+     0
+    ],
+    "epi_isl_417237_England_20200303_Illumina_2": [
+     "DG",
+     "GRT",
+     1,
+     0
+    ]
+   },
+   "meme": 0.04741707075055057,
+   "meme-branches": 1,
+   "meme-fraction": 0.99999999,
+   "substitutions": [
+    0,
+    0
+   ],
+   "timing": {
+    "D": [
+     [
+      "20200101",
+      "China",
+      "Asia",
+      8,
+      null,
+      null
+     ],
+     [
+      "20191231",
+      "China",
+      "Asia",
+      2,
+      null,
+      null
+     ],
+     [
+      "20200123",
+      "China",
+      "Asia",
+      4,
+      null,
+      null
+     ],
+     [
+      "20200217",
+      "USA",
+      "North America",
+      8,
+      null,
+      null
+     ],
+     [
+      "20200217",
+      "Japan",
+      "Asia",
+      28,
+      null,
+      null
+     ],
+     [
+      "20200220",
+      "USA",
+      "North America",
+      3,
+      null,
+      null
+     ],
+     [
+      "20200129",
+      "France",
+      "Europe",
+      3,
+      null,
+      null
+     ],
+     [
+      "20200312",
+      "USA",
+      "North America",
+      26,
+      null,
+      null
+     ],
+     [
+      "20200311",
+      "USA",
+      "North America",
+      32,
+      null,
+      null
+     ],
+     [
+      "20200310",
+      "USA",
+      "North America",
+      33,
+      null,
+      null
+     ],
+     [
+      "20200121",
+      "China",
+      "Asia",
+      5,
+      null,
+      null
+     ],
+     [
+      "20200117",
+      "China",
+      "Asia",
+      4,
+      null,
+      null
+     ],
+     [
+      "20200212",
+      "Hong Kong",
+      "Asia",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200119",
+      "China",
+      "Asia",
+      3,
+      null,
+      null
+     ],
+     [
+      "20200309",
+      "USA",
+      "North America",
+      23,
+      null,
+      null
+     ],
+     [
+      "20200315",
+      "USA",
+      "North America",
+      14,
+      null,
+      null
+     ],
+     [
+      "20200314",
+      "USA",
+      "North America",
+      27,
+      null,
+      null
+     ],
+     [
+      "20200120",
+      "China",
+      "Asia",
+      3,
+      null,
+      null
+     ],
+     [
+      "20200313",
+      "USA",
+      "North America",
+      50,
+      null,
+      null
+     ],
+     [
+      "20200118",
+      "China",
+      "Asia",
+      6,
+      null,
+      null
+     ],
+     [
+      "20200131",
+      "Taiwan",
+      "Asia",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200129",
+      "Japan",
+      "Asia",
+      2,
+      null,
+      null
+     ],
+     [
+      "20200309",
+      "England",
+      "Europe",
+      3,
+      null,
+      null
+     ],
+     [
+      "20200201",
+      "Czech Republic",
+      "Europe",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200301",
+      "Czech Republic",
+      "Europe",
+      2,
+      null,
+      null
+     ],
+     [
+      "20200310",
+      "France",
+      "Europe",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200304",
+      "France",
+      "Europe",
+      14,
+      null,
+      null
+     ],
+     [
+      "20200131",
+      "Japan",
+      "Asia",
+      2,
+      null,
+      null
+     ],
+     [
+      "20200306",
+      "France",
+      "Europe",
+      6,
+      null,
+      null
+     ],
+     [
+      "20200307",
+      "France",
+      "Europe",
+      4,
+      null,
+      null
+     ],
+     [
+      "20200305",
+      "France",
+      "Europe",
+      4,
+      null,
+      null
+     ],
+     [
+      "20200308",
+      "France",
+      "Europe",
+      3,
+      null,
+      null
+     ],
+     [
+      "20200220",
+      "Malaysia",
+      "Asia",
+      6,
+      null,
+      null
+     ],
+     [
+      "20200304",
+      "Spain",
+      "Europe",
+      3,
+      null,
+      null
+     ],
+     [
+      "20200305",
+      "Belgium",
+      "Europe",
+      3,
+      null,
+      null
+     ],
+     [
+      "20200307",
+      "Spain",
+      "Europe",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200307",
+      "Belgium",
+      "Europe",
+      3,
+      null,
+      null
+     ],
+     [
+      "20200315",
+      "Belgium",
+      "Europe",
+      5,
+      null,
+      null
+     ],
+     [
+      "20200320",
+      "USA",
+      "North America",
+      3,
+      null,
+      null
+     ],
+     [
+      "20200131",
+      "USA",
+      "North America",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200124",
+      "Australia",
+      "Oceania",
+      3,
+      null,
+      null
+     ],
+     [
+      "20200311",
+      "Australia",
+      "Oceania",
+      7,
+      null,
+      null
+     ],
+     [
+      "20200121",
+      "Hong Kong",
+      "Asia",
+      2,
+      null,
+      null
+     ],
+     [
+      "20200303",
+      "USA",
+      "North America",
+      15,
+      null,
+      null
+     ],
+     [
+      "20200301",
+      "USA",
+      "North America",
+      11,
+      null,
+      null
+     ],
+     [
+      "20200227",
+      "USA",
+      "North America",
+      5,
+      null,
+      null
+     ],
+     [
+      "20200122",
+      "Australia",
+      "Oceania",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200305",
+      "USA",
+      "North America",
+      41,
+      null,
+      null
+     ],
+     [
+      "20200229",
+      "USA",
+      "North America",
+      23,
+      null,
+      null
+     ],
+     [
+      "20200302",
+      "USA",
+      "North America",
+      23,
+      null,
+      null
+     ],
+     [
+      "20200228",
+      "USA",
+      "North America",
+      17,
+      null,
+      null
+     ],
+     [
+      "20200125",
+      "Australia",
+      "Oceania",
+      3,
+      null,
+      null
+     ],
+     [
+      "20200304",
+      "USA",
+      "North America",
+      13,
+      null,
+      null
+     ],
+     [
+      "20200314",
+      "Belgium",
+      "Europe",
+      2,
+      null,
+      null
+     ],
+     [
+      "20200123",
+      "Hong Kong",
+      "Asia",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200125",
+      "Hong Kong",
+      "Asia",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200130",
+      "Hong Kong",
+      "Asia",
+      3,
+      null,
+      null
+     ],
+     [
+      "20200321",
+      "USA",
+      "North America",
+      5,
+      null,
+      null
+     ],
+     [
+      "20200111",
+      "China",
+      "Asia",
+      2,
+      null,
+      null
+     ],
+     [
+      "20200127",
+      "USA",
+      "North America",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200302",
+      "Spain",
+      "Europe",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200306",
+      "Spain",
+      "Europe",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200311",
+      "New Zealand",
+      "Oceania",
+      2,
+      null,
+      null
+     ],
+     [
+      "20200302",
+      "United Kingdom",
+      "Europe",
+      18,
+      null,
+      null
+     ],
+     [
+      "20200225",
+      "United Kingdom",
+      "Europe",
+      4,
+      null,
+      null
+     ],
+     [
+      "20200205",
+      "Taiwan",
+      "Asia",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200301",
+      "United Kingdom",
+      "Europe",
+      14,
+      null,
+      null
+     ],
+     [
+      "20200303",
+      "United Kingdom",
+      "Europe",
+      20,
+      null,
+      null
+     ],
+     [
+      "20200304",
+      "United Kingdom",
+      "Europe",
+      12,
+      null,
+      null
+     ],
+     [
+      "20200223",
+      "China",
+      "Asia",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200305",
+      "United Kingdom",
+      "Europe",
+      13,
+      null,
+      null
+     ],
+     [
+      "20200113",
+      "Nepal",
+      "Asia",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200306",
+      "United Kingdom",
+      "Europe",
+      25,
+      null,
+      null
+     ],
+     [
+      "20200208",
+      "France",
+      "Europe",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200308",
+      "United Kingdom",
+      "Europe",
+      18,
+      null,
+      null
+     ],
+     [
+      "20200307",
+      "United Kingdom",
+      "Europe",
+      12,
+      null,
+      null
+     ],
+     [
+      "20200125",
+      "Japan",
+      "Asia",
+      2,
+      null,
+      null
+     ],
+     [
+      "20200123",
+      "Japan",
+      "Asia",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200203",
+      "Singapore",
+      "Asia",
+      2,
+      null,
+      null
+     ],
+     [
+      "20200309",
+      "United Kingdom",
+      "Europe",
+      6,
+      null,
+      null
+     ],
+     [
+      "20200310",
+      "United Kingdom",
+      "Europe",
+      5,
+      null,
+      null
+     ],
+     [
+      "20200313",
+      "United Kingdom",
+      "Europe",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200206",
+      "Singapore",
+      "Asia",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200129",
+      "Italy",
+      "Europe",
+      2,
+      null,
+      null
+     ],
+     [
+      "20200124",
+      "China",
+      "Asia",
+      5,
+      null,
+      null
+     ],
+     [
+      "20200304",
+      "Brazil",
+      "South America",
+      7,
+      null,
+      null
+     ],
+     [
+      "20200131",
+      "Italy",
+      "Europe",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200127",
+      "Singapore",
+      "Asia",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200305",
+      "Australia",
+      "Oceania",
+      3,
+      null,
+      null
+     ],
+     [
+      "20200306",
+      "Australia",
+      "Oceania",
+      3,
+      null,
+      null
+     ],
+     [
+      "20200310",
+      "Australia",
+      "Oceania",
+      6,
+      null,
+      null
+     ],
+     [
+      "20200308",
+      "Australia",
+      "Oceania",
+      3,
+      null,
+      null
+     ],
+     [
+      "20200317",
+      "Australia",
+      "Oceania",
+      3,
+      null,
+      null
+     ],
+     [
+      "20200316",
+      "Australia",
+      "Oceania",
+      2,
+      null,
+      null
+     ],
+     [
+      "20200204",
+      "Singapore",
+      "Asia",
+      2,
+      null,
+      null
+     ],
+     [
+      "20200313",
+      "Australia",
+      "Oceania",
+      2,
+      null,
+      null
+     ],
+     [
+      "20200314",
+      "Australia",
+      "Oceania",
+      2,
+      null,
+      null
+     ],
+     [
+      "20200312",
+      "Australia",
+      "Oceania",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200205",
+      "Australia",
+      "Oceania",
+      2,
+      null,
+      null
+     ],
+     [
+      "20200202",
+      "Singapore",
+      "Asia",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200123",
+      "France",
+      "Europe",
+      3,
+      null,
+      null
+     ],
+     [
+      "20191224",
+      "China",
+      "Asia",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200122",
+      "China",
+      "Asia",
+      7,
+      null,
+      null
+     ],
+     [
+      "20200202",
+      "France",
+      "Europe",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200128",
+      "France",
+      "Europe",
+      2,
+      null,
+      null
+     ],
+     [
+      "20200127",
+      "Cambodia",
+      "Asia",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200125",
+      "Taiwan",
+      "Asia",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200124",
+      "Taiwan",
+      "Asia",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200128",
+      "Taiwan",
+      "Asia",
+      1,
+      null,
+      null
+     ],
+     [
+      "20191230",
+      "China",
+      "Asia",
+      14,
+      null,
+      null
+     ],
+     [
+      "20200101",
+      "South Korea",
+      "Asia",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200207",
+      "Sweden",
+      "Europe",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200206",
+      "USA",
+      "North America",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200211",
+      "USA",
+      "North America",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200108",
+      "China",
+      "Asia",
+      2,
+      null,
+      null
+     ],
+     [
+      "20200201",
+      "Hong Kong",
+      "Asia",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200116",
+      "China",
+      "Asia",
+      3,
+      null,
+      null
+     ],
+     [
+      "20200114",
+      "China",
+      "Asia",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200115",
+      "China",
+      "Asia",
+      4,
+      null,
+      null
+     ],
+     [
+      "20200119",
+      "USA",
+      "North America",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200125",
+      "USA",
+      "North America",
+      2,
+      null,
+      null
+     ],
+     [
+      "20200209",
+      "United Kingdom",
+      "Europe",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200201",
+      "South Korea",
+      "Asia",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200206",
+      "South Korea",
+      "Asia",
+      3,
+      null,
+      null
+     ],
+     [
+      "20200225",
+      "Germany",
+      "Europe",
+      2,
+      null,
+      null
+     ],
+     [
+      "20200225",
+      "Brazil",
+      "South America",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200216",
+      "Canada",
+      "North America",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200220",
+      "Canada",
+      "North America",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200227",
+      "Canada",
+      "North America",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200228",
+      "Canada",
+      "North America",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200301",
+      "Canada",
+      "North America",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200304",
+      "Canada",
+      "North America",
+      3,
+      null,
+      null
+     ],
+     [
+      "20200305",
+      "New Zealand",
+      "Oceania",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200205",
+      "China",
+      "Asia",
+      9,
+      null,
+      null
+     ],
+     [
+      "20200129",
+      "China",
+      "Asia",
+      5,
+      null,
+      null
+     ],
+     [
+      "20200210",
+      "Japan",
+      "Asia",
+      2,
+      null,
+      null
+     ],
+     [
+      "20200224",
+      "USA",
+      "North America",
+      5,
+      null,
+      null
+     ],
+     [
+      "20200108",
+      "Thailand",
+      "Asia",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200306",
+      "Switzerland",
+      "Europe",
+      2,
+      null,
+      null
+     ],
+     [
+      "20200306",
+      "USA",
+      "North America",
+      8,
+      null,
+      null
+     ],
+     [
+      "20200226",
+      "USA",
+      "North America",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200222",
+      "USA",
+      "North America",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200221",
+      "USA",
+      "North America",
+      6,
+      null,
+      null
+     ],
+     [
+      "20200307",
+      "USA",
+      "North America",
+      5,
+      null,
+      null
+     ],
+     [
+      "20200308",
+      "USA",
+      "North America",
+      12,
+      null,
+      null
+     ],
+     [
+      "20200225",
+      "Finland",
+      "Europe",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200227",
+      "Mexico",
+      "North America",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200220",
+      "Italy",
+      "Europe",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200228",
+      "Australia",
+      "Oceania",
+      4,
+      null,
+      null
+     ],
+     [
+      "20200229",
+      "Australia",
+      "Oceania",
+      3,
+      null,
+      null
+     ],
+     [
+      "20200207",
+      "China",
+      "Asia",
+      6,
+      null,
+      null
+     ],
+     [
+      "20200208",
+      "China",
+      "Asia",
+      4,
+      null,
+      null
+     ],
+     [
+      "20200125",
+      "Canada",
+      "North America",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200123",
+      "Canada",
+      "North America",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200228",
+      "Brazil",
+      "South America",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200305",
+      "Canada",
+      "North America",
+      4,
+      null,
+      null
+     ],
+     [
+      "20200209",
+      "Hong Kong",
+      "Asia",
+      6,
+      null,
+      null
+     ],
+     [
+      "20200208",
+      "Hong Kong",
+      "Asia",
+      4,
+      null,
+      null
+     ],
+     [
+      "20200307",
+      "England",
+      "Europe",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200203",
+      "Hong Kong",
+      "Asia",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200205",
+      "Hong Kong",
+      "Asia",
+      2,
+      null,
+      null
+     ],
+     [
+      "20200227",
+      "Switzerland",
+      "Europe",
+      7,
+      null,
+      null
+     ],
+     [
+      "20200229",
+      "Switzerland",
+      "Europe",
+      7,
+      null,
+      null
+     ],
+     [
+      "20200113",
+      "Thailand",
+      "Asia",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200303",
+      "Australia",
+      "Oceania",
+      2,
+      null,
+      null
+     ],
+     [
+      "20200304",
+      "Australia",
+      "Oceania",
+      3,
+      null,
+      null
+     ],
+     [
+      "20200309",
+      "Australia",
+      "Oceania",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200316",
+      "USA",
+      "North America",
+      3,
+      null,
+      null
+     ],
+     [
+      "20200126",
+      "China",
+      "Asia",
+      4,
+      null,
+      null
+     ],
+     [
+      "20200128",
+      "China",
+      "Asia",
+      8,
+      null,
+      null
+     ],
+     [
+      "20200113",
+      "China",
+      "Asia",
+      2,
+      null,
+      null
+     ],
+     [
+      "20200220",
+      "Japan",
+      "Asia",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200228",
+      "Germany",
+      "Europe",
+      3,
+      null,
+      null
+     ],
+     [
+      "20200303",
+      "Italy",
+      "Europe",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200227",
+      "New Zealand",
+      "Oceania",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200227",
+      "South Korea",
+      "Asia",
+      4,
+      null,
+      null
+     ],
+     [
+      "20200110",
+      "China",
+      "Asia",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200127",
+      "India",
+      "Asia",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200131",
+      "India",
+      "Asia",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200227",
+      "Nigeria",
+      "Africa",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200313",
+      "Belgium",
+      "Europe",
+      2,
+      null,
+      null
+     ],
+     [
+      "20200123",
+      "Taiwan",
+      "Asia",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200312",
+      "United Kingdom",
+      "Europe",
+      6,
+      null,
+      null
+     ],
+     [
+      "20200311",
+      "United Kingdom",
+      "Europe",
+      5,
+      null,
+      null
+     ],
+     [
+      "20200320",
+      "Hungary",
+      "Europe",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200308",
+      "Belgium",
+      "Europe",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200122",
+      "USA",
+      "North America",
+      2,
+      null,
+      null
+     ],
+     [
+      "20200301",
+      "Netherlands",
+      "Europe",
+      9,
+      null,
+      null
+     ],
+     [
+      "20200101",
+      "Netherlands",
+      "Europe",
+      15,
+      null,
+      null
+     ],
+     [
+      "20200227",
+      "Netherlands",
+      "Europe",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200302",
+      "Netherlands",
+      "Europe",
+      15,
+      null,
+      null
+     ],
+     [
+      "20200303",
+      "Netherlands",
+      "Europe",
+      26,
+      null,
+      null
+     ],
+     [
+      "20200305",
+      "Netherlands",
+      "Europe",
+      7,
+      null,
+      null
+     ],
+     [
+      "20200306",
+      "Netherlands",
+      "Europe",
+      17,
+      null,
+      null
+     ],
+     [
+      "20200304",
+      "Netherlands",
+      "Europe",
+      13,
+      null,
+      null
+     ],
+     [
+      "20200308",
+      "Netherlands",
+      "Europe",
+      13,
+      null,
+      null
+     ],
+     [
+      "20200313",
+      "Netherlands",
+      "Europe",
+      5,
+      null,
+      null
+     ],
+     [
+      "20200311",
+      "Netherlands",
+      "Europe",
+      11,
+      null,
+      null
+     ],
+     [
+      "20200309",
+      "Netherlands",
+      "Europe",
+      25,
+      null,
+      null
+     ],
+     [
+      "20200312",
+      "Netherlands",
+      "Europe",
+      8,
+      null,
+      null
+     ],
+     [
+      "20200229",
+      "Netherlands",
+      "Europe",
+      4,
+      null,
+      null
+     ],
+     [
+      "20200310",
+      "Netherlands",
+      "Europe",
+      11,
+      null,
+      null
+     ],
+     [
+      "20200307",
+      "South Africa",
+      "Africa",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200229",
+      "Luxembourg",
+      "Europe",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200228",
+      "Netherlands",
+      "Europe",
+      2,
+      null,
+      null
+     ],
+     [
+      "20200302",
+      "Taiwan",
+      "Asia",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200302",
+      "Australia",
+      "Oceania",
+      2,
+      null,
+      null
+     ],
+     [
+      "20200303",
+      "Finland",
+      "Europe",
+      3,
+      null,
+      null
+     ],
+     [
+      "20200301",
+      "Finland",
+      "Europe",
+      2,
+      null,
+      null
+     ],
+     [
+      "20200304",
+      "Finland",
+      "Europe",
+      2,
+      null,
+      null
+     ],
+     [
+      "20200218",
+      "USA",
+      "North America",
+      6,
+      null,
+      null
+     ],
+     [
+      "20200301",
+      "Portugal",
+      "Europe",
+      2,
+      null,
+      null
+     ],
+     [
+      "20200201",
+      "China",
+      "Asia",
+      34,
+      null,
+      null
+     ],
+     [
+      "20200102",
+      "China",
+      "Asia",
+      2,
+      null,
+      null
+     ],
+     [
+      "20200130",
+      "China",
+      "Asia",
+      21,
+      null,
+      null
+     ],
+     [
+      "20200131",
+      "China",
+      "Asia",
+      4,
+      null,
+      null
+     ],
+     [
+      "20191226",
+      "China",
+      "Asia",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200209",
+      "China",
+      "Asia",
+      5,
+      null,
+      null
+     ],
+     [
+      "20200228",
+      "China",
+      "Asia",
+      2,
+      null,
+      null
+     ],
+     [
+      "20200212",
+      "China",
+      "Asia",
+      2,
+      null,
+      null
+     ],
+     [
+      "20200202",
+      "China",
+      "Asia",
+      17,
+      null,
+      null
+     ],
+     [
+      "20200227",
+      "Germany",
+      "Europe",
+      3,
+      null,
+      null
+     ],
+     [
+      "20200303",
+      "Canada",
+      "North America",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200303",
+      "England",
+      "Europe",
+      5,
+      null,
+      null
+     ],
+     [
+      "20200226",
+      "Germany",
+      "Europe",
+      3,
+      null,
+      null
+     ],
+     [
+      "20200105",
+      "China",
+      "Asia",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200224",
+      "Switzerland",
+      "Europe",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200226",
+      "Switzerland",
+      "Europe",
+      2,
+      null,
+      null
+     ],
+     [
+      "20200228",
+      "United Kingdom",
+      "Europe",
+      5,
+      null,
+      null
+     ],
+     [
+      "20200226",
+      "United Kingdom",
+      "Europe",
+      2,
+      null,
+      null
+     ],
+     [
+      "20200227",
+      "United Kingdom",
+      "Europe",
+      5,
+      null,
+      null
+     ],
+     [
+      "20200128",
+      "Germany",
+      "Europe",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200229",
+      "Brazil",
+      "South America",
+      3,
+      null,
+      null
+     ],
+     [
+      "20200303",
+      "Brazil",
+      "South America",
+      2,
+      null,
+      null
+     ],
+     [
+      "20200301",
+      "Switzerland",
+      "Europe",
+      3,
+      null,
+      null
+     ],
+     [
+      "20200205",
+      "United Kingdom",
+      "Europe",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200208",
+      "United Kingdom",
+      "Europe",
+      3,
+      null,
+      null
+     ],
+     [
+      "20200207",
+      "United Kingdom",
+      "Europe",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200304",
+      "Ireland",
+      "Europe",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200217",
+      "Singapore",
+      "Asia",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200218",
+      "Singapore",
+      "Asia",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200213",
+      "Singapore",
+      "Asia",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200307",
+      "Netherlands",
+      "Europe",
+      5,
+      null,
+      null
+     ],
+     [
+      "20200303",
+      "Ireland",
+      "Europe",
+      3,
+      null,
+      null
+     ],
+     [
+      "20200308",
+      "Spain",
+      "Europe",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200130",
+      "South Korea",
+      "Asia",
+      2,
+      null,
+      null
+     ],
+     [
+      "20200131",
+      "South Korea",
+      "Asia",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200225",
+      "Hong Kong",
+      "Asia",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200224",
+      "Hong Kong",
+      "Asia",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200210",
+      "Hong Kong",
+      "Asia",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200302",
+      "Germany",
+      "Europe",
+      2,
+      null,
+      null
+     ],
+     [
+      "20200229",
+      "United Kingdom",
+      "Europe",
+      7,
+      null,
+      null
+     ],
+     [
+      "20200123",
+      "Singapore",
+      "Asia",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200129",
+      "United Kingdom",
+      "Europe",
+      2,
+      null,
+      null
+     ],
+     [
+      "20200101",
+      "Japan",
+      "Asia",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200222",
+      "Hong Kong",
+      "Asia",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200302",
+      "Chile",
+      "South America",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200304",
+      "Chile",
+      "South America",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200303",
+      "Chile",
+      "South America",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200305",
+      "Chile",
+      "South America",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200129",
+      "Finland",
+      "Europe",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200305",
+      "Spain",
+      "Europe",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200226",
+      "France",
+      "Europe",
+      3,
+      null,
+      null
+     ],
+     [
+      "20200225",
+      "France",
+      "Europe",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200229",
+      "France",
+      "Europe",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200302",
+      "France",
+      "Europe",
+      3,
+      null,
+      null
+     ],
+     [
+      "20200303",
+      "France",
+      "Europe",
+      3,
+      null,
+      null
+     ],
+     [
+      "20200125",
+      "South Korea",
+      "Asia",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200308",
+      "Finland",
+      "Europe",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200309",
+      "Democratic Republic of the Congo",
+      "Africa",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200225",
+      "China",
+      "Asia",
+      7,
+      null,
+      null
+     ],
+     [
+      "20200227",
+      "China",
+      "Asia",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200125",
+      "China",
+      "Asia",
+      6,
+      null,
+      null
+     ],
+     [
+      "20200206",
+      "China",
+      "Asia",
+      5,
+      null,
+      null
+     ],
+     [
+      "20200204",
+      "China",
+      "Asia",
+      8,
+      null,
+      null
+     ],
+     [
+      "20200306",
+      "Panama",
+      "Central America",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200303",
+      "Belgium",
+      "Europe",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200301",
+      "Belgium",
+      "Europe",
+      5,
+      null,
+      null
+     ],
+     [
+      "20200229",
+      "Belgium",
+      "Europe",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200228",
+      "Switzerland",
+      "Europe",
+      3,
+      null,
+      null
+     ],
+     [
+      "20200302",
+      "Switzerland",
+      "Europe",
+      2,
+      null,
+      null
+     ],
+     [
+      "20200214",
+      "China",
+      "Asia",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200213",
+      "China",
+      "Asia",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200302",
+      "Canada",
+      "North America",
+      2,
+      null,
+      null
+     ],
+     [
+      "20200128",
+      "Australia",
+      "Oceania",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200130",
+      "Australia",
+      "Oceania",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200227",
+      "Georgia",
+      "Asia",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200310",
+      "Georgia",
+      "Asia",
+      2,
+      null,
+      null
+     ],
+     [
+      "20200228",
+      "Georgia",
+      "Asia",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200303",
+      "Denmark",
+      "Europe",
+      4,
+      null,
+      null
+     ],
+     [
+      "20200203",
+      "Belgium",
+      "Europe",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200201",
+      "Singapore",
+      "Asia",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200309",
+      "France",
+      "Europe",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200306",
+      "Chile",
+      "South America",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200308",
+      "Chile",
+      "South America",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200307",
+      "Chile",
+      "South America",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200129",
+      "USA",
+      "North America",
+      4,
+      null,
+      null
+     ],
+     [
+      "20200304",
+      "Switzerland",
+      "Europe",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200308",
+      "Switzerland",
+      "Europe",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200307",
+      "Switzerland",
+      "Europe",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200315",
+      "Russia",
+      "Europe",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200226",
+      "Taiwan",
+      "Asia",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200227",
+      "Taiwan",
+      "Asia",
+      2,
+      null,
+      null
+     ],
+     [
+      "20200310",
+      "Peru",
+      "South America",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200305",
+      "Brazil",
+      "South America",
+      2,
+      null,
+      null
+     ],
+     [
+      "20200302",
+      "Denmark",
+      "Europe",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200207",
+      "Hong Kong",
+      "Asia",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200219",
+      "Hong Kong",
+      "Asia",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200210",
+      "USA",
+      "North America",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200203",
+      "China",
+      "Asia",
+      2,
+      null,
+      null
+     ],
+     [
+      "20200211",
+      "China",
+      "Asia",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200225",
+      "USA",
+      "North America",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200210",
+      "China",
+      "Asia",
+      2,
+      null,
+      null
+     ],
+     [
+      "20200215",
+      "China",
+      "Asia",
+      2,
+      null,
+      null
+     ],
+     [
+      "20200208",
+      "Australia",
+      "Oceania",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200223",
+      "USA",
+      "North America",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200317",
+      "Hungary",
+      "Europe",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200307",
+      "Vietnam",
+      "Asia",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200306",
+      "Vietnam",
+      "Asia",
+      2,
+      null,
+      null
+     ],
+     [
+      "20200307",
+      "Saudi Arabia",
+      "Asia",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200318",
+      "USA",
+      "North America",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200311",
+      "Japan",
+      "Asia",
+      2,
+      null,
+      null
+     ],
+     [
+      "20200315",
+      "New Zealand",
+      "Oceania",
+      2,
+      null,
+      null
+     ],
+     [
+      "20200302",
+      "Kuwait",
+      "Asia",
+      3,
+      null,
+      null
+     ],
+     [
+      "20200215",
+      "Japan",
+      "Asia",
+      14,
+      null,
+      null
+     ],
+     [
+      "20200216",
+      "Japan",
+      "Asia",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200121",
+      "USA",
+      "North America",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200123",
+      "USA",
+      "North America",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200211",
+      "Vietnam",
+      "Asia",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200124",
+      "Vietnam",
+      "Asia",
+      2,
+      null,
+      null
+     ],
+     [
+      "20200128",
+      "USA",
+      "North America",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200122",
+      "Hong Kong",
+      "Asia",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200125",
+      "Singapore",
+      "Asia",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200209",
+      "Singapore",
+      "Asia",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200224",
+      "Netherlands",
+      "Europe",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200302",
+      "Brazil",
+      "South America",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200303",
+      "Germany",
+      "Europe",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200302",
+      "Ireland",
+      "Europe",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200305",
+      "Finland",
+      "Europe",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200307",
+      "Finland",
+      "Europe",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200310",
+      "Saudi Arabia",
+      "Asia",
+      2,
+      null,
+      null
+     ],
+     [
+      "20200316",
+      "Brazil",
+      "South America",
+      1,
+      null,
+      null
+     ]
+    ],
+    "DG": [
+     [
+      "20200303",
+      "United Kingdom",
+      "Europe",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200302",
+      "United Kingdom",
+      "Europe",
+      1,
+      null,
+      null
+     ]
+    ],
+    "G": [
+     [
+      "20200227",
+      "Switzerland",
+      "Europe",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200226",
+      "United Kingdom",
+      "Europe",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200315",
+      "Belgium",
+      "Europe",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200304",
+      "United Kingdom",
+      "Europe",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200301",
+      "United Kingdom",
+      "Europe",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200308",
+      "USA",
+      "North America",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200304",
+      "Finland",
+      "Europe",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200201",
+      "Lithuania",
+      "Europe",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200309",
+      "Belgium",
+      "Europe",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200313",
+      "Belgium",
+      "Europe",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200314",
+      "Belgium",
+      "Europe",
+      1,
+      null,
+      null
+     ]
+    ]
+   },
+   "trend": 3.594787454456448
+  },
+  "208": {
+   "MAF": 0.003291639236339683,
+   "composition": {
+    "D": 1514,
+    "H": 5
+   },
+   "fel": 0.01861512268883248,
+   "kind": "positive",
+   "labels": {
     "Node32": [
      "D",
      "GAC",
      0,
      0
     ],
-    "Node35": [
+    "Node34": [
+     "D",
+     "GAC",
+     0,
+     0
+    ],
+    "Node41": [
+     "D",
+     "GAC",
+     0,
+     0
+    ],
+    "Node42": [
+     "D",
+     "GAC",
+     0,
+     0
+    ],
+    "Node49": [
      "H",
      "CAC",
      1,
      0
     ],
-    "Node38": [
+    "epi_isl_402120_Hubei_20200101_null_1355": [
      "D",
      "GAC",
      0,
      0
     ],
-    "Node4": [
+    "epi_isl_404253_Illinois_20200121_Sanger__1": [
      "D",
      "GAC",
      0,
      0
     ],
-    "Node40": [
+    "epi_isl_406034_California_20200123_Sanger__15": [
      "D",
      "GAC",
      0,
      0
     ],
-    "Node43": [
+    "epi_isl_406592_Guandong_20200113_null_1": [
      "D",
      "GAC",
      0,
      0
     ],
-    "Node47": [
-     "D",
-     "GAC",
-     0,
-     0
-    ],
-    "Node47_1": [
-     "D",
-     "GAC",
-     0,
-     0
-    ],
-    "Node7": [
-     "D",
-     "GAC",
-     0,
-     0
-    ],
-    "epi_isl_402128_Hubei_20191230_MGISEQ_1369": [
-     "D",
-     "GAC",
-     0,
-     0
-    ],
-    "epi_isl_406534_Guangdong_20200122_null_12": [
-     "D",
-     "GAC",
-     0,
-     0
-    ],
-    "epi_isl_406716_Hubei_20200102_Illumina_2": [
-     "D",
-     "GAC",
-     0,
-     0
-    ],
-    "epi_isl_408431_Ile_de_France_20200129_Illumina_4": [
+    "epi_isl_407987_Singapore_20200125_Illumina_4": [
      "H",
      "CAC",
      0,
      0
     ],
-    "epi_isl_408667_Tokyo_20200131_NextSeq500_1": [
+    "epi_isl_408485_Beijing_20200118_Illumina_1": [
      "D",
      "GAC",
      0,
      0
     ],
-    "epi_isl_413022_Zurich_20200229_Illumina_2": [
+    "epi_isl_413017_South_Korea_20200206_Illumina_2": [
      "D",
      "GAC",
      0,
      0
     ],
-    "epi_isl_413024_Zurich_20200229_Illumina_1": [
+    "epi_isl_413019_Zurich_20200226_Illumina_1": [
      "D",
      "GAC",
      0,
      0
     ],
-    "epi_isl_413520_Beijing_20200128_MGISEQ2000_3": [
+    "epi_isl_413487_Washington_20200301_Illumina_3": [
      "D",
      "GAC",
      0,
      0
     ],
-    "epi_isl_413572_Haarlem_20200301_Nanopore_42": [
+    "epi_isl_413565_Berlicum_20200224_Nanopore_93": [
      "D",
      "GAC",
      0,
      0
     ],
-    "epi_isl_413855_Guangdong_20200207_metagenomics_BGI_9": [
+    "epi_isl_413850_Guangdong_20200210_metagenomics_BGI_8": [
      "D",
      "GAC",
      0,
      0
     ],
-    "epi_isl_414010_England_20200226_Illumina_10": [
+    "epi_isl_413999_Argovie_20200227_null_11": [
      "D",
      "GAC",
      0,
      0
     ],
-    "epi_isl_414636_Hauts_de_France_20200304_Illumina_1": [
+    "epi_isl_414630_Hauts_de_France_20200303_Illumina_1": [
      "D",
      "GAC",
      0,
      0
     ],
-    "epi_isl_415132_England_20200228_Illumina_1": [
+    "epi_isl_415105_Bahia_20200304_Nanopore_1": [
      "D",
      "GAC",
      0,
      0
     ],
-    "epi_isl_415138_England_20200302_Illumina_7": [
+    "epi_isl_415132_England_20200228_Illumina_3": [
      "D",
      "GAC",
      0,
      0
     ],
-    "epi_isl_415150_England_20200309_Illumina_4": [
+    "epi_isl_415140_England_20200229_Illumina_4": [
      "D",
      "GAC",
      0,
      0
     ],
-    "epi_isl_415620_Washington_20200309_Illumina_1": [
+    "epi_isl_415615_Washington_20200308_Illumina_1": [
      "D",
      "GAC",
      0,
      0
     ],
-    "epi_isl_416327_Shanghai_20200128_Illumina_1": [
+    "epi_isl_416321_Shanghai_20200128_Illumina_1": [
      "D",
      "GAC",
      0,
      0
     ],
-    "epi_isl_416395_Shanghai_20200209_Illumina_1": [
+    "epi_isl_416383_Shanghai_20200201_Illumina_1": [
      "D",
      "GAC",
      0,
      0
     ],
-    "epi_isl_416457_California_20200318_Nanopore_2": [
+    "epi_isl_416452_Washington_20200310_Illumina_1": [
      "D",
      "GAC",
      0,
      0
     ],
-    "epi_isl_416539_Wellington_20200315_Nanopore_2": [
+    "epi_isl_416521_Saudi_Arabia_20200310_Illumina_3": [
      "D",
      "GAC",
      0,
      0
     ],
-    "epi_isl_416569_unknown_20200215_Illumina_1": [
+    "epi_isl_416543_Dasman_20200302_Illumina_1": [
      "D",
      "GAC",
      0,
      0
     ],
-    "epi_isl_416692_Washington_20200314_Illumina_1": [
+    "epi_isl_416687_Washington_20200314_Illumina_1": [
      "D",
      "GAC",
      0,
      0
     ],
-    "epi_isl_416907_Selangor_20200220_Illumina_1": [
+    "epi_isl_416829_Selangor_20200220_Illumina_1": [
      "H",
      "CAC",
      0,
      0
     ],
-    "epi_isl_417032_Queensland_20200311_Illumina_1": [
+    "epi_isl_417026_Utah_20200320_Illumina_1": [
      "D",
      "GAC",
      0,
      0
     ],
-    "epi_isl_417083_Washington_20200228_Illumina_1": [
+    "epi_isl_417034_Amazonas_State_20200316_Illumina_1": [
      "D",
      "GAC",
      0,
      0
     ],
-    "epi_isl_417103_Washington_20200305_Illumina_1": [
+    "epi_isl_417088_Washington_20200302_Illumina_1": [
+     "D",
+     "GAC",
+     0,
+     0
+    ],
+    "epi_isl_417237_England_20200303_Illumina_2": [
      "D",
      "GAC",
      0,
      0
     ]
    },
-   "meme": 0.02475587586702377,
+   "meme": 0.0285254096472024,
    "meme-branches": 1,
    "meme-fraction": 0.99999999,
-   "prime": [
-    [
-     "Factor III volume",
-     0.09589783703272614,
-     5.413183521166484
-    ]
-   ],
    "substitutions": [
     0,
     1
    ],
    "timing": {
-    "D": {
-     "20191226": 1,
-     "20191230": 9,
-     "20191231": 1,
-     "20200101": 2,
-     "20200102": 2,
-     "20200105": 1,
-     "20200108": 3,
-     "20200110": 1,
-     "20200111": 1,
-     "20200113": 4,
-     "20200114": 1,
-     "20200115": 4,
-     "20200116": 3,
-     "20200117": 4,
-     "20200118": 5,
-     "20200119": 4,
-     "20200120": 3,
-     "20200121": 8,
-     "20200122": 11,
-     "20200123": 12,
-     "20200124": 10,
-     "20200125": 18,
-     "20200126": 3,
-     "20200127": 4,
-     "20200128": 14,
-     "20200129": 18,
-     "20200130": 25,
-     "20200131": 11,
-     "20200201": 23,
-     "20200202": 17,
-     "20200203": 6,
-     "20200204": 9,
-     "20200205": 17,
-     "20200206": 10,
-     "20200207": 10,
-     "20200208": 12,
-     "20200209": 14,
-     "20200210": 7,
-     "20200211": 3,
-     "20200212": 2,
-     "20200213": 1,
-     "20200214": 1,
-     "20200215": 16,
-     "20200216": 2,
-     "20200217": 37,
-     "20200218": 7,
-     "20200219": 2,
-     "20200220": 11,
-     "20200221": 6,
-     "20200222": 2,
-     "20200223": 2,
-     "20200224": 9,
-     "20200225": 17,
-     "20200226": 10,
-     "20200227": 33,
-     "20200228": 39,
-     "20200229": 50,
-     "20200301": 48,
-     "20200302": 78,
-     "20200303": 86,
-     "20200304": 71,
-     "20200305": 79,
-     "20200306": 65,
-     "20200307": 35,
-     "20200308": 56,
-     "20200309": 66,
-     "20200310": 57,
-     "20200311": 61,
-     "20200312": 40,
-     "20200313": 63,
-     "20200314": 32,
-     "20200315": 21,
-     "20200316": 5,
-     "20200317": 4,
-     "20200318": 1,
-     "20200320": 4,
-     "20200321": 5
-    },
-    "H": {
-     "20200129": 1,
-     "20200204": 1,
-     "20200220": 1,
-     "20200304": 1,
-     "20200305": 1
-    }
-   }
+    "D": [
+     [
+      "20200101",
+      "China",
+      "Asia",
+      8,
+      null,
+      null
+     ],
+     [
+      "20191231",
+      "China",
+      "Asia",
+      2,
+      null,
+      null
+     ],
+     [
+      "20200123",
+      "China",
+      "Asia",
+      4,
+      null,
+      null
+     ],
+     [
+      "20200217",
+      "USA",
+      "North America",
+      8,
+      null,
+      null
+     ],
+     [
+      "20200217",
+      "Japan",
+      "Asia",
+      28,
+      null,
+      null
+     ],
+     [
+      "20200220",
+      "USA",
+      "North America",
+      3,
+      null,
+      null
+     ],
+     [
+      "20200129",
+      "France",
+      "Europe",
+      3,
+      null,
+      null
+     ],
+     [
+      "20200312",
+      "USA",
+      "North America",
+      26,
+      null,
+      null
+     ],
+     [
+      "20200311",
+      "USA",
+      "North America",
+      32,
+      null,
+      null
+     ],
+     [
+      "20200310",
+      "USA",
+      "North America",
+      33,
+      null,
+      null
+     ],
+     [
+      "20200121",
+      "China",
+      "Asia",
+      5,
+      null,
+      null
+     ],
+     [
+      "20200117",
+      "China",
+      "Asia",
+      4,
+      null,
+      null
+     ],
+     [
+      "20200212",
+      "Hong Kong",
+      "Asia",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200119",
+      "China",
+      "Asia",
+      3,
+      null,
+      null
+     ],
+     [
+      "20200309",
+      "USA",
+      "North America",
+      23,
+      null,
+      null
+     ],
+     [
+      "20200315",
+      "USA",
+      "North America",
+      14,
+      null,
+      null
+     ],
+     [
+      "20200314",
+      "USA",
+      "North America",
+      27,
+      null,
+      null
+     ],
+     [
+      "20200120",
+      "China",
+      "Asia",
+      3,
+      null,
+      null
+     ],
+     [
+      "20200313",
+      "USA",
+      "North America",
+      50,
+      null,
+      null
+     ],
+     [
+      "20200118",
+      "China",
+      "Asia",
+      6,
+      null,
+      null
+     ],
+     [
+      "20200131",
+      "Taiwan",
+      "Asia",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200129",
+      "Japan",
+      "Asia",
+      2,
+      null,
+      null
+     ],
+     [
+      "20200309",
+      "England",
+      "Europe",
+      3,
+      null,
+      null
+     ],
+     [
+      "20200201",
+      "Czech Republic",
+      "Europe",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200301",
+      "Czech Republic",
+      "Europe",
+      2,
+      null,
+      null
+     ],
+     [
+      "20200310",
+      "France",
+      "Europe",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200304",
+      "France",
+      "Europe",
+      14,
+      null,
+      null
+     ],
+     [
+      "20200131",
+      "Japan",
+      "Asia",
+      2,
+      null,
+      null
+     ],
+     [
+      "20200306",
+      "France",
+      "Europe",
+      6,
+      null,
+      null
+     ],
+     [
+      "20200307",
+      "France",
+      "Europe",
+      4,
+      null,
+      null
+     ],
+     [
+      "20200305",
+      "France",
+      "Europe",
+      4,
+      null,
+      null
+     ],
+     [
+      "20200308",
+      "France",
+      "Europe",
+      3,
+      null,
+      null
+     ],
+     [
+      "20200220",
+      "Malaysia",
+      "Asia",
+      3,
+      null,
+      null
+     ],
+     [
+      "20200304",
+      "Spain",
+      "Europe",
+      3,
+      null,
+      null
+     ],
+     [
+      "20200305",
+      "Belgium",
+      "Europe",
+      3,
+      null,
+      null
+     ],
+     [
+      "20200307",
+      "Spain",
+      "Europe",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200307",
+      "Belgium",
+      "Europe",
+      3,
+      null,
+      null
+     ],
+     [
+      "20200315",
+      "Belgium",
+      "Europe",
+      6,
+      null,
+      null
+     ],
+     [
+      "20200320",
+      "USA",
+      "North America",
+      3,
+      null,
+      null
+     ],
+     [
+      "20200131",
+      "USA",
+      "North America",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200124",
+      "Australia",
+      "Oceania",
+      3,
+      null,
+      null
+     ],
+     [
+      "20200311",
+      "Australia",
+      "Oceania",
+      7,
+      null,
+      null
+     ],
+     [
+      "20200121",
+      "Hong Kong",
+      "Asia",
+      2,
+      null,
+      null
+     ],
+     [
+      "20200303",
+      "USA",
+      "North America",
+      15,
+      null,
+      null
+     ],
+     [
+      "20200301",
+      "USA",
+      "North America",
+      11,
+      null,
+      null
+     ],
+     [
+      "20200227",
+      "USA",
+      "North America",
+      5,
+      null,
+      null
+     ],
+     [
+      "20200122",
+      "Australia",
+      "Oceania",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200305",
+      "USA",
+      "North America",
+      41,
+      null,
+      null
+     ],
+     [
+      "20200229",
+      "USA",
+      "North America",
+      23,
+      null,
+      null
+     ],
+     [
+      "20200302",
+      "USA",
+      "North America",
+      23,
+      null,
+      null
+     ],
+     [
+      "20200228",
+      "USA",
+      "North America",
+      17,
+      null,
+      null
+     ],
+     [
+      "20200125",
+      "Australia",
+      "Oceania",
+      3,
+      null,
+      null
+     ],
+     [
+      "20200304",
+      "USA",
+      "North America",
+      13,
+      null,
+      null
+     ],
+     [
+      "20200314",
+      "Belgium",
+      "Europe",
+      3,
+      null,
+      null
+     ],
+     [
+      "20200123",
+      "Hong Kong",
+      "Asia",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200125",
+      "Hong Kong",
+      "Asia",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200130",
+      "Hong Kong",
+      "Asia",
+      3,
+      null,
+      null
+     ],
+     [
+      "20200321",
+      "USA",
+      "North America",
+      5,
+      null,
+      null
+     ],
+     [
+      "20200111",
+      "China",
+      "Asia",
+      2,
+      null,
+      null
+     ],
+     [
+      "20200127",
+      "USA",
+      "North America",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200302",
+      "Spain",
+      "Europe",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200306",
+      "Spain",
+      "Europe",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200311",
+      "New Zealand",
+      "Oceania",
+      2,
+      null,
+      null
+     ],
+     [
+      "20200302",
+      "United Kingdom",
+      "Europe",
+      19,
+      null,
+      null
+     ],
+     [
+      "20200225",
+      "United Kingdom",
+      "Europe",
+      4,
+      null,
+      null
+     ],
+     [
+      "20200205",
+      "Taiwan",
+      "Asia",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200301",
+      "United Kingdom",
+      "Europe",
+      15,
+      null,
+      null
+     ],
+     [
+      "20200303",
+      "United Kingdom",
+      "Europe",
+      21,
+      null,
+      null
+     ],
+     [
+      "20200304",
+      "United Kingdom",
+      "Europe",
+      13,
+      null,
+      null
+     ],
+     [
+      "20200223",
+      "China",
+      "Asia",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200305",
+      "United Kingdom",
+      "Europe",
+      13,
+      null,
+      null
+     ],
+     [
+      "20200113",
+      "Nepal",
+      "Asia",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200306",
+      "United Kingdom",
+      "Europe",
+      25,
+      null,
+      null
+     ],
+     [
+      "20200208",
+      "France",
+      "Europe",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200308",
+      "United Kingdom",
+      "Europe",
+      18,
+      null,
+      null
+     ],
+     [
+      "20200307",
+      "United Kingdom",
+      "Europe",
+      12,
+      null,
+      null
+     ],
+     [
+      "20200125",
+      "Japan",
+      "Asia",
+      2,
+      null,
+      null
+     ],
+     [
+      "20200123",
+      "Japan",
+      "Asia",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200203",
+      "Singapore",
+      "Asia",
+      2,
+      null,
+      null
+     ],
+     [
+      "20200309",
+      "United Kingdom",
+      "Europe",
+      6,
+      null,
+      null
+     ],
+     [
+      "20200310",
+      "United Kingdom",
+      "Europe",
+      5,
+      null,
+      null
+     ],
+     [
+      "20200313",
+      "United Kingdom",
+      "Europe",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200206",
+      "Singapore",
+      "Asia",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200129",
+      "Italy",
+      "Europe",
+      2,
+      null,
+      null
+     ],
+     [
+      "20200124",
+      "China",
+      "Asia",
+      5,
+      null,
+      null
+     ],
+     [
+      "20200304",
+      "Brazil",
+      "South America",
+      7,
+      null,
+      null
+     ],
+     [
+      "20200131",
+      "Italy",
+      "Europe",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200127",
+      "Singapore",
+      "Asia",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200305",
+      "Australia",
+      "Oceania",
+      3,
+      null,
+      null
+     ],
+     [
+      "20200306",
+      "Australia",
+      "Oceania",
+      3,
+      null,
+      null
+     ],
+     [
+      "20200310",
+      "Australia",
+      "Oceania",
+      6,
+      null,
+      null
+     ],
+     [
+      "20200308",
+      "Australia",
+      "Oceania",
+      3,
+      null,
+      null
+     ],
+     [
+      "20200317",
+      "Australia",
+      "Oceania",
+      3,
+      null,
+      null
+     ],
+     [
+      "20200316",
+      "Australia",
+      "Oceania",
+      2,
+      null,
+      null
+     ],
+     [
+      "20200204",
+      "Singapore",
+      "Asia",
+      2,
+      null,
+      null
+     ],
+     [
+      "20200313",
+      "Australia",
+      "Oceania",
+      2,
+      null,
+      null
+     ],
+     [
+      "20200314",
+      "Australia",
+      "Oceania",
+      2,
+      null,
+      null
+     ],
+     [
+      "20200312",
+      "Australia",
+      "Oceania",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200205",
+      "Australia",
+      "Oceania",
+      2,
+      null,
+      null
+     ],
+     [
+      "20200202",
+      "Singapore",
+      "Asia",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200123",
+      "France",
+      "Europe",
+      3,
+      null,
+      null
+     ],
+     [
+      "20191224",
+      "China",
+      "Asia",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200122",
+      "China",
+      "Asia",
+      7,
+      null,
+      null
+     ],
+     [
+      "20200202",
+      "France",
+      "Europe",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200128",
+      "France",
+      "Europe",
+      2,
+      null,
+      null
+     ],
+     [
+      "20200127",
+      "Cambodia",
+      "Asia",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200125",
+      "Taiwan",
+      "Asia",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200124",
+      "Taiwan",
+      "Asia",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200128",
+      "Taiwan",
+      "Asia",
+      1,
+      null,
+      null
+     ],
+     [
+      "20191230",
+      "China",
+      "Asia",
+      14,
+      null,
+      null
+     ],
+     [
+      "20200101",
+      "South Korea",
+      "Asia",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200207",
+      "Sweden",
+      "Europe",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200206",
+      "USA",
+      "North America",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200211",
+      "USA",
+      "North America",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200108",
+      "China",
+      "Asia",
+      2,
+      null,
+      null
+     ],
+     [
+      "20200201",
+      "Hong Kong",
+      "Asia",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200116",
+      "China",
+      "Asia",
+      3,
+      null,
+      null
+     ],
+     [
+      "20200114",
+      "China",
+      "Asia",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200115",
+      "China",
+      "Asia",
+      4,
+      null,
+      null
+     ],
+     [
+      "20200119",
+      "USA",
+      "North America",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200125",
+      "USA",
+      "North America",
+      2,
+      null,
+      null
+     ],
+     [
+      "20200209",
+      "United Kingdom",
+      "Europe",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200201",
+      "South Korea",
+      "Asia",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200206",
+      "South Korea",
+      "Asia",
+      3,
+      null,
+      null
+     ],
+     [
+      "20200225",
+      "Germany",
+      "Europe",
+      2,
+      null,
+      null
+     ],
+     [
+      "20200225",
+      "Brazil",
+      "South America",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200216",
+      "Canada",
+      "North America",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200220",
+      "Canada",
+      "North America",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200227",
+      "Canada",
+      "North America",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200228",
+      "Canada",
+      "North America",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200301",
+      "Canada",
+      "North America",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200304",
+      "Canada",
+      "North America",
+      3,
+      null,
+      null
+     ],
+     [
+      "20200305",
+      "New Zealand",
+      "Oceania",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200205",
+      "China",
+      "Asia",
+      9,
+      null,
+      null
+     ],
+     [
+      "20200129",
+      "China",
+      "Asia",
+      5,
+      null,
+      null
+     ],
+     [
+      "20200210",
+      "Japan",
+      "Asia",
+      2,
+      null,
+      null
+     ],
+     [
+      "20200224",
+      "USA",
+      "North America",
+      5,
+      null,
+      null
+     ],
+     [
+      "20200108",
+      "Thailand",
+      "Asia",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200306",
+      "Switzerland",
+      "Europe",
+      2,
+      null,
+      null
+     ],
+     [
+      "20200306",
+      "USA",
+      "North America",
+      8,
+      null,
+      null
+     ],
+     [
+      "20200226",
+      "USA",
+      "North America",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200222",
+      "USA",
+      "North America",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200221",
+      "USA",
+      "North America",
+      6,
+      null,
+      null
+     ],
+     [
+      "20200307",
+      "USA",
+      "North America",
+      5,
+      null,
+      null
+     ],
+     [
+      "20200308",
+      "USA",
+      "North America",
+      13,
+      null,
+      null
+     ],
+     [
+      "20200225",
+      "Finland",
+      "Europe",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200227",
+      "Mexico",
+      "North America",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200220",
+      "Italy",
+      "Europe",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200228",
+      "Australia",
+      "Oceania",
+      4,
+      null,
+      null
+     ],
+     [
+      "20200229",
+      "Australia",
+      "Oceania",
+      3,
+      null,
+      null
+     ],
+     [
+      "20200207",
+      "China",
+      "Asia",
+      6,
+      null,
+      null
+     ],
+     [
+      "20200208",
+      "China",
+      "Asia",
+      4,
+      null,
+      null
+     ],
+     [
+      "20200125",
+      "Canada",
+      "North America",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200123",
+      "Canada",
+      "North America",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200228",
+      "Brazil",
+      "South America",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200305",
+      "Canada",
+      "North America",
+      4,
+      null,
+      null
+     ],
+     [
+      "20200209",
+      "Hong Kong",
+      "Asia",
+      6,
+      null,
+      null
+     ],
+     [
+      "20200208",
+      "Hong Kong",
+      "Asia",
+      4,
+      null,
+      null
+     ],
+     [
+      "20200307",
+      "England",
+      "Europe",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200203",
+      "Hong Kong",
+      "Asia",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200205",
+      "Hong Kong",
+      "Asia",
+      2,
+      null,
+      null
+     ],
+     [
+      "20200227",
+      "Switzerland",
+      "Europe",
+      8,
+      null,
+      null
+     ],
+     [
+      "20200229",
+      "Switzerland",
+      "Europe",
+      7,
+      null,
+      null
+     ],
+     [
+      "20200113",
+      "Thailand",
+      "Asia",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200303",
+      "Australia",
+      "Oceania",
+      2,
+      null,
+      null
+     ],
+     [
+      "20200304",
+      "Australia",
+      "Oceania",
+      3,
+      null,
+      null
+     ],
+     [
+      "20200309",
+      "Australia",
+      "Oceania",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200316",
+      "USA",
+      "North America",
+      3,
+      null,
+      null
+     ],
+     [
+      "20200126",
+      "China",
+      "Asia",
+      4,
+      null,
+      null
+     ],
+     [
+      "20200128",
+      "China",
+      "Asia",
+      8,
+      null,
+      null
+     ],
+     [
+      "20200113",
+      "China",
+      "Asia",
+      2,
+      null,
+      null
+     ],
+     [
+      "20200220",
+      "Japan",
+      "Asia",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200228",
+      "Germany",
+      "Europe",
+      3,
+      null,
+      null
+     ],
+     [
+      "20200303",
+      "Italy",
+      "Europe",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200227",
+      "New Zealand",
+      "Oceania",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200227",
+      "South Korea",
+      "Asia",
+      4,
+      null,
+      null
+     ],
+     [
+      "20200110",
+      "China",
+      "Asia",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200127",
+      "India",
+      "Asia",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200131",
+      "India",
+      "Asia",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200227",
+      "Nigeria",
+      "Africa",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200313",
+      "Belgium",
+      "Europe",
+      3,
+      null,
+      null
+     ],
+     [
+      "20200123",
+      "Taiwan",
+      "Asia",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200312",
+      "United Kingdom",
+      "Europe",
+      6,
+      null,
+      null
+     ],
+     [
+      "20200311",
+      "United Kingdom",
+      "Europe",
+      5,
+      null,
+      null
+     ],
+     [
+      "20200320",
+      "Hungary",
+      "Europe",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200308",
+      "Belgium",
+      "Europe",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200122",
+      "USA",
+      "North America",
+      2,
+      null,
+      null
+     ],
+     [
+      "20200301",
+      "Netherlands",
+      "Europe",
+      9,
+      null,
+      null
+     ],
+     [
+      "20200101",
+      "Netherlands",
+      "Europe",
+      15,
+      null,
+      null
+     ],
+     [
+      "20200227",
+      "Netherlands",
+      "Europe",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200302",
+      "Netherlands",
+      "Europe",
+      15,
+      null,
+      null
+     ],
+     [
+      "20200303",
+      "Netherlands",
+      "Europe",
+      26,
+      null,
+      null
+     ],
+     [
+      "20200305",
+      "Netherlands",
+      "Europe",
+      7,
+      null,
+      null
+     ],
+     [
+      "20200306",
+      "Netherlands",
+      "Europe",
+      17,
+      null,
+      null
+     ],
+     [
+      "20200304",
+      "Netherlands",
+      "Europe",
+      13,
+      null,
+      null
+     ],
+     [
+      "20200308",
+      "Netherlands",
+      "Europe",
+      13,
+      null,
+      null
+     ],
+     [
+      "20200313",
+      "Netherlands",
+      "Europe",
+      5,
+      null,
+      null
+     ],
+     [
+      "20200311",
+      "Netherlands",
+      "Europe",
+      11,
+      null,
+      null
+     ],
+     [
+      "20200309",
+      "Netherlands",
+      "Europe",
+      25,
+      null,
+      null
+     ],
+     [
+      "20200312",
+      "Netherlands",
+      "Europe",
+      8,
+      null,
+      null
+     ],
+     [
+      "20200229",
+      "Netherlands",
+      "Europe",
+      4,
+      null,
+      null
+     ],
+     [
+      "20200310",
+      "Netherlands",
+      "Europe",
+      11,
+      null,
+      null
+     ],
+     [
+      "20200307",
+      "South Africa",
+      "Africa",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200229",
+      "Luxembourg",
+      "Europe",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200228",
+      "Netherlands",
+      "Europe",
+      2,
+      null,
+      null
+     ],
+     [
+      "20200302",
+      "Taiwan",
+      "Asia",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200302",
+      "Australia",
+      "Oceania",
+      2,
+      null,
+      null
+     ],
+     [
+      "20200303",
+      "Finland",
+      "Europe",
+      3,
+      null,
+      null
+     ],
+     [
+      "20200301",
+      "Finland",
+      "Europe",
+      2,
+      null,
+      null
+     ],
+     [
+      "20200304",
+      "Finland",
+      "Europe",
+      3,
+      null,
+      null
+     ],
+     [
+      "20200218",
+      "USA",
+      "North America",
+      6,
+      null,
+      null
+     ],
+     [
+      "20200301",
+      "Portugal",
+      "Europe",
+      2,
+      null,
+      null
+     ],
+     [
+      "20200201",
+      "China",
+      "Asia",
+      34,
+      null,
+      null
+     ],
+     [
+      "20200102",
+      "China",
+      "Asia",
+      2,
+      null,
+      null
+     ],
+     [
+      "20200130",
+      "China",
+      "Asia",
+      21,
+      null,
+      null
+     ],
+     [
+      "20200131",
+      "China",
+      "Asia",
+      4,
+      null,
+      null
+     ],
+     [
+      "20191226",
+      "China",
+      "Asia",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200209",
+      "China",
+      "Asia",
+      5,
+      null,
+      null
+     ],
+     [
+      "20200228",
+      "China",
+      "Asia",
+      2,
+      null,
+      null
+     ],
+     [
+      "20200212",
+      "China",
+      "Asia",
+      2,
+      null,
+      null
+     ],
+     [
+      "20200202",
+      "China",
+      "Asia",
+      17,
+      null,
+      null
+     ],
+     [
+      "20200227",
+      "Germany",
+      "Europe",
+      3,
+      null,
+      null
+     ],
+     [
+      "20200303",
+      "Canada",
+      "North America",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200303",
+      "England",
+      "Europe",
+      5,
+      null,
+      null
+     ],
+     [
+      "20200226",
+      "Germany",
+      "Europe",
+      3,
+      null,
+      null
+     ],
+     [
+      "20200105",
+      "China",
+      "Asia",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200224",
+      "Switzerland",
+      "Europe",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200226",
+      "Switzerland",
+      "Europe",
+      2,
+      null,
+      null
+     ],
+     [
+      "20200228",
+      "United Kingdom",
+      "Europe",
+      5,
+      null,
+      null
+     ],
+     [
+      "20200226",
+      "United Kingdom",
+      "Europe",
+      3,
+      null,
+      null
+     ],
+     [
+      "20200227",
+      "United Kingdom",
+      "Europe",
+      5,
+      null,
+      null
+     ],
+     [
+      "20200128",
+      "Germany",
+      "Europe",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200229",
+      "Brazil",
+      "South America",
+      3,
+      null,
+      null
+     ],
+     [
+      "20200303",
+      "Brazil",
+      "South America",
+      2,
+      null,
+      null
+     ],
+     [
+      "20200301",
+      "Switzerland",
+      "Europe",
+      3,
+      null,
+      null
+     ],
+     [
+      "20200205",
+      "United Kingdom",
+      "Europe",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200208",
+      "United Kingdom",
+      "Europe",
+      3,
+      null,
+      null
+     ],
+     [
+      "20200207",
+      "United Kingdom",
+      "Europe",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200304",
+      "Ireland",
+      "Europe",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200217",
+      "Singapore",
+      "Asia",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200218",
+      "Singapore",
+      "Asia",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200213",
+      "Singapore",
+      "Asia",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200307",
+      "Netherlands",
+      "Europe",
+      5,
+      null,
+      null
+     ],
+     [
+      "20200303",
+      "Ireland",
+      "Europe",
+      3,
+      null,
+      null
+     ],
+     [
+      "20200308",
+      "Spain",
+      "Europe",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200130",
+      "South Korea",
+      "Asia",
+      2,
+      null,
+      null
+     ],
+     [
+      "20200131",
+      "South Korea",
+      "Asia",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200225",
+      "Hong Kong",
+      "Asia",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200224",
+      "Hong Kong",
+      "Asia",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200210",
+      "Hong Kong",
+      "Asia",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200302",
+      "Germany",
+      "Europe",
+      2,
+      null,
+      null
+     ],
+     [
+      "20200229",
+      "United Kingdom",
+      "Europe",
+      7,
+      null,
+      null
+     ],
+     [
+      "20200123",
+      "Singapore",
+      "Asia",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200129",
+      "United Kingdom",
+      "Europe",
+      2,
+      null,
+      null
+     ],
+     [
+      "20200101",
+      "Japan",
+      "Asia",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200222",
+      "Hong Kong",
+      "Asia",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200302",
+      "Chile",
+      "South America",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200304",
+      "Chile",
+      "South America",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200303",
+      "Chile",
+      "South America",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200305",
+      "Chile",
+      "South America",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200129",
+      "Finland",
+      "Europe",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200305",
+      "Spain",
+      "Europe",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200226",
+      "France",
+      "Europe",
+      3,
+      null,
+      null
+     ],
+     [
+      "20200225",
+      "France",
+      "Europe",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200229",
+      "France",
+      "Europe",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200302",
+      "France",
+      "Europe",
+      3,
+      null,
+      null
+     ],
+     [
+      "20200303",
+      "France",
+      "Europe",
+      3,
+      null,
+      null
+     ],
+     [
+      "20200125",
+      "South Korea",
+      "Asia",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200308",
+      "Finland",
+      "Europe",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200309",
+      "Democratic Republic of the Congo",
+      "Africa",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200225",
+      "China",
+      "Asia",
+      7,
+      null,
+      null
+     ],
+     [
+      "20200227",
+      "China",
+      "Asia",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200125",
+      "China",
+      "Asia",
+      6,
+      null,
+      null
+     ],
+     [
+      "20200206",
+      "China",
+      "Asia",
+      5,
+      null,
+      null
+     ],
+     [
+      "20200204",
+      "China",
+      "Asia",
+      8,
+      null,
+      null
+     ],
+     [
+      "20200306",
+      "Panama",
+      "Central America",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200303",
+      "Belgium",
+      "Europe",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200301",
+      "Belgium",
+      "Europe",
+      5,
+      null,
+      null
+     ],
+     [
+      "20200229",
+      "Belgium",
+      "Europe",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200228",
+      "Switzerland",
+      "Europe",
+      3,
+      null,
+      null
+     ],
+     [
+      "20200302",
+      "Switzerland",
+      "Europe",
+      2,
+      null,
+      null
+     ],
+     [
+      "20200214",
+      "China",
+      "Asia",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200213",
+      "China",
+      "Asia",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200302",
+      "Canada",
+      "North America",
+      2,
+      null,
+      null
+     ],
+     [
+      "20200128",
+      "Australia",
+      "Oceania",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200130",
+      "Australia",
+      "Oceania",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200227",
+      "Georgia",
+      "Asia",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200310",
+      "Georgia",
+      "Asia",
+      2,
+      null,
+      null
+     ],
+     [
+      "20200228",
+      "Georgia",
+      "Asia",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200303",
+      "Denmark",
+      "Europe",
+      4,
+      null,
+      null
+     ],
+     [
+      "20200203",
+      "Belgium",
+      "Europe",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200201",
+      "Singapore",
+      "Asia",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200309",
+      "France",
+      "Europe",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200306",
+      "Chile",
+      "South America",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200308",
+      "Chile",
+      "South America",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200307",
+      "Chile",
+      "South America",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200129",
+      "USA",
+      "North America",
+      4,
+      null,
+      null
+     ],
+     [
+      "20200304",
+      "Switzerland",
+      "Europe",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200308",
+      "Switzerland",
+      "Europe",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200307",
+      "Switzerland",
+      "Europe",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200315",
+      "Russia",
+      "Europe",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200226",
+      "Taiwan",
+      "Asia",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200227",
+      "Taiwan",
+      "Asia",
+      2,
+      null,
+      null
+     ],
+     [
+      "20200310",
+      "Peru",
+      "South America",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200305",
+      "Brazil",
+      "South America",
+      2,
+      null,
+      null
+     ],
+     [
+      "20200302",
+      "Denmark",
+      "Europe",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200207",
+      "Hong Kong",
+      "Asia",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200219",
+      "Hong Kong",
+      "Asia",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200210",
+      "USA",
+      "North America",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200203",
+      "China",
+      "Asia",
+      2,
+      null,
+      null
+     ],
+     [
+      "20200211",
+      "China",
+      "Asia",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200225",
+      "USA",
+      "North America",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200210",
+      "China",
+      "Asia",
+      2,
+      null,
+      null
+     ],
+     [
+      "20200215",
+      "China",
+      "Asia",
+      2,
+      null,
+      null
+     ],
+     [
+      "20200208",
+      "Australia",
+      "Oceania",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200223",
+      "USA",
+      "North America",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200317",
+      "Hungary",
+      "Europe",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200307",
+      "Vietnam",
+      "Asia",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200306",
+      "Vietnam",
+      "Asia",
+      2,
+      null,
+      null
+     ],
+     [
+      "20200307",
+      "Saudi Arabia",
+      "Asia",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200318",
+      "USA",
+      "North America",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200311",
+      "Japan",
+      "Asia",
+      2,
+      null,
+      null
+     ],
+     [
+      "20200315",
+      "New Zealand",
+      "Oceania",
+      2,
+      null,
+      null
+     ],
+     [
+      "20200302",
+      "Kuwait",
+      "Asia",
+      3,
+      null,
+      null
+     ],
+     [
+      "20200215",
+      "Japan",
+      "Asia",
+      14,
+      null,
+      null
+     ],
+     [
+      "20200216",
+      "Japan",
+      "Asia",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200121",
+      "USA",
+      "North America",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200123",
+      "USA",
+      "North America",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200211",
+      "Vietnam",
+      "Asia",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200124",
+      "Vietnam",
+      "Asia",
+      2,
+      null,
+      null
+     ],
+     [
+      "20200128",
+      "USA",
+      "North America",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200122",
+      "Hong Kong",
+      "Asia",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200224",
+      "Netherlands",
+      "Europe",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200302",
+      "Brazil",
+      "South America",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200303",
+      "Germany",
+      "Europe",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200302",
+      "Ireland",
+      "Europe",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200305",
+      "Finland",
+      "Europe",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200307",
+      "Finland",
+      "Europe",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200201",
+      "Lithuania",
+      "Europe",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200309",
+      "Belgium",
+      "Europe",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200310",
+      "Saudi Arabia",
+      "Asia",
+      2,
+      null,
+      null
+     ],
+     [
+      "20200316",
+      "Brazil",
+      "South America",
+      1,
+      null,
+      null
+     ]
+    ],
+    "H": [
+     [
+      "20200125",
+      "Singapore",
+      "Asia",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200209",
+      "Singapore",
+      "Asia",
+      1,
+      null,
+      null
+     ],
+     [
+      "20200220",
+      "Malaysia",
+      "Asia",
+      3,
+      null,
+      null
+     ]
+    ]
+   },
+   "trend": -0.2746917524826609
   }
  },
- "sequences": 26,
+ "sequences": 28,
  "sites": 222,
- "total sequences": 1481,
- "tree": "((epi_isl_402128_Hubei_20191230_MGISEQ_1369:1e-06,((epi_isl_415132_England_20200228_Illumina_1:0.001506,epi_isl_417083_Washington_20200228_Illumina_1:0.001506)Node4:1e-06,(epi_isl_413024_Zurich_20200229_Illumina_1:0.001506,epi_isl_415138_England_20200302_Illumina_7:0.001506)Node7:1e-06)Node3:1e-06)Node1:1e-06,(((((epi_isl_413572_Haarlem_20200301_Nanopore_42:0.001506,epi_isl_416327_Shanghai_20200128_Illumina_1:0.001506)Node14:1e-06,(epi_isl_413022_Zurich_20200229_Illumina_2:0.003015,epi_isl_414636_Hauts_de_France_20200304_Illumina_1:0.001506)Node17:1e-06)Node13:1e-06,(epi_isl_413855_Guangdong_20200207_metagenomics_BGI_9:0.001506,epi_isl_417032_Queensland_20200311_Illumina_1:0.001506)Node20:1e-06)Node12:1e-06,(((epi_isl_406534_Guangdong_20200122_null_12:1e-06,epi_isl_408667_Tokyo_20200131_NextSeq500_1:0.001505)Node25:0.001505,epi_isl_416395_Shanghai_20200209_Illumina_1:0.001507)Node24:1e-06,((((epi_isl_416457_California_20200318_Nanopore_2:0.001506,epi_isl_415150_England_20200309_Illumina_4:0.001506)Node32:1e-06,(epi_isl_408431_Ile_de_France_20200129_Illumina_4:1e-06,epi_isl_416907_Selangor_20200220_Illumina_1:0.001504)Node35:0.001506)Node31:1e-06,(epi_isl_413520_Beijing_20200128_MGISEQ2000_3:0.001506,(epi_isl_416539_Wellington_20200315_Nanopore_2:0.001506,epi_isl_414010_England_20200226_Illumina_10:0.001506)Node40:1e-06)Node38:1e-06)Node30:1e-06,(epi_isl_416692_Washington_20200314_Illumina_1:0.001505,epi_isl_406716_Hubei_20200102_Illumina_2:0.003016)Node43:1e-06)Node29:1e-06)Node23:1e-06)Node11:1e-06,epi_isl_417103_Washington_20200305_Illumina_1:0.001506)Node10:1e-06,(epi_isl_416569_unknown_20200215_Illumina_1:0.001516,epi_isl_415620_Washington_20200309_Illumina_1:0.001506)Node47:1e-06)"
+ "total sequences": 1519,
+ "tree": "(epi_isl_413019_Zurich_20200226_Illumina_1,epi_isl_417034_Amazonas_State_20200316_Illumina_1,epi_isl_417088_Washington_20200302_Illumina_1,epi_isl_414630_Hauts_de_France_20200303_Illumina_1,epi_isl_416521_Saudi_Arabia_20200310_Illumina_3,epi_isl_413487_Washington_20200301_Illumina_3,epi_isl_406592_Guandong_20200113_null_1,((epi_isl_406034_California_20200123_Sanger__15,epi_isl_408485_Beijing_20200118_Illumina_1)Node42,epi_isl_404253_Illinois_20200121_Sanger__1)Node41,epi_isl_415615_Washington_20200308_Illumina_1,(epi_isl_407987_Singapore_20200125_Illumina_4,epi_isl_416829_Selangor_20200220_Illumina_1)Node49,(epi_isl_413999_Argovie_20200227_null_11,epi_isl_417237_England_20200303_Illumina_2)Node34,epi_isl_416321_Shanghai_20200128_Illumina_1,epi_isl_415132_England_20200228_Illumina_3,epi_isl_416543_Dasman_20200302_Illumina_1,epi_isl_413850_Guangdong_20200210_metagenomics_BGI_8,epi_isl_413565_Berlicum_20200224_Nanopore_93,epi_isl_416687_Washington_20200314_Illumina_1,epi_isl_402120_Hubei_20200101_null_1355,epi_isl_413017_South_Korea_20200206_Illumina_2,epi_isl_416452_Washington_20200310_Illumina_1,epi_isl_415105_Bahia_20200304_Nanopore_1,epi_isl_416383_Shanghai_20200201_Illumina_1,epi_isl_415140_England_20200229_Illumina_4,epi_isl_417026_Utah_20200320_Illumina_1)"
 }

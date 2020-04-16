@@ -7,25 +7,25 @@
       [0, 0, 0, 0, 1, 0],
       [0, 0, 0, 0, 1, 0],
       [0, 0, 0, 0, 1, 0],
-      [9.916914407010406, 0, 7.947779952731185, 0.4516983007261786, 0.5015295599228917, 0.02928493866007154],
+      [9.667101177388965, 0, 9.591617472682669, 0.01441565164967784, 0.9044315012928893, 0.0008255699496935272],
       [0, 0, 0, 0, 1, 0],
       [0, 0, 0, 0, 1, 0],
       [0, 0, 0, 0, 1, 0],
       [0, 0, 0, 0, 1, 0],
-      [0, 0, 0, -6.700363996969827e-08, 1, 0],
+      [0, 0, 0, -7.590053030526178e-10, 1, 0],
       [0, 0, 0, 0, 1, 0],
       [0, 0, 0, 0, 1, 0],
       [0, 0, 0, 0, 1, 0],
       [0, 0, 0, 0, 1, 0],
       [0, 0, 0, 0, 1, 0],
-      [10.19408349784632, 0, 8.311075367442156, 0.4111728524817391, 0.5213748113343071, 0.03010342710218814],
+      [9.912824608113318, 0, 9.880269722372592, 0.01305476842918551, 0.9090336992206995, 0.0008465547182005659],
       [0, 0, 0, 0, 1, 0],
       [0, 0, 0, 0, 1, 0],
       [0, 0, 0, 0, 1, 0],
       [0, 0, 0, 0, 1, 0],
       [0, 0, 0, 0, 1, 0],
       [0, 0, 0, 0, 1, 0],
-      [37.71116813568015, 0, 20.06852721601546, 1.282542646426599, 0.2574268080632333, 0.1113621838736799],
+      [45.65354463346024, 0, 44.06342328305762, 0.06783940479169814, 0.7945089762243595, 0.003898810393598977],
       [0, 0, 0, 0, 1, 0],
       [0, 0, 0, 0, 1, 0],
       [0, 0, 0, 0, 1, 0],
@@ -63,30 +63,30 @@
       [0, 0, 0, 0, 1, 0],
       [0, 0, 0, 0, 1, 0],
       [0, 0, 0, 0, 1, 0],
-      [0, 0, 0, -1.13241299004585e-07, 1, 0],
+      [0, 0, 0, -3.817885989576553e-07, 1, 0],
       [0, 0, 0, 0, 1, 0],
       [0, 0, 0, 0, 1, 0],
-      [0, 0, 0, -2.441240454231774e-08, 1, 0],
+      [0, 0, 0, -2.814104504977877e-10, 1, 0],
       [0, 0, 0, 0, 1, 0],
-      [0, 0, 0, -4.320593181006416e-07, 1, 0],
-      [0, 0, 0, -5.502755858088904e-06, 1, 0],
+      [0, 0, 0, -2.714009106341564e-08, 1, 0],
+      [0, 0, 0, -5.292903892950562e-10, 1, 0],
       [0, 0, 0, 0, 1, 0],
       [0, 0, 0, 0, 1, 0],
       [0, 0, 0, 0, 1, 0],
       [0, 0, 0, 0, 1, 0],
-      [0, 0, 0, -1.56708852117049e-05, 1, 0],
+      [0, 0, 0, -1.289875776677718e-05, 1, 0],
       [0, 0, 0, 0, 1, 0],
-      [0, 0, 0, -2.488889094820479e-10, 1, 0],
+      [0, 0, 0, -9.953550872410233e-07, 1, 0],
       [0, 0, 0, 0, 1, 0],
-      [0, 0, 0, -9.253713244561368e-07, 1, 0],
+      [0, 0, 0, -4.961221584665054e-07, 1, 0],
       [0, 0, 0, 0, 1, 0],
       [0, 0, 0, 0, 1, 0],
       [0, 0, 0, 0, 1, 0],
       [0, 0, 0, 0, 1, 0],
       [0, 0, 0, 0, 1, 0],
       [0, 0, 0, 0, 1, 0],
-      [0, 66.04516647379037, 16.36777508462379, 2.257595004744921, 0.1329604061355426, 0.4793766523689871],
-      [0, 0, 0, -6.309418765226837e-08, 1, 0],
+      [0, 1914.395662557491, 27.54669142228419, 8.269992840719967, 0.00403056653045708, 0.3987166446706873],
+      [0, 0, 0, -4.366622619045302e-09, 1, 0],
       [0, 0, 0, 0, 1, 0],
       [0, 0, 0, 0, 1, 0],
       [0, 0, 0, 0, 1, 0],
@@ -96,9 +96,9 @@
       [0, 0, 0, 0, 1, 0],
       [0, 0, 0, 0, 1, 0],
       [0, 0, 0, 0, 1, 0],
-      [0, 0, 0, -1.718078834755943e-08, 1, 0],
+      [0, 0, 0, -4.300082387942439e-07, 1, 0],
       [0, 0, 0, 0, 1, 0],
-      [0, 0, 0, -8.760659007123195e-07, 1, 0],
+      [0, 0, 0, -5.526326347649047e-07, 1, 0],
       [0, 0, 0, 0, 1, 0],
       [0, 0, 0, 0, 1, 0],
       [0, 0, 0, 0, 1, 0],
@@ -106,23 +106,23 @@
       [0, 0, 0, 0, 1, 0],
       [0, 0, 0, 0, 1, 0],
       [0, 0, 0, 0, 1, 0],
-      [32.65915961904474, 0, 20.6505683094376, 0.8288897335765046, 0.3625937707369249, 0.09644345477632671],
+      [31.69062418017034, 0, 31.09514257922429, 0.03063924794883377, 0.8610476503764477, 0.002706377695867477],
       [0, 0, 0, 0, 1, 0],
       [0, 0, 0, 0, 1, 0],
       [0, 0, 0, 0, 1, 0],
       [0, 0, 0, 0, 1, 0],
       [0, 0, 0, 0, 1, 0],
       [0, 0, 0, 0, 1, 0],
-      [0, 0, 0, -1.520911217767207e-05, 1, 0],
+      [0, 0, 0, -1.347121525441253e-09, 1, 0],
       [0, 0, 0, 0, 1, 0],
-      [0, 0, 0, -6.805617047689339e-08, 1, 0],
+      [0, 0, 0, -3.28540807004174e-07, 1, 0],
       [0, 0, 0, 0, 1, 0],
       [0, 0, 0, 0, 1, 0],
       [0, 0, 0, 0, 1, 0],
       [0, 0, 0, 0, 1, 0],
-      [0, 61.16100459042712, 20.72708483036073, 2.118964948880819, 0.1454848359834121, 0.4439258646992484],
-      [9.936653650446916, 0, 7.942528636986853, 0.451557373729198, 0.5015963088324067, 0.02934322922400196],
-      [9.815521984713772, 181.0377537009702, 27.74481957708002, 4.551949303411782, 0.03288129175696386, 1.343014649012179] 
+      [0, 2108.744362589074, 32.08559717947289, 8.458472782575603, 0.003633468178344645, 0.4391942027263621],
+      [9.667101217798807, 0, 9.591617515732169, 0.01441565170692272, 0.904431501104047, 0.0008255699531445264],
+      [9.814123479075874, 2676.351414508851, 9.868276327469152, 1.253336125882999, 0.2629162506725475, 0.5582494679432132] 
       ]
     },
    "headers":    [
@@ -144,191 +144,133 @@
   },
  "branch attributes":{
    "0":{
-     "Node10":{
-       "Global MG94xREV":0,
-       "Nucleotide GTR":0
-      },
-     "Node11":{
-       "Global MG94xREV":0,
-       "Nucleotide GTR":0
-      },
-     "Node12":{
-       "Global MG94xREV":0,
-       "Nucleotide GTR":0
-      },
-     "Node14":{
-       "Global MG94xREV":0,
-       "Nucleotide GTR":0
-      },
-     "Node15":{
-       "Global MG94xREV":0,
-       "Nucleotide GTR":0
-      },
-     "Node19":{
-       "Global MG94xREV":0,
-       "Nucleotide GTR":0
-      },
-     "Node2":{
-       "Global MG94xREV":0,
-       "Nucleotide GTR":0
-      },
      "Node22":{
-       "Global MG94xREV":0,
-       "Nucleotide GTR":0
-      },
-     "Node24":{
-       "Global MG94xREV":0.01119884389992255,
-       "Nucleotide GTR":0.01109427640299432
-      },
-     "Node3":{
-       "Global MG94xREV":0,
-       "Nucleotide GTR":0
-      },
-     "Node31":{
-       "Global MG94xREV":0,
-       "Nucleotide GTR":0
-      },
-     "Node33":{
-       "Global MG94xREV":0,
-       "Nucleotide GTR":0
-      },
-     "Node35":{
-       "Global MG94xREV":0,
-       "Nucleotide GTR":0
+       "Global MG94xREV":0.002756638702742951,
+       "Nucleotide GTR":0.002757139021263733
       },
      "Node38":{
-       "Global MG94xREV":0,
-       "Nucleotide GTR":0
+       "Global MG94xREV":0.003952020741279521,
+       "Nucleotide GTR":0.003683465341883131
       },
-     "Node4":{
-       "Global MG94xREV":0,
-       "Nucleotide GTR":0
+     "epi_isl_402120_Hubei_20200101_null_1":{
+       "Global MG94xREV":0.002795344298379362,
+       "Nucleotide GTR":0.002760544509870136,
+       "original name":"epi_isl_402120_Hubei_20200101_null_1"
       },
-     "Node5":{
-       "Global MG94xREV":0,
-       "Nucleotide GTR":0
-      },
-     "Node6":{
-       "Global MG94xREV":0,
-       "Nucleotide GTR":0
-      },
-     "Node7":{
-       "Global MG94xREV":0,
-       "Nucleotide GTR":0
-      },
-     "Node9":{
-       "Global MG94xREV":0.002782184205009983,
-       "Nucleotide GTR":0.002759616773927311
-      },
-     "epi_isl_402128_Hubei_20191230_MGISEQ_1053":{
+     "epi_isl_402125_China_20191231_Illumina_1040":{
        "Global MG94xREV":0,
        "Nucleotide GTR":0,
-       "original name":"epi_isl_402128_Hubei_20191230_MGISEQ_1053"
+       "original name":"epi_isl_402125_China_20191231_Illumina_1040"
       },
-     "epi_isl_402129_Hubei_20191230_Illumina_1":{
-       "Global MG94xREV":0.00279274351006685,
-       "Nucleotide GTR":0.002760397431374974,
-       "original name":"epi_isl_402129_Hubei_20191230_Illumina_1"
-      },
-     "epi_isl_404253_Illinois_20200121_Sanger__425":{
+     "epi_isl_403932_Guandong_20200114_illumina_469":{
        "Global MG94xREV":0,
        "Nucleotide GTR":0,
-       "original name":"epi_isl_404253_Illinois_20200121_Sanger__425"
+       "original name":"epi_isl_403932_Guandong_20200114_illumina_469"
       },
-     "epi_isl_406534_Guangdong_20200122_null_14":{
-       "Global MG94xREV":0.002797974500090736,
-       "Nucleotide GTR":0.002766493067818814,
-       "original name":"epi_isl_406534_Guangdong_20200122_null_14"
-      },
-     "epi_isl_408668_Thanh_Hoa_20200124_Illumina_2":{
-       "Global MG94xREV":0.002785693251556848,
-       "Nucleotide GTR":0.002759616773992014,
-       "original name":"epi_isl_408668_Thanh_Hoa_20200124_Illumina_2"
-      },
-     "epi_isl_412116_England_20200209_Illumina_1":{
-       "Global MG94xREV":0.002783736854681778,
-       "Nucleotide GTR":0.002759616774019513,
-       "original name":"epi_isl_412116_England_20200209_Illumina_1"
-      },
-     "epi_isl_412900_Hubei_20191230_Illumina_1":{
-       "Global MG94xREV":0.008425321231171113,
-       "Nucleotide GTR":0.008328893116726828,
-       "original name":"epi_isl_412900_Hubei_20191230_Illumina_1"
-      },
-     "epi_isl_413873_Guangdong_20200228_multiplex_pcr_nanopore_2":{
-       "Global MG94xREV":0.002791703009290014,
-       "Nucleotide GTR":0.002760833524169547,
-       "original name":"epi_isl_413873_Guangdong_20200228_multiplex_pcr_nanopore_2"
-      },
-     "epi_isl_413894_Guangdong_20200228_multiplex_pcr_nanopore_1":{
+     "epi_isl_404253_Illinois_20200121_Sanger__1":{
        "Global MG94xREV":0,
        "Nucleotide GTR":0,
-       "original name":"epi_isl_413894_Guangdong_20200228_multiplex_pcr_nanopore_1"
+       "original name":"epi_isl_404253_Illinois_20200121_Sanger__1"
       },
-     "epi_isl_413928_California_20200305_Illumina_1":{
-       "Global MG94xREV":0.002791358060379447,
-       "Nucleotide GTR":0.002760833523580645,
-       "original name":"epi_isl_413928_California_20200305_Illumina_1"
+     "epi_isl_406034_California_20200123_Sanger__17":{
+       "Global MG94xREV":0.002802756619391766,
+       "Nucleotide GTR":0.002766833018348451,
+       "original name":"epi_isl_406034_California_20200123_Sanger__17"
       },
-     "epi_isl_414363_Washington_20200304_Illumina_3":{
-       "Global MG94xREV":0.002823461332061082,
-       "Nucleotide GTR":0.002787809223132917,
-       "original name":"epi_isl_414363_Washington_20200304_Illumina_3"
+     "epi_isl_408487_Henan_20200120_Illumina_1":{
+       "Global MG94xREV":0.002791256837359161,
+       "Nucleotide GTR":0.002757139653295742,
+       "original name":"epi_isl_408487_Henan_20200120_Illumina_1"
       },
-     "epi_isl_414934_Shandong_20200121_null_1":{
+     "epi_isl_411956_Texas_20200211_Sanger_1":{
+       "Global MG94xREV":0.002788610253631035,
+       "Nucleotide GTR":0.002757139622599303,
+       "original name":"epi_isl_411956_Texas_20200211_Sanger_1"
+      },
+     "epi_isl_412459_Hubei_20200108_Illumina_1":{
+       "Global MG94xREV":0.008441140796233241,
+       "Nucleotide GTR":0.008329841847028221,
+       "original name":"epi_isl_412459_Hubei_20200108_Illumina_1"
+      },
+     "epi_isl_413868_Guangdong_20200228_multiplex_pcr_nanopore_1":{
+       "Global MG94xREV":0.002795803355058956,
+       "Nucleotide GTR":0.002760418271466316,
+       "original name":"epi_isl_413868_Guangdong_20200228_multiplex_pcr_nanopore_1"
+      },
+     "epi_isl_413889_Guangdong_20200130_multiplex_pcr_nanopore_1":{
        "Global MG94xREV":0,
        "Nucleotide GTR":0,
-       "original name":"epi_isl_414934_Shandong_20200121_null_1"
+       "original name":"epi_isl_413889_Guangdong_20200130_multiplex_pcr_nanopore_1"
       },
-     "epi_isl_415538_Wales_20200312_Nanopore_1":{
-       "Global MG94xREV":0.002786434014672192,
-       "Nucleotide GTR":0.002759616773992014,
-       "original name":"epi_isl_415538_Wales_20200312_Nanopore_1"
+     "epi_isl_413902_Guangdong_20200228_multiplex_pcr_nanopore_1":{
+       "Global MG94xREV":0.002794657316324682,
+       "Nucleotide GTR":0.002760418271559807,
+       "original name":"epi_isl_413902_Guangdong_20200228_multiplex_pcr_nanopore_1"
       },
-     "epi_isl_416349_Shanghai_20200130_Illumina_4":{
-       "Global MG94xREV":0.002779490602872953,
-       "Nucleotide GTR":0.002754938854767981,
-       "original name":"epi_isl_416349_Shanghai_20200130_Illumina_4"
+     "epi_isl_414040_England_20200205_Illumina_1":{
+       "Global MG94xREV":0,
+       "Nucleotide GTR":0,
+       "original name":"epi_isl_414040_England_20200205_Illumina_1"
       },
-     "epi_isl_416411_Victoria_20200125_Ilumina_2":{
-       "Global MG94xREV":0.002792492036188134,
-       "Nucleotide GTR":0.002760910453143077,
-       "original name":"epi_isl_416411_Victoria_20200125_Ilumina_2"
+     "epi_isl_414041_England_20200208_Illumina_3":{
+       "Global MG94xREV":0,
+       "Nucleotide GTR":0,
+       "original name":"epi_isl_414041_England_20200208_Illumina_3"
       },
-     "epi_isl_416521_Saudi_Arabia_20200310_Illumina_2":{
-       "Global MG94xREV":0.00278268300995045,
-       "Nucleotide GTR":0.002756698083350675,
-       "original name":"epi_isl_416521_Saudi_Arabia_20200310_Illumina_2"
+     "epi_isl_414688_Guangdong_20200225_DNBSEQ_T7_1":{
+       "Global MG94xREV":0.00720318795768677,
+       "Nucleotide GTR":0.007376450465100855,
+       "original name":"epi_isl_414688_Guangdong_20200225_DNBSEQ_T7_1"
       },
-     "epi_isl_416666_Washington_20200312_Illumina_3":{
-       "Global MG94xREV":0.002792567793237094,
-       "Nucleotide GTR":0.002760397414373152,
-       "original name":"epi_isl_416666_Washington_20200312_Illumina_3"
+     "epi_isl_415516_Noord_Brabant_20200311_Nanopore_1":{
+       "Global MG94xREV":0.002791230875687903,
+       "Nucleotide GTR":0.002757139650518681,
+       "original name":"epi_isl_415516_Noord_Brabant_20200311_Nanopore_1"
       },
-     "epi_isl_416684_Washington_20200314_Illumina_1":{
-       "Global MG94xREV":0.002792089359438693,
-       "Nucleotide GTR":0.002757847318768671,
-       "original name":"epi_isl_416684_Washington_20200314_Illumina_1"
+     "epi_isl_416343_Shanghai_20200204_Illumina_1":{
+       "Global MG94xREV":0.002784523717607604,
+       "Nucleotide GTR":0.002753742779914982,
+       "original name":"epi_isl_416343_Shanghai_20200204_Illumina_1"
       },
-     "epi_isl_417281_England_20200306_Illumina_1":{
-       "Global MG94xREV":0.002792743510063624,
-       "Nucleotide GTR":0.002760397431371769,
-       "original name":"epi_isl_417281_England_20200306_Illumina_1"
+     "epi_isl_416397_Shanghai_20200202_Illumina_2":{
+       "Global MG94xREV":0.00279577665169429,
+       "Nucleotide GTR":0.002761767506005962,
+       "original name":"epi_isl_416397_Shanghai_20200202_Illumina_2"
       },
-     "epi_isl_417314_England_20200310_Illumina_1":{
-       "Global MG94xREV":0.002844614892272748,
-       "Nucleotide GTR":0.002811054857751716,
-       "original name":"epi_isl_417314_England_20200310_Illumina_1"
+     "epi_isl_416464_Washington_20200301_Illumina_1":{
+       "Global MG94xREV":0.002787949237771387,
+       "Nucleotide GTR":0.002757302442605813,
+       "original name":"epi_isl_416464_Washington_20200301_Illumina_1"
       },
-     "epi_isl_417324_California_20200304_Illumina_1":{
-       "Global MG94xREV":0.002788149353064232,
-       "Nucleotide GTR":0.002757179451915331,
-       "original name":"epi_isl_417324_California_20200304_Illumina_1"
+     "epi_isl_416661_Washington_20200312_Illumina_3":{
+       "Global MG94xREV":0.002795474174533149,
+       "Nucleotide GTR":0.00276054540597357,
+       "original name":"epi_isl_416661_Washington_20200312_Illumina_3"
       },
-     "epi_isl_417332_California_20200314_Illumina_1":{
-       "Global MG94xREV":0.002783986698129352,
-       "Nucleotide GTR":0.002757791291513391,
-       "original name":"epi_isl_417332_California_20200314_Illumina_1"
+     "epi_isl_416679_Washington_20200311_Illumina_1":{
+       "Global MG94xREV":0.002793619780465685,
+       "Nucleotide GTR":0.002756580006205178,
+       "original name":"epi_isl_416679_Washington_20200311_Illumina_1"
+      },
+     "epi_isl_417276_England_20200307_Illumina_1":{
+       "Global MG94xREV":0.002795343554015184,
+       "Nucleotide GTR":0.002760545405646718,
+       "original name":"epi_isl_417276_England_20200307_Illumina_1"
+      },
+     "epi_isl_417308_England_20200306_Illumina_1":{
+       "Global MG94xREV":0.002846943986426364,
+       "Nucleotide GTR":0.002814503896427749,
+       "original name":"epi_isl_417308_England_20200306_Illumina_1"
+      },
+     "epi_isl_417319_California_20200305_Illumina_1":{
+       "Global MG94xREV":0.002790612022031666,
+       "Nucleotide GTR":0.002756648651066171,
+       "original name":"epi_isl_417319_California_20200305_Illumina_1"
+      },
+     "epi_isl_417327_California_20200309_Illumina_1":{
+       "Global MG94xREV":0.002789831055518088,
+       "Nucleotide GTR":0.002757013147930963,
+       "original name":"epi_isl_417327_California_20200309_Illumina_1"
       }
     },
    "attributes":{
@@ -356,169 +298,154 @@
   },
  "fits":{
    "Global MG94xREV":{
-     "AIC-c":1410.784403143465,
+     "AIC-c":1363.965071112157,
      "Equilibrium frequencies":      [
-[0.02472835274020341],
-      [0.0108362722717979],
-      [0.00861542463890759],
-      [0.03115855621989144],
-      [0.01361087915091686],
-      [0.005964456827651159],
-      [0.004742066923178246],
-      [0.01715016554808749],
-      [0.01207076256173608],
-      [0.005289558549305975],
-      [0.00420548615904],
-      [0.01520956684208641],
-      [0.02272004367076108],
-      [0.009956206215193308],
-      [0.007915724354736026],
-      [0.02862801924055596],
-      [0.01933296273760696],
-      [0.008471945149206446],
-      [0.006735656242959723],
-      [0.02436018333632997],
-      [0.01064117057109654],
-      [0.004663093527114444],
-      [0.003707412462456218],
-      [0.0134082328478722],
-      [0.009437086459913748],
-      [0.004135448867399225],
-      [0.003287906317918907],
-      [0.0118910463669963],
-      [0.01776283937302059],
-      [0.007783897528011389],
-      [0.006188621037521669],
-      [0.02238177508400467],
-      [0.03198994274712301],
-      [0.01401839148806156],
-      [0.01114538213832272],
-      [0.04030840388073263],
-      [0.0176077739326303],
-      [0.007715945920006235],
-      [0.00613459582080719],
-      [0.02218638741330439],
-      [0.01561539530436497],
-      [0.006842860781209532],
-      [0.005440445745210652],
-      [0.01967592332569106],
-      [0.02939188484876825],
-      [0.01287989014669661],
-      [0.01024021177513863],
-      [0.03703476354007185],
-      [0.01922943835877473],
-      [0.05529221868466485],
-      [0.02415309943092295],
-      [0.0105841891043461],
-      [0.008415004837942422],
-      [0.03043371770087626],
-      [0.0093865526370844],
-      [0.007462818839870529],
-      [0.02699004055248228],
-      [0.04031770966226222],
-      [0.01766772270945761],
-      [0.01404679854165325],
-      [0.0508016703080451] 
+[0.02463634343723015],
+      [0.01085488282983264],
+      [0.008600553689416996],
+      [0.0311175927000113],
+      [0.01358005102703445],
+      [0.005983431067893109],
+      [0.004740799228611644],
+      [0.01715264677086912],
+      [0.01202933910254877],
+      [0.005300180475693665],
+      [0.004199445305804918],
+      [0.01519397858684491],
+      [0.02270209242139494],
+      [0.01000264320288187],
+      [0.007925306173368793],
+      [0.02867448520543945],
+      [0.01927748487738259],
+      [0.00849374584061185],
+      [0.006729774818543188],
+      [0.02434894302490133],
+      [0.01062613975059821],
+      [0.00468192458105864],
+      [0.00370958805916626],
+      [0.01342163010411786],
+      [0.009412736237629055],
+      [0.004147293579824785],
+      [0.003285988587645347],
+      [0.01188900833362098],
+      [0.01776396909116909],
+      [0.007826884032880179],
+      [0.006201406076961263],
+      [0.02243725641846863],
+      [0.03185456008270438],
+      [0.01403526128683062],
+      [0.01112043493556934],
+      [0.04023475435050509],
+      [0.01755887810498456],
+      [0.007736520029384283],
+      [0.006129808762108525],
+      [0.02217821076135664],
+      [0.01555382218849465],
+      [0.006853083447319507],
+      [0.005429843237435949],
+      [0.01964567124269602],
+      [0.0293535917325943],
+      [0.01293332347407309],
+      [0.01024734625560926],
+      [0.03707583936490143],
+      [0.01927828438339079],
+      [0.05526488040466417],
+      [0.02411818623418203],
+      [0.0106265804544882],
+      [0.008419664879528149],
+      [0.03046312038190494],
+      [0.009413126617350449],
+      [0.007458219690341047],
+      [0.02698452343560327],
+      [0.04031894223628578],
+      [0.01776470582628304],
+      [0.01407535287398417],
+      [0.05092591868597043] 
       ],
-     "Log Likelihood":-647.1226163182762,
+     "Log Likelihood":-639.3512877406296,
      "Rate Distributions":{
        "non-synonymous/synonymous rate ratio for *background*":        [
-[1.153993549467168, 1] 
+[1.004675253507382, 1] 
         ],
        "non-synonymous/synonymous rate ratio for *test*":        [
-[1.519360641241735, 1] 
+[31.80087768672688, 1] 
         ]
       },
      "display order":1,
-     "estimated parameters":57
+     "estimated parameters":42
     },
    "Nucleotide GTR":{
-     "AIC-c":1428.12091523577,
+     "AIC-c":1422.268579166784,
      "Equilibrium frequencies":      [
-[0.2727614747930775],
-      [0.1769500877853022],
-      [0.1844745422623527],
-      [0.3658138951592675] 
+[0.2725419251091201],
+      [0.1770905122903745],
+      [0.1843269009878245],
+      [0.3660406616126809] 
       ],
-     "Log Likelihood":-664.7517378598204,
+     "Log Likelihood":-657.8037282528309,
      "Rate Distributions":{
        "Substitution rate from nucleotide A to nucleotide C":0,
        "Substitution rate from nucleotide A to nucleotide G":1,
-       "Substitution rate from nucleotide A to nucleotide T":0.3723662200612031,
-       "Substitution rate from nucleotide C to nucleotide G":0.3798614979974982,
-       "Substitution rate from nucleotide C to nucleotide T":2.309695722151361,
-       "Substitution rate from nucleotide G to nucleotide T":0.9208476533699274
+       "Substitution rate from nucleotide A to nucleotide T":0.2484619486064264,
+       "Substitution rate from nucleotide C to nucleotide G":0.3793099563939416,
+       "Substitution rate from nucleotide C to nucleotide T":2.310798297585749,
+       "Substitution rate from nucleotide G to nucleotide T":0.9227151765102422
       },
      "display order":0,
-     "estimated parameters":49
+     "estimated parameters":53
     }
   },
  "input":{
-   "file name":"/Users/sergei/Dropbox/COVID-19/data/fasta/20200325/sequences.ORF8.compressed.fas",
-   "number of sequences":22,
+   "file name":"/Volumes/sergei-raid/Dropbox/COVID-19/data/fasta/20200325/sequences.ORF8.compressed.fas",
+   "number of sequences":24,
    "number of sites":121,
    "partition count":1,
    "trees":{
-     "0":"(epi_isl_415538_Wales_20200312_Nanopore_1:0.002756,((((((epi_isl_417281_England_20200306_Illumina_1:0.002759,((((epi_isl_404253_Illinois_20200121_Sanger__425:1e-06,((epi_isl_416684_Washington_20200314_Illumina_1:0.002756,epi_isl_417332_California_20200314_Illumina_1:0.002756)Node15:1e-06,epi_isl_406534_Guangdong_20200122_null_14:0.002765)Node14:1e-06)Node12:1e-06,(epi_isl_416521_Saudi_Arabia_20200310_Illumina_2:0.002755,epi_isl_412116_England_20200209_Illumina_1:0.002756)Node19:1e-06)Node11:1e-06,(epi_isl_416349_Shanghai_20200130_Illumina_4:0.002752,(epi_isl_413894_Guangdong_20200228_multiplex_pcr_nanopore_1:1e-06,epi_isl_414934_Shandong_20200121_null_1:1e-06)Node24:0.011086)Node22:1e-06)Node10:1e-06,epi_isl_408668_Thanh_Hoa_20200124_Illumina_2:0.002756)Node9:0.002756)Node7:1e-06,epi_isl_402129_Hubei_20191230_Illumina_1:0.002759)Node6:1e-06,epi_isl_413873_Guangdong_20200228_multiplex_pcr_nanopore_2:0.002759)Node5:1e-06,epi_isl_402128_Hubei_20191230_MGISEQ_1053:1e-06)Node4:1e-06,(epi_isl_414363_Washington_20200304_Illumina_3:0.002786,(epi_isl_416411_Victoria_20200125_Ilumina_2:0.00276,(epi_isl_417314_England_20200310_Illumina_1:0.002809,epi_isl_412900_Hubei_20191230_Illumina_1:0.008322)Node35:1e-06)Node33:1e-06)Node31:1e-06)Node3:1e-06,(epi_isl_413928_California_20200305_Illumina_1:0.002759,epi_isl_416666_Washington_20200312_Illumina_3:0.002759)Node38:1e-06)Node2:1e-06,epi_isl_417324_California_20200304_Illumina_1:0.002756)"
+     "0":"(epi_isl_416661_Washington_20200312_Illumina_3,epi_isl_414040_England_20200205_Illumina_1,epi_isl_417319_California_20200305_Illumina_1,epi_isl_413868_Guangdong_20200228_multiplex_pcr_nanopore_1,epi_isl_402125_China_20191231_Illumina_1040,epi_isl_417308_England_20200306_Illumina_1,epi_isl_412459_Hubei_20200108_Illumina_1,(epi_isl_404253_Illinois_20200121_Sanger__1,epi_isl_406034_California_20200123_Sanger__17,epi_isl_408487_Henan_20200120_Illumina_1,epi_isl_411956_Texas_20200211_Sanger_1,epi_isl_403932_Guandong_20200114_illumina_469,epi_isl_416464_Washington_20200301_Illumina_1,epi_isl_417327_California_20200309_Illumina_1,epi_isl_416343_Shanghai_20200204_Illumina_1,epi_isl_416679_Washington_20200311_Illumina_1,(epi_isl_413889_Guangdong_20200130_multiplex_pcr_nanopore_1,epi_isl_414688_Guangdong_20200225_DNBSEQ_T7_1)Node38)Node22,epi_isl_415516_Noord_Brabant_20200311_Nanopore_1,epi_isl_417276_England_20200307_Illumina_1,epi_isl_413902_Guangdong_20200228_multiplex_pcr_nanopore_1,epi_isl_416397_Shanghai_20200202_Illumina_2,epi_isl_414041_England_20200208_Illumina_3,epi_isl_402120_Hubei_20200101_null_1)"
     }
   },
  "tested":{
    "0":{
-     "Node10":"test",
-     "Node11":"test",
-     "Node12":"test",
-     "Node14":"test",
-     "Node15":"test",
-     "Node19":"test",
-     "Node2":"test",
      "Node22":"test",
-     "Node24":"test",
-     "Node3":"test",
-     "Node31":"test",
-     "Node33":"test",
-     "Node35":"test",
      "Node38":"test",
-     "Node4":"test",
-     "Node5":"test",
-     "Node6":"test",
-     "Node7":"test",
-     "Node9":"test",
-     "epi_isl_402128_Hubei_20191230_MGISEQ_1053":"background",
-     "epi_isl_402129_Hubei_20191230_Illumina_1":"background",
-     "epi_isl_404253_Illinois_20200121_Sanger__425":"background",
-     "epi_isl_406534_Guangdong_20200122_null_14":"background",
-     "epi_isl_408668_Thanh_Hoa_20200124_Illumina_2":"background",
-     "epi_isl_412116_England_20200209_Illumina_1":"background",
-     "epi_isl_412900_Hubei_20191230_Illumina_1":"background",
-     "epi_isl_413873_Guangdong_20200228_multiplex_pcr_nanopore_2":"background",
-     "epi_isl_413894_Guangdong_20200228_multiplex_pcr_nanopore_1":"background",
-     "epi_isl_413928_California_20200305_Illumina_1":"background",
-     "epi_isl_414363_Washington_20200304_Illumina_3":"background",
-     "epi_isl_414934_Shandong_20200121_null_1":"background",
-     "epi_isl_415538_Wales_20200312_Nanopore_1":"background",
-     "epi_isl_416349_Shanghai_20200130_Illumina_4":"background",
-     "epi_isl_416411_Victoria_20200125_Ilumina_2":"background",
-     "epi_isl_416521_Saudi_Arabia_20200310_Illumina_2":"background",
-     "epi_isl_416666_Washington_20200312_Illumina_3":"background",
-     "epi_isl_416684_Washington_20200314_Illumina_1":"background",
-     "epi_isl_417281_England_20200306_Illumina_1":"background",
-     "epi_isl_417314_England_20200310_Illumina_1":"background",
-     "epi_isl_417324_California_20200304_Illumina_1":"background",
-     "epi_isl_417332_California_20200314_Illumina_1":"background"
+     "epi_isl_402120_Hubei_20200101_null_1":"background",
+     "epi_isl_402125_China_20191231_Illumina_1040":"background",
+     "epi_isl_403932_Guandong_20200114_illumina_469":"background",
+     "epi_isl_404253_Illinois_20200121_Sanger__1":"background",
+     "epi_isl_406034_California_20200123_Sanger__17":"background",
+     "epi_isl_408487_Henan_20200120_Illumina_1":"background",
+     "epi_isl_411956_Texas_20200211_Sanger_1":"background",
+     "epi_isl_412459_Hubei_20200108_Illumina_1":"background",
+     "epi_isl_413868_Guangdong_20200228_multiplex_pcr_nanopore_1":"background",
+     "epi_isl_413889_Guangdong_20200130_multiplex_pcr_nanopore_1":"background",
+     "epi_isl_413902_Guangdong_20200228_multiplex_pcr_nanopore_1":"background",
+     "epi_isl_414040_England_20200205_Illumina_1":"background",
+     "epi_isl_414041_England_20200208_Illumina_3":"background",
+     "epi_isl_414688_Guangdong_20200225_DNBSEQ_T7_1":"background",
+     "epi_isl_415516_Noord_Brabant_20200311_Nanopore_1":"background",
+     "epi_isl_416343_Shanghai_20200204_Illumina_1":"background",
+     "epi_isl_416397_Shanghai_20200202_Illumina_2":"background",
+     "epi_isl_416464_Washington_20200301_Illumina_1":"background",
+     "epi_isl_416661_Washington_20200312_Illumina_3":"background",
+     "epi_isl_416679_Washington_20200311_Illumina_1":"background",
+     "epi_isl_417276_England_20200307_Illumina_1":"background",
+     "epi_isl_417308_England_20200306_Illumina_1":"background",
+     "epi_isl_417319_California_20200305_Illumina_1":"background",
+     "epi_isl_417327_California_20200309_Illumina_1":"background"
     }
   },
  "timers":{
    "FEL analysis":{
      "order":2,
-     "timer":5
+     "timer":4
     },
    "Model fitting":{
      "order":1,
-     "timer":2
+     "timer":5
     },
    "Total time":{
      "order":0,
-     "timer":7
+     "timer":10
     }
   }
 }
