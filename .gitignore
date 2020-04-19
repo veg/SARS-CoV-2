@@ -13,3 +13,4 @@ data/fasta/**/*.msa
 data/fasta/**/*.tn93
 data/fasta/**/*.prot
 data/fasta/**/sequences.ORF1a.SLAC.json
+.nfs*
