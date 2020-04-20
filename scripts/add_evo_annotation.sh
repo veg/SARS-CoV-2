@@ -10,7 +10,7 @@ python3 python/extract-prime-annotation.py  -c data/betas/sequences.nsp8.compres
 python3 python/extract-prime-annotation.py  -c data/betas/sequences.nsp9.compressed.fas -p data/betas/nsp9.PRIME.json -r ORF1a  -f 4140 -o data/evo_annotation.json 
 python3 python/extract-prime-annotation.py  -c data/betas/sequences.nsp10.compressed.fas -p data/betas/nsp10.PRIME.json -r ORF1a  -f 4253 -o data/evo_annotation.json 
 # 
-#python3 python/extract-prime-annotation.py  -c data/betas/sequences.RdRp.compressed.fas -p data/betas/RdRp.PRIME.json -r ORF1b  -f -10 -o data/evo_annotation.json 
+python3 python/extract-prime-annotation.py  -c data/betas/sequences.RdRp.compressed.fas -p data/betas/RdRp.PRIME.json -r ORF1b  -f -10 -o data/evo_annotation.json 
 python3 python/extract-prime-annotation.py  -c data/betas/sequences.helicase.compressed.fas -p data/betas/helicase.PRIME.json -r ORF1b  -f 922 -o data/evo_annotation.json 
 python3 python/extract-prime-annotation.py  -c data/betas/sequences.endornase.compressed.fas -p data/betas/endornase.PRIME.json -r ORF1b  -f 2050 -o data/evo_annotation.json 
 python3 python/extract-prime-annotation.py  -c data/betas/sequences.methyltransferase.compressed.fas -p data/betas/methyltransferase.PRIME.json -r ORF1b  -f 2396 -o data/evo_annotation.json 
