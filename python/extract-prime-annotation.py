@@ -92,6 +92,8 @@ if import_settings.region not in json_out:
 current_segment = 0
 current_offset  = 0
 
+#print (len(prime["MLE"]["Imputed States"]["0"]))
+
 for alignment_coord, seq_coord in ref_seq_map.items():
     #print (alignment_coord, current_offset)
     if alignment_coord - current_offset >= len (prime["MLE"]["Imputed States"]["%d" % current_segment]):
