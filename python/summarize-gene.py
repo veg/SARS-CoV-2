@@ -356,13 +356,15 @@ for site in site_list:
             "residue" ->
                 "date" -> count
     '''
+    check_key           = "%d" % ref_seq_map[site]
+    evo_site_annotation      = evo_annotation[check_key] if evo_annotation and check_key in evo_annotation else None
+    
     for node,value in slac["branch attributes"]["0"].items():
         if "amino-acid" in value:
             aa_value    = value["amino-acid"][0][site]
             codon_value = value["codon"][0][site]
             
-            check_key = "%d" % ref_seq_map[site]
-            if len (aa_value) == 1 and evo_annotation and check_key in evo_annotation:
+            if len (aa_value) == 1 and evo_site_annotation:
                 if codon_value not in evo_composition:
                     try:
                         evo_composition[codon_value] = {
@@ -388,7 +390,9 @@ for site in site_list:
     site_list[site]['composition'] = aa_counts_by_site[site]
     site_list[site]['labels'] = labels
     if len (evo_composition):
-        site_list[site]['evolutionary_support'] = evo_composition
+        site_list[site]['evolutionary_support']     = evo_composition
+        site_list[site]['evolutionary_predictions'] = evo_site_annotation
+        site_list[site]['counts'] = counts_by_site 
         print ("Site %d" % site, file = sys.stderr)
         print ("Codon\tAmino-Acid\tFrequency\tSupport", file = sys.stderr)
         all_count = sum (counts_by_site[site].values())
