@@ -96,7 +96,7 @@ if import_settings.mafs:
     except FileNotFoundError as fnf:
         maf_file = open (import_settings.mafs, "w")
         maf_writer = csv.writer (maf_file)
-        maf_writer.writerow (["Gene","Site","MAF","MAF_aa","Entropy","Entropy_aa","p"])
+        maf_writer.writerow (["Gene","Site","aa","count","freq","total"])
     
 evo_writer = None  
 
@@ -239,7 +239,10 @@ for i, row in enumerate (fel["MLE"]["content"]["0"]):
         maf = compute_site_MAF (i)
         if maf_writer:
             ##print (variants_by_site[i], file = sys.stderr)
-            maf_writer.writerow ([import_settings.evolutionary_fragment, "%d" % (ref_seq_map[i] + 1), "%g" % maf, "%g" % compute_site_MAF (i, aa_counts_by_site), "%g" % compute_site_entropy (i), "%g" % compute_site_entropy (i,aa_counts_by_site), "%g" % meme["MLE"]["content"]["0"][i][6]])
+            total = sum (aa_counts_by_site[i].values())
+            for aa, count in aa_counts_by_site[i].items():
+                maf_writer.writerow ([import_settings.evolutionary_fragment, "%d" % (ref_seq_map[i] + 1), aa, "%d" % count, "%g" % (count/total), "%d" % total])
+            #maf_writer.writerow ([import_settings.evolutionary_fragment, "%d" % (ref_seq_map[i] + 1), "%g" % maf, "%g" % compute_site_MAF (i, aa_counts_by_site), "%g" % compute_site_entropy (i), "%g" % compute_site_entropy (i,aa_counts_by_site), "%g" % meme["MLE"]["content"]["0"][i][6]])
         
         if evo_writer and evo_annotation:
             check_key = "%d" % ref_seq_map[i]
