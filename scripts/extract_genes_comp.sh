@@ -28,7 +28,7 @@ else
         echo "Already extracted"
     else
         #echo         $HYPHY /Users/sergei/Development/hyphy-analyses/codon-msa/pre-msa.bf --input $FILE --reference $REFERENCE_SEQUENCE --E 0.000001 --trim-from $TRIM_FROM --trim-to $TRIM_TO --N-fraction $N_FRAC --keep-reference Yes
-        mpirun -np $NP --use-hwthread-cpus $HYPHYMPI /Users/sergei/Development/hyphy-analyses/codon-msa/pre-msa.bf --input $FILE --reference $REFERENCE_SEQUENCE --E 0.000001 --trim-from $TRIM_FROM --trim-to $TRIM_TO --N-fraction $N_FRAC --keep-reference Yes
+        mpirun -np $NP --use-hwthread-cpus $HYPHYMPI /Users/sergei/Development/hyphy-analyses/codon-msa/pre-msa.bf --input $FILE --reference $REFERENCE_SEQUENCE --E 0.1 --trim-from $TRIM_FROM --trim-to $TRIM_TO --N-fraction $N_FRAC --keep-reference Yes
         mv ${FILE}_protein.fas ${FILE}.${GENE}_protein.fas
         mv ${FILE}_nuc.fas ${FILE}.${GENE}_nuc.fas
         #$HYPHY scripts/filter_on_N.bf --nuc ${FILE}.${GENE}_nuc.fas --prot ${FILE}.${GENE}_protein.fas --N $N_FRAC_STRICT --output-nuc ${FILE}.${GENE}_nuc.strict.fas --output-prot ${FILE}.${GENE}_protein.strict.fas
@@ -87,7 +87,7 @@ else
     then
         echo "Already has tree"
     else
-        $RAXML --tree pars{10} --msa ${FILE}.${GENE}.compressed.fas --model GTR+G --force
+        $RAXML --tree pars{10} --msa ${FILE}.${GENE}.compressed.fas --model GTR+G --force --redo
     fi
     
 
@@ -196,6 +196,7 @@ else
 fi
 
 }
+RunAGene "nsp3" "data/reference_genes/nsp3.fas" "1000" "10000" 0.005 0.0005
 
 RunAGene "RdRp" "data/reference_genes/RdRp.fas" "13000" "17000" 0.01 0.001
 RunAGene "helicase" "data/reference_genes/helicase.fas" "15000" "19000" 0.01 0.001
@@ -205,7 +206,6 @@ RunAGene "methyltransferase" "data/reference_genes/methyltransferase.fas" "19000
 RunAGene "S" "data/reference_genes/S.fas" "20000" "27000" 0.01 0.001
 RunAGene "leader" "data/reference_genes/leader.fas" "0" "2000" 0.005 0.0005
 RunAGene "nsp2" "data/reference_genes/nsp2.fas" "0" "10000" 0.005 0.0005
-RunAGene "nsp3" "data/reference_genes/nsp3.fas" "1000" "10000" 0.005 0.0005
 RunAGene "nsp4" "data/reference_genes/nsp4.fas" "7000" "12000" 0.005 0.0005
 RunAGene "3C" "data/reference_genes/3C.fas" "8000" "13000" 0.005 0.0005
 RunAGene "nsp7" "data/reference_genes/nsp7.fas" "10000" "15000" 0.005 0.0005
