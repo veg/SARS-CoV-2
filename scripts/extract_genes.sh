@@ -94,7 +94,7 @@ else
     then
         echo "Already has tree"
     else
-        $RAXML --tree pars{5} --msa ${FILE}.${GENE}.compressed.fas --threads 4 --model GTR+G --force
+        $RAXML --tree pars{10} --msa ${FILE}.${GENE}.compressed.fas --threads 4 --model GTR+G --force
     fi
     
     if [ -s ${FILE}.${GENE}.SLAC.json ] 
