@@ -1,5 +1,5 @@
 #!/bin/bash
-#PBS -l nodes=2:ppn=16
+#PBS -l nodes=1:ppn=32
 #PBS -l walltime=99:0:0:0
 
 export PATH=/usr/local/bin:$PATH
@@ -94,15 +94,15 @@ else
     then
         echo "Already has tree"
     else
-        $RAXML --tree pars{10} --msa ${FILE}.${GENE}.compressed.fas --threads 4 --model GTR+G --force
+        $RAXML --tree pars{5} --msa ${FILE}.${GENE}.compressed.fas --threads 4 --model GTR+G --force
     fi
     
     if [ -s ${FILE}.${GENE}.SLAC.json ] 
     then
         echo "Already has SLAC results"
     else
-        echo mpirun -np $NP $HYPHYMPI LIBPATH=$HYPHYLIBPATH slac --alignment ${FILE}.${GENE}.compressed.fas --tree ${FILE}.${GENE}.compressed.fas.raxml.bestTree --branches Internal --output ${FILE}.${GENE}.SLAC.json
-        mpirun -np $NP $HYPHYMPI LIBPATH=$HYPHYLIBPATH slac --alignment ${FILE}.${GENE}.compressed.fas --tree ${FILE}.${GENE}.compressed.fas.raxml.bestTree --branches Internal --output ${FILE}.${GENE}.SLAC.json
+        echo mpirun -np $NP $HYPHYMPI LIBPATH=$HYPHYLIBPATH slac --alignment ${FILE}.${GENE}.compressed.fas --tree ${FILE}.${GENE}.compressed.fas.raxml.bestTree --branches Internal --samples 0 --output ${FILE}.${GENE}.SLAC.json
+        mpirun -np $NP $HYPHYMPI LIBPATH=$HYPHYLIBPATH slac --alignment ${FILE}.${GENE}.compressed.fas --tree ${FILE}.${GENE}.compressed.fas.raxml.bestTree --branches Internal --samples 0 --output ${FILE}.${GENE}.SLAC.json
     fi
 
     if [ -s ${FILE}.${GENE}.FEL.json ] 
@@ -121,6 +121,13 @@ else
         mpirun -np $NP $HYPHYMPI LIBPATH=$HYPHYLIBPATH meme --alignment ${FILE}.${GENE}.compressed.fas --tree ${FILE}.${GENE}.compressed.fas.raxml.bestTree --branches Internal --output ${FILE}.${GENE}.MEME.json
     fi
 
+    if [ -s ${FILE}.${GENE}.FUBAR.json ] 
+    then
+        echo "Already has FUBAR results"
+    else
+       $HYPHY LIBPATH=$HYPHYLIBPATH  fubar --grid 40 --alignment --alignment ${FILE}.${GENE}.compressed.fas --tree ${FILE}.${GENE}.compressed.fas.raxml.bestTree --output ${FILE}.${GENE}.FUBAR.json
+    fi
+
     if [ -s ${FILE}.${GENE}.PRIME.json ] 
     then
         echo "Already has PRIME results"
@@ -131,7 +138,6 @@ else
 
     echo python3 $WORKING_DIR/python/summarize-gene.py -D $MASTERNOFASTA -d ${FILE}.${GENE}.duplicates.json -s ${FILE}.${GENE}.SLAC.json -f ${FILE}.${GENE}.FEL.json -m ${FILE}.${GENE}.MEME.json -P 0.1 -p ${FILE}.${GENE}.PRIME.json --output  ${FILE}.${GENE}.json -E data/evo_annotation.json -c ${FILE}.${GENE}.withref.fas
     python3 $WORKING_DIR/python/summarize-gene.py -D $MASTERNOFASTA -d ${FILE}.${GENE}.duplicates.json -s ${FILE}.${GENE}.SLAC.json -f ${FILE}.${GENE}.FEL.json -m ${FILE}.${GENE}.MEME.json -P 0.1 -p ${FILE}.${GENE}.PRIME.json --output  ${FILE}.${GENE}.json -E data/evo_annotation.json -c ${FILE}.${GENE}.withref.fas
-
 
     #if [ -s ${FILE}.${GENE}.BGM.json ] 
     #then
