@@ -3,6 +3,7 @@
 hosts
 *.log*
 *.btr
+
 data/fasta/**/sequences
 data/fasta/**/*.tmp
 data/fasta/**/master.json
@@ -11,7 +12,15 @@ data/fasta/**/*.cache
 data/fasta/**/*.raxml*
 data/fasta/**/*.msa
 data/fasta/**/*.tn93
+data/fasta/**/*.tn93.json
 data/fasta/**/*.prot
+data/fasta/**/*.duplicates.json
+data/fasta/**/*.FUBAR.json
+data/fasta/**/*.FEL.json
+data/fasta/**/*.MEME.json
+data/fasta/**/*.SLAC.json
+
+
 data/fasta/**/sequences.ORF1a.SLAC.json
 .nfs*
 h1
