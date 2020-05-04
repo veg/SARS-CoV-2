@@ -164,7 +164,11 @@ aa_counts_by_site      = [{} for k in range (sites)]
 def compute_site_MAF (site):
     variants = variants_by_site [site]
     total = sum (variants.values())
-    majority = max (variants.values()) / total
+    try:
+        majority = max (variants.values()) / total
+    except:
+        print("empty variants at site: " + str(site) + ", returning 0")
+        return 0
     return 1-majority
 
 

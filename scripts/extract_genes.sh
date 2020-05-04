@@ -1,5 +1,4 @@
 #!/bin/bash
-#PBS -l nodes=1:ppn=32
 #PBS -l walltime=99:0:0:0
 
 export PATH=/usr/local/bin:$PATH
@@ -16,7 +15,7 @@ LOG=$1/log.txt
 MASTER=$1/master.json
 MASTERNOFASTA=$1/master-no-fasta.json
 GENE=$2
-NP=32
+NP=$3
 HYPHY=/data/shares/veg/SARS-CoV-2/hyphy/hyphy
 HYPHYMPI=/data/shares/veg/SARS-CoV-2/hyphy/HYPHYMPI
 HYPHYLIBPATH=/data/shares/veg/SARS-CoV-2/hyphy/res
@@ -69,6 +68,8 @@ else
     then
         echo "Already reverse translated"
     else
+        echo $HYPHY LIBPATH=$HYPHYLIBPATH $POSTMSA --protein-msa ${FILE}.${GENE}.msa --nucleotide-sequences ${FILE}.${GENE}_nuc.fas --output ${FILE}.${GENE}.compressed.fas --duplicates ${FILE}.${GENE}.duplicates.json
+        echo $HYPHY LIBPATH=$HYPHYLIBPATH $POSTMSA --protein-msa ${FILE}.${GENE}.msa --nucleotide-sequences ${FILE}.${GENE}_nuc.fas --compress No --output ${FILE}.${GENE}.all.fas    
         $HYPHY LIBPATH=$HYPHYLIBPATH $POSTMSA --protein-msa ${FILE}.${GENE}.msa --nucleotide-sequences ${FILE}.${GENE}_nuc.fas --output ${FILE}.${GENE}.compressed.fas --duplicates ${FILE}.${GENE}.duplicates.json
         $HYPHY LIBPATH=$HYPHYLIBPATH $POSTMSA --protein-msa ${FILE}.${GENE}.msa --nucleotide-sequences ${FILE}.${GENE}_nuc.fas --compress No --output ${FILE}.${GENE}.all.fas    
     fi
@@ -77,7 +78,7 @@ else
     then 
         echo "Already has alignment with reference"
     else
-        echo $MAFFT --add $REFERENCE_SEQUENCE --reorder ${FILE}.${GENE}.all.fas > ${FILE}.${GENE}.withref.fas
+        echo "$MAFFT --add $REFERENCE_SEQUENCE --reorder ${FILE}.${GENE}.all.fas"
         $MAFFT --add $REFERENCE_SEQUENCE --reorder ${FILE}.${GENE}.all.fas > ${FILE}.${GENE}.withref.fas 2> mafft.error.log
     fi 
 
@@ -125,19 +126,20 @@ else
     then
         echo "Already has FUBAR results"
     else
-       $HYPHY LIBPATH=$HYPHYLIBPATH  fubar --grid 40 --alignment --alignment ${FILE}.${GENE}.compressed.fas --tree ${FILE}.${GENE}.compressed.fas.raxml.bestTree --output ${FILE}.${GENE}.FUBAR.json
+       echo "$HYPHY LIBPATH=$HYPHYLIBPATH  fubar --grid 40 --alignment ${FILE}.${GENE}.compressed.fas --tree ${FILE}.${GENE}.compressed.fas.raxml.bestTree --output ${FILE}.${GENE}.FUBAR.json"
+       $HYPHY LIBPATH=$HYPHYLIBPATH  fubar --grid 40 --alignment ${FILE}.${GENE}.compressed.fas --tree ${FILE}.${GENE}.compressed.fas.raxml.bestTree --output ${FILE}.${GENE}.FUBAR.json
     fi
 
-    if [ -s ${FILE}.${GENE}.PRIME.json ] 
-    then
-        echo "Already has PRIME results"
-    else
-        echo mpirun -np $NP $HYPHYMPI LIBPATH=$HYPHYLIBPATH prime --alignment ${FILE}.${GENE}.compressed.fas --tree ${FILE}.${GENE}.compressed.fas.raxml.bestTree --branches Internal --output ${FILE}.${GENE}.PRIME.json
-        mpirun -np $NP $HYPHYMPI LIBPATH=$HYPHYLIBPATH prime --alignment ${FILE}.${GENE}.compressed.fas --tree ${FILE}.${GENE}.compressed.fas.raxml.bestTree --branches Internal --output ${FILE}.${GENE}.PRIME.json
-    fi
+    #if [ -s ${FILE}.${GENE}.PRIME.json ] 
+    #then
+    #    echo "Already has PRIME results"
+    #else
+    #    echo mpirun -np $NP $HYPHYMPI LIBPATH=$HYPHYLIBPATH prime --alignment ${FILE}.${GENE}.compressed.fas --tree ${FILE}.${GENE}.compressed.fas.raxml.bestTree --branches Internal --output ${FILE}.${GENE}.PRIME.json
+    #    mpirun -np $NP $HYPHYMPI LIBPATH=$HYPHYLIBPATH prime --alignment ${FILE}.${GENE}.compressed.fas --tree ${FILE}.${GENE}.compressed.fas.raxml.bestTree --branches Internal --output ${FILE}.${GENE}.PRIME.json
+    #fi
 
-    echo python3 $WORKING_DIR/python/summarize-gene.py -D $MASTERNOFASTA -d ${FILE}.${GENE}.duplicates.json -s ${FILE}.${GENE}.SLAC.json -f ${FILE}.${GENE}.FEL.json -m ${FILE}.${GENE}.MEME.json -P 0.1 -p ${FILE}.${GENE}.PRIME.json --output  ${FILE}.${GENE}.json -E data/evo_annotation.json -c ${FILE}.${GENE}.withref.fas
-    python3 $WORKING_DIR/python/summarize-gene.py -D $MASTERNOFASTA -d ${FILE}.${GENE}.duplicates.json -s ${FILE}.${GENE}.SLAC.json -f ${FILE}.${GENE}.FEL.json -m ${FILE}.${GENE}.MEME.json -P 0.1 -p ${FILE}.${GENE}.PRIME.json --output  ${FILE}.${GENE}.json -E data/evo_annotation.json -c ${FILE}.${GENE}.withref.fas
+    echo python3 $WORKING_DIR/python/summarize-gene.py -D $MASTERNOFASTA -d ${FILE}.${GENE}.duplicates.json -s ${FILE}.${GENE}.SLAC.json -f ${FILE}.${GENE}.FEL.json -m ${FILE}.${GENE}.MEME.json -P 0.1 --output  ${FILE}.${GENE}.json -E data/evo_annotation.json -c ${FILE}.${GENE}.withref.fas
+    python3 $WORKING_DIR/python/summarize-gene.py -D $MASTERNOFASTA -d ${FILE}.${GENE}.duplicates.json -s ${FILE}.${GENE}.SLAC.json -f ${FILE}.${GENE}.FEL.json -m ${FILE}.${GENE}.MEME.json -P 0.1 --output  ${FILE}.${GENE}.json -E data/evo_annotation.json -c ${FILE}.${GENE}.withref.fas
 
     #if [ -s ${FILE}.${GENE}.BGM.json ] 
     #then
