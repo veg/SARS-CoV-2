@@ -33,6 +33,7 @@ else
     #    #$HYPHY scripts/filter_on_N.bf --nuc ${FILE}.${GENE}_nuc.fas --prot ${FILE}.${GENE}_protein.fas --N $N_FRAC_STRICT --output-nuc ${FILE}.${GENE}_nuc.strict.fas --output-prot ${FILE}.${GENE}_protein.strict.fas
     fi
     
+    exit
     
     if [ -s ${FILE}.${GENE}.msa ] 
     then
@@ -203,14 +204,14 @@ fi
 
 }
 
-RunAGene "S" "data/reference_genes/S.fas" "20000" "27000" 0.005 0.0005
-RunAGene "M" "data/reference_genes/M.fas" "25000" "30000" 0.01 0.001
+#RunAGene "S" "data/reference_genes/S.fas" "20000" "27000" 0.005 0.0005
+#RunAGene "M" "data/reference_genes/M.fas" "25000" "30000" 0.01 0.001
 RunAGene "N" "data/reference_genes/N.fas" "26000" "35000" 0.01 0.001
-RunAGene "ORF3a" "data/reference_genes/ORF3a.fas" "24000" "27000" 0.01 0.001
-RunAGene "ORF6" "data/reference_genes/ORF6.fas" "26000" "30000" 0.01 0.001
-RunAGene "ORF7a" "data/reference_genes/ORF7a.fas" "26000" "35000" 0.01 0.001
-RunAGene "ORF8" "data/reference_genes/ORF8.fas" "26000" "35000" 0.01 0.001
-RunAGene "ORF1b" "data/reference_genes/ORF1b.fas" "12000" "24000" 0.001 0.00005
-RunAGene "ORF1a" "data/reference_genes/ORF1a.fas" "1" "15000" 0.001 0.00005
+#RunAGene "ORF3a" "data/reference_genes/ORF3a.fas" "24000" "27000" 0.01 0.001
+#RunAGene "ORF6" "data/reference_genes/ORF6.fas" "26000" "30000" 0.01 0.001
+#RunAGene "ORF7a" "data/reference_genes/ORF7a.fas" "26000" "35000" 0.01 0.001
+#RunAGene "ORF8" "data/reference_genes/ORF8.fas" "26000" "35000" 0.01 0.001
+#RunAGene "ORF1b" "data/reference_genes/ORF1b.fas" "12000" "24000" 0.001 0.00005
+#RunAGene "ORF1a" "data/reference_genes/ORF1a.fas" "1" "15000" 0.001 0.00005
 
 
