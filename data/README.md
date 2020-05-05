@@ -144,7 +144,7 @@ The file `comparative-annotaton.json` contains evolutionary annotations of the S
 
 ### Fields expanations
 
-* Top level key (`22660`, 1-based) is the site index (codon aligned, i.e. the 1st position of a codon) in the reference genome
+* Top level key (`22660`, <font color='red'>0-based</font>) is the site index (codon aligned, i.e. the 1st position of a codon) in the reference genome
 
 * `G` - gene, which is S in this case
 
