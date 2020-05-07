@@ -27,3 +27,6 @@ h1
 h2
 hyperfine*
 core*
+sed*
+*.err
+logs

@@ -72,6 +72,8 @@ else
         echo $HYPHY LIBPATH=$HYPHYLIBPATH $POSTMSA --protein-msa ${FILE}.${GENE}.msa --nucleotide-sequences ${FILE}.${GENE}_nuc.fas --compress No --output ${FILE}.${GENE}.all.fas    
         $HYPHY LIBPATH=$HYPHYLIBPATH $POSTMSA --protein-msa ${FILE}.${GENE}.msa --nucleotide-sequences ${FILE}.${GENE}_nuc.fas --output ${FILE}.${GENE}.compressed.fas --duplicates ${FILE}.${GENE}.duplicates.json
         $HYPHY LIBPATH=$HYPHYLIBPATH $POSTMSA --protein-msa ${FILE}.${GENE}.msa --nucleotide-sequences ${FILE}.${GENE}_nuc.fas --compress No --output ${FILE}.${GENE}.all.fas    
+        #Replace all unknown characters with N
+        sed -i '/^>/! s/[^ACTG]/N/g' ${FILE}.${GENE}.all.fas
     fi
     
     if [ -s ${FILE}.${GENE}.withref.fas ]
@@ -91,51 +93,64 @@ else
         python3 $WORKING_DIR/python/tabulate-diversity-divergence.py -j $MASTER -t ${FILE}.${GENE}.tn93 > $DIRECTORY/evolution.${GENE}.csv
     fi
 
-    if [ -s ${FILE}.${GENE}.compressed.fas.raxml.bestTree ] 
+    if [ -s ${FILE}.${GENE}.compressed.fas.rapidnj.bestTree ] 
     then
         echo "Already has tree"
     else
-        $RAXML --tree pars{5} --msa ${FILE}.${GENE}.compressed.fas --threads 4 --model GTR+G --force
+        echo seqmagick convert ${FILE}.${GENE}.compressed.fas ${FILE}.${GENE}.compressed.sto
+        echo rapidnj ${FILE}.${GENE}.compressed.sto -i sth > ${FILE}.${GENE}.compressed.fas.rapidnj.bestTree
+        seqmagick convert ${FILE}.${GENE}.compressed.fas ${FILE}.${GENE}.compressed.sto
+        rapidnj ${FILE}.${GENE}.compressed.sto -i sth > ${FILE}.${GENE}.compressed.fas.rapidnj.bestTree
+        sed -i "s/'//g" ${FILE}.${GENE}.compressed.fas.rapidnj.bestTree
+        #$RAXML --tree pars{5} --msa ${FILE}.${GENE}.compressed.fas --threads 4 --model GTR+G --force
     fi
+
+
+    #if [ -s ${FILE}.${GENE}.compressed.fas.raxml.bestTree ] 
+    #then
+    #    echo "Already has tree"
+    #else
+    #    $RAXML --tree pars{5} --msa ${FILE}.${GENE}.compressed.fas --threads 4 --model GTR+G --force
+    #fi
     
     if [ -s ${FILE}.${GENE}.SLAC.json ] 
     then
         echo "Already has SLAC results"
     else
-        echo mpirun -np $NP $HYPHYMPI LIBPATH=$HYPHYLIBPATH slac --alignment ${FILE}.${GENE}.compressed.fas --tree ${FILE}.${GENE}.compressed.fas.raxml.bestTree --branches Internal --samples 0 --output ${FILE}.${GENE}.SLAC.json
-        mpirun -np $NP $HYPHYMPI LIBPATH=$HYPHYLIBPATH slac --alignment ${FILE}.${GENE}.compressed.fas --tree ${FILE}.${GENE}.compressed.fas.raxml.bestTree --branches Internal --samples 0 --output ${FILE}.${GENE}.SLAC.json
+        echo mpirun -np $NP $HYPHYMPI LIBPATH=$HYPHYLIBPATH slac --alignment ${FILE}.${GENE}.compressed.fas --tree ${FILE}.${GENE}.compressed.fas.rapidnj.bestTree --branches Internal --samples 0 --output ${FILE}.${GENE}.SLAC.json
+        mpirun -np $NP $HYPHYMPI LIBPATH=$HYPHYLIBPATH slac --alignment ${FILE}.${GENE}.compressed.fas --tree ${FILE}.${GENE}.compressed.fas.rapidnj.bestTree --branches Internal --samples 0 --output ${FILE}.${GENE}.SLAC.json
     fi
 
     if [ -s ${FILE}.${GENE}.FEL.json ] 
     then
         echo "Already has FEL results"
     else
-        echo mpirun -np $NP $HYPHYMPI LIBPATH=$HYPHYLIBPATH fel --alignment ${FILE}.${GENE}.compressed.fas --tree ${FILE}.${GENE}.compressed.fas.raxml.bestTree --branches Internal --output ${FILE}.${GENE}.FEL.json
-        mpirun -np $NP $HYPHYMPI LIBPATH=$HYPHYLIBPATH fel --alignment ${FILE}.${GENE}.compressed.fas --tree ${FILE}.${GENE}.compressed.fas.raxml.bestTree --branches Internal --output ${FILE}.${GENE}.FEL.json
+        echo mpirun -np $NP $HYPHYMPI LIBPATH=$HYPHYLIBPATH fel --alignment ${FILE}.${GENE}.compressed.fas --tree ${FILE}.${GENE}.compressed.fas.rapidnj.bestTree --branches Internal --output ${FILE}.${GENE}.FEL.json
+        mpirun -np $NP $HYPHYMPI LIBPATH=$HYPHYLIBPATH fel --alignment ${FILE}.${GENE}.compressed.fas --tree ${FILE}.${GENE}.compressed.fas.rapidnj.bestTree --branches Internal --output ${FILE}.${GENE}.FEL.json
     fi
 
     if [ -s ${FILE}.${GENE}.MEME.json ] 
     then
         echo "Already has MEME results"
     else
-        echo mpirun -np $NP $HYPHYMPI LIBPATH=$HYPHYLIBPATH meme --alignment ${FILE}.${GENE}.compressed.fas --tree ${FILE}.${GENE}.compressed.fas.raxml.bestTree --branches Internal --output ${FILE}.${GENE}.MEME.json
-        mpirun -np $NP $HYPHYMPI LIBPATH=$HYPHYLIBPATH meme --alignment ${FILE}.${GENE}.compressed.fas --tree ${FILE}.${GENE}.compressed.fas.raxml.bestTree --branches Internal --output ${FILE}.${GENE}.MEME.json
+        echo mpirun -np $NP $HYPHYMPI LIBPATH=$HYPHYLIBPATH meme --alignment ${FILE}.${GENE}.compressed.fas --tree ${FILE}.${GENE}.compressed.fas.rapidnj.bestTree --branches Internal --output ${FILE}.${GENE}.MEME.json
+        mpirun -np $NP $HYPHYMPI LIBPATH=$HYPHYLIBPATH meme --alignment ${FILE}.${GENE}.compressed.fas --tree ${FILE}.${GENE}.compressed.fas.rapidnj.bestTree --branches Internal --output ${FILE}.${GENE}.MEME.json
     fi
 
     if [ -s ${FILE}.${GENE}.FUBAR.json ] 
     then
         echo "Already has FUBAR results"
     else
-       echo "$HYPHY LIBPATH=$HYPHYLIBPATH  fubar --grid 40 --alignment ${FILE}.${GENE}.compressed.fas --tree ${FILE}.${GENE}.compressed.fas.raxml.bestTree --output ${FILE}.${GENE}.FUBAR.json"
-       $HYPHY LIBPATH=$HYPHYLIBPATH  fubar --grid 40 --alignment ${FILE}.${GENE}.compressed.fas --tree ${FILE}.${GENE}.compressed.fas.raxml.bestTree --output ${FILE}.${GENE}.FUBAR.json
+       echo "$HYPHY LIBPATH=$HYPHYLIBPATH  fubar --grid 40 --alignment ${FILE}.${GENE}.compressed.fas --tree ${FILE}.${GENE}.compressed.fas.rapidnj.bestTree --output ${FILE}.${GENE}.FUBAR.json"
+       $HYPHY LIBPATH=$HYPHYLIBPATH  fubar --grid 40 --alignment ${FILE}.${GENE}.compressed.fas --tree ${FILE}.${GENE}.compressed.fas.rapidnj.bestTree --output ${FILE}.${GENE}.FUBAR.json
     fi
 
     #if [ -s ${FILE}.${GENE}.PRIME.json ] 
     #then
     #    echo "Already has PRIME results"
     #else
-    #    echo mpirun -np $NP $HYPHYMPI LIBPATH=$HYPHYLIBPATH prime --alignment ${FILE}.${GENE}.compressed.fas --tree ${FILE}.${GENE}.compressed.fas.raxml.bestTree --branches Internal --output ${FILE}.${GENE}.PRIME.json
-    #    mpirun -np $NP $HYPHYMPI LIBPATH=$HYPHYLIBPATH prime --alignment ${FILE}.${GENE}.compressed.fas --tree ${FILE}.${GENE}.compressed.fas.raxml.bestTree --branches Internal --output ${FILE}.${GENE}.PRIME.json
+    #    echo mpirun -np $NP $HYPHYMPI LIBPATH=$HYPHYLIBPATH prime --alignment ${FILE}.${GENE}.compressed.fas --tree ${FILE}.${GENE}.compressed.fas.rapidnj.bestTree --branches Internal --output ${FILE}.${GENE}.PRIME.json
+    #    mpirun -np $NP $HYPHYMPI LIBPATH=$HYPHYLIBPATH prime --alignment ${FILE}.${GENE}.compressed.fas --tree ${FILE}.${GENE}.compressed.fas.rapidnj.bestTree --branches Internal --output ${FILE}.${GENE}.PRIME.json
     #fi
 
     echo python3 $WORKING_DIR/python/summarize-gene.py -D $MASTERNOFASTA -d ${FILE}.${GENE}.duplicates.json -s ${FILE}.${GENE}.SLAC.json -f ${FILE}.${GENE}.FEL.json -m ${FILE}.${GENE}.MEME.json -P 0.1 --output  ${FILE}.${GENE}.json -E data/evo_annotation.json -c ${FILE}.${GENE}.withref.fas
@@ -145,31 +160,31 @@ else
     #then
     #    echo "Already has BGM results"
     #else
-    #    echo mpirun -np $NP $HYPHYMPI LIBPATH=$HYPHYLIBPATH bgm --alignment ${FILE}.${GENE}.compressed.fas --tree ${FILE}.${GENE}.compressed.fas.raxml.bestTree --branches Internal --min-subs 2 --type codon
-    #    mpirun -np $NP $HYPHYMPI LIBPATH=$HYPHYLIBPATH bgm --alignment ${FILE}.${GENE}.compressed.fas --tree ${FILE}.${GENE}.compressed.fas.raxml.bestTree --branches Internal --min-subs 2 --type codon
+    #    echo mpirun -np $NP $HYPHYMPI LIBPATH=$HYPHYLIBPATH bgm --alignment ${FILE}.${GENE}.compressed.fas --tree ${FILE}.${GENE}.compressed.fas.rapidnj.bestTree --branches Internal --min-subs 2 --type codon
+    #    mpirun -np $NP $HYPHYMPI LIBPATH=$HYPHYLIBPATH bgm --alignment ${FILE}.${GENE}.compressed.fas --tree ${FILE}.${GENE}.compressed.fas.rapidnj.bestTree --branches Internal --min-subs 2 --type codon
     #fi
 
     #if [ -s ${FILE}.${GENE}.BUSTED.json ] 
     #then
     #    echo "Already has BUSTED results"
     #else
-    #    echo $HYPHY LIBPATH=$HYPHYLIBPATH busted --alignment ${FILE}.${GENE}.compressed.fas --tree ${FILE}.${GENE}.compressed.fas.raxml.bestTree --branches Internal --output ${FILE}.${GENE}.BUSTED.json --rates 2 --syn-rates 2 --starting-points 10
-    #    $HYPHY LIBPATH=$HYPHYLIBPATH busted --alignment ${FILE}.${GENE}.compressed.fas --tree ${FILE}.${GENE}.compressed.fas.raxml.bestTree --branches Internal --output ${FILE}.${GENE}.BUSTED.json --rates 2 --syn-rates 2 --starting-points 10
+    #    echo $HYPHY LIBPATH=$HYPHYLIBPATH busted --alignment ${FILE}.${GENE}.compressed.fas --tree ${FILE}.${GENE}.compressed.fas.rapidnj.bestTree --branches Internal --output ${FILE}.${GENE}.BUSTED.json --rates 2 --syn-rates 2 --starting-points 10
+    #    $HYPHY LIBPATH=$HYPHYLIBPATH busted --alignment ${FILE}.${GENE}.compressed.fas --tree ${FILE}.${GENE}.compressed.fas.rapidnj.bestTree --branches Internal --output ${FILE}.${GENE}.BUSTED.json --rates 2 --syn-rates 2 --starting-points 10
     #fi
 
     #if [ -s ${FILE}.${GENE}.ABSREL.json ] 
     #then
     #    echo "Already has ABSREL results"
     #else
-    #    mpirun -np $NP $HYPHYMPI LIBPATH=$HYPHYLIBPATH absrel --alignment ${FILE}.${GENE}.compressed.fas --tree ${FILE}.${GENE}.compressed.fas.raxml.bestTree --branches Internal --output ${FILE}.${GENE}.ABSREL.json
+    #    mpirun -np $NP $HYPHYMPI LIBPATH=$HYPHYLIBPATH absrel --alignment ${FILE}.${GENE}.compressed.fas --tree ${FILE}.${GENE}.compressed.fas.rapidnj.bestTree --branches Internal --output ${FILE}.${GENE}.ABSREL.json
     #fi
     
     #if [ -s ${FILE}.${GENE}.FADE.json ] 
     #then
     #    echo "Already has FADE results"
     #else
-    #    echo $HYPHY LIBPATH=$HYPHYLIBPATH scripts/reroot-on-oldest.bf --tree ${FILE}.${GENE}.compressed.fas.raxml.bestTree --csv $ATTRIBUTES --output ${FILE}.${GENE}.compressed.fas.rooted
-    #    $HYPHY LIBPATH=$HYPHYLIBPATH scripts/reroot-on-oldest.bf --tree ${FILE}.${GENE}.compressed.fas.raxml.bestTree --csv $ATTRIBUTES --output ${FILE}.${GENE}.compressed.fas.rooted
+    #    echo $HYPHY LIBPATH=$HYPHYLIBPATH scripts/reroot-on-oldest.bf --tree ${FILE}.${GENE}.compressed.fas.rapidnj.bestTree --csv $ATTRIBUTES --output ${FILE}.${GENE}.compressed.fas.rooted
+    #    $HYPHY LIBPATH=$HYPHYLIBPATH scripts/reroot-on-oldest.bf --tree ${FILE}.${GENE}.compressed.fas.rapidnj.bestTree --csv $ATTRIBUTES --output ${FILE}.${GENE}.compressed.fas.rooted
     #    echo $HYPHY LIBPATH=$HYPHYLIBPATH conv Universal "Keep Deletions" ${FILE}.${GENE}.compressed.fas  ${FILE}.${GENE}.compressed.fas.prot
     #    $HYPHY LIBPATH=$HYPHYLIBPATH conv Universal "Keep Deletions" ${FILE}.${GENE}.compressed.fas  ${FILE}.${GENE}.compressed.fas.prot
     #    echo $HYPHY LIBPATH=$HYPHYLIBPATH fade --alignment ${FILE}.${GENE}.compressed.fas.prot --tree ${FILE}.${GENE}.compressed.fas.rooted --branches Internal
