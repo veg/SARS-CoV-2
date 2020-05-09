@@ -23,6 +23,11 @@ offsets=(21562 26522 28273 25392 27201 27393 27893 265 13471)
 #offsets=(26522) 
 
 #for GENE in {S,M,N,ORF1a,ORF1b,ORF3a,ORF6,ORF7a,ORF8}; do
+
+ANNOTATION=${FILE}.annotation.json
+
+cp data/comparative-annotation-between.json ${FILE}.annotation.json
+
 for i in ${!genes[@]}; do
     GENE=${genes[i]}
     OFFSET=${offsets[i]}
@@ -35,5 +40,7 @@ for i in ${!genes[@]}; do
         $MAFFT --add data/reference_genes/${GENE}.fas --reorder ${FILE}.${GENE}.compressed.fas > ${FILE}.${GENE}.withref.fas
         cp ${FILE}.${GENE}.withref.fas ${FILE}.${GENE}.bkup.withref.fas
     fi 
-    python3 python/summarize-gene.py -T data/ctl/epitopes.json -D data/db/master-no-fasta.json -d ${FILE}.${GENE}.duplicates.json -u ${FILE}.${GENE}.compressed.fas.FUBAR.json -s ${FILE}.${GENE}.SLAC.json -f ${FILE}.${GENE}.FEL.json -m ${FILE}.${GENE}.MEME.json -P 0.1 --output  ${FILE}.${GENE}.json -c ${FILE}.${GENE}.withref.fas -E data/evo_annotation.json -F $GENE -A data/mafs.csv -V data/evo_freqs.csv -S $OFFSET -O data/comparative-annotation.json > ${FILE}.${GENE}.json
+    python3 python/summarize-gene.py -T data/ctl/epitopes.json -D data/db/master-no-fasta.json -d ${FILE}.${GENE}.duplicates.json -u ${FILE}.${GENE}.compressed.fas.FUBAR.json -s ${FILE}.${GENE}.SLAC.json -f ${FILE}.${GENE}.FEL.json -m ${FILE}.${GENE}.MEME.json -P 0.1 --output  ${FILE}.${GENE}.json -c ${FILE}.${GENE}.withref.fas -E data/evo_annotation.json -F $GENE -A data/mafs.csv -V data/evo_freqs.csv -S $OFFSET -O $ANNOTATION > ${FILE}.${GENE}.json
 done;
+
+cp $ANNOTATION data/comparative-annotation.json
