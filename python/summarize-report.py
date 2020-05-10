@@ -5,6 +5,8 @@ import json
 import numpy as np
 import collections
 import csv
+import multiprocessing
+from multiprocessing import Pool
 
 '''
 Data dictionary
@@ -150,15 +152,19 @@ def collect_info(item):
 
     return to_return
 
-combos = list(product(dates, genes))
-row_items = [collect_info(item) for item in combos[10:20]]
+def main():
+    cpus = multiprocessing.cpu_count()
+    combos = list(product(dates, genes))
 
-with open('report.csv', 'w', newline='') as csvfile:
-    fieldnames = row_items[0].keys()
-    writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
-    writer.writeheader()
-    for row_item in row_items:
-        writer.writerow(row_item)
+    with Pool(cpus) as p:
+        row_items = p.map(collect_info, combos)
+
+    with open('report.csv', 'w', newline='') as csvfile:
+        fieldnames = row_items[0].keys()
+        writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+        writer.writeheader()
+        for row_item in row_items:
+            writer.writerow(row_item)
 
 
-
+main()
