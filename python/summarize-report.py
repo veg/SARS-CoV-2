@@ -96,7 +96,14 @@ def collect_info(item):
     try:
         with open(dupe_fn) as dupe_fh:
             dupes = json.load(dupe_fh)
-        to_return["num_seqs"] = len(dupes.keys())
+        # num values
+        num_haps = [len(v) for k,v in dupes.items()]
+        to_return["num_seqs"] = sum(num_haps)
+        # num keys
+        to_return["num_uniq_haps"] = len(dupes.keys())
+        to_return["VPH"] = np.median(num_haps)
+        to_return["VPH_Q_1"] = np.percentile(num_haps, 25, interpolation = 'midpoint')
+        to_return["VPH_Q_3"] = np.percentile(num_haps, 75, interpolation = 'midpoint')
     except:
         print(f'No DUPE results for : {item}')
 
