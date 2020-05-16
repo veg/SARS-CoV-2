@@ -204,9 +204,11 @@ if ref_seq_map is None:
     raise Exception ("Misssing reference sequence for coordinate mapping")
 
     
+#print (len(ref_seq), file = sys.stderr)
 # compile the list of sites that are under selection by either MEME or FEL
 
 def map_site_to_genome_nuc (site): #0-based nucleotide coordinate for ref genome
+    #print (site, file = sys.stderr)
     rsc = ref_seq_map[site]
     if rsc >= 0:
         return rsc*3 + import_settings.offset
@@ -686,6 +688,8 @@ for site in range(sites) if annotation_json else site_list:
             for k in node_parents:
                 if node_parents[k] == 'root':
                     node_parents[k] = node
+        
+    for node,value in slac["branch attributes"]["0"].items():
             
         if "amino-acid" in value:
             aa_value    = value["amino-acid"][0][site]
