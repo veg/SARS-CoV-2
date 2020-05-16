@@ -19,8 +19,8 @@ rm data/evo_freqs.csv
 genes=(S M N ORF3a ORF6 ORF7a ORF8 ORF1a ORF1b)
 # ORF1a ORF1b ORF3a ORF6 ORF7a ORF8)
 offsets=(21562 26522 28273 25392 27201 27393 27893 265 13471)
-#genes=(M)
-#offsets=(26522) 
+#genes=(ORF3a)
+#offsets=(28273) 
 
 #for GENE in {S,M,N,ORF1a,ORF1b,ORF3a,ORF6,ORF7a,ORF8}; do
 
