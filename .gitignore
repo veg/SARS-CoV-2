@@ -1,0 +1,14 @@
+data
+*.log
+*.txt
+hosts
+*.log*
+*.btr
+.nfs*
+h1
+h2
+hyperfine*
+core*
+sed*
+*.err
+logs
