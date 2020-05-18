@@ -288,6 +288,17 @@ variant_count_NS    = 0
         
 valid_nucs = set (["A","C","G","T"])       
 include_in_annotation = {}
+
+if annotation_json is not None:
+    for i, row in enumerate (slac["MLE"]["content"]["0"]["by-site"]["AVERAGED"]):
+        add_annotation_to_site (i, {'SLAC' : {
+                    'N' : row[3],
+                    'S' : row[2],
+                    'EN' : row[1],
+                    'ES' : row[0],
+                    'p'  : row[4]
+            }})
+
     
 for i, row in enumerate (fel["MLE"]["content"]["0"]):
 
