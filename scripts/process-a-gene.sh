@@ -11,6 +11,8 @@ HYPHYMPI=/home/sergei/hyphy-dev/HYPHYMPI LIBPATH=/home/sergei/hyphy-dev/res
 MAFFT=/usr/local/bin/mafft
 RAXML=/usr/local/bin/raxml-ng
 TN93=/usr/local/bin/tn93
+PREMSA=/home/sergei/hyphy-analyses/codon-msa/pre-msa.bf
+POSTMSA=/home/sergei/hyphy-analyses/codon-msa/post-msa.bf
 
 function run_a_gene {
 
@@ -29,7 +31,7 @@ else
     then
         echo "Already extracted"
     else
-        mpirun -np $NP $HYPHYMPI  /home/sergei/hyphy-analyses/codon-msa/pre-msa.bf --input $FILE --reference $REFERENCE_SEQUENCE --trim-from $TRIM_FROM --trim-to $TRIM_TO --N-fraction $N_FRAC
+        mpirun -np $NP $HYPHYMPI $PREMSA --input $FILE --reference $REFERENCE_SEQUENCE --trim-from $TRIM_FROM --trim-to $TRIM_TO --N-fraction $N_FRAC
         mv ${FILE}_protein.fas ${FILE}.${GENE}_protein.fas
         mv ${FILE}_nuc.fas ${FILE}.${GENE}_nuc.fas
     fi
@@ -46,8 +48,8 @@ else
     then
         echo "Already reverse translated"
     else
-        $HYPHY /home/sergei/hyphy-analyses/codon-msa/post-msa.bf --protein-msa ${FILE}.${GENE}.msa --nucleotide-sequences ${FILE}.${GENE}_nuc.fas --output ${FILE}.${GENE}.compressed.fas
-        $HYPHY /home/sergei/hyphy-analyses/codon-msa/post-msa.bf --protein-msa ${FILE}.${GENE}.msa --nucleotide-sequences ${FILE}.${GENE}_nuc.fas --compress No --output ${FILE}.${GENE}.all.fas    
+        $HYPHY $POSTMSA --protein-msa ${FILE}.${GENE}.msa --nucleotide-sequences ${FILE}.${GENE}_nuc.fas --output ${FILE}.${GENE}.compressed.fas
+        $HYPHY $POSTMSA --protein-msa ${FILE}.${GENE}.msa --nucleotide-sequences ${FILE}.${GENE}_nuc.fas --compress No --output ${FILE}.${GENE}.all.fas    
     fi
     
     if [ -s ${FILE}.${GENE}.withref.fas ]
