@@ -200,47 +200,47 @@ case $GENE in
 
   S)
     echo -n "Analyzing S Gene"
-    run_a_gene "S" "$WORKING_DIR/data/reference_genes/S.fas" "20000" "27000" 0.005
+    run_a_gene "S" "$WORKING_DIR/reference_genes/S.fas" "20000" "27000" 0.005
     ;;
 
   M)
     echo -n "Analyzing M gene"
-    run_a_gene "M" "$WORKING_DIR/data/reference_genes/M.fas" "25000" "30000" 0.01
+    run_a_gene "M" "$WORKING_DIR/reference_genes/M.fas" "25000" "30000" 0.01
     ;;
 
   N)
     echo -n "Analyzing N gene"
-    run_a_gene "N" "$WORKING_DIR/data/reference_genes/N.fas" "26000" "35000" 0.01
+    run_a_gene "N" "$WORKING_DIR/reference_genes/N.fas" "26000" "35000" 0.01
     ;;
 
   ORF3a)
     echo -n "Analyzing ORF3a gene"
-    run_a_gene "ORF3a" "$WORKING_DIR/data/reference_genes/ORF3a.fas" "24000" "27000" 0.01
+    run_a_gene "ORF3a" "$WORKING_DIR/reference_genes/ORF3a.fas" "24000" "27000" 0.01
     ;;
 
   ORF7a)
     echo -n "Analyzing ORF7a gene"
-    run_a_gene "ORF7a" "$WORKING_DIR/data/reference_genes/ORF7a.fas" "26000" "35000" 0.01
+    run_a_gene "ORF7a" "$WORKING_DIR/reference_genes/ORF7a.fas" "26000" "35000" 0.01
     ;;
 
   ORF8)
     echo -n "Analyzing ORF8 gene"
-    run_a_gene "ORF8" "$WORKING_DIR/data/reference_genes/ORF8.fas" "26000" "35000" 0.01
+    run_a_gene "ORF8" "$WORKING_DIR/reference_genes/ORF8.fas" "26000" "35000" 0.01
     ;;
 
   #ORF1a)
   #  echo -n "Analyzing ORF1a gene"
-  #  run_a_gene "ORF1a" "$WORKING_DIR/data/reference_genes/ORF1a.fas" "1" "15000" 0.001
+  #  run_a_gene "ORF1a" "$WORKING_DIR/reference_genes/ORF1a.fas" "1" "15000" 0.001
   #  ;;
 
   ORF1b)
     echo -n "Analyzing ORF1b gene"
-    run_a_gene "ORF1b" "$WORKING_DIR/data/reference_genes/ORF1b.fas" "12000" "24000" 0.001
+    run_a_gene "ORF1b" "$WORKING_DIR/reference_genes/ORF1b.fas" "12000" "24000" 0.001
     ;;
 
   ORF6)
     echo -n "Analyzing ORF6 gene"
-    run_a_gene "ORF6" "$WORKING_DIR/data/reference_genes/ORF6.fas" "26000" "30000" 0.01
+    run_a_gene "ORF6" "$WORKING_DIR/reference_genes/ORF6.fas" "26000" "30000" 0.01
     ;;
 
   *)
