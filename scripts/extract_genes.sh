@@ -228,10 +228,10 @@ case $GENE in
     run_a_gene "ORF8" "$WORKING_DIR/data/reference_genes/ORF8.fas" "26000" "35000" 0.01
     ;;
 
-  ORF1a)
-    echo -n "Analyzing ORF1a gene"
-    run_a_gene "ORF1a" "$WORKING_DIR/data/reference_genes/ORF1a.fas" "1" "15000" 0.001
-    ;;
+  #ORF1a)
+  #  echo -n "Analyzing ORF1a gene"
+  #  run_a_gene "ORF1a" "$WORKING_DIR/data/reference_genes/ORF1a.fas" "1" "15000" 0.001
+  #  ;;
 
   ORF1b)
     echo -n "Analyzing ORF1b gene"
