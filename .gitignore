@@ -1,4 +1,4 @@
-data
+data/fasta
 *.log
 *.txt
 hosts

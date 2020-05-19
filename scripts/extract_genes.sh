@@ -228,10 +228,50 @@ case $GENE in
     run_a_gene "ORF8" "$WORKING_DIR/reference_genes/ORF8.fas" "26000" "35000" 0.01
     ;;
 
-  #ORF1a)
-  #  echo -n "Analyzing ORF1a gene"
-  #  run_a_gene "ORF1a" "$WORKING_DIR/reference_genes/ORF1a.fas" "1" "15000" 0.001
-  #  ;;
+  ORF1a)
+    echo -n "Analyzing ORF1a gene"
+    run_a_gene "ORF1a" "$WORKING_DIR/reference_genes/ORF1a.fas" "1" "15000" 0.001
+    ;;
+
+  nsp2)
+    echo -n "Analyzing nsp2 gene"
+    run_a_gene "nsp2" "$WORKING_DIR/reference_genes/nsp2.fas" "1" "15000" 0.001
+    ;;
+
+  nsp3)
+    echo -n "Analyzing nsp3 gene"
+    run_a_gene "nsp3" "$WORKING_DIR/reference_genes/nsp3.fas" "1" "15000" 0.001
+    ;;
+
+  nsp4)
+    echo -n "Analyzing nsp4 gene"
+    run_a_gene "nsp4" "$WORKING_DIR/reference_genes/nsp4.fas" "1" "15000" 0.001
+    ;;
+
+  nsp6)
+    echo -n "Analyzing nsp6 gene"
+    run_a_gene "nsp6" "$WORKING_DIR/reference_genes/nsp6.fas" "1" "15000" 0.001
+    ;;
+
+  nsp7)
+    echo -n "Analyzing nsp7 gene"
+    run_a_gene "nsp7" "$WORKING_DIR/reference_genes/nsp7.fas" "1" "15000" 0.001
+    ;;
+
+  nsp8)
+    echo -n "Analyzing nsp8 gene"
+    run_a_gene "nsp8" "$WORKING_DIR/reference_genes/nsp8.fas" "1" "15000" 0.001
+    ;;
+
+  nsp9)
+    echo -n "Analyzing nsp9 gene"
+    run_a_gene "nsp9" "$WORKING_DIR/reference_genes/nsp9.fas" "1" "15000" 0.001
+    ;;
+
+  nsp10)
+    echo -n "Analyzing nsp10 gene"
+    run_a_gene "nsp10" "$WORKING_DIR/reference_genes/nsp10.fas" "1" "15000" 0.001
+    ;;
 
   ORF1b)
     echo -n "Analyzing ORF1b gene"
