@@ -1,17 +1,17 @@
->NC_045512.2:3C
-agtggt tttagaaaaa tggcattccc
-    10081 atctggtaaa gttgagggtt gtatggtaca agtaacttgt ggtacaacta cacttaacgg
-    10141 tctttggctt gatgacgtag tttactgtcc aagacatgtg atctgcacct ctgaagacat
-    10201 gcttaaccct aattatgaag atttactcat tcgtaagtct aatcataatt tcttggtaca
-    10261 ggctggtaat gttcaactca gggttattgg acattctatg caaaattgtg tacttaagct
-    10321 taaggttgat acagccaatc ctaagacacc taagtataag tttgttcgca ttcaaccagg
-    10381 acagactttt tcagtgttag cttgttacaa tggttcacca tctggtgttt accaatgtgc
-    10441 tatgaggccc aatttcacta ttaagggttc attccttaat ggttcatgtg gtagtgttgg
-    10501 ttttaacata gattatgact gtgtctcttt ttgttacatg caccatatgg aattaccaac
-    10561 tggagttcat gctggcacag acttagaagg taacttttat ggaccttttg ttgacaggca
-    10621 aacagcacaa gcagctggta cggacacaac tattacagtt aatgttttag cttggttgta
-    10681 cgctgctgtt ataaatggag acaggtggtt tctcaatcga tttaccacaa ctcttaatga
-    10741 ctttaacctt gtggctatga agtacaatta tgaacctcta acacaagacc atgttgacat
-    10801 actaggacct ctttctgctc aaactggaat tgccgtttta gatatgtgtg cttcattaaa
-    10861 agaattactg caaaatggta tgaatggacg taccatattg ggtagtgctt tattagaaga
-    10921 tgaatttaca ccttttgatg ttgttagaca atgctcaggt gttactttcc aa
+>NC_045512.2:3C:10055-10972
+agtggttttagaaaaatggcattccc
+atctggtaaagttgagggttgtatggtacaagtaacttgtggtacaactacacttaacgg
+tctttggcttgatgacgtagtttactgtccaagacatgtgatctgcacctctgaagacat
+gcttaaccctaattatgaagatttactcattcgtaagtctaatcataatttcttggtaca
+ggctggtaatgttcaactcagggttattggacattctatgcaaaattgtgtacttaagct
+taaggttgatacagccaatcctaagacacctaagtataagtttgttcgcattcaaccagg
+acagactttttcagtgttagcttgttacaatggttcaccatctggtgtttaccaatgtgc
+tatgaggcccaatttcactattaagggttcattccttaatggttcatgtggtagtgttgg
+ttttaacatagattatgactgtgtctctttttgttacatgcaccatatggaattaccaac
+tggagttcatgctggcacagacttagaaggtaacttttatggaccttttgttgacaggca
+aacagcacaagcagctggtacggacacaactattacagttaatgttttagcttggttgta
+cgctgctgttataaatggagacaggtggtttctcaatcgatttaccacaactcttaatga
+ctttaaccttgtggctatgaagtacaattatgaacctctaacacaagaccatgttgacat
+actaggacctctttctgctcaaactggaattgccgttttagatatgtgtgcttcattaaa
+agaattactgcaaaatggtatgaatggacgtaccatattgggtagtgctttattagaaga
+tgaatttacaccttttgatgttgttagacaatgctcaggtgttactttccaa

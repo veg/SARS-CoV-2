@@ -1,6 +1,6 @@
->NC_045512.2:nsp7
-tctaaaat gtcagatgta aagtgcacat cagtagtctt
-    11881 actctcagtt ttgcaacaac tcagagtaga atcatcatct aaattgtggg ctcaatgtgt
-    11941 ccagttacac aatgacattc tcttagctaa agatactact gaagcctttg aaaaaatggt
-    12001 ttcactactt tctgttttgc tttccatgca gggtgctgta gacataaaca agctttgtga
-    12061 agaaatgctg gacaacaggg caaccttaca a
+>NC_045512.2:nsp7:11843-12091
+tctaaaatgtcagatgtaaagtgcacatcagtagtctt
+actctcagttttgcaacaactcagagtagaatcatcatctaaattgtgggctcaatgtgt
+ccagttacacaatgacattctcttagctaaagatactactgaagcctttgaaaaaatggt
+ttcactactttctgttttgctttccatgcagggtgctgtagacataaacaagctttgtga
+agaaatgctggacaacagggcaaccttacaa

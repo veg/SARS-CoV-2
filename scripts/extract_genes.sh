@@ -199,89 +199,130 @@ fi
 case $GENE in
 
   S)
-    echo -n "Analyzing S Gene"
+    echo "Analyzing S Gene"
     run_a_gene "S" "$WORKING_DIR/reference_genes/S.fas" "20000" "27000" 0.005
     ;;
 
   M)
-    echo -n "Analyzing M gene"
+    echo "Analyzing M gene"
     run_a_gene "M" "$WORKING_DIR/reference_genes/M.fas" "25000" "30000" 0.01
     ;;
 
   N)
-    echo -n "Analyzing N gene"
+    echo "Analyzing N gene"
     run_a_gene "N" "$WORKING_DIR/reference_genes/N.fas" "26000" "35000" 0.01
     ;;
 
   ORF3a)
-    echo -n "Analyzing ORF3a gene"
+    echo "Analyzing ORF3a gene"
     run_a_gene "ORF3a" "$WORKING_DIR/reference_genes/ORF3a.fas" "24000" "27000" 0.01
     ;;
 
+  ORF6)
+    echo "Analyzing ORF6 gene"
+    run_a_gene "ORF6" "$WORKING_DIR/reference_genes/ORF6.fas" "26000" "30000" 0.01
+    ;;
+
   ORF7a)
-    echo -n "Analyzing ORF7a gene"
+    echo "Analyzing ORF7a gene"
     run_a_gene "ORF7a" "$WORKING_DIR/reference_genes/ORF7a.fas" "26000" "35000" 0.01
     ;;
 
   ORF8)
-    echo -n "Analyzing ORF8 gene"
+    echo "Analyzing ORF8 gene"
     run_a_gene "ORF8" "$WORKING_DIR/reference_genes/ORF8.fas" "26000" "35000" 0.01
     ;;
 
+  ORF10)
+    echo "Analyzing ORF10 gene"
+    run_a_gene "ORF10" "$WORKING_DIR/reference_genes/ORF10.fas" "29500" "29800" 0.01
+    ;;
+
   ORF1a)
-    echo -n "Analyzing ORF1a gene"
+    echo "Analyzing ORF1a gene"
     run_a_gene "ORF1a" "$WORKING_DIR/reference_genes/ORF1a.fas" "1" "15000" 0.001
     ;;
 
+  leader)
+    echo "Analyzing leader product"
+    run_a_gene "leader" "$WORKING_DIR/reference_genes/leader.fas" "1" "1000" 0.001
+    ;;
+
   nsp2)
-    echo -n "Analyzing nsp2 gene"
-    run_a_gene "nsp2" "$WORKING_DIR/reference_genes/nsp2.fas" "1" "15000" 0.001
+    echo "Analyzing nsp2 product"
+    run_a_gene "nsp2" "$WORKING_DIR/reference_genes/nsp2.fas" "500" "3000" 0.001
     ;;
 
   nsp3)
-    echo -n "Analyzing nsp3 gene"
-    run_a_gene "nsp3" "$WORKING_DIR/reference_genes/nsp3.fas" "1" "15000" 0.001
+    echo "Analyzing nsp3 product"
+    run_a_gene "nsp3" "$WORKING_DIR/reference_genes/nsp3.fas" "2000" "10000" 0.001
     ;;
 
   nsp4)
-    echo -n "Analyzing nsp4 gene"
-    run_a_gene "nsp4" "$WORKING_DIR/reference_genes/nsp4.fas" "1" "15000" 0.001
+    echo "Analyzing nsp4 product"
+    run_a_product "nsp4" "$WORKING_DIR/reference_genes/nsp4.fas" "8000" "11000" 0.001
+    ;;
+
+  3C)
+    echo "Analyzing 3C product"
+    run_a_product "3C" "$WORKING_DIR/reference_genes/3C.fas" "9000" "12000" 0.001
     ;;
 
   nsp6)
-    echo -n "Analyzing nsp6 gene"
-    run_a_gene "nsp6" "$WORKING_DIR/reference_genes/nsp6.fas" "1" "15000" 0.001
+    echo "Analyzing nsp6 product"
+    run_a_product "nsp6" "$WORKING_DIR/reference_genes/nsp6.fas" "10500" "12500" 0.001
     ;;
 
   nsp7)
-    echo -n "Analyzing nsp7 gene"
-    run_a_gene "nsp7" "$WORKING_DIR/reference_genes/nsp7.fas" "1" "15000" 0.001
+    echo "Analyzing nsp7 product"
+    run_a_product "nsp7" "$WORKING_DIR/reference_genes/nsp7.fas" "11500" "12500" 0.001
     ;;
 
   nsp8)
-    echo -n "Analyzing nsp8 gene"
-    run_a_gene "nsp8" "$WORKING_DIR/reference_genes/nsp8.fas" "1" "15000" 0.001
+    echo "Analyzing nsp8 product"
+    run_a_product "nsp8" "$WORKING_DIR/reference_genes/nsp8.fas" "11500" "13000" 0.001
     ;;
 
   nsp9)
-    echo -n "Analyzing nsp9 gene"
-    run_a_gene "nsp9" "$WORKING_DIR/reference_genes/nsp9.fas" "1" "15000" 0.001
+    echo "Analyzing nsp9 product"
+    run_a_product "nsp9" "$WORKING_DIR/reference_genes/nsp9.fas" "12000" "13500" 0.001
     ;;
 
   nsp10)
-    echo -n "Analyzing nsp10 gene"
-    run_a_gene "nsp10" "$WORKING_DIR/reference_genes/nsp10.fas" "1" "15000" 0.001
+    echo "Analyzing nsp10 product"
+    run_a_product "nsp10" "$WORKING_DIR/reference_genes/nsp10.fas" "12500" "14000" 0.001
     ;;
 
   ORF1b)
-    echo -n "Analyzing ORF1b gene"
+    echo "Analyzing ORF1b gene"
     run_a_gene "ORF1b" "$WORKING_DIR/reference_genes/ORF1b.fas" "12000" "24000" 0.001
     ;;
 
-  ORF6)
-    echo -n "Analyzing ORF6 gene"
-    run_a_gene "ORF6" "$WORKING_DIR/reference_genes/ORF6.fas" "26000" "30000" 0.01
+  RdRp)
+    echo "Analyzing RdRp product"
+    run_a_gene "RdRp" "$WORKING_DIR/reference_genes/RdRp.fas" "13000" "17000" 0.001
     ;;
+
+  helicase)
+    echo "Analyzing helicase product"
+    run_a_gene "helicase" "$WORKING_DIR/reference_genes/helicase.fas" "15500" "18500" 0.001
+    ;;
+
+  exonuclease)
+    echo "Analyzing exonuclease product"
+    run_a_gene "exonuclease" "$WORKING_DIR/reference_genes/exonuclease.fas" "17500" "20000" 0.001
+    ;;
+
+  endornase)
+    echo "Analyzing endornase product"
+    run_a_gene "endornase" "$WORKING_DIR/reference_genes/endornase.fas" "19000" "21000" 0.001
+    ;;
+
+  ORF10)
+    echo "Analyzing endornase product"
+    run_a_gene "ORF10" "$WORKING_DIR/reference_genes/ORF10.fas" "29000" "30000" 0.001
+    ;;
+
 
   *)
     echo -n "Unknown Gene, exiting"
