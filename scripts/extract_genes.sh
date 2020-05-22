@@ -275,39 +275,38 @@ case $GENE in
 
   nsp4)
     echo "Analyzing nsp4 product"
-    run_a_product "nsp4" "$WORKING_DIR/reference_genes/nsp4.fas" "8000" "11000" 0.001
+    run_a_gene "nsp4" "$WORKING_DIR/reference_genes/nsp4.fas" "8000" "11000" 0.001
     ;;
 
   3C)
     echo "Analyzing 3C product"
-    run_a_product "3C" "$WORKING_DIR/reference_genes/3C.fas" "9000" "12000" 0.001
+    run_a_gene "3C" "$WORKING_DIR/reference_genes/3C.fas" "9000" "12000" 0.001
     ;;
 
   nsp6)
     echo "Analyzing nsp6 product"
-    run_a_product "nsp6" "$WORKING_DIR/reference_genes/nsp6.fas" "10500" "12500" 0.001
+    run_a_gene "nsp6" "$WORKING_DIR/reference_genes/nsp6.fas" "10500" "12500" 0.001
     ;;
 
   nsp7)
     echo "Analyzing nsp7 product"
-    run_a_product "nsp7" "$WORKING_DIR/reference_genes/nsp7.fas" "11500" "12500" 0.001
+    run_a_gene "nsp7" "$WORKING_DIR/reference_genes/nsp7.fas" "11500" "12500" 0.001
     ;;
 
   nsp8)
     echo "Analyzing nsp8 product"
-    run_a_product "nsp8" "$WORKING_DIR/reference_genes/nsp8.fas" "11500" "13000" 0.001
+    run_a_gene "nsp8" "$WORKING_DIR/reference_genes/nsp8.fas" "11500" "13000" 0.001
     ;;
 
   nsp9)
     echo "Analyzing nsp9 product"
-    run_a_product "nsp9" "$WORKING_DIR/reference_genes/nsp9.fas" "12000" "13500" 0.001
+    run_a_gene "nsp9" "$WORKING_DIR/reference_genes/nsp9.fas" "12000" "13500" 0.001
     ;;
 
   nsp10)
     echo "Analyzing nsp10 product"
-    run_a_product "nsp10" "$WORKING_DIR/reference_genes/nsp10.fas" "12500" "14000" 0.001
+    run_a_gene "nsp10" "$WORKING_DIR/reference_genes/nsp10.fas" "12500" "14000" 0.001
     ;;
-
 
   RdRp)
     echo "Analyzing RdRp product"

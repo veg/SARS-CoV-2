@@ -3,7 +3,7 @@
 source $HOME/.zshrc
 
 fdate=$(date +"%Y-%m-%d")
-fdate="2020-04-27"
+#fdate="2020-05-16"
 #echo "Getting metadata"
 #node /data/shares/veg/SARS-CoV-2/gisaid-downloader/get_metadata.js
 #mv /data/shares/veg/SARS-CoV-2/gisaid-downloader/downloads/* /data/shares/gisaid/

@@ -1,6 +1,6 @@
 #!/bin/bash
 fdate=$(date +"%Y-%m-%d")
-#fdate="2020-05-06"
+#fdate="2020-05-16"
 
 QUEUE='epyc2'
 OUTPUT_DIR=`pwd`/logs/$fdate/
