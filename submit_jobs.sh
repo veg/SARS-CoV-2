@@ -1,6 +1,6 @@
 #!/bin/bash
 fdate=$(date +"%Y-%m-%d")
-#fdate="2020-05-16"
+fdate="2020-05-23"
 
 QUEUE='epyc2'
 OUTPUT_DIR=`pwd`/logs/$fdate/
@@ -34,6 +34,6 @@ qsub -l nodes=1:ppn=32 -d `pwd` -o $OUTPUT_DIR -e $OUTPUT_DIR -q $QUEUE -F "/dat
 qsub -l nodes=1:ppn=32 -d `pwd` -o $OUTPUT_DIR -e $OUTPUT_DIR -q $QUEUE -F "/data/shares/veg/SARS-CoV-2/SARS-CoV-2/data/fasta/$fdate helicase 32" /data/shares/veg/SARS-CoV-2/SARS-CoV-2/scripts/extract_genes.sh
 qsub -l nodes=1:ppn=32 -d `pwd` -o $OUTPUT_DIR -e $OUTPUT_DIR -q $QUEUE -F "/data/shares/veg/SARS-CoV-2/SARS-CoV-2/data/fasta/$fdate exonuclease 32" /data/shares/veg/SARS-CoV-2/SARS-CoV-2/scripts/extract_genes.sh
 qsub -l nodes=1:ppn=32 -d `pwd` -o $OUTPUT_DIR -e $OUTPUT_DIR -q $QUEUE -F "/data/shares/veg/SARS-CoV-2/SARS-CoV-2/data/fasta/$fdate endornase 32" /data/shares/veg/SARS-CoV-2/SARS-CoV-2/scripts/extract_genes.sh
+qsub -l nodes=1:ppn=32 -d `pwd` -o $OUTPUT_DIR -e $OUTPUT_DIR -q $QUEUE -F "/data/shares/veg/SARS-CoV-2/SARS-CoV-2/data/fasta/$fdate methyltransferase 32" /data/shares/veg/SARS-CoV-2/SARS-CoV-2/scripts/extract_genes.sh
 qsub -l nodes=1:ppn=32 -d `pwd` -o $OUTPUT_DIR -e $OUTPUT_DIR -q $QUEUE -F "/data/shares/veg/SARS-CoV-2/SARS-CoV-2/data/fasta/$fdate ORF10 32" /data/shares/veg/SARS-CoV-2/SARS-CoV-2/scripts/extract_genes.sh
-
 

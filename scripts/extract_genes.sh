@@ -318,6 +318,12 @@ case $GENE in
     run_a_gene "endornase" "$WORKING_DIR/reference_genes/endornase.fas" "19000" "21000" 0.001
     ;;
 
+  methyltransferase)
+    echo "Analyzing methyltransferase product"
+    run_a_gene "methyltransferase" "$WORKING_DIR/reference_genes/methyltransferase.fas" "20000" "22000" 0.001
+    ;;
+
+
   *)
     echo -n "Unknown Gene, exiting"
     ;;
