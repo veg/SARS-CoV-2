@@ -73,15 +73,16 @@ else
         $HYPHY LIBPATH=$HYPHYLIBPATH $POSTMSA --protein-msa ${FILE}.${GENE}.msa --nucleotide-sequences ${FILE}.${GENE}_nuc.fas --output ${FILE}.${GENE}.compressed.fas --duplicates ${FILE}.${GENE}.duplicates.json
         $HYPHY LIBPATH=$HYPHYLIBPATH $POSTMSA --protein-msa ${FILE}.${GENE}.msa --nucleotide-sequences ${FILE}.${GENE}_nuc.fas --compress No --output ${FILE}.${GENE}.all.fas    
         #Replace all unknown characters with N
-        sed -i '/^>/! s/[^ACTG]/N/g' ${FILE}.${GENE}.all.fas
+        sed -i '/^>/! s/[^ACTG-]/N/g' ${FILE}.${GENE}.all.fas
+        sed -i '/^>/! s/[^ACTG-]/N/g' ${FILE}.${GENE}.compressed.fas
     fi
     
     if [ -s ${FILE}.${GENE}.withref.fas ]
     then 
         echo "Already has alignment with reference"
     else
-        echo "$MAFFT --add $REFERENCE_SEQUENCE --reorder ${FILE}.${GENE}.all.fas"
-        $MAFFT --add $REFERENCE_SEQUENCE --reorder ${FILE}.${GENE}.all.fas > ${FILE}.${GENE}.withref.fas 2> mafft.error.log
+        echo "$MAFFT --add $REFERENCE_SEQUENCE --reorder ${FILE}.${GENE}.compressed.fas"
+        $MAFFT --add $REFERENCE_SEQUENCE --reorder ${FILE}.${GENE}.compressed.fas > ${FILE}.${GENE}.withref.fas 2> mafft.error.log
     fi 
 
     if [ -s ${FILE}.${GENE}.tn93 ] 

@@ -22,7 +22,7 @@ qsub -l nodes=1:ppn=32 -d `pwd` -o $OUTPUT_DIR -e $OUTPUT_DIR -q $QUEUE -F "/dat
 # Products
 qsub -l nodes=1:ppn=32 -d `pwd` -o $OUTPUT_DIR -e $OUTPUT_DIR -q $QUEUE -F "/data/shares/veg/SARS-CoV-2/SARS-CoV-2/data/fasta/$fdate leader 32" /data/shares/veg/SARS-CoV-2/SARS-CoV-2/scripts/extract_genes.sh
 qsub -l nodes=1:ppn=32 -d `pwd` -o $OUTPUT_DIR -e $OUTPUT_DIR -q $QUEUE -F "/data/shares/veg/SARS-CoV-2/SARS-CoV-2/data/fasta/$fdate nsp2 32" /data/shares/veg/SARS-CoV-2/SARS-CoV-2/scripts/extract_genes.sh
-qsub -l nodes=1:ppn=32 -d `pwd` -o $OUTPUT_DIR -e $OUTPUT_DIR -q $QUEUE -F "/data/shares/veg/SARS-CoV-2/SARS-CoV-2/data/fasta/$fdate nsp3 32" /data/shares/veg/SARS-CoV-2/SARS-CoV-2/scripts/extract_genes.sh
+qsub -l nodes=1:ppn=64 -d `pwd` -o $OUTPUT_DIR -e $OUTPUT_DIR -q $QUEUE -F "/data/shares/veg/SARS-CoV-2/SARS-CoV-2/data/fasta/$fdate nsp3 64" /data/shares/veg/SARS-CoV-2/SARS-CoV-2/scripts/extract_genes.sh
 qsub -l nodes=1:ppn=32 -d `pwd` -o $OUTPUT_DIR -e $OUTPUT_DIR -q $QUEUE -F "/data/shares/veg/SARS-CoV-2/SARS-CoV-2/data/fasta/$fdate nsp4 32" /data/shares/veg/SARS-CoV-2/SARS-CoV-2/scripts/extract_genes.sh
 qsub -l nodes=1:ppn=32 -d `pwd` -o $OUTPUT_DIR -e $OUTPUT_DIR -q $QUEUE -F "/data/shares/veg/SARS-CoV-2/SARS-CoV-2/data/fasta/$fdate 3C 32" /data/shares/veg/SARS-CoV-2/SARS-CoV-2/scripts/extract_genes.sh
 qsub -l nodes=1:ppn=32 -d `pwd` -o $OUTPUT_DIR -e $OUTPUT_DIR -q $QUEUE -F "/data/shares/veg/SARS-CoV-2/SARS-CoV-2/data/fasta/$fdate nsp6 32" /data/shares/veg/SARS-CoV-2/SARS-CoV-2/scripts/extract_genes.sh
