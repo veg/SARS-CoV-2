@@ -71,25 +71,15 @@ else
         echo $HYPHY LIBPATH=$HYPHYLIBPATH $POSTMSA --protein-msa ${FILE}.${GENE}.msa --nucleotide-sequences ${FILE}.${GENE}_nuc.fas --output ${FILE}.${GENE}.compressed.fas --duplicates ${FILE}.${GENE}.duplicates.json
         echo $HYPHY LIBPATH=$HYPHYLIBPATH $POSTMSA --protein-msa ${FILE}.${GENE}.msa --nucleotide-sequences ${FILE}.${GENE}_nuc.fas --compress No --output ${FILE}.${GENE}.all.fas    
         $HYPHY LIBPATH=$HYPHYLIBPATH $POSTMSA --protein-msa ${FILE}.${GENE}.msa --nucleotide-sequences ${FILE}.${GENE}_nuc.fas --output ${FILE}.${GENE}.compressed.fas --duplicates ${FILE}.${GENE}.duplicates.json
-        $HYPHY LIBPATH=$HYPHYLIBPATH $POSTMSA --protein-msa ${FILE}.${GENE}.msa --nucleotide-sequences ${FILE}.${GENE}_nuc.fas --compress No --output ${FILE}.${GENE}.all.fas    
         #Replace all unknown characters with N
-        sed -i '/^>/! s/[^ACTG-]/N/g' ${FILE}.${GENE}.all.fas
         sed -i '/^>/! s/[^ACTG-]/N/g' ${FILE}.${GENE}.compressed.fas
     fi
-    
-    if [ -s ${FILE}.${GENE}.withref.fas ]
-    then 
-        echo "Already has alignment with reference"
-    else
-        echo "$MAFFT --add $REFERENCE_SEQUENCE --reorder ${FILE}.${GENE}.compressed.fas"
-        $MAFFT --add $REFERENCE_SEQUENCE --reorder ${FILE}.${GENE}.compressed.fas > ${FILE}.${GENE}.withref.fas 2> mafft.error.log
-    fi 
 
     if [ -s ${FILE}.${GENE}.tn93 ] 
     then
         echo "Already computed TN93"
     else
-        $TN93 -q -t 0.05 ${FILE}.${GENE}.withref.fas > ${FILE}.${GENE}.tn93 2> ${FILE}.${GENE}.tn93.json
+        $TN93 -q -t 0.05 ${FILE}.${GENE}.compressed.fas > ${FILE}.${GENE}.tn93 2> ${FILE}.${GENE}.tn93.json
         echo python3 $WORKING_DIR/python/tabulate-diversity-divergence.py -j $MASTER -t ${FILE}.${GENE}.tn93 > $DIRECTORY/evolution.${GENE}.csv
         python3 $WORKING_DIR/python/tabulate-diversity-divergence.py -j $MASTER -t ${FILE}.${GENE}.tn93 > $DIRECTORY/evolution.${GENE}.csv
     fi
@@ -154,8 +144,8 @@ else
     #    mpirun -np $NP $HYPHYMPI LIBPATH=$HYPHYLIBPATH prime --alignment ${FILE}.${GENE}.compressed.fas --tree ${FILE}.${GENE}.compressed.fas.rapidnj.bestTree --branches Internal --output ${FILE}.${GENE}.PRIME.json
     #fi
 
-    echo python3 $WORKING_DIR/python/summarize-gene.py -D $MASTERNOFASTA -d ${FILE}.${GENE}.duplicates.json -s ${FILE}.${GENE}.SLAC.json -f ${FILE}.${GENE}.FEL.json -m ${FILE}.${GENE}.MEME.json -P 0.1 --output  ${FILE}.${GENE}.json -E data/evo_annotation.json -c ${FILE}.${GENE}.withref.fas
-    python3 $WORKING_DIR/python/summarize-gene.py -D $MASTERNOFASTA -d ${FILE}.${GENE}.duplicates.json -s ${FILE}.${GENE}.SLAC.json -f ${FILE}.${GENE}.FEL.json -m ${FILE}.${GENE}.MEME.json -P 0.1 --output  ${FILE}.${GENE}.json -E data/evo_annotation.json -c ${FILE}.${GENE}.withref.fas
+    echo python3 $WORKING_DIR/python/summarize-gene.py -D $MASTERNOFASTA -d ${FILE}.${GENE}.duplicates.json -s ${FILE}.${GENE}.SLAC.json -f ${FILE}.${GENE}.FEL.json -m ${FILE}.${GENE}.MEME.json -P 0.1 --output  ${FILE}.${GENE}.json -E data/evo_annotation.json -c ${FILE}.${GENE}.compressed.fas
+    python3 $WORKING_DIR/python/summarize-gene.py -D $MASTERNOFASTA -d ${FILE}.${GENE}.duplicates.json -s ${FILE}.${GENE}.SLAC.json -f ${FILE}.${GENE}.FEL.json -m ${FILE}.${GENE}.MEME.json -P 0.1 --output  ${FILE}.${GENE}.json -E data/evo_annotation.json -c ${FILE}.${GENE}.compressed.fas
 
     #if [ -s ${FILE}.${GENE}.BGM.json ] 
     #then
