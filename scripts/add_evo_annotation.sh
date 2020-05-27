@@ -1,5 +1,6 @@
 rm data/evo_annotation.json
 
+
 python3 python/extract-prime-annotation.py  -c data/betas/sequences.nsp2.compressed.fas -p data/betas/sequences.nsp2.compressed.fas.PRIME.json -r ORF1a  -f 180 -o data/evo_annotation.json
 python3 python/extract-prime-annotation.py  -c data/betas/sequences.3C.compressed.fas -p data/betas/sequences.3C.compressed.fas.PRIME.json -r ORF1a  -f 3263 -o data/evo_annotation.json 
 python3 python/extract-prime-annotation.py  -c data/betas/sequences.leader.compressed.fas -p data/betas/sequences.leader.compressed.fas.PRIME.json -r ORF1a  -f 0 -o data/evo_annotation.json
@@ -15,6 +16,7 @@ python3 python/extract-prime-annotation.py  -c data/betas/sequences.RdRp.compres
 python3 python/extract-prime-annotation.py  -c data/betas/sequences.helicase.compressed.fas -p data/betas/sequences.helicase.compressed.fas.PRIME.json -r ORF1b  -f 922 -o data/evo_annotation.json 
 python3 python/extract-prime-annotation.py  -c data/betas/sequences.endornase.compressed.fas -p data/betas/sequences.endornase.compressed.fas.PRIME.json -r ORF1b  -f 2050 -o data/evo_annotation.json  
 python3 python/extract-prime-annotation.py  -c data/betas/sequences.methyltransferase.compressed.fas -p data/betas/sequences.methyltransferase.compressed.fas.PRIME.json -r ORF1b  -f 2396 -o data/evo_annotation.json 
+python3 python/extract-prime-annotation.py  -c data/betas/sequences.exonuclease.compressed.fas -p data/betas/sequences.exonuclease.compressed.fas.PRIME.json -r ORF1b  -f 1523 -o data/evo_annotation.json  
 
 python3 python/extract-prime-annotation.py  -c data/betas/S.aligned.fas -p data/betas/S.aligned.fas.best-gard.PRIME.json -r S  -f 0 -o data/evo_annotation.json
 #  
