@@ -107,8 +107,8 @@ else
     then
         echo "Already has SLAC results"
     else
-        echo mpirun -np $NP $HYPHYMPI LIBPATH=$HYPHYLIBPATH slac --alignment ${FILE}.${GENE}.compressed.fas --tree ${FILE}.${GENE}.compressed.fas.rapidnj.bestTree --branches Internal --samples 0 --output ${FILE}.${GENE}.SLAC.json
-        mpirun -np $NP $HYPHYMPI LIBPATH=$HYPHYLIBPATH slac --alignment ${FILE}.${GENE}.compressed.fas --tree ${FILE}.${GENE}.compressed.fas.rapidnj.bestTree --branches Internal --samples 0 --output ${FILE}.${GENE}.SLAC.json
+        echo mpirun -np $NP $HYPHYMPI LIBPATH=$HYPHYLIBPATH slac --alignment ${FILE}.${GENE}.compressed.fas --tree ${FILE}.${GENE}.compressed.fas.rapidnj.bestTree --branches All --samples 0 --output ${FILE}.${GENE}.SLAC.json
+        mpirun -np $NP $HYPHYMPI LIBPATH=$HYPHYLIBPATH slac --alignment ${FILE}.${GENE}.compressed.fas --tree ${FILE}.${GENE}.compressed.fas.rapidnj.bestTree --branches All --samples 0 --output ${FILE}.${GENE}.SLAC.json
     fi
 
     if [ -s ${FILE}.${GENE}.FEL.json ] 
