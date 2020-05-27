@@ -1,6 +1,6 @@
 #!/bin/bash
 fdate=$(date +"%Y-%m-%d")
-#fdate="2020-05-25"
+fdate="2020-05-24"
 
 FQUEUE='epyc2'
 QUEUE='epyc'

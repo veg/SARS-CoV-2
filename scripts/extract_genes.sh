@@ -127,13 +127,13 @@ else
         mpirun -np $NP $HYPHYMPI LIBPATH=$HYPHYLIBPATH meme --alignment ${FILE}.${GENE}.compressed.fas --tree ${FILE}.${GENE}.compressed.fas.rapidnj.bestTree --branches Internal --output ${FILE}.${GENE}.MEME.json
     fi
 
-    if [ -s ${FILE}.${GENE}.FUBAR.json ] 
-    then
-        echo "Already has FUBAR results"
-    else
-       echo "$HYPHY LIBPATH=$HYPHYLIBPATH  fubar --grid 40 --alignment ${FILE}.${GENE}.compressed.fas --tree ${FILE}.${GENE}.compressed.fas.rapidnj.bestTree --output ${FILE}.${GENE}.FUBAR.json"
-       $HYPHY LIBPATH=$HYPHYLIBPATH  fubar --grid 40 --alignment ${FILE}.${GENE}.compressed.fas --tree ${FILE}.${GENE}.compressed.fas.rapidnj.bestTree --output ${FILE}.${GENE}.FUBAR.json
-    fi
+    #if [ -s ${FILE}.${GENE}.FUBAR.json ] 
+    #then
+    #    echo "Already has FUBAR results"
+    #else
+    #   echo "$HYPHY LIBPATH=$HYPHYLIBPATH  fubar --grid 40 --alignment ${FILE}.${GENE}.compressed.fas --tree ${FILE}.${GENE}.compressed.fas.rapidnj.bestTree --output ${FILE}.${GENE}.FUBAR.json"
+    #   $HYPHY LIBPATH=$HYPHYLIBPATH  fubar --grid 40 --alignment ${FILE}.${GENE}.compressed.fas --tree ${FILE}.${GENE}.compressed.fas.rapidnj.bestTree --output ${FILE}.${GENE}.FUBAR.json
+    #fi
 
     #if [ -s ${FILE}.${GENE}.PRIME.json ] 
     #then
@@ -149,15 +149,23 @@ else
     shifts=(0        180   818   2763  3263  3569  3859  3942  4140  4253  922   1523  2050  0 0 0 0 0     0    0     0    -10   2396)
     add_one=(0       0      0     0     0     0     0     0     0     0    1     1     1     0 0 0 0 0     0    0     0    1    1)
 
-    echo python3 $WORKING_DIR/python/summarize-gene.py -D $MASTERNOFASTA -d ${FILE}.${GENE}.duplicates.json -s ${FILE}.${GENE}.SLAC.json -f ${FILE}.${GENE}.FEL.json -m ${FILE}.${GENE}.MEME.json -P 0.1 --output  ${FILE}.${GENE}.json -E data/evo_annotation.json -c ${FILE}.${GENE}.compressed.fas
-    #python3 $WORKING_DIR/python/summarize-gene.py -D $MASTERNOFASTA -d ${FILE}.${GENE}.duplicates.json -s ${FILE}.${GENE}.SLAC.json -f ${FILE}.${GENE}.FEL.json -m ${FILE}.${GENE}.MEME.json -P 0.1 --output  ${FILE}.${GENE}.json -E data/evo_annotation.json -c ${FILE}.${GENE}.compressed.fas
-    FRAGMENT=${fragments[$GENE]}
-    ADDSHIFT=${add_one[$GENE]}
-    OFFSET=${offsets[$GENE]}
+		GENE_INDEX=99
+
+		for i in "${!genes[@]}"; do
+			 if [[ "${genes[$i]}" = "${GENE}" ]]; then
+					 GENE_INDEX=${i}
+			 fi
+		done
+
+    FRAGMENT=${fragments[$GENE_INDEX]}
+    ADDSHIFT=${add_one[$GENE_INDEX]}
+    SHIFT=${shifts[$GENE_INDEX]}
+    OFFSET=${offsets[$GENE_INDEX]}
     ANNOTATION=${FILE}.annotation.json
-    cp data/comparative-annotation-between.json ${ANNOTATION}
-    echo "python3 $WORKING_DIR/python/summarize-gene.py -T data/ctl/epitopes.json -D $MASTERNOFASTA -d ${FILE}.${GENE}.duplicates.json -s ${FILE}.${GENE}.SLAC.json -f ${FILE}.${GENE}.FEL.json -m ${FILE}.${GENE}.MEME.json -P 0.1 --output  ${FILE}.${GENE}.json -c ${FILE}.${GENE}.compressed.fas -E data/evo_annotation.json -A data/mafs.csv -V data/evo_freqs.csv -F $FRAGMENT --frame_shift ${ADDSHIFT} --frame_shift $SHIFT -S $OFFSET -O $ANNOTATION"
-    python3 $WORKING_DIR/python/summarize-gene.py -T data/ctl/epitopes.json -D $MASTERNOFASTA -d ${FILE}.${GENE}.duplicates.json -s ${FILE}.${GENE}.SLAC.json -f ${FILE}.${GENE}.FEL.json -m ${FILE}.${GENE}.MEME.json -P 0.1 --output  ${FILE}.${GENE}.json -c ${FILE}.${GENE}.compressed.fas -E data/evo_annotation.json -A data/mafs.csv -V data/evo_freqs.csv -F $FRAGMENT --frame_shift ${ADDSHIFT} --frame_shift $SHIFT -S $OFFSET -O $ANNOTATION
+    cp data/comparative-annotation.json ${ANNOTATION}
+
+    echo "python3 $WORKING_DIR/python/summarize-gene.py -T data/ctl/epitopes.json -D $MASTERNOFASTA -d ${FILE}.${GENE}.duplicates.json -s ${FILE}.${GENE}.SLAC.json -f ${FILE}.${GENE}.FEL.json -m ${FILE}.${GENE}.MEME.json -P 0.1 --output  ${FILE}.${GENE}.json -c ${FILE}.${GENE}.compressed.fas -E data/evo_annotation.json -A data/mafs.csv -V data/evo_freqs.csv -F $FRAGMENT --frame_shift ${ADDSHIFT} --fragment_shift $SHIFT -S $OFFSET -O $ANNOTATION"
+    python3 $WORKING_DIR/python/summarize-gene.py -T data/ctl/epitopes.json -D $MASTERNOFASTA -d ${FILE}.${GENE}.duplicates.json -s ${FILE}.${GENE}.SLAC.json -f ${FILE}.${GENE}.FEL.json -m ${FILE}.${GENE}.MEME.json -P 0.1 --output  ${FILE}.${GENE}.json -c ${FILE}.${GENE}.compressed.fas -E data/evo_annotation.json -A data/mafs.csv -V data/evo_freqs.csv -F $FRAGMENT --frame_shift ${ADDSHIFT} --fragment_shift $SHIFT -S $OFFSET -O $ANNOTATION
 
     #if [ -s ${FILE}.${GENE}.BGM.json ] 
     #then
