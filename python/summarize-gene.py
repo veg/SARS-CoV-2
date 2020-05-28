@@ -343,7 +343,7 @@ def add_annotation_to_site (site, annotation):
 
 for b,v in slac["tested"]["0"].items():
     branch_lengths[b] = slac["branch attributes"]["0"][b]["Global MG94xREV"]
-    if v == "test":
+    if b[0:4] == "Node":
         L += slac["branch attributes"]["0"][b]["Global MG94xREV"]
     else:
         for k in range (sites):
@@ -726,7 +726,7 @@ if epitopes and annotation_json:
     this_epitope = collections.deque ()
     site_range = collections.deque ()
     for node,value in slac["branch attributes"]["0"].items():
-        if node in slac["tested"]["0"] and slac["tested"]["0"][node] != "test":
+        if node in slac["tested"]["0"] and node[0:4] != "Node":
             for site in range(sites):
                if "amino-acid" in value:
                     aa_value    = value["amino-acid"][0][site]
@@ -825,7 +825,7 @@ for site in range(sites) if annotation_json else site_list:
                     }
                 cdn_pair = "%s|%s" % (value["codon"][0][site], slac["branch attributes"]["0"][node_parents[node]]["codon"][0][site])
                 aa_pair = "%s|%s" % (value["amino-acid"][0][site], slac["branch attributes"]["0"][node_parents[node]]["amino-acid"][0][site])
-                if slac["tested"]["0"][node] == "test":
+                if node[0:4] == "Node":
                     ks = ('cdn', 'aa')
                 else:
                     ks = ('lcdn','laa')

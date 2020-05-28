@@ -1,5 +1,10 @@
 FILE=$1
-MAFFT=/usr/local/bin/mafft
+
+python3 python/stitch_fasta.py -d $FILE -o ${FILE}.combined.fas
+python3 python/extract_variants.py -i ${FILE}.combined.fas  -o ${FILE}.variants.json -c 5
+
+exit 0
+
 rm data/mafs.csv
 rm data/evo_freqs.csv
 
@@ -38,11 +43,11 @@ fragments=(ORF1a ORF1a ORF1a ORF1a ORF1a ORF1a ORF1a ORF1a ORF1a ORF1a ORF1b ORF
 shifts=(0        180   818   2763  3263  3569  3859  3942  4140  4253  922   1523  2050  0 0 0 0 0     0    0     0    -10   2396)
 add_one=(0       0      0     0     0     0     0     0     0     0    1     1     1     0 0 0 0 0     0    0     0    1    1)
 
-#genes=(exonuclease)
-#offsets=(18039) 
-#fragments=(ORF1b)
-#shifts=(1523)
-#add_one=(1)
+#genes=(leader)
+#offsets=(265) 
+#fragments=(ORF1a)
+#shifts=(0)
+#add_one=(0)
 
 #for GENE in {S,M,N,ORF1a,ORF1b,ORF3a,ORF6,ORF7a,ORF8}; do
 
