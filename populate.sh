@@ -3,6 +3,8 @@
 source $HOME/.zshrc
 
 fdate=$(date +"%Y-%m-%d")
+fdate=$1
+
 #fdate="2020-05-16"
 #echo "Getting metadata"
 #node /data/shares/veg/SARS-CoV-2/gisaid-downloader/get_metadata.js
@@ -14,7 +16,7 @@ fdate=$(date +"%Y-%m-%d")
 #node /data/shares/veg/SARS-CoV-2/gisaid-downloader/translate-to-master.js /data/shares/gisaid/$fdate-metadata.json -o /data/shares/gisaid/$fdate.master.json -f /data/shares/gisaid/$fdate.fasta
 #echo "Generating file with no seqs"
 #jq 'del(.[].sequence)' /data/shares/gisaid/$fdate.master.json > /data/shares/gisaid/$fdate.master.nofasta.json
-/data/shares/veg/SARS-CoV-2/SARS-CoV-2/scripts/preprocess.sh
+/data/shares/veg/SARS-CoV-2/SARS-CoV-2/scripts/preprocess.sh $fdate
 cp /data/shares/gisaid/$fdate.master.json /data/shares/veg/SARS-CoV-2/SARS-CoV-2/data/fasta/$fdate/master.json
 #cp /data/shares/gisaid/$fdate.master.nofasta.json /data/shares/web/web/covid-19/$fdate.master.nofasta.json
 #ln -sf /data/shares/web/web/covid-19/$fdate.master.nofasta.json  /data/shares/web/web/covid-19/latest.json 

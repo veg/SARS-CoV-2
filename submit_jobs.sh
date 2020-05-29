@@ -3,7 +3,7 @@ fdate=$(date +"%Y-%m-%d")
 #fdate=$1
 
 FQUEUE='epyc2'
-QUEUE='epyc'
+QUEUE='epyc2'
 OUTPUT_DIR=`pwd`/logs/$fdate/
 mkdir $OUTPUT_DIR
 

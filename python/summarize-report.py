@@ -7,6 +7,7 @@ import collections
 import csv
 import multiprocessing
 from multiprocessing import Pool
+from datetime import date, timedelta
 
 '''
 Data dictionary
@@ -43,7 +44,16 @@ num_sites_neg_fel, num_sites_meme, median_branches_meme
 '''
 
 # gene list
-genes = ['M', 'N', 'ORF1a', 'ORF1b', 'ORF3a', 'ORF6', 'ORF7a', 'ORF8', 'S']
+#genes = ['M', 'N', 'ORF1a', 'ORF1b', 'ORF3a', 'ORF6', 'ORF7a', 'ORF8', 'S']
+genes=['leader','nsp2','nsp3','nsp4','3C','nsp6','nsp7','nsp8','nsp9','nsp10','helicase','exonuclease','endornase','S','E','M','N','ORF3a','ORF6','ORF7a','ORF8','RdRp','methyltransferase']
+
+# Specify dates
+#dates = filter(lambda x: x != 'current' and os.path.isdir(path.join(basedir,x)), os.listdir(basedir))
+sdate = date(2020, 5, 14)
+edate = date.today()
+delta = edate - sdate
+dates = [(sdate + timedelta(days=i)).strftime('%Y-%m-%d') for i in range(delta.days + 1)]
+
 gene_dup_fn = lambda x,y: path.join(basedir, x, 'sequences.' + y + '.duplicates.json')
 gene_meme_fn = lambda x,y: path.join(basedir, x, 'sequences.' + y + '.MEME.json')
 gene_slac_fn = lambda x,y: path.join(basedir, x, 'sequences.' + y + '.SLAC.json')
@@ -51,8 +61,7 @@ gene_fel_fn = lambda x,y: path.join(basedir, x, 'sequences.' + y + '.FEL.json')
 
 # get directory listing
 basedir = 'data/fasta/'
-dates = filter(lambda x: x != 'current' and os.path.isdir(path.join(basedir,x)), os.listdir(basedir))
-#combos = [(x,y, gene_fn(x, y), gene_dup_fn(x, y)) for (x,y) in product(dates, genes)]
+
 
 def get_variant_count(s, min_count=1):
     variants = collections.Counter(s)
