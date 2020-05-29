@@ -3,8 +3,6 @@ FILE=$1
 python3 python/stitch_fasta.py -d $FILE -o ${FILE}.combined.fas
 python3 python/extract_variants.py -i ${FILE}.combined.fas  -o ${FILE}.variants.json -c 5
 
-exit 0
-
 rm data/mafs.csv
 rm data/evo_freqs.csv
 
@@ -75,3 +73,4 @@ for i in ${!genes[@]}; do
 done;
 
 cp $ANNOTATION data/comparative-annotation.json
+python3 python/export-sites-to-tsv.py -f data/comparative-annotation.json > data/comparative-annotation.tsv

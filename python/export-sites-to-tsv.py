@@ -113,7 +113,7 @@ writer = csv.writer (sys.stdout, delimiter = "\t", )
 writer.writerow (["genomic_coordinate","gene",
                   "codon_in_gene","consensus","consensus_aa",
                   "genomes","syn_sites",
-                  "nonsyn_sites","variants","aa_variants",
+                  "nonsyn_sites","variants","aa_variants","total_maf",
                   "selection","epidosic_selection","multiple_clades","trend","epitopes","related_selection","predicted_variants","unusual_variants","score"])
 
 with open (import_settings.file, "r") as fh:
@@ -121,9 +121,11 @@ with open (import_settings.file, "r") as fh:
     for site in sorted (data.keys(), key = lambda x: int (x)):
         info = data[site]
         if "aa" in info:
+            num_seq = sum (info["cdn"].values())
+        
             record = ["%d" % (int(site)+1),info["G"],info["S"],
                         max(info["cdn"].items(), key=operator.itemgetter(1))[0],
-                        max(info["aa"].items(), key=operator.itemgetter(1))[0], "%d" % sum (info["cdn"].values())]
+                        max(info["aa"].items(), key=operator.itemgetter(1))[0], "%d" % num_seq]
             if "SLAC" in info:
                 record.extend (["%g" % info["SLAC"]["ES"], "%g" % info["SLAC"]["EN"]])
             else:
@@ -133,6 +135,15 @@ with open (import_settings.file, "r") as fh:
             record.append ("%s" % "|".join (["%s:%s" % (k[0], k[1]) for k in sorted(info["aa"].items(), key=operator.itemgetter(1), reverse = True)]))
                
             score = 0   
+            
+            if "bSC2" in info:
+                var_count = sum ([k for (i,k) in info["cdn"].items() if i != info["bSC2"]])
+                if var_count * 5 >= num_seq:
+                    score += 1
+                record.append ("%g" % (var_count / num_seq))
+            else:
+                record.append (null)
+                
                
             if "FEL" in info:
                 if info["FEL"]["p"] <= pv:
