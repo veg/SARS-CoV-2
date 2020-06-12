@@ -27,6 +27,9 @@ TN93=/usr/local/bin/tn93
 PREMSA=/data/shares/veg/SARS-CoV-2/hyphy-analyses/codon-msa/pre-msa.bf
 POSTMSA=/data/shares/veg/SARS-CoV-2/hyphy-analyses/codon-msa/post-msa.bf
 WORKING_DIR=/data/shares/veg/SARS-CoV-2/SARS-CoV-2/
+PYTHON=/data/shares/veg/SARS-CoV-2/SARS-CoV-2/env/bin/python3
+
+ZERO_LENGTHS_FLAGS='--kill-zero-lengths No ENV="_DO_TREE_REBALANCE_=1"'
 
 
 function run_a_gene {
@@ -74,13 +77,20 @@ else
         sed -i '/^>/! s/[^ACTG-]/N/g' ${FILE}.${GENE}.compressed.fas
     fi
 
+    SEQCOUNT=$(grep -c ">" ${FILE}.${GENE}.compressed.fas)
+
+    if [ "$SEQCOUNT" -lt "1000" ]
+    then
+      ZERO_LENGTHS_FLAGS=""
+    fi
+
     if [ -s ${FILE}.${GENE}.tn93 ] 
     then
         echo "Already computed TN93"
     else
         $TN93 -q -t 0.05 ${FILE}.${GENE}.compressed.fas > ${FILE}.${GENE}.tn93 2> ${FILE}.${GENE}.tn93.json
-        echo python3 $WORKING_DIR/python/tabulate-diversity-divergence.py -j $MASTER -t ${FILE}.${GENE}.tn93 > $DIRECTORY/evolution.${GENE}.csv
-        python3 $WORKING_DIR/python/tabulate-diversity-divergence.py -j $MASTER -t ${FILE}.${GENE}.tn93 > $DIRECTORY/evolution.${GENE}.csv
+        echo $PYTHON $WORKING_DIR/python/tabulate-diversity-divergence.py -j $MASTER -t ${FILE}.${GENE}.tn93 > $DIRECTORY/evolution.${GENE}.csv
+        $PYTHON $WORKING_DIR/python/tabulate-diversity-divergence.py -j $MASTER -t ${FILE}.${GENE}.tn93 > $DIRECTORY/evolution.${GENE}.csv
     fi
 
     if [ -s ${FILE}.${GENE}.compressed.fas.rapidnj.bestTree ] 
@@ -107,32 +117,32 @@ else
     then
         echo "Already has SLAC results"
     else
-        echo mpirun -np $NP $HYPHYMPI LIBPATH=$HYPHYLIBPATH slac --alignment ${FILE}.${GENE}.compressed.fas --tree ${FILE}.${GENE}.compressed.fas.rapidnj.bestTree --branches All --samples 0 --output ${FILE}.${GENE}.SLAC.json
-        mpirun -np $NP $HYPHYMPI LIBPATH=$HYPHYLIBPATH slac --alignment ${FILE}.${GENE}.compressed.fas --tree ${FILE}.${GENE}.compressed.fas.rapidnj.bestTree --branches All --samples 0 --output ${FILE}.${GENE}.SLAC.json
+        echo mpirun -np $NP $HYPHYMPI LIBPATH=$HYPHYLIBPATH slac $ZERO_LENGTHS_FLAGS --alignment ${FILE}.${GENE}.compressed.fas --tree ${FILE}.${GENE}.compressed.fas.rapidnj.bestTree --branches All --samples 0 --output ${FILE}.${GENE}.SLAC.json
+        mpirun -np $NP $HYPHYMPI LIBPATH=$HYPHYLIBPATH slac $ZERO_LENGTHS_FLAGS --alignment ${FILE}.${GENE}.compressed.fas --tree ${FILE}.${GENE}.compressed.fas.rapidnj.bestTree --branches All --samples 0 --output ${FILE}.${GENE}.SLAC.json
     fi
 
     if [ -s ${FILE}.${GENE}.FEL.json ] 
     then
         echo "Already has FEL results"
     else
-        echo mpirun -np $NP $HYPHYMPI LIBPATH=$HYPHYLIBPATH fel --alignment ${FILE}.${GENE}.compressed.fas --tree ${FILE}.${GENE}.compressed.fas.rapidnj.bestTree --branches Internal --output ${FILE}.${GENE}.FEL.json
-        mpirun -np $NP $HYPHYMPI LIBPATH=$HYPHYLIBPATH fel --alignment ${FILE}.${GENE}.compressed.fas --tree ${FILE}.${GENE}.compressed.fas.rapidnj.bestTree --branches Internal --output ${FILE}.${GENE}.FEL.json
+        echo mpirun -np $NP $HYPHYMPI LIBPATH=$HYPHYLIBPATH fel $ZERO_LENGTHS_FLAGS --alignment ${FILE}.${GENE}.compressed.fas --tree ${FILE}.${GENE}.compressed.fas.rapidnj.bestTree --branches Internal --output ${FILE}.${GENE}.FEL.json
+        mpirun -np $NP $HYPHYMPI LIBPATH=$HYPHYLIBPATH fel $ZERO_LENGTHS_FLAGS --alignment ${FILE}.${GENE}.compressed.fas --tree ${FILE}.${GENE}.compressed.fas.rapidnj.bestTree --branches Internal --output ${FILE}.${GENE}.FEL.json
     fi
 
     if [ -s ${FILE}.${GENE}.MEME.json ] 
     then
         echo "Already has MEME results"
     else
-        echo mpirun -np $NP $HYPHYMPI LIBPATH=$HYPHYLIBPATH meme --alignment ${FILE}.${GENE}.compressed.fas --tree ${FILE}.${GENE}.compressed.fas.rapidnj.bestTree --branches Internal --output ${FILE}.${GENE}.MEME.json
-        mpirun -np $NP $HYPHYMPI LIBPATH=$HYPHYLIBPATH meme --alignment ${FILE}.${GENE}.compressed.fas --tree ${FILE}.${GENE}.compressed.fas.rapidnj.bestTree --branches Internal --output ${FILE}.${GENE}.MEME.json
+        echo mpirun -np $NP $HYPHYMPI LIBPATH=$HYPHYLIBPATH meme $ZERO_LENGTHS_FLAGS --alignment ${FILE}.${GENE}.compressed.fas --tree ${FILE}.${GENE}.compressed.fas.rapidnj.bestTree --branches Internal --output ${FILE}.${GENE}.MEME.json
+        mpirun -np $NP $HYPHYMPI LIBPATH=$HYPHYLIBPATH meme $ZERO_LENGTHS_FLAGS --alignment ${FILE}.${GENE}.compressed.fas --tree ${FILE}.${GENE}.compressed.fas.rapidnj.bestTree --branches Internal --output ${FILE}.${GENE}.MEME.json
     fi
 
     if [ -s ${FILE}.${GENE}.FUBAR.json ] 
     then
         echo "Already has FUBAR results"
     else
-       echo "$HYPHY LIBPATH=$HYPHYLIBPATH  fubar --grid 40 --alignment ${FILE}.${GENE}.compressed.fas --tree ${FILE}.${GENE}.compressed.fas.rapidnj.bestTree --output ${FILE}.${GENE}.FUBAR.json"
-       $HYPHY LIBPATH=$HYPHYLIBPATH  fubar --grid 40 --alignment ${FILE}.${GENE}.compressed.fas --tree ${FILE}.${GENE}.compressed.fas.rapidnj.bestTree --output ${FILE}.${GENE}.FUBAR.json
+       echo "$HYPHY LIBPATH=$HYPHYLIBPATH  fubar $ZERO_LENGTHS_FLAGS --grid 40 --alignment ${FILE}.${GENE}.compressed.fas --tree ${FILE}.${GENE}.compressed.fas.rapidnj.bestTree --output ${FILE}.${GENE}.FUBAR.json"
+       $HYPHY LIBPATH=$HYPHYLIBPATH  fubar $ZERO_LENGTHS_FLAGS --grid 40 --alignment ${FILE}.${GENE}.compressed.fas --tree ${FILE}.${GENE}.compressed.fas.rapidnj.bestTree --output ${FILE}.${GENE}.FUBAR.json
     fi
 
     #if [ -s ${FILE}.${GENE}.PRIME.json ] 
@@ -164,8 +174,8 @@ else
     ANNOTATION=${FILE}.annotation.json
     cp data/comparative-annotation.json ${ANNOTATION}
 
-    echo "python3 $WORKING_DIR/python/summarize-gene.py -T data/ctl/epitopes.json -D $MASTERNOFASTA -d ${FILE}.${GENE}.duplicates.json -s ${FILE}.${GENE}.SLAC.json -f ${FILE}.${GENE}.FEL.json -m ${FILE}.${GENE}.MEME.json -P 0.1 --output  ${FILE}.${GENE}.json -c ${FILE}.${GENE}.compressed.fas -E data/evo_annotation.json -A data/mafs.csv -V data/evo_freqs.csv -F $FRAGMENT --frame_shift ${ADDSHIFT} --fragment_shift $SHIFT -S $OFFSET -O $ANNOTATION"
-    python3 $WORKING_DIR/python/summarize-gene.py -T data/ctl/epitopes.json -D $MASTERNOFASTA -d ${FILE}.${GENE}.duplicates.json -s ${FILE}.${GENE}.SLAC.json -f ${FILE}.${GENE}.FEL.json -m ${FILE}.${GENE}.MEME.json -P 0.1 --output  ${FILE}.${GENE}.json -c ${FILE}.${GENE}.compressed.fas -E data/evo_annotation.json -A data/mafs.csv -V data/evo_freqs.csv -F $FRAGMENT --frame_shift ${ADDSHIFT} --fragment_shift $SHIFT -S $OFFSET -O $ANNOTATION
+    echo "$PYTHON $WORKING_DIR/python/summarize-gene.py -T data/ctl/epitopes.json -D $MASTERNOFASTA -d ${FILE}.${GENE}.duplicates.json -s ${FILE}.${GENE}.SLAC.json -f ${FILE}.${GENE}.FEL.json -m ${FILE}.${GENE}.MEME.json -P 0.1 --output  ${FILE}.${GENE}.json -c ${FILE}.${GENE}.compressed.fas -E data/evo_annotation.json -A data/mafs.csv -V data/evo_freqs.csv -F $FRAGMENT --frame_shift ${ADDSHIFT} --fragment_shift $SHIFT -S $OFFSET -O $ANNOTATION"
+    $PYTHON $WORKING_DIR/python/summarize-gene.py -T data/ctl/epitopes.json -D $MASTERNOFASTA -d ${FILE}.${GENE}.duplicates.json -s ${FILE}.${GENE}.SLAC.json -f ${FILE}.${GENE}.FEL.json -m ${FILE}.${GENE}.MEME.json -P 0.1 --output  ${FILE}.${GENE}.json -c ${FILE}.${GENE}.compressed.fas -E data/evo_annotation.json -A data/mafs.csv -V data/evo_freqs.csv -F $FRAGMENT --frame_shift ${ADDSHIFT} --fragment_shift $SHIFT -S $OFFSET -O $ANNOTATION
 
     #if [ -s ${FILE}.${GENE}.BGM.json ] 
     #then
