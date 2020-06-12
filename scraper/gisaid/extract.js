@@ -71,7 +71,9 @@ function scrape_records (event) {
     } else {
         if (current_record >= records.length) {
             downloadObjectAsJson (sequence_json, 'gisaid');
+            sequence_json = {};
             records = [];
+            current_record = 0;
             dl_button.innerHTML =  "Scrape records from this page";
         } else {
             observer.disconnect();
@@ -85,34 +87,43 @@ function override_onload (event) {
     //console.log ("IFRAME loaded", event);
     dl_button.innerHTML = "Downloading sequence " + (current_record + 1);
     let fields = event.target.contentDocument.querySelectorAll("tr");
-    let sequence_record = {};
-    for (let i = 0; i < fields.length; i++) {
-        let cells = fields[i].querySelectorAll("td");
-        if (cells.length == 2) {
-            let value = cells[1].innerText;
-            if (value.length) {
-                let label = cells[0].innerText.split (':')[0];
-                sequence_record[label] = value;
+
+    // captcha
+    if (fields.length == 2) {
+        current_record --;
+    }
+
+    // regular data entry
+    else {
+        let sequence_record = {};
+        for (let i = 0; i < fields.length; i++) {
+            let cells = fields[i].querySelectorAll("td");
+            if (cells.length == 2) {
+                let value = cells[1].innerText;
+                if (value.length) {
+                    let label = cells[0].innerText.split (':')[0];
+                    sequence_record[label] = value;
+                }
+                
             }
-            
         }
-    }
-    if ("Accession ID" in sequence_record) {
-        let seq_data = event.target.contentDocument.querySelector ("pre");
-        if (seq_data) {
-            sequence_record ["FASTA"] = seq_data.textContent;
-            sequence_json [sequence_record["Accession ID"]] = sequence_record;
+        if ("Accession ID" in sequence_record) {
+            let seq_data = event.target.contentDocument.querySelector ("pre");
+            if (seq_data) {
+                sequence_record ["FASTA"] = seq_data.textContent;
+                sequence_json [sequence_record["Accession ID"]] = sequence_record;
+            }
         }
-    }
-    
         
-    
-    dl_button.innerHTML = "Closing window";
-    let closeme = event.target.contentDocument.querySelectorAll("button");
-    if (closeme.length >= 2) {
-        closeme[1].click();
+            
+        
+        dl_button.innerHTML = "Closing window";
+        let closeme = event.target.contentDocument.querySelectorAll("button");
+        if (closeme.length >= 2) {
+            closeme[1].click();
+        }
+        dl_button.innerHTML = "Extracted " + Object.keys(sequence_json).length + " records";
     }
-    dl_button.innerHTML = "Extracted " + Object.keys(sequence_json).length + " records";
 }
 
 
@@ -123,10 +134,3 @@ if (!dl_button) {
 
 dl_button.innerHTML = "Scrape records from this page";
 dl_button.onclick = scrape_records;
-
-
-
-
-
-
-
