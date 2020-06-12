@@ -69,6 +69,7 @@ import_settings = arguments.parse_args()
 
 db = json.load (import_settings.database)
 dups = json.load (import_settings.duplicates)
+date_parse_format = "%Y-%m-%d"
 
 sequences_with_dates = {}
 sequences_with_locations = {}
@@ -90,7 +91,7 @@ max_date = datetime.datetime (1900,1,1)
 
 for id, record in db.items():
     try:
-        date_check = datetime.datetime.strptime (record['collected'], "%Y%m%d")
+        date_check = datetime.datetime.strptime (record['collected'],date_parse_format)
         if date_check.year < 2019 or date_check.year == 2019 and date_check.month < 10 or date_check >= now: 
             continue
         if date_check < min_date:
@@ -661,7 +662,7 @@ def compute_JH (timing, min_date, max_date):
            if residue not in mafs_by_date[this_date]:
                 mafs_by_date [this_date][residue] = 0
            mafs_by_date[this_date][residue] += value
-           if datetime.datetime.strptime (key[0], "%Y%m%d") <= date_cutoff:
+           if datetime.datetime.strptime (key[0], date_parse_format) <= date_cutoff:
                 residue_counts[residue] += value
             
     consensus = max(residue_counts.items(), key=operator.itemgetter(1))[0]
@@ -677,7 +678,7 @@ def compute_JH (timing, min_date, max_date):
     values_by_bins = [[] for k in range (bin_count)]
     unique_values = set ()
     for v in mafs:
-        bin = (datetime.datetime.strptime (v[0], "%Y%m%d")  - min_date).days // 10
+        bin = (datetime.datetime.strptime (v[0], date_parse_format)  - min_date).days // 10
         values_by_bins[bin].append (v[1])
         unique_values.add (v[1])
     
