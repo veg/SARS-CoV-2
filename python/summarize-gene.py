@@ -952,7 +952,7 @@ json_out = {
     'selection' : site_list,
     'map' : ref_seq_map,
     'dN/dS' : {
-        'internal' :  meme["fits"]["Global MG94xREV"]["Rate Distributions"]["non-synonymous/synonymous rate ratio for *test*"],
+        'internal' :  meme["fits"]["Global MG94xREV"]["Rate Distributions"]["non-synonymous/synonymous rate ratio for *test*"] if "non-synonymous/synonymous rate ratio for *test*" in meme["fits"]["Global MG94xREV"]["Rate Distributions"] else None,
         'leaves'   :  meme["fits"]["Global MG94xREV"]["Rate Distributions"]["non-synonymous/synonymous rate ratio for *background*"]
     }
 }
