@@ -1,3 +1,4 @@
+env/
 data/fasta
 *.log
 *.txt
@@ -12,3 +13,12 @@ core*
 sed*
 *.err
 logs
+
+.Rhistory
+._.DS_Store
+*DS_Store*
+*~
+*.swp
+data/ctl/forApp.Rda
+sergei/
+data/v1

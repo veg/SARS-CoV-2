@@ -69,6 +69,7 @@ import_settings = arguments.parse_args()
 
 db = json.load (import_settings.database)
 dups = json.load (import_settings.duplicates)
+date_parse_format = "%Y%m%d"
 
 sequences_with_dates = {}
 sequences_with_locations = {}
@@ -90,7 +91,7 @@ max_date = datetime.datetime (1900,1,1)
 
 for id, record in db.items():
     try:
-        date_check = datetime.datetime.strptime (record['collected'], "%Y%m%d")
+        date_check = datetime.datetime.strptime (record['collected'],date_parse_format)
         if date_check.year < 2019 or date_check.year == 2019 and date_check.month < 10 or date_check >= now: 
             continue
         if date_check < min_date:
@@ -117,6 +118,32 @@ if import_settings.mafs:
         maf_writer.writerow (["Gene","Site","aa","count","freq","total"])
     
 evo_writer = None  
+
+
+def compress_array (array):
+    unique_values = {}
+    try:
+        for v in array:
+            if v not in unique_values:
+                unique_values[v] = len (unique_values)
+
+        #print (unique_values, file = sys.stderr)
+
+        if len (unique_values) * 4 < len (array):
+            lookup = {}
+            for k, v in unique_values.items():
+                lookup[v] = k
+            compact_array = {'keys' : lookup, 'values' : []}
+            for a in array:
+                compact_array ['values'].append (unique_values[a])
+
+            return compact_array
+
+        return array
+
+    except Exception as e:
+        #raise (e)
+        return array
 
 if import_settings.evolutionary_csv:
     try:
@@ -343,7 +370,7 @@ def add_annotation_to_site (site, annotation):
 
 for b,v in slac["tested"]["0"].items():
     branch_lengths[b] = slac["branch attributes"]["0"][b]["Global MG94xREV"]
-    if v == "test":
+    if b[0:4] == "Node":
         L += slac["branch attributes"]["0"][b]["Global MG94xREV"]
     else:
         for k in range (sites):
@@ -661,7 +688,7 @@ def compute_JH (timing, min_date, max_date):
            if residue not in mafs_by_date[this_date]:
                 mafs_by_date [this_date][residue] = 0
            mafs_by_date[this_date][residue] += value
-           if datetime.datetime.strptime (key[0], "%Y%m%d") <= date_cutoff:
+           if datetime.datetime.strptime (key[0], date_parse_format) <= date_cutoff:
                 residue_counts[residue] += value
             
     consensus = max(residue_counts.items(), key=operator.itemgetter(1))[0]
@@ -677,7 +704,7 @@ def compute_JH (timing, min_date, max_date):
     values_by_bins = [[] for k in range (bin_count)]
     unique_values = set ()
     for v in mafs:
-        bin = (datetime.datetime.strptime (v[0], "%Y%m%d")  - min_date).days // 10
+        bin = (datetime.datetime.strptime (v[0], date_parse_format)  - min_date).days // 10
         values_by_bins[bin].append (v[1])
         unique_values.add (v[1])
     
@@ -726,7 +753,7 @@ if epitopes and annotation_json:
     this_epitope = collections.deque ()
     site_range = collections.deque ()
     for node,value in slac["branch attributes"]["0"].items():
-        if node in slac["tested"]["0"] and slac["tested"]["0"][node] != "test":
+        if node in slac["tested"]["0"] and node[0:4] != "Node":
             for site in range(sites):
                if "amino-acid" in value:
                     aa_value    = value["amino-acid"][0][site]
@@ -761,13 +788,14 @@ if epitopes and annotation_json:
 
             
  
-        
+branch_name_to_index = {}
+  
 
 for site in range(sites) if annotation_json else site_list:
     if site in site_list:
         site_list[site]['meme-branches'] = meme["MLE"]["content"]["0"][site][7]
         site_list[site]['substitutions'] = [slac["MLE"]["content"]["0"]['by-site']['RESOLVED'][site][2],slac["MLE"]["content"]["0"]['by-site']['RESOLVED'][site][3]]
-        labels      = {}
+
     evo_composition = {}
     timing      = {}
     ''' 
@@ -782,15 +810,22 @@ for site in range(sites) if annotation_json else site_list:
     substitutions       = None
         
     for node,value in slac["branch attributes"]["0"].items():
+        if "amino-acid" in value:
+         if not node in branch_name_to_index:
+            branch_name_to_index [node] = len (branch_name_to_index)
         if root_node_name is None and node not in node_parents:
             root_node_name = node
             for k in node_parents:
                 if node_parents[k] == 'root':
                     node_parents[k] = node
+
+    if site in site_list:
+        labels =  [None for k in range (len (branch_name_to_index))]
         
     for node,value in slac["branch attributes"]["0"].items():
             
         if "amino-acid" in value:
+        
             aa_value    = value["amino-acid"][0][site]
             codon_value = value["codon"][0][site]
             
@@ -825,7 +860,7 @@ for site in range(sites) if annotation_json else site_list:
                     }
                 cdn_pair = "%s|%s" % (value["codon"][0][site], slac["branch attributes"]["0"][node_parents[node]]["codon"][0][site])
                 aa_pair = "%s|%s" % (value["amino-acid"][0][site], slac["branch attributes"]["0"][node_parents[node]]["amino-acid"][0][site])
-                if slac["tested"]["0"][node] == "test":
+                if node[0:4] == "Node":
                     ks = ('cdn', 'aa')
                 else:
                     ks = ('lcdn','laa')
@@ -840,11 +875,11 @@ for site in range(sites) if annotation_json else site_list:
 
              
             if site in site_list:
-                labels[node] = [aa_value,value["codon"][0][site],value["nonsynonymous substitution count"][0][site],value["synonymous substitution count"][0][site]]
+                labels[branch_name_to_index[node]] = (aa_value,value["codon"][0][site],value["nonsynonymous substitution count"][0][site],value["synonymous substitution count"][0][site])
     
     if site in site_list:
         site_list[site]['composition'] = aa_counts_by_site[site]
-        site_list[site]['labels'] = labels
+        site_list[site]['labels'] = compress_array(labels)
         if len (evo_composition):
             site_list[site]['evolutionary_support']     = evo_composition
             site_list[site]['evolutionary_predictions'] = evo_site_annotation
@@ -861,7 +896,14 @@ for site in range(sites) if annotation_json else site_list:
     timing_as_array = {}
     
     for aa, t in timing.items():
-        timing_as_array [aa] = [[k[0],k[1],country_to_sub[k[1]],v,k[2],k[3]] for k, v in timing[aa].items()]
+        #timing_as_array [aa] = [[k[0],k[1],country_to_sub[k[1]],v,k[2],k[3]] for k, v in timing[aa].items()]
+        #timing_as_array [aa] = [[k[0],k[1],country_to_sub[k[1]],v] for k, v in timing[aa].items()]
+        timing_as_array [aa] = [
+            compress_array([k[0] for k, v in timing[aa].items()]),
+            compress_array([k[1] for k, v in timing[aa].items()]),
+            compress_array([country_to_sub[k[1]] for k, v in timing[aa].items()]),
+            [v for k, v in timing[aa].items()]
+        ]
     
     if site in site_list:
         site_list[site]['timing'] = timing_as_array
@@ -890,6 +932,10 @@ for site in range(sites) if annotation_json else site_list:
                     site_list[site]['prime'].append ([prime_headers[idx][1].replace ('p-value for non-zero effect of ',''), prime_row[idx], prime_row[idx-1]])
                     
         
+branch_name_to_index_array = [None for i in range (len (branch_name_to_index))]
+for n,i in branch_name_to_index.items():
+    branch_name_to_index_array[i] = n
+        
 json_out = {
     'sequences' : sequences,
     'bl' : branch_lengths,
@@ -902,15 +948,16 @@ json_out = {
     'MAF' : import_settings.MAF,
     'L' : L,
     'p' : import_settings.pvalue,
+    'branch_names' : branch_name_to_index_array,
     'selection' : site_list,
     'map' : ref_seq_map,
     'dN/dS' : {
-        'internal' :  meme["fits"]["Global MG94xREV"]["Rate Distributions"]["non-synonymous/synonymous rate ratio for *test*"],
+        'internal' :  meme["fits"]["Global MG94xREV"]["Rate Distributions"]["non-synonymous/synonymous rate ratio for *test*"] if "non-synonymous/synonymous rate ratio for *test*" in meme["fits"]["Global MG94xREV"]["Rate Distributions"] else None,
         'leaves'   :  meme["fits"]["Global MG94xREV"]["Rate Distributions"]["non-synonymous/synonymous rate ratio for *background*"]
     }
 }
 
-json.dump (json_out, import_settings.output, sort_keys = True, indent = 1)
+json.dump (json_out, import_settings.output, separators=(',', ':'), indent = None)
     
 if annotation_json is not None:
     with open (import_settings.overall, "w") as ann:
