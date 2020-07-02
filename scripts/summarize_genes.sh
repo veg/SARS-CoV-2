@@ -1,10 +1,10 @@
 FILE=$1
 
-#python3 python/stitch_fasta.py -d $FILE -o ${FILE}.combined.fas
-#python3 python/extract_variants.py -i ${FILE}.combined.fas  -o ${FILE}.variants.json -c 5
+python3 python/stitch_fasta.py -d $FILE -o ${FILE}.combined.fas
+python3 python/extract_variants.py -i ${FILE}.combined.fas  -o ${FILE}.variants.json -c 5
 
-#rm data/mafs.csv
-#rm data/evo_freqs.csv
+rm data/mafs.csv
+rm data/evo_freqs.csv
 
 #gene_coordinates = [[265,13482, 'ORF1a', 0],
 #  [13467,21554, 'ORF1b',-1],
@@ -51,7 +51,7 @@ add_one=(0       0      0     0     0     0     0     0     0     0    1     1  
 
 ANNOTATION=${FILE}.annotation.json
 
-#cp data/comparative-annotation-between.json ${FILE}.annotation.json
+cp data/comparative-annotation-between.json ${FILE}.annotation.json
 
 for i in ${!genes[@]}; do
     GENE=${genes[i]}
@@ -72,5 +72,5 @@ for i in ${!genes[@]}; do
     python3 python/summarize-gene.py -T data/ctl/epitopes.json -D data/db/master-no-fasta.json --frame_shift ${ADDSHIFT} -d ${FILE}.${GENE}.duplicates.json -u ${FILE}.${GENE}.compressed.fas.FUBAR.json -s ${FILE}.${GENE}.SLAC.json -f ${FILE}.${GENE}.FEL.json -m ${FILE}.${GENE}.MEME.json -P 0.1 --output  ${FILE}.${GENE}.json -c ${FILE}.${GENE}.compressed.fas -E data/evo_annotation.json -F $FRAGMENT -A data/mafs.csv -V data/evo_freqs.csv --fragment_shift $SHIFT -S $OFFSET -O $ANNOTATION > ${FILE}.${GENE}.json
 done;
 
-#cp $ANNOTATION data/comparative-annotation.json
-#python3 python/export-sites-to-tsv.py -f data/comparative-annotation.json > data/comparative-annotation.tsv
+cp $ANNOTATION data/comparative-annotation.json
+python3 python/export-sites-to-tsv.py -f data/comparative-annotation.json > data/comparative-annotation.tsv
