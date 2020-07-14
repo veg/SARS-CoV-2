@@ -159,13 +159,13 @@ else
     shifts=(0        180   818   2763  3263  3569  3859  3942  4140  4253  922   1523  2050  0 0 0 0 0     0    0     0    -10   2396)
     add_one=(0       0      0     0     0     0     0     0     0     0    1     1     1     0 0 0 0 0     0    0     0    1    1)
 
-		GENE_INDEX=99
+    GENE_INDEX=99
 
-		for i in "${!genes[@]}"; do
-			 if [[ "${genes[$i]}" = "${GENE}" ]]; then
-					 GENE_INDEX=${i}
-			 fi
-		done
+    for i in "${!genes[@]}"; do
+       if [[ "${genes[$i]}" = "${GENE}" ]]; then
+           GENE_INDEX=${i}
+       fi
+    done
 
     FRAGMENT=${fragments[$GENE_INDEX]}
     ADDSHIFT=${add_one[$GENE_INDEX]}

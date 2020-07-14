@@ -24,7 +24,7 @@ import os
 import math, csv
 from   os import  path
 import operator
-import collections 
+import collections
 import BioExt
 from   Bio import SeqIO
 
@@ -92,7 +92,7 @@ max_date = datetime.datetime (1900,1,1)
 for id, record in db.items():
     try:
         date_check = datetime.datetime.strptime (record['collected'],date_parse_format)
-        if date_check.year < 2019 or date_check.year == 2019 and date_check.month < 10 or date_check >= now: 
+        if date_check.year < 2019 or date_check.year == 2019 and date_check.month < 10 or date_check >= now:
             continue
         if date_check < min_date:
             min_date = date_check
@@ -102,7 +102,7 @@ for id, record in db.items():
         sequences_with_locations[id] = get_location (record)
     except Exception as e:
         pass
-        
+
 date_dups     = {}
 
 maf_writer = None
@@ -116,8 +116,8 @@ if import_settings.mafs:
         maf_file = open (import_settings.mafs, "w")
         maf_writer = csv.writer (maf_file)
         maf_writer.writerow (["Gene","Site","aa","count","freq","total"])
-    
-evo_writer = None  
+
+evo_writer = None
 
 
 def compress_array (array):
@@ -154,7 +154,7 @@ if import_settings.evolutionary_csv:
         evo_file = open (import_settings.evolutionary_csv, "w")
         evo_writer = csv.writer (evo_file)
         evo_writer.writerow (["Gene","Site","Codon","Count","Observed","Predicted","Mostlikely"])
-        
+
 
 evo_annotation = None
 
@@ -170,13 +170,13 @@ annotation_json = None
 if (import_settings.overall):
     try:
         with open (import_settings.overall,"r") as ann:
-            try: 
+            try:
                 annotation_json = json.load (ann)
             except:
                 annotation_json = {}
     except FileNotFoundError as fnf:
         annotation_json = {}
-        
+
 
 
 for seq, copies in dups.items():
@@ -187,17 +187,17 @@ for seq, copies in dups.items():
         if cpv in sequences_with_dates:
             cdate = sequences_with_dates[cpv]
             location = sequences_with_locations[cpv]
-            
+
             tag = (cdate, location,db[cpv]['age'],db[cpv]['gender'])
- 
+
             if not tag in date_collection:
                 date_collection[tag] = 1
             else:
                 date_collection[tag] += 1
-            
-                
-    date_dups[seq] = date_collection   
- 
+
+
+    date_dups[seq] = date_collection
+
 slac = json.load (import_settings.slac)
 fel  = json.load (import_settings.fel)
 meme = json.load (import_settings.meme)
@@ -219,7 +219,7 @@ if import_settings.epitopes:
 else:
     epitopes = None
 
-    
+
 ref_seq_map = None
 score_matrix_ = BioExt.scorematrices.DNA95.load()
 
@@ -264,14 +264,14 @@ for seq_record in SeqIO.parse(import_settings.coordinates, "fasta"):
             consensus[i][l] = _copy_count
         else:
             consensus[i][l] += _copy_count
-        
-        
+
+
 ref_seq = ''.join ([max(pos.items(), key=operator.itemgetter(1))[0] for pos in consensus ])
 
 aligned_str = None
 
 def output_record (x):
-    global aligned_str 
+    global aligned_str
     l = list(x)
     if len (l) == 1:
         aligned_str = l[0]
@@ -284,7 +284,7 @@ for s in ref_genes:
                 score_matrix_,False,False,0.8, ignore_record, output_record)
     if (aligned_str is not None):
         break
-                
+
 ref_map = aligned_str.seq.strip('-')
 c       = 0
 i       = 0
@@ -295,7 +295,7 @@ while i < len (ref_map):
         map_to_genome.append (i)
 
     i+=3
-    
+
 
 i = 0
 c = 0
@@ -308,15 +308,15 @@ while i < len (ref_seq):
     else:
         ref_seq_map.append (-1)
     i+=3
-        
+
 
 ref_seq_map = [(k - import_settings.offset)//3 for k in ref_seq_map]
 
-     
+
 if ref_seq_map is None:
     raise Exception ("Misssing reference sequence for coordinate mapping")
 
-    
+
 #print (len(ref_seq), file = sys.stderr)
 # compile the list of sites that are under selection by either MEME or FEL
 
@@ -352,8 +352,8 @@ def compute_site_entropy (site, source = None):
     variants = source[site] if source else counts_by_site [site]
     total = sum (variants.values())
     return -sum ([k/total * math.log (k/total,2) for k in variants.values()])
-        
-    
+
+
 aa_letters = set ("ACDEFGHIKLMNPQRSTVWY")
 
 def add_annotation_to_site (site, annotation):
@@ -366,7 +366,7 @@ def add_annotation_to_site (site, annotation):
             annotation_json [gs][k] = v
     else:
         print ("Site %d is unmapped" % site, file = sys.stderr)
-            
+
 
 for b,v in slac["tested"]["0"].items():
     branch_lengths[b] = slac["branch attributes"]["0"][b]["Global MG94xREV"]
@@ -390,16 +390,16 @@ for b,v in slac["tested"]["0"].items():
                     else:
                         aa_variants_by_site[k][aa] += 1
                         aa_counts_by_site[k][aa] += len (dups[b])
-                
+
 if annotation_json is not None: # if this is specified, write everything out
     for k,v in enumerate (aa_counts_by_site):
         add_annotation_to_site (k, {'cdn' : counts_by_site[k], 'aa' : v})
-            
-        
+
+
 variant_count_total = 0
 variant_count_NS    = 0
-        
-valid_nucs = set (["A","C","G","T"])       
+
+valid_nucs = set (["A","C","G","T"])
 include_in_annotation = {}
 
 if annotation_json is not None:
@@ -413,7 +413,7 @@ if annotation_json is not None:
                     'NmS' : row[7]
             }})
 
-    
+
 for i, row in enumerate (fel["MLE"]["content"]["0"]):
 
     if annotation_json is not None: # if this is specified, write everything out
@@ -422,7 +422,7 @@ for i, row in enumerate (fel["MLE"]["content"]["0"]):
                     'b' : row[1],
                     'p' : row[4]
             }})
-                        
+
     if row[0] + row[1] > 0:
         maf = compute_site_MAF (i)
         if maf_writer:
@@ -431,25 +431,25 @@ for i, row in enumerate (fel["MLE"]["content"]["0"]):
             for aa, count in aa_counts_by_site[i].items():
                 maf_writer.writerow ([import_settings.evolutionary_fragment, "%d" % (ref_seq_map[i] + 1), aa, "%d" % count, "%g" % (count/total), "%d" % total])
             #maf_writer.writerow ([import_settings.evolutionary_fragment, "%d" % (ref_seq_map[i] + 1), "%g" % maf, "%g" % compute_site_MAF (i, aa_counts_by_site), "%g" % compute_site_entropy (i), "%g" % compute_site_entropy (i,aa_counts_by_site), "%g" % meme["MLE"]["content"]["0"][i][6]])
-        
+
         if evo_writer and evo_annotation:
             check_key = "%d" % (ref_seq_map[i] + import_settings.fragment_shift)
             if evo_annotation and check_key in evo_annotation:
                 total = sum (counts_by_site[i].values())
                 for codon, freq in counts_by_site[i].items():
                     if codon[0] in valid_nucs and codon[1] in valid_nucs and codon[2] in valid_nucs:
-                        evo_writer.writerow ([import_settings.evolutionary_fragment, "%d" % (ref_seq_map[i] + 1), codon, "%g" % freq, "%g" % (freq/total), 
+                        evo_writer.writerow ([import_settings.evolutionary_fragment, "%d" % (ref_seq_map[i] + 1), codon, "%g" % freq, "%g" % (freq/total),
                                               "%g" % (evo_annotation[check_key][codon] if codon in evo_annotation[check_key] else 1e-8), max(evo_annotation[check_key].items(), key=operator.itemgetter(1))[0] ])
-            
-            
-            
+
+
+
         if row[4] < import_settings.pvalue :
             site_list[i] = {'fel' : row[4], 'kind' : 'positive' if row[1] > row[0] else 'negative', 'MAF' : maf}
         else:
             if maf >= import_settings.MAF:
                 site_list[i] = {'fel' : row[4],  'MAF' : maf}
-        
-    
+
+
 for i, row in enumerate (meme["MLE"]["content"]["0"]):
     if annotation_json is not None: # if this is specified, write everything out
         add_annotation_to_site (i, {'MEME' : {
@@ -468,7 +468,7 @@ for i, row in enumerate (meme["MLE"]["content"]["0"]):
             site_list[i]['meme-fraction'] = row[4]
         else:
             site_list[i] = {'meme' : row[6], 'fel' : fel["MLE"]["content"]["0"][i][4], 'meme-fraction' : row[4], 'MAF' : compute_site_MAF (i)}
-            
+
 def newick_parser(nwk_str, bootstrap_values):
     clade_stack = []
     automaton_state = 0
@@ -480,7 +480,7 @@ def newick_parser(nwk_str, bootstrap_values):
       "'": 1,
       '"': 1
     }
-    
+
     def add_new_tree_level():
       new_level = {
         "name": None
@@ -488,29 +488,29 @@ def newick_parser(nwk_str, bootstrap_values):
       the_parent = clade_stack[len(clade_stack) - 1]
       if (not "children" in the_parent):
         the_parent["children"] = [];
-      
+
       clade_stack.append (new_level);
       the_parent["children"].append(clade_stack[len(clade_stack) - 1]);
       clade_stack[len(clade_stack)-1]["original_child_order"] = len(the_parent["children"])
-    
+
 
     def finish_node_definition():
       nonlocal current_node_name
       nonlocal current_node_annotation
       nonlocal current_node_attribute
-      
+
       this_node = clade_stack.pop()
       if (bootstrap_values and "children" in this_node):
         this_node["bootstrap_values"] = current_node_name
       else:
         this_node["name"] = current_node_name
-      
+
       this_node["attribute"] = current_node_attribute
       this_node["annotation"] = current_node_annotation
       current_node_name = ""
       current_node_attribute = ""
       current_node_annotation = ""
-    
+
 
     def generate_error(location):
       return {
@@ -529,7 +529,7 @@ def newick_parser(nwk_str, bootstrap_values):
     tree_json = {
       "name" : "root"
     }
-    
+
     clade_stack.append(tree_json);
 
     space = re.compile("\s")
@@ -556,13 +556,13 @@ def newick_parser(nwk_str, bootstrap_values):
                   add_new_tree_level()
               except Exception as e:
                 return generate_error(char_index)
-              
+
             elif (current_char == "("):
               if len(current_node_name) > 0:
                 return generate_error(char_index);
               else:
                 add_new_tree_level()
-              
+
             elif (current_char in name_quotes):
               if automaton_state == 1 and len(current_node_name) == 0 and len (current_node_attribute) == 0 and len (current_node_annotation) == 0:
                 automaton_state = 2
@@ -585,7 +585,7 @@ def newick_parser(nwk_str, bootstrap_values):
                     char_index = len(nwk_str)
                     break
                   current_node_name += current_char;
-        elif automaton_state == 2: 
+        elif automaton_state == 2:
             # inside a quoted expression
             if (current_char == quote_delimiter):
               if (char_index < len (nwk_str - 1)):
@@ -620,17 +620,17 @@ def newick_parser(nwk_str, bootstrap_values):
       'json': tree_json,
       'error': None
     }
-    
+
 
 node_parents = {}
 root_node_name = None
 
-def recurse_tree (node, last = None):  
+def recurse_tree (node, last = None):
     node_parents[node['name']] = last
     if 'children' in node:
         for n in node['children']:
             recurse_tree (n, node['name'])
-            
+
 
 recurse_tree (newick_parser (tree, False)['json'])
 
@@ -642,7 +642,7 @@ if annotation_json and fubar is not None:
         hdpc = sorted(posteriors, key=operator.itemgetter(1), reverse = True)
         psum = 0.
         i = 0
-                
+
         alpha = sum ([k[0] * posteriors[i][1] for i, k in enumerate (grid)])
         beta  = sum ([k[1] * posteriors[i][1] for i, k in enumerate (grid)])
         ppp = sum ([posteriors[i][1] for i, k in enumerate (grid) if k[0]<k[1]])
@@ -650,17 +650,17 @@ if annotation_json and fubar is not None:
         non0 = sum ([posteriors[i][1] for i, k in enumerate (grid) if k[0] > 0])
         hpd0 = hpd * non0
         mean_omega  = sum ([k[1]/k[0] * posteriors[i][1] for i, k in enumerate (grid) if k[0]>0]) / non0
-        
+
         omega = []
-        
+
         while (psum <= hpd0):
             idx = hdpc[i][0]
             if grid[idx][0] > 0:
                 psum += hdpc[i][1]
                 omega.append (grid[idx][1]/grid[idx][0])
             i+=1
-            
-            
+
+
         add_annotation_to_site (int(site), {"fubar" : {
             "a" : alpha,
             "b" : beta,
@@ -677,7 +677,7 @@ def compute_JH (timing, min_date, max_date):
     residue_counts = {}
     mafs_by_date   = {}
     date_cutoff    = min_date + datetime.timedelta(days = 45)
-    
+
     for residue, dates in timing.items():
         residue_counts [residue ] = 0
         for key, value in dates.items():
@@ -690,16 +690,16 @@ def compute_JH (timing, min_date, max_date):
            mafs_by_date[this_date][residue] += value
            if datetime.datetime.strptime (key[0], date_parse_format) <= date_cutoff:
                 residue_counts[residue] += value
-            
+
     consensus = max(residue_counts.items(), key=operator.itemgetter(1))[0]
     mafs = []
-    
+
     for date, counts in mafs_by_date.items():
         all = sum (counts.values())
         minority = sum ([v for k, v in counts.items() if k != consensus])
         #print (all, minority, counts, [v for k, v in counts.items() if k != consensus], file = sys.stderr)
         mafs.append ([date, minority/all])
-  
+
     bin_count = math.ceil ((max_date - min_date).days/10)
     values_by_bins = [[] for k in range (bin_count)]
     unique_values = set ()
@@ -707,17 +707,17 @@ def compute_JH (timing, min_date, max_date):
         bin = (datetime.datetime.strptime (v[0], date_parse_format)  - min_date).days // 10
         values_by_bins[bin].append (v[1])
         unique_values.add (v[1])
-    
+
     contingency_table = [[0 for k in range (bin_count)] for v in unique_values]
     value_to_index = {}
     for i,v in enumerate (sorted (list(unique_values))):
         value_to_index[v] = i
-    
+
     for i,bin in enumerate (values_by_bins):
         for v in bin:
             contingency_table[value_to_index[v]][i] += 1
-           
-    value_count = len (unique_values) 
+
+    value_count = len (unique_values)
     if value_count == 1:
         return 0.
     row_sums = [sum (row) for row in contingency_table]
@@ -725,16 +725,16 @@ def compute_JH (timing, min_date, max_date):
     N = sum (row_sums)
     P = 0
     Q = 0
-    
+
     r3 = sum ([k*k*k for k in row_sums])
     r2 = sum ([k*k for k in row_sums])
     c3 = sum ([k*k*k for k in column_sums])
     c2 = sum ([k*k for k in column_sums])
-    
-    
+
+
     varS = (2.*(N*N*N-r3-c3)+3.*(N*N-r2-c2)+5*N) / 18. + (r3-3*r2+2*N)*(c3-3*c2+2*N)/(9.*N*(N-1)*(N-2)) + (r2-N)*(c2-N)/(2.*N*(N-1))
- 
-   
+
+
     for i,bin in enumerate (values_by_bins):
         for v in bin:
             for j in range (i+1,bin_count):
@@ -743,12 +743,12 @@ def compute_JH (timing, min_date, max_date):
                         Q += 1
                     elif e > v:
                         P += 1
-            
-    Z = (P-Q) / math.sqrt (varS)            
+
+    Z = (P-Q) / math.sqrt (varS)
     return Z
-    
+
 site_to_epitope = {}
-    
+
 if epitopes and annotation_json:
     this_epitope = collections.deque ()
     site_range = collections.deque ()
@@ -770,26 +770,26 @@ if epitopes and annotation_json:
                     else:
                         this_epitope.clear()
                         site_range.clear()
-                    
+
                if len (this_epitope) == 9:
                     str_epitope = ''.join (this_epitope)
                     if str_epitope in epitopes:
                         for si,s in enumerate (site_range):
                             if not s in site_to_epitope:
                                 site_to_epitope[s] = {}
-                                
+
                             if not str_epitope in site_to_epitope[s]:
                                 site_to_epitope[s][str_epitope] = {}
-                                
+
                             if not si in site_to_epitope[s][str_epitope]:
                                 site_to_epitope[s][str_epitope][si] = 0
-                            
+
                             site_to_epitope[s][str_epitope][si] += len (dups[node])
 
-            
- 
+
+
 branch_name_to_index = {}
-  
+
 
 for site in range(sites) if annotation_json else site_list:
     if site in site_list:
@@ -798,17 +798,17 @@ for site in range(sites) if annotation_json else site_list:
 
     evo_composition = {}
     timing      = {}
-    ''' 
+    '''
         for each amino acid, this will record "date" : count for when they were sampled
-        timing -> 
+        timing ->
             "residue" ->
                 "date" -> count
     '''
     check_key           = "%d" % (ref_seq_map[site] + import_settings.fragment_shift)
     evo_site_annotation = evo_annotation[check_key] if evo_annotation and check_key in evo_annotation else None
-    
+
     substitutions       = None
-        
+
     for node,value in slac["branch attributes"]["0"].items():
         if "amino-acid" in value:
          if not node in branch_name_to_index:
@@ -821,14 +821,14 @@ for site in range(sites) if annotation_json else site_list:
 
     if site in site_list:
         labels =  [None for k in range (len (branch_name_to_index))]
-        
+
     for node,value in slac["branch attributes"]["0"].items():
-            
+
         if "amino-acid" in value:
-        
+
             aa_value    = value["amino-acid"][0][site]
             codon_value = value["codon"][0][site]
-            
+
             if len (aa_value) == 1 and evo_site_annotation:
                 if codon_value not in evo_composition:
                     try:
@@ -839,8 +839,8 @@ for site in range(sites) if annotation_json else site_list:
                         evo_composition[codon_value] = {
                             "support" : 0.0, "aa" : aa_value
                             }
-                            
-            
+
+
             if node in date_dups:
                 if aa_value not in timing:
                     timing [aa_value] = {}
@@ -849,7 +849,7 @@ for site in range(sites) if annotation_json else site_list:
                         timing [aa_value][dt] = cnt
                     else:
                         timing [aa_value][dt] += cnt
-             
+
             if  value["nonsynonymous substitution count"][0][site] + value["synonymous substitution count"][0][site]:
                 if substitutions is None:
                     substitutions = {
@@ -873,17 +873,17 @@ for site in range(sites) if annotation_json else site_list:
                 else:
                     substitutions[ks[1]][aa_pair] = 1
 
-             
+
             if site in site_list:
                 labels[branch_name_to_index[node]] = (aa_value,value["codon"][0][site],value["nonsynonymous substitution count"][0][site],value["synonymous substitution count"][0][site])
-    
+
     if site in site_list:
         site_list[site]['composition'] = aa_counts_by_site[site]
         site_list[site]['labels'] = compress_array(labels)
         if len (evo_composition):
             site_list[site]['evolutionary_support']     = evo_composition
             site_list[site]['evolutionary_predictions'] = evo_site_annotation
-            site_list[site]['counts'] = counts_by_site[site] 
+            site_list[site]['counts'] = counts_by_site[site]
             print ("Site %d" % site, file = sys.stderr)
             print ("Codon\tAmino-Acid\tFrequency\tSupport", file = sys.stderr)
             all_count = sum (counts_by_site[site].values())
@@ -892,9 +892,9 @@ for site in range(sites) if annotation_json else site_list:
                 if len (codon_freq):
                     print ("%s\t%s\t%.3g\t%.3g" % (codon,support["aa"],[v for k,v in counts_by_site[site].items()if k == codon][0]/all_count,support["support"]), file = sys.stderr)
             #print (site, evo_composition,aa_counts_by_site[site], file = sys.stderr)
-    
+
     timing_as_array = {}
-    
+
     for aa, t in timing.items():
         #timing_as_array [aa] = [[k[0],k[1],country_to_sub[k[1]],v,k[2],k[3]] for k, v in timing[aa].items()]
         #timing_as_array [aa] = [[k[0],k[1],country_to_sub[k[1]],v] for k, v in timing[aa].items()]
@@ -904,22 +904,22 @@ for site in range(sites) if annotation_json else site_list:
             compress_array([country_to_sub[k[1]] for k, v in timing[aa].items()]),
             [v for k, v in timing[aa].items()]
         ]
-    
+
     if site in site_list:
         site_list[site]['timing'] = timing_as_array
-              
+
     jh_z = compute_JH (timing, min_date, max_date)
 
     if site in site_list:
         site_list[site]['trend'] = jh_z
-        
+
     if annotation_json:
         add_annotation_to_site (site, {"trend" : jh_z})
         if substitutions is not None:
             add_annotation_to_site (site, {"subs" : substitutions})
         if site_to_epitope and site in site_to_epitope:
             add_annotation_to_site (site, {"hla" : site_to_epitope[site]} )
-        
+
     if prime and site in site_list:
         site_list[site]['prime'] = []
         prime_row = prime["MLE"]["content"]["0"][site]
@@ -930,12 +930,12 @@ for site in range(sites) if annotation_json else site_list:
                     site_list[site]['prime'].append (['Overall', prime_row[idx], 0])
                else:
                     site_list[site]['prime'].append ([prime_headers[idx][1].replace ('p-value for non-zero effect of ',''), prime_row[idx], prime_row[idx-1]])
-                    
-        
+
+
 branch_name_to_index_array = [None for i in range (len (branch_name_to_index))]
 for n,i in branch_name_to_index.items():
     branch_name_to_index_array[i] = n
-        
+
 json_out = {
     'sequences' : sequences,
     'bl' : branch_lengths,
@@ -958,7 +958,7 @@ json_out = {
 }
 
 json.dump (json_out, import_settings.output, separators=(',', ':'), indent = None)
-    
+
 if annotation_json is not None:
     with open (import_settings.overall, "w") as ann:
         json.dump (annotation_json, ann, indent = 1)

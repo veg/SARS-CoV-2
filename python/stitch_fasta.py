@@ -28,7 +28,7 @@ arguments.add_argument('-d', '--dir',        help = 'Directory with files',    r
 #arguments.add_argument('-d', '--duplicates',   help = 'Duplicate JSON files',      required = True, type = argparse.FileType('r'), nargs = '*')
 arguments.add_argument('-o', '--output',       help = 'Write the file to',         required = True, type = argparse.FileType('w'))
 
-genes = ['ORF1a','ORF1b','S','ORF3a','M','ORF6','ORF7a','ORF8','N']
+genes= ['leader', 'nsp2', 'nsp3', 'nsp4', '3C', 'nsp6', 'nsp7', 'nsp8', 'nsp9', 'nsp10', 'RdRp', 'helicase', 'exonuclease', 'endornase','S','ORF3a','M','ORF6','ORF7a','ORF8','N']
 
 import_settings = arguments.parse_args()
 
@@ -36,12 +36,12 @@ combined_fasta  = {}
 
 for i, gene in enumerate (genes):
     local_set = {}
-    
+
     with open (path.join (import_settings.dir, "sequences.%s.duplicates.json" % gene), "r") as dh:
         dups = json.load (dh)
-        
+
     count = 0
-   
+
     with open (path.join (import_settings.dir, "sequences.%s.compressed.fas" % gene), "r") as fasta:
         for seq_record in SeqIO.parse(fasta, "fasta"):
             seq_id   = seq_record.name
@@ -52,8 +52,8 @@ for i, gene in enumerate (genes):
             for i,dup_id in  dups[seq_id].items():
                 if dup_id != seq_id:
                     local_set [dup_id] = seq
-            
-        
+
+
     if len (combined_fasta):
         to_delete = set ()
         for i in combined_fasta:
@@ -61,16 +61,16 @@ for i, gene in enumerate (genes):
                 combined_fasta[i] += local_set[i]
             else:
                 to_delete.add (i)
-                
+
         for i in to_delete:
             del combined_fasta[i]
-                
+
     else:
         for i,s in local_set.items():
             combined_fasta[i] = s
 
     print (len (combined_fasta), count)
     #sys.exit (0)
-    
+
 for i, s in combined_fasta.items():
     print (">%s\n%s\n" % (i,s), file = import_settings.output)
