@@ -114,7 +114,7 @@ for i, gene in enumerate (genes):
             for i,s in local_set.items():
                 combined_fasta[i] = s
 
-        print (len (combined_fasta), count)
+        print (gene, len (combined_fasta), count)
  
 ref_seq = ''.join ([consensus_filter(max(pos.items(), key=operator.itemgetter(1))[0]) for pos in consensus ])
 
