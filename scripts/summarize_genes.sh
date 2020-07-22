@@ -1,10 +1,10 @@
 FILE=$1
 
-python3 python/stitch_fasta.py -d $FILE -o ${FILE}.combined.fas
-python3 python/extract_variants.py -i ${FILE}.combined.fas  -o ${FILE}.variants.json -c 5
+#python3 python/stitch_fasta.py -d $FILE -o ${FILE}.combined.fas
+#python3 python/extract_variants.py -i ${FILE}.combined.fas  -o ${FILE}.variants.json -c 5
 
-rm data/mafs.csv
-rm data/evo_freqs.csv
+#rm data/mafs.csv
+#rm data/evo_freqs.csv
 
 #gene_coordinates = [[265,13482, 'ORF1a', 0],
 #  [13467,21554, 'ORF1b',-1],

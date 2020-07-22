@@ -699,12 +699,15 @@ def compute_JH (timing, min_date, max_date):
         minority = sum ([v for k, v in counts.items() if k != consensus])
         #print (all, minority, counts, [v for k, v in counts.items() if k != consensus], file = sys.stderr)
         mafs.append ([date, minority/all])
+        
   
-    bin_count = math.ceil ((max_date - min_date).days/10)
+    bin_count = math.floor ((max_date - min_date).days/10 + 1.)
     values_by_bins = [[] for k in range (bin_count)]
+    #print (max_date, min_date, bin_count, (max_date - min_date).days/10, file = sys.stderr)
     unique_values = set ()
     for v in mafs:
         bin = (datetime.datetime.strptime (v[0], date_parse_format)  - min_date).days // 10
+        #print (v,bin, file = sys.stderr)
         values_by_bins[bin].append (v[1])
         unique_values.add (v[1])
     
