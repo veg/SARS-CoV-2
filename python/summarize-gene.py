@@ -12,7 +12,6 @@ Author:
 Version:
     v0.0.1 (2020-03-23)
 
-
 """
 
 import argparse
@@ -49,7 +48,6 @@ arguments.add_argument('-p', '--prime',  help = 'PRIME results file', required =
 arguments.add_argument('-u', '--fubar',  help = 'FUBAR results file', required = False, type = argparse.FileType('r'))
 arguments.add_argument('-P', '--pvalue',  help = 'p-value', required = False, type = float, default = 0.1)
 arguments.add_argument('-c', '--coordinates',  help = 'An alignment with reference sequence (assumed to start with NC)', required = True, type = argparse.FileType('r'))
-
 arguments.add_argument('-T', '--epitopes',  help = 'If provided, an epitope map in a JSON format', required = False, type = argparse.FileType('r'))
 arguments.add_argument('-D', '--database', help ='Primary database record to extract sequence information from', required = True, type = argparse.FileType('r'))
 arguments.add_argument('-d', '--duplicates', help ='The JSON file recording compressed sequence duplicates', required = True, type = argparse.FileType('r'))
@@ -63,7 +61,6 @@ arguments.add_argument('-O', '--overall', help ='If provided, write site annotat
 arguments.add_argument('-S', '--offset',  help ='Nucleotide position of the start of this gene in terms of reference genome', required = False, type = int, default = 0)
 arguments.add_argument('--frame_shift', help = 'Used in conjunction with annotation; is set, add this value to genome coordinates', required = False, type = int, default = 0)
 #arguments.add_argument('-V', '--variants', help ='If provided, write JSON-like VCF to this file', required = False, type = str)
-
 
 import_settings = arguments.parse_args()
 
@@ -103,7 +100,7 @@ for id, record in db.items():
     except Exception as e:
         pass
 
-date_dups     = {}
+date_dups = {}
 
 maf_writer = None
 
@@ -756,7 +753,7 @@ if epitopes and annotation_json:
         if node in slac["tested"]["0"] and node[0:4] != "Node":
             for site in range(sites):
                if "amino-acid" in value:
-                    aa_value    = value["amino-acid"][0][site]
+                    aa_value = value["amino-acid"][0][site]
                     if len (aa_value) == 1:
                         if aa_value != '-':
                             if len (this_epitope) < 9:

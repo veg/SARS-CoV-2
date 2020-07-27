@@ -1,0 +1,50 @@
+Peptide ID,Sequence,Protein,Protein class,hlafam, SARS group 1 [positive/tested (%)],PRE group A [positive/tested (%)],hlagene
+DR_P01,KDGIIWVATEGALNT,ORF9 nuc,structural,,20/22 (91%), 8/18 (44%),HLA_DR
+DR_P02,GTWLTYTGAIKLDDK,ORF9 nuc,structural,,17/22 (77%),2/18 (11%),HLA_DR
+DR_P03,RWYFYYLGTGPEAGL,ORF9 nuc,structural,,16/22 (73%),1/18 (6%),HLA_DR
+DR_P04,ASWFTALTQHGKEDL,ORF9 nuc,structural,,13/22 (59%),1/18 (6%),HLA_DR
+DR_P05,ASAFFGMSRIGMEVT,ORF9 nuc,structural,,12/23 (52%),1/18 (6%),HLA_DR
+DR_P06,IGYYRRATRRIRGGD,ORF9 nuc,structural,,12/22 (55%),0/17 (0%),HLA_DR
+DR_P07,LLLLDRLNQLESKMS,ORF9 nuc,structural,,14/22 (64%),1/17 (6%),HLA_DR
+DR_P08,AADLDDFSKQLQQSM,ORF9 nuc,structural,,1/23 (4%),0/17 (0%),HLA_DR
+DR_P09,AIVLQLPQGTTLPKG,ORF9 nuc,structural,,4/22 (18%),0/17 (0%),HLA_DR
+DR_P10,YKHWPQIAQFAPSAS,ORF9 nuc,structural,,3/22 (14%),0/16 (0%),HLA_DR
+DR_P11,LDDFVEIIKSQDLSV,ORF1,non-structural,,6/22 (27%),1/20 (5%),HLA_DR
+DR_P12,ITRFQTLLALHRSYL,ORF2 spi,structural,,12/22 (55%),1/20 (5%),HLA_DR
+DR_P13,FNGLTVLPPLLTDEM,ORF2 spi,structural,,3/22 (14%),1/20 (5%),HLA_DR
+DR_P14,FMRIFTIGTVTLKQG,ORF3,accessory,,10/22 (45%),1/20 (5%),HLA_DR
+DR_P15,FYVYSRVKNLNSSRV,ORF4 env,structural,,12/22 (55%),2/19 (11%),HLA_DR
+DR_P16,LSYYKLGASQRVAGD,ORF5 mem,structural,,21/22 (95%),0/19 (0%),HLA_DR
+DR_P17,IWNLDYIINLIIKNL,ORF6,accessory,,9/22 (41%),2/19 (11%),HLA_DR
+DR_P18,QEEVQELYSPIFLIV,ORF7,accessory,,8/22 (36%),2/17 (12%),HLA_DR
+DR_P19,SKWYIRVGARKSAPL,ORF8,accessory,,15/22 (68%),4/16 (25%),HLA_DR
+DR_P20,INVFAFPFTIYSLLL,ORF10,accessory,,6/22 (27%),0/15 (0%),HLA_DR
+A01_P01,TTDPSFLGRY,ORF1,non-structural,A*01,10/12 (83%),1/18 (6%),HLA_A 
+A01_P02,LTDEMIAQY,ORF2 spi,structural,A*01,6/12 (50%),0/18 (0%),HLA_A 
+A01_P05,RTFKVSIWNLDY,ORF6,accessory,A*01,1/12 (8%),1/18 (6%),HLA_A 
+A02_P03,ALSKGVHFV,ORF3,accessory,A*02,6/11 (55%),0/8 (0%),HLA_A 
+A02_P09,LLLLDRLNQL,ORF9 nuc,structural,A*02,5/11 (45%),0/8 (0%),HLA_A 
+A03_P01,KLFAAETLK,ORF1,non-structural,A*03,2/11 (18%),1/10 (10%),HLA_A 
+A03_P07,QLRARSVSPK,ORF7,accessory,A*03,3/11 (27%),0/10 (0%),HLA_A 
+A03_P08,KTFPPTEPKK,ORF9 nuc,structural,A*03,7/11 (64%),0/10 (0%),HLA_A 
+A11_P01,ASMPTTIAK,ORF1,non-structural,A*11,3/11 (27%),0/9 (0%),HLA_A 
+A11_P08,ATEGALNTPK,ORF9 nuc,structural,A*11,9/11 (82%),0/9 (0%),HLA_A 
+A24_P01,VYIGDPAQL,ORF1,non-structural,A*24,7/10 (70%),0/17 (0%),HLA_A 
+A24_P02,QYIKWPWYI,ORF2 spi,structural,A*24,6/10 (60%),1/16 (6%),HLA_A 
+A24_P03,VYFLQSINF,ORF3,accessory,A*24,7/10 (70%),0/17 (0%),HLA_A 
+A24_P04,FYVYSRVKNL,ORF4 env,structural,A*24,2/10 (20%),0/17 (0%),HLA_A 
+A24_P08,DYKHWPQIAQF,ORF9 nuc,structural,A*24,2/10 (20%),0/16 (0%),HLA_A 
+B07_P08,FPRGQGVPI,ORF9 nuc,structural,B*07,2/12 (17%),0/9 (0%),HLA_A 
+B07_P10,NPANNAAIVL,ORF9 nuc,structural,B*07,2/12 (17%),0/9 (0%),HLA_A 
+B08_P05,TPKYKFVRI,ORF1,non-structural,B*08,0/12 (0%),3/11 (27%),HLA_A 
+B08_P07,FVKHKHAFL,ORF1,non-structural,B*08,1/12 (8%),0/11 (0%),HLA_A 
+B08_P08,DLKGKYVQI,ORF1,non-structural,B*08,5/12 (42%),1/11 (9%),HLA_A 
+B08_P10,EAFEKMVSL,ORF1,non-structural,B*08,1/12 (8%),1/11 (9%),HLA_A 
+B40_P03,SELVIGAVIL,ORF5 mem,structural,B*40,6/12 (50%),0/11 (0%),HLA_A 
+B40_P04,YEGNSPFHPL,ORF7,accessory,B*40,0/12 (0%),1/11 (9%),HLA_A 
+B40_P05,LEYHDVRVVL,ORF8,accessory,B*40,4/12 (33%),0/11 (0%),HLA_A 
+B40_P06,MEVTPSGTWL,ORF9 nuc,structural,B*40,9/12 (75%),0/11 (0%),HLA_A 
+B40_P09,IEYPIIGDEL,ORF1,non-structural,B*40,7/12 (58%),2/10 (20%),HLA_A 
+C07_P03,YYQLYSTQL,ORF3,accessory,C*07,1/11 (9%),0/9 (0%),HLA_A 
+C07_P04,NRFLYIIKL,ORF5 mem,structural,C*07,6/11 (55%),0/9 (0%),HLA_A 
+C07_P07,QRNAPRITF,ORF9 nuc,structural,C*07,1/11 (9%),0/9 (0%),HLA_A 

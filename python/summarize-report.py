@@ -63,7 +63,6 @@ gene_fel_fn = lambda x,y: path.join(basedir, x, 'sequences.' + y + '.FEL.json')
 # get directory listing
 basedir = 'data/fasta/'
 
-
 def get_variant_count(s, min_count=1):
     variants = collections.Counter(s)
     variants = { x: v for x,v in variants.items() if x != '---' }
@@ -101,7 +100,6 @@ def collect_info(item):
         "num_sites_meme": None,
         "median_branches_meme": None
     }
-
 
     try:
         with open(dupe_fn) as dupe_fh:
