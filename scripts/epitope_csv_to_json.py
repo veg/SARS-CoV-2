@@ -21,7 +21,7 @@ nelde_epis = {nepitope["Sequence"]: {} for nepitope in nelde_epitopes}
 for epi in epitopes:
     key = "HLA-" + epi["HLA Allele"]
     gene = epi["hlagene"]
-    item = { 'type' : 'predicted', 'source' : 'boni', 'gene' : gene }
+    item = { 'type' : 'predicted', 'source' : 'campbell', 'gene' : gene }
     score = { key : float(format(float(epi["Best Score (nM)"]), '.3f')) }
     if "score" in epis[epi["Peptide"]].keys():
         score_dict = epis[epi["Peptide"]]["score"]
