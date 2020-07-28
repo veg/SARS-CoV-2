@@ -31,7 +31,6 @@ PYTHON=/data/shares/veg/SARS-CoV-2/SARS-CoV-2/env/bin/python3
 
 ZERO_LENGTHS_FLAGS='--kill-zero-lengths No ENV="_DO_TREE_REBALANCE_=1"'
 
-
 function run_a_gene {
 
 

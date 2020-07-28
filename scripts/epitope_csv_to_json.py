@@ -32,7 +32,7 @@ for epi in epitopes:
     epis[epi["Peptide"]].update(item)
 
 for epi in nelde_epitopes:
-    key = epi["hlafam"]
+    key = "HLA-" + epi["hlafam"]
     gene = epi["hlagene"]
     item = { 'gene' : gene, 'type' : 'experimentally validated', 'source': 'nelde'}
     score = { key : None }
