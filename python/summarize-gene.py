@@ -39,6 +39,7 @@ from BioExt.scorematrices import (
     )
 
 
+sys.setrecursionlimit(10**6) 
 arguments = argparse.ArgumentParser(description='Summarize selection analysis results.')
 
 arguments.add_argument('-o', '--output', help = 'Write results here', type = argparse.FileType('w'), default = sys.stdout)
