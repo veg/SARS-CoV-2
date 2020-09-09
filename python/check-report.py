@@ -3,6 +3,7 @@ import sys
 import argparse
 import itertools
 from datetime import date, timedelta
+from operator import itemgetter
 
 ## Print dates with complete reports
 genes=['leader','nsp2','nsp3','nsp4','3C','nsp6','nsp7','nsp8','nsp9','nsp10','helicase','exonuclease','endornase','S','E','M','N','ORF3a','ORF6','ORF7a','ORF8','RdRp','methyltransferase']
@@ -14,6 +15,7 @@ arguments.add_argument('-o', '--output', help = 'Write results here', type = arg
 args = arguments.parse_args()
 
 results = [row for row in csv.DictReader(args.input, delimiter=',', quotechar='|')]
+results = sorted(results, key=itemgetter('analysis_date'))
 
 # group by dates
 grouped = itertools.groupby(results, lambda x: x["analysis_date"])
