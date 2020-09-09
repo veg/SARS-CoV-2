@@ -72,6 +72,9 @@ sequences_with_dates = {}
 sequences_with_locations = {}
 country_to_sub = {}
 
+
+sys.setrecursionlimit(1500)
+
 def get_location (v):
     if 'country' in v['location']:
         country_to_sub[v['location']['country']] = v['location']['subregion']
@@ -622,9 +625,11 @@ def newick_parser(nwk_str, bootstrap_values):
 node_parents = {}
 root_node_name = None
 
+
 def recurse_tree (node, last = None):
     node_parents[node['name']] = last
     if 'children' in node:
+        print(len(node['children']))
         for n in node['children']:
             recurse_tree (n, node['name'])
 
@@ -905,7 +910,8 @@ for site in range(sites) if annotation_json else site_list:
     if site in site_list:
         site_list[site]['timing'] = timing_as_array
 
-    jh_z = compute_JH (timing, min_date, max_date)
+    # jh_z = compute_JH (timing, min_date, max_date)
+    jh_z = False
 
     if site in site_list:
         site_list[site]['trend'] = jh_z

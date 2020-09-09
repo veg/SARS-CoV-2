@@ -1,8 +1,9 @@
 #!/bin/bash
 fdate=$(date +"%Y-%m-%d")
 #fdate=$1
+#fdate='2020-09-01'
 
-FQUEUE='priority'
+FQUEUE='epyc2'
 QUEUE='epyc'
 OUTPUT_DIR=`pwd`/logs/$fdate/
 mkdir $OUTPUT_DIR
@@ -23,7 +24,7 @@ qsub -l nodes=1:ppn=16 -d `pwd` -o $OUTPUT_DIR -e $OUTPUT_DIR -q $QUEUE -F "/dat
 # Products
 qsub -l nodes=1:ppn=16 -d `pwd` -o $OUTPUT_DIR -e $OUTPUT_DIR -q $QUEUE -F "/data/shares/veg/SARS-CoV-2/SARS-CoV-2/data/fasta/$fdate leader 16" /data/shares/veg/SARS-CoV-2/SARS-CoV-2/scripts/extract_genes.sh
 qsub -l nodes=1:ppn=16 -d `pwd` -o $OUTPUT_DIR -e $OUTPUT_DIR -q $QUEUE -F "/data/shares/veg/SARS-CoV-2/SARS-CoV-2/data/fasta/$fdate nsp2 16" /data/shares/veg/SARS-CoV-2/SARS-CoV-2/scripts/extract_genes.sh
-qsub -l nodes=1:ppn=32 -d `pwd` -o $OUTPUT_DIR -e $OUTPUT_DIR -q $FQUEUE -F "/data/shares/veg/SARS-CoV-2/SARS-CoV-2/data/fasta/$fdate nsp3 32" /data/shares/veg/SARS-CoV-2/SARS-CoV-2/scripts/extract_genes.sh
+qsub -l nodes=2:ppn=64 -d `pwd` -o $OUTPUT_DIR -e $OUTPUT_DIR -q $FQUEUE -F "/data/shares/veg/SARS-CoV-2/SARS-CoV-2/data/fasta/$fdate nsp3 128" /data/shares/veg/SARS-CoV-2/SARS-CoV-2/scripts/extract_genes.sh
 qsub -l nodes=1:ppn=16 -d `pwd` -o $OUTPUT_DIR -e $OUTPUT_DIR -q $QUEUE -F "/data/shares/veg/SARS-CoV-2/SARS-CoV-2/data/fasta/$fdate nsp4 16" /data/shares/veg/SARS-CoV-2/SARS-CoV-2/scripts/extract_genes.sh
 qsub -l nodes=1:ppn=16 -d `pwd` -o $OUTPUT_DIR -e $OUTPUT_DIR -q $QUEUE -F "/data/shares/veg/SARS-CoV-2/SARS-CoV-2/data/fasta/$fdate 3C 16" /data/shares/veg/SARS-CoV-2/SARS-CoV-2/scripts/extract_genes.sh
 qsub -l nodes=1:ppn=16 -d `pwd` -o $OUTPUT_DIR -e $OUTPUT_DIR -q $QUEUE -F "/data/shares/veg/SARS-CoV-2/SARS-CoV-2/data/fasta/$fdate nsp6 16" /data/shares/veg/SARS-CoV-2/SARS-CoV-2/scripts/extract_genes.sh
@@ -37,4 +38,3 @@ qsub -l nodes=1:ppn=16 -d `pwd` -o $OUTPUT_DIR -e $OUTPUT_DIR -q $QUEUE -F "/dat
 qsub -l nodes=1:ppn=16 -d `pwd` -o $OUTPUT_DIR -e $OUTPUT_DIR -q $QUEUE -F "/data/shares/veg/SARS-CoV-2/SARS-CoV-2/data/fasta/$fdate endornase 16" /data/shares/veg/SARS-CoV-2/SARS-CoV-2/scripts/extract_genes.sh
 qsub -l nodes=1:ppn=16 -d `pwd` -o $OUTPUT_DIR -e $OUTPUT_DIR -q $QUEUE -F "/data/shares/veg/SARS-CoV-2/SARS-CoV-2/data/fasta/$fdate methyltransferase 16" /data/shares/veg/SARS-CoV-2/SARS-CoV-2/scripts/extract_genes.sh
 qsub -l nodes=1:ppn=16 -d `pwd` -o $OUTPUT_DIR -e $OUTPUT_DIR -q $QUEUE -F "/data/shares/veg/SARS-CoV-2/SARS-CoV-2/data/fasta/$fdate ORF10 16" /data/shares/veg/SARS-CoV-2/SARS-CoV-2/scripts/extract_genes.sh
-
