@@ -18,9 +18,8 @@ Data dictionary
 3. site, Number of sites in the analysis
 '''
 # gene list
-genes=['leader','nsp2','nsp3','nsp4','3C','nsp6','nsp7','nsp8','nsp9','nsp10','helicase','exonuclease','endornase','S','E','M','N','ORF3a','ORF6','ORF7a','ORF8','RdRp','methyltransferase']
-
-offsets = {'ORF1b' : 1, 'RdRp' : 1, 'helicase' : 1, 'endornase' : 1, 'exonuclease' : 1, 'methyltransferase' : 1, 'ORF3a' : 1};
+genes = ['leader','nsp2','nsp3','nsp4','3C','nsp6','nsp7','nsp8','nsp9','nsp10','helicase','exonuclease','endornase','S','E','M','N','ORF3a','ORF6','ORF7a','ORF8','RdRp','methyltransferase']
+offsets = {'leader':1, 'ORF1b' : 1, 'RdRp' : 1, 'helicase' : 1, 'endornase' : 1, 'exonuclease' : 1, 'ORF3a' : 1, '3C': 1, 'M': 1, 'S':1, 'nsp10':1, 'nsp2':1, 'nsp3':1, 'nsp7':1, 'nsp8':1, 'E':1, 'N':1};
 
 # Specify dates
 sdate = date(2020, 3, 30)
@@ -44,15 +43,18 @@ def collect_info(item):
     try:
         with open(sum_fn) as sum_fh:
             sums = json.load(sum_fh)
-        # Get sites with selection
-        sites = list(sums['selection'].keys())
-        offset = 0
-        if item[1] in offsets.keys():
-            offset = offsets[item[1]]
-        sites = map(lambda x: int(x)+offset, sites)
-        entries = [(item[0],item[1],s) for s in sites]
     except:
         print(f'No sum results for : {item}')
+        return entries
+
+    offset = 0
+    if item[1] in offsets.keys():
+        offset = offsets[item[1]]
+
+    # Get sites with selection
+    sites = list(sums['selection'].keys())
+    sites = [sums['map'][int(x)]+1 for x in sites]
+    entries = [(item[0],item[1],s) for s in sites]
 
     return entries
 
@@ -61,8 +63,14 @@ def main():
     cpus = multiprocessing.cpu_count()
     combos = list(product(dates, genes))
 
-    with Pool(cpus) as p:
-        row_items = p.map(collect_info, combos)
+    #combos = [('2020-09-01', 'leader')]
+    #row_items = [collect_info(combos[0])]
+    #print(row_items)
+
+    row_items = [collect_info(combo) for combo in combos]
+
+    # with Pool(cpus) as p:
+    #     row_items = p.map(collect_info, combos)
 
     row_items = filter(lambda x : len(x) > 0, row_items)
     row_items = list(chain.from_iterable(row_items))

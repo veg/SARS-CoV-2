@@ -1,5 +1,4 @@
 #!/bin/bash
-
 fdate=$1
 python3 /data/shares/veg/SARS-CoV-2/SARS-CoV-2/python/extract-attributes.py -j /data/shares/gisaid/$fdate.master.json > /data/shares/gisaid/$fdate.attributes.csv
 mkdir -p /data/shares/veg/SARS-CoV-2/SARS-CoV-2/data/fasta/$fdate/

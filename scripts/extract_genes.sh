@@ -62,8 +62,8 @@ else
     then
         echo "Already aligned"
     else
-        echo $MAFFT ${FILE}.${GENE}_protein.fas > ${FILE}.${GENE}.msa
-        $MAFFT ${FILE}.${GENE}_protein.fas > ${FILE}.${GENE}.msa 2> mafft.error.log
+        echo $MAFFT --keeplength ${FILE}.${GENE}_protein.fas > ${FILE}.${GENE}.msa
+        $MAFFT --keeplength ${FILE}.${GENE}_protein.fas > ${FILE}.${GENE}.msa 2> mafft.error.log
     fi
         
     if [ -s ${FILE}.${GENE}.compressed.fas ] 
