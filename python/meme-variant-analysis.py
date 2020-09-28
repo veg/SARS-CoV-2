@@ -13,9 +13,9 @@ from Bio import SeqIO
 from collections import Counter
 import itertools
 
-genes = ['leader','nsp2','nsp3','nsp4','3C','nsp6','nsp7','nsp8','nsp9','nsp10','helicase','exonuclease','endornase','S','E','M','N','ORF3a','ORF6','ORF7a','ORF8','RdRp','methyltransferase']
-#genes = ['leader']
-dates = ['2020-09-01']
+#genes = ['leader','nsp2','nsp3','nsp4','3C','nsp6','nsp7','nsp8','nsp9','nsp10','helicase','exonuclease','endornase','S','E','M','N','ORF3a','ORF6','ORF7a','ORF8','RdRp','methyltransferase']
+genes = ['S']
+dates = ['2020-09-01-bk']
 
 gene_meme_fn = lambda x,y: path.join(basedir, x, 'sequences.' + y + '.MEME.json')
 gene_msa_fn = lambda x,y: path.join(basedir, x, 'sequences.' + y + '.msa')
@@ -44,6 +44,7 @@ def get_variance_at_site(item):
     msa = np.array([list(seq.seq) for seq in SeqIO.parse(fas_fn, 'fasta')]).transpose()
     cnts = [[item[1], summ['map'][int(i)]+1, *get_minor_cnt(Counter(msa[i]))] for i in range(len(msa))]
     # for each site, get variant composition
+    # cnt_dist = [Counter(x) for x in msa]
     return cnts
 
 def collect_info(item):
@@ -67,11 +68,11 @@ def main():
     cnts = [get_variance_at_site(combo) for combo in combos]
     row_items = [collect_info(combo) for combo in combos]
 
-    with Pool(cpus) as p:
-        cnts = p.map(get_variance_at_site, combos)
+    # with Pool(cpus) as p:
+    #     cnts = p.map(get_variance_at_site, combos)
 
-    with Pool(cpus) as p:
-        row_items = p.map(collect_info, combos)
+    # with Pool(cpus) as p:
+    #     row_items = p.map(collect_info, combos)
 
 
     pvals = []

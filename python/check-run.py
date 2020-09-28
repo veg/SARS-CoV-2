@@ -12,7 +12,7 @@ from datetime import date, timedelta
 genes=['leader','nsp2','nsp3','nsp4','3C','nsp6','nsp7','nsp8','nsp9','nsp10','helicase','exonuclease','endornase','S','E','M','N','ORF3a','ORF6','ORF7a','ORF8','RdRp','methyltransferase']
 
 # Specify dates
-dates = [date(2020, 9, 1)]
+dates = [date(2020, 9, 15)]
 gene_fn = lambda x,y: path.join(basedir, x.strftime('%Y-%m-%d'), 'sequences.' + y + '.json')
 
 # get directory listing

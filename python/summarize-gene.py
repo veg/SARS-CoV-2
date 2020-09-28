@@ -49,6 +49,7 @@ arguments.add_argument('-u', '--fubar',  help = 'FUBAR results file', required =
 arguments.add_argument('-P', '--pvalue',  help = 'p-value', required = False, type = float, default = 0.1)
 arguments.add_argument('-c', '--coordinates',  help = 'An alignment with reference sequence (assumed to start with NC)', required = True, type = argparse.FileType('r'))
 arguments.add_argument('-T', '--epitopes',  help = 'If provided, an epitope map in a JSON format', required = False, type = argparse.FileType('r'))
+arguments.add_argument('-B', '--rbd-affinity',  help = 'If provided, an rbd mutation map in a JSON format', required = False, type = argparse.FileType('r'))
 arguments.add_argument('-D', '--database', help ='Primary database record to extract sequence information from', required = True, type = argparse.FileType('r'))
 arguments.add_argument('-d', '--duplicates', help ='The JSON file recording compressed sequence duplicates', required = True, type = argparse.FileType('r'))
 arguments.add_argument('-M', '--MAF', help ='Also include sites with hapoltype MAF >= this frequency', required = False, type = float, default = 0.2)
@@ -67,6 +68,7 @@ import_settings = arguments.parse_args()
 db = json.load (import_settings.database)
 dups = json.load (import_settings.duplicates)
 date_parse_format = "%Y%m%d"
+gene_setting = import_settings.output.name.split('.')[-2]
 
 sequences_with_dates = {}
 sequences_with_locations = {}
@@ -219,6 +221,11 @@ if import_settings.epitopes:
 else:
     epitopes = None
 
+if import_settings.rbd_affinity:
+    rbd_affinity = list(csv.DictReader(import_settings.rbd_affinity))
+else:
+    rbd_affinity = None
+
 
 ref_seq_map = None
 score_matrix_ = BioExt.scorematrices.DNA95.load()
@@ -314,7 +321,7 @@ ref_seq_map = [(k - import_settings.offset)//3 for k in ref_seq_map]
 
 
 if ref_seq_map is None:
-    raise Exception ("Misssing reference sequence for coordinate mapping")
+    raise Exception ("Missing reference sequence for coordinate mapping")
 
 
 #print (len(ref_seq), file = sys.stderr)
@@ -789,6 +796,31 @@ if epitopes and annotation_json:
                             site_to_epitope[s][str_epitope][si] += len (dups[node])
 
 
+# Bloom RBD affinity and expression annotation
+rbd_dict = {}
+if rbd_affinity and annotation_json:
+    # Key by site_SARS2
+    # Example
+    # 331 :{
+    #   wildtype: 'A',
+    #   mutants : {
+    #       'V' : {
+    #               'bind_avg': ,
+    #               'expr_avg' :
+    #           }
+    #   }
+    # }
+
+    # rbd_dict = { int(d["site_SARS2"]): d for d in rbd_affinity }
+    for d in rbd_affinity:
+        if int(d["site_SARS2"]) not in rbd_dict.keys():
+            rbd_dict[int(d["site_SARS2"])] = {}
+            rbd_dict[int(d["site_SARS2"])]['wildtype'] = d['wildtype']
+            rbd_dict[int(d["site_SARS2"])]['mutants'] = {}
+
+        # Get rbd_affinity for each site in site_list
+        rbd_dict[int(d["site_SARS2"])]['mutants'][d['mutant']] = d
+
 
 branch_name_to_index = {}
 
@@ -797,6 +829,14 @@ for site in range(sites) if annotation_json else site_list:
     if site in site_list:
         site_list[site]['meme-branches'] = meme["MLE"]["content"]["0"][site][7]
         site_list[site]['substitutions'] = [slac["MLE"]["content"]["0"]['by-site']['RESOLVED'][site][2],slac["MLE"]["content"]["0"]['by-site']['RESOLVED'][site][3]]
+
+        # Create inverse ref_seq_map
+        inv_ref_seq_map = {ref_seq_map[i]: i for i in range(len(ref_seq_map))}
+
+        # Add affinity for rbd sites
+        if gene_setting == "S" and site in rbd_dict.keys():
+            site_list[site]['bloom-affinities'] = rbd_dict[ref_seq_map[site]+1]
+            print(site, ' ', rbd_dict[ref_seq_map[site]+1]["wildtype"], " ", aa_counts_by_site[site])
 
     evo_composition = {}
     timing      = {}

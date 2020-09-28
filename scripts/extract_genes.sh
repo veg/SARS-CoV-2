@@ -51,8 +51,8 @@ else
     else
         TMP_FILE=${FILE}.${GENE}.tmp
         cp ${FILE} ${TMP_FILE}
-        echo "mpirun -np $NP $HYPHYMPI LIBPATH=$HYPHYLIBPATH $PREMSA --input $TMP_FILE --reference $REFERENCE_SEQUENCE --trim-from $TRIM_FROM --trim-to $TRIM_TO --E 0.01 --N-fraction $N_FRAC --remove-stop-codons Yes"
-        mpirun -np $NP $HYPHYMPI LIBPATH=$HYPHYLIBPATH $PREMSA --input $TMP_FILE --reference $REFERENCE_SEQUENCE --trim-from $TRIM_FROM --trim-to $TRIM_TO --E 0.01 --N-fraction $N_FRAC --remove-stop-codons Yes
+        echo "mpirun -np $NP $HYPHYMPI LIBPATH=$HYPHYLIBPATH $PREMSA --input $TMP_FILE --reference $REFERENCE_SEQUENCE --keep-reference --trim-from $TRIM_FROM --trim-to $TRIM_TO --E 0.01 --N-fraction $N_FRAC --remove-stop-codons Yes"
+        mpirun -np $NP $HYPHYMPI LIBPATH=$HYPHYLIBPATH $PREMSA --input $TMP_FILE --reference $REFERENCE_SEQUENCE --keep-reference --trim-from $TRIM_FROM --trim-to $TRIM_TO --E 0.01 --N-fraction $N_FRAC --remove-stop-codons Yes
         mv ${TMP_FILE}_protein.fas ${FILE}.${GENE}_protein.fas
         mv ${TMP_FILE}_nuc.fas ${FILE}.${GENE}_nuc.fas
     fi
@@ -62,8 +62,8 @@ else
     then
         echo "Already aligned"
     else
-        echo $MAFFT --keeplength ${FILE}.${GENE}_protein.fas > ${FILE}.${GENE}.msa
-        $MAFFT --keeplength ${FILE}.${GENE}_protein.fas > ${FILE}.${GENE}.msa 2> mafft.error.log
+        echo $MAFFT ${FILE}.${GENE}_protein.fas > ${FILE}.${GENE}.msa
+        $MAFFT ${FILE}.${GENE}_protein.fas > ${FILE}.${GENE}.msa 2> mafft.error.log
     fi
         
     if [ -s ${FILE}.${GENE}.compressed.fas ] 
@@ -173,8 +173,8 @@ else
     ANNOTATION=${FILE}.annotation.json
     cp data/comparative-annotation.json ${ANNOTATION}
 
-    echo "$PYTHON $WORKING_DIR/python/summarize-gene.py -T data/ctl/epitopes.json -D $MASTERNOFASTA -d ${FILE}.${GENE}.duplicates.json -s ${FILE}.${GENE}.SLAC.json -f ${FILE}.${GENE}.FEL.json -m ${FILE}.${GENE}.MEME.json -P 0.1 --output  ${FILE}.${GENE}.json -c ${FILE}.${GENE}.compressed.fas -E data/evo_annotation.json -A data/mafs.csv -V data/evo_freqs.csv -F $FRAGMENT --frame_shift ${ADDSHIFT} --fragment_shift $SHIFT -S $OFFSET -O $ANNOTATION"
-    $PYTHON $WORKING_DIR/python/summarize-gene.py -T data/ctl/epitopes.json -D $MASTERNOFASTA -d ${FILE}.${GENE}.duplicates.json -s ${FILE}.${GENE}.SLAC.json -f ${FILE}.${GENE}.FEL.json -m ${FILE}.${GENE}.MEME.json -P 0.1 --output  ${FILE}.${GENE}.json -c ${FILE}.${GENE}.compressed.fas -E data/evo_annotation.json -A data/mafs.csv -V data/evo_freqs.csv -F $FRAGMENT --frame_shift ${ADDSHIFT} --fragment_shift $SHIFT -S $OFFSET -O $ANNOTATION
+    echo "$PYTHON $WORKING_DIR/python/summarize-gene.py -T data/ctl/epitopes.json -B data/single_mut_effects.csv -D $MASTERNOFASTA -d ${FILE}.${GENE}.duplicates.json -s ${FILE}.${GENE}.SLAC.json -f ${FILE}.${GENE}.FEL.json -m ${FILE}.${GENE}.MEME.json -P 0.1 --output  ${FILE}.${GENE}.json -c ${FILE}.${GENE}.compressed.fas -E data/evo_annotation.json -A data/mafs.csv -V data/evo_freqs.csv -F $FRAGMENT --frame_shift ${ADDSHIFT} --fragment_shift $SHIFT -S $OFFSET -O $ANNOTATION"
+    $PYTHON $WORKING_DIR/python/summarize-gene.py -T data/ctl/epitopes.json -B data/single_mut_effects.csv -D $MASTERNOFASTA -d ${FILE}.${GENE}.duplicates.json -s ${FILE}.${GENE}.SLAC.json -f ${FILE}.${GENE}.FEL.json -m ${FILE}.${GENE}.MEME.json -P 0.1 --output  ${FILE}.${GENE}.json -c ${FILE}.${GENE}.compressed.fas -E data/evo_annotation.json -A data/mafs.csv -V data/evo_freqs.csv -F $FRAGMENT --frame_shift ${ADDSHIFT} --fragment_shift $SHIFT -S $OFFSET -O $ANNOTATION
 
     #if [ -s ${FILE}.${GENE}.BGM.json ] 
     #then
