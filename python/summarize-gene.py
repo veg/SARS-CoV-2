@@ -381,7 +381,12 @@ for b,v in slac["tested"]["0"].items():
         L += slac["branch attributes"]["0"][b]["Global MG94xREV"]
     else:
         for k in range (sites):
-            codon = slac["branch attributes"]["0"][b]["codon"][0][k]
+            try:
+                codon = slac["branch attributes"]["0"][b]["codon"][0][k]
+            except:
+                print('no codon for ' + b)
+                break
+
             if codon != '---':
                 if codon not in variants_by_site[k]:
                     variants_by_site[k][codon] = 1
@@ -834,7 +839,7 @@ for site in range(sites) if annotation_json else site_list:
         inv_ref_seq_map = {ref_seq_map[i]: i for i in range(len(ref_seq_map))}
 
         # Add affinity for rbd sites
-        if gene_setting == "S" and site in rbd_dict.keys():
+        if gene_setting == "S" and ref_seq_map[site]+1 in rbd_dict.keys():
             site_list[site]['bloom-affinities'] = rbd_dict[ref_seq_map[site]+1]
             print(site, ' ', rbd_dict[ref_seq_map[site]+1]["wildtype"], " ", aa_counts_by_site[site])
 
@@ -891,6 +896,11 @@ for site in range(sites) if annotation_json else site_list:
                         timing [aa_value][dt] = cnt
                     else:
                         timing [aa_value][dt] += cnt
+            # try:
+            #     hi = value["nonsynonymous substitution count"][0][site] + value["synonymous substitution count"][0][site]
+            # except:
+            #     import pdb; pdb.set_trace()
+            #     continue
 
             if  value["nonsynonymous substitution count"][0][site] + value["synonymous substitution count"][0][site]:
                 if substitutions is None:

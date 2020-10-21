@@ -1,12 +1,12 @@
 #!/bin/bash
-#PBS -l walltime=99:0:0:0
+#PBS -l walltime=72:0:0:0
 
 export PATH=/usr/local/bin:$PATH
 source /etc/profile.d/modules.sh
 module load aocc/1.3.0
 module load openmpi/gnu/3.0.2
-export LC_ALL="en_US.UTF-8"
-export LC_CTYPE="en_US.UTF-8"
+export LC_ALL=en_US
+export LC_CTYPE=en_US
 
 DIRECTORY=$1
 FILE=$1/sequences
@@ -29,10 +29,9 @@ POSTMSA=/data/shares/veg/SARS-CoV-2/hyphy-analyses/codon-msa/post-msa.bf
 WORKING_DIR=/data/shares/veg/SARS-CoV-2/SARS-CoV-2/
 PYTHON=/data/shares/veg/SARS-CoV-2/SARS-CoV-2/env/bin/python3
 
-ZERO_LENGTHS_FLAGS='--kill-zero-lengths No ENV="_DO_TREE_REBALANCE_=1"'
+ZERO_LENGTHS_FLAGS='--kill-zero-lengths No ENV="_DO_TREE_REBALANCE_=0"'
 
 function run_a_gene {
-
 
 GENE=$1
 REFERENCE_SEQUENCE=$2
@@ -51,8 +50,8 @@ else
     else
         TMP_FILE=${FILE}.${GENE}.tmp
         cp ${FILE} ${TMP_FILE}
-        echo "mpirun -np $NP $HYPHYMPI LIBPATH=$HYPHYLIBPATH $PREMSA --input $TMP_FILE --reference $REFERENCE_SEQUENCE --keep-reference --trim-from $TRIM_FROM --trim-to $TRIM_TO --E 0.01 --N-fraction $N_FRAC --remove-stop-codons Yes"
-        mpirun -np $NP $HYPHYMPI LIBPATH=$HYPHYLIBPATH $PREMSA --input $TMP_FILE --reference $REFERENCE_SEQUENCE --keep-reference --trim-from $TRIM_FROM --trim-to $TRIM_TO --E 0.01 --N-fraction $N_FRAC --remove-stop-codons Yes
+        echo "mpirun -np $NP $HYPHYMPI LIBPATH=$HYPHYLIBPATH $PREMSA --input $TMP_FILE --reference $REFERENCE_SEQUENCE --keep-reference Yes --trim-from $TRIM_FROM --trim-to $TRIM_TO --E 0.01 --N-fraction $N_FRAC --remove-stop-codons Yes"
+        mpirun -np $NP $HYPHYMPI LIBPATH=$HYPHYLIBPATH $PREMSA --input $TMP_FILE --reference $REFERENCE_SEQUENCE --keep-reference Yes --trim-from $TRIM_FROM --trim-to $TRIM_TO --E 0.01 --N-fraction $N_FRAC --remove-stop-codons Yes
         mv ${TMP_FILE}_protein.fas ${FILE}.${GENE}_protein.fas
         mv ${TMP_FILE}_nuc.fas ${FILE}.${GENE}_nuc.fas
     fi
@@ -62,8 +61,8 @@ else
     then
         echo "Already aligned"
     else
-        echo $MAFFT ${FILE}.${GENE}_protein.fas > ${FILE}.${GENE}.msa
-        $MAFFT ${FILE}.${GENE}_protein.fas > ${FILE}.${GENE}.msa 2> mafft.error.log
+        echo "$MAFFT --nofft --retree 1 --memsavetree --memsave ${FILE}.${GENE}_protein.fas >| ${FILE}.${GENE}.msa"
+        $MAFFT --nofft --retree 1 --memsavetree --memsave ${FILE}.${GENE}_protein.fas >| ${FILE}.${GENE}.msa 2>| ${FILE}.${GENE}.mafft.error.log
     fi
         
     if [ -s ${FILE}.${GENE}.compressed.fas ] 
@@ -78,10 +77,10 @@ else
 
     SEQCOUNT=$(grep -c ">" ${FILE}.${GENE}.compressed.fas)
 
-    if [ "$SEQCOUNT" -lt "1000" ]
-    then
-      ZERO_LENGTHS_FLAGS=""
-    fi
+    #if [ "$SEQCOUNT" -lt "1000" ]
+    #then
+    #  ZERO_LENGTHS_FLAGS=""
+    #fi
 
     if [ -s ${FILE}.${GENE}.tn93 ] 
     then
@@ -96,8 +95,8 @@ else
     then
         echo "Already has tree"
     else
-        echo seqmagick convert ${FILE}.${GENE}.compressed.fas ${FILE}.${GENE}.compressed.sto
-        echo rapidnj ${FILE}.${GENE}.compressed.sto -i sth > ${FILE}.${GENE}.compressed.fas.rapidnj.bestTree
+        echo "seqmagick convert ${FILE}.${GENE}.compressed.fas ${FILE}.${GENE}.compressed.sto"
+        echo "rapidnj ${FILE}.${GENE}.compressed.sto -i sth > ${FILE}.${GENE}.compressed.fas.rapidnj.bestTree"
         seqmagick convert ${FILE}.${GENE}.compressed.fas ${FILE}.${GENE}.compressed.sto
         rapidnj ${FILE}.${GENE}.compressed.sto -i sth > ${FILE}.${GENE}.compressed.fas.rapidnj.bestTree
         sed -i "s/'//g" ${FILE}.${GENE}.compressed.fas.rapidnj.bestTree
