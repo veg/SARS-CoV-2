@@ -26,8 +26,12 @@ TN93=/usr/local/bin/tn93
 #POSTMSA=/Users/sergei/Development/hyphy-analyses/codon-msa/post-msa.bf
 PREMSA=/data/shares/veg/SARS-CoV-2/hyphy-analyses/codon-msa/pre-msa.bf
 POSTMSA=/data/shares/veg/SARS-CoV-2/hyphy-analyses/codon-msa/post-msa.bf
+
 WORKING_DIR=/data/shares/veg/SARS-CoV-2/SARS-CoV-2/
 PYTHON=/data/shares/veg/SARS-CoV-2/SARS-CoV-2/env/bin/python3
+
+COMPRESSOR=$WORKING_DIR/scripts/compressor.bf
+COMPRESSOR2=$WORKING_DIR/scripts/compressor-2.bf
 
 ZERO_LENGTHS_FLAGS='--kill-zero-lengths No ENV="_DO_TREE_REBALANCE_=0"'
 
@@ -69,10 +73,23 @@ else
     then
         echo "Already reverse translated"
     else
-        echo $HYPHY LIBPATH=$HYPHYLIBPATH $POSTMSA --protein-msa ${FILE}.${GENE}.msa --nucleotide-sequences ${FILE}.${GENE}_nuc.fas --output ${FILE}.${GENE}.compressed.fas --duplicates ${FILE}.${GENE}.duplicates.json
+        echo "$HYPHY LIBPATH=$HYPHYLIBPATH $POSTMSA --protein-msa ${FILE}.${GENE}.msa --nucleotide-sequences ${FILE}.${GENE}_nuc.fas --output ${FILE}.${GENE}.compressed.fas --duplicates ${FILE}.${GENE}.duplicates.json"
         $HYPHY LIBPATH=$HYPHYLIBPATH $POSTMSA --protein-msa ${FILE}.${GENE}.msa --nucleotide-sequences ${FILE}.${GENE}_nuc.fas --output ${FILE}.${GENE}.compressed.fas --duplicates ${FILE}.${GENE}.duplicates.json
         #Replace all unknown characters with N
         sed -i '/^>/! s/[^ACTG-]/N/g' ${FILE}.${GENE}.compressed.fas
+    fi
+
+    echo "FILTERING ALIGNMENT"
+    if [ -s ${FILE}.${GENE}.compressed.filtered.fas ] 
+    then
+        echo "ALIGNMENT ALREADY FILTERED"
+    else
+
+        echo "$HYPHY LIBPATH=$HYPHYLIBPATH $COMPRESSOR --msa ${FILE}.${GENE}.compressed.fas --duplicates ${FILE}.${GENE}.duplicates.json --output ${FILE}.${GENE}.variants.csv --json ${FILE}.${GENE}.variants.json"
+        $HYPHY LIBPATH=$HYPHYLIBPATH $COMPRESSOR --msa ${FILE}.${GENE}.compressed.fas --duplicates ${FILE}.${GENE}.duplicates.json --output ${FILE}.${GENE}.variants.csv --json ${FILE}.${GENE}.variants.json
+
+        echo "$HYPHY LIBPATH=$HYPHYLIBPATH $COMPRESSOR2 --msa ${FILE}.${GENE}.compressed.fas --duplicates ${FILE}.${GENE}.duplicates.json --csv ${FILE}.${GENE}.variants.csv --byseq ${FILE}.${GENE}.variants.json --p 0.9 --output ${FILE}.${GENE}.compressed.filtered.fas --json ${FILE}.${GENE}.filtered.json"
+        $HYPHY LIBPATH=$HYPHYLIBPATH $COMPRESSOR2 --msa ${FILE}.${GENE}.compressed.fas --duplicates ${FILE}.${GENE}.duplicates.json --csv ${FILE}.${GENE}.csv --byseq ${FILE}.${GENE}.json --p 0.9 --output ${FILE}.${GENE}.compressed.filtered.fas --json ${FILE}.${GENE}.filtered.json
     fi
 
     SEQCOUNT=$(grep -c ">" ${FILE}.${GENE}.compressed.fas)
@@ -86,69 +103,69 @@ else
     then
         echo "Already computed TN93"
     else
-        $TN93 -q -t 0.05 ${FILE}.${GENE}.compressed.fas > ${FILE}.${GENE}.tn93 2> ${FILE}.${GENE}.tn93.json
+        $TN93 -q -t 0.05 ${FILE}.${GENE}.compressed.filtered.fas > ${FILE}.${GENE}.tn93 2> ${FILE}.${GENE}.tn93.json
         echo $PYTHON $WORKING_DIR/python/tabulate-diversity-divergence.py -j $MASTER -t ${FILE}.${GENE}.tn93 > $DIRECTORY/evolution.${GENE}.csv
         $PYTHON $WORKING_DIR/python/tabulate-diversity-divergence.py -j $MASTER -t ${FILE}.${GENE}.tn93 > $DIRECTORY/evolution.${GENE}.csv
     fi
 
-    if [ -s ${FILE}.${GENE}.compressed.fas.rapidnj.bestTree ] 
+    if [ -s ${FILE}.${GENE}.compressed.filtered.fas.rapidnj.bestTree ] 
     then
         echo "Already has tree"
     else
-        echo "seqmagick convert ${FILE}.${GENE}.compressed.fas ${FILE}.${GENE}.compressed.sto"
-        echo "rapidnj ${FILE}.${GENE}.compressed.sto -i sth > ${FILE}.${GENE}.compressed.fas.rapidnj.bestTree"
-        seqmagick convert ${FILE}.${GENE}.compressed.fas ${FILE}.${GENE}.compressed.sto
-        rapidnj ${FILE}.${GENE}.compressed.sto -i sth > ${FILE}.${GENE}.compressed.fas.rapidnj.bestTree
-        sed -i "s/'//g" ${FILE}.${GENE}.compressed.fas.rapidnj.bestTree
-        #$RAXML --tree pars{5} --msa ${FILE}.${GENE}.compressed.fas --threads 4 --model GTR+G --force
+        echo "seqmagick convert ${FILE}.${GENE}.compressed.filtered.fas ${FILE}.${GENE}.compressed.filtered.sto"
+        echo "rapidnj ${FILE}.${GENE}.compressed.filtered.sto -i sth > ${FILE}.${GENE}.compressed.filtered.fas.rapidnj.bestTree"
+        seqmagick convert ${FILE}.${GENE}.compressed.filtered.fas ${FILE}.${GENE}.compressed.filtered.sto
+        rapidnj ${FILE}.${GENE}.compressed.filtered.sto -i sth > ${FILE}.${GENE}.compressed.filtered.fas.rapidnj.bestTree
+        sed -i "s/'//g" ${FILE}.${GENE}.compressed.filtered.fas.rapidnj.bestTree
+        #$RAXML --tree pars{5} --msa ${FILE}.${GENE}.compressed.filtered.fas --threads 4 --model GTR+G --force
     fi
 
 
-    #if [ -s ${FILE}.${GENE}.compressed.fas.raxml.bestTree ] 
+    #if [ -s ${FILE}.${GENE}.compressed.filtered.fas.raxml.bestTree ] 
     #then
     #    echo "Already has tree"
     #else
-    #    $RAXML --tree pars{5} --msa ${FILE}.${GENE}.compressed.fas --threads 4 --model GTR+G --force
+    #    $RAXML --tree pars{5} --msa ${FILE}.${GENE}.compressed.filtered.fas --threads 4 --model GTR+G --force
     #fi
     
     if [ -s ${FILE}.${GENE}.SLAC.json ] 
     then
         echo "Already has SLAC results"
     else
-        echo mpirun -np $NP $HYPHYMPI LIBPATH=$HYPHYLIBPATH slac $ZERO_LENGTHS_FLAGS --alignment ${FILE}.${GENE}.compressed.fas --tree ${FILE}.${GENE}.compressed.fas.rapidnj.bestTree --branches All --samples 0 --output ${FILE}.${GENE}.SLAC.json
-        mpirun -np $NP $HYPHYMPI LIBPATH=$HYPHYLIBPATH slac $ZERO_LENGTHS_FLAGS --alignment ${FILE}.${GENE}.compressed.fas --tree ${FILE}.${GENE}.compressed.fas.rapidnj.bestTree --branches All --samples 0 --output ${FILE}.${GENE}.SLAC.json
+        echo mpirun -np $NP $HYPHYMPI LIBPATH=$HYPHYLIBPATH slac $ZERO_LENGTHS_FLAGS --alignment ${FILE}.${GENE}.compressed.filtered.fas --tree ${FILE}.${GENE}.compressed.filtered.fas.rapidnj.bestTree --branches All --samples 0 --output ${FILE}.${GENE}.SLAC.json
+        mpirun -np $NP $HYPHYMPI LIBPATH=$HYPHYLIBPATH slac $ZERO_LENGTHS_FLAGS --alignment ${FILE}.${GENE}.compressed.filtered.fas --tree ${FILE}.${GENE}.compressed.filtered.fas.rapidnj.bestTree --branches All --samples 0 --output ${FILE}.${GENE}.SLAC.json
     fi
 
     if [ -s ${FILE}.${GENE}.FEL.json ] 
     then
         echo "Already has FEL results"
     else
-        echo mpirun -np $NP $HYPHYMPI LIBPATH=$HYPHYLIBPATH fel $ZERO_LENGTHS_FLAGS --alignment ${FILE}.${GENE}.compressed.fas --tree ${FILE}.${GENE}.compressed.fas.rapidnj.bestTree --branches Internal --output ${FILE}.${GENE}.FEL.json
-        mpirun -np $NP $HYPHYMPI LIBPATH=$HYPHYLIBPATH fel $ZERO_LENGTHS_FLAGS --alignment ${FILE}.${GENE}.compressed.fas --tree ${FILE}.${GENE}.compressed.fas.rapidnj.bestTree --branches Internal --output ${FILE}.${GENE}.FEL.json
+        echo mpirun -np $NP $HYPHYMPI LIBPATH=$HYPHYLIBPATH fel $ZERO_LENGTHS_FLAGS --alignment ${FILE}.${GENE}.compressed.filtered.fas --tree ${FILE}.${GENE}.compressed.filtered.fas.rapidnj.bestTree --branches Internal --output ${FILE}.${GENE}.FEL.json
+        mpirun -np $NP $HYPHYMPI LIBPATH=$HYPHYLIBPATH fel $ZERO_LENGTHS_FLAGS --alignment ${FILE}.${GENE}.compressed.filtered.fas --tree ${FILE}.${GENE}.compressed.filtered.fas.rapidnj.bestTree --branches Internal --output ${FILE}.${GENE}.FEL.json
     fi
 
     if [ -s ${FILE}.${GENE}.MEME.json ] 
     then
         echo "Already has MEME results"
     else
-        echo mpirun -np $NP $HYPHYMPI LIBPATH=$HYPHYLIBPATH meme $ZERO_LENGTHS_FLAGS --alignment ${FILE}.${GENE}.compressed.fas --tree ${FILE}.${GENE}.compressed.fas.rapidnj.bestTree --branches Internal --output ${FILE}.${GENE}.MEME.json
-        mpirun -np $NP $HYPHYMPI LIBPATH=$HYPHYLIBPATH meme $ZERO_LENGTHS_FLAGS --alignment ${FILE}.${GENE}.compressed.fas --tree ${FILE}.${GENE}.compressed.fas.rapidnj.bestTree --branches Internal --output ${FILE}.${GENE}.MEME.json
+        echo mpirun -np $NP $HYPHYMPI LIBPATH=$HYPHYLIBPATH meme $ZERO_LENGTHS_FLAGS --alignment ${FILE}.${GENE}.compressed.filtered.fas --tree ${FILE}.${GENE}.compressed.filtered.fas.rapidnj.bestTree --branches Internal --output ${FILE}.${GENE}.MEME.json
+        mpirun -np $NP $HYPHYMPI LIBPATH=$HYPHYLIBPATH meme $ZERO_LENGTHS_FLAGS --alignment ${FILE}.${GENE}.compressed.filtered.fas --tree ${FILE}.${GENE}.compressed.filtered.fas.rapidnj.bestTree --branches Internal --output ${FILE}.${GENE}.MEME.json
     fi
 
     if [ -s ${FILE}.${GENE}.FUBAR.json ] 
     then
         echo "Already has FUBAR results"
     else
-       echo "$HYPHY LIBPATH=$HYPHYLIBPATH  fubar $ZERO_LENGTHS_FLAGS --grid 40 --alignment ${FILE}.${GENE}.compressed.fas --tree ${FILE}.${GENE}.compressed.fas.rapidnj.bestTree --output ${FILE}.${GENE}.FUBAR.json"
-       $HYPHY LIBPATH=$HYPHYLIBPATH  fubar $ZERO_LENGTHS_FLAGS --grid 40 --alignment ${FILE}.${GENE}.compressed.fas --tree ${FILE}.${GENE}.compressed.fas.rapidnj.bestTree --output ${FILE}.${GENE}.FUBAR.json
+       echo "$HYPHY LIBPATH=$HYPHYLIBPATH  fubar $ZERO_LENGTHS_FLAGS --grid 40 --alignment ${FILE}.${GENE}.compressed.filtered.fas --tree ${FILE}.${GENE}.compressed.filtered.fas.rapidnj.bestTree --output ${FILE}.${GENE}.FUBAR.json"
+       $HYPHY LIBPATH=$HYPHYLIBPATH  fubar $ZERO_LENGTHS_FLAGS --grid 40 --alignment ${FILE}.${GENE}.compressed.filtered.fas --tree ${FILE}.${GENE}.compressed.filtered.fas.rapidnj.bestTree --output ${FILE}.${GENE}.FUBAR.json
     fi
 
     #if [ -s ${FILE}.${GENE}.PRIME.json ] 
     #then
     #    echo "Already has PRIME results"
     #else
-    #    echo mpirun -np $NP $HYPHYMPI LIBPATH=$HYPHYLIBPATH prime --alignment ${FILE}.${GENE}.compressed.fas --tree ${FILE}.${GENE}.compressed.fas.rapidnj.bestTree --branches Internal --output ${FILE}.${GENE}.PRIME.json
-    #    mpirun -np $NP $HYPHYMPI LIBPATH=$HYPHYLIBPATH prime --alignment ${FILE}.${GENE}.compressed.fas --tree ${FILE}.${GENE}.compressed.fas.rapidnj.bestTree --branches Internal --output ${FILE}.${GENE}.PRIME.json
+    #    echo mpirun -np $NP $HYPHYMPI LIBPATH=$HYPHYLIBPATH prime --alignment ${FILE}.${GENE}.compressed.filtered.fas --tree ${FILE}.${GENE}.compressed.filtered.fas.rapidnj.bestTree --branches Internal --output ${FILE}.${GENE}.PRIME.json
+    #    mpirun -np $NP $HYPHYMPI LIBPATH=$HYPHYLIBPATH prime --alignment ${FILE}.${GENE}.compressed.filtered.fas --tree ${FILE}.${GENE}.compressed.filtered.fas.rapidnj.bestTree --branches Internal --output ${FILE}.${GENE}.PRIME.json
     #fi
 
     genes=(leader nsp2 nsp3 nsp4 3C nsp6 nsp7 nsp8 nsp9 nsp10 helicase exonuclease endornase  S E M N ORF3a ORF6 ORF7a ORF8 RdRp methyltransferase)
@@ -172,8 +189,8 @@ else
     ANNOTATION=${FILE}.annotation.json
     cp data/comparative-annotation.json ${ANNOTATION}
 
-    echo "$PYTHON $WORKING_DIR/python/summarize-gene.py -T data/ctl/epitopes.json -B data/single_mut_effects.csv -D $MASTERNOFASTA -d ${FILE}.${GENE}.duplicates.json -s ${FILE}.${GENE}.SLAC.json -f ${FILE}.${GENE}.FEL.json -m ${FILE}.${GENE}.MEME.json -P 0.1 --output  ${FILE}.${GENE}.json -c ${FILE}.${GENE}.compressed.fas -E data/evo_annotation.json -A data/mafs.csv -V data/evo_freqs.csv -F $FRAGMENT --frame_shift ${ADDSHIFT} --fragment_shift $SHIFT -S $OFFSET -O $ANNOTATION"
-    $PYTHON $WORKING_DIR/python/summarize-gene.py -T data/ctl/epitopes.json -B data/single_mut_effects.csv -D $MASTERNOFASTA -d ${FILE}.${GENE}.duplicates.json -s ${FILE}.${GENE}.SLAC.json -f ${FILE}.${GENE}.FEL.json -m ${FILE}.${GENE}.MEME.json -P 0.1 --output  ${FILE}.${GENE}.json -c ${FILE}.${GENE}.compressed.fas -E data/evo_annotation.json -A data/mafs.csv -V data/evo_freqs.csv -F $FRAGMENT --frame_shift ${ADDSHIFT} --fragment_shift $SHIFT -S $OFFSET -O $ANNOTATION
+    echo "$PYTHON $WORKING_DIR/python/summarize-gene.py -T data/ctl/epitopes.json -B data/single_mut_effects.csv -D $MASTERNOFASTA -d ${FILE}.${GENE}.duplicates.json -s ${FILE}.${GENE}.SLAC.json -f ${FILE}.${GENE}.FEL.json -m ${FILE}.${GENE}.MEME.json -P 0.1 --output  ${FILE}.${GENE}.json -c ${FILE}.${GENE}.compressed.filtered.fas -E data/evo_annotation.json -A data/mafs.csv -V data/evo_freqs.csv -F $FRAGMENT --frame_shift ${ADDSHIFT} --fragment_shift $SHIFT -S $OFFSET -O $ANNOTATION"
+    $PYTHON $WORKING_DIR/python/summarize-gene.py -T data/ctl/epitopes.json -B data/single_mut_effects.csv -D $MASTERNOFASTA -d ${FILE}.${GENE}.duplicates.json -s ${FILE}.${GENE}.SLAC.json -f ${FILE}.${GENE}.FEL.json -m ${FILE}.${GENE}.MEME.json -P 0.1 --output  ${FILE}.${GENE}.json -c ${FILE}.${GENE}.compressed.filtered.fas -E data/evo_annotation.json -A data/mafs.csv -V data/evo_freqs.csv -F $FRAGMENT --frame_shift ${ADDSHIFT} --fragment_shift $SHIFT -S $OFFSET -O $ANNOTATION
 
     #if [ -s ${FILE}.${GENE}.BGM.json ] 
     #then
