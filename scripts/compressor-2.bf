@@ -176,7 +176,9 @@ for (seq = 0; seq < filter.input.species; seq += 1) {
     filter.protected_sites = {};
     
     if (filter.pairs_by_seq / seq_name) {
-        filter.paired = filter.pairs_by_seq [seq_name];
+         filter.paired = filter.pairs_by_seq [seq_name];
+         n = Rows(filter.paired);
+
          for (i = 0; i < n; i += 1) {
             for (j = i + 1; j < n; j += 1) {
                 key = "" + filter.paired[i][0] + "|" + filter.paired[j][0];
