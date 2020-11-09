@@ -13,8 +13,10 @@ genes=['leader','nsp2','nsp3','nsp4','3C','nsp6','nsp7','nsp8','nsp9','nsp10','h
 #genes=['leader','nsp2','nsp4','3C','nsp6','nsp7','nsp8','nsp9','nsp10','helicase','exonuclease','endornase','E','M','ORF3a','ORF6','ORF7a','ORF8','methyltransferase']
 
 # Specify dates
-dates = [date(2020, 9, 15), date(2020, 9, 22), date(2020, 10, 5), date(2020, 10, 12)]
+#dates = [date(2020, 9, 15), date(2020, 9, 22), date(2020, 10, 5), date(2020, 10, 12)]
 #dates = [date(2020, 9, 22), date(2020, 9, 15)]
+
+dates = [date(2020, 7, 1), date(2020, 9, 1)]
 gene_fn = lambda x,y: path.join(basedir, x.strftime('%Y-%m-%d'), 'sequences.' + y + '.json')
 
 # get directory listing

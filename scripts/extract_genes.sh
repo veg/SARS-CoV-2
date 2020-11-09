@@ -27,13 +27,13 @@ TN93=/usr/local/bin/tn93
 PREMSA=/data/shares/veg/SARS-CoV-2/hyphy-analyses/codon-msa/pre-msa.bf
 POSTMSA=/data/shares/veg/SARS-CoV-2/hyphy-analyses/codon-msa/post-msa.bf
 
-WORKING_DIR=/data/shares/veg/SARS-CoV-2/SARS-CoV-2/
-PYTHON=/data/shares/veg/SARS-CoV-2/SARS-CoV-2/env/bin/python3
+WORKING_DIR=/data/shares/veg/SARS-CoV-2/SARS-CoV-2-devel
+PYTHON=/data/shares/veg/SARS-CoV-2/SARS-CoV-2-devel/env/bin/python3
 
 COMPRESSOR=$WORKING_DIR/scripts/compressor.bf
 COMPRESSOR2=$WORKING_DIR/scripts/compressor-2.bf
 
-ZERO_LENGTHS_FLAGS='--kill-zero-lengths No ENV="_DO_TREE_REBALANCE_=0"'
+ZERO_LENGTHS_FLAGS='--kill-zero-lengths Constrain ENV="_DO_TREE_REBALANCE_=1"'
 
 function run_a_gene {
 
@@ -43,7 +43,7 @@ TRIM_FROM=$3
 TRIM_TO=$4
 N_FRAC=$5
 
-if [ -s ${FILE}.${GENE}.1.json ]
+if [ -s ${FILE}.${GENE}.json ]
 then 
    echo "$GENE alignment already processed"
 else
@@ -89,7 +89,7 @@ else
         $HYPHY LIBPATH=$HYPHYLIBPATH $COMPRESSOR --msa ${FILE}.${GENE}.compressed.fas --duplicates ${FILE}.${GENE}.duplicates.json --output ${FILE}.${GENE}.variants.csv --json ${FILE}.${GENE}.variants.json
 
         echo "$HYPHY LIBPATH=$HYPHYLIBPATH $COMPRESSOR2 --msa ${FILE}.${GENE}.compressed.fas --duplicates ${FILE}.${GENE}.duplicates.json --csv ${FILE}.${GENE}.variants.csv --byseq ${FILE}.${GENE}.variants.json --p 0.9 --output ${FILE}.${GENE}.compressed.filtered.fas --json ${FILE}.${GENE}.filtered.json"
-        $HYPHY LIBPATH=$HYPHYLIBPATH $COMPRESSOR2 --msa ${FILE}.${GENE}.compressed.fas --duplicates ${FILE}.${GENE}.duplicates.json --csv ${FILE}.${GENE}.csv --byseq ${FILE}.${GENE}.json --p 0.9 --output ${FILE}.${GENE}.compressed.filtered.fas --json ${FILE}.${GENE}.filtered.json
+        $HYPHY LIBPATH=$HYPHYLIBPATH $COMPRESSOR2 --msa ${FILE}.${GENE}.compressed.fas --duplicates ${FILE}.${GENE}.duplicates.json --csv ${FILE}.${GENE}.variants.csv --byseq ${FILE}.${GENE}.variants.json --p 0.9 --output ${FILE}.${GENE}.compressed.filtered.fas --json ${FILE}.${GENE}.filtered.json
     fi
 
     SEQCOUNT=$(grep -c ">" ${FILE}.${GENE}.compressed.fas)
