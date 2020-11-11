@@ -15,7 +15,7 @@ basedir = 'data/fasta/'
 genes=['leader','nsp2','nsp3','nsp4','3C','nsp6','nsp7','nsp8','nsp9','nsp10','helicase','exonuclease','endornase','S','E','M','N','ORF3a','ORF6','ORF7a','ORF8','RdRp','methyltransferase']
 
 sdate = date(2020, 4, 1)
-edate = date(2020, 9, 1)
+edate = date.today()
 delta = edate - sdate
 dates = [(sdate + timedelta(days=i)).strftime('%Y-%m-%d') for i in range(delta.days + 1)]
 
