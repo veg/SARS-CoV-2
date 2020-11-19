@@ -59,24 +59,42 @@ else
         mv ${TMP_FILE}_protein.fas ${FILE}.${GENE}_protein.fas
         mv ${TMP_FILE}_nuc.fas ${FILE}.${GENE}_nuc.fas
     fi
-    
+
+    echo "INITIAL COMPRESSION $GENE"
+    if [ -s ${FILE}.${GENE}_protein.compressed.fas ] 
+    then
+        echo "Already extracted"
+    else
+        echo "$PYTHON python/get-raw-duplicates.py -i ${FILE}.${GENE}_protein.fas -m ${FILE}.${GENE}_protein.fas -o ${FILE}.${GENE}_protein.compressed.fas -n ${FILE}.${GENE}_nuc.compressed.fas -d ${FILE}.${GENE}_protein.duplicates.json"
+        $PYTHON python/get-raw-duplicates.py -i ${FILE}.${GENE}_protein.fas -m ${FILE}.${GENE}_nuc.fas -o ${FILE}.${GENE}_protein.compressed.fas -n ${FILE}.${GENE}_nuc.compressed.fas -d ${FILE}.${GENE}_protein.duplicates.json
+    fi
+
     echo "ALIGNING PROTEIN DATA"
     if [ -s ${FILE}.${GENE}.msa ] 
     then
         echo "Already aligned"
     else
-        echo "$MAFFT --nofft --retree 1 --memsavetree --memsave ${FILE}.${GENE}_protein.fas >| ${FILE}.${GENE}.msa"
-        $MAFFT --nofft --retree 1 --memsavetree --memsave ${FILE}.${GENE}_protein.fas >| ${FILE}.${GENE}.msa 2>| ${FILE}.${GENE}.mafft.error.log
+        echo "$MAFFT --auto --thread -1 --addfragments ${FILE}.${GENE}_protein.compressed.fas reference_genes/reference.${GENE}_protein.fas >| ${FILE}.${GENE}.msa"
+        $MAFFT --auto --thread -1 --addfragments ${FILE}.${GENE}_protein.compressed.fas reference_genes/reference.${GENE}_protein.fas >| ${FILE}.${GENE}.msa 
     fi
         
     if [ -s ${FILE}.${GENE}.compressed.fas ] 
     then
         echo "Already reverse translated"
     else
-        echo "$HYPHY LIBPATH=$HYPHYLIBPATH $POSTMSA --protein-msa ${FILE}.${GENE}.msa --nucleotide-sequences ${FILE}.${GENE}_nuc.fas --output ${FILE}.${GENE}.compressed.fas --duplicates ${FILE}.${GENE}.duplicates.json"
-        $HYPHY LIBPATH=$HYPHYLIBPATH $POSTMSA --protein-msa ${FILE}.${GENE}.msa --nucleotide-sequences ${FILE}.${GENE}_nuc.fas --output ${FILE}.${GENE}.compressed.fas --duplicates ${FILE}.${GENE}.duplicates.json
+        echo "$HYPHY LIBPATH=$HYPHYLIBPATH $POSTMSA --protein-msa ${FILE}.${GENE}.msa --nucleotide-sequences ${FILE}.${GENE}_nuc.compressed.fas --output ${FILE}.${GENE}.compressed.fas --duplicates ${FILE}.${GENE}_nucleotide.duplicates.json"
+        $HYPHY LIBPATH=$HYPHYLIBPATH $POSTMSA --protein-msa ${FILE}.${GENE}.msa --nucleotide-sequences ${FILE}.${GENE}_nuc.compressed.fas --output ${FILE}.${GENE}.compressed.fas --duplicates ${FILE}.${GENE}_nucleotide.duplicates.json
         #Replace all unknown characters with N
         sed -i '/^>/! s/[^ACTG-]/N/g' ${FILE}.${GENE}.compressed.fas
+    fi
+
+    echo "MERGING DUPLICATES FROM POST-MSA and PRIOR"
+    if [ -s ${FILE}.${GENE}.duplicates.json ] 
+    then
+        echo "Already MERGED"
+    else
+        echo "$PYTHON python/merge-duplicates.py -p ${FILE}.${GENE}_protein.duplicates.json -n ${FILE}.${GENE}_nucleotide.duplicates.json -o ${FILE}.${GENE}.duplicates.json"
+        $PYTHON python/merge-duplicates.py -p ${FILE}.${GENE}_protein.duplicates.json -n ${FILE}.${GENE}_nucleotide.duplicates.json -o ${FILE}.${GENE}.duplicates.json
     fi
 
     echo "FILTERING ALIGNMENT"
