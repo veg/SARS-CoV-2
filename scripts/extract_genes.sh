@@ -170,13 +170,13 @@ else
         mpirun -np $NP $HYPHYMPI LIBPATH=$HYPHYLIBPATH meme $ZERO_LENGTHS_FLAGS --alignment ${FILE}.${GENE}.compressed.filtered.fas --tree ${FILE}.${GENE}.compressed.filtered.fas.rapidnj.bestTree --branches Internal --output ${FILE}.${GENE}.MEME.json
     fi
 
-    if [ -s ${FILE}.${GENE}.FUBAR.json ] 
-    then
-        echo "Already has FUBAR results"
-    else
-       echo "$HYPHY LIBPATH=$HYPHYLIBPATH  fubar $ZERO_LENGTHS_FLAGS --grid 40 --alignment ${FILE}.${GENE}.compressed.filtered.fas --tree ${FILE}.${GENE}.compressed.filtered.fas.rapidnj.bestTree --output ${FILE}.${GENE}.FUBAR.json"
-       $HYPHY LIBPATH=$HYPHYLIBPATH  fubar $ZERO_LENGTHS_FLAGS --grid 40 --alignment ${FILE}.${GENE}.compressed.filtered.fas --tree ${FILE}.${GENE}.compressed.filtered.fas.rapidnj.bestTree --output ${FILE}.${GENE}.FUBAR.json
-    fi
+    #if [ -s ${FILE}.${GENE}.FUBAR.json ] 
+    #then
+    #    echo "Already has FUBAR results"
+    #else
+    #   echo "$HYPHY LIBPATH=$HYPHYLIBPATH  fubar $ZERO_LENGTHS_FLAGS --grid 40 --alignment ${FILE}.${GENE}.compressed.filtered.fas --tree ${FILE}.${GENE}.compressed.filtered.fas.rapidnj.bestTree --output ${FILE}.${GENE}.FUBAR.json"
+    #   $HYPHY LIBPATH=$HYPHYLIBPATH  fubar $ZERO_LENGTHS_FLAGS --grid 40 --alignment ${FILE}.${GENE}.compressed.filtered.fas --tree ${FILE}.${GENE}.compressed.filtered.fas.rapidnj.bestTree --output ${FILE}.${GENE}.FUBAR.json
+    #fi
 
     #if [ -s ${FILE}.${GENE}.PRIME.json ] 
     #then
