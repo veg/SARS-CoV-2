@@ -14,7 +14,6 @@ genes=['leader','nsp2','nsp3','nsp4','3C','nsp6','nsp7','nsp8','nsp9','nsp10','h
 
 # Specify dates
 dates = [date(2020, 10, 5), date(2020, 10, 12)]
-
 gene_fn = lambda x,y: path.join(basedir, x.strftime('%Y-%m-%d'), 'sequences.' + y + '.json')
 
 # get directory listing
@@ -35,3 +34,4 @@ def main():
     print(list(filter(lambda x: not x[1] or not x[2], exists)))
 
 main()
+
