@@ -2,6 +2,7 @@ import csv
 import json
 import sys
 import argparse
+import copy
 import itertools
 from datetime import date, timedelta
 from operator import itemgetter
@@ -32,6 +33,14 @@ vals = list(dupes.values())
 # Write fasta
 firsts = [val[0] for val in vals]
 
+# Write dupes
+dupe_names = {val[0].name : {"{0}".format(i): val[i].name for i in range(len(val))} for val in vals}
+
+
+for first in firsts:
+    first.id = first.name + "_" + str(len(dupe_names[first.name].keys()))
+    first.description = first.name + "_" + str(len(dupe_names[first.name].keys()))
+
 # Second pass to find nearly similar
 # Get sequences that are a difference of one
 SeqIO.write(firsts, args.output, "fasta")
@@ -41,10 +50,11 @@ filtered_seq_names = [seq.name for seq in firsts]
 nuc_seqs = list(SeqIO.parse(args.nuc_input, 'fasta'))
 filtered_nuc_seqs = [seq for seq in nuc_seqs if seq.name in filtered_seq_names]
 
-SeqIO.write(filtered_nuc_seqs, args.nuc_output, "fasta")
+for filtered_nuc_seq in filtered_nuc_seqs:
+    filtered_nuc_seq.id = filtered_nuc_seq.name + "_" + str(len(dupe_names[filtered_nuc_seq.name].keys()))
+    filtered_nuc_seq.description = filtered_nuc_seq.name + "_" + str(len(dupe_names[filtered_nuc_seq.name].keys()))
 
-# Write dupes
-dupe_names = {val[0].name : {"{0}".format(i): val[i].name for i in range(len(val))} for val in vals}
+SeqIO.write(filtered_nuc_seqs, args.nuc_output, "fasta")
 
 json.dump(dupe_names, args.duplicates, indent=4, sort_keys=True)
 

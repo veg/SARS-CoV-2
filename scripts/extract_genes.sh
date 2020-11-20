@@ -54,8 +54,8 @@ else
     else
         TMP_FILE=${FILE}.${GENE}.tmp
         cp ${FILE} ${TMP_FILE}
-        echo "mpirun -np $NP $HYPHYMPI LIBPATH=$HYPHYLIBPATH $PREMSA --input $TMP_FILE --reference $REFERENCE_SEQUENCE --keep-reference Yes --trim-from $TRIM_FROM --trim-to $TRIM_TO --E 0.01 --N-fraction $N_FRAC --remove-stop-codons Yes"
-        mpirun -np $NP $HYPHYMPI LIBPATH=$HYPHYLIBPATH $PREMSA --input $TMP_FILE --reference $REFERENCE_SEQUENCE --keep-reference Yes --trim-from $TRIM_FROM --trim-to $TRIM_TO --E 0.01 --N-fraction $N_FRAC --remove-stop-codons Yes
+        echo "mpirun -np $NP $HYPHYMPI LIBPATH=$HYPHYLIBPATH $PREMSA --input $TMP_FILE --reference $REFERENCE_SEQUENCE --keep-reference No --trim-from $TRIM_FROM --trim-to $TRIM_TO --E 0.01 --N-fraction $N_FRAC --remove-stop-codons Yes"
+        mpirun -np $NP $HYPHYMPI LIBPATH=$HYPHYLIBPATH $PREMSA --input $TMP_FILE --reference $REFERENCE_SEQUENCE --keep-reference No --trim-from $TRIM_FROM --trim-to $TRIM_TO --E 0.01 --N-fraction $N_FRAC --remove-stop-codons Yes
         mv ${TMP_FILE}_protein.fas ${FILE}.${GENE}_protein.fas
         mv ${TMP_FILE}_nuc.fas ${FILE}.${GENE}_nuc.fas
     fi
