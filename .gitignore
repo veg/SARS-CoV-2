@@ -22,3 +22,10 @@ logs
 data/ctl/forApp.Rda
 sergei/
 data/v1
+data/beta*
+data/single_mut_effects.csv
+output.csv
+premsa_submit_jobs.sh
+scratch
+sergei-RdRp/
+reports/
