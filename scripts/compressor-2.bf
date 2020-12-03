@@ -123,6 +123,7 @@ filter.all_pairs = {};
 filter.pairs_by_seq = {};
 
 for (seq = 0; seq < filter.input.species; seq += 1) {
+//for (seq = 0; seq < 10; seq += 1) {
     GetString (seq_name, filter.input, seq);
     filter.vc = filter.byseq_data[seq_name];   
     filter.mv = {};
@@ -168,6 +169,7 @@ filter.fasta_string = ""; filter.fasta_string * 256000;
 filter.input_seqs = {};
 
 for (seq = 0; seq < filter.input.species; seq += 1) {
+//for (seq = 0; seq < filter.input.species; seq += 1) {
     GetString (seq_name, filter.input, seq);
     GetDataInfo (seq_chars, filter.input, seq);
     filter.input_seqs [seq_name] = seq_chars;
@@ -196,7 +198,7 @@ for (seq = 0; seq < filter.input.species; seq += 1) {
     
       
     if (filter.vc > filter.by_seq_cutoff && Abs (filter.protected_sites) == 0) {
-        console.log (">Removing `seq_name` because is has " + filter.vc + " minority variants"); 
+        console.log (">Removing `seq_name` because it has " + filter.vc + " minority variants"); 
         //filter.all_duplicates - seq_name;
     } else {
         filter.all_duplicates[seq_name] = filter.dup_data [seq_name];
@@ -239,8 +241,10 @@ for (seq = 0; seq < filter.input.species; seq += 1) {
     }
  }
 
-filter.fasta_string * 0;
+//filter.fasta_string * 0;
 
+fprintf(stdout, "hi\n");
+fprintf(stdout, filter.fasta_string);
 DataSet filtered.reduced = ReadFromString (filter.fasta_string);
 DataSetFilter filtered.reducedF = CreateFilter (filtered.reduced,1);
 
