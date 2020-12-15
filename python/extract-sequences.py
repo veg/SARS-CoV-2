@@ -39,9 +39,9 @@ def handle_cmp (field, value, oper):
             except:
                 return False
         return oper (len(record[field]), int (value))
-        
+
     return handler
-        
+
 def handle_regexp (field, value):
     rxp = re.compile(value)
     def handler (record):
@@ -52,7 +52,7 @@ def handle_regexp (field, value):
                 if k and rxp.search (k):
                     return True
         return False
-        
+
     return handler
 
 #-------------------------------------------------------------------------------
@@ -108,7 +108,7 @@ counter = 0
   "type": "betacoronavirus"
  },
 '''
- 
+
 def sequence_name (record):
     #hCoV-19/England/20102000906/2020
     def value_or_null (v):
@@ -119,7 +119,7 @@ def sequence_name (record):
         for k in ['state','country','subregion']:
             if v['location'][k]:
                 return v['location'][k].replace (' ', '_')
-        
+
     fields = [record['id'],location(record),value_or_null (record['collected']),value_or_null (record['technology'])]
     return "/".join (fields)
 
@@ -127,13 +127,13 @@ for f in import_settings.field:
     if f[1] == '=':
         filters.append (handle_cmp (f[0],f[2], operator.eq))
     elif f[1] == '<':
-        filters.append (handle_cmp (f[0],f[2], operator.le))   
+        filters.append (handle_cmp (f[0],f[2], operator.le))
     elif f[1] == '>':
         filters.append (handle_cmp (f[0],f[2], operator.ge))
     elif f[1] == 're':
         filters.append (handle_regexp (f[0],f[2]))
-  
-if import_settings.mode == 'AND':   
+
+if import_settings.mode == 'AND':
     for id, record in current_sequence_db.items():
         report = True
         for f in filters:
@@ -151,7 +151,7 @@ else:
                 counter += 1
                 print (">%s\n%s" % (sequence_name(record), record['sequence']))
                 break
-            
+
 print ("Found %d matching records" % counter, file = sys.stderr)
 
-    
+

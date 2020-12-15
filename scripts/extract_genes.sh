@@ -10,9 +10,8 @@ export LC_CTYPE=en_US
 
 DIRECTORY=$1
 FILE=$1/sequences
-ATTRIBUTES=$1/attributes.csv
+#ATTRIBUTES=$1/attributes.csv
 LOG=$1/log.txt
-MASTER=$1/master.json
 MASTERNOFASTA=$1/master-no-fasta.json
 GENE=$2
 NP=$3
@@ -98,6 +97,10 @@ else
     else
         echo "$PYTHON python/merge-duplicates.py -p ${FILE}.${GENE}_protein.duplicates.json -n ${FILE}.${GENE}_nucleotide.duplicates.json -o ${FILE}.${GENE}.duplicates.json"
         $PYTHON python/merge-duplicates.py -p ${FILE}.${GENE}_protein.duplicates.json -n ${FILE}.${GENE}_nucleotide.duplicates.json -o ${FILE}.${GENE}.duplicates.json
+        # Fix duplicates 
+        $PYTHON python/fix-duplicates.py -d ${FILE}.${GENE}.duplicates.json -m ${FILE}.${GENE}.map.json -o
+        # Fix header files
+        $PYTHON python/update-fasta-duplicates.py -f ${FILE}.${GENE}.compressed.fas -m ${FILE}.${GENE}.map.json
     fi
 
     echo "FILTERING ALIGNMENT"
@@ -120,14 +123,14 @@ else
     #  ZERO_LENGTHS_FLAGS=""
     #fi
 
-    if [ -s ${FILE}.${GENE}.tn93 ] 
-    then
-        echo "Already computed TN93"
-    else
-        $TN93 -q -t 0.05 ${FILE}.${GENE}.compressed.filtered.fas > ${FILE}.${GENE}.tn93 2> ${FILE}.${GENE}.tn93.json
-        echo $PYTHON $WORKING_DIR/python/tabulate-diversity-divergence.py -j $MASTER -t ${FILE}.${GENE}.tn93 > $DIRECTORY/evolution.${GENE}.csv
-        $PYTHON $WORKING_DIR/python/tabulate-diversity-divergence.py -j $MASTER -t ${FILE}.${GENE}.tn93 > $DIRECTORY/evolution.${GENE}.csv
-    fi
+    #if [ -s ${FILE}.${GENE}.tn93 ] 
+    #then
+    #    echo "Already computed TN93"
+    #else
+    #    $TN93 -q -t 0.05 ${FILE}.${GENE}.compressed.filtered.fas > ${FILE}.${GENE}.tn93 2> ${FILE}.${GENE}.tn93.json
+    #    echo $PYTHON $WORKING_DIR/python/tabulate-diversity-divergence.py -j $MASTER -t ${FILE}.${GENE}.tn93 > $DIRECTORY/evolution.${GENE}.csv
+    #    $PYTHON $WORKING_DIR/python/tabulate-diversity-divergence.py -j $MASTER -t ${FILE}.${GENE}.tn93 > $DIRECTORY/evolution.${GENE}.csv
+    #fi
 
     if [ -s ${FILE}.${GENE}.compressed.filtered.fas.rapidnj.bestTree ] 
     then

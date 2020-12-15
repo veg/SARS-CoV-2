@@ -34,3 +34,4 @@ with open(tmp_fn, 'w') as tmp_fp:
     SeqIO.write(seqs, tmp_fp, "fasta")
     shutil.move(tmp_fn, orig_fn)
 
+

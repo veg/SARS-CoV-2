@@ -48,8 +48,8 @@ genes=['leader','nsp2','nsp3','nsp4','3C','nsp6','nsp7','nsp8','nsp9','nsp10','h
 
 # Specify dates
 #dates = filter(lambda x: x != 'current' and os.path.isdir(path.join(basedir,x)), os.listdir(basedir))
-sdate = date(2020, 8, 10)
-edate = date(2020, 9, 1)
+sdate = date(2020, 3, 10)
+edate = date(2020, 11, 19)
 #edate = date.today() - timedelta(days = 1)
 delta = edate - sdate
 dates = [(sdate + timedelta(days=i)).strftime('%Y-%m-%d') for i in range(delta.days + 1)]

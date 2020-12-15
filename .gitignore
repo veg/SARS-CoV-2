@@ -29,3 +29,6 @@ premsa_submit_jobs.sh
 scratch
 sergei-RdRp/
 reports/
+node_modules
+data/imported
+data/to-import
