@@ -41,4 +41,3 @@ qsub -l nodes=1:ppn=8 -d `pwd` -o $OUTPUT_DIR -e $OUTPUT_DIR -q $QUEUE -F "$BASE
 qsub -l nodes=1:ppn=8 -d `pwd` -o $OUTPUT_DIR -e $OUTPUT_DIR -q $QUEUE -F "$BASE_DIR/data/fasta/$fdate endornase 8" $BASE_DIR/scripts/extract_genes.sh
 qsub -l nodes=1:ppn=8 -d `pwd` -o $OUTPUT_DIR -e $OUTPUT_DIR -q $QUEUE -F "$BASE_DIR/data/fasta/$fdate methyltransferase 8" $BASE_DIR/scripts/extract_genes.sh
 qsub -l nodes=1:ppn=8 -d `pwd` -o $OUTPUT_DIR -e $OUTPUT_DIR -q $QUEUE -F "$BASE_DIR/data/fasta/$fdate ORF10 8" $BASE_DIR/scripts/extract_genes.sh
-

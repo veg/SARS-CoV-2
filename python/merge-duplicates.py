@@ -30,9 +30,6 @@ def merge(protein_json, nuc_json):
             prot_vals_trim = ['_'.join(x.split('_')[:3]) for x in prot_vals]
             prot_vals_trim_dict = {'_'.join(x.split('_')[:3]) : x for x in prot_vals}
 
-            # if 'epi_isl_577595' in nuc_seq_names and 'epi_isl_416371' in prot_vals_trim:
-            #     import pdb; pdb.set_trace()
-
             # Need to collect *all* nuc_seq_names and intersect with prot_vals_trim
             if(set(nuc_seq_names).intersection(set(prot_vals_trim))):
                 # Add copy number count

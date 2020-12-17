@@ -60,12 +60,12 @@ else
     fi
 
     echo "INITIAL COMPRESSION $GENE"
-    if [ -s ${FILE}.${GENE}_protein.compressed.fas ] 
+    if [ -s ${FILE}.${GENE}_protein.compressed.fas ] && [ -s ${FILE}.${GENE}_nuc.compressed.fas ]
     then
         echo "Already extracted"
     else
-        echo "$PYTHON python/get-raw-duplicates.py -i ${FILE}.${GENE}_protein.fas -m ${FILE}.${GENE}_protein.fas -o ${FILE}.${GENE}_protein.compressed.fas -n ${FILE}.${GENE}_nuc.compressed.fas -d ${FILE}.${GENE}_protein.duplicates.json"
-        $PYTHON python/get-raw-duplicates.py -i ${FILE}.${GENE}_protein.fas -m ${FILE}.${GENE}_nuc.fas -o ${FILE}.${GENE}_protein.compressed.fas -n ${FILE}.${GENE}_nuc.compressed.fas -d ${FILE}.${GENE}_protein.duplicates.json
+        echo "$PYTHON python/get-raw-duplicates.py -i ${FILE}.${GENE}_protein.fas -m ${FILE}.${GENE}_nuc.fas -o ${FILE}.${GENE}_protein.compressed.fas -n ${FILE}.${GENE}_nuc.compressed.fas -d ${FILE}.${GENE}_protein.duplicates.json -g ${FILE}.${GENE}_raw_nucleotide.duplicates.json"
+        $PYTHON python/get-raw-duplicates.py -i ${FILE}.${GENE}_protein.fas -m ${FILE}.${GENE}_nuc.fas -o ${FILE}.${GENE}_protein.compressed.fas -n ${FILE}.${GENE}_nuc.compressed.fas -d ${FILE}.${GENE}_protein.duplicates.json -g ${FILE}.${GENE}_raw_nucleotide.duplicates.json
     fi
 
     echo "ALIGNING PROTEIN DATA"
@@ -95,8 +95,8 @@ else
     then
         echo "Already MERGED"
     else
-        echo "$PYTHON python/merge-duplicates.py -p ${FILE}.${GENE}_protein.duplicates.json -n ${FILE}.${GENE}_nucleotide.duplicates.json -o ${FILE}.${GENE}.duplicates.json"
-        $PYTHON python/merge-duplicates.py -p ${FILE}.${GENE}_protein.duplicates.json -n ${FILE}.${GENE}_nucleotide.duplicates.json -o ${FILE}.${GENE}.duplicates.json
+        echo "$PYTHON python/merge-duplicates.py -p ${FILE}.${GENE}_raw_nucleotide.duplicates.json -n ${FILE}.${GENE}_nucleotide.duplicates.json -o ${FILE}.${GENE}.duplicates.json"
+        $PYTHON python/merge-duplicates.py -p ${FILE}.${GENE}_raw_nucleotide.duplicates.json -n ${FILE}.${GENE}_nucleotide.duplicates.json -o ${FILE}.${GENE}.duplicates.json
         # Fix duplicates 
         $PYTHON python/fix-duplicates.py -d ${FILE}.${GENE}.duplicates.json -m ${FILE}.${GENE}.map.json -o
         # Fix header files

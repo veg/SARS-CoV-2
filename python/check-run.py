@@ -13,7 +13,7 @@ genes=['leader','nsp2','nsp3','nsp4','3C','nsp6','nsp7','nsp8','nsp9','nsp10','h
 #genes=['leader','nsp2','nsp4','3C','nsp6','nsp7','nsp8','nsp9','nsp10','helicase','exonuclease','endornase','E','M','ORF3a','ORF6','ORF7a','ORF8','methyltransferase']
 
 # Specify dates
-dates = [date(2020, 11, 18)]
+dates = [date(2020, 12, 11)]
 gene_fn = lambda x,y: path.join(basedir, x.strftime('%Y-%m-%d'), 'sequences.' + y + '.json')
 
 # get directory listing
@@ -31,6 +31,7 @@ def main():
     cpus = multiprocessing.cpu_count()
     combos = list(product(dates, genes))
     exists = [collect_info(x) for x in combos]
+    print(len(list(filter(lambda x: not x[1] or not x[2], exists))))
     print(list(filter(lambda x: not x[1] or not x[2], exists)))
 
 main()
