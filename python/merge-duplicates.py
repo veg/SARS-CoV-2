@@ -60,8 +60,8 @@ if not protein_json and not nuc_json:
     output_json = {}
 elif not protein_json:
     output_json = nuc_json
-elif not protein_json:
-    output_json = nuc_json
+elif not nuc_json:
+    output_json = protein_json
 else:
     output_json = merge(protein_json, nuc_json)
 
