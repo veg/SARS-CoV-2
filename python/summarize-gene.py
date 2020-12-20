@@ -331,7 +331,16 @@ import_settings = arguments.parse_args()
 
 db = load_json_or_compressed (import_settings.database)
 dups = load_json_or_compressed (import_settings.duplicates)
-date_parse_format = "%Y%m%d"
+date_parse_format = ["%Y%m%d","%Y-%m-%d"]
+
+def parse_date_string (date_string):
+	for f in date_parse_format:
+	     try:
+	         return datetime.datetime.strptime (date_string,f)
+	     except:
+	     	pass
+	raise Exception ("Failed to parse " % date_string)
+
 
 sequences_with_dates = {}
 sequences_with_locations = {}
@@ -358,7 +367,7 @@ max_date = datetime.datetime (1900,1,1)
 
 for id, record in db.items():
     try:
-        date_check = datetime.datetime.strptime (record['collected'],date_parse_format)
+        date_check =  parse_date_string (record['collected'])
         if date_check.year < 2019 or date_check.year == 2019 and date_check.month < 10 or date_check >= now: 
             continue
         if date_check < min_date:
@@ -504,7 +513,10 @@ for seq_record in SeqIO.parse(import_settings.coordinates, "fasta"):
 #for i, c in enumerate (consensus):        
 #    print (i, c, file = sys.stderr)        
 
-ref_seq = ''.join ([max(pos.items(), key=operator.itemgetter(1))[0] if len (pos) else 'N' for pos in consensus ])
+ref_seq = [max(pos.items(), key=operator.itemgetter(1))[0] if len (pos) else '-' for pos in consensus ]
+consensus_gaps = [i for i,k in enumerate (ref_seq) if k == '-']
+
+ref_seq = ''.join (ref_seq).replace ('NNN','---')
 
 aligned_str = None
 def output_record (x):
@@ -558,6 +570,7 @@ ref_map = ref_map.rstrip ('-')
 ref_genome_corrected = []
 c = 0
 i = 0
+rs = 0
 
 ref_seq_map = []
 ref_codons  = []
@@ -567,6 +580,14 @@ while i < len (ref_map):
     #ref_seq_map.append (c)
     cdn = str(ref_map[i:i+3])
     ref_codon = str(ref_genome[c:c+3])
+    consensus_codon = str(ref_seq[rs:rs+3])
+    if consensus_codon == '---':
+        while consensus_codon == '---':
+            ref_seq_map.append (-2)
+            rs += 3
+            consensus_codon = str(ref_seq[rs:rs+3])
+            ref_codons.append ('---')
+        rs -= 3
     if  cdn != '---':
         if cdn == cdn.upper():
         	#print (cdn, ref_codon, file = sys.stderr)
@@ -588,12 +609,15 @@ while i < len (ref_map):
              	
         if cdn != ref_codon:
             print ("Majority difference at : %s %s (%d)" % (cdn, ref_codon, i), file = sys.stderr)    
+            
+        rs += 3
     else:
         
         ref_genome_corrected.append (ref_codon)
         c+=3
         
     i+=3
+    
     #c+=3
     
 ref_genome = "".join (ref_genome_corrected)	
@@ -601,7 +625,7 @@ ref_genome = "".join (ref_genome_corrected)
 print (">mappped\n%s" % ref_map, file = sys.stderr)
 print (">ref\n%s" % ref_genome, file = sys.stderr)
 
-#print (ref_seq_map, file = sys.stderr)
+print (ref_seq_map, file = sys.stderr)
 
 
 '''
@@ -931,7 +955,7 @@ def compute_JH (timing, min_date, max_date, reference_aa):
            if residue not in mafs_by_date[this_date]:
                 mafs_by_date [this_date][residue] = 0
            mafs_by_date[this_date][residue] += value
-           if datetime.datetime.strptime (key[0], date_parse_format) <= date_cutoff:
+           if parse_date_string (key[0]) <= date_cutoff:
                 residue_counts[residue] += value
             
     #print (residue_counts, file = sys.stderr)
@@ -950,7 +974,7 @@ def compute_JH (timing, min_date, max_date, reference_aa):
     #print (max_date, min_date, bin_count, (max_date - min_date).days/10, file = sys.stderr)
     unique_values = set ()
     for v in mafs:
-        bin = (datetime.datetime.strptime (v[0], date_parse_format)  - min_date).days // 10
+        bin = (parse_date_string(v[0])  - min_date).days // 10
         #print (v,bin, file = sys.stderr)
         values_by_bins[bin].append (v[1])
         unique_values.add (v[1])
