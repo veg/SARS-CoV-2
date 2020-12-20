@@ -3,8 +3,8 @@ FILE=$1
 P3=/usr/local/bin/python3.9
 
 if (( ${2:-0} == 1 || ${2:-0} == 3)); then
-	$P3 python/stitch_fasta.py -d $FILE -o ${FILE}.combined.fas -x data/bat_pangolin.fas
-	$P3 python/extract_variants.py -i ${FILE}.combined.fas  -o ${FILE}.variants.json -c 5
+	$P3 python/stitch_fasta.py -d $FILE -o ${FILE}.variants.json -x data/bat_pangolin.fas -r data/reference_genes/sc2.mmi -c 5
+	#$P3 python/extract_variants.py -i ${FILE}.combined.fas  -o ${FILE}.variants.json -c 5
 fi
 
 
@@ -54,6 +54,11 @@ add_one=(0       0      0     0     0     0     0     0     0     0    1     1  
 #shifts=(818)
 #add_one=(0)
 
+#genes=(nsp2)
+#offsets=(805) 
+#fragments=(ORF1a)
+#shifts=(180)
+#add_one=(0)
 
 #genes=(RdRp)
 #offsets=(13440) 
@@ -61,50 +66,65 @@ add_one=(0       0      0     0     0     0     0     0     0     0    1     1  
 #shifts=(-10)
 #add_one=(1)
 
+#genes=(leader)
+#offsets=(265) 
+#fragments=(ORF1a)
+#shifts=(0)
+#add_one=(0)
+
+#genes=(3C)
+#offsets=(1004) 
+#fragments=(ORF1a)
+#shifts=(3263)
+#add_one=(0)
 
 #for GENE in {S,M,N,ORF1a,ORF1b,ORF3a,ORF6,ORF7a,ORF8}; do
 
-ANNOTATION=${FILE}.annotation.json
-OMNIBUS_FILE=${FILE}.report.json
-FINAL_RESULT=$(dirname "${OMNIBUS_FILE})")"/report.json"
-echo '{}' > $OMNIBUS_FILE
+if (( ${3:-0} == 0)); then
+	ANNOTATION=${FILE}.annotation.json
+	OMNIBUS_FILE=${FILE}.report.json
+	FINAL_RESULT=$(dirname "${OMNIBUS_FILE})")"/report.json"
+	echo '{}' > ${OMNIBUS_FILE}
 
-cp data/comparative-annotation-between.json ${FILE}.annotation.json
-rm ${FINAL_RESULT}
+	cp data/comparative-annotation-between.json ${ANNOTATION}
+	rm ${FINAL_RESULT}
 
-for i in ${!genes[@]}; do
-    GENE=${genes[i]}
-    OFFSET=${offsets[i]}
-    FRAGMENT=${fragments[i]}
-    SHIFT=${shifts[i]}
-    ADDSHIFT=${add_one[i]}
-    
-    echo ">>>>>>>>>>"
-    echo $GENE
-    #if [ -s ${FILE}.${GENE}.withref.fas ]
-    #then 
-    #    echo "Already has alignment with reference"
-    #else
-    #    echo ${FILE}.${GENE}.compressed.fas
-    #    $MAFFT --add data/reference_genes/${GENE}.fas --reorder ${FILE}.${GENE}.compressed.fas > ${FILE}.${GENE}.withref.fas
-    #    cp ${FILE}.${GENE}.withref.fas ${FILE}.${GENE}.bkup.withref.fas
-    #fi 
-    #$P3 python/summarize-gene.py -T data/ctl/epitopes.json -D data/db/master-no-fasta.json --frame_shift ${ADDSHIFT} -d ${FILE}.${GENE}.duplicates.json -u ${FILE}.${GENE}.compressed.fas.FUBAR.json -s ${FILE}.${GENE}.SLAC.json.gz -f ${FILE}.${GENE}.FEL.json -m ${FILE}.${GENE}.MEME.json -P 0.1 --output  ${FILE}.${GENE}.json -c ${FILE}.${GENE}.compressed.fas -E data/evo_annotation.json -F $FRAGMENT -A data/mafs.csv -V data/evo_freqs.csv --fragment_shift $SHIFT -S $OFFSET -O $ANNOTATION > ${FILE}.${GENE}.json
-    if $P3 python/summarize-gene.py --map data/db/map.json -T data/ctl/epitopes.json -D data/db/master-no-fasta.json --frame_shift ${ADDSHIFT} -d ${FILE}.${GENE}.duplicates.json.gz -s ${FILE}.${GENE}.SLAC.json.gz -f ${FILE}.${GENE}.FEL.json.gz -m ${FILE}.${GENE}.MEME.json.gz -P 0.05 --output  ${FILE}.${GENE}.json -c ${FILE}.${GENE}.compressed.fas -E data/evo_annotation.json -F $FRAGMENT -A data/mafs.csv -V data/evo_freqs.csv --fragment_shift $SHIFT -S $OFFSET -O $ANNOTATION > ${FILE}.${GENE}.json; then
-    	echo "Complete"
-    	echo "<<<<<<<<<<"
-    else
-    	exit 1
-    fi
-    	
-    jq -c -s ".[0] + {\"$GENE\" : .[1]}" $OMNIBUS_FILE ${FILE}.${GENE}.json > ${OMNIBUS_FILE}.2
-    mv ${OMNIBUS_FILE}.2 ${OMNIBUS_FILE}
-done;
+	for i in ${!genes[@]}; do
+		GENE=${genes[i]}
+		OFFSET=${offsets[i]}
+		FRAGMENT=${fragments[i]}
+		SHIFT=${shifts[i]}
+		ADDSHIFT=${add_one[i]}
+	
+		echo ">>>>>>>>>>"
+		echo $GENE
+		#if [ -s ${FILE}.${GENE}.withref.fas ]
+		#then 
+		#    echo "Already has alignment with reference"
+		#else
+		#    echo ${FILE}.${GENE}.compressed.fas
+		#    $MAFFT --add data/reference_genes/${GENE}.fas --reorder ${FILE}.${GENE}.compressed.fas > ${FILE}.${GENE}.withref.fas
+		#    cp ${FILE}.${GENE}.withref.fas ${FILE}.${GENE}.bkup.withref.fas
+		#fi 
+		#$P3 python/summarize-gene.py -T data/ctl/epitopes.json -D data/db/master-no-fasta.json --frame_shift ${ADDSHIFT} -d ${FILE}.${GENE}.duplicates.json -u ${FILE}.${GENE}.compressed.fas.FUBAR.json -s ${FILE}.${GENE}.SLAC.json.gz -f ${FILE}.${GENE}.FEL.json -m ${FILE}.${GENE}.MEME.json -P 0.1 --output  ${FILE}.${GENE}.json -c ${FILE}.${GENE}.compressed.fas -E data/evo_annotation.json -F $FRAGMENT -A data/mafs.csv -V data/evo_freqs.csv --fragment_shift $SHIFT -S $OFFSET -O $ANNOTATION > ${FILE}.${GENE}.json
+		if $P3 python/summarize-gene.py --map data/db/map.json -T data/ctl/epitopes.json -D data/db/master-no-fasta.json --frame_shift ${ADDSHIFT} -d ${FILE}.${GENE}.duplicates.json.gz -s ${FILE}.${GENE}.SLAC.json.gz -f ${FILE}.${GENE}.FEL.json.gz -m ${FILE}.${GENE}.MEME.json.gz -P 0.05 --output  ${FILE}.${GENE}.json -c ${FILE}.${GENE}.compressed.fas -E data/evo_annotation.json -F $FRAGMENT -A data/mafs.csv -V data/evo_freqs.csv --fragment_shift $SHIFT -S $OFFSET -O $ANNOTATION > ${FILE}.${GENE}.json; then
+			echo "Complete"
+			echo "<<<<<<<<<<"
+			jq -c -s ".[0] + {\"$GENE\" : .[1]}" $OMNIBUS_FILE ${FILE}.${GENE}.json > ${OMNIBUS_FILE}.2
+			mv ${OMNIBUS_FILE}.2 ${OMNIBUS_FILE}
+		else
+			echo "Error"
+			echo "<<<<<<<<<<"
+			#exit 1
+		fi
+		
+	done;
 
-mv ${OMNIBUS_FILE} ${FINAL_RESULT}
+	mv ${OMNIBUS_FILE} ${FINAL_RESULT}
+	cp $ANNOTATION data/comparative-annotation.json
+fi
 
 if (( ${2:-0} == 2 || ${2:-0} == 3)); then
-	cp $ANNOTATION data/comparative-annotation.json
 	$P3 python/export-sites-to-tsv.py -f data/comparative-annotation.json > data/comparative-annotation.tsv
 	#bzip2 --best ${OMNIBUS_FILE}
 fi

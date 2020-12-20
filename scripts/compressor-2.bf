@@ -25,6 +25,7 @@ io.DisplayAnalysisBanner (filter.analysis_description);
 
 utility.SetEnvVariable ("NORMALIZE_SEQUENCE_NAMES", FALSE);
 
+
 KeywordArgument                     ("msa", "The MSA to filter rare variants from");
 
 DataSet filter.dataset              = ReadDataFile (PROMPT_FOR_FILE);
@@ -36,14 +37,14 @@ KeywordArgument     ("duplicates", "Load sequence duplicate information from her
 filter.dups = io.PromptUserForString ("Load sequence duplicate information from here");
 fscanf (filter.dups, "Raw", filter.dup_data);
 filter.dup_data = Eval (filter.dup_data);
+
 filter.total = 0;
 
-for (v; in; filter.dup_data) {
+for (k, v; in; filter.dup_data) {
     filter.total += Abs (v);
 }
 
 console.log ("> Total # of sequences, counting duplicates = " + filter.total);
-
 
 KeywordArgument     ("csv", "CSV with variants", None);
 filter.variants = io.ReadDelimitedFile (null, ",", TRUE);
@@ -166,6 +167,7 @@ filter.all_duplicates = {};
 
 filter.fasta_string = ""; filter.fasta_string * 256000;
 filter.input_seqs = {};
+filter.edits = {};
 
 for (seq = 0; seq < filter.input.species; seq += 1) {
     GetString (seq_name, filter.input, seq);
@@ -191,15 +193,18 @@ for (seq = 0; seq < filter.input.species; seq += 1) {
         }           
      }
     
-    
+    if (Abs (filter.protected_sites)) {
+        console.log (">Found `Abs(filter.protected_sites)` protected sites (covariation): " +  Join (",", Rows(filter.protected_sites)));
+    }
       
     if (filter.vc > filter.by_seq_cutoff && Abs (filter.protected_sites) == 0) {
-        console.log (">Removing `seq_name` because is has " + filter.vc + " minority variants"); 
+        console.log (">Removing `seq_name` because is has " + filter.vc + " minority variants (variable outlier)"); 
+        filter.edits [seq_name] = "removed";
         //filter.all_duplicates - seq_name;
     } else {
         filter.all_duplicates[seq_name] = filter.dup_data [seq_name];
         filter.to_filter = {};
-        
+        filter.edits [seq_name] = {};
         filter.has_protected_pairs = 0;
         
         for (v, c; in; filter.byseq_data[seq_name]) {
@@ -220,12 +225,13 @@ for (seq = 0; seq < filter.input.species; seq += 1) {
                 if (filter.to_filter / i) {
                     filter.filtered_string * "-";
                     filter.punched += seq_chars[i];
+                    (filter.edits [seq_name])[i] = seq_chars[i];
                 } else {
-                    filter.filtered_string * seq_chars[i]
+                    filter.filtered_string * seq_chars[i];
                 }
             }
             filter.filtered_string * 0;
-            console.log (">Punching `Abs(filter.to_filter)` (`filter.punched`) positions from `seq_name`"); 
+            console.log (">Punching `Abs(filter.to_filter)` (`filter.punched`) positions from `seq_name`: " + filter.punched); 
             filter.fasta_string * ">`seq_name`\n";
             filter.fasta_string * filter.filtered_string;
             filter.fasta_string * "\n";
@@ -282,6 +288,10 @@ DataSetFilter filtered.reducedF2 = CreateFilter (filtered.reducedF, 1, "", Join 
 
 KeywordArgument     ("output", ".fasta for compressed data", None);
 filter.out = io.PromptUserForFilePath(".fasta for compressed data");
+
+KeywordArgument     ("output-edits", ".json for performed edit operations", None);
+filter.edit_out = io.PromptUserForFilePath(".json for performed edit operations");
+fprintf (filter.edit_out, CLEAR_FILE, filter.edits);
 
 utility.SetEnvVariable ("DATA_FILE_PRINT_FORMAT", 9);
 fprintf (filter.out, CLEAR_FILE, filtered.reducedF2);

@@ -120,7 +120,7 @@ with open (import_settings.file, "r") as fh:
     data = json.load (fh)
     for site in sorted (data.keys(), key = lambda x: int (x)):
         info = data[site]
-        if "aa" in info:
+        if "G" in info and "aa" in info and len (info["aa"]) > 0:
             num_seq = sum (info["cdn"].values())
         
             record = ["%d" % (int(site)+1),info["G"],info["S"],
