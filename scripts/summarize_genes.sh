@@ -78,6 +78,13 @@ add_one=(0       0      0     0     0     0     0     0     0     0    1     1  
 #shifts=(3263)
 #add_one=(0)
 
+#genes=(N)
+#offsets=(0) 
+#fragments=(N)
+#shifts=(0)
+#add_one=(0)
+
+
 #for GENE in {S,M,N,ORF1a,ORF1b,ORF3a,ORF6,ORF7a,ORF8}; do
 
 if (( ${3:-0} == 0)); then

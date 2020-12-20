@@ -500,9 +500,11 @@ for seq_record in SeqIO.parse(import_settings.coordinates, "fasta"):
                 consensus[i][l] = _copy_count
             else:
                 consensus[i][l] += _copy_count
-        
-        
-ref_seq = ''.join ([max(pos.items(), key=operator.itemgetter(1))[0] for pos in consensus ])
+
+#for i, c in enumerate (consensus):        
+#    print (i, c, file = sys.stderr)        
+
+ref_seq = ''.join ([max(pos.items(), key=operator.itemgetter(1))[0] if len (pos) else 'N' for pos in consensus ])
 
 aligned_str = None
 def output_record (x):
@@ -599,7 +601,7 @@ ref_genome = "".join (ref_genome_corrected)
 print (">mappped\n%s" % ref_map, file = sys.stderr)
 print (">ref\n%s" % ref_genome, file = sys.stderr)
 
-print (ref_seq_map, file = sys.stderr)
+#print (ref_seq_map, file = sys.stderr)
 
 
 '''
