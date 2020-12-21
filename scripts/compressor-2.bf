@@ -242,9 +242,8 @@ for (seq = 0; seq < filter.input.species; seq += 1) {
  }
 
 //filter.fasta_string * 0;
+//fprintf(stdout, filter.fasta_string);
 
-fprintf(stdout, "hi\n");
-fprintf(stdout, filter.fasta_string);
 DataSet filtered.reduced = ReadFromString (filter.fasta_string);
 DataSetFilter filtered.reducedF = CreateFilter (filtered.reduced,1);
 
@@ -253,7 +252,6 @@ for (i = 0; i < filtered.reducedF.species; i+=1){
     GetString (seq_name, filtered.reducedF, i);
     filter.reduced_name_map [i] = seq_name;
 }
-
 
 console.log (">Compressing error-corrected sequences");
 GetDataInfo (filter.duplicate_info, filtered.reducedF, -2);
@@ -276,7 +274,7 @@ for (i, j; in; filter.duplicate_info["SEQUENCE_MAP"]) {
     filter.group_by_id [j] + (">`filter.reduced_name_map[i]`\n" + filter.input_seqs [filter.reduced_name_map[i]]);
     //console.log (i);
     if ( filter.reduced_name_map[i] != filter.uniqueID2Name[j]) {
-        //console.log ("Merging `(filter.reduced_name_map[i])` into `filter.uniqueID2Name[j]`");
+        console.log ("Merging `(filter.reduced_name_map[i])` into `filter.uniqueID2Name[j]`");
         for (seq; in; filter.all_duplicates[(filter.reduced_name_map[i])]) {
             filter.all_duplicates[filter.uniqueID2Name[j]] + seq;
         }

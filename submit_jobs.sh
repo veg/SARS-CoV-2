@@ -13,7 +13,7 @@ mkdir $OUTPUT_DIR
 
 # Gene
 #qsub -l nodes=1:ppn=16 -d `pwd` -o $OUTPUT_DIR -e $OUTPUT_DIR -q $FQUEUE -F "$BASE_DIR/data/fasta/$fdate S 16" $BASE_DIR/scripts/extract_genes.sh
-qsub -l nodes=1:ppn=8 -d `pwd` -o $OUTPUT_DIR -e $OUTPUT_DIR -q $QUEUE -F "$BASE_DIR/data/fasta/$fdate M 8" $BASE_DIR/scripts/extract_genes.sh
+#qsub -l nodes=1:ppn=8 -d `pwd` -o $OUTPUT_DIR -e $OUTPUT_DIR -q $QUEUE -F "$BASE_DIR/data/fasta/$fdate M 8" $BASE_DIR/scripts/extract_genes.sh
 #qsub -l nodes=1:ppn=8 -d `pwd` -o $OUTPUT_DIR -e $OUTPUT_DIR -q $QUEUE -F "$BASE_DIR/data/fasta/$fdate N 8" $BASE_DIR/scripts/extract_genes.sh
 qsub -l nodes=1:ppn=8 -d `pwd` -o $OUTPUT_DIR -e $OUTPUT_DIR -q $QUEUE -F "$BASE_DIR/data/fasta/$fdate E 8" $BASE_DIR/scripts/extract_genes.sh
 #qsub -l nodes=1:ppn=8 -d `pwd` -o $OUTPUT_DIR -e $OUTPUT_DIR -q $QUEUE -F "$BASE_DIR/data/fasta/$fdate ORF3a 8" $BASE_DIR/scripts/extract_genes.sh
