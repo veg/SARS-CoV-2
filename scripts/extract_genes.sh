@@ -84,8 +84,8 @@ else
     then
         echo "Already reverse translated"
     else
-        echo "$HYPHY LIBPATH=$HYPHYLIBPATH $POSTMSA --protein-msa ${FILE}.${GENE}.msa --nucleotide-sequences ${FILE}.${GENE}_nuc.compressed.fas --output ${FILE}.${GENE}.compressed.fas --duplicates ${FILE}.${GENE}_nucleotide.duplicates.json"
-        $HYPHY LIBPATH=$HYPHYLIBPATH $POSTMSA --protein-msa ${FILE}.${GENE}.msa --nucleotide-sequences ${FILE}.${GENE}_nuc.compressed.fas --output ${FILE}.${GENE}.compressed.fas --duplicates ${FILE}.${GENE}_nucleotide.duplicates.json
+        echo "$HYPHY LIBPATH=$HYPHYLIBPATH $POSTMSA --protein-msa ${FILE}.${GENE}.msa --nucleotide-sequences ${FILE}.${GENE}_nuc.fas --output ${FILE}.${GENE}.compressed.fas --duplicates ${FILE}.${GENE}_nucleotide.duplicates.json"
+        $HYPHY LIBPATH=$HYPHYLIBPATH $POSTMSA --protein-msa ${FILE}.${GENE}.msa --nucleotide-sequences ${FILE}.${GENE}_nuc.fas --output ${FILE}.${GENE}.compressed.fas --duplicates ${FILE}.${GENE}_nucleotide.duplicates.json
         #Replace all unknown characters with N
         sed -i '/^>/! s/[^ACTG-]/N/g' ${FILE}.${GENE}.compressed.fas
     fi

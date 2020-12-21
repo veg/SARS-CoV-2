@@ -263,7 +263,7 @@ consensus = []
 ref_seq_map = []
 
 for seq_record in SeqIO.parse(import_settings.coordinates, "fasta"):
-    _copy_count = int (seq_record.description.split ('_')[-1])
+    _copy_count = len(dups[seq_record.description].keys())
     if len (consensus) == 0:
         consensus = [{} for l in enumerate (str(seq_record.seq).upper())]
     for i,l in enumerate (str(seq_record.seq).upper()):
