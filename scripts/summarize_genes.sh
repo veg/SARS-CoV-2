@@ -78,9 +78,9 @@ add_one=(0       0      0     0     0     0     0     0     0     0    1     1  
 #shifts=(3263)
 #add_one=(0)
 
-#genes=(ORF3a)
-#offsets=(25392) 
-#fragments=(ORF3a)
+#genes=(ORF6)
+#offsets=(27201) 
+#fragments=(ORF6)
 #shifts=(0)
 #add_one=(0)
 

@@ -558,13 +558,17 @@ for s in ref_genes:
 #print (">ref\n%s" % ref_genome, file = sys.stderr)
 
 #sys.exit (0)
-        
+
+
 ref_map       = aligned_str.seq.lstrip('-')
 prefix_length = len (aligned_str.seq) - len (ref_map)
 ref_map = ref_map.rstrip ('-')
 suffix_length = len (aligned_str.seq) - prefix_length - len (ref_map)
 
-#print (prefix_length, file = sys.stderr)
+if len (ref_map) % 3 > 0:
+	ref_map = ref_map [0: len (ref_map) - len (ref_map) % 3]
+
+print (prefix_length, suffix_length, len (ref_map), file = sys.stderr)
 
 aligned_str = None
 
@@ -597,7 +601,7 @@ while i < len (ref_map):
     cdn = str(ref_map[i:i+3])
     ref_codon = str(ref_genome[c:c+3])
     consensus_codon = str(ref_seq[rs:rs+3])
-    print (consensus_codon, file = sys.stderr)
+    #print (consensus_codon, file = sys.stderr)
     if consensus_codon == '---':
         while consensus_codon == '---':
             ref_seq_map.append (-2)
