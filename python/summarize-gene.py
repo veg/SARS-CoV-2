@@ -501,22 +501,38 @@ consensus = []
 
 for seq_record in SeqIO.parse(import_settings.coordinates, "fasta"):
     _copy_count = len(dups[seq_record.description])
+    seq = str(seq_record.seq).upper()
     if len (consensus) == 0:
-        consensus = [{} for l in enumerate (str(seq_record.seq).upper())]
-    for i,l in enumerate (str(seq_record.seq).upper()):
-    	if l != "-":
-            if l not in consensus[i]:
-                consensus[i][l] = _copy_count
+        consensus = [{} for l in range (0, len (seq), 3)]
+        
+    for i in range (0, len (seq), 3):
+    	codon = seq[i:i+3]
+    	ci = i // 3
+    	if codon != "---":
+            if codon not in consensus[ci]:
+                consensus[ci][codon] = _copy_count
             else:
-                consensus[i][l] += _copy_count
+                consensus[ci][codon] += _copy_count
 
 #for i, c in enumerate (consensus):        
 #    print (i, c, file = sys.stderr)        
 
-ref_seq = [max(pos.items(), key=operator.itemgetter(1))[0] if len (pos) else '-' for pos in consensus ]
-consensus_gaps = [i for i,k in enumerate (ref_seq) if k == '-']
+ref_seq = [ ]
 
-ref_seq = ''.join (ref_seq).replace ('NNN','---')
+for codon_counts in consensus:
+	if len (codon_counts) > 0:
+		consensus_codon = max(codon_counts.items(), key=operator.itemgetter(1))[0]
+		nucs = set (consensus_codon) - set ('-N')
+		if len (nucs) == 0:
+			consensus_codon = '---'
+	else:
+		consensus_codon = '---'
+	ref_seq.append (consensus_codon)
+	#print (consensus_codon, file = sys.stderr)
+
+#sys.exit (0)
+
+ref_seq = ''.join (ref_seq)
 
 aligned_str = None
 def output_record (x):
@@ -581,6 +597,7 @@ while i < len (ref_map):
     cdn = str(ref_map[i:i+3])
     ref_codon = str(ref_genome[c:c+3])
     consensus_codon = str(ref_seq[rs:rs+3])
+    print (consensus_codon, file = sys.stderr)
     if consensus_codon == '---':
         while consensus_codon == '---':
             ref_seq_map.append (-2)
@@ -624,8 +641,9 @@ ref_genome = "".join (ref_genome_corrected)
 
 print (">mappped\n%s" % ref_map, file = sys.stderr)
 print (">ref\n%s" % ref_genome, file = sys.stderr)
+print (">consensus\n%s" % ref_seq, file = sys.stderr)
 
-print (ref_seq_map, file = sys.stderr)
+#print (ref_seq_map, "\n", len (ref_seq_map), len (ref_seq)//3, consensus_gaps, file = sys.stderr)
 
 
 '''
