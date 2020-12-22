@@ -96,13 +96,15 @@ for i, gene in enumerate (genes):
     for seq_record in SeqIO.parse(open ("".join ([import_settings.dir, ".%s.compressed.fas" % gene]), "r"), "fasta"):
         seq_id   = seq_record.name
         seq = str (seq_record.seq).upper()
-        no_count = '_'.join (seq_id.split ('_')[0:-1])
+        no_count = seq_id.split ('_')[2]
         local_set [no_count] = seq
         _copy_count = len (dups[seq_id])
         count += len (dups[seq_id])
+        #print (dups[seq_id], file = sys.stderr)
         for i,dup_id in  dups[seq_id].items():
-            if dup_id != seq_id:
-                local_set [dup_id] = seq       
+            dup_id_clean = dup_id.split ('_')[2]
+            if dup_id_clean != seq_id:
+                local_set [dup_id_clean] = seq       
     
         if ci == len (consensus):
             for l in enumerate (seq):
