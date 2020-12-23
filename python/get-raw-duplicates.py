@@ -18,7 +18,6 @@ arguments.add_argument('-n', '--nuc-output', help = 'write nucleotide compressed
 
 args = arguments.parse_args()
 
-
 def get_dupes(seqs):
 
     seqs = sorted(seqs, key=lambda x: x.seq)
@@ -53,15 +52,12 @@ nuc_vals = list(nuc_dupes.values())
 nuc_dupe_names = {val[0].name : {"{0}".format(i): val[i].name for i in range(len(val))} for val in nuc_vals}
 json.dump(nuc_dupe_names, args.nucleotide_duplicates, indent=4, sort_keys=True)
 
+
 for first in firsts:
     first.id = first.name
     first.description = first.name
     # first.id = first.name + "_" + str(len(dupe_names[first.name].keys()))
     # first.description = first.name + "_" + str(len(dupe_names[first.name].keys()))
-
-# Second pass to find nearly similar
-# Get sequences that are a difference of one
-SeqIO.write(firsts, args.output, "fasta")
 
 nuc_firsts = [val[0] for val in nuc_vals]
 filtered_seq_names = [seq.name for seq in nuc_firsts]
@@ -72,4 +68,14 @@ for first in nuc_firsts:
     # first.id = first.name + "_" + str(len(nuc_dupe_names[first.name].keys()))
     # first.description = first.name + "_" + str(len(nuc_dupe_names[first.name].keys()))
 
+
+# Protein seq map
+prot_seq_map = {record.id : record for record in p_seqs}
+prot_nuc_firsts = [prot_seq_map[nuc_first.id] for nuc_first in nuc_firsts]
+
+# Write protein sequences based on nucleotide dupes
+# Get p_seqs based on nucleotide dupes
+SeqIO.write(prot_nuc_firsts, args.output, "fasta")
 SeqIO.write(nuc_firsts, args.nuc_output, "fasta")
+
+
