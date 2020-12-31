@@ -83,8 +83,16 @@ fscanf (filter.byseq, "Raw", filter.byseq_data);
 filter.byseq_data = Eval (filter.byseq_data);
 KeywordArgument     ("p", "Binomial probability cutoff", 0.9);
 filter.p = io.PromptUser ("> Binomial probability cutoff",0.9,0,1,FALSE);
-filter.by_site_cutoff = filter.binomial_cutoff (filter.total, 1./10000, filter.p);
 
+EXPECTED_ERROR_PROBABILITY=1./10000;
+
+filter.by_site_cutoff = filter.binomial_cutoff (filter.total, EXPECTED_ERROR_PROBABILITY, filter.p);
+
+console.log("BINOMIAL");
+console.log("N: " + filter.total);
+console.log("EXPECTED ERROR: " + EXPECTED_ERROR_PROBABILITY);
+console.log("Probability Threshold: " + filter.p);
+console.log("Minority Site Cutoff: " + filter.by_site_cutoff);
 
 variant_count   = {filter.total , 1};
 variant_count_by_seq = {};
@@ -110,10 +118,6 @@ for (k, v; in; filter.byseq_data) {
 
 filter.by_seq_cutoff = math.GatherDescriptiveStats (variant_count);
 filter.by_seq_cutoff = (filter.by_seq_cutoff["mean"] + filter.by_seq_cutoff["Std.Dev"] * 5 + 0.5)$1;
-
-
-
-
 console.log ("> Setting sequence minority variant cutoff to " + filter.by_seq_cutoff);
 console.log ("> Setting minority variant cutoff to " + filter.by_site_cutoff);
 
