@@ -156,17 +156,22 @@ aligner_segments = sorted (list (aligner.map (ref_seq)), key=lambda x: x.r_st)
        
 
 for i, segment in enumerate (aligner_segments):
-    print (ref, qry, segment.r_st , segment.q_st)
+    print (ref, qry, segment.r_st , segment.q_st, segment.r_en, segment.q_en)
     while ref < segment.r_st :
         summary_json['reference_base'].append (genome[ref])
         ref += 1
     while qry < segment.q_st:
-        ref_seq_output.append ([-1,'-'])
+        #ref_seq_output.append ([-1,'-'])
         ref_seq_output.append ([-ref-1,'-'])
         qry += 1
     
+    if i > 0:
+        print (genome[last_endr:segment.r_st])
+        print (ref_seq[last_endq:segment.q_st])
         
-            
+    last_endq =      segment.q_en   
+    last_endr =      segment.r_en   
+          
     for op in segment.cigar:
         if op[1] == 0: # Matcher    
             for i in range (op[0]):
@@ -187,6 +192,9 @@ for i, segment in enumerate (aligner_segments):
                 #print (genome[ref],":-")
                 ref+=1
                 
+
+for i in range (qry, len (ref_seq)): #tail end of the consensus did not map to anything
+    ref_seq_output.append ([-ref-1,'-'])
 
 variant_counts  = {}
 sequence_count  = 0
@@ -220,7 +228,7 @@ summary_json['variants'] = [[k[0],k[1],c] for k, c in accepted_variants.items()]
         
 filtered_variants = {}
 for s, variants in summary_json ['sequences'].items():
-    filtered_variants[s] = [k for k in variants if k in accepted_variants]
+    filtered_variants[s] = [l for k in variants if k in accepted_variants for l in k]
     
 summary_json ['sequences'] = filtered_variants
 

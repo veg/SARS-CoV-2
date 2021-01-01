@@ -1083,20 +1083,26 @@ if epitopes and annotation_json:
  
 branch_name_to_index = {}
   
+#print (set (branch_name_to_short_name.keys()) - set (meme["branch attributes"]["0"].keys()), file = sys.stderr)
 
 for site in range(sites) if annotation_json else site_list:
     if site in site_list:
         site_list[site]['meme-branches'] = meme["MLE"]["content"]["0"][site][7]
+        
         if site_list[site]['meme-branches'] > 0:
             branches_with_support = {}
             btag = "EBF site %d (partition 1)" % (site + 1)
             for branch, support in meme["branch attributes"]["0"].items ():
                 if btag in support and support [btag] >= 100:
-                    branches_with_support[branch_name_to_short_name[branch]] = support [btag] 
+                    try:
+                	    branches_with_support[branch_name_to_short_name[branch]] = support [btag] 
+                    except KeyError as e:
+                        pass
         
             #print ("MEME support at site %d (%d)" % (site, meme["MLE"]["content"]["0"][site][7]), file = sys.stderr)
             #print (branches_with_support, file = sys.stderr)
             site_list[site]['meme-ebf'] = branches_with_support
+        
         site_list[site]['substitutions'] = [slac["MLE"]["content"]["0"]['by-site']['RESOLVED'][site][2],slac["MLE"]["content"]["0"]['by-site']['RESOLVED'][site][3]]
 
     evo_composition = {}
