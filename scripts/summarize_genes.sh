@@ -3,7 +3,7 @@ FILE=$1
 P3=/usr/local/bin/python3.9
 
 if (( ${2:-0} == 1 || ${2:-0} == 3)); then
-	$P3 python/stitch_fasta.py -d $FILE -o ${FILE}.variants.json -x data/bat_pangolin.fas -r data/reference_genes/sc2.mmi -c 5
+	$P3 python/stitch_fasta.py -d $FILE -o ${FILE}.variants.json -x data/bat_pangolin.fas -r data/reference_genes/sc2.mmi -m data/db/map.json -c 0.0005
 	#$P3 python/extract_variants.py -i ${FILE}.combined.fas  -o ${FILE}.variants.json -c 5
 fi
 
