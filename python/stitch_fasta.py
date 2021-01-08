@@ -40,6 +40,7 @@ arguments.add_argument('-m', '--map',          help = 'EPI ID => UID map',      
 
 
 genes = ['leader','nsp2','nsp3','nsp4','3C','nsp6','nsp7','nsp8','nsp9','nsp10','RdRp','helicase','exonuclease','endornase','methyltransferase','S','ORF3a','E','M','ORF6','ORF7a','ORF8','N','ORF10']
+#genes = ['N']
 
 def load_json_or_compressed (file_name):
     if file_name.find (".json") + 5 == len(file_name):
@@ -76,10 +77,23 @@ if import_settings.extras:
     for seq_record in SeqIO.parse(import_settings.extras, "fasta"):
         extras.append (seq_record)
         
-def consensus_filter (res):
-    if res == '-':
-        return 'N'
-    return res
+consensus_strikes = []
+
+nucs = set ('ACGT')
+        
+def consensus_filter (the_items, pos):
+    c = sorted (the_items.items(), key=operator.itemgetter(1), reverse = True)
+    best = '-'
+    for res in c:
+        if res[0] in nucs:
+            if res[1] * 1000 > len (combined_fasta):
+                best = res[0]
+                break
+    
+    if best == '-':
+        consensus_strikes.append (pos)
+        return ''
+    return best
 
 mapper_r = load_json_or_compressed (import_settings.map)
 mapper = {}
@@ -142,7 +156,22 @@ for i, gene in enumerate (genes):
 
     print (gene, len (combined_fasta), count, file = sys.stderr)
  
-ref_seq = ''.join ([consensus_filter(max(pos.items(), key=operator.itemgetter(1))[0]) for pos in consensus ])
+ref_seq = ''.join ([consensus_filter(d, pos) for pos,d in enumerate(consensus)])
+
+if len (consensus_strikes):
+
+    stencil = []
+    with Bar('Striking %d poor quality variants from sequences' % len (consensus_strikes), max=len (combined_fasta)) as bar:
+        for k in combined_fasta:
+            seq = combined_fasta[k]
+            if len (stencil) == 0:
+                stencil = [True for k in range(len (seq))]
+                for z in consensus_strikes:
+                    stencil [z] = False
+                
+            #print (len (stencil), len (seq))        
+            combined_fasta[k] = ''.join([seq[i] for i,c in enumerate(stencil) if c])
+            bar.next()
 
 aligner     = mappy.Aligner (import_settings.reference, preset = "asm5")
 genome      = aligner.seq (aligner.seq_names[0])
@@ -177,7 +206,7 @@ for i, segment in enumerate (aligner_segments):
     last_endr =      segment.r_en   
           
     for op in segment.cigar:
-        if op[1] == 0: # Matcher    
+        if op[1] == 0: # matched    
             for i in range (op[0]):
                 #print (genome[ref],":",ref_seq[qry])
                 ref_seq_output.append ([ref,genome[ref]])
@@ -199,6 +228,8 @@ for i, segment in enumerate (aligner_segments):
 
 for i in range (qry, len (ref_seq)): #tail end of the consensus did not map to anything
     ref_seq_output.append ([-ref-1,'-'])
+    
+current_strike = 0
 
 variant_counts  = {}
 sequence_count  = 0

@@ -499,12 +499,14 @@ ref_genes       = [
 
 consensus = []
 
+total = 0
+
 for seq_record in SeqIO.parse(import_settings.coordinates, "fasta"):
     _copy_count = len(dups[seq_record.description])
     seq = str(seq_record.seq).upper()
     if len (consensus) == 0:
         consensus = [{} for l in range (0, len (seq), 3)]
-        
+    total += _copy_count
     for i in range (0, len (seq), 3):
     	codon = seq[i:i+3]
     	ci = i // 3
@@ -518,19 +520,23 @@ for seq_record in SeqIO.parse(import_settings.coordinates, "fasta"):
 #    print (i, c, file = sys.stderr)        
 
 ref_seq = [ ]
+ref_strikes = []
 
-for codon_counts in consensus:
+for i, codon_counts in enumerate(consensus):
 	if len (codon_counts) > 0:
-		consensus_codon = max(codon_counts.items(), key=operator.itemgetter(1))[0]
+		consensus_codon_pair = max(codon_counts.items(), key=operator.itemgetter(1))
+		consensus_codon = consensus_codon_pair[0]
 		nucs = set (consensus_codon) - set ('-N')
-		if len (nucs) == 0:
+		if len (nucs) == 0 or consensus_codon_pair[1] * 1000 < total:
+			print ("Poor coverage (%d) or gappy consensus (%s) at position %d in consensus" % (consensus_codon_pair[1], consensus_codon_pair[0], i), file  = sys.stderr)
 			consensus_codon = '---'
+			ref_strikes.append (i)
 	else:
+		ref_strikes.append (i)
 		consensus_codon = '---'
 	ref_seq.append (consensus_codon)
 	#print (consensus_codon, file = sys.stderr)
 
-#sys.exit (0)
 
 ref_seq = ''.join (ref_seq)
 
@@ -601,14 +607,14 @@ while i < len (ref_map):
     cdn = str(ref_map[i:i+3])
     ref_codon = str(ref_genome[c:c+3])
     consensus_codon = str(ref_seq[rs:rs+3])
-    #print (consensus_codon, file = sys.stderr)
     if consensus_codon == '---':
         while consensus_codon == '---':
             ref_seq_map.append (-2)
             rs += 3
             consensus_codon = str(ref_seq[rs:rs+3])
             ref_codons.append ('---')
-        rs -= 3
+        #rs -= 3
+    #print (i//3, rs // 3, cdn, consensus_codon, file = sys.stderr)
     if  cdn != '---':
         if cdn == cdn.upper():
         	#print (cdn, ref_codon, file = sys.stderr)
@@ -618,8 +624,6 @@ while i < len (ref_map):
         	c += 3
         else:
             ref_codon = "".join ([ref_codon[cc] if k == k.upper() else '-' for cc,k in enumerate (cdn)])
-            
-            #print (">", cdn, ref_codon, file = sys.stderr)
             ref_genome_corrected.append (ref_codon)
             ref_codons.append (ref_codon)
             if ref_codon == '---':
@@ -629,8 +633,7 @@ while i < len (ref_map):
             c += len ([k for k in cdn if k == k.upper()])
              	
         if cdn != ref_codon:
-            print ("Majority difference at : %s %s (%d)" % (cdn, ref_codon, i), file = sys.stderr)    
-            
+            print ("Majority difference at : %s %s (%d)" % (cdn, ref_codon, i), file = sys.stderr)                
         rs += 3
     else:
         
@@ -641,13 +644,20 @@ while i < len (ref_map):
     
     #c+=3
     
+while rs < len (ref_seq):
+	rs += 3
+	ref_seq_map.append (-2)
+    
 ref_genome = "".join (ref_genome_corrected)	
 
 print (">mappped\n%s" % ref_map, file = sys.stderr)
 print (">ref\n%s" % ref_genome, file = sys.stderr)
 print (">consensus\n%s" % ref_seq, file = sys.stderr)
 
-#print (ref_seq_map, "\n", len (ref_seq_map), len (ref_seq)//3, consensus_gaps, file = sys.stderr)
+for k in ref_strikes:
+	print (k, ref_seq_map[k], file = sys.stderr)
+
+#print (ref_seq_map, "\n", len (ref_seq_map), len (ref_seq)//3, len(ref_strikes), ref_strikes, len ([ k for k in ref_seq_map if k == -2]), file = sys.stderr)
 
 
 '''

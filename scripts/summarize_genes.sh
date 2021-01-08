@@ -1,6 +1,6 @@
 FILE=$1
 
-P3=/usr/local/bin/python3.9
+P3=python3
 
 if (( ${2:-0} == 1 || ${2:-0} == 3)); then
 	$P3 python/stitch_fasta.py -d $FILE -o ${FILE}.variants.json -x data/bat_pangolin.fas -r data/reference_genes/sc2.mmi -m data/db/map.json -c 0.0005
@@ -78,9 +78,9 @@ add_one=(0       0      0     0     0     0     0     0     0     0    1     1  
 #shifts=(3263)
 #add_one=(0)
 
-#genes=(ORF6)
-#offsets=(27201) 
-#fragments=(ORF6)
+#genes=(ORF8)
+#offsets=(27893) 
+#fragments=(ORF8)
 #shifts=(0)
 #add_one=(0)
 
