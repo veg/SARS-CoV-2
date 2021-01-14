@@ -1,6 +1,7 @@
 {
   "dependencies": {
-    "commander": "^6.2.0",
+    "commander": "^6.2.1",
+    "d3": "^6.3.1",
     "d3-dsv": "^2.0.0",
     "lodash": "^4.17.20",
     "moment": "^2.29.1",
