@@ -134,7 +134,7 @@ fi
 TRAJECTORY=$(dirname "${OMNIBUS_FILE})")
 TRAJECTORY=$(dirname "${TRAJECTORY})")
 $P3 python/temporal-summary-paper.py -d $TRAJECTORY > ${TRAJECTORY}/temporal-gene-properties.csv
-$P3 python/temporal-summary-paper.py -d $TRAJECTORY > ${TRAJECTORY}/temporal-gene-sites.csv
+$P3 python/temporal-summary-paper-sites.py -d $TRAJECTORY > ${TRAJECTORY}/temporal-gene-sites.csv
   
 
 if (( ${2:-0} == 2 || ${2:-0} == 3)); then
