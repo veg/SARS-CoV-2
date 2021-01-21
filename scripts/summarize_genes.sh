@@ -87,9 +87,9 @@ add_one=(0       0      0     0     0     0     0     0     0     0    1     1  
 
 #for GENE in {S,M,N,ORF1a,ORF1b,ORF3a,ORF6,ORF7a,ORF8}; do
 
+OMNIBUS_FILE=${FILE}.report.json
 if (( ${3:-0} == 0)); then
 	ANNOTATION=${FILE}.annotation.json
-	OMNIBUS_FILE=${FILE}.report.json
 	FINAL_RESULT=$(dirname "${OMNIBUS_FILE})")"/report.json"
 	echo '{}' > ${OMNIBUS_FILE}
 
@@ -128,8 +128,14 @@ if (( ${3:-0} == 0)); then
 	done;
 
 	mv ${OMNIBUS_FILE} ${FINAL_RESULT}
-	cp $ANNOTATION data/comparative-annotation.json
+	#cp $ANNOTATION data/comparative-annotation.json
 fi
+
+TRAJECTORY=$(dirname "${OMNIBUS_FILE})")
+TRAJECTORY=$(dirname "${TRAJECTORY})")
+$P3 python/temporal-summary-paper.py -d $TRAJECTORY > ${TRAJECTORY}/temporal-gene-properties.csv
+$P3 python/temporal-summary-paper.py -d $TRAJECTORY > ${TRAJECTORY}/temporal-gene-sites.csv
+  
 
 if (( ${2:-0} == 2 || ${2:-0} == 3)); then
 	$P3 python/export-sites-to-tsv.py -f data/comparative-annotation.json > data/comparative-annotation.tsv

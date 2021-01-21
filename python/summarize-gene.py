@@ -90,9 +90,13 @@ def sequence_to_accession (name):
     #epi_isl_466783_British_Columbia_20200401_null_1
     if name[0:2] == "NC":
         return "EPI_ISL_402125"
-    parts = name.split ("_")
+    parts = name.upper().split ("_")
     if len (parts) > 3:
-        return "_".join (parts[0:3]).upper()
+        try: 
+            i = parts.index ('EPI')
+            return "_".join (parts[i:i+3])
+        except:
+            pass
     return None
 
 def newick_parser(nwk_str, bootstrap_values):
@@ -331,6 +335,7 @@ import_settings = arguments.parse_args()
 
 db = load_json_or_compressed (import_settings.database)
 dups = load_json_or_compressed (import_settings.duplicates)
+
 date_parse_format = ["%Y%m%d","%Y-%m-%d"]
 
 def parse_date_string (date_string):
@@ -428,6 +433,12 @@ if (import_settings.overall):
         
 mapped_dups = {}
 
+def extract_isl_id (seq_id):
+    parts = seq_id.upper().split ('_')
+    epi = parts.index ('EPI')
+    return 'epi_isl_' + parts[epi+2]    
+
+
 for seq, copies in dups.items():
     date_collection = {}
     location_collection = []
@@ -438,7 +449,7 @@ for seq, copies in dups.items():
             accessions.append (accession_mapper [sequence_to_accession (cp)])
         except KeyError as e:
             pass
-        cpv = "_".join (cp.split ('_')[:3])
+        cpv = extract_isl_id (cp)
         if cpv in sequences_with_dates:
             cdate = sequences_with_dates[cpv]
             location = sequences_with_locations[cpv]
@@ -454,7 +465,7 @@ for seq, copies in dups.items():
            mapped_dups [accession_mapper [sequence_to_accession (seq)]] = rle_compress(sorted(accessions))
     except KeyError as e:
         if len (accessions):
-            accession_mapper [sequence_to_accession (seq)] = accessions
+            accession_mapper [sequence_to_accession (seq)] = accessions[0]
             mapped_dups[accessions[0]] = rle_compress(sorted(accessions))
         else:
             accession_mapper [sequence_to_accession (seq)] = -1
@@ -972,7 +983,6 @@ if annotation_json and fubar is not None:
 
 
 def compute_JH (timing, min_date, max_date, reference_aa):
-    #print (timing, file = sys.stderr)
     residue_counts = {}
     mafs_by_date   = {}
     date_cutoff    = min_date + datetime.timedelta(days = 45)
@@ -1025,6 +1035,8 @@ def compute_JH (timing, min_date, max_date, reference_aa):
         return 0.
     row_sums = [sum (row) for row in contingency_table]
     column_sums = [sum ([row[j] for row in contingency_table]) for j in range (bin_count)]
+    
+    
     N = sum (row_sums)
     P = 0
     Q = 0
@@ -1094,6 +1106,7 @@ if epitopes and annotation_json:
 branch_name_to_index = {}
   
 #print (set (branch_name_to_short_name.keys()) - set (meme["branch attributes"]["0"].keys()), file = sys.stderr)
+
 
 for site in range(sites) if annotation_json else site_list:
     if site in site_list:

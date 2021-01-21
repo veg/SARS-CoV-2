@@ -103,6 +103,11 @@ for i, id in enumerate (mapper_r):
 consensus = []
 ci = 0
 
+def extract_id (seq_id):
+    parts = seq_id.upper().split ('_')
+    epi = parts.index ('EPI')
+    return 'epi_isl_' + parts[epi+2]    
+
 for i, gene in enumerate (genes):
     local_set = {}
     
@@ -116,13 +121,13 @@ for i, gene in enumerate (genes):
     for seq_record in SeqIO.parse(open ("".join ([import_settings.dir, ".%s.compressed.fas" % gene]), "r"), "fasta"):
         seq_id   = seq_record.name
         seq = str (seq_record.seq).upper()
-        no_count = mapper[seq_id.split ('_')[2]]
+        no_count = extract_id (seq_id)
         local_set [no_count] = seq
         _copy_count = len (dups[seq_id])
         count += len (dups[seq_id])
         #print (dups[seq_id], file = sys.stderr)
         for i,dup_id in  dups[seq_id].items():
-            dup_id_clean = mapper[dup_id.split ('_')[2]]
+            dup_id_clean = mapper[extract_id(dup_id)]
             if dup_id_clean != seq_id:
                 local_set [dup_id_clean] = seq       
     
