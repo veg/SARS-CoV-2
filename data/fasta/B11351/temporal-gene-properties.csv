@@ -1,0 +1,199 @@
+Gene,Date,Value,Type
+leader,2021-01-18,0.837622,dN/dS Internal
+leader,2021-01-18,1.11597,dN/dS Leaves
+leader,2021-01-18,0,Internal Branch Length
+leader,2021-01-18,18,Unique Haplotypes
+leader,2021-01-18,558,Sequences
+leader,2021-01-18,0.0833333,Variable sites
+leader,2021-01-18,0,Variable amino-acids
+leader,2021-01-18,0,Negatively Selected
+leader,2021-01-18,0,Positively Selected
+nsp2,2021-01-18,0.351301,dN/dS Internal
+nsp2,2021-01-18,0.830621,dN/dS Leaves
+nsp2,2021-01-18,0.00472302,Internal Branch Length
+nsp2,2021-01-18,63,Unique Haplotypes
+nsp2,2021-01-18,547,Sequences
+nsp2,2021-01-18,0.0909091,Variable sites
+nsp2,2021-01-18,0.00626959,Variable amino-acids
+nsp2,2021-01-18,0.0015674,Negatively Selected
+nsp2,2021-01-18,0,Positively Selected
+nsp3,2021-01-18,1.19728,dN/dS Internal
+nsp3,2021-01-18,0.565345,dN/dS Leaves
+nsp3,2021-01-18,0.00272885,Internal Branch Length
+nsp3,2021-01-18,122,Unique Haplotypes
+nsp3,2021-01-18,492,Sequences
+nsp3,2021-01-18,0.0673522,Variable sites
+nsp3,2021-01-18,0.00616967,Variable amino-acids
+nsp3,2021-01-18,0,Negatively Selected
+nsp3,2021-01-18,0.00257069,Positively Selected
+nsp4,2021-01-18,0.81659,dN/dS Internal
+nsp4,2021-01-18,0.664861,dN/dS Leaves
+nsp4,2021-01-18,0.00534077,Internal Branch Length
+nsp4,2021-01-18,40,Unique Haplotypes
+nsp4,2021-01-18,510,Sequences
+nsp4,2021-01-18,0.076,Variable sites
+nsp4,2021-01-18,0.008,Variable amino-acids
+nsp4,2021-01-18,0,Negatively Selected
+nsp4,2021-01-18,0.002,Positively Selected
+3C,2021-01-18,0,dN/dS Internal
+3C,2021-01-18,0.360359,dN/dS Leaves
+3C,2021-01-18,0.00110572,Internal Branch Length
+3C,2021-01-18,25,Unique Haplotypes
+3C,2021-01-18,554,Sequences
+3C,2021-01-18,0.0751634,Variable sites
+3C,2021-01-18,0,Variable amino-acids
+3C,2021-01-18,0,Negatively Selected
+3C,2021-01-18,0,Positively Selected
+nsp6,2021-01-18,1.55413,dN/dS Internal
+nsp6,2021-01-18,0.686628,dN/dS Leaves
+nsp6,2021-01-18,0.0069464,Internal Branch Length
+nsp6,2021-01-18,29,Unique Haplotypes
+nsp6,2021-01-18,537,Sequences
+nsp6,2021-01-18,0.0724138,Variable sites
+nsp6,2021-01-18,0.0206897,Variable amino-acids
+nsp6,2021-01-18,0,Negatively Selected
+nsp6,2021-01-18,0,Positively Selected
+nsp7,2021-01-18,1.02459,dN/dS Internal
+nsp7,2021-01-18,1.02418,dN/dS Leaves
+nsp7,2021-01-18,0,Internal Branch Length
+nsp7,2021-01-18,8,Unique Haplotypes
+nsp7,2021-01-18,572,Sequences
+nsp7,2021-01-18,0.0722892,Variable sites
+nsp7,2021-01-18,0,Variable amino-acids
+nsp7,2021-01-18,0,Negatively Selected
+nsp7,2021-01-18,0,Positively Selected
+nsp8,2021-01-18,0.838494,dN/dS Internal
+nsp8,2021-01-18,0.549569,dN/dS Leaves
+nsp8,2021-01-18,0,Internal Branch Length
+nsp8,2021-01-18,11,Unique Haplotypes
+nsp8,2021-01-18,567,Sequences
+nsp8,2021-01-18,0.0505051,Variable sites
+nsp8,2021-01-18,0,Variable amino-acids
+nsp8,2021-01-18,0,Negatively Selected
+nsp8,2021-01-18,0,Positively Selected
+nsp9,2021-01-18,0.844847,dN/dS Internal
+nsp9,2021-01-18,0.495767,dN/dS Leaves
+nsp9,2021-01-18,0,Internal Branch Length
+nsp9,2021-01-18,5,Unique Haplotypes
+nsp9,2021-01-18,571,Sequences
+nsp9,2021-01-18,0.0353982,Variable sites
+nsp9,2021-01-18,0,Variable amino-acids
+nsp9,2021-01-18,0,Negatively Selected
+nsp9,2021-01-18,0,Positively Selected
+nsp10,2021-01-18,26.0281,dN/dS Internal
+nsp10,2021-01-18,0.780809,dN/dS Leaves
+nsp10,2021-01-18,0.0023985,Internal Branch Length
+nsp10,2021-01-18,12,Unique Haplotypes
+nsp10,2021-01-18,565,Sequences
+nsp10,2021-01-18,0.0791367,Variable sites
+nsp10,2021-01-18,0.00719424,Variable amino-acids
+nsp10,2021-01-18,0,Negatively Selected
+nsp10,2021-01-18,0.00719424,Positively Selected
+helicase,2021-01-18,0.85097,dN/dS Internal
+helicase,2021-01-18,0.752428,dN/dS Leaves
+helicase,2021-01-18,0.00332601,Internal Branch Length
+helicase,2021-01-18,44,Unique Haplotypes
+helicase,2021-01-18,530,Sequences
+helicase,2021-01-18,0.0648918,Variable sites
+helicase,2021-01-18,0.00665557,Variable amino-acids
+helicase,2021-01-18,0,Negatively Selected
+helicase,2021-01-18,0,Positively Selected
+exonuclease,2021-01-18,0,dN/dS Internal
+exonuclease,2021-01-18,0.299388,dN/dS Leaves
+exonuclease,2021-01-18,0.000639051,Internal Branch Length
+exonuclease,2021-01-18,26,Unique Haplotypes
+exonuclease,2021-01-18,518,Sequences
+exonuclease,2021-01-18,0.0474383,Variable sites
+exonuclease,2021-01-18,0,Variable amino-acids
+exonuclease,2021-01-18,0,Negatively Selected
+exonuclease,2021-01-18,0,Positively Selected
+endornase,2021-01-18,1.13648,dN/dS Internal
+endornase,2021-01-18,0.404694,dN/dS Leaves
+endornase,2021-01-18,0.00195051,Internal Branch Length
+endornase,2021-01-18,28,Unique Haplotypes
+endornase,2021-01-18,494,Sequences
+endornase,2021-01-18,0.0751445,Variable sites
+endornase,2021-01-18,0.00289017,Variable amino-acids
+endornase,2021-01-18,0,Negatively Selected
+endornase,2021-01-18,0,Positively Selected
+S,2021-01-18,2.25112,dN/dS Internal
+S,2021-01-18,0.575174,dN/dS Leaves
+S,2021-01-18,0.00185565,Internal Branch Length
+S,2021-01-18,37,Unique Haplotypes
+S,2021-01-18,125,Sequences
+S,2021-01-18,0.0329929,Variable sites
+S,2021-01-18,0.00392773,Variable amino-acids
+S,2021-01-18,0,Negatively Selected
+S,2021-01-18,0.00157109,Positively Selected
+E,2021-01-18,0.721789,dN/dS Internal
+E,2021-01-18,43.3663,dN/dS Leaves
+E,2021-01-18,0,Internal Branch Length
+E,2021-01-18,4,Unique Haplotypes
+E,2021-01-18,572,Sequences
+E,2021-01-18,0.04,Variable sites
+E,2021-01-18,0,Variable amino-acids
+E,2021-01-18,0,Negatively Selected
+E,2021-01-18,0,Positively Selected
+M,2021-01-18,0.894263,dN/dS Internal
+M,2021-01-18,0.370925,dN/dS Leaves
+M,2021-01-18,0.00451771,Internal Branch Length
+M,2021-01-18,25,Unique Haplotypes
+M,2021-01-18,569,Sequences
+M,2021-01-18,0.0990991,Variable sites
+M,2021-01-18,0.00900901,Variable amino-acids
+M,2021-01-18,0,Negatively Selected
+M,2021-01-18,0,Positively Selected
+N,2021-01-18,0.643561,dN/dS Internal
+N,2021-01-18,1.18712,dN/dS Leaves
+N,2021-01-18,0.00637524,Internal Branch Length
+N,2021-01-18,56,Unique Haplotypes
+N,2021-01-18,538,Sequences
+N,2021-01-18,0.143198,Variable sites
+N,2021-01-18,0.00954654,Variable amino-acids
+N,2021-01-18,0,Negatively Selected
+N,2021-01-18,0,Positively Selected
+ORF3a,2021-01-18,0.810166,dN/dS Internal
+ORF3a,2021-01-18,0.832106,dN/dS Leaves
+ORF3a,2021-01-18,0.00365917,Internal Branch Length
+ORF3a,2021-01-18,50,Unique Haplotypes
+ORF3a,2021-01-18,531,Sequences
+ORF3a,2021-01-18,0.185455,Variable sites
+ORF3a,2021-01-18,0.00727273,Variable amino-acids
+ORF3a,2021-01-18,0,Negatively Selected
+ORF3a,2021-01-18,0.00363636,Positively Selected
+ORF7a,2021-01-18,0.912563,dN/dS Internal
+ORF7a,2021-01-18,0.395424,dN/dS Leaves
+ORF7a,2021-01-18,0,Internal Branch Length
+ORF7a,2021-01-18,13,Unique Haplotypes
+ORF7a,2021-01-18,529,Sequences
+ORF7a,2021-01-18,0.0909091,Variable sites
+ORF7a,2021-01-18,0,Variable amino-acids
+ORF7a,2021-01-18,0,Negatively Selected
+ORF7a,2021-01-18,0,Positively Selected
+ORF8,2021-01-18,25.3532,dN/dS Internal
+ORF8,2021-01-18,0.364355,dN/dS Leaves
+ORF8,2021-01-18,0.0112455,Internal Branch Length
+ORF8,2021-01-18,19,Unique Haplotypes
+ORF8,2021-01-18,566,Sequences
+ORF8,2021-01-18,0.123967,Variable sites
+ORF8,2021-01-18,0.0330579,Variable amino-acids
+ORF8,2021-01-18,0,Negatively Selected
+ORF8,2021-01-18,0.0247934,Positively Selected
+RdRp,2021-01-18,0.212068,dN/dS Internal
+RdRp,2021-01-18,0.314362,dN/dS Leaves
+RdRp,2021-01-18,0.00107919,Internal Branch Length
+RdRp,2021-01-18,47,Unique Haplotypes
+RdRp,2021-01-18,552,Sequences
+RdRp,2021-01-18,0.0536481,Variable sites
+RdRp,2021-01-18,0.00107296,Variable amino-acids
+RdRp,2021-01-18,0,Negatively Selected
+RdRp,2021-01-18,0.00107296,Positively Selected
+methyltransferase,2021-01-18,0.358229,dN/dS Internal
+methyltransferase,2021-01-18,0.461207,dN/dS Leaves
+methyltransferase,2021-01-18,0.00227782,Internal Branch Length
+methyltransferase,2021-01-18,19,Unique Haplotypes
+methyltransferase,2021-01-18,532,Sequences
+methyltransferase,2021-01-18,0.0604027,Variable sites
+methyltransferase,2021-01-18,0.0033557,Variable amino-acids
+methyltransferase,2021-01-18,0,Negatively Selected
+methyltransferase,2021-01-18,0,Positively Selected
