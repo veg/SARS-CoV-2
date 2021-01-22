@@ -89,8 +89,8 @@ add_one=(0       0      0     0     0     0     0     0     0     0    1     1  
 
 OMNIBUS_FILE=${FILE}.report.json
 if (( ${3:-0} == 0)); then
-	ANNOTATION=${FILE}.annotation.json
 	FINAL_RESULT=$(dirname "${OMNIBUS_FILE})")"/report.json"
+	ANNOTATION=$(dirname "${OMNIBUS_FILE})")"/comparative-annotation.json"
 	echo '{}' > ${OMNIBUS_FILE}
 
 	cp data/comparative-annotation-between.json ${ANNOTATION}
