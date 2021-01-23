@@ -256,34 +256,37 @@ else
     echo "========================="
     echo "RUNNING THE SLAC ANALYSIS"
     echo "========================="
-     if [ -s ${FILE}.${GENE}.SLAC.json ] 
+     if [ -s ${FILE}.${GENE}.SLAC.json.gz ] 
     then
         echo "Already has SLAC results"
     else
         echo $RUN_HYPHY LIBPATH=$HYPHYLIBPATH slac $ZERO_LENGTHS_FLAGS --alignment ${FILE}.${GENE}.compressed.filtered.fas --tree ${FILE}.${GENE}.compressed.filtered.fas.rapidnj.bestTree --branches All --samples 0 --output ${FILE}.${GENE}.SLAC.json --intermediate-fits ${FILE}.${GENE}.cache
         $RUN_HYPHY LIBPATH=$HYPHYLIBPATH slac $ZERO_LENGTHS_FLAGS --alignment ${FILE}.${GENE}.compressed.filtered.fas --tree ${FILE}.${GENE}.compressed.filtered.fas.rapidnj.bestTree --branches All --samples 0 --output ${FILE}.${GENE}.SLAC.json --intermediate-fits ${FILE}.${GENE}.cache  || exit 1
+        gzip ${FILE}.${GENE}.SLAC.json 
     fi
 
     echo "========================="
     echo "RUNNING THE FEL  ANALYSIS"
     echo "========================="
-    if [ -s ${FILE}.${GENE}.FEL.json ] 
+    if [ -s ${FILE}.${GENE}.FEL.json.gz ] 
     then
         echo "Already has FEL results"
     else
         echo $RUN_HYPHY LIBPATH=$HYPHYLIBPATH fel $ZERO_LENGTHS_FLAGS --alignment ${FILE}.${GENE}.compressed.filtered.fas --tree ${FILE}.${GENE}.compressed.filtered.fas.rapidnj.bestTree --branches Internal --output ${FILE}.${GENE}.FEL.json --intermediate-fits ${FILE}.${GENE}.cache
         $RUN_HYPHY LIBPATH=$HYPHYLIBPATH fel $ZERO_LENGTHS_FLAGS --alignment ${FILE}.${GENE}.compressed.filtered.fas --tree ${FILE}.${GENE}.compressed.filtered.fas.rapidnj.bestTree --branches Internal --output ${FILE}.${GENE}.FEL.json --intermediate-fits ${FILE}.${GENE}.cache || exit 1
+        gzip ${FILE}.${GENE}.FEL.json 
     fi
 
     echo "=========================="
     echo "RUNNING THE MEME  ANALYSIS"
     echo "=========================="
-    if [ -s ${FILE}.${GENE}.MEME.json ] 
+    if [ -s ${FILE}.${GENE}.MEME.json.gz ] 
     then
         echo "Already has MEME results"
     else
         echo $RUN_HYPHY LIBPATH=$HYPHYLIBPATH meme $ZERO_LENGTHS_FLAGS --alignment ${FILE}.${GENE}.compressed.filtered.fas --tree ${FILE}.${GENE}.compressed.filtered.fas.rapidnj.bestTree --branches Internal --output ${FILE}.${GENE}.MEME.json --intermediate-fits ${FILE}.${GENE}.cache
         $RUN_HYPHY LIBPATH=$HYPHYLIBPATH meme $ZERO_LENGTHS_FLAGS --alignment ${FILE}.${GENE}.compressed.filtered.fas --tree ${FILE}.${GENE}.compressed.filtered.fas.rapidnj.bestTree --branches Internal --output ${FILE}.${GENE}.MEME.json --intermediate-fits ${FILE}.${GENE}.cache || exit 1
+        gzip ${FILE}.${GENE}.MEME.json 
     fi
     
     TMP_FILE=${FILE}.${GENE}.tmp
