@@ -91,13 +91,13 @@ fi
 submit_a_job () {
    if [ $DO_MPI = "0" ] 
    then
-        $2/scripts/extract_genes.sh $1 $1 $4 "MP" 
+         bash $2/scripts/extract_genes.sh $1 $2 $3 $4 "MP" 
    else
-        if [ -z  $5 ]
+        if [ -z $6 ]
         then
-            qsub -l nodes=1:ppn=$4 -d `pwd` -o $3-e $3 -F "$1 $1 $4" $2/scripts/extract_genes.sh        
+            qsub -l nodes=1:ppn=$4 -d `pwd` -o $5-e $5 -F "$1 $2 $3 $4" $2/scripts/extract_genes.sh        
         else
-            qsub -l nodes=1:ppn=$4 -d `pwd` -o $3-e $3 -q $5 -F "$1 $1 $4" $2/scripts/extract_genes.sh
+            qsub -l nodes=1:ppn=$4 -d `pwd` -o $5-e $5 -q $6 -F "$1 $2 $3 $4" $2/scripts/extract_genes.sh
         fi
    fi
 } 
@@ -106,23 +106,22 @@ submit_a_job () {
 large=(S nsp3)
 
 for i in ${!large[@]}; do
-    LARGE=${large[i]}
-    submit_a_job $LARGE $BASE_DIR $LOG_DIR $LARGEPPN $QUEUE 
-    #qsub -l nodes=1:ppn=$LARGEPPN -d `pwd` -o $OUTPUT_DIR -e $OUTPUT_DIR -q $QUEUE -F "$DATA_DIR $LARGE $LARGEPPN" $BASE_DIR/scripts/extract_genes.sh
+    GENE=${large[i]}
+    submit_a_job $DATA_DIR $BASE_DIR $GENE $LARGEPPN $LOG_DIR $QUEUE 
 done
 
 genes=(M N E ORF3a ORF6 ORF7a ORF7b ORF8)
 
 for i in ${!genes[@]}; do
     GENE=${genes[i]}
-    submit_a_job $GENE $BASE_DIR $LOG_DIR $SMALLPPN $QUEUE 
+    submit_a_job $DATA_DIR $BASE_DIR $GENE $SMALLPPN $LOG_DIR $QUEUE 
 done
 
 products=(leader nsp2 nsp4 3C nsp6 nsp7 nsp8 nsp9 nsp10 RdRp helicase exonuclease endornase methyltransferase ORF10)
 
 for i in ${!products[@]}; do
-    PRODUCT=${products[i]}
-    submit_a_job $PRODUCT $BASE_DIR $LOG_DIR $SMALLPPN $QUEUE 
+    GENE=${products[i]}
+    submit_a_job $DATA_DIR $BASE_DIR $GENE $LARGEPPN $LOG_DIR $QUEUE 
 done
 
 exit 0

@@ -17,7 +17,7 @@ filter.analysis_description = {terms.io.info :
                             terms.io.reference :        "TBD",
                             terms.io.authors :          "Sergei L Kosakovsky Pond",
                             terms.io.contact :          "spond@temple.edu",
-                            terms.io.requirements :     "An MSA and, optionally, a tree"
+                            terms.io.requirements :     "An MSA"
                           };
 
 
@@ -44,10 +44,10 @@ filter.dup_data = {};
 filter.total = 0;
 filter.Unique2ID = {};
 
-
 for (k, v; in; filter.dup_data_raw) {
     filter.total += Abs (v);
     filter.seqID = _extractSeqID (k, filter.id);
+  
     filter.dup_data [filter.seqID] = {};
     filter.Unique2ID [filter.seqID] = k;
     for (v2; in; v) {
@@ -164,6 +164,8 @@ USE_JSON_FOR_MATRIX = 1;
 fprintf (filter.json, CLEAR_FILE, variantsBySequence);
 
 filter.rempped_dup = {};
+
+
 for (k, v; in; filter.dup_data) {
     uid = filter.Unique2IDSEQ[k];
     filter.rempped_dup [uid] = {};
@@ -177,5 +179,4 @@ fprintf (filter.duplicate_out, CLEAR_FILE, filter.rempped_dup);
 
 
 //utility.FinishAndPrintProfile ();
-
 

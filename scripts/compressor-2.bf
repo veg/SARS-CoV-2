@@ -113,8 +113,6 @@ filter.by_seq_cutoff = math.GatherDescriptiveStats (variant_count);
 filter.by_seq_cutoff = (filter.by_seq_cutoff["mean"] + filter.by_seq_cutoff["Std.Dev"] * 5 + 0.5)$1;
 
 
-
-
 console.log ("> Setting sequence minority variant cutoff to " + filter.by_seq_cutoff);
 console.log ("> Setting minority variant cutoff to " + filter.by_site_cutoff);
 
@@ -136,8 +134,8 @@ for (seq = 0; seq < filter.input.species; seq += 1) {
         }    
     }
     
-    if (Abs (filter.mv) > 1) {
-        n = Abs (filter.mv);
+    n = Abs (filter.mv);
+    if (n > 1) {
         filter.paired = {n,2};
         i = 0;
         for (v, c; in; filter.mv) {
