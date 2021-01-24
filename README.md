@@ -542,11 +542,14 @@ From `data/fasta/test/`
     
 To view results, view 
 
-`https://observablehq.com/@spond/revised-sars-cov-2-analytics-page?url=dataURL&time=timeURL&title=test`
+`https://observablehq.com/@spond/revised-sars-cov-2-analytics-page?base=baseURL&dir=dataURL&time=&title=test`
 
-Where `dataURL` points at `data/fasta/test/YYYY-MM-DD` and `timeURL` points to `data/fasta/test/`
+Where `baseURL` points at `data/fasta/test/` and `dir` is the `YYYY-MM-DD` date
 
 For example, to view the results of the test data set run, use 
+
+https://observablehq.com/@spond/revised-sars-cov-2-analytics-page?base=https%3A%2F%2Fraw.githubusercontent.com%2Fveg%2FSARS-CoV-2%2Fcompact%2Fdata%2Ffasta%2Ftest&dir=2021-01-18&title=Test&time=
+
 
 
 
