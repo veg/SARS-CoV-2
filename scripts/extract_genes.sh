@@ -289,11 +289,11 @@ else
         gzip ${FILE}.${GENE}.MEME.json 
     fi
     
-    if [ -s {FILE}.${GENE}.duplicates.json.gz ]
+    if [ -s ${FILE}.${GENE}.duplicates.json.gz ]
     then
         echo ;
     else
-        gzip {FILE}.${GENE}.duplicates.json
+        gzip ${FILE}.${GENE}.duplicates.json
     fi
 
     TMP_FILE=${FILE}.${GENE}.tmp

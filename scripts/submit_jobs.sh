@@ -128,7 +128,7 @@ for i in ${!genes[@]}; do
     submit_a_job $DATA_DIR $BASE_DIR $GENE $SMALLPPN $LOG_DIR $QUEUE 
 done
 
-products=(leader nsp2 nsp4 3C nsp6 nsp7 nsp8 nsp9 nsp10 RdRp helicase exonuclease endornase methyltransferase ORF10)
+products=(leader nsp2 nsp4 3C nsp6 nsp7 nsp8 nsp9 nsp10 RdRp helicase exonuclease endornase methyltransferase)
 
 for i in ${!products[@]}; do
     GENE=${products[i]}
