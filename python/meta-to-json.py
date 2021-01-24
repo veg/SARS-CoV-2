@@ -42,15 +42,15 @@ for l in meta_data:
         try:
             sampled = datetime.datetime.strptime (l[2], import_settings.date)
         except:
-            sampled = None
+            sampled = ""
         
         annotated_json['epi_isl_%s' % id] = {
             'collected' : sampled.strftime (date_output_format) if sampled else None,
             'location' : {
-                'country' : location if len (location) else None,
-                'locality': None,
-                'state' : None,
-                'subregion' : None
+                'country' : location if len (location) else "",
+                'locality': "",
+                'state' : "",
+                'subregion' : ""
             }
          }
     else:
