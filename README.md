@@ -86,9 +86,9 @@ The input file FASTA, named `sequences`, for an analysis run on a specific date 
 
 2. Each gene (or ORF1a/b product like `nsp2`) is analyzed separately. The [reference genome](https://www.ncbi.nlm.nih.gov/nuccore/NC_045512) partitoned into these segments is found in the [reference_genes](https://github.com/veg/SARS-CoV-2/tree/compact/reference_genes) directory.
 
-3. The top-level dispatcher `bash` script is `scripts/submit_jobs.sh` is invoked from the root directory of the pipeline.
+3. The top-level dispatcher `bash` script is `scripts/submit_jobs.sh` is invoked from the root directory of the pipeline (e.g. to use OpenMPI for indivdual jobs but not to use a scheduler, and to use 4 processors for smaller jobs and 8 processors for larger jobs)
 
-```bash scripts/submit_jobs.sh data/fasta/YYYY-MM-DD```
+```bash scripts/submit_jobs.sh -s4 -L8 -p data/fasta/YYYY-MM-DD```
 
 Optional arguments can be viewed by calling
 
