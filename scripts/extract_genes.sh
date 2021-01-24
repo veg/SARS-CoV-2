@@ -289,6 +289,13 @@ else
         gzip ${FILE}.${GENE}.MEME.json 
     fi
     
+    if [ -s {FILE}.${GENE}.duplicates.json.gz ]
+    then
+        echo ;
+    else
+        gzip {FILE}.${GENE}.duplicates.json
+    fi
+
     TMP_FILE=${FILE}.${GENE}.tmp
     rm -f $TMP_FILE
 fi

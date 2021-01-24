@@ -454,7 +454,7 @@ for seq, copies in dups.items():
             cdate = sequences_with_dates[cpv]
             location = sequences_with_locations[cpv]
             
-            tag = (cdate, location,db[cpv]['age'],db[cpv]['gender'])
+            tag = (cdate, location)
  
             if not tag in date_collection:
                 date_collection[tag] = 1

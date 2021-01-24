@@ -11,7 +11,8 @@ Help()
    echo "Syntax: ./submit_jobs [-hm] [-b dir] [-l dir] [-s number] [-L number] [-q queue] analysis_directory "
    echo "options:"
    echo "h     Print this Help."
-   echo "m     Enable MPI mode (requires qsub; otherwise run serially)."
+   echo "m     Enable MPI mode and use scheduler (requires mpirun and qsub; otherwise run serially)."
+   echo "p     Enable MPI mode but do not use scheduler (requires mpirun)"
    echo "b     path to the root directory of the pipeline (default = `pwd`)"
    echo "l     path to the directory for MPI job logs (default `pwd`/logs/analysis_dir_name)"
    echo "s     allocate this many CPUs to 'small' jobs (default 16)"
@@ -28,15 +29,20 @@ Help()
 ################################################################################
 
 
+DO_SCHEDULER="0"
 DO_MPI="0"
+
 BASE_DIR=`pwd`
 
-while getopts "hmb:l:s:L:q:" option; do
+while getopts "hmpb:l:s:L:q:" option; do
    case $option in
       h) # display Help
          Help
          exit;;
       m)
+        DO_SCHEDULER="1"
+        ;;
+      p)
         DO_MPI="1"
         ;;
       b)
@@ -83,15 +89,20 @@ LARGEPPN=${LARGEPPN:-"48"}
 echo "...$LARGEPPN processors per large job"
 QUEUE=${QUEUE:-""}
 
-if [ $DO_MPI == 1 ]
+if [ $DO_SCHEDULER == 1 ]
 then
     echo "...$QUEUE for MPI submissions"
 fi
 
 submit_a_job () {
-   if [ $DO_MPI = "0" ] 
+   if [ $DO_SCHEDULER = "0" ] 
    then
-         bash $2/scripts/extract_genes.sh $1 $2 $3 $4 "MP" 
+         if [ $DO_MPI = "0" ] 
+         then
+            bash $2/scripts/extract_genes.sh $1 $2 $3 $4 "MP" 
+         else
+            bash $2/scripts/extract_genes.sh $1 $2 $3 $4 
+         fi
    else
         if [ -z $6 ]
         then
@@ -110,7 +121,7 @@ for i in ${!large[@]}; do
     submit_a_job $DATA_DIR $BASE_DIR $GENE $LARGEPPN $LOG_DIR $QUEUE 
 done
 
-genes=(M N E ORF3a ORF6 ORF7a ORF7b ORF8)
+genes=(M N E ORF3a ORF6 ORF7a ORF8)
 
 for i in ${!genes[@]}; do
     GENE=${genes[i]}
