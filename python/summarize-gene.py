@@ -91,14 +91,16 @@ def sequence_to_accession (name):
     if name[0:2] == "NC":
         return "EPI_ISL_402125"
     parts = name.upper().split ("_")
-    if len (parts) > 3:
-        try: 
+    if len (parts) >= 3:
+        
             for p in ('epi','EPI'):
-                i = parts.find (p)
-                if i >= 0:
-                    return "_".join (parts[i:i+3])
-        except:
-            pass
+                try: 
+                    i = parts.index (p)
+                    if i >= 0:
+                        return "_".join (parts[i:i+3])
+                except:
+                    pass
+    #print (name, parts, file = sys.stderr)
     return None
 
 def newick_parser(nwk_str, bootstrap_values):
@@ -474,8 +476,7 @@ for seq, copies in dups.items():
             mapped_dups [-1] = []
             
     date_dups[seq] = date_collection   
- 
- 
+  
 slac = load_json_or_compressed (import_settings.slac)
 fel  = load_json_or_compressed (import_settings.fel)
 meme = load_json_or_compressed (import_settings.meme)
