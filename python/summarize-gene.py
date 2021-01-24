@@ -93,8 +93,10 @@ def sequence_to_accession (name):
     parts = name.upper().split ("_")
     if len (parts) > 3:
         try: 
-            i = parts.index ('EPI')
-            return "_".join (parts[i:i+3])
+            for p in ('epi','EPI'):
+                i = parts.find (p)
+                if i >= 0:
+                    return "_".join (parts[i:i+3])
         except:
             pass
     return None

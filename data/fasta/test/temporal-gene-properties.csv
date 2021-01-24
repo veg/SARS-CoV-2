@@ -1,10 +1,10 @@
 Gene,Date,Value,Type
 S,2021-01-18,1.12715,dN/dS Internal
 S,2021-01-18,0.889119,dN/dS Leaves
-S,2021-01-18,0.00924161,Internal Branch Length
+S,2021-01-18,0.020588,Internal Branch Length
 S,2021-01-18,135,Unique Haplotypes
 S,2021-01-18,1292,Sequences
-S,2021-01-18,0.0486656,Variable sites
-S,2021-01-18,0.0211931,Variable amino-acids
+S,2021-01-18,0,Variable sites
+S,2021-01-18,0,Variable amino-acids
 S,2021-01-18,0.000784929,Negatively Selected
 S,2021-01-18,0,Positively Selected
