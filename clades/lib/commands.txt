@@ -1,0 +1,9 @@
+awk '{ if ($0 ~ "^[^>]") {a = gensub(/[^acgt]/, "", "g"); print a;} else print;}' ref/nsp2.fas > ref/nsp2.fa 
+awk '{ if ($0 ~ "^>") {sub(" ", "_"); print ;} else print;}' => replace ' ' with '_' in FASTA
+awk '{ if ($0 ~ "^>") {b=gensub(/>(.+)\|(EPI_ISL_|epi_isl_)([0-9]+)\|(.+)/, ">epi_isl_\\3/\\1","g"); print b;} else print;}' sequences
+
+genes=(leader nsp2 nsp3 nsp4 3C nsp6 nsp7 nsp8 nsp9 nsp10 helicase exonuclease endornase  S E M N ORF3a ORF6 ORF7a ORF8 RdRp methyltransferase); for i in ${!genes[@]}; do GENE=${genes[i]}; echo $GENE; bpsh 1 python3 run.py -i input/501Y.V2.fas -O input/UK_501.fasta -r ref/${GENE}.fa -o output_ZAvsUK -L "501Y.V2" -P config.json  -g $GENE; done
+
+qsub -l nodes=1:ppn=8,walltime=24:00:00 -q epyc -d `pwd` -F "N" run_gene.sh
+
+genes=(leader nsp2 nsp3 nsp4 3C nsp6 nsp7 nsp8 nsp9 nsp10 helicase exonuclease endornase  S E M N ORF3a ORF6 ORF7a ORF8 RdRp methyltransferase); for i in "${genes[@]}"; do GENE=${i}; echo $GENE; qsub -l nodes=1:ppn=8,walltime=72:00:00 -q epyc -d `pwd` -F "$GENE" run_gene.sh; done;

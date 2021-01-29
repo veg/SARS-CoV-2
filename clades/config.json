@@ -1,0 +1,9 @@
+{
+    "hyphy" : "/home/sergei/hyphy-dev/hyphy LIBPATH=/home/sergei/hyphy-dev/res ENV=\"TOLERATE_NUMERICAL_ERRORS=1;\"",
+    "hyphy-mpi" : "mpirun -np 20 /home/sergei/hyphy-dev/HYPHYMPI LIBPATH=/home/sergei/hyphy-dev/res ENV=\"TOLERATE_NUMERICAL_ERRORS=1;\"",
+    "bealign" : "/usr/local/bin/bealign" ,
+    "bam2msa" : "/usr/local/bin/bam2msa" ,
+    "tn93-cluster" : "/usr/local/bin/tn93-cluster",
+    "tn93" : "/usr/local/bin/tn93",
+    "raxml-ng" : "/usr/local/bin/raxml-ng --force --redo --threads 4 "
+}
