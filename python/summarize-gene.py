@@ -375,18 +375,19 @@ min_date = now
 max_date = datetime.datetime (1900,1,1)
 
 for id, record in db.items():
-    try:
-        date_check =  parse_date_string (record['collected'])
-        if date_check.year < 2019 or date_check.year == 2019 and date_check.month < 10 or date_check >= now: 
-            continue
-        if date_check < min_date:
-            min_date = date_check
-        if date_check > max_date:
-            max_date = date_check
-        sequences_with_dates[id] = record['collected']
-        sequences_with_locations[id] = get_location (record)
-    except Exception as e:
-        pass
+    for key in ['collected','originalCollected']:
+        try:
+            date_check =  parse_date_string (record[key])
+            if date_check.year < 2019 or date_check.year == 2019 and date_check.month < 10 or date_check >= now: 
+                continue
+            if date_check < min_date:
+                min_date = date_check
+            if date_check > max_date:
+                max_date = date_check
+            sequences_with_dates[id] = record[key]
+            sequences_with_locations[id] = get_location (record)
+        except Exception as e:
+            pass
         
 date_dups     = {}
 
