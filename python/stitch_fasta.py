@@ -106,7 +106,7 @@ ci = 0
 def extract_id (seq_id):
     parts = seq_id.upper().split ('_')
     epi = parts.index ('EPI')
-    return 'epi_isl_' + parts[epi+2]    
+    return parts[epi+2]    
 
 for i, gene in enumerate (genes):
     local_set = {}

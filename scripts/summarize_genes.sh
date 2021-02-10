@@ -63,22 +63,23 @@ FILE=$1
 check_file $FILE "Analysis sequence file"
 
 echo "...WILL RUN ANALYSES ON $FILE"
-
-
 if [ -z $DATA_DIR ]; 
 then
     DATA_DIR=$(dirname  $FILE)
 fi
+
+echo "...WILL USE META INFORMATION FROM $DATA_DIR"
+echo "...COMPRESSING SEQUENCE ANNOTATIONS"
+
+$P3 ${BASE_DIR}/python/obfuscate-master.py -i ${DATA_DIR}/annotation.json -o ${DATA_DIR}/sequence-info.json -m  ${DATA_DIR}/map.json
+
+
 
 if [ $DO_VARIANTS == "1" ]; 
 then
 	$P3 ${BASE_DIR}/python/stitch_fasta.py -d $FILE -o ${FILE}.variants.json -r ${BASE_DIR}/reference_genes/sc2.mmi -m ${DATA_DIR}/map.json -c 0.00001
 fi
 
-echo "...WILL USE META INFORMATION FROM $DATA_DIR"
-
-echo "...COMPRESSING SEQUENCE ANNOTATIONS"
-$P3 ${BASE_DIR}/python/obfuscate-master.py -i ${DATA_DIR}/annotation.json -o ${DATA_DIR}/sequence-info.json -m  ${DATA_DIR}/map.json
 
 
 genes=(leader nsp2 nsp3 nsp4 3C nsp6 nsp7 nsp8 nsp9 nsp10 helicase exonuclease endornase  S E M N ORF3a ORF6 ORF7a ORF8 RdRp methyltransferase)
