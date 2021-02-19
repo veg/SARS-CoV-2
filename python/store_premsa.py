@@ -52,8 +52,8 @@ def store_premsa_file(nuc_input, prot_input, gene):
         items_to_update[seq.id][gene + '_premsa_protein_seq'] = seq
 
     to_update = [update_record(gene + '_premsa_nuc_seq', v[gene + '_premsa_nuc_seq'], gene + '_premsa_protein_seq', v[gene + '_premsa_protein_seq'], gene) for k,v in items_to_update.items()]
-
-    results = db.gisaid.records.bulk_write(to_update)
+    if(len(to_update)):
+        results = db.gisaid.records.bulk_write(to_update)
     print("Updated " +  str(results.modified_count) + " of " + str(len(items_to_update)) + " items to update")
 
 

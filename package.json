@@ -5,6 +5,8 @@
     "d3-dsv": "^2.0.0",
     "lodash": "^4.17.20",
     "moment": "^2.29.1",
-    "mongodb": "^3.6.3"
+    "mongodb": "^3.6.3",
+    "puppeteer": "^7.0.0",
+    "underscore": "^1.12.0"
   }
 }

@@ -7,22 +7,6 @@ const _ = require("lodash"),
   moment = require("moment"),
   mongodb = require("mongodb");
 
-// example gisaid record
-//{
-//  "b": "EPI_ISL_402119",
-//  "c": "hCoV-19/Wuhan/IVDC-HB-01/2019",
-//  "d": "Virus Isolate, Passage 1",
-//  "e": "EPI_ISL_402119",
-//  "f": "2019-12-30",
-//  "g": "2020-01-10",
-//  "h": null,
-//  "i": 29891,
-//  "j": "Human",
-//  "k": "Asia / China / Hubei / Wuhan",
-//  "l": "National Institute for Viral Disease Control and Prevention, China CDC",
-//  "m": "National Institute for Viral Disease Control and Prevention, China CDC"
-//},
-
 // example result record
 //{
 //  "epi_isl_402119" : {
@@ -73,6 +57,7 @@ let records = d3.tsvParse(data);
 // remove duplicate seqs
 console.log("Got " + records.length + " metadata records");
 
+
 let adaptedRecords = _.map(records, record => {
 
   // switch to just keep what was there.
@@ -87,14 +72,21 @@ let adaptedRecords = _.map(records, record => {
   };
 
   let acc = _.toLower(record.gisaid_epi_isl);
+  let collectionDateType = '';
 
+  try {
+    collectionDateType = moment(collectionDate).toDate()
+  } catch(e){}
+
+  // Nextstrain_clade  pangolin_lineage  GISAID_clade
   let adaptedRecord = {
     address: record.originating_lab,
     genbank_accession: record.genbank_accession,
     age: parseInt(record.age),
     assembly: null,
     authors: record.authors,
-    collected: collectionDate,
+    collected: collectionDateType,
+    originalCollected: collectionDate,
     coverage: null,
     length: parseInt(record.length),
     gender: record.sex,
@@ -108,10 +100,15 @@ let adaptedRecords = _.map(records, record => {
     passage: record.e,
     seqLength: parseInt(record.length),
     submitted: submissionDate,
+    submitted: moment(submissionDate).toDate(),
+    originalSubmitted: submissionDate,
     submitter: record.submitting_lab,
     submitting_lab: record.submitting_lab,
     technology: null,
-    type: null
+    type: null,
+    nextstrainClade : record.Nextstrain_clade,
+    pangolinLineage : record.pangolin_lineage,
+    gisaidClade : record.GISAID_clade
   };
 
   return adaptedRecord;
@@ -143,7 +140,7 @@ MongoClient.connect(url, (err, client) => {
     }
 
     client.close();
-    process.exit(1)
+    process.exit(0)
 
   });
 

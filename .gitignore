@@ -36,3 +36,7 @@ data/to-import
 
 python/obfuscate-master.py
 data/db/
+*.csv
+js/get_metadata.js
+js/get_seqs.js
+

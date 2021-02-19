@@ -46,7 +46,7 @@ def export_sequences(gene, output_fn):
 
     get_nuc_key = lambda gene: gene + '_premsa_nuc_seq'
     get_prot_key = lambda gene: gene + '_premsa_prot_seq'
-    get_qc_key = lambda gene: 'qa.' + gene + '.passed'
+    get_qc_key = lambda gene: 'qc.' + gene + '.passed'
 
     nuc_key = get_nuc_key(gene)
     prot_key = get_prot_key(gene)
@@ -58,10 +58,9 @@ def export_sequences(gene, output_fn):
 
     mongo_query = { "host" : HOST,  "length": {"$gt": MINLENGTH }, "seq": {"$exists":True} }
 
-    # db.inventory.find ( { quantity: { $in: [20, 50] } } )
     mongo_query[nuc_key] = { "$exists": False }
     mongo_query[prot_key] = { "$exists": False }
-    mongo_query[qc_key] = { "$ne": False }
+    mongo_query[qc_key] = { "$exists": False }
 
     # Query for human host and sequence length greater than 28000, and sequence populated
 

@@ -24,8 +24,10 @@ if p not in sys.path:
 from export_sequences_without_premsa import export_sequences
 from store_premsa import store_premsa_file
 from premsa_log_parse import mark_troubled
+from mark_premsa_dupes import mark_premsa_dupes
 
 WORKING_DIR = "/data/shares/veg/SARS-CoV-2/SARS-CoV-2-devel/"
+DATE_STRING = datetime.date.today().strftime('%Y-%m-%d')
 
 default_args = {
     'owner': 'sweaver',
@@ -44,11 +46,14 @@ default_args = {
         'compressor' : "/data/shares/veg/SARS-CoV-2/SARS-CoV-2-devel/scripts/compressor.bf",
         'compressor2' : "/data/shares/veg/SARS-CoV-2/SARS-CoV-2-devel/scripts/compressor-2.bf",
         'region_cfg' : "/data/shares/veg/SARS-CoV-2/SARS-CoV-2-devel/airflow/libs/regions.yaml",
-        'zero_length_flags' : '--kill-zero-lengths Constrain ENV="_DO_TREE_REBALANCE_=1"'
+        'zero_length_flags' : '--kill-zero-lengths Constrain ENV="_DO_TREE_REBALANCE_=1"',
+        'date_string': DATE_STRING
     },
     'retries': 3,
     'retry_delay': timedelta(minutes=5),
     'concurrency': 10,
+    'dag_concurrency' : 10,
+	'max_active_runs': 1,
     # 'execution_timeout': timedelta(minutes=30),
     # 'queue': 'bash_queue',
     # 'pool': 'backfill',
@@ -80,15 +85,17 @@ PREMSA = """
 bpsh {{ params.node }} mpirun -np {{ params.num_procs }} {{ params.hyphy_mpi }} LIBPATH={{ params.hyphy_lib_path}} {{ params.pre_msa }} --input {{ params.filepath }} --reference {{ params.working_dir }}/{{ params.regions[params["gene"]]["reference"] }} --trim-from {{ params.regions[params.gene]["trim_from"] }} --trim-to {{ params.regions[params.gene]["trim_to"] }} --E 0.01 --N-fraction {{ params.regions[params["gene"]]["fraction"] }} --remove-stop-codons Yes > {{ params.stdout }}
 """
 
-DATE_STRING = datetime.date.today().strftime('%Y-%m-%d')
 
 pre_msa_tasks = []
 i = 0
 
 for gene in regions.keys():
 
-    filepath = WORKING_DIR + 'data/premsa-processor/' + gene + '/sequences.' + DATE_STRING + '.fasta'
-    stdout = WORKING_DIR + 'data/premsa-processor/' + gene + '/sequences.' + DATE_STRING + '.stdout.log'
+    filepath = WORKING_DIR + 'data/premsa-processor/' + gene + '/sequences.' + default_args['params']['date_string'] + '.fasta'
+    stdout = WORKING_DIR + 'data/premsa-processor/' + gene + '/sequences.' + default_args['params']['date_string'] + '.stdout.log'
+    nuc_input_filepath = filepath + '_nuc.fas'
+    prot_input_filepath = filepath + '_protein.fas'
+    dupe_input_filepath = filepath + '_copies.json'
 
     export_missing = PythonOperator(
         task_id=f'export_missing_premsa_{gene}',
@@ -108,7 +115,7 @@ for gene in regions.keys():
     import_premsa_seqs = PythonOperator(
         task_id=f'store_premsa_{gene}',
         python_callable=store_premsa_file,
-        op_kwargs={ "nuc_input" : filepath, "prot_input" : filepath, "gene": gene },
+        op_kwargs={ "nuc_input" : nuc_input_filepath, "prot_input" : prot_input_filepath, "gene": gene },
         dag=dag,
     )
 
@@ -119,8 +126,15 @@ for gene in regions.keys():
         dag=dag,
     )
 
+    mark_premsa_dupes_task = PythonOperator(
+        task_id=f'mark_premsa_duplicates_{gene}',
+        python_callable=mark_premsa_dupes,
+        op_kwargs={ "dupe_input" : dupe_input_filepath, "gene": gene },
+        dag=dag,
+    )
+
     i += 1
-    pre_msa_tasks.append(export_missing >> pre_msa >> [import_premsa_seqs, mark_troubled_task])
+    pre_msa_tasks.append(export_missing >> pre_msa >> [import_premsa_seqs, mark_troubled_task] >> mark_premsa_dupes_task)
 
 dag.doc_md = __doc__
 pre_msa_tasks

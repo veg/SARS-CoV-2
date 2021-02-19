@@ -42,7 +42,7 @@ def sequence_name(record):
 
 def export_sequences(config):
 
-    db = MongoClient()
+    db = MongoClient(host='192.168.0.4')
 
     acceptable = ['collected', 'originalCollected', 'host', 'id', 'location', 'name', 'technology', 'type', 'nextstrainClade', 'pangolinLineage', 'gisaidClade', 'seq']
     HOST= "Human"
@@ -81,7 +81,7 @@ def export_premsa_sequences(config, nuc_output_fn, prot_output_fn, gene):
     type -- 'nucleotide' or 'protein'
     '''
 
-    db = MongoClient()
+    db = MongoClient(host='192.168.0.4')
 
     acceptable = ['collected', 'originalCollected', 'host', 'id', 'location', 'name', 'technology', 'type', 'nextstrainClade', 'pangolinLineage', 'gisaidClade']
     HOST= "Human"
@@ -90,11 +90,13 @@ def export_premsa_sequences(config, nuc_output_fn, prot_output_fn, gene):
 
     # Get QC key
     validation_key = 'qc.' + gene + '.passed'
+    not_duplicate_key = 'qc.' + gene + '.duplicate_of'
+    not_duplicate_val = {"$exists":False}
     nuc_key_to_export = gene + '_premsa_nuc_seq'
     prot_key_to_export = gene + '_premsa_protein_seq'
 
     acceptable.extend([nuc_key_to_export, prot_key_to_export])
-    mongo_query = { "host" : HOST,  validation_key: True }
+    mongo_query = { "host" : HOST,  validation_key: True, not_duplicate_key : not_duplicate_val }
 
     if("clade-type" in config.keys()):
         clade_type = config["clade-type"]
@@ -136,5 +138,5 @@ if __name__ == "__main__":
     # export_sequences(config)
 
     config = {}
-    export_premsa_sequences(config, 'nuc.fas', 'prot.fas', 'leader')
+    export_premsa_sequences(config, 'nuc.fas', 'prot.fas', 'S')
 

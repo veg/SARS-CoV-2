@@ -93,7 +93,8 @@ let adaptedRecords = _.map(records, record => {
     age: parseInt(record.age),
     assembly: null,
     authors: record.authors,
-    collected: collectionDate,
+    collected: moment(collectionDate).toDate(),
+    originalCollected: collectionDate,
     coverage: null,
     length: parseInt(record.length),
     gender: record.sex,
@@ -106,7 +107,8 @@ let adaptedRecords = _.map(records, record => {
     name: record.strain,
     passage: record.e,
     seqLength: parseInt(record.length),
-    submitted: submissionDate,
+    submitted: moment(submissionDate).toDate(),
+    originalSubmitted: submissionDate,
     submitter: record.submitting_lab,
     submitting_lab: record.submitting_lab,
     technology: null,
@@ -149,9 +151,10 @@ MongoClient.connect(url, (err, client) => {
           "filter": { 'id': adaptedRecord.id},
           "update": { '$set': 
                            { 
-                              'nextstrainClade' : adaptedRecord.nextstrainClade ,
-                              'pangolinLineage' : adaptedRecord.pangolinLineage,
-                              'gisaidClade' : adaptedRecord.gisaidClade
+                              'originalCollected' : adaptedRecord.originalCollected,
+                              'collected' : adaptedRecord.collected,
+                              'submitted' : adaptedRecord.submitted,
+                              'originalSubmitted' : adaptedRecord.originalSubmitted
                            }
                          }
         }
