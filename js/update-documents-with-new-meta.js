@@ -123,7 +123,7 @@ let adaptedRecords = _.map(records, record => {
 });
 
 const MongoClient = mongodb.MongoClient;
-const url = 'mongodb://localhost:27017';
+const url = 'mongodb://192.168.0.4:27017';
 const dbName = 'gisaid';
 const collectionName = 'records';
 

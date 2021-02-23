@@ -12,6 +12,8 @@ from airflow.utils.dates import days_ago
 # These args will get passed on to each operator
 # You can override them on a per-task basis during operator initialization
 
+from libs.callbacks import task_fail_slack_alert, task_success_slack_alert
+
 import os
 import sys
 import pathlib
@@ -52,6 +54,7 @@ default_args = {
     },
     'retries': 3,
     'retry_delay': timedelta(minutes=5),
+    'on_failure_callback': task_fail_slack_alert,
     'concurrency': 50,
     'dag_concurrency' : 50,
 	'max_active_runs': 1,
@@ -63,8 +66,6 @@ default_args = {
     # 'wait_for_downstream': False,
     # 'dag': dag,
     # 'sla': timedelta(hours=2),
-    # 'on_failure_callback': some_function,
-    # 'on_success_callback': some_other_function,
     # 'on_retry_callback': another_function,
     # 'sla_miss_callback': yet_another_function,
     # 'trigger_rule': 'all_success'
@@ -74,7 +75,7 @@ dag = DAG(
     'populate_pre_msa',
     default_args=default_args,
     description='performs selection analysis',
-    schedule_interval=timedelta(days=1),
+    schedule_interval='0 8 * * *',
     start_date=days_ago(2),
     tags=['selection'],
 )
