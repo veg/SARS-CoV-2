@@ -88,7 +88,7 @@ bpsh {{ params.node }} mpirun -np {{ params.num_procs }} {{ params.hyphy_mpi }} 
 """
 
 def is_export_populated(filepath):
-	return Path(filepath).stat() > 0
+	return Path(filepath).stat().st_size > 0
 
 pre_msa_tasks = []
 i = 0
@@ -118,7 +118,7 @@ for gene in regions.keys():
     populated_check_task = ShortCircuitOperator(
         task_id=f'check_if_populated_{gene}',
         python_callable=is_export_populated,
-        params={ 'filepath': filepath },
+        op_kwargs={ 'filepath': filepath },
         dag=dag
     )
 

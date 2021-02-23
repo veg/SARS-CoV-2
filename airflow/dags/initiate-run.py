@@ -68,7 +68,7 @@ dag = DAG(
     'initiate_run',
     default_args=default_args,
     description='initiates run',
-    schedule_interval='0 8 * * *',
+    schedule_interval='0 11 * * *',
     start_date=datetime.datetime(2021, 2, 10),
     tags=['selection'],
 )
