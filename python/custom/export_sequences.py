@@ -40,7 +40,7 @@ def sequence_name(record):
 
 def export_sequences(config):
 
-    db = MongoClient()
+    db = MongoClient(host='192.168.0.4')
 
     acceptable = ['collected', 'originalCollected', 'host', 'id', 'location', 'name', 'technology', 'type', 'nextstrainClade', 'pangolinLineage', 'gisaidClade', 'seq']
     HOST= "Human"

@@ -10,7 +10,7 @@ OUTPUT_DIR=`pwd`/logs/$fdate/
 BASE_DIR=`pwd`
 mkdir -p $OUTPUT_DIR
 
-SMALLPPN=64
+SMALLPPN=32
 LARGEPPN=64
 
 # Gene

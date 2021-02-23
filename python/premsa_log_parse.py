@@ -34,7 +34,7 @@ def update_mongo(items, gene):
     ('epi_isl_860592_KwaZulu_Natal_2021_01_02_null', 'epi_isl_860592_KwaZulu_Natal_2021_01_02_null has too many ambiguous nucleotides; try setting --N-fraction flag to a higher value')
     '''
 
-    db = MongoClient()
+    db = MongoClient(host='192.168.0.4')
 
     bulk_updates = []
     for item in items:

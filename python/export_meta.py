@@ -17,7 +17,7 @@ from pymongo import MongoClient
 
 def export_meta(config):
 
-    db = MongoClient()
+    db = MongoClient(host='192.168.0.4')
     acceptable = ['address', 'genbank_accession', 'age', 'assembly', 'authors', 'originalCollected', 'coverage', 'length', 'gender', 'sex', 'host', 'id', 'lab', 'originating_lab', 'location', 'name', 'passage', 'seqLength', 'originalSubmitted', 'submitter', 'submitting_lab', 'technology', 'type', 'nextstrainClade', 'pangolinLineage', 'gisaidClade']
 
     # transform acceptable into mongo query

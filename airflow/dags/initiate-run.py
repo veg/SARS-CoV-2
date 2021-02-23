@@ -93,7 +93,7 @@ default_args = {
     },
     'retries': 1,
     'retry_delay': datetime.timedelta(minutes=5),
-    'concurrency' : 10,
+    'concurrency' : 50,
     # 'on_failure_callback': task_fail_slack_alert,
     # 'on_success_callback': task_success_slack_alert
     # 'queue': 'bash_queue',

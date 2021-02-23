@@ -7,7 +7,7 @@ from airflow import DAG
 
 # Operators; we need this to operate!
 from airflow.operators.bash import BashOperator
-from airflow.operators.python import PythonOperator
+from airflow.operators.python import PythonOperator, ShortCircuitOperator
 from airflow.utils.dates import days_ago
 # These args will get passed on to each operator
 # You can override them on a per-task basis during operator initialization
@@ -15,6 +15,7 @@ from airflow.utils.dates import days_ago
 import os
 import sys
 import pathlib
+from pathlib import Path
 
 p = os.path.abspath(str(pathlib.Path(__file__).parent.absolute()) + '/../../python/')
 if p not in sys.path:
@@ -51,8 +52,8 @@ default_args = {
     },
     'retries': 3,
     'retry_delay': timedelta(minutes=5),
-    'concurrency': 10,
-    'dag_concurrency' : 10,
+    'concurrency': 50,
+    'dag_concurrency' : 50,
 	'max_active_runs': 1,
     # 'execution_timeout': timedelta(minutes=30),
     # 'queue': 'bash_queue',
@@ -85,6 +86,8 @@ PREMSA = """
 bpsh {{ params.node }} mpirun -np {{ params.num_procs }} {{ params.hyphy_mpi }} LIBPATH={{ params.hyphy_lib_path}} {{ params.pre_msa }} --input {{ params.filepath }} --reference {{ params.working_dir }}/{{ params.regions[params["gene"]]["reference"] }} --trim-from {{ params.regions[params.gene]["trim_from"] }} --trim-to {{ params.regions[params.gene]["trim_to"] }} --E 0.01 --N-fraction {{ params.regions[params["gene"]]["fraction"] }} --remove-stop-codons Yes > {{ params.stdout }}
 """
 
+def is_export_populated(filepath):
+	return Path(filepath).stat() > 0
 
 pre_msa_tasks = []
 i = 0
@@ -111,6 +114,13 @@ for gene in regions.keys():
         dag=dag,
     )
 
+    populated_check_task = ShortCircuitOperator(
+        task_id=f'check_if_populated_{gene}',
+        python_callable=is_export_populated,
+        params={ 'filepath': filepath },
+        dag=dag
+    )
+
     # Store nuc_input, prot_input, type
     import_premsa_seqs = PythonOperator(
         task_id=f'store_premsa_{gene}',
@@ -134,7 +144,7 @@ for gene in regions.keys():
     )
 
     i += 1
-    pre_msa_tasks.append(export_missing >> pre_msa >> [import_premsa_seqs, mark_troubled_task] >> mark_premsa_dupes_task)
+    pre_msa_tasks.append(export_missing >> populated_check_task >> pre_msa >> [import_premsa_seqs, mark_troubled_task] >> mark_premsa_dupes_task)
 
 dag.doc_md = __doc__
 pre_msa_tasks

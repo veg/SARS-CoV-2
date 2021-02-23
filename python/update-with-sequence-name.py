@@ -19,7 +19,7 @@ arguments = argparse.ArgumentParser(description='Report which dates have full re
 arguments.add_argument('-i', '--input',   help = 'fasta to update', required = True, type = argparse.FileType('r'))
 
 args = arguments.parse_args()
-db = MongoClient()
+db = MongoClient(host='192.168.0.4')
 
 def get_missing_seqs():
     return [d['name'] for d in db.gisaid.records.find({'seq': None})]

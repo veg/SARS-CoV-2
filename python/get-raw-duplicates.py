@@ -71,7 +71,7 @@ for first in nuc_firsts:
 
 # Protein seq map
 prot_seq_map = {record.id : record for record in p_seqs}
-prot_nuc_firsts = [prot_seq_map[nuc_first.id] for nuc_first in nuc_firsts]
+prot_nuc_firsts = [prot_seq_map[nuc_first.id] for nuc_first in nuc_firsts if nuc_first.id in prot_seq_map.keys()]
 
 # Write protein sequences based on nucleotide dupes
 # Get p_seqs based on nucleotide dupes

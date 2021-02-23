@@ -114,8 +114,13 @@ def export_premsa_sequences(config, nuc_output_fn, prot_output_fn, gene):
     # LIMIT=100000
     # LIMIT=10
     records = list(db.gisaid.records.find(mongo_query))
-    nuc_seq_records = [SeqRecord(Seq(rec[nuc_key_to_export]),id=sequence_name(rec),name='',description='') for rec in records]
-    prot_seq_records = [SeqRecord(Seq(rec[prot_key_to_export]),id=sequence_name(rec),name='',description='') for rec in records]
+
+    # Filter sequences down to those that have been processed
+    recs_with_nucs = filter(lambda x: nuc_key_to_export in x.keys(), records)
+    nuc_seq_records = [ SeqRecord(Seq(rec[nuc_key_to_export]),id=sequence_name(rec),name='',description='') for rec in recs_with_nucs ]
+
+    recs_with_prot = filter(lambda x: prot_key_to_export in x.keys(), records)
+    prot_seq_records = [SeqRecord(Seq(rec[prot_key_to_export]),id=sequence_name(rec),name='',description='') for rec in recs_with_prot]
 
     # Write to fasta
     with open(nuc_output_fn, 'w', encoding='utf-8') as nuc_output_fh:
@@ -138,5 +143,5 @@ if __name__ == "__main__":
     # export_sequences(config)
 
     config = {}
-    export_premsa_sequences(config, 'nuc.fas', 'prot.fas', 'S')
+    export_premsa_sequences(config, 'nuc.fas', 'prot.fas', '3C')
 

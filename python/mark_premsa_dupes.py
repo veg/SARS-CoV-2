@@ -57,7 +57,7 @@ def get_references(ids, db):
 
 def mark_premsa_dupes(dupe_input, gene):
 
-    db = MongoClient()
+    db = MongoClient(host='192.168.0.4')
     dupes = json.loads(open(dupe_input, 'r').read())
 
     # Shave meta

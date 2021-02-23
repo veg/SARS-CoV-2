@@ -18,13 +18,17 @@ from pymongo import InsertOne, DeleteMany, ReplaceOne, UpdateOne
 
 
 def update_record(nuc_seq_key, nuc_seq, prot_seq_key, prot_seq, gene):
-    nuc_seq_str = str(nuc_seq.seq)
-    prot_seq_str = str(prot_seq.seq)
+    prot_seq_str = ''
+
+    if(nuc_seq):
+        nuc_seq_str = str(nuc_seq.seq)
+    if(prot_seq):
+        prot_seq_str = str(prot_seq.seq)
 
     try:
         epi_id = '_'.join(nuc_seq.description.split('_')[:3]).lower()
     except:
-        print("could not process " + seq.description)
+        print("could not process " + nuc_seq.description)
         return
 
     # print(epi_id)
@@ -33,7 +37,7 @@ def update_record(nuc_seq_key, nuc_seq, prot_seq_key, prot_seq, gene):
 
 def store_premsa_file(nuc_input, prot_input, gene):
 
-    db = MongoClient()
+    db = MongoClient(host='192.168.0.4')
 
     nuc_input_fh = open(nuc_input, 'r')
     prot_input_fh = open(prot_input, 'r')
@@ -44,6 +48,7 @@ def store_premsa_file(nuc_input, prot_input, gene):
     for seq in seqs:
         items_to_update[seq.id] = {}
         items_to_update[seq.id][gene + '_premsa_nuc_seq'] = seq
+        items_to_update[seq.id][gene + '_premsa_protein_seq'] = ''
 
 
     seqs = list(SeqIO.parse(prot_input_fh, 'fasta'))
