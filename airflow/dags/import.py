@@ -8,12 +8,14 @@ from airflow import DAG
 from airflow.operators.bash import BashOperator
 from airflow.utils.dates import days_ago
 from airflow.hooks.base import BaseHook
+from airflow.models import Variable
+
 # These args will get passed on to each operator
 # You can override them on a per-task basis during operator initialization
 
 from libs.callbacks import task_fail_slack_alert, task_success_slack_alert
 
-WORKING_DIR = "/data/shares/veg/SARS-CoV-2/SARS-CoV-2-devel/"
+WORKING_DIR = Variable.get("WORKING_DIR")
 
 default_args = {
     'owner': 'sweaver',

@@ -92,11 +92,15 @@ def export_premsa_sequences(config, nuc_output_fn, prot_output_fn, gene):
     validation_key = 'qc.' + gene + '.passed'
     not_duplicate_key = 'qc.' + gene + '.duplicate_of'
     not_duplicate_val = {"$exists":False}
+
+    second_duplicate_key = 'duplicate_of_by_gene.' + gene
+    second_duplicate_val = [{second_duplicate_key:{"$exists":False}},{second_duplicate_key:'reference'}]
+
     nuc_key_to_export = gene + '_premsa_nuc_seq'
     prot_key_to_export = gene + '_premsa_protein_seq'
 
     acceptable.extend([nuc_key_to_export, prot_key_to_export])
-    mongo_query = { "host" : HOST,  validation_key: True, not_duplicate_key : not_duplicate_val }
+    mongo_query = { "host" : HOST,  validation_key: True, not_duplicate_key : not_duplicate_val, "$or": second_duplicate_val}
 
     if("clade-type" in config.keys()):
         clade_type = config["clade-type"]

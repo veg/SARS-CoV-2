@@ -9,6 +9,8 @@ from airflow import DAG
 from airflow.operators.bash import BashOperator
 from airflow.operators.python import PythonOperator, ShortCircuitOperator
 from airflow.utils.dates import days_ago
+from airflow.models import Variable
+
 # These args will get passed on to each operator
 # You can override them on a per-task basis during operator initialization
 
@@ -29,7 +31,7 @@ from store_premsa import store_premsa_file
 from premsa_log_parse import mark_troubled
 from mark_premsa_dupes import mark_premsa_dupes
 
-WORKING_DIR = "/data/shares/veg/SARS-CoV-2/SARS-CoV-2-devel/"
+WORKING_DIR = Variable.get("WORKING_DIR")
 DATE_STRING = datetime.date.today().strftime('%Y-%m-%d')
 
 default_args = {
@@ -84,7 +86,7 @@ with open(dag.params["region_cfg"], 'r') as stream:
     regions = yaml.safe_load(stream)
 
 PREMSA = """
-bpsh {{ params.node }} mpirun -np {{ params.num_procs }} {{ params.hyphy_mpi }} LIBPATH={{ params.hyphy_lib_path}} {{ params.pre_msa }} --input {{ params.filepath }} --reference {{ params.working_dir }}/{{ params.regions[params["gene"]]["reference"] }} --trim-from {{ params.regions[params.gene]["trim_from"] }} --trim-to {{ params.regions[params.gene]["trim_to"] }} --E 0.01 --N-fraction {{ params.regions[params["gene"]]["fraction"] }} --remove-stop-codons Yes > {{ params.stdout }}
+mpirun -np {{ params.num_procs }} {{ params.hyphy_mpi }} LIBPATH={{ params.hyphy_lib_path}} {{ params.pre_msa }} --input {{ params.filepath }} --reference {{ params.working_dir }}/{{ params.regions[params["gene"]]["reference"] }} --trim-from {{ params.regions[params.gene]["trim_from"] }} --trim-to {{ params.regions[params.gene]["trim_to"] }} --E 0.01 --N-fraction {{ params.regions[params["gene"]]["fraction"] }} --remove-stop-codons Yes > {{ params.stdout }}
 """
 
 def is_export_populated(filepath):

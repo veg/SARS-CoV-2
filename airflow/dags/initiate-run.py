@@ -9,6 +9,8 @@ from airflow.operators.bash import BashOperator
 from airflow.operators.python import PythonOperator
 from airflow.utils.dates import days_ago
 from airflow.hooks.base import BaseHook
+from airflow.models import Variable
+
 # These args will get passed on to each operator
 # You can override them on a per-task basis during operator initialization
 
@@ -25,9 +27,7 @@ if p not in sys.path:
 from export_sequences import export_sequences, export_premsa_sequences
 from export_meta import export_meta
 
-
-WORKING_DIR = "/data/shares/veg/SARS-CoV-2/SARS-CoV-2-devel/"
-
+WORKING_DIR = Variable.get("WORKING_DIR")
 
 default_args = {
     'owner': 'sweaver',
@@ -44,7 +44,7 @@ default_args = {
     },
     'retries': 1,
     'retry_delay': datetime.timedelta(minutes=5),
-    'concurrency' : 50,
+    'task_concurrency' : 5,
     'on_failure_callback': task_fail_slack_alert,
     # 'on_success_callback': task_success_slack_alert
     # 'queue': 'bash_queue',
