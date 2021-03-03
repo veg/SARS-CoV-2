@@ -46,9 +46,10 @@ def update_dupe_records(dupes, reference, gene):
     else:
         qc_value = {"passed": True }
 
-    qc_value["duplicate_of"] = reference["id"]
-    to_update[qc_key] = qc_value
+    dupe_key = ".".join(["duplicate_of_by_gene", gene])
 
+    to_update[qc_key] = qc_value
+    to_update[dupe_key] = reference["id"]
     return UpdateMany({'id': {"$in" : dupes}}, {'$set': to_update})
 
 def get_references(ids, db):

@@ -30,6 +30,8 @@ from export_sequences_without_premsa import export_sequences
 from store_premsa import store_premsa_file
 from premsa_log_parse import mark_troubled
 from mark_premsa_dupes import mark_premsa_dupes
+from get_raw_duplicates import write_raw_duplicates
+from mark_duplicates import mark_duplicates
 
 WORKING_DIR = Variable.get("WORKING_DIR")
 DATE_STRING = datetime.date.today().strftime('%Y-%m-%d')
@@ -100,6 +102,8 @@ for gene in regions.keys():
     filepath = WORKING_DIR + 'data/premsa-processor/' + gene + '/sequences.' + default_args['params']['date_string'] + '.fasta'
     stdout = WORKING_DIR + 'data/premsa-processor/' + gene + '/sequences.' + default_args['params']['date_string'] + '.stdout.log'
     nuc_input_filepath = filepath + '_nuc.fas'
+    nuc_dupe_output_filepath  = filepath + '_raw_nucleotide.duplicates.json'
+    protein_dupe_output_filepath = filepath + '_protein.duplicates.json'
     prot_input_filepath = filepath + '_protein.fas'
     dupe_input_filepath = filepath + '_copies.json'
 
@@ -146,8 +150,22 @@ for gene in regions.keys():
         dag=dag,
     )
 
+    compute_raw_duplicates_task = PythonOperator(
+		task_id=f'write_raw_duplicates_{gene}',
+		python_callable=write_raw_duplicates,
+		op_kwargs={ "input" : prot_input_filepath, "nuc_input" : nuc_input_filepath, "duplicates" : protein_dupe_output_filepath, "nucleotide_duplicates" : nuc_dupe_output_filepath },
+		dag=dag,
+	)
+
+    mark_raw_dupes_task = PythonOperator(
+        task_id=f'mark_duplicates_{gene}',
+        python_callable=mark_duplicates,
+        op_kwargs={ "dupe_input" : nuc_dupe_output_filepath, "gene": gene },
+        dag=dag,
+    )
+
     i += 1
-    pre_msa_tasks.append(export_missing >> populated_check_task >> pre_msa >> [import_premsa_seqs, mark_troubled_task] >> mark_premsa_dupes_task)
+    pre_msa_tasks.append(export_missing >> populated_check_task >> pre_msa >> [import_premsa_seqs, mark_troubled_task, compute_raw_duplicates_task] >> mark_premsa_dupes_task >> mark_raw_dupes_task)
 
 dag.doc_md = __doc__
 pre_msa_tasks

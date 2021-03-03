@@ -15,15 +15,6 @@ from pymongo import MongoClient, InsertOne, DeleteMany, ReplaceOne, UpdateOne, U
 
 def update_dupe_records(dupes, reference, gene):
 
-    # nuc_seq_str = str(nuc_seq.seq)
-    # prot_seq_str = str(prot_seq.seq)
-
-    # db.restaurant.updateMany(
-    #    { violations: { $gt: 4 } },
-    #    { $set: { "Review" : true } }
-    # );
-
-
     # Duplicates are computed by gene
     dupe_key = ".".join(["duplicate_of_by_gene", gene])
     dupe_val = { dupe_key : reference }

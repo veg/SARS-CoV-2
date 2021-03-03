@@ -42,6 +42,16 @@ TRIM_FROM=$3
 TRIM_TO=$4
 N_FRAC=$5
 
+BIGDATA_MEME_FLAGS=''
+BIGDATA_FEL_FLAGS=''
+
+if [[ "$GENE" == "nsp3" ]]
+then
+    BIGDATA_MEME_FLAGS='--full-model No'
+    BIGDATA_FEL_FLAGS='--full-model No'
+fi
+
+
 if [ -s ${FILE}.${GENE}.json ]
 then 
    echo "$GENE alignment already processed"
@@ -64,8 +74,8 @@ else
     then
         echo "Already extracted"
     else
-        echo "$PYTHON python/get-raw-duplicates.py -i ${FILE}.${GENE}_protein.fas -m ${FILE}.${GENE}_nuc.fas -o ${FILE}.${GENE}_protein.compressed.fas -n ${FILE}.${GENE}_nuc.compressed.fas -d ${FILE}.${GENE}_protein.duplicates.json -g ${FILE}.${GENE}_raw_nucleotide.duplicates.json"
-        $PYTHON python/get-raw-duplicates.py -i ${FILE}.${GENE}_protein.fas -m ${FILE}.${GENE}_nuc.fas -o ${FILE}.${GENE}_protein.compressed.fas -n ${FILE}.${GENE}_nuc.compressed.fas -d ${FILE}.${GENE}_protein.duplicates.json -g ${FILE}.${GENE}_raw_nucleotide.duplicates.json
+        echo "$PYTHON python/get_raw_duplicates.py -i ${FILE}.${GENE}_protein.fas -m ${FILE}.${GENE}_nuc.fas -o ${FILE}.${GENE}_protein.compressed.fas -n ${FILE}.${GENE}_nuc.compressed.fas -d ${FILE}.${GENE}_protein.duplicates.json -g ${FILE}.${GENE}_raw_nucleotide.duplicates.json"
+        $PYTHON python/get_raw_duplicates.py -i ${FILE}.${GENE}_protein.fas -m ${FILE}.${GENE}_nuc.fas -o ${FILE}.${GENE}_protein.compressed.fas -n ${FILE}.${GENE}_nuc.compressed.fas -d ${FILE}.${GENE}_protein.duplicates.json -g ${FILE}.${GENE}_raw_nucleotide.duplicates.json
     fi
 
     echo "ALIGNING PROTEIN DATA"
@@ -164,16 +174,16 @@ else
     then
         echo "Already has FEL results"
     else
-        echo mpirun -np $NP $HYPHYMPI LIBPATH=$HYPHYLIBPATH fel $ZERO_LENGTHS_FLAGS --alignment ${FILE}.${GENE}.compressed.filtered.fas --tree ${FILE}.${GENE}.compressed.filtered.fas.rapidnj.bestTree --branches Internal --output ${FILE}.${GENE}.FEL.json
-        mpirun -np $NP $HYPHYMPI LIBPATH=$HYPHYLIBPATH fel $ZERO_LENGTHS_FLAGS --alignment ${FILE}.${GENE}.compressed.filtered.fas --tree ${FILE}.${GENE}.compressed.filtered.fas.rapidnj.bestTree --branches Internal --output ${FILE}.${GENE}.FEL.json
+        echo mpirun -np $NP $HYPHYMPI LIBPATH=$HYPHYLIBPATH fel $ZERO_LENGTHS_FLAGS $BIGDATA_FEL_FLAGS --alignment ${FILE}.${GENE}.compressed.filtered.fas --tree ${FILE}.${GENE}.compressed.filtered.fas.rapidnj.bestTree --branches Internal --output ${FILE}.${GENE}.FEL.json
+        mpirun -np $NP $HYPHYMPI LIBPATH=$HYPHYLIBPATH fel $ZERO_LENGTHS_FLAGS $BIGDATA_FEL_FLAGS --alignment ${FILE}.${GENE}.compressed.filtered.fas --tree ${FILE}.${GENE}.compressed.filtered.fas.rapidnj.bestTree --branches Internal --output ${FILE}.${GENE}.FEL.json
     fi
 
     if [ -s ${FILE}.${GENE}.MEME.json ] 
     then
         echo "Already has MEME results"
     else
-        echo mpirun -np $NP $HYPHYMPI LIBPATH=$HYPHYLIBPATH meme $ZERO_LENGTHS_FLAGS --alignment ${FILE}.${GENE}.compressed.filtered.fas --tree ${FILE}.${GENE}.compressed.filtered.fas.rapidnj.bestTree --branches Internal --output ${FILE}.${GENE}.MEME.json
-        mpirun -np $NP $HYPHYMPI LIBPATH=$HYPHYLIBPATH meme $ZERO_LENGTHS_FLAGS --alignment ${FILE}.${GENE}.compressed.filtered.fas --tree ${FILE}.${GENE}.compressed.filtered.fas.rapidnj.bestTree --branches Internal --output ${FILE}.${GENE}.MEME.json
+        echo mpirun -np $NP $HYPHYMPI LIBPATH=$HYPHYLIBPATH meme $ZERO_LENGTHS_FLAGS $BIGDATA_MEME_FLAGS --alignment ${FILE}.${GENE}.compressed.filtered.fas --tree ${FILE}.${GENE}.compressed.filtered.fas.rapidnj.bestTree --branches Internal --output ${FILE}.${GENE}.MEME.json
+        mpirun -np $NP $HYPHYMPI LIBPATH=$HYPHYLIBPATH meme $ZERO_LENGTHS_FLAGS $BIGDATA_MEME_FLAGS --alignment ${FILE}.${GENE}.compressed.filtered.fas --tree ${FILE}.${GENE}.compressed.filtered.fas.rapidnj.bestTree --branches Internal --output ${FILE}.${GENE}.MEME.json
     fi
 
     #if [ -s ${FILE}.${GENE}.FUBAR.json ] 
