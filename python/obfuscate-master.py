@@ -28,7 +28,9 @@ record_data = {
     'subregion' : {},
     'country': {},
     'state': {},
-    'locality' : {}
+    'locality' : {},
+    'pangolinLineage' : {},
+    'nextstrainClade' : {}
 }
 
 id_map = []
@@ -48,14 +50,17 @@ for i,id in enumerate (id_map):
 settings.map.truncate (0)
 
 loc_tags = ['subregion', 'country', 'state', 'locality']
-field_order = ['date', 'subregion', 'country', 'state', 'locality']
+field_order = ['date', 'subregion', 'country', 'state', 'locality','pangolinLineage','nextstrainClade']
 
 now = datetime.datetime.now()
 
 for id, record in db.items():
     date_check = None
     try:
-        date_check = datetime.datetime.strptime (record['collected'],date_parse_format_db)
+        if 'collected' in record:
+            date_check = datetime.datetime.strptime (record['collected'],date_parse_format_db)
+        if 'originalCollected' in record:
+            date_check = datetime.datetime.strptime (record['originalCollected'],date_parse_format_db)
         if date_check.year < 2019 or date_check.year == 2019 and date_check.month < 10 or date_check >= now or (date_check.year == 2020 and date_check.month == 1 and date_check.day == 1): 
             date_check = None
         else: 
@@ -79,12 +84,25 @@ for id, record in db.items():
         for i,k in enumerate (loc_tags):
             loc_data [i] = record['location'][k]
             
+            
     for i,k in enumerate (loc_tags):
         record[k] = loc_data[i]
         if loc_data[i] in record_data[k]:
             record_data[k][loc_data[i]] += 1
         else:
             record_data[k][loc_data[i]]  = 1
+
+    for key in ['pangolinLineage','nextstrainClade']:
+        lineage = None
+        if key in record:
+            lineage = record[key]
+        else:
+            record[key] = None
+        
+        if lineage in record_data[key]:
+            record_data[key][lineage]  += 1
+        else:
+            record_data[key][lineage] = 1
             
     
 for field in field_order:
