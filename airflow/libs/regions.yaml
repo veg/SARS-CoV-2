@@ -1,0 +1,162 @@
+S:
+    reference: reference_genes/S.fas
+    trim_from: 20000 
+    trim_to: 27000 
+    fraction: 0.005
+
+M:
+    reference: reference_genes/M.fas
+    trim_from: 25000 
+    trim_to: 30000 
+    fraction: 0.01
+
+N:
+    reference: reference_genes/N.fas
+    trim_from: 26000 
+    trim_to: 35000 
+    fraction: 0.01
+
+E:
+    reference: reference_genes/E.fas
+    trim_from: 25500 
+    trim_to: 27000 
+    fraction: 0.01
+
+ORF3a:
+    reference: reference_genes/ORF3a.fas
+    trim_from: 24000 
+    trim_to: 27000 
+    fraction: 0.01
+
+ORF6:
+    reference: reference_genes/ORF6.fas
+    trim_from: 26000 
+    trim_to: 30000 
+    fraction: 0.01
+
+ORF7a:
+    reference: reference_genes/ORF7a.fas
+    trim_from: 26000 
+    trim_to: 35000 
+    fraction: 0.01
+
+#ORF7b:
+#    reference: reference_genes/ORF7b.fas
+#    trim_from: 27500 
+#    trim_to: 28000 
+#    fraction: 0.01
+
+ORF8:
+    reference: reference_genes/ORF8.fas
+    trim_from: 26000 
+    trim_to: 35000 
+    fraction: 0.01
+
+#ORF10:
+#    reference: reference_genes/ORF10.fas
+#    trim_from: 29500 
+#    trim_to: 29800 
+#    fraction: 0.01
+
+#ORF1a:
+#    reference: reference_genes/ORF1a.fas
+#    trim_from: 1 
+#    trim_to: 15000 
+#    fraction: 0.001
+
+#ORF1b:
+#    reference: reference_genes/ORF1b.fas
+#    trim_from: 12000 
+#    trim_to: 24000 
+#    fraction: 0.001
+
+leader:
+    reference: reference_genes/leader.fas
+    trim_from: 1 
+    trim_to: 1000 
+    fraction: 0.001
+
+nsp2:
+    reference: reference_genes/nsp2.fas
+    trim_from: 500 
+    trim_to: 3000 
+    fraction: 0.001
+
+nsp3:
+    reference: reference_genes/nsp3.fas
+    trim_from: 2000 
+    trim_to: 10000 
+    fraction: 0.001
+
+nsp4:
+    reference: reference_genes/nsp4.fas
+    trim_from: 8000 
+    trim_to: 11000 
+    fraction: 0.001
+
+3C:
+    reference: reference_genes/3C.fas
+    trim_from: 9000 
+    trim_to: 12000 
+    fraction: 0.001
+
+nsp6:
+    reference: reference_genes/nsp6.fas
+    trim_from: 10500 
+    trim_to: 12500 
+    fraction: 0.001
+
+nsp7:
+    reference: reference_genes/nsp7.fas
+    trim_from: 11500 
+    trim_to: 12500 
+    fraction: 0.001
+
+nsp8:
+    reference: reference_genes/nsp8.fas
+    trim_from: 11500 
+    trim_to: 13000 
+    fraction: 0.001
+
+nsp9:
+    reference: reference_genes/nsp9.fas
+    trim_from: 12000 
+    trim_to: 13500 
+    fraction: 0.001
+
+nsp10:
+    reference: reference_genes/nsp10.fas
+    trim_from: 12500 
+    trim_to: 14000 
+    fraction: 0.001
+
+RdRp:
+    reference: reference_genes/RdRp.fas
+    trim_from: 13000 
+    trim_to: 17000 
+    fraction: 0.001
+
+helicase:
+    reference: reference_genes/helicase.fas
+    trim_from: 15500 
+    trim_to: 18500 
+    fraction: 0.001
+
+exonuclease:
+    reference: reference_genes/exonuclease.fas
+    trim_from: 17500 
+    trim_to: 20000 
+    fraction: 0.001
+
+endornase:
+    reference: reference_genes/endornase.fas
+    trim_from: 19000 
+    trim_to: 21000 
+    fraction: 0.001
+
+methyltransferase:
+    reference: reference_genes/methyltransferase.fas
+    trim_from: 20000 
+    trim_to: 22000 
+    fraction: 0.001
+

@@ -1,16 +1,16 @@
 #!/bin/bash
-#fdate=$(date +"%Y-%m-%d")
-fdate=$1
-#fdate="2021-01-07"
+fdate=$(date +"%Y-%m-%d")
+#fdate=$1
+#fdate="2021-02-23"
 
 FQUEUE='epyc2'
 QUEUE='epyc'
 OUTPUT_DIR=`pwd`/logs/$fdate/
 #BASE_DIR="/data/shares/veg/SARS-CoV-2/SARS-CoV-2-devel"
 BASE_DIR=`pwd`
-mkdir $OUTPUT_DIR
+mkdir -p $OUTPUT_DIR
 
-SMALLPPN=16
+SMALLPPN=32
 LARGEPPN=64
 
 # Gene

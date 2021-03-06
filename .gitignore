@@ -1,7 +1,6 @@
 env/
 data/fasta
 *.log
-*.txt
 hosts
 *.log*
 *.btr
@@ -36,3 +35,8 @@ data/to-import
 
 python/obfuscate-master.py
 data/db/
+*.csv
+js/get_metadata.js
+js/get_seqs.js
+__pycache__
+data
