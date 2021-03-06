@@ -1,7 +1,6 @@
 env/
 data/fasta
 *.log
-*.txt
 hosts
 *.log*
 *.btr
