@@ -66,7 +66,7 @@ for i in ${!genes[@]}; do
     #    $MAFFT --add data/reference_genes/${GENE}.fas --reorder ${FILE}.${GENE}.compressed.fas > ${FILE}.${GENE}.withref.fas
     #    cp ${FILE}.${GENE}.withref.fas ${FILE}.${GENE}.bkup.withref.fas
     #fi 
-    python3 python/summarize-gene.py -T data/ctl/epitopes.json -D data/db/master-no-fasta.json --frame_shift ${ADDSHIFT} -d ${FILE}.${GENE}.duplicates.json -u ${FILE}.${GENE}.compressed.fas.FUBAR.json -s ${FILE}.${GENE}.SLAC.json -f ${FILE}.${GENE}.FEL.json -m ${FILE}.${GENE}.MEME.json -P 0.1 --output  ${FILE}.${GENE}.json -c ${FILE}.${GENE}.compressed.fas -E data/evo_annotation.json -F $FRAGMENT -A data/mafs.csv -V data/evo_freqs.csv --fragment_shift $SHIFT -S $OFFSET -O $ANNOTATION > ${FILE}.${GENE}.json
+    python3 python/summarize_gene.py -T data/ctl/epitopes.json -D data/db/master-no-fasta.json --frame_shift ${ADDSHIFT} -d ${FILE}.${GENE}.duplicates.json -u ${FILE}.${GENE}.compressed.fas.FUBAR.json -s ${FILE}.${GENE}.SLAC.json -f ${FILE}.${GENE}.FEL.json -m ${FILE}.${GENE}.MEME.json -P 0.1 --output  ${FILE}.${GENE}.json -c ${FILE}.${GENE}.compressed.fas -E data/evo_annotation.json -F $FRAGMENT -A data/mafs.csv -V data/evo_freqs.csv --fragment_shift $SHIFT -S $OFFSET -O $ANNOTATION > ${FILE}.${GENE}.json
 done;
 
 cp $ANNOTATION data/comparative-annotation.json

@@ -82,7 +82,7 @@ import_tsv = BashOperator(
 
 update_mongo_with_sequences = BashOperator(
     task_id='update_with_sequences',
-    bash_command='for x in $(ls {{ params.import_dir }}/*.fasta); do python3 {{ params.working_dir }}/python/update-with-sequence-name.py -i $x; done;',
+    bash_command='for x in $(ls {{ params.import_dir }}/*.fasta); do python3 {{ params.working_dir }}/python/update_with_sequence_name.py -i $x; done;',
     dag=dag,
 )
 

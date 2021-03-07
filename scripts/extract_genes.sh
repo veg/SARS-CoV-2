@@ -86,7 +86,7 @@ else
         echo "$MAFFT --auto --thread -1 --addfragments ${FILE}.${GENE}_protein.compressed.fas reference_genes/reference.${GENE}_protein.fas >| ${FILE}.${GENE}.tmp.msa"
         $MAFFT --auto --thread -1 --addfragments ${FILE}.${GENE}_protein.compressed.fas reference_genes/reference.${GENE}_protein.fas >| ${FILE}.${GENE}.tmp.msa 
         # Remove reference from output
-        $PYTHON python/remove-seq.py -i ${FILE}.${GENE}.tmp.msa -r reference_genes/reference.${GENE}_protein.fas -o ${FILE}.${GENE}.msa
+        $PYTHON python/remove_seq.py -i ${FILE}.${GENE}.tmp.msa -r reference_genes/reference.${GENE}_protein.fas -o ${FILE}.${GENE}.msa
         rm ${FILE}.${GENE}.tmp.msa 
     fi
         
@@ -105,12 +105,12 @@ else
     then
         echo "Already MERGED"
     else
-        echo "$PYTHON python/merge-duplicates.py -p ${FILE}.${GENE}_raw_nucleotide.duplicates.json -n ${FILE}.${GENE}_nucleotide.duplicates.json -o ${FILE}.${GENE}.duplicates.json"
-        $PYTHON python/merge-duplicates.py -p ${FILE}.${GENE}_raw_nucleotide.duplicates.json -n ${FILE}.${GENE}_nucleotide.duplicates.json -o ${FILE}.${GENE}.duplicates.json
+        echo "$PYTHON python/merge_duplicates.py -p ${FILE}.${GENE}_raw_nucleotide.duplicates.json -n ${FILE}.${GENE}_nucleotide.duplicates.json -o ${FILE}.${GENE}.duplicates.json"
+        $PYTHON python/merge_duplicates.py -p ${FILE}.${GENE}_raw_nucleotide.duplicates.json -n ${FILE}.${GENE}_nucleotide.duplicates.json -o ${FILE}.${GENE}.duplicates.json
         # Fix duplicates 
-        $PYTHON python/fix-duplicates.py -d ${FILE}.${GENE}.duplicates.json -m ${FILE}.${GENE}.map.json -o
+        $PYTHON python/fix_duplicates.py -d ${FILE}.${GENE}.duplicates.json -m ${FILE}.${GENE}.map.json -o
         # Fix header files
-        $PYTHON python/update-fasta-duplicates.py -f ${FILE}.${GENE}.compressed.fas -m ${FILE}.${GENE}.map.json
+        $PYTHON python/update_fasta_duplicates.py -f ${FILE}.${GENE}.compressed.fas -m ${FILE}.${GENE}.map.json
     fi
 
     echo "FILTERING ALIGNMENT"
@@ -138,8 +138,8 @@ else
     #    echo "Already computed TN93"
     #else
     #    $TN93 -q -t 0.05 ${FILE}.${GENE}.compressed.filtered.fas > ${FILE}.${GENE}.tn93 2> ${FILE}.${GENE}.tn93.json
-    #    echo $PYTHON $WORKING_DIR/python/tabulate-diversity-divergence.py -j $MASTER -t ${FILE}.${GENE}.tn93 > $DIRECTORY/evolution.${GENE}.csv
-    #    $PYTHON $WORKING_DIR/python/tabulate-diversity-divergence.py -j $MASTER -t ${FILE}.${GENE}.tn93 > $DIRECTORY/evolution.${GENE}.csv
+    #    echo $PYTHON $WORKING_DIR/python/tabulate_diversity_divergence.py -j $MASTER -t ${FILE}.${GENE}.tn93 > $DIRECTORY/evolution.${GENE}.csv
+    #    $PYTHON $WORKING_DIR/python/tabulate_diversity_divergence.py -j $MASTER -t ${FILE}.${GENE}.tn93 > $DIRECTORY/evolution.${GENE}.csv
     #fi
 
     if [ -s ${FILE}.${GENE}.compressed.filtered.fas.rapidnj.bestTree ] 
@@ -223,8 +223,8 @@ else
     ANNOTATION=${FILE}.annotation.json
     cp data/comparative-annotation.json ${ANNOTATION}
 
-    echo "$PYTHON $WORKING_DIR/python/summarize-gene.py -T data/ctl/epitopes.json -B data/single_mut_effects.csv -D $MASTERNOFASTA -d ${FILE}.${GENE}.duplicates.json -s ${FILE}.${GENE}.SLAC.json -f ${FILE}.${GENE}.FEL.json -m ${FILE}.${GENE}.MEME.json -P 0.1 --output  ${FILE}.${GENE}.json -c ${FILE}.${GENE}.compressed.filtered.fas -E data/evo_annotation.json -A data/mafs.csv -V data/evo_freqs.csv -F $FRAGMENT --frame_shift ${ADDSHIFT} --fragment_shift $SHIFT -S $OFFSET -O $ANNOTATION"
-    $PYTHON $WORKING_DIR/python/summarize-gene.py -T data/ctl/epitopes.json -B data/single_mut_effects.csv -D $MASTERNOFASTA -d ${FILE}.${GENE}.duplicates.json -s ${FILE}.${GENE}.SLAC.json -f ${FILE}.${GENE}.FEL.json -m ${FILE}.${GENE}.MEME.json -P 0.1 --output  ${FILE}.${GENE}.json -c ${FILE}.${GENE}.compressed.filtered.fas -E data/evo_annotation.json -A data/mafs.csv -V data/evo_freqs.csv -F $FRAGMENT --frame_shift ${ADDSHIFT} --fragment_shift $SHIFT -S $OFFSET -O $ANNOTATION
+    echo "$PYTHON $WORKING_DIR/python/summarize_gene.py -T data/ctl/epitopes.json -B data/single_mut_effects.csv -D $MASTERNOFASTA -d ${FILE}.${GENE}.duplicates.json -s ${FILE}.${GENE}.SLAC.json -f ${FILE}.${GENE}.FEL.json -m ${FILE}.${GENE}.MEME.json -P 0.1 --output  ${FILE}.${GENE}.json -c ${FILE}.${GENE}.compressed.filtered.fas -E data/evo_annotation.json -A data/mafs.csv -V data/evo_freqs.csv -F $FRAGMENT --frame_shift ${ADDSHIFT} --fragment_shift $SHIFT -S $OFFSET -O $ANNOTATION"
+    $PYTHON $WORKING_DIR/python/summarize_gene.py -T data/ctl/epitopes.json -B data/single_mut_effects.csv -D $MASTERNOFASTA -d ${FILE}.${GENE}.duplicates.json -s ${FILE}.${GENE}.SLAC.json -f ${FILE}.${GENE}.FEL.json -m ${FILE}.${GENE}.MEME.json -P 0.1 --output  ${FILE}.${GENE}.json -c ${FILE}.${GENE}.compressed.filtered.fas -E data/evo_annotation.json -A data/mafs.csv -V data/evo_freqs.csv -F $FRAGMENT --frame_shift ${ADDSHIFT} --fragment_shift $SHIFT -S $OFFSET -O $ANNOTATION
 
     #if [ -s ${FILE}.${GENE}.BGM.json ] 
     #then
