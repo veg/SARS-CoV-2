@@ -21,8 +21,8 @@ if p not in sys.path:
     sys.path.append(p)
 
 from export_sequences import export_sequences, export_premsa_sequences
-from export_meta import export_meta
 from export_duplicates import export_duplicates
+from export_meta import export_meta
 
 WORKING_DIR = Variable.get("WORKING_DIR")
 

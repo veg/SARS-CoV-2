@@ -25,6 +25,7 @@ if p not in sys.path:
     sys.path.append(p)
 
 from export_sequences import export_sequences, export_premsa_sequences
+from export_duplicates import export_duplicates
 from export_meta import export_meta
 
 WORKING_DIR = Variable.get("WORKING_DIR")
@@ -103,8 +104,11 @@ for gene in regions.keys():
 
     nuc_sequence_output = WORKING_DIR + "/data/fasta/" + default_args["params"]["date"] + '/sequences.' + gene + '_nuc.fas'
     prot_sequence_output = WORKING_DIR + "/data/fasta/" + default_args["params"]["date"] + '/sequences.' + gene + '_protein.fas'
+    duplicate_output = WORKING_DIR + "/data/fasta/" + default_args["params"]["date"] + '/sequences.' + gene + '.duplicates.json'
+
     default_args["params"]["nuc-sequence-output"] = nuc_sequence_output
     default_args["params"]["prot-sequence-output"] = prot_sequence_output
+    default_args["params"]["duplicate-output"] = duplicate_output
 
     export_premsa_sequence = PythonOperator(
             task_id=f'export_premsa_sequences_{gene}',
@@ -113,7 +117,16 @@ for gene in regions.keys():
             dag=dag,
         )
 
+    export_duplicates_task = PythonOperator(
+        task_id=f'export_duplicates_{gene}',
+        python_callable=export_duplicates,
+        op_kwargs={ 'output_fn' : duplicate_output, 'gene': gene },
+        dag=dag,
+    )
+
+
     export_by_gene.append(export_premsa_sequence)
+    export_by_gene.append(export_duplicates_task)
 
 
 dag.doc_md = __doc__
