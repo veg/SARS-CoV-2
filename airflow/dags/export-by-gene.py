@@ -26,7 +26,7 @@ from export_sequences import export_sequences, export_premsa_sequences
 from export_meta import export_meta
 
 
-WORKING_DIR = "/data/shares/veg/SARS-CoV-2/SARS-CoV-2-devel/"
+WORKING_DIR = Variable.get("WORKING_DIR")
 
 
 default_args = {
@@ -99,6 +99,14 @@ export_meta = PythonOperator(
         dag=dag,
     )
 
+export_duplicates = PythonOperator(
+        task_id='export_duplicates',
+        python_callable=export_duplicates,
+        op_kwargs={ "config" : default_args['params'] },
+        dag=dag,
+    )
+
+
 # For each region
 
 export_by_gene = PythonOperator(
@@ -117,5 +125,5 @@ Exports by specific gene
 """
 
 # Add export meta and export sequence tasks to be executed in parallel
-mk_dir >> [export_meta, export_by_gene]
+mk_dir >> [export_meta, export_duplicates, export_by_gene]
 
