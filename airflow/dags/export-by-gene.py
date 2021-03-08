@@ -9,9 +9,7 @@ from airflow.operators.bash import BashOperator
 from airflow.operators.python import PythonOperator
 from airflow.utils.dates import days_ago
 from airflow.hooks.base import BaseHook
-# These args will get passed on to each operator
-# You can override them on a per-task basis during operator initialization
-
+from airflow.models import Variable
 from libs.callbacks import task_fail_slack_alert, task_success_slack_alert
 
 import os
@@ -24,10 +22,9 @@ if p not in sys.path:
 
 from export_sequences import export_sequences, export_premsa_sequences
 from export_meta import export_meta
-
+from export_duplicates import export_duplicates
 
 WORKING_DIR = Variable.get("WORKING_DIR")
-
 
 default_args = {
     'owner': 'sweaver',
@@ -64,9 +61,10 @@ default_args = {
 gene = default_args["params"]["gene"]
 directory_output = WORKING_DIR + "/data/" + gene + "/" + default_args["params"]["date"]
 
-default_args["params"]["meta-output"] = directory_output  + '/master-no-sequences.json'
-default_args["params"]["sequence-output"] = directory_output + '/sequences'
 default_args["params"]["directory"] = directory_output
+default_args["params"]["sequence-output"] = directory_output + '/sequences'
+default_args["params"]["meta-output"] = directory_output  + '/master-no-sequences.json'
+default_args["params"]["duplicate-output"] = directory_output  + '/duplicates.json'
 
 nuc_sequence_output = default_args["params"]["directory"] + '/sequences_nuc.fas'
 prot_sequence_output = default_args["params"]["directory"] + '/sequences_protein.fas'
@@ -86,44 +84,41 @@ dag = DAG(
 with open(dag.params["region_cfg"], 'r') as stream:
     regions = yaml.safe_load(stream)
 
-mk_dir = BashOperator(
+mk_dir_task = BashOperator(
     task_id='make_directory',
     bash_command='mkdir -p {{params.directory}}',
     dag=dag,
 )
 
-export_meta = PythonOperator(
+export_meta_task = PythonOperator(
         task_id='export_meta',
         python_callable=export_meta,
         op_kwargs={ "config" : default_args['params'] },
         dag=dag,
     )
 
-export_duplicates = PythonOperator(
-        task_id='export_duplicates',
+export_duplicates_task = PythonOperator(
+        task_id=f'export_duplicates_{default_args["params"]["gene"]}',
         python_callable=export_duplicates,
-        op_kwargs={ "config" : default_args['params'] },
+        op_kwargs={ 'output_fn' : default_args['params']['duplicate-output'], 'gene': default_args['params']['gene'] },
         dag=dag,
     )
 
-
 # For each region
-
-export_by_gene = PythonOperator(
+export_by_gene_task = PythonOperator(
         task_id=f'export_premsa_sequences_{default_args["params"]["gene"]}',
         python_callable=export_premsa_sequences,
         op_kwargs={ "config" : default_args['params'], 'nuc_output_fn':  nuc_sequence_output, 'prot_output_fn' : prot_sequence_output, 'gene' : gene },
         dag=dag,
     )
 
-
 dag.doc_md = __doc__
 
-export_by_gene.doc_md = """\
-#### Task Documentation
+export_by_gene_task.doc_md = """\
+# Task Documentation
 Exports by specific gene
 """
 
 # Add export meta and export sequence tasks to be executed in parallel
-mk_dir >> [export_meta, export_duplicates, export_by_gene]
+mk_dir_task >> [export_meta_task, export_duplicates_task, export_by_gene_task]
 
