@@ -1,7 +1,7 @@
 #!/bin/bash
-fdate=$(date +"%Y-%m-%d")
+#fdate=$(date +"%Y-%m-%d")
 #fdate=$1
-#fdate="2021-02-23"
+fdate="2021-03-06"
 
 FQUEUE='epyc2'
 QUEUE='epyc'

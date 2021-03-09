@@ -21,7 +21,7 @@ def get_duplicates(records, gene):
     for rec in records:
         if 'duplicate_of_by_gene' not in rec.keys():
             references[rec['id']] = []
-        elif 'S' not in rec['duplicate_of_by_gene'].keys():
+        elif gene not in rec['duplicate_of_by_gene'].keys():
             references[rec['id']] = []
         elif rec['duplicate_of_by_gene'][gene] == 'reference':
             references[rec['id']] = []
