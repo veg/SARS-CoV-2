@@ -29,7 +29,11 @@ def get_duplicates(records, gene):
             duplicates.append((rec['id'], rec['duplicate_of_by_gene'][gene]))
 
     for dupe in duplicates:
-        references[dupe[1]].append(dupe[0])
+        try:
+            references[dupe[1]].append(dupe[0])
+        except:
+            print(dupe[1] + " not in references, which means there was a circular or non-root reference somewhere. Adding it to list of references, but please take care.")
+            references[dupe[1]] = [dupe[0]]
 
     return references
 
