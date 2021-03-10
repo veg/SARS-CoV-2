@@ -38,6 +38,7 @@ def sequence_name(record):
         fields = [record['id'], location(record), value_or_null(record['originalCollected']), value_or_null(record['technology'])]
     else:
         fields = [record['id'], location(record), value_or_null(record['collected']), value_or_null(record['technology'])]
+
     return unicodedata.normalize('NFKD', "/".join (fields))
 
 def export_sequences(config):
@@ -77,8 +78,9 @@ def export_sequences(config):
 def export_premsa_sequences(config, nuc_output_fn, prot_output_fn, gene):
     '''
     config
+    nuc_output_fn -- nucleotide output filename
+    protein_output_fn -- protein output filename
     gene -- 'region of SARS-CoV-2
-    type -- 'nucleotide' or 'protein'
     '''
 
     db = MongoClient(host='192.168.0.4')
@@ -134,6 +136,48 @@ def export_premsa_sequences(config, nuc_output_fn, prot_output_fn, gene):
     with open(prot_output_fn, 'w', encoding='utf-8') as nuc_output_fh:
         SeqIO.write(prot_seq_records, nuc_output_fh, "fasta")
 
+def export_postmsa_sequences(config, output_fn, gene):
+    '''
+    config
+    output_fn = output filename
+    gene -- 'region of SARS-CoV-2
+    '''
+
+    db = MongoClient(host='192.168.0.4')
+
+    acceptable = ['collected', 'originalCollected', 'host', 'id', 'location', 'name', 'technology', 'type', 'nextstrainClade', 'pangolinLineage', 'gisaidClade']
+    HOST= "Human"
+    MINLENGTH=28000
+    key_to_export = ''
+
+    duplicate_key = 'duplicate_of_by_gene.' + gene
+    duplicate_val = [ {duplicate_key:{"$exists":False}}, {duplicate_key:'reference'} ]
+
+    key_to_export = ".".join(["reference_alignment", gene])
+
+    acceptable.extend([key_to_export])
+    mongo_query = { "host" : HOST,  key_to_export : {"$exists": True }, "$or": duplicate_val}
+
+    if("clade-type" in config.keys()):
+        clade_type = config["clade-type"]
+    else:
+        clade_type = "pangolinLineage"
+
+    if("clades" in config.keys()):
+        mongo_query[clade_type] = { "$in": config["clades"] }
+    elif("ignore-clades" in config.keys()):
+        mongo_query[clade_type] = { "$nin": config["ignore-clades"] }
+
+    # Query for human host and sequence length greater than 28000, and sequence populated
+    records = list(db.gisaid.records.find(mongo_query))
+
+    # Filter sequences down to those that have been processed
+    seq_records = [SeqRecord(Seq(rec["reference_alignment"][gene]),id=sequence_name(rec),name='',description='') for rec in records]
+
+    # Write to fasta
+    with open(output_fn, 'w', encoding='utf-8') as output_fh:
+        SeqIO.write(seq_records, output_fh, "fasta")
+
 
 if __name__ == "__main__":
 
@@ -147,5 +191,7 @@ if __name__ == "__main__":
     # export_sequences(config)
 
     config = {}
-    export_premsa_sequences(config, 'nuc.fas', 'prot.fas', '3C')
+    #export_premsa_sequences(config, 'nuc.fas', 'prot.fas', '3C')
+    export_postmsa_sequences(config, 'aligned.fas', '3C')
+
 
