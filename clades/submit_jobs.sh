@@ -21,11 +21,14 @@ FASTA=$BASEDIR"/NYC/gisaid_hcov-19_2021_03_04_19.fasta"
 # Format FASTA headers
 echo "# Pre-processing FASTAs"
 
-awk '{ if ($0 ~ "^[^>]") {a = gensub(/[^acgt]/, "", "g"); print a;} else print;}' $FASTA > $FASTA".fa" 
-#awk '{ if ($0 ~ "^>") {sub(" ", "_"); print ;} else print;}' => replace ' ' with '_' in FASTA
-sed 's, ,_,g' -i $FASTA
-awk '{ if ($0 ~ "^>") {b=gensub(/>(.+)\|(EPI_ISL_|epi_isl_)([0-9]+)\|(.+)/, ">epi_isl_\\3/\\1","g"); print b;} else print;}' $FASTA > $FASTA".fa"
-#exit 0
+CLEAN_FASTA=$FASTA".fa"
+if [ ! -s $CLEAN_FASTA ]; then
+    awk '{ if ($0 ~ "^[^>]") {a = gensub(/[^acgt]/, "", "g"); print a;} else print;}' $FASTA > $FASTA".fa" 
+    #awk '{ if ($0 ~ "^>") {sub(" ", "_"); print ;} else print;}' => replace ' ' with '_' in FASTA
+    sed 's, ,_,g' -i $FASTA
+    awk '{ if ($0 ~ "^>") {b=gensub(/>(.+)\|(EPI_ISL_|epi_isl_)([0-9]+)\|(.+)/, ">epi_isl_\\3/\\1","g"); print b;} else print;}' $FASTA > $FASTA".fa"
+    #exit 0
+fi
 
 # Submit Jobs
 echo "# Clade specific analyses"
