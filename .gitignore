@@ -40,3 +40,5 @@ js/get_metadata.js
 js/get_seqs.js
 __pycache__
 data
+reference_genes/prealigned/
+special/

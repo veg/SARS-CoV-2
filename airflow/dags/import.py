@@ -74,6 +74,13 @@ gunzip_files = BashOperator(
     dag=dag,
 )
 
+xunzip_files = BashOperator(
+    task_id='xunzip_files',
+    bash_command='tar xvf {{ params.import_dir}}/*.tar.xz',
+    dag=dag,
+)
+
+
 import_tsv = BashOperator(
     task_id='import_tsv',
     bash_command='for x in $(ls {{ params.import_dir }}/*.tsv); do node {{ params.working_dir }}/js/submit-tsv-to-mongo.js $x; done;',
@@ -99,4 +106,4 @@ import_tsv.doc_md = """\
 IMPORT TSV FROM GISAID
 """
 
-[retrieve_meta_from_gisaid, retrieve_fasta_from_gisaid] >> gunzip_files >> import_tsv >> update_mongo_with_sequences >> mv_files
+[retrieve_meta_from_gisaid, retrieve_fasta_from_gisaid] >> gunzip_files >> xunzip_files >> import_tsv >> update_mongo_with_sequences >> mv_files

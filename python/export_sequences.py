@@ -45,7 +45,7 @@ def export_sequences(config):
 
     db = MongoClient(host='192.168.0.4')
 
-    acceptable = ['collected', 'originalCollected', 'host', 'id', 'location', 'name', 'technology', 'type', 'nextstrainClade', 'pangolinLineage', 'gisaidClade', 'seq']
+    acceptables = ['collected', 'originalCollected', 'host', 'id', 'location', 'name', 'technology', 'type', 'nextstrainClade', 'pangolinLineage', 'gisaidClade', 'seq']
     HOST= "Human"
     MINLENGTH=28000
 
@@ -59,16 +59,19 @@ def export_sequences(config):
         clade_type = "pangolinLineage"
 
     if("clades" in config.keys()):
-        # db.inventory.find ( { quantity: { $in: [20, 50] } } )
         mongo_query[clade_type] = { "$in": config["clades"] }
     elif("ignore-clades" in config.keys()):
         mongo_query[clade_type] = { "$nin": config["ignore-clades"] }
 
-    # Query for human host and sequence length greater than 28000, and sequence populated
+    db_mongo_query = db.gisaid.records.find(mongo_query, acceptables);
 
-    # LIMIT=100000
-    # LIMIT=10
-    records = list(db.gisaid.records.find(mongo_query))
+    if("get-latest-by-collection-date") in config.keys():
+        # Add sort and limit
+        limit = config["get-latest-by-collection-date"]
+        db_mongo_query = db_mongo_query.sort([("collected", -1)]).limit(limit)
+
+    # Query for human host and sequence length greater than 28000, and sequence populated
+    records = list(db_mongo_query)
     seq_records = [SeqRecord(Seq(rec["seq"]),id=sequence_name(rec),name='',description='') for rec in records]
 
     # Write to fasta
@@ -85,10 +88,14 @@ def export_premsa_sequences(config, nuc_output_fn, prot_output_fn, gene):
 
     db = MongoClient(host='192.168.0.4')
 
-    acceptable = ['collected', 'originalCollected', 'host', 'id', 'location', 'name', 'technology', 'type', 'nextstrainClade', 'pangolinLineage', 'gisaidClade']
+    acceptables = ['collected', 'originalCollected', 'host', 'id', 'location', 'name', 'technology', 'type', 'nextstrainClade', 'pangolinLineage', 'gisaidClade']
     HOST= "Human"
     MINLENGTH=28000
-    key_to_export = ''
+    only_uniques = True
+    key_to_export = ""
+
+    if("only-uniques" in config.keys()):
+        only_uniques = config["only-uniques"]
 
     # Get QC key
     validation_key = 'qc.' + gene + '.passed'
@@ -101,8 +108,12 @@ def export_premsa_sequences(config, nuc_output_fn, prot_output_fn, gene):
     nuc_key_to_export = gene + '_premsa_nuc_seq'
     prot_key_to_export = gene + '_premsa_protein_seq'
 
-    acceptable.extend([nuc_key_to_export, prot_key_to_export])
-    mongo_query = { "host" : HOST,  validation_key: True, not_duplicate_key : not_duplicate_val, "$or": second_duplicate_val}
+    mongo_query = { "host" : HOST, validation_key: True}
+    acceptables.extend([nuc_key_to_export, prot_key_to_export])
+
+    if(only_uniques):
+        mongo_query[not_duplicate_key] = not_duplicate_val
+        mongo_query["$or"] = second_duplicate_val
 
     if("clade-type" in config.keys()):
         clade_type = config["clade-type"]
@@ -112,18 +123,23 @@ def export_premsa_sequences(config, nuc_output_fn, prot_output_fn, gene):
     if("clades" in config.keys()):
         # db.inventory.find ( { quantity: { $in: [20, 50] } } )
         mongo_query[clade_type] = { "$in": config["clades"] }
+
     elif("ignore-clades" in config.keys()):
         mongo_query[clade_type] = { "$nin": config["ignore-clades"] }
 
-    # Query for human host and sequence length greater than 28000, and sequence populated
+    db_mongo_query = db.gisaid.records.find(mongo_query, acceptables)
 
-    # LIMIT=100000
-    # LIMIT=10
-    records = list(db.gisaid.records.find(mongo_query))
+    if("get-latest-by-collection-date") in config.keys():
+        # Add sort and limit
+        limit = config["get-latest-by-collection-date"]
+        db_mongo_query = db_mongo_query.sort([("collected", -1)]).limit(limit)
+
+    # Query for human host and sequence length greater than 28000, and sequence populated
+    records = list(db_mongo_query)
 
     # Filter sequences down to those that have been processed
     recs_with_nucs = filter(lambda x: nuc_key_to_export in x.keys(), records)
-    nuc_seq_records = [ SeqRecord(Seq(rec[nuc_key_to_export]),id=sequence_name(rec),name='',description='') for rec in recs_with_nucs ]
+    nuc_seq_records = [SeqRecord(Seq(rec[nuc_key_to_export]),id=sequence_name(rec),name='',description='') for rec in recs_with_nucs]
 
     recs_with_prot = filter(lambda x: prot_key_to_export in x.keys(), records)
     prot_seq_records = [SeqRecord(Seq(rec[prot_key_to_export]),id=sequence_name(rec),name='',description='') for rec in recs_with_prot]
@@ -145,7 +161,7 @@ def export_postmsa_sequences(config, output_fn, gene):
 
     db = MongoClient(host='192.168.0.4')
 
-    acceptable = ['collected', 'originalCollected', 'host', 'id', 'location', 'name', 'technology', 'type', 'nextstrainClade', 'pangolinLineage', 'gisaidClade']
+    acceptables = ['collected', 'originalCollected', 'host', 'id', 'location', 'name', 'technology', 'type', 'nextstrainClade', 'pangolinLineage', 'gisaidClade']
     HOST= "Human"
     MINLENGTH=28000
     key_to_export = ''
@@ -155,8 +171,8 @@ def export_postmsa_sequences(config, output_fn, gene):
 
     key_to_export = ".".join(["reference_alignment", gene])
 
-    acceptable.extend([key_to_export])
     mongo_query = { "host" : HOST,  key_to_export : {"$exists": True }, "$or": duplicate_val}
+    acceptables.extend([key_to_export])
 
     if("clade-type" in config.keys()):
         clade_type = config["clade-type"]
@@ -168,8 +184,15 @@ def export_postmsa_sequences(config, output_fn, gene):
     elif("ignore-clades" in config.keys()):
         mongo_query[clade_type] = { "$nin": config["ignore-clades"] }
 
+    db_mongo_query = db.gisaid.records.find(mongo_query, acceptables)
+
+    if("get-latest-by-collection-date") in config.keys():
+        # Add sort and limit
+        limit = config["get-latest-by-collection-date"]
+        db_mongo_query = db_mongo_query.sort({'collected': -1 }).limit(limit)
+
     # Query for human host and sequence length greater than 28000, and sequence populated
-    records = list(db.gisaid.records.find(mongo_query))
+    records = list(db_mongo_query)
 
     # Filter sequences down to those that have been processed
     seq_records = [SeqRecord(Seq(rec["reference_alignment"][gene]),id=sequence_name(rec),name='',description='') for rec in records]
@@ -181,17 +204,19 @@ def export_postmsa_sequences(config, output_fn, gene):
 
 if __name__ == "__main__":
 
-    # arguments = argparse.ArgumentParser(description='Report which dates have full report')
-    # arguments.add_argument('-o', '--output',   help = 'fasta output', type = str)
-    # args = arguments.parse_args()
-    # config = {"sequence-output" : args.output }
+    arguments = argparse.ArgumentParser(description='Report which dates have full report')
+    arguments.add_argument('-o', '--output',   help = 'fasta output', type = str)
+    args = arguments.parse_args()
+
+    config = {}
+    config["sequence-output"] = args.output
+    config['get-latest-by-collection-date'] = 100000
+    config['only-uniques'] = False
     # config["clades"] = ["B.1.351", "P.1"]
     # config["ignore-clades"] = ["B.1.351", "P.1", "B.1.1.7"]
     # config["clade-type"] = "pangolinLineage"
-    # export_sequences(config)
 
-    config = {}
-    #export_premsa_sequences(config, 'nuc.fas', 'prot.fas', '3C')
-    export_postmsa_sequences(config, 'aligned.fas', '3C')
-
+    export_sequences(config)
+    # export_premsa_sequences(config, 'nuc.fas', 'prot.fas', '3C')
+    # export_postmsa_sequences(config, 'aligned.fas', '3C')
 

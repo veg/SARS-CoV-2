@@ -76,7 +76,7 @@ dag = DAG(
     'export_by_gene',
     default_args=default_args,
     description='export_by_gene',
-    schedule_interval='0 11 * * 0',
+    schedule_interval='@weekly',
     start_date=datetime.datetime(2021, 2, 25),
     tags=['selection'],
 )

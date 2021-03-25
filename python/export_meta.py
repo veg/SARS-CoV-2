@@ -37,7 +37,14 @@ def export_meta(config):
     elif("ignore-clades" in config.keys()):
         mongo_query[clade_type] = { "$nin": config["ignore-clades"] }
 
-    records = list(db.gisaid.records.find(mongo_query, acceptable_dict))
+    db_mongo_query = db.gisaid.records.find(mongo_query, acceptable_dict)
+
+    if("get-latest-by-collection-date") in config.keys():
+        # Add sort and limit
+        limit = config["get-latest-by-collection-date"]
+        db_mongo_query = db_mongo_query.sort({'collected': -1 }).limit(limit)
+
+    records = list(db_mongo_query)
 
     records = [{k: v for k, v in rec.items() if k in acceptable} for rec in records]
     output_json = { row["id"] : row for row in records }
@@ -54,5 +61,6 @@ if __name__ == "__main__":
     # config["clades"] = ["B.1.351", "P.1"]
     # config["ignore-clades"] = ["B.1.351", "P.1", "B.1.1.7"]
     # config["clade-type"] = "pangolinLineage"
+    config['get-latest-by-collection-date'] = 100000
     export_meta(config)
 

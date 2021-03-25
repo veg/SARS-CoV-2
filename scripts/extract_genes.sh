@@ -10,7 +10,6 @@ export LC_CTYPE=en_US
 
 DIRECTORY=$1
 FILE=$1/sequences
-#ATTRIBUTES=$1/attributes.csv
 LOG=$1/log.txt
 MASTERNOFASTA=$1/master-no-sequences.json
 GENE=$2
@@ -21,8 +20,6 @@ HYPHYLIBPATH=/data/shares/veg/SARS-CoV-2/hyphy/res
 MAFFT=/usr/local/bin/mafft
 RAXML=/usr/local/bin/raxml-ng-mpi
 TN93=/usr/local/bin/tn93
-#PREMSA=/Users/sergei/Development/hyphy-analyses/codon-msa/pre-msa.bf
-#POSTMSA=/Users/sergei/Development/hyphy-analyses/codon-msa/post-msa.bf
 PREMSA=/data/shares/veg/SARS-CoV-2/hyphy-analyses/codon-msa/pre-msa.bf
 POSTMSA=/data/shares/veg/SARS-CoV-2/hyphy-analyses/codon-msa/post-msa.bf
 

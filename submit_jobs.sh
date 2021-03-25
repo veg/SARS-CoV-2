@@ -1,7 +1,7 @@
 #!/bin/bash
 #fdate=$(date +"%Y-%m-%d")
 #fdate=$1
-fdate="2021-03-06"
+fdate="2021-03-25-last100k-by-collection-date"
 
 FQUEUE='epyc2'
 QUEUE='epyc'

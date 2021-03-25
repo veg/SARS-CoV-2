@@ -25,8 +25,8 @@ p = os.path.abspath(str(pathlib.Path(__file__).parent.absolute()) + '/../../pyth
 if p not in sys.path:
     sys.path.append(p)
 
-
 from export_sequences_without_premsa import export_sequences
+from export_sequences import export_postmsa_sequences
 from store_premsa import store_premsa_file
 from premsa_log_parse import mark_troubled
 from mark_premsa_dupes import mark_premsa_dupes
@@ -59,8 +59,8 @@ default_args = {
     'retries': 3,
     'retry_delay': timedelta(minutes=5),
     'on_failure_callback': task_fail_slack_alert,
-    'concurrency': 5,
-    'dag_concurrency' : 5,
+    #'concurrency': 10,
+    #'dag_concurrency' : 10,
 	'max_active_runs': 1,
     # 'execution_timeout': timedelta(minutes=30),
     # 'queue': 'bash_queue',
@@ -99,8 +99,11 @@ i = 0
 
 for gene in regions.keys():
 
-    filepath = WORKING_DIR + 'data/premsa-processor/' + gene + '/sequences.' + default_args['params']['date_string'] + '.fasta'
-    stdout = WORKING_DIR + 'data/premsa-processor/' + gene + '/sequences.' + default_args['params']['date_string'] + '.stdout.log'
+    filepath_prefix = WORKING_DIR + 'data/premsa-processor/' + gene + '/sequences.' + default_args['params']['date_string']
+    filepath = filepath_prefix + '.fasta'
+    stdout = filepath_prefix  + '.stdout.log'
+    reference_output_filepath  = filepath_prefix + '.references.fasta'
+
     nuc_input_filepath = filepath + '_nuc.fas'
     nuc_dupe_output_filepath  = filepath + '_raw_nucleotide.duplicates.json'
     protein_dupe_output_filepath = filepath + '_protein.duplicates.json'

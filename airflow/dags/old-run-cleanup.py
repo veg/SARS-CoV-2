@@ -56,7 +56,7 @@ dag = DAG(
     'old_run_cleanup',
     default_args=default_args,
     description='performs selection analysis',
-    schedule_interval='0 8 0 * *',
+    schedule_interval='@weekly',
     start_date=days_ago(2),
     tags=['selection'],
 )
