@@ -80,6 +80,7 @@ then
 	$P3 ${BASE_DIR}/python/stitch_fasta.py -d $FILE -o ${FILE}.variants.json -r ${BASE_DIR}/reference_genes/sc2.mmi -m ${DATA_DIR}/map.json -c 0.00001
 fi
 
+exit 1
 
 
 genes=(leader nsp2 nsp3 nsp4 3C nsp6 nsp7 nsp8 nsp9 nsp10 helicase exonuclease endornase  S E M N ORF3a ORF6 ORF7a ORF8 RdRp methyltransferase)
