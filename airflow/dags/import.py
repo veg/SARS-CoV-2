@@ -76,7 +76,7 @@ gunzip_files = BashOperator(
 
 xunzip_files = BashOperator(
     task_id='xunzip_files',
-    bash_command='tar xvf {{ params.import_dir}}/*.tar.xz',
+    bash_command='unxz {{ params.import_dir}}/*.tar.xz && tar xvf {{ params.import_dir }}/*.tar',
     dag=dag,
 )
 

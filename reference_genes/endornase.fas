@@ -1,19 +1,19 @@
 >NC_045512.2:endoRNAse
-agtttagaaa atgtggcttt taatgttgta aataagggac actttgatgg acaacagggt
-    19681 gaagtaccag tttctatcat taataacact gtttacacaa aagttgatgg tgttgatgta
-    19741 gaattgtttg aaaataaaac aacattacct gttaatgtag catttgagct ttgggctaag
-    19801 cgcaacatta aaccagtacc agaggtgaaa atactcaata atttgggtgt ggacattgct
-    19861 gctaatactg tgatctggga ctacaaaaga gatgctccag cacatatatc tactattggt
-    19921 gtttgttcta tgactgacat agccaagaaa ccaactgaaa cgatttgtgc accactcact
-    19981 gtcttttttg atggtagagt tgatggtcaa gtagacttat ttagaaatgc ccgtaatggt
-    20041 gttcttatta cagaaggtag tgttaaaggt ttacaaccat ctgtaggtcc caaacaagct
-    20101 agtcttaatg gagtcacatt aattggagaa gccgtaaaaa cacagttcaa ttattataag
-    20161 aaagttgatg gtgttgtcca acaattacct gaaacttact ttactcagag tagaaattta
-    20221 caagaattta aacccaggag tcaaatggaa attgatttct tagaattagc tatggatgaa
-    20281 ttcattgaac ggtataaatt agaaggctat gccttcgaac atatcgttta tggagatttt
-    20341 agtcatagtc agttaggtgg tttacatcta ctgattggac tagctaaacg ttttaaggaa
-    20401 tcaccttttg aattagaaga ttttattcct atggacagta cagttaaaaa ctatttcata
-    20461 acagatgcgc aaacaggttc atctaagtgt gtgtgttctg ttattgattt attacttgat
-    20521 gattttgttg aaataataaa atcccaagat ttatctgtag tttctaaggt tgtcaaagtg
-    20581 actattgact atacagaaat ttcatttatg ctttggtgta aagatggcca tgtagaaaca
-    20641 ttttacccaa aattacaa
+AGTTTAGAAAATGTGGCTTTTAATGTTGTAAATAAGGGACACTTTGATGGACAACAGGGT
+GAAGTACCAGTTTCTATCATTAATAACACTGTTTACACAAAAGTTGATGGTGTTGATGTA
+GAATTGTTTGAAAATAAAACAACATTACCTGTTAATGTAGCATTTGAGCTTTGGGCTAAG
+CGCAACATTAAACCAGTACCAGAGGTGAAAATACTCAATAATTTGGGTGTGGACATTGCT
+GCTAATACTGTGATCTGGGACTACAAAAGAGATGCTCCAGCACATATATCTACTATTGGT
+GTTTGTTCTATGACTGACATAGCCAAGAAACCAACTGAAACGATTTGTGCACCACTCACT
+GTCTTTTTTGATGGTAGAGTTGATGGTCAAGTAGACTTATTTAGAAATGCCCGTAATGGT
+GTTCTTATTACAGAAGGTAGTGTTAAAGGTTTACAACCATCTGTAGGTCCCAAACAAGCT
+AGTCTTAATGGAGTCACATTAATTGGAGAAGCCGTAAAAACACAGTTCAATTATTATAAG
+AAAGTTGATGGTGTTGTCCAACAATTACCTGAAACTTACTTTACTCAGAGTAGAAATTTA
+CAAGAATTTAAACCCAGGAGTCAAATGGAAATTGATTTCTTAGAATTAGCTATGGATGAA
+TTCATTGAACGGTATAAATTAGAAGGCTATGCCTTCGAACATATCGTTTATGGAGATTTT
+AGTCATAGTCAGTTAGGTGGTTTACATCTACTGATTGGACTAGCTAAACGTTTTAAGGAA
+TCACCTTTTGAATTAGAAGATTTTATTCCTATGGACAGTACAGTTAAAAACTATTTCATA
+ACAGATGCGCAAACAGGTTCATCTAAGTGTGTGTGTTCTGTTATTGATTTATTACTTGAT
+GATTTTGTTGAAATAATAAAATCCCAAGATTTATCTGTAGTTTCTAAGGTTGTCAAAGTG
+ACTATTGACTATACAGAAATTTCATTTATGCTTTGGTGTAAAGATGGCCATGTAGAAACA
+TTTTACCCAAAATTACAA
