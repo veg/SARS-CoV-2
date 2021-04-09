@@ -61,29 +61,17 @@ console.log("Got " + records.length + " metadata records");
 let adaptedRecords = _.map(records, record => {
 
   // switch to just keep what was there.
-  let collectionDate = record['Collection date'];
-  let submissionDate = record['Submission date'];
+  let collectionDate = record.date;
+  let submissionDate = record.date_submitted;
 
-  let locationData = record['Location'].split('/');
-
-  let loc = { 
-    subregion : _.trim(locationData[0]), 
-    supplemental : record['Additional location information'] 
+  let loc = {
+    subregion: _.trim(record.region),
+    country: _.trim(record.country),
+    state: _.trim(record.division),
+    locality: _.trim(record.location)
   };
 
-  if(locationData.length > 1) {
-    loc['country'] = _.trim(locationData[1]);
-  }
-
-  if(locationData.length > 2) {
-    loc['state'] = _.trim(locationData[2]);
-  }
-
-  if(locationData.length > 3) {
-    loc['locality'] = _.trim(locationData[3]);
-  }
-
-  let acc = _.toLower(record['Accession ID']);
+  let acc = _.toLower(record.gisaid_epi_isl);
   let collectionDateType = '';
 
   try {
@@ -92,43 +80,35 @@ let adaptedRecords = _.map(records, record => {
 
   // Nextstrain_clade  pangolin_lineage  GISAID_clade
   let adaptedRecord = {
-    address: null,
-    genbank_accession: null,
-    age: parseInt(record['Patient age']),
+    address: record.originating_lab,
+    genbank_accession: record.genbank_accession,
+    age: parseInt(record.age),
     assembly: null,
-    authors: null,
-    isComplete : record['Is complete?'],
-    isGISAIDReference: record['Is reference?'],
-    nContent : record['N-Content'],
-    GCContent : record['GC-Content'],
+    authors: record.authors,
     collected: collectionDateType,
     originalCollected: collectionDate,
     coverage: null,
-    variant : record['Variant'],
-    aaSubstitutions : record['AA Substitutions'],
-    highCoverage: record['Is high coverage?'],
-    lowCoverage: record['Is low coverage?'],
-    length: parseInt(record['Sequence length']),
-    gender: record['Gender'],
-    sex: record['Gender'],
-    host: record['Host'],
+    length: parseInt(record.length),
+    gender: record.sex,
+    sex: record.sex,
+    host: record.host,
     id: acc,
-    lab: null,
-    originating_lab: null,
+    lab: record.originating_lab,
+    originating_lab: record.originating_lab,
     location: loc,
-    name: record['Accession ID'],
-    passage: null,
-    seqLength: parseInt(record['Sequence length']),
+    name: record.strain,
+    passage: record.e,
+    seqLength: parseInt(record.length),
     submitted: submissionDate,
     submitted: moment(submissionDate).toDate(),
     originalSubmitted: submissionDate,
-    submitter: null,
-    submitting_lab: null,
+    submitter: record.submitting_lab,
+    submitting_lab: record.submitting_lab,
     technology: null,
-    type: record['Type'],
-    pangolinLineage : record['Pango lineage'],
-    pangolinVersion : record['Pangolin version'],
-    gisaidClade : record['Clade']
+    type: null,
+    nextstrainClade : record.Nextstrain_clade,
+    pangolinLineage : record.pangolin_lineage,
+    gisaidClade : record.GISAID_clade
   };
 
   return adaptedRecord;

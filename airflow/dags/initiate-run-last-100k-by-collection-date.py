@@ -40,7 +40,7 @@ default_args = {
         'working_dir' : WORKING_DIR,
         'num_procs': 64,
         'region_cfg' : "/data/shares/veg/SARS-CoV-2/SARS-CoV-2-devel/airflow/libs/regions.yaml",
-        'meta-output' : WORKING_DIR + '/master-no-fasta.json',
+        'get-latest-by-collection-date': 100000,
         'date' : datetime.date.today().strftime('%Y-%m-%d')
     },
     'retries': 1,

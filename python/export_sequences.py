@@ -11,7 +11,7 @@ import os
 import multiprocessing
 import unicodedata
 from multiprocessing import Pool
-from datetime import date, timedelta
+from datetime import date, timedelta, datetime
 from operator import itemgetter
 from Bio import SeqIO
 from Bio.Seq import Seq
@@ -62,6 +62,11 @@ def export_sequences(config):
         mongo_query[clade_type] = { "$in": config["clades"] }
     elif("ignore-clades" in config.keys()):
         mongo_query[clade_type] = { "$nin": config["ignore-clades"] }
+
+    if("collection-date-range" in config.keys()):
+        start_date = config["collection-date-range"][0]
+        end_date = config["collection-date-range"][1]
+        mongo_query["collected"] = { "$gt": datetime.strptime(start_date, "%Y-%m-%d"), "$lt": datetime.strptime(end_date, "%Y-%m-%d") }
 
     db_mongo_query = db.gisaid.records.find(mongo_query, acceptables);
 
@@ -184,6 +189,7 @@ def export_postmsa_sequences(config, output_fn, gene):
     elif("ignore-clades" in config.keys()):
         mongo_query[clade_type] = { "$nin": config["ignore-clades"] }
 
+    mongo_query["collected"] = { "$lt": datetime.strptime("2020-11-01", "%Y-%m-%d") }
     db_mongo_query = db.gisaid.records.find(mongo_query, acceptables)
 
     if("get-latest-by-collection-date") in config.keys():
@@ -193,6 +199,7 @@ def export_postmsa_sequences(config, output_fn, gene):
 
     # Query for human host and sequence length greater than 28000, and sequence populated
     records = list(db_mongo_query)
+    print(len(records))
 
     # Filter sequences down to those that have been processed
     seq_records = [SeqRecord(Seq(rec["reference_alignment"][gene]),id=sequence_name(rec),name='',description='') for rec in records]
@@ -212,7 +219,9 @@ if __name__ == "__main__":
     config["sequence-output"] = args.output
     config['get-latest-by-collection-date'] = 100000
     config['only-uniques'] = False
-    # config["clades"] = ["B.1.351", "P.1"]
+    # config["clades"] = ["B.1.351"]
+    # config["clades"] = ["B.1.427", "B.1.429"]
+    # config["clades"] = ["B.1.1.7"]
     # config["ignore-clades"] = ["B.1.351", "P.1", "B.1.1.7"]
     # config["clade-type"] = "pangolinLineage"
 

@@ -6,13 +6,10 @@ import itertools
 import shutil
 import copy
 import os
-import multiprocessing
-from multiprocessing import Pool
 from datetime import date, timedelta
 from operator import itemgetter
 from Bio import SeqIO
 
-import pymongo
 from pymongo import MongoClient
 
 arguments = argparse.ArgumentParser(description='Report which dates have full report')
@@ -24,18 +21,23 @@ db = MongoClient(host='192.168.0.4')
 def get_missing_seqs():
     return [d['name'] for d in db.gisaid.records.find({'seq': None})]
 
+# Add 100,000 limit
 seqs = list(SeqIO.parse(args.input, 'fasta'))
 missing_names = get_missing_seqs()
+print('got ' + str(len(missing_names)) + ' missing seqs in the database')
 
 def update_record(seq):
     seq_str = str(seq.seq)
     try:
-        name = seq.description
+        name = '/'.join(seq.description.split('/')[1:3]) + '/' + ''.join(list(seq.description.split('/')[3])[:4])
     except:
         print("could not process " + seq.description)
         return
+    # Get description
     if(name in missing_names):
-        db.gisaid.records.update_one({'name': name}, {'$set': {'seq': seq_str}})
+        result = db.gisaid.records.update_one({'name': name}, {'$set': {'seq': seq_str}})
+        print('updated ' + name)
+        print(result.raw_result)
 
 cnt = 0
 for seq in seqs:

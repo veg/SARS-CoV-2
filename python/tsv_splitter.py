@@ -11,7 +11,6 @@ from multiprocessing import Pool
 from datetime import date, timedelta
 from operator import itemgetter
 from Bio import SeqIO
-from itertools import zip_longest
 
 def grouper(iterable, n, fillvalue=None):
     "Collect data into fixed-length chunks or blocks"
@@ -26,22 +25,18 @@ chunked_seqs = grouper(seqs, chunk_by)
 index = 1
 
 def write_seqs(seqs):
-    global index
     # First index is the directory
     # The second is the id
+    split = seq.description.split('|')
     sub_fn = './data/to-import/sequences.' + str(index) + '-' + str(index + chunk_by) + '.fasta'
-    index = index + chunk_by
+    index = index + chunk_by + 1
     os.makedirs(os.path.dirname(fn), exist_ok=True)
-    to_write = filter(lambda x: type(x) != type(None), seqs)
-    with open(sub_fn, "w") as f:
-        SeqIO.write(to_write, f, "fasta")
+    with open(fn, "w") as f:
+        SeqIO.write(seq, f, "fasta")
 
 
 # Write each file to directories based on headers
 cpus = multiprocessing.cpu_count()
-for chunked_seq in chunked_seqs:
-    write_seqs(chunked_seq)
-
-# with Pool(cpus) as p:
-#     p.map(write_seqs, chunked_seqs)
+with Pool(cpus) as p:
+    p.map(write_seqs, chunked_seqs)
 

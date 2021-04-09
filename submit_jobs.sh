@@ -1,10 +1,10 @@
 #!/bin/bash
 #fdate=$(date +"%Y-%m-%d")
-#fdate=$1
-fdate="2021-03-25-last100k-by-collection-date"
+fdate=$1
+#fdate="2021-04-09-last100k-by-collection-date"
 
-FQUEUE='epyc2'
-QUEUE='epyc'
+FQUEUE='priority'
+QUEUE='epyc2'
 OUTPUT_DIR=`pwd`/logs/$fdate/
 #BASE_DIR="/data/shares/veg/SARS-CoV-2/SARS-CoV-2-devel"
 BASE_DIR=`pwd`

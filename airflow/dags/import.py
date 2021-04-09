@@ -70,10 +70,9 @@ retrieve_fasta_from_gisaid = BashOperator(
 
 xunzip_files = BashOperator(
     task_id='xunzip_files',
-    bash_command='unxz {{ params.import_dir}}/*.tar.xz && tar xvf {{ params.import_dir }}/*.tar',
+    bash_command='unxz {{ params.import_dir}}/*.tar.xz; for x in $(ls -1 {{ params.import_dir }}/*.tar);do tar xvf $x; done; rm {{ params.import_dir}}/*.tar',
     dag=dag,
 )
-
 
 import_tsv = BashOperator(
     task_id='import_tsv',
