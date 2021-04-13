@@ -80,8 +80,6 @@ then
 	$P3 ${BASE_DIR}/python/stitch_fasta.py -d $FILE -o ${FILE}.variants.json -r ${BASE_DIR}/reference_genes/sc2.mmi -m ${DATA_DIR}/map.json -c 0.00001
 fi
 
-exit 1
-
 
 genes=(leader nsp2 nsp3 nsp4 3C nsp6 nsp7 nsp8 nsp9 nsp10 helicase exonuclease endornase  S E M N ORF3a ORF6 ORF7a ORF8 RdRp methyltransferase)
 offsets=(265 805 2719 8554 10054 10972 11842 12091 12685 13024 16236 18039 19620 21562 26244 26522 28273 25392 27201 27393 27893 13440 20658)
@@ -122,6 +120,8 @@ for i in ${!genes[@]}; do
     echo $GENE
     if [ -s ${FILE}.${GENE}.json ]; then
         echo  "Already done"
+        $JQ -c -s ".[0] + {\"$GENE\" : .[1]}" $OMNIBUS_FILE ${FILE}.${GENE}.json > ${OMNIBUS_FILE}.2
+        mv ${OMNIBUS_FILE}.2 ${OMNIBUS_FILE}
     else
         if $P3 ${BASE_DIR}/python/summarize-gene.py --map ${DATA_DIR}/map.json -T ${BASE_DIR}/data/ctl/epitopes.json -D ${DATA_DIR}/annotation.json --frame_shift ${ADDSHIFT} -d ${FILE}.${GENE}.duplicates.json.gz -s ${FILE}.${GENE}.SLAC.json.gz -f ${FILE}.${GENE}.FEL.json.gz -m ${FILE}.${GENE}.MEME.json.gz -P 0.05 --output  ${FILE}.${GENE}.json -c ${FILE}.${GENE}.compressed.fas -E ${BASE_DIR}/data/evo_annotation.json -F $FRAGMENT --fragment_shift $SHIFT -S $OFFSET -O $ANNOTATION > ${FILE}.${GENE}.json; then
             echo "Complete"

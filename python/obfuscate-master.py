@@ -54,6 +54,8 @@ field_order = ['date', 'subregion', 'country', 'state', 'locality','pangolinLine
 
 now = datetime.datetime.now()
 
+print ("Loaded %d records" % len (db), file = sys.stdout)
+
 for id, record in db.items():
     date_check = None
     try:

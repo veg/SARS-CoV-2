@@ -37,7 +37,8 @@ arguments.add_argument('-x', '--extras',       help = 'Insert additional sequenc
 arguments.add_argument('-r', '--reference',    help = 'Reference sequence index',            required = True, type = str)
 arguments.add_argument('-c', '--cutoff',       help = 'Only report variants reaching this count (if >= 1 or frequency if in [0-1])', required = False, type = float, default = 5)
 arguments.add_argument('-m', '--map',          help = 'EPI ID => UID map',            required = True, type = str)
-
+arguments.add_argument('--sequence_pattern',          help = 'File name pattern for sequence files',            required = False, type = str, default = ".%s.compressed.fas")
+arguments.add_argument('--duplicate_pattern',          help = 'File name pattern for duplicate lists',            required = False, type = str, default = '.%s.duplicates.json.gz')
 
 genes = ['leader','nsp2','nsp3','nsp4','3C','nsp6','nsp7','nsp8','nsp9','nsp10','RdRp','helicase','exonuclease','endornase','methyltransferase','S','ORF3a','E','M','ORF6','ORF7a','ORF8','N','ORF10']
 #genes = ['N']
@@ -104,30 +105,41 @@ consensus = []
 ci = 0
 
 def extract_id (seq_id):
-    parts = seq_id.upper().split ('_')
+    parts = seq_id.upper().split ('/')
+    parts = parts[0].upper().split ('_')
+    if len(parts) == 1:
+        return seq_id
     epi = parts.index ('EPI')
     return parts[epi+2]    
 
 for i, gene in enumerate (genes):
     local_set = {}
     
+    #print ("/".join ([import_settings.dir, import_settings.sequence_pattern % gene]))
+
     try:
-        dups = load_json_or_compressed ("".join ([import_settings.dir, ".%s.duplicates.json.gz" % gene]))
-    except FileNotFoundError as e:
-        continue
+        dups_raw = load_json_or_compressed ("/".join ([import_settings.dir, import_settings.duplicate_pattern % gene]))
+        dups = {}
+        for id, dup_list in dups_raw.items():
+            idc = mapper[extract_id(id)]
+            dups[idc] = [mapper[extract_id(k)] for k in dup_list]
+            dups[idc].append (idc)
         
+    except FileNotFoundError as e:
+        continue        
     count = 0
     
-    for seq_record in SeqIO.parse(open ("".join ([import_settings.dir, ".%s.compressed.fas" % gene]), "r"), "fasta"):
+    
+    for seq_record in SeqIO.parse(open ("/".join ([import_settings.dir, import_settings.sequence_pattern % gene]), "r"), "fasta"):
         seq_id   = seq_record.name
         seq = str (seq_record.seq).upper()
-        no_count = extract_id (seq_id)
+        no_count = mapper[extract_id (seq_id)]
         local_set [no_count] = seq
-        _copy_count = len (dups[seq_id])
-        count += len (dups[seq_id])
+        _copy_count = len (dups[no_count])
+        count += _copy_count
         #print (dups[seq_id], file = sys.stderr)
-        for i,dup_id in  dups[seq_id].items():
-            dup_id_clean = mapper[extract_id(dup_id)]
+        for i,dup_id_clean in  enumerate(dups[no_count]):
+            #dup_id_clean = mapper[extract_id(dup_id)]
             if dup_id_clean != seq_id:
                 local_set [dup_id_clean] = seq       
     
@@ -141,6 +153,8 @@ for i, gene in enumerate (genes):
                 consensus[ci+i][l] = _copy_count
             else:
                 consensus[ci+i][l] += _copy_count
+       # break
+    #print (local_set)
             
     ci = len (consensus)
 
