@@ -51,7 +51,7 @@ settings.map.truncate (0)
 
 loc_tags = ['subregion', 'country', 'state', 'locality']
 field_order = ['date', 'subregion', 'country', 'state', 'locality','pangolinLineage','nextstrainClade']
-old_clades = set (['19A','19B','20A'])
+old_clades = set (['19A','19B'])
 
 now = datetime.datetime.now()
 wk = datetime.timedelta(weeks=1)
