@@ -42,12 +42,13 @@ def merge(protein_json, nuc_json):
 
 def merge_duplicates(protein_duplicates, nuc_duplicates, output):
     try:
-        protein_json = json.load(protein_duplicates)
+        with open(protein_duplicates, "r") as protein_duplicates_fh:
+            protein_json = json.load(protein_duplicates_fh)
     except:
         protein_json = False
-
     try:
-        nuc_json = json.load(nuc_duplicates)
+        with open(nuc_duplicates, "r") as protein_duplicates_fh:
+            nuc_json = json.load(nuc_duplicates_fh)
     except:
         nuc_json = False
 
@@ -60,50 +61,19 @@ def merge_duplicates(protein_duplicates, nuc_duplicates, output):
     else:
         output_json = merge(protein_json, nuc_json)
 
-    json.dump(output_json, output, indent=4, sort_keys=True)
+    with open(output, 'w') as output_fh:
+        json.dump(output_json, output_fh, indent=4, sort_keys=True)
 
-def in_reference_dataset(record, reference_seq_json):
-    if str(record.seq) in reference_seq_json.keys():
-        print('hi')
-        return reference_seq_json[reference.seq]
-    else:
-        return False
-
-def merge_against_references(compressed_input, reference_input, duplicates_input, output):
-
-    compressed_input_fh = open(compressed_input, 'r')
-    compressed_seqs = list(SeqIO.parse(compressed_input_fh, 'fasta'))
-
-    reference_input_fh = open(reference_input, 'r')
-    reference_seqs = list(SeqIO.parse(reference_input_fh, 'fasta'))
-
-    duplicates_json = json.load(open(duplicates_input, 'r'))
-
-    # Create dictionary of sequences to ids
-    reference_seq_json = { str(rec.seq) : rec.id for rec in reference_seqs }
-
-    # Determine whether id in compressed_seqs are a duplicate of a reference
-    # Add reference and its duplicates to new duplicates json. Only keep novel sequences.
-    reference_check = [ (rec, in_reference_dataset(rec, reference_seq_json)) for rec in compressed_seqs]
-    duplicates = list(filter(lambda x: x[1], reference_check))
-
-    # json.dump(output_json, output, indent=4, sort_keys=True)
-    pass
+    return
 
 if __name__ == "__main__":
-    # arguments = argparse.ArgumentParser(description='Report which dates have full report')
-    # arguments.add_argument('-p', '--protein-duplicates',   help = 'fasta to filter duplicates', required = True, type = argparse.FileType('r'))
-    # arguments.add_argument('-n', '--nuc-duplicates',   help = 'duplicates file', required = True, type = argparse.FileType('r'))
-    # arguments.add_argument('-o', '--output', help = 'write compressed fasta here', type = argparse.FileType('w'), default = sys.stdout)
-    # args = arguments.parse_args()
-    # merge_duplicates(args.protein_duplicates, args.nuc_duplicates, args.output)
 
     arguments = argparse.ArgumentParser(description='Report which dates have full report')
-    arguments.add_argument('-c', '--compressed-input',   help = 'fasta to filter duplicates', required = True, type = str)
-    arguments.add_argument('-r', '--reference-input',   help = 'duplicates file', required = True, type = str)
-    arguments.add_argument('-d', '--duplicates-input',   help = 'duplicates file', required = True, type = str)
+    arguments.add_argument('-p', '--protein-duplicates',   help = 'fasta to filter duplicates', required = True, type = str)
+    arguments.add_argument('-n', '--nuc-duplicates',   help = 'duplicates file', required = True, type = str)
     arguments.add_argument('-o', '--output', help = 'write compressed fasta here', type = str, default = sys.stdout)
     args = arguments.parse_args()
-    merge_against_references(args.compressed_input, args.reference_input, args.duplicates_input, args.output)
+
+    merge_duplicates(args.protein_duplicates, args.nuc_duplicates, args.output)
 
 

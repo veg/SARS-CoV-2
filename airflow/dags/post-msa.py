@@ -155,7 +155,7 @@ for gene in regions.keys():
     remove_ref_task = PythonOperator(
         task_id=f'remove_ref_{gene}',
         python_callable=reserve_only_original_input,
-        op_kwargs={ "input_fn" : tmp_output_fn, "original_fn" : nuc_filepath, "output_fn": output_fn },
+        op_kwargs={ "input_fn" : tmp_output_fn, "original_fn" : prot_filepath, "output_fn": output_fn },
         dag=dag,
     )
 

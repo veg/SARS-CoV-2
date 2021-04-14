@@ -20,8 +20,7 @@ def remove_reference_seq(input_fn, reference_fn, output_fn):
     to_write = list(filter(lambda x: x.name not in to_remove_names, seqs))
 
     # Second pass to find nearly similar
-    output_fh = open(output_fn, 'w')
-    SeqIO.write(to_write, output_fh, "fasta")
+    SeqIO.write(to_write, output_fn, "fasta")
 
 def reserve_only_original_input(input_fn, original_fn, output_fn):
 
@@ -41,8 +40,7 @@ def reserve_only_original_input(input_fn, original_fn, output_fn):
             uniq_names.append(seq.name)
 
     # Second pass to find nearly similar
-    output_fh = open(output_fn, 'w')
-    SeqIO.write(to_write, output_fh, "fasta")
+    SeqIO.write(to_write, output_fn, "fasta")
 
 
 if __name__ == "__main__":
@@ -51,6 +49,6 @@ if __name__ == "__main__":
     arguments.add_argument('-r', '--reference',   help = 'msa of sequences to remove', required = True, type = str)
     arguments.add_argument('-o', '--output', help = 'output with removed sequences', type = str, default = sys.stdout)
     args = arguments.parse_args()
-    #remove_reference_seq(args.input, args.reference, args.output)
-    reserve_only_original_input(args.input, args.reference, args.output)
+    remove_reference_seq(args.input, args.reference, args.output)
+    #reserve_only_original_input(args.input, args.reference, args.output)
 

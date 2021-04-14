@@ -9,29 +9,31 @@ from datetime import date, timedelta
 from operator import itemgetter
 from Bio import SeqIO
 
-arguments = argparse.ArgumentParser(description='Report which dates have full report')
-arguments.add_argument('-f', '--fasta-file',   help = 'fasta to overwrite', required = True, type = argparse.FileType('r'))
-arguments.add_argument('-m', '--map-file',   help = 'fasta to filter duplicates', required = True, type = argparse.FileType('r'))
-args = arguments.parse_args()
+def update_fasta_duplicates(fasta_file, map_file):
+    # If one fails, then copy the other to the output. If both fail, then throw an error
+    with open(map_file, 'r') as map_file_fh:
+        map_json = json.load(map_file_fh)
 
-# If one fails, then copy the other to the output. If both fail, then throw an error
-map_json = json.load(args.map_file)
-seqs = list(SeqIO.parse(args.fasta_file, 'fasta'))
+    seqs = list(SeqIO.parse(fasta_file, 'fasta'))
 
-# Overwrite files
-orig_fn = args.fasta_file.name
-tmp_fn = orig_fn + '.tmp'
+    # Overwrite files
+    orig_fn = fasta_file
+    tmp_fn = orig_fn + '.tmp'
 
-# Fix FASTA headers
-for seq in seqs:
-    old_id = seq.id
-    seq.id = map_json[old_id]
-    seq.description = map_json[old_id]
+    # Fix FASTA headers
+    for seq in seqs:
+        old_id = seq.id
+        seq.id = map_json[old_id]
+        seq.description = map_json[old_id]
 
-args.fasta_file.close()
+    with open(tmp_fn, 'w') as tmp_fp:
+        SeqIO.write(seqs, tmp_fp, "fasta")
+        shutil.move(tmp_fn, orig_fn)
 
-with open(tmp_fn, 'w') as tmp_fp:
-    SeqIO.write(seqs, tmp_fp, "fasta")
-    shutil.move(tmp_fn, orig_fn)
-
+if __name__ == "__main__":
+    arguments = argparse.ArgumentParser(description='Report which dates have full report')
+    arguments.add_argument('-f', '--fasta-file',   help = 'fasta to overwrite', required = True, type = str)
+    arguments.add_argument('-m', '--map-file',   help = 'fasta to filter duplicates', required = True, type = str)
+    args = arguments.parse_args()
+    update_fasta_duplicates(args.fasta_file, args.map_file)
 

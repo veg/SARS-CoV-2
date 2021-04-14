@@ -1,7 +1,7 @@
 #!/bin/bash
 #fdate=$(date +"%Y-%m-%d")
-fdate=$1
-#fdate="2021-04-09-last100k-by-collection-date"
+#fdate=$1
+fdate="2021-04-09-last100k-by-collection-date"
 
 FQUEUE='priority'
 QUEUE='epyc2'

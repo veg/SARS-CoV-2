@@ -105,8 +105,10 @@ else
         echo "$PYTHON python/merge_duplicates.py -p ${FILE}.${GENE}_raw_nucleotide.duplicates.json -n ${FILE}.${GENE}_nucleotide.duplicates.json -o ${FILE}.${GENE}.duplicates.json"
         $PYTHON python/merge_duplicates.py -p ${FILE}.${GENE}_raw_nucleotide.duplicates.json -n ${FILE}.${GENE}_nucleotide.duplicates.json -o ${FILE}.${GENE}.duplicates.json
         # Fix duplicates 
+        echo "$PYTHON python/fix_duplicates.py -d ${FILE}.${GENE}.duplicates.json -m ${FILE}.${GENE}.map.json -o"
         $PYTHON python/fix_duplicates.py -d ${FILE}.${GENE}.duplicates.json -m ${FILE}.${GENE}.map.json -o
         # Fix header files
+        echo "$PYTHON python/update_fasta_duplicates.py -f ${FILE}.${GENE}.compressed.fas -m ${FILE}.${GENE}.map.json"
         $PYTHON python/update_fasta_duplicates.py -f ${FILE}.${GENE}.compressed.fas -m ${FILE}.${GENE}.map.json
     fi
 
