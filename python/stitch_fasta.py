@@ -37,6 +37,7 @@ arguments.add_argument('-x', '--extras',       help = 'Insert additional sequenc
 arguments.add_argument('-r', '--reference',    help = 'Reference sequence index',            required = True, type = str)
 arguments.add_argument('-c', '--cutoff',       help = 'Only report variants reaching this count (if >= 1 or frequency if in [0-1])', required = False, type = float, default = 5)
 arguments.add_argument('-m', '--map',          help = 'EPI ID => UID map',            required = True, type = str)
+arguments.add_argument('-D', '--deletions',          help = 'Include deletions',            required = False, action = 'store_true')
 arguments.add_argument('--sequence_pattern',          help = 'File name pattern for sequence files',            required = False, type = str, default = ".%s.compressed.fas")
 arguments.add_argument('--duplicate_pattern',          help = 'File name pattern for duplicate lists',            required = False, type = str, default = '.%s.duplicates.json.gz')
 
@@ -258,8 +259,10 @@ with Bar('Calling variants in sequences', max=len (combined_fasta)) as bar:
 
         seq = seq.upper()
         sequence_count += 1
-        summary_json ['sequences'][seq_id] = [(ref_seq_output[k][0],seq[k]) for k in range (len (seq)) if ref_seq_output[k][0]>=0 and ref_seq_output[k][1] != seq[k] and seq[k] != '-']
-    
+        if import_settings.deletions:
+            summary_json ['sequences'][seq_id] = [(ref_seq_output[k][0],seq[k]) for k in range (len (seq)) if ref_seq_output[k][0]>=0 and ref_seq_output[k][1] != seq[k]]
+        else:
+            summary_json ['sequences'][seq_id] = [(ref_seq_output[k][0],seq[k]) for k in range (len (seq)) if ref_seq_output[k][0]>=0 and ref_seq_output[k][1] != seq[k] and seq[k] != '-']
     
         for variant in summary_json ['sequences'][seq_id]:
             if not variant in variant_counts:

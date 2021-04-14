@@ -51,8 +51,10 @@ settings.map.truncate (0)
 
 loc_tags = ['subregion', 'country', 'state', 'locality']
 field_order = ['date', 'subregion', 'country', 'state', 'locality','pangolinLineage','nextstrainClade']
+old_clades = set (['19A','19B','20A'])
 
 now = datetime.datetime.now()
+wk = datetime.timedelta(weeks=1)
 
 print ("Loaded %d records" % len (db), file = sys.stdout)
 
@@ -66,11 +68,18 @@ for id, record in db.items():
         if date_check.year < 2019 or date_check.year == 2019 and date_check.month < 10 or date_check >= now or (date_check.year == 2020 and date_check.month == 1 and date_check.day == 1): 
             date_check = None
         else: 
-            date_check = (date_check-ref_date).days
-            if date_check < 0:
-                date_check = None
+            if 'originalSubmitted' in record:
+                date_submitted = datetime.datetime.strptime (record['originalSubmitted'],date_parse_format_db)
+                if (date_submitted-date_check) / wk > 52 and record["nextstrainClade"] not in old_clades:
+                    print ("Over a year between sampling and submission", record["id"], record["pangolinLineage"], record["nextstrainClade"], record["location"]["country"])
+                    date_check = None
+            if date_check:     
+                date_check = (date_check-ref_date).days
+                if date_check < 0:
+                    date_check = None
+                    
     except Exception as e:
-        print (e)
+        #print (e)
         date_check = None
         
     if date_check in record_data['date']:
