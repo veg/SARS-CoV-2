@@ -1,7 +1,7 @@
 #!/bin/bash
 #fdate=$(date +"%Y-%m-%d")
 #fdate=$1
-#fdate="2020-08-01_2020-10-31"
+fdate="2020-08-01_2020-10-31"
 #fdate="2021-02-01_2021-03-31"
 #fdate="2019-12-01_2020-02-28"
 #fdate="2020-01-01_2020-03-31"
@@ -20,8 +20,8 @@ OUTPUT_DIR=`pwd`/logs/$fdate/
 BASE_DIR=`pwd`
 mkdir -p $OUTPUT_DIR
 
-SMALLPPN=32
-LARGEPPN=64
+SMALLPPN=8
+LARGEPPN=16
 
 # Gene
 qsub -l nodes=1:ppn=$LARGEPPN -d `pwd` -o $OUTPUT_DIR -e $OUTPUT_DIR -q $FQUEUE -F "$BASE_DIR/data/sliding-windows/$fdate S $LARGEPPN" $BASE_DIR/scripts/extract_genes.sh

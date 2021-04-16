@@ -33,12 +33,14 @@ def update_record(seq):
         name = seq.description
     except:
         print("could not process " + seq.description)
-        return
+        return 0
     if(name in missing_names):
         db.gisaid.records.update_one({'name': name}, {'$set': {'seq': seq_str}})
+        return 1
+    return 0
 
 cnt = 0
 for seq in seqs:
-    cnt = cnt + 1
-    update_record(seq)
+    cnt = cnt + update_record(seq)
 
+print("Updated " + str(cnt) + " sequences")

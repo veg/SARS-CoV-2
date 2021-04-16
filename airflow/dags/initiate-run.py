@@ -46,8 +46,15 @@ default_args = {
         'num_procs': 64,
         'region_cfg' : "/data/shares/veg/SARS-CoV-2/SARS-CoV-2-devel/airflow/libs/regions.yaml",
         'meta-output' : WORKING_DIR + '/master-no-fasta.json',
+        'python': "/data/shares/veg/SARS-CoV-2/SARS-CoV-2-devel/env/bin/python3",
+        'hyphy': "/data/shares/veg/SARS-CoV-2/hyphy/hyphy",
+        'hyphy_mpi': "/data/shares/veg/SARS-CoV-2/hyphy/HYPHYMPI",
+        'hyphy_lib_path': "/data/shares/veg/SARS-CoV-2/hyphy/res",
         'mafft': "/usr/local/bin/mafft",
-        'get-latest-by-collection-date': 100000,
+        'post_msa' : "/data/shares/veg/SARS-CoV-2/hyphy-analyses-devel/codon-msa/post-msa.bf",
+        'compressor' : "/data/shares/veg/SARS-CoV-2/SARS-CoV-2-devel/scripts/compressor.bf",
+        'compressor2' : "/data/shares/veg/SARS-CoV-2/SARS-CoV-2-devel/scripts/compressor-2.bf",
+        'get-latest-by-collection-date': 50000,
         'date' : datetime.date.today().strftime('%Y-%m-%d')
     },
     'retries': 1,
@@ -84,19 +91,11 @@ with open(dag.params["region_cfg"], 'r') as stream:
     regions = yaml.safe_load(stream)
 
 MAFFT = """
-{{ params.mafft }} --auto --thread -1 --mapout --addfragments $INPUT_FN $REFERENCE_FILEPATH >| $TMP_OUTPUT_FN
+{{ params.mafft }} --auto --thread -1 --addfragments $INPUT_FN $REFERENCE_FILEPATH >| $TMP_OUTPUT_FN
 """
 
 POSTMSA = """
 {{ params.hyphy }} LIBPATH={{params.hyphy_lib_path}} {{ params.post_msa }} --protein-msa $INPUT_FN --nucleotide-sequences $NUC_INPUT_FN --output $COMPRESSED_OUTPUT_FN --duplicates $DUPLICATE_OUTPUT_FN
-"""
-
-COMPRESSOR = """
-{{ params.hyphy }} LIBPATH={{params.hyphy_lib_path}} {{ params.compressor }} --msa $COMPRESSED_FN --duplicates $DUPLICATE_FN --output $VARIANTS_CSV_FN  --json $VARIANTS_JSON_FN
-"""
-
-COMPRESSOR2 = """
-{{ params.hyphy }} LIBPATH={{params.hyphy_lib_path}} {{ params.compressor2 }} --msa $COMPRESSED_FN --duplicates $DUPLICATE_FN --csv $VARIANTS_CSV_FN  --byseq $VARIANTS_JSON_FN --p 0.9 --output $FILTERED_FASTA_FN --json FILTERED_JSON_FN
 """
 
 
@@ -140,8 +139,10 @@ for gene in regions.keys():
     variants_json_output = filepath_prefix + '.variants.json'
     filtered_fasta_output = filepath_prefix + '.compressed.filtered.fas'
     filtered_json_output = filepath_prefix + '.filtered.json'
+    output_edits_fn = filepath_prefix + '.filtered.edits.json'
 
     compressed_output_filepath =  filepath_prefix + '.compressed.fas'
+    compressor_duplicate_out = filepath_prefix + '.duplicates.variants.json'
 
     tree_output = filepath_prefix + '.compressed.filtered.fas.rapidnj.bestTree'
     sto_output = filepath_prefix + '.compressed.filtered.sto';
@@ -157,7 +158,7 @@ for gene in regions.keys():
     default_args["params"]["nuc-sequence-output"] = nuc_sequence_output
     default_args["params"]["prot-sequence-output"] = prot_sequence_output
     default_args["params"]["duplicate-output"] = duplicate_output
-    default_args["params"]["protein-duplicate-output"] = duplicate_output
+    default_args["params"]["protein-duplicate-output"] = protein_duplicate_output
     default_args["params"]["inital-duplicate-output"] = initial_duplicate_output
 
     export_premsa_sequence_task = PythonOperator(
@@ -227,21 +228,30 @@ for gene in regions.keys():
     update_fasta_duplicates_task = PythonOperator(
         task_id=f'update_fasta_duplicates_{gene}',
         python_callable=update_fasta_duplicates,
-        op_kwargs={ 'fasta_file' : compressed_output_filepath, 'map_file': gene },
+        op_kwargs={ 'fasta_file' : compressed_output_filepath, 'map_file': map_output },
         dag=dag,
     )
 
+    # $HYPHY LIBPATH=$HYPHYLIBPATH $COMPRESSOR --msa ${FILE}.${GENE}.compressed.fas --regexp "epi_isl_([0-9]+)" --duplicates ${FILE}.${GENE}.duplicates.json --output ${FILE}.${GENE}.variants.csv --json ${FILE}.${GENE}.variants.json --duplicate-out ${FILE}.${GENE}.duplicates.variants.json
+
+    COMPRESSOR = """
+    {{ params.hyphy }} LIBPATH={{params.hyphy_lib_path}} {{ params.compressor }} --msa $COMPRESSED_FN --regexp "epi_isl_([0-9]+)" --duplicates $DUPLICATE_FN --output $VARIANTS_CSV_FN  --json $VARIANTS_JSON_FN --duplicate-out $COMPRESSOR_DUPLICATE_OUT
+    """
     compressor_task = BashOperator(
         task_id=f'compressor_{gene}',
         bash_command=COMPRESSOR,
-        env={'COMPRESSED_FN': compressed_output_filepath, 'DUPLICATE_FN': duplicate_output, 'VARIANTS_CSV_FN': variants_csv_output, 'VARIANTS_JSON_FN': variants_json_output, **os.environ},
+        env={'COMPRESSED_FN': compressed_output_filepath, 'DUPLICATE_FN': duplicate_output, 'VARIANTS_CSV_FN': variants_csv_output, 'VARIANTS_JSON_FN': variants_json_output, 'COMPRESSOR_DUPLICATE_OUT': compressor_duplicate_out, **os.environ},
         dag=dag
     )
 
+    # --output-edits ${FILE}.${GENE}.filtered.edits.json
+    COMPRESSOR2 = """
+    {{ params.hyphy }} LIBPATH={{params.hyphy_lib_path}} {{ params.compressor2 }} --msa $COMPRESSED_FN --duplicates $DUPLICATE_FN --csv $VARIANTS_CSV_FN  --byseq $VARIANTS_JSON_FN --p 0.9 --output $FILTERED_FASTA_FN --json $FILTERED_JSON_FN --output-edits ${OUTPUT_EDITS}
+    """
     compressor_two_task = BashOperator(
         task_id=f'compressor_two_{gene}',
         bash_command=COMPRESSOR2,
-        env={'COMPRESSED_FN': compressed_output_filepath, 'DUPLICATE_FN': duplicate_output, 'VARIANTS_CSV_FN': variants_csv_output, 'VARIANTS_JSON_FN': variants_json_output, 'FILTERED_FASTA_FN': filtered_fasta_output, 'FILTERED_JSON_FN': filtered_json_output, **os.environ},
+        env={'COMPRESSED_FN': compressed_output_filepath, 'DUPLICATE_FN': duplicate_output, 'VARIANTS_CSV_FN': variants_csv_output, 'VARIANTS_JSON_FN': variants_json_output, 'FILTERED_FASTA_FN': filtered_fasta_output, 'FILTERED_JSON_FN': filtered_json_output, 'OUTPUT_EDITS': output_edits_fn, **os.environ},
         dag=dag
     )
 

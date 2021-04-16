@@ -21,21 +21,22 @@ def fix(k,v):
 
 def fix_duplicates(duplicates, map, overwrite):
 
+    print(duplicates)
+
     with open(duplicates, 'r') as duplicates_fh:
         dupe_json = json.load(duplicates_fh)
 
-    itemize = list(map(lambda x: fix(*x), dupe_json.items()))
+    itemize = [fix(*x) for x in dupe_json.items()]
     output_json = {item[0]: item[1] for item in itemize}
     old_name_map = {item[2]: item[0] for item in itemize}
 
     # Overwrite files
     orig_fn = duplicates
-    duplicates.close()
 
     tmp_fn = orig_fn + '.tmp'
 
     if map:
-        with open(map, w) as map_fh:
+        with open(map, 'w') as map_fh:
             json.dump(old_name_map, map_fh, indent=4, sort_keys=True)
 
     if overwrite:

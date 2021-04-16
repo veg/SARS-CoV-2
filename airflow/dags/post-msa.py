@@ -22,6 +22,7 @@ import pathlib
 from pathlib import Path
 
 p = os.path.abspath(str(pathlib.Path(__file__).parent.absolute()) + '/../../python/')
+
 if p not in sys.path:
     sys.path.append(p)
 
@@ -112,6 +113,7 @@ for gene in regions.keys():
 
     filepath = filepath_prefix + '.fasta'
     nuc_filepath = filepath_prefix + '.nuc.fasta'
+    prot_filepath = filepath_prefix + '.protein.fasta'
     stdout = filepath_prefix  + '.stdout.log'
     tmp_output_fn = filepath_prefix + '.tmp.msa'
     output_fn = filepath_prefix + '.msa'

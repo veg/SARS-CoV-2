@@ -25,6 +25,7 @@ io.DisplayAnalysisBanner (filter.analysis_description);
 
 utility.SetEnvVariable ("NORMALIZE_SEQUENCE_NAMES", FALSE);
 
+
 KeywordArgument                     ("msa", "The MSA to filter rare variants from");
 
 DataSet filter.dataset              = ReadDataFile (PROMPT_FOR_FILE);
@@ -36,14 +37,14 @@ KeywordArgument     ("duplicates", "Load sequence duplicate information from her
 filter.dups = io.PromptUserForString ("Load sequence duplicate information from here");
 fscanf (filter.dups, "Raw", filter.dup_data);
 filter.dup_data = Eval (filter.dup_data);
+
 filter.total = 0;
 
-for (v; in; filter.dup_data) {
+for (k, v; in; filter.dup_data) {
     filter.total += Abs (v);
 }
 
 console.log ("> Total # of sequences, counting duplicates = " + filter.total);
-
 
 KeywordArgument     ("csv", "CSV with variants", None);
 filter.variants = io.ReadDelimitedFile (null, ",", TRUE);
@@ -83,16 +84,8 @@ fscanf (filter.byseq, "Raw", filter.byseq_data);
 filter.byseq_data = Eval (filter.byseq_data);
 KeywordArgument     ("p", "Binomial probability cutoff", 0.9);
 filter.p = io.PromptUser ("> Binomial probability cutoff",0.9,0,1,FALSE);
+filter.by_site_cutoff = filter.binomial_cutoff (filter.total, 1./10000, filter.p);
 
-EXPECTED_ERROR_PROBABILITY=1./10000;
-
-filter.by_site_cutoff = filter.binomial_cutoff (filter.total, EXPECTED_ERROR_PROBABILITY, filter.p);
-
-console.log("BINOMIAL");
-console.log("N: " + filter.total);
-console.log("EXPECTED ERROR: " + EXPECTED_ERROR_PROBABILITY);
-console.log("Probability Threshold: " + filter.p);
-console.log("Minority Site Cutoff: " + filter.by_site_cutoff);
 
 variant_count   = {filter.total , 1};
 variant_count_by_seq = {};
@@ -118,6 +111,8 @@ for (k, v; in; filter.byseq_data) {
 
 filter.by_seq_cutoff = math.GatherDescriptiveStats (variant_count);
 filter.by_seq_cutoff = (filter.by_seq_cutoff["mean"] + filter.by_seq_cutoff["Std.Dev"] * 5 + 0.5)$1;
+
+
 console.log ("> Setting sequence minority variant cutoff to " + filter.by_seq_cutoff);
 console.log ("> Setting minority variant cutoff to " + filter.by_site_cutoff);
 
@@ -127,7 +122,6 @@ filter.all_pairs = {};
 filter.pairs_by_seq = {};
 
 for (seq = 0; seq < filter.input.species; seq += 1) {
-//for (seq = 0; seq < 10; seq += 1) {
     GetString (seq_name, filter.input, seq);
     filter.vc = filter.byseq_data[seq_name];   
     filter.mv = {};
@@ -140,8 +134,8 @@ for (seq = 0; seq < filter.input.species; seq += 1) {
         }    
     }
     
-    if (Abs (filter.mv) > 1) {
-        n = Abs (filter.mv);
+    n = Abs (filter.mv);
+    if (n > 1) {
         filter.paired = {n,2};
         i = 0;
         for (v, c; in; filter.mv) {
@@ -171,9 +165,9 @@ filter.all_duplicates = {};
 
 filter.fasta_string = ""; filter.fasta_string * 256000;
 filter.input_seqs = {};
+filter.edits = {};
 
 for (seq = 0; seq < filter.input.species; seq += 1) {
-//for (seq = 0; seq < filter.input.species; seq += 1) {
     GetString (seq_name, filter.input, seq);
     GetDataInfo (seq_chars, filter.input, seq);
     filter.input_seqs [seq_name] = seq_chars;
@@ -182,9 +176,8 @@ for (seq = 0; seq < filter.input.species; seq += 1) {
     filter.protected_sites = {};
     
     if (filter.pairs_by_seq / seq_name) {
-         filter.paired = filter.pairs_by_seq [seq_name];
-         n = Rows(filter.paired);
-
+        filter.paired = filter.pairs_by_seq [seq_name];
+        n = Rows (filter.paired);
          for (i = 0; i < n; i += 1) {
             for (j = i + 1; j < n; j += 1) {
                 key = "" + filter.paired[i][0] + "|" + filter.paired[j][0];
@@ -199,15 +192,18 @@ for (seq = 0; seq < filter.input.species; seq += 1) {
         }           
      }
     
-    
+    if (Abs (filter.protected_sites)) {
+        console.log (">Found `Abs(filter.protected_sites)` protected sites (covariation): " +  Join (",", Rows(filter.protected_sites)));
+    }
       
     if (filter.vc > filter.by_seq_cutoff && Abs (filter.protected_sites) == 0) {
-        console.log (">Removing `seq_name` because it has " + filter.vc + " minority variants"); 
+        console.log (">Removing `seq_name` because is has " + filter.vc + " minority variants (variable outlier)"); 
+        filter.edits [seq_name] = "removed";
         //filter.all_duplicates - seq_name;
     } else {
         filter.all_duplicates[seq_name] = filter.dup_data [seq_name];
         filter.to_filter = {};
-        
+        filter.edits [seq_name] = {};
         filter.has_protected_pairs = 0;
         
         for (v, c; in; filter.byseq_data[seq_name]) {
@@ -228,12 +224,13 @@ for (seq = 0; seq < filter.input.species; seq += 1) {
                 if (filter.to_filter / i) {
                     filter.filtered_string * "-";
                     filter.punched += seq_chars[i];
+                    (filter.edits [seq_name])[i] = seq_chars[i];
                 } else {
-                    filter.filtered_string * seq_chars[i]
+                    filter.filtered_string * seq_chars[i];
                 }
             }
             filter.filtered_string * 0;
-            console.log (">Punching `Abs(filter.to_filter)` (`filter.punched`) positions from `seq_name`"); 
+            console.log (">Punching `Abs(filter.to_filter)` (`filter.punched`) positions from `seq_name`: " + filter.punched); 
             filter.fasta_string * ">`seq_name`\n";
             filter.fasta_string * filter.filtered_string;
             filter.fasta_string * "\n";
@@ -245,8 +242,7 @@ for (seq = 0; seq < filter.input.species; seq += 1) {
     }
  }
 
-//filter.fasta_string * 0;
-//fprintf(stdout, filter.fasta_string);
+filter.fasta_string * 0;
 
 DataSet filtered.reduced = ReadFromString (filter.fasta_string);
 DataSetFilter filtered.reducedF = CreateFilter (filtered.reduced,1);
@@ -256,6 +252,7 @@ for (i = 0; i < filtered.reducedF.species; i+=1){
     GetString (seq_name, filtered.reducedF, i);
     filter.reduced_name_map [i] = seq_name;
 }
+
 
 console.log (">Compressing error-corrected sequences");
 GetDataInfo (filter.duplicate_info, filtered.reducedF, -2);
@@ -278,7 +275,7 @@ for (i, j; in; filter.duplicate_info["SEQUENCE_MAP"]) {
     filter.group_by_id [j] + (">`filter.reduced_name_map[i]`\n" + filter.input_seqs [filter.reduced_name_map[i]]);
     //console.log (i);
     if ( filter.reduced_name_map[i] != filter.uniqueID2Name[j]) {
-        console.log ("Merging `(filter.reduced_name_map[i])` into `filter.uniqueID2Name[j]`");
+        //console.log ("Merging `(filter.reduced_name_map[i])` into `filter.uniqueID2Name[j]`");
         for (seq; in; filter.all_duplicates[(filter.reduced_name_map[i])]) {
             filter.all_duplicates[filter.uniqueID2Name[j]] + seq;
         }
@@ -290,6 +287,10 @@ DataSetFilter filtered.reducedF2 = CreateFilter (filtered.reducedF, 1, "", Join 
 
 KeywordArgument     ("output", ".fasta for compressed data", None);
 filter.out = io.PromptUserForFilePath(".fasta for compressed data");
+
+KeywordArgument     ("output-edits", ".json for performed edit operations", None);
+filter.edit_out = io.PromptUserForFilePath(".json for performed edit operations");
+fprintf (filter.edit_out, CLEAR_FILE, filter.edits);
 
 utility.SetEnvVariable ("DATA_FILE_PRINT_FORMAT", 9);
 fprintf (filter.out, CLEAR_FILE, filtered.reducedF2);
@@ -317,4 +318,5 @@ lfunction filter.binomial_cutoff (N,p,t) {
     }
     return i;
 }
+
 

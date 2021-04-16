@@ -118,11 +118,11 @@ else
         echo "ALIGNMENT ALREADY FILTERED"
     else
 
-        echo "$HYPHY LIBPATH=$HYPHYLIBPATH $COMPRESSOR --msa ${FILE}.${GENE}.compressed.fas --duplicates ${FILE}.${GENE}.duplicates.json --output ${FILE}.${GENE}.variants.csv --json ${FILE}.${GENE}.variants.json"
-        $HYPHY LIBPATH=$HYPHYLIBPATH $COMPRESSOR --msa ${FILE}.${GENE}.compressed.fas --duplicates ${FILE}.${GENE}.duplicates.json --output ${FILE}.${GENE}.variants.csv --json ${FILE}.${GENE}.variants.json
+        echo '$HYPHY LIBPATH=$HYPHYLIBPATH $COMPRESSOR --msa ${FILE}.${GENE}.compressed.fas --regexp "epi_isl_([0-9]+)" --duplicates ${FILE}.${GENE}.duplicates.json --output ${FILE}.${GENE}.variants.csv --json ${FILE}.${GENE}.variants.json --duplicate-out ${FILE}.${GENE}.duplicates.variants.json'
+        $HYPHY LIBPATH=$HYPHYLIBPATH $COMPRESSOR --msa ${FILE}.${GENE}.compressed.fas --regexp "epi_isl_([0-9]+)" --duplicates ${FILE}.${GENE}.duplicates.json --output ${FILE}.${GENE}.variants.csv --json ${FILE}.${GENE}.variants.json --duplicate-out ${FILE}.${GENE}.duplicates.variants.json
 
-        echo "$HYPHY LIBPATH=$HYPHYLIBPATH $COMPRESSOR2 --msa ${FILE}.${GENE}.compressed.fas --duplicates ${FILE}.${GENE}.duplicates.json --csv ${FILE}.${GENE}.variants.csv --byseq ${FILE}.${GENE}.variants.json --p 0.9 --output ${FILE}.${GENE}.compressed.filtered.fas --json ${FILE}.${GENE}.filtered.json"
-        $HYPHY LIBPATH=$HYPHYLIBPATH $COMPRESSOR2 --msa ${FILE}.${GENE}.compressed.fas --duplicates ${FILE}.${GENE}.duplicates.json --csv ${FILE}.${GENE}.variants.csv --byseq ${FILE}.${GENE}.variants.json --p 0.9 --output ${FILE}.${GENE}.compressed.filtered.fas --json ${FILE}.${GENE}.filtered.json
+        echo "$HYPHY LIBPATH=$HYPHYLIBPATH $COMPRESSOR2 --msa ${FILE}.${GENE}.compressed.fas --duplicates ${FILE}.${GENE}.duplicates.json --csv ${FILE}.${GENE}.variants.csv --byseq ${FILE}.${GENE}.variants.json --p 0.9 --output ${FILE}.${GENE}.compressed.filtered.fas --json ${FILE}.${GENE}.filtered.json --output-edits ${FILE}.${GENE}.filtered.edits.json"
+        $HYPHY LIBPATH=$HYPHYLIBPATH $COMPRESSOR2 --msa ${FILE}.${GENE}.compressed.fas --duplicates ${FILE}.${GENE}.duplicates.json --csv ${FILE}.${GENE}.variants.csv --byseq ${FILE}.${GENE}.variants.json --p 0.9 --output ${FILE}.${GENE}.compressed.filtered.fas --json ${FILE}.${GENE}.filtered.json --output-edits ${FILE}.${GENE}.filtered.edits.json
     fi
 
     SEQCOUNT=$(grep -c ">" ${FILE}.${GENE}.compressed.fas)
