@@ -54,13 +54,13 @@ default_args = {
         'post_msa' : "/data/shares/veg/SARS-CoV-2/hyphy-analyses-devel/codon-msa/post-msa.bf",
         'compressor' : "/data/shares/veg/SARS-CoV-2/SARS-CoV-2-devel/scripts/compressor.bf",
         'compressor2' : "/data/shares/veg/SARS-CoV-2/SARS-CoV-2-devel/scripts/compressor-2.bf",
-        'get-latest-by-collection-date': 50000,
+        # 'get-latest-by-collection-date': 50000,
         'date' : datetime.date.today().strftime('%Y-%m-%d')
     },
     'retries': 1,
     'retry_delay': datetime.timedelta(minutes=5),
     'task_concurrency' : 5,
-    # 'on_failure_callback': task_fail_slack_alert,
+    'on_failure_callback': task_fail_slack_alert,
     # 'on_success_callback': task_success_slack_alert
     # 'queue': 'bash_queue',
     # 'pool': 'backfill',
