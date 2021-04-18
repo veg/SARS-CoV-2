@@ -249,7 +249,7 @@ def create_dag(dag_id, schedule, clade, default_args):
                 compressor_two_task = BashOperator(
                     task_id=f'compressor_two_{gene}',
                     bash_command=COMPRESSOR2,
-                    env={'COMPRESSED_FN': compressed_output_filepath, 'DUPLICATE_FN': duplicate_output, 'VARIANTS_CSV_FN': variants_csv_output, 'VARIANTS_JSON_FN': variants_json_output, 'FILTERED_FASTA_FN': filtered_fasta_output, 'FILTERED_JSON_FN': filtered_json_output, 'OUTPUT_EDITS': output_edits_fn, **os.environ},
+                    env={'COMPRESSED_FN': compressed_output_filepath, 'DUPLICATE_FN': compressor_duplicate_out, 'VARIANTS_CSV_FN': variants_csv_output, 'VARIANTS_JSON_FN': variants_json_output, 'FILTERED_FASTA_FN': filtered_fasta_output, 'FILTERED_JSON_FN': filtered_json_output, 'OUTPUT_EDITS': output_edits_fn, **os.environ},
                     dag=dag
                 )
 
