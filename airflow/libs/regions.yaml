@@ -3,42 +3,77 @@ S:
     trim_from: 20000 
     trim_to: 27000 
     fraction: 0.005
+    offset: 21562
+    fragment: S
+    shift: 0
+    add_one: 0
+
 
 M:
     reference: reference_genes/M.fas
     trim_from: 25000 
     trim_to: 30000 
     fraction: 0.01
+    offset: 26522
+    fragment: M
+    shift: 0
+    add_one: 0
+
 
 N:
     reference: reference_genes/N.fas
     trim_from: 26000 
     trim_to: 35000 
     fraction: 0.01
+    offset: 28273
+    fragment: N
+    shift: 0
+    add_one: 0
+
 
 E:
     reference: reference_genes/E.fas
     trim_from: 25500 
     trim_to: 27000 
     fraction: 0.01
+    offset: 26244
+    fragment: E
+    shift: 0
+    add_one: 0
+
 
 ORF3a:
     reference: reference_genes/ORF3a.fas
     trim_from: 24000 
     trim_to: 27000 
     fraction: 0.01
+    offset: 25392
+    fragment: ORF3a
+    shift: 0
+    add_one: 0
+
 
 ORF6:
     reference: reference_genes/ORF6.fas
     trim_from: 26000 
     trim_to: 30000 
     fraction: 0.01
+    offset: 27201
+    fragment: ORF6
+    shift: 0
+    add_one: 0
+
 
 ORF7a:
     reference: reference_genes/ORF7a.fas
     trim_from: 26000 
     trim_to: 35000 
     fraction: 0.01
+    offset: 27393
+    fragment: ORF7a
+    shift: 0
+    add_one: 0
+
 
 #ORF7b:
 #    reference: reference_genes/ORF7b.fas
@@ -51,6 +86,10 @@ ORF8:
     trim_from: 26000 
     trim_to: 35000 
     fraction: 0.01
+    offset: 27893
+    fragment: ORF8
+    shift: 0
+    add_one: 0
 
 #ORF10:
 #    reference: reference_genes/ORF10.fas
@@ -75,88 +114,158 @@ leader:
     trim_from: 1 
     trim_to: 1000 
     fraction: 0.001
+    offset: 265
+    fragment: ORF1a
+    shift: 0
+    add_one: 0
 
 nsp2:
     reference: reference_genes/nsp2.fas
     trim_from: 500 
     trim_to: 3000 
     fraction: 0.001
+    offset: 805
+    fragment: ORF1a
+    shift: 180
+    add_one: 0
+
 
 nsp3:
     reference: reference_genes/nsp3.fas
     trim_from: 2000 
     trim_to: 10000 
     fraction: 0.001
+    offset: 2719
+    fragment: ORF1a
+    shift: 818
+    add_one: 0
+
 
 nsp4:
     reference: reference_genes/nsp4.fas
     trim_from: 8000 
     trim_to: 11000 
     fraction: 0.001
+    offset: 8554
+    fragment: ORF1a
+    shift: 2763
+    add_one: 0
+
 
 3C:
     reference: reference_genes/3C.fas
     trim_from: 9000 
     trim_to: 12000 
     fraction: 0.001
+    offset: 10054
+    fragment: ORF1a
+    shift: 3263
+    add_one: 0
+
 
 nsp6:
     reference: reference_genes/nsp6.fas
     trim_from: 10500 
     trim_to: 12500 
     fraction: 0.001
+    offset: 10972
+    fragment: ORF1a
+    shift: 3569
+    add_one: 0
+
 
 nsp7:
     reference: reference_genes/nsp7.fas
     trim_from: 11500 
     trim_to: 12500 
     fraction: 0.001
+    offset: 11842
+    fragment: ORF1a
+    shift: 3859
+    add_one: 0
+
 
 nsp8:
     reference: reference_genes/nsp8.fas
     trim_from: 11500 
     trim_to: 13000 
     fraction: 0.001
+    offset: 12091
+    fragment: ORF1a
+    shift: 3942
+    add_one: 0
+
 
 nsp9:
     reference: reference_genes/nsp9.fas
     trim_from: 12000 
     trim_to: 13500 
     fraction: 0.001
+    offset: 12685
+    fragment: ORF1a
+    shift: 4140
+    add_one: 0
+
 
 nsp10:
     reference: reference_genes/nsp10.fas
     trim_from: 12500 
     trim_to: 14000 
     fraction: 0.001
+    offset: 13024
+    fragment: ORF1a
+    shift: 4253
+    add_one: 0
+
 
 RdRp:
     reference: reference_genes/RdRp.fas
     trim_from: 13000 
     trim_to: 17000 
     fraction: 0.001
+    offset: 13440
+    fragment: ORF1b
+    shift: -10
+    add_one: 1
+
 
 helicase:
     reference: reference_genes/helicase.fas
     trim_from: 15500 
     trim_to: 18500 
     fraction: 0.001
+    offset: 16236
+    fragment: ORF1b
+    shift: 922
+    add_one: 1
 
 exonuclease:
     reference: reference_genes/exonuclease.fas
     trim_from: 17500 
     trim_to: 20000 
     fraction: 0.001
+    offset: 18039
+    fragment: ORF1b
+    shift: 1523
+    add_one: 1
 
 endornase:
     reference: reference_genes/endornase.fas
     trim_from: 19000 
     trim_to: 21000 
     fraction: 0.001
+    offset: 19620
+    fragment: ORF1b
+    shift: 2050
+    add_one: 1
 
 methyltransferase:
     reference: reference_genes/methyltransferase.fas
     trim_from: 20000 
     trim_to: 22000 
     fraction: 0.001
+    offset: 20658
+    fragment: ORF1b
+    shift: 2396
+    add_one: 1
 
