@@ -111,7 +111,7 @@ for gene in regions.keys():
 
     # Reference directory
     reference_filepath = os.path.join(WORKING_DIR, 'reference_genes/', gene + '.fas')
-    filepath_prefix = os.path.join(WORKING_DIR, '/data/bealign/', gene, '/sequences.{{ ds }}')
+    filepath_prefix = WORKING_DIR + 'data/bealign/' + gene + '/sequences.{{ ds }}'
 
     filepath = filepath_prefix + '.fasta'
     stdout = filepath_prefix  + '.stdout.log'
