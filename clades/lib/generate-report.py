@@ -108,6 +108,8 @@ def newick_parser(nwk_str, bootstrap_values, track_tags, json_map):
                 counts[n["tag"]] = 1 + (counts[n["tag"]] if n["tag"] in counts  else 0)
             if len (counts) == 1:
                 node_tag = list (counts.keys())[0]
+                
+            #print (this_node["name"], counts)
         
           this_node["tag"] = node_tag
       except Exception as e:
@@ -487,36 +489,38 @@ for file_name in import_settings.file:
                     site_reports[i] = {'cfel' : row}
                     
 
-        with open (this_file + ".RELAX.json", "r") as cfh:
-            try:
-                relax = json.load (cfh)
-                if summary_json is not None:
-                    relax_d = {}
-                    #print (summary_json[summary_json_key]['rates']['mean-omega'])
-                    for r, rr in summary_json[summary_json_key]['rates']['mean-omega'].items():
-                        relax_d[r] = []
-                        for ignored, rd in relax["fits"]["RELAX alternative"]["Rate Distributions"][test_map[r]].items():
-                            relax_d[r].append (rd)
+        try:
+            with open (this_file + ".RELAX.json", "r") as cfh:
+                    relax = json.load (cfh)
+                    if summary_json is not None:
+                        relax_d = {}
+                        #print (summary_json[summary_json_key]['rates']['mean-omega'])
+                        for r, rr in summary_json[summary_json_key]['rates']['mean-omega'].items():
+                            relax_d[r] = []
+                            for ignored, rd in relax["fits"]["RELAX alternative"]["Rate Distributions"][test_map[r]].items():
+                                relax_d[r].append (rd)
                    
-                    summary_json[summary_json_key]['rates']['relax'] = relax_d
-                    summary_json[summary_json_key]['relax'] = {
-                        'p' : relax["test results"]["p-value"],
-                        'K' : relax["test results"]['relaxation or intensification parameter']
-                    }
-            except:
-                print ("Issue loading relax", file = sys.stderr)
+                        summary_json[summary_json_key]['rates']['relax'] = relax_d
+                        summary_json[summary_json_key]['relax'] = {
+                            'p' : relax["test results"]["p-value"],
+                            'K' : relax["test results"]['relaxation or intensification parameter']
+                        }
+        except:
+            print ("Issue loading RELAX", file = sys.stderr)
                 
                         
-                    
-        with open (this_file + ".BUSTED.json", "r") as cfh:
-            busted = json.load (cfh)
-            if summary_json is not None:
-                summary_json[summary_json_key]['rates']['busted'] = busted["fits"]["Unconstrained model"]["Rate Distributions"]
-                summary_json[summary_json_key]['busted'] = {
-                    'p' : busted["test results"]["p-value"],
-                }
+        try:
+            with open (this_file + ".BUSTED.json", "r") as cfh:
+                busted = json.load (cfh)
+                if summary_json is not None:
+                    summary_json[summary_json_key]['rates']['busted'] = busted["fits"]["Unconstrained model"]["Rate Distributions"]
+                    summary_json[summary_json_key]['busted'] = {
+                        'p' : busted["test results"]["p-value"],
+                    }
                         
-                                  
+        except:
+            print ("Issue loading BUSTED", file = sys.stderr)
+                                 
             
             
         def traverse_tree_in_order (node, labels, slac_data, i, parent_tag, root):

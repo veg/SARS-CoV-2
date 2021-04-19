@@ -6,6 +6,7 @@ Author:
 
 Version:
     v0.0.1 (2021-01-02)
+    v0.0.2 (2021-04-15) -M mode, reordering execution modules
 
 
 """
@@ -14,7 +15,7 @@ import argparse
 import sys
 import json
 import re, time, shutil
-import datetime
+import datetime, random
 import os
 import math, csv
 from   os import  path
@@ -55,14 +56,14 @@ arguments.add_argument('--threshold_ref',          help = 'Initial threshold for
 arguments.add_argument('-P', '--paths',            help = 'Read command settings from this file',    required = False, type = str)
 arguments.add_argument('-L', '--label',            help = 'Label query sequences in tree as follows', required = True, type = str )
 arguments.add_argument('-A', '--ambigs',           help = 'Remove ambigs from sequence files', action='store_true' )
-
+arguments.add_argument('-M', '--minimal',           help = 'Run only the minimal analyses', action='store_true' )
 
 settings = arguments.parse_args()
 
 strike_ambigs = settings.ambigs
-
-print (strike_ambigs)
-
+print ("Strike ambigs : ", strike_ambigs, file = sys.stderr)
+run_minimal = settings.minimal
+print ("Run minimal : ", run_minimal, file = sys.stderr)
 
 if settings.paths:
     with open (settings.paths, "r") as fh:
@@ -109,15 +110,20 @@ def cluster_to_fasta (in_file, out_file, ref_seq = None):
     with open (in_file, "r") as fh:
         cluster_json = json.load (fh)
         print (colored('Running ... converting representative clusters to .FASTA\n', 'cyan'))
+        check_uniq = set ()
         with open (out_file, "w") as fh2:
             for c in cluster_json:
+                cc = c['centroid'].split ('\n')
                 if ref_seq:
                     if ref_seq in c['members']:
-                        cc = c['centroid'].split ('\n')
                         cc[0] = ">" + ref_seq
                         print ("\n".join (cc), file = fh2)
                         continue
-                print (c['centroid'], file = fh2)
+                seq_id = cc[0]
+                while seq_id in check_uniq:
+                        seq_id = cc[0] + '_' + ''.join(random.choices ('0123456789abcdef', k = 10))
+                check_uniq.add (seq_id) 
+                print (seq_id,"\n",cc[1], file = fh2)
            
     return (os.path.getmtime(out_file), len (cluster_json))
         
@@ -209,15 +215,22 @@ if not done:
             seqs_to_filter.remove (_ref_seq_name)
     shutil.copy (query_compressed, combined_msa)
     with open (combined_msa, "a+") as fh:
+        check_uniq = set () 
         for seq_record in SeqIO.parse(ref_msa, "fasta"):
             if not seq_record.name in seqs_to_filter:
                 if seq_record.name == _ref_seq_name:
-                    print ("\n>%s\n%s" % ("REFERENCE", str(seq_record.seq)), file = fh)                
+                    print ("\n>%s\n%s" % ("REFERENCE", str(seq_record.seq)), file = fh)   
+                    check_uniq.add ('REFERENCE')             
                 else:
-                    print ("\n>%s\n%s" % (seq_record.name, str(seq_record.seq)), file = fh)
+                    seq_id = seq_record.name
+                    while seq_id in check_uniq:
+                        seq_id = seq_record.name + '_' + ''.join(random.choices ('0123456789abcdef', k = 10))
+                    check_uniq.add (seq_id) 
+                    print ("\n>%s\n%s" % (seq_id, str(seq_record.seq)), file = fh)
            
     os.remove (pairwise)        
     input_stamp = os.path.getmtime(combined_msa)
+    
     
 combined_tree, done = check_result_file ("combined.fas.raxml.bestTree", "Inferring tree topology")
 if not done:
@@ -250,11 +263,6 @@ bgm, done = check_result_file ("combined.fas.BGM.json", "BGM analysis")
 if not done:
     input_stamp = run_command (task_runners['hyphy'], ['bgm', '--alignment', os.path.abspath (combined_msa), "--tree", os.path.abspath (labeled_tree), "--output", os.path.abspath (bgm), "--branches", settings.label], bgm, "BGM analysis")
 
-busted, done = check_result_file ("BUSTED.json", "BUSTED analysis")
-if not done:
-    input_stamp = run_command (task_runners['hyphy'], ['busted', '--alignment', os.path.abspath (combined_msa), "--tree", os.path.abspath (labeled_tree), "--output", os.path.abspath (busted), "--branches", settings.label, "--starting-points", "10"], busted, "BUSTED")
-
-
 fel_cache, done = check_result_file ("fit-cache", "")
 fel, done = check_result_file ("FEL.json", "FEL analysis on the clade of interest")
 if not done:
@@ -273,19 +281,25 @@ prime, done = check_result_file ("PRIME.json", "PRIME analysis on the clade of i
 if not done:
     input_stamp = run_command (task_runners['hyphy-mpi'], ['prime', '--alignment', os.path.abspath (combined_msa), "--tree", os.path.abspath (labeled_tree), "--output", os.path.abspath (prime), "--branches", settings.label], prime, "PRIME analysis on the clade of interest")
 
-cfel, done = check_result_file ("CFEL.json", "CFEL analysis on the clade of interest")
-if not done:
-    input_stamp = run_command (task_runners['hyphy-mpi'], ['contrast-fel', '--alignment', os.path.abspath (combined_msa), "--tree", os.path.abspath (labeled_tree), "--output", os.path.abspath (cfel), "--branch-set", settings.label,  "--branch-set", "Reference"], labeled_tree, "PRIME analysis on the clade of interest")
-
 fade, done = check_result_file ("FADE.json", "FADE analysis")
 if not done:
     input_stamp = run_command (task_runners['hyphy'], ['fade', '--alignment', os.path.abspath (prot_msa), "--tree", os.path.abspath (labeled_tree_clade), "--output", os.path.abspath (fade), "--branches", settings.label], fade, "FADE")
 
-absrel, done = check_result_file ("ABSREL.json", "ABSREL analysis")
-if not done:
-    input_stamp = run_command (task_runners['hyphy'], ['absrel', '--alignment',  os.path.abspath (combined_msa), "--tree", os.path.abspath (labeled_tree), "--output", os.path.abspath (absrel), "--branches", settings.label], absrel, "ABSREL")
+if not run_minimal:
+    absrel, done = check_result_file ("ABSREL.json", "ABSREL analysis")
+    if not done:
+        input_stamp = run_command (task_runners['hyphy'], ['absrel', '--alignment',  os.path.abspath (combined_msa), "--tree", os.path.abspath (labeled_tree), "--output", os.path.abspath (absrel), "--branches", settings.label], absrel, "ABSREL")
 
-relax, done = check_result_file ("RELAX.json", "RELAX analysis")
+    busted, done = check_result_file ("BUSTED.json", "BUSTED analysis")
+    if not done:
+        input_stamp = run_command (task_runners['hyphy'], ['busted', '--alignment', os.path.abspath (combined_msa), "--tree", os.path.abspath (labeled_tree_clade), "--output", os.path.abspath (busted), "--branches", settings.label, "--starting-points", "10"], busted, "BUSTED")
+
+    relax, done = check_result_file ("RELAX.json", "RELAX analysis")
+    if not done:
+        input_stamp = run_command (task_runners['hyphy'], ['relax', '--models', 'Minimal', '--alignment',  os.path.abspath (combined_msa), "--tree", os.path.abspath (labeled_tree_clade), "--output", os.path.abspath (relax), "--test", settings.label, "--reference", "Reference", "--starting-points", "10", "--srv", "Yes"], relax, "RELAX")
+    
+cfel, done = check_result_file ("CFEL.json", "CFEL analysis on the clade of interest")
 if not done:
-    input_stamp = run_command (task_runners['hyphy'], ['relax', '--models', 'Minimal', '--alignment',  os.path.abspath (combined_msa), "--tree", os.path.abspath (labeled_tree), "--output", os.path.abspath (relax), "--test", settings.label, "--reference", "Reference", "--starting-points", "10", "--srv", "Yes"], relax, "RELAX")
+    input_stamp = run_command (task_runners['hyphy-mpi'], ['contrast-fel', '--alignment', os.path.abspath (combined_msa), "--tree", os.path.abspath (labeled_tree_clade), "--output", os.path.abspath (cfel), "--branch-set", settings.label,  "--branch-set", "Reference"], labeled_tree, "CFEL analysis on the clade of interest")
+
 
