@@ -52,7 +52,6 @@ def export_meta(config):
 
     records = list(db_mongo_query)
     print(len(records))
-
     records = [{k: v for k, v in rec.items() if k in acceptable} for rec in records]
     output_json = { row["id"] : row for row in records }
 
@@ -66,7 +65,7 @@ if __name__ == "__main__":
     args = arguments.parse_args()
     config = {"meta-output" : args.output }
     # config["clades"] = ["B.1.351"]
-    # config["clades"] = ["B.1.427", "B.1.429"]
+    config["clades"] = ["B.1.427", "B.1.429"]
     # config["clades"] = ["P.1"]
     # config["clades"] = ["B.1.1.7"]
     # config["ignore-clades"] = ["B.1.351", "P.1", "B.1.1.7"]

@@ -26,6 +26,7 @@ if p not in sys.path:
     sys.path.append(p)
 
 from export_sequences_without_premsa import export_sequences, export_sequences_without_reference
+from export_sequences_without_bealign import export_sequences_without_bealign
 from export_sequences import export_postmsa_sequences
 from store_premsa import store_premsa_file
 from premsa_log_parse import mark_troubled
@@ -62,7 +63,8 @@ default_args = {
     },
     'retries': 3,
     'retry_delay': timedelta(minutes=5),
-    #'on_failure_callback': task_fail_slack_alert,
+    'on_failure_callback': task_fail_slack_alert,
+    'on_success_callback': task_success_slack_alert,
     'concurrency': 20,
     'dag_concurrency' : 20,
 	'max_active_runs': 1,
@@ -99,7 +101,6 @@ BAM2MSA = """
 {{ params.bam2msa }} $BAM_OUTPUT_FN $MSA_OUTPUT_FN
 """
 
-
 def is_export_populated(filepath):
 	return Path(filepath).stat().st_size > 0
 
@@ -109,11 +110,10 @@ i = 0
 for gene in regions.keys():
 
     # Reference directory
-    reference_filepath = WORKING_DIR + 'reference_genes/' + gene + '.fas'
-    filepath_prefix = WORKING_DIR + 'data/postmsa-processor/' + gene + '/sequences.{{ ds }}'
+    reference_filepath = os.path.join(WORKING_DIR, 'reference_genes/', gene + '.fas')
+    filepath_prefix = os.path.join(WORKING_DIR, '/data/bealign/', gene, '/sequences.{{ ds }}')
 
     filepath = filepath_prefix + '.fasta'
-    nuc_filepath = filepath_prefix + '.nuc.fasta'
     stdout = filepath_prefix  + '.stdout.log'
     tmp_output_fn = filepath_prefix + '.tmp.msa'
     output_fn = filepath_prefix + '.msa'
@@ -124,9 +124,9 @@ for gene in regions.keys():
     duplicate_output_filepath =  filepath_prefix + '.duplicates.json'
 
     export_missing_task = PythonOperator(
-        task_id=f'export_missing_aligned_{gene}',
-        python_callable=export_sequences_without_reference,
-        op_kwargs={ "gene" : gene, "output_fn" : filepath, "nuc_output_fn" : nuc_filepath },
+        task_id=f'export_missing_bealigned_{gene}',
+        python_callable=export_sequences_without_bealign,
+        op_kwargs={ "gene" : gene, "output_fn" : filepath },
         dag=dag,
     )
 
@@ -137,21 +137,11 @@ for gene in regions.keys():
         dag=dag
     )
 
-    # References need to be written out in order to mark duplicates. Then
-    # duplicates between mark_premsa dupes and raw dupes need to be merged
-    # Write references
-    write_references_task = PythonOperator(
-        task_id=f'write_references_{gene}',
-        python_callable=export_postmsa_sequences,
-        op_kwargs={ "config" : default_args['params'], "output_fn" : reference_output_filepath, "gene": gene },
-        dag=dag,
-    )
-
     bealign_task = BashOperator(
         task_id=f'bealign_{gene}',
         bash_command=BEALIGN,
         params={'bealign': default_args['params']['bealign']},
-        env={'NUC_INPUT_FN': nuc_filepath, 'REFERENCE_FILEPATH': reference_filepath , 'BAM_OUTPUT_FN': bam_output_fn, **os.environ },
+        env={'NUC_INPUT_FN': filepath, 'REFERENCE_FILEPATH': reference_filepath , 'BAM_OUTPUT_FN': bam_output_fn, **os.environ },
         dag=dag
     )
 
@@ -163,40 +153,16 @@ for gene in regions.keys():
         dag=dag
     )
 
-    # # Collate and merge references *AFTER* alignment step
-    # collate_references_task  = BashOperator(
-	#     task_id=f'collate_references_{gene}',
-    #     bash_command=COLLATE_REFERENCES,
-    #     params={'regions': regions, 'filepath': filepath, 'gene': gene, 'node' : i % 8, 'stdout' : stdout },
-    #     dag=dag,
-    # )
-
-    # Compute duplicates by checking duplicate output, and comparing against existing references
-    # compute_duplicates_task = PythonOperator(
-	#     task_id=f'write_raw_duplicates_{gene}',
-	#     python_callable=write_raw_duplicates,
-	#     op_kwargs={ "input" : prot_input_filepath, "nuc_input" : nuc_input_filepath, "duplicates" : protein_dupe_output_filepath, "nucleotide_duplicates" : nuc_dupe_output_filepath },
-	#     dag=dag,
-	# )
-
-    # Import novel sequences
-    # import_postmsa_seqs_task = PythonOperator(
-    #     task_id=f'store_postmsa_{gene}',
-    #     python_callable=store_postmsa_file,
-    #     op_kwargs={ "reference_sequence" : nuc_input_filepath, "gene": gene },
-    #     dag=dag,
-    # )
-
     # Import new duplicate information
-    # mark_raw_dupes_task = PythonOperator(
-    #     task_id=f'mark_duplicates_{gene}',
-    #     python_callable=mark_duplicates,
-    #     op_kwargs={ "dupe_input" : nuc_dupe_output_filepath, "gene": gene },
+    # store_bealign = PythonOperator(
+    #     task_id=f'store_bealign_{gene}',
+    #     python_callable=store_align,
+    #     op_kwargs={ "fasta_input" : msa_output_fn, "gene": gene },
     #     dag=dag,
     # )
 
     i += 1
-    bealign_tasks.append([ export_missing_task, write_references_task ] >> populated_check_task >> bealign_task >> bam2msa_task)
+    bealign_tasks.append(export_missing_task >> populated_check_task >> bealign_task >> bam2msa_task)
 
 dag.doc_md = __doc__
 bealign_tasks
