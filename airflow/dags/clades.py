@@ -315,7 +315,7 @@ def create_dag(dag_id, schedule, clade, default_args):
 
             summarize_gene_task = BashOperator(
                 task_id=f'summarize_gene_{gene}',
-                bash_command='{{ params.python }} {{params.working_dir}}/python/summarize_gene.py -T data/ctl/epitopes.json -B data/single_mut_effects.csv -D $MASTERNOFASTA -d $DUPLICATES -s $SLAC_OUTPUT -f $FEL_OUTPUT -m $MEME_OUTPUT -P 0.1 --output  $SUMMARY_OUTPUT -c $COMPRESSED_OUTPUT_FN -E data/evo_annotation.json -A data/mafs.csv -V data/evo_freqs.csv -F $FRAGMENT --frame_shift $ADDSHIFT --fragment_shift $SHIFT -S $OFFSET -O $ANNOTATION',
+                bash_command='{{ params.python }} {{params.working_dir}}/python/summarize_gene.py -T data/ctl/epitopes.json -B data/single_mut_effects.csv -D $MASTERNOFASTA -d $DUPLICATES -s $SLAC_OUTPUT -f $FEL_OUTPUT -m $MEME_OUTPUT -P "0.1" --output  $SUMMARY_OUTPUT -c $COMPRESSED_OUTPUT_FN -E data/evo_annotation.json -A data/mafs.csv -V data/evo_freqs.csv -F $FRAGMENT --frame_shift $ADDSHIFT --fragment_shift $SHIFT -S $OFFSET -O $ANNOTATION',
                 params={'python': default_args['params']['python'], 'working_dir': WORKING_DIR},
                 env={
                     'MASTERNOFASTA': default_args["params"]["meta-output"],
