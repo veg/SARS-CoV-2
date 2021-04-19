@@ -308,8 +308,8 @@ def create_dag(dag_id, schedule, clade, default_args):
             annotation_file = filepath_prefix + '.annotation.json'
             copy_annotation_task = BashOperator(
                 task_id=f'copy_annotation_{gene}',
-                bash_command='cp data/comparative-annotation.json {{params.annotation_file}}',
-                params={'annotation_file': annotation_file},
+                bash_command='cp {{params.working_dir}}/data/comparative-annotation.json {{params.annotation_file}}',
+                params={'annotation_file': annotation_file, 'working_dir': WORKING_DIR},
                 dag=dag
             )
 
