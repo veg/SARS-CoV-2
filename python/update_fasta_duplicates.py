@@ -21,10 +21,13 @@ def update_fasta_duplicates(fasta_file, map_file):
     tmp_fn = orig_fn + '.tmp'
 
     # Fix FASTA headers
+    # Create new map that does not have copy numbers
+    just_id_map = {'_'.join(k.split('_')[:3]): v for k,v in map_json.items()}
+
     for seq in seqs:
-        old_id = seq.id
-        seq.id = map_json[old_id]
-        seq.description = map_json[old_id]
+        old_id = '_'.join(seq.id.split('_')[:3])
+        seq.id = just_id_map[old_id]
+        seq.description = just_id_map[old_id]
 
     with open(tmp_fn, 'w') as tmp_fp:
         SeqIO.write(seqs, tmp_fp, "fasta")

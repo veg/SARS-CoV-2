@@ -262,8 +262,16 @@ ref_genes       = [
 consensus = []
 ref_seq_map = []
 
+# Remove copy number from dupe keys
+dups_no_copy_number = {'_'.join(k.split('_')[:3]): v for k,v in dups.items()}
+
 for seq_record in SeqIO.parse(import_settings.coordinates, "fasta"):
-    _copy_count = len(dups[seq_record.description].keys())
+    # Try regular description, but then cut copy count and try again
+    _copy_count = 0
+    if seq_record.description in dups.keys():
+        _copy_count = len(dups[seq_record.description].keys())
+    elif '_'.join(seq_record.description.split('_')[:3]) in dups_no_copy_number.keys():
+        _copy_count = len(dups_no_copy_number['_'.join(seq_record.description.split('_')[:3])].keys())
     if len (consensus) == 0:
         consensus = [{} for l in enumerate (str(seq_record.seq).upper())]
     for i,l in enumerate (str(seq_record.seq).upper()):
@@ -387,21 +395,23 @@ for b,v in slac["tested"]["0"].items():
                 print('no codon for ' + b)
                 break
 
+            b_just_id = '_'.join(b.split('_')[:3])
+
             if codon != '---':
                 if codon not in variants_by_site[k]:
                     variants_by_site[k][codon] = 1
-                    counts_by_site[k][codon] = len (dups[b])
+                    counts_by_site[k][codon] = len (dups_no_copy_number[b_just_id])
                 else:
                     variants_by_site[k][codon] += 1
-                    counts_by_site[k][codon] += len (dups[b])
+                    counts_by_site[k][codon] += len (dups_no_copy_number[b_just_id])
                 aa = slac["branch attributes"]["0"][b]["amino-acid"][0][k]
                 if aa in aa_letters:
                     if aa not in aa_variants_by_site[k]:
                         aa_variants_by_site[k][aa] = 1
-                        aa_counts_by_site[k][aa] = len (dups[b])
+                        aa_counts_by_site[k][aa] = len (dups_no_copy_number[b_just_id])
                     else:
                         aa_variants_by_site[k][aa] += 1
-                        aa_counts_by_site[k][aa] += len (dups[b])
+                        aa_counts_by_site[k][aa] += len (dups_no_copy_number[b_just_id])
 
 if annotation_json is not None: # if this is specified, write everything out
     for k,v in enumerate (aa_counts_by_site):
@@ -798,7 +808,7 @@ if epitopes and annotation_json:
                             if not si in site_to_epitope[s][str_epitope]:
                                 site_to_epitope[s][str_epitope][si] = 0
 
-                            site_to_epitope[s][str_epitope][si] += len (dups[node])
+                            site_to_epitope[s][str_epitope][si] += len (dups_no_copy_number['_'.join(node.split('_')[:3])])
 
 
 # Bloom RBD affinity and expression annotation

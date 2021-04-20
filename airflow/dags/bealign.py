@@ -65,7 +65,7 @@ default_args = {
     'retries': 3,
     'retry_delay': timedelta(minutes=5),
     'on_failure_callback': task_fail_slack_alert,
-    'on_success_callback': task_success_slack_alert,
+    # 'on_success_callback': task_success_slack_alert,
     'concurrency': 20,
     'dag_concurrency' : 20,
 	'max_active_runs': 1,

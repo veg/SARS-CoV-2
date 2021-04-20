@@ -15,13 +15,12 @@ genes=['leader','nsp2','nsp3','nsp4','3C','nsp6','nsp7','nsp8','nsp9','nsp10','h
 # Specify dates
 # dates = [date(2021, 2, 22)]
 # dirs = ['2020-08-01_2020-10-31']
-dirs = ['2020-08-01_2020-10-31']
+# dirs = ['2020-08-01_2020-10-31']
 dirs = ['2021-02-01_2021-03-31']
 gene_fn = lambda x,y: path.join(basedir, x, 'sequences.' + y + '.json')
 
 # get directory listing
 basedir = 'data/sliding-windows/'
-
 
 def collect_info(item):
     gene = gene_fn(*item)
