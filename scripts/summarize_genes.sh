@@ -71,7 +71,7 @@ fi
 echo "...WILL USE META INFORMATION FROM $DATA_DIR"
 echo "...COMPRESSING SEQUENCE ANNOTATIONS"
 
-$P3 ${BASE_DIR}/python/obfuscate-master.py -i ${DATA_DIR}/annotation.json -o ${DATA_DIR}/sequence-info.json -m  ${DATA_DIR}/map.json
+#$P3 ${BASE_DIR}/python/obfuscate-master.py -i ${DATA_DIR}/annotation.json -o ${DATA_DIR}/sequence-info.json -m  ${DATA_DIR}/map.json
 
 
 
@@ -123,7 +123,7 @@ for i in ${!genes[@]}; do
         $JQ -c -s ".[0] + {\"$GENE\" : .[1]}" $OMNIBUS_FILE ${FILE}.${GENE}.json > ${OMNIBUS_FILE}.2
         mv ${OMNIBUS_FILE}.2 ${OMNIBUS_FILE}
     else
-        if $P3 ${BASE_DIR}/python/summarize-gene.py --map ${DATA_DIR}/map.json -T ${BASE_DIR}/data/ctl/epitopes.json -D ${DATA_DIR}/annotation.json --frame_shift ${ADDSHIFT} -d ${FILE}.${GENE}.duplicates.json.gz -s ${FILE}.${GENE}.SLAC.json.gz -f ${FILE}.${GENE}.FEL.json.gz -m ${FILE}.${GENE}.MEME.json.gz -P 0.05 --output  ${FILE}.${GENE}.json -c ${FILE}.${GENE}.compressed.fas -E ${BASE_DIR}/data/evo_annotation.json -F $FRAGMENT --fragment_shift $SHIFT -S $OFFSET -O $ANNOTATION > ${FILE}.${GENE}.json; then
+        if $P3 ${BASE_DIR}/python/summarize-gene.py --map ${DATA_DIR}/map.json -T ${BASE_DIR}/data/ctl/epitopes.json -D ${DATA_DIR}/annotation.json --frame_shift ${ADDSHIFT} -d ${FILE}.${GENE}.duplicates.variants.json.gz -s ${FILE}.${GENE}.SLAC.json.gz -f ${FILE}.${GENE}.FEL.json.gz -m ${FILE}.${GENE}.MEME.json.gz -P 0.05 --output  ${FILE}.${GENE}.json -c ${FILE}.${GENE}.compressed.fas -E ${BASE_DIR}/data/evo_annotation.json -F $FRAGMENT --fragment_shift $SHIFT -S $OFFSET -O $ANNOTATION > ${FILE}.${GENE}.json; then
             echo "Complete"
             echo "<<<<<<<<<<"
             $JQ -c -s ".[0] + {\"$GENE\" : .[1]}" $OMNIBUS_FILE ${FILE}.${GENE}.json > ${OMNIBUS_FILE}.2
@@ -131,7 +131,7 @@ for i in ${!genes[@]}; do
         else
             echo "Error"
             echo "<<<<<<<<<<"
-            #exit 1
+            exit 1
         fi
     fi
     
