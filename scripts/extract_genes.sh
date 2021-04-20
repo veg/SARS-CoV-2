@@ -42,11 +42,11 @@ N_FRAC=$5
 BIGDATA_MEME_FLAGS=''
 BIGDATA_FEL_FLAGS=''
 
-if [[ "$GENE" == "nsp3" ]]
-then
-    BIGDATA_MEME_FLAGS='--full-model No'
-    BIGDATA_FEL_FLAGS='--full-model No'
-fi
+#if [[ "$GENE" == "nsp3" ]]
+#then
+BIGDATA_MEME_FLAGS='--full-model No'
+BIGDATA_FEL_FLAGS='--full-model No'
+#fi
 
 
 if [ -s ${FILE}.${GENE}.json ]

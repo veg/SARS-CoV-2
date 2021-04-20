@@ -273,9 +273,7 @@ def create_dag(dag_id, schedule, window, default_args):
                 dag=dag,
             )
 
-            big_data_flags=''
-            if(gene == 'nsp3'):
-                big_data_flags='--full-model No'
+            big_data_flags='--full-model No'
 
             fel_task = BashOperator(
                 task_id=f'fel_{gene}',

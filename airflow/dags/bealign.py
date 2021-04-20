@@ -69,7 +69,7 @@ default_args = {
     'concurrency': 20,
     'dag_concurrency' : 20,
 	'max_active_runs': 1,
-    'execution_timeout': timedelta(minutes=300),
+    'execution_timeout': timedelta(minutes=3000),
     # 'queue': 'bash_queue',
     # 'pool': 'backfill',
     # 'priority_weight': 10,
