@@ -29,6 +29,7 @@ from export_sequences_without_premsa import export_sequences, export_sequences_w
 from export_sequences_without_bealign import export_sequences_without_bealign
 from export_sequences import export_postmsa_sequences
 from store_premsa import store_premsa_file
+from store_bealign import store_bealign_file
 from premsa_log_parse import mark_troubled
 from mark_premsa_dupes import mark_premsa_dupes
 from get_raw_duplicates import write_raw_duplicates
@@ -154,12 +155,12 @@ for gene in regions.keys():
     )
 
     # Import new duplicate information
-    # store_bealign = PythonOperator(
-    #     task_id=f'store_bealign_{gene}',
-    #     python_callable=store_align,
-    #     op_kwargs={ "fasta_input" : msa_output_fn, "gene": gene },
-    #     dag=dag,
-    # )
+    store_bealign = PythonOperator(
+        task_id=f'store_bealign_{gene}',
+        python_callable=store_bealign_file,
+        op_kwargs={ "input" : msa_output_fn, "gene": gene },
+        dag=dag,
+    )
 
     i += 1
     bealign_tasks.append(export_missing_task >> populated_check_task >> bealign_task >> bam2msa_task)

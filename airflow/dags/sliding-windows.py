@@ -313,7 +313,7 @@ def create_dag(dag_id, schedule, window, default_args):
 
             summarize_gene_task = BashOperator(
                 task_id=f'summarize_gene_{gene}',
-                bash_command='{{ params.python }} {{params.working_dir}}/python/summarize_gene.py -T data/ctl/epitopes.json -B data/single_mut_effects.csv -D $MASTERNOFASTA -d $DUPLICATES -s $SLAC_OUTPUT -f $FEL_OUTPUT -m $MEME_OUTPUT -P 0.1 --output  $SUMMARY_OUTPUT -c $COMPRESSED_OUTPUT_FN -E data/evo_annotation.json -A data/mafs.csv -V data/evo_freqs.csv -F $FRAGMENT --frame_shift $ADDSHIFT --fragment_shift $SHIFT -S $OFFSET -O $ANNOTATION',
+                bash_command='{{ params.python }} {{params.working_dir}}/python/summarize_gene.py -T  {{params.working_dir}}/data/ctl/epitopes.json -B {{params.working_dir}}/data/single_mut_effects.csv -D $MASTERNOFASTA -d $DUPLICATES -s $SLAC_OUTPUT -f $FEL_OUTPUT -m $MEME_OUTPUT -P 0.1 --output  $SUMMARY_OUTPUT -c $COMPRESSED_OUTPUT_FN -E {{params.working_dir}}/data/evo_annotation.json -A {{params.working_dir}}/data/mafs.csv -V {{params.working_dir}}/data/evo_freqs.csv -F $FRAGMENT --frame_shift $ADDSHIFT --fragment_shift $SHIFT -S $OFFSET -O $ANNOTATION',
                 params={'python': default_args['params']['python'], 'working_dir': WORKING_DIR},
                 env={
                     'MASTERNOFASTA': default_args["params"]["meta-output"],
@@ -332,15 +332,9 @@ def create_dag(dag_id, schedule, window, default_args):
                 dag=dag,
             )
 
-
-            # alignment >> duplicates_group >> filter >> infer_tree_task >> [slac_task, fel_task, meme_task] >> copy_annotation_task >> summarize_gene_task
-            # selection_flow.set_downstream(slac_task)
-            # selection_flow.set_downstream(fel_task)
-            # selection_flow.set_downstream(meme_task)
             summarize_gene_task.set_upstream(export_meta_task)
             alignment.set_upstream(export_sequences_task)
             export_by_gene.append(alignment >> duplicates_group >> filter >> infer_tree_task >> [slac_task, fel_task, meme_task] >> copy_annotation_task >> summarize_gene_task)
-
 
         dag.doc_md = __doc__
 
