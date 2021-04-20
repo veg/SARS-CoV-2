@@ -163,7 +163,7 @@ for gene in regions.keys():
     )
 
     i += 1
-    bealign_tasks.append(export_missing_task >> populated_check_task >> bealign_task >> bam2msa_task)
+    bealign_tasks.append(export_missing_task >> populated_check_task >> bealign_task >> bam2msa_task >> store_bealign)
 
 dag.doc_md = __doc__
 bealign_tasks
