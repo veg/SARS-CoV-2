@@ -411,7 +411,7 @@ for clade in clades:
         # 'sla_miss_callback': yet_another_function,
         # 'trigger_rule': 'all_success'
     }
-    schedule = 'None'
+    schedule = None
     globals()[dag_id] = create_dag(dag_id,
                                   schedule,
                                   clade,
