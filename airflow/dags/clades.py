@@ -313,7 +313,7 @@ def create_dag(dag_id, schedule, clade, default_args):
 
             summarize_gene_task = BashOperator(
                 task_id=f'summarize_gene_{gene}',
-                bash_command='{{ params.python }} {{params.working_dir}}/python/summarize_gene.py -T  {{params.working_dir}}/data/ctl/epitopes.json -B {{params.working_dir}}/data/single_mut_effects.csv -D $MASTERNOFASTA -d $DUPLICATES -s $SLAC_OUTPUT -f $FEL_OUTPUT -m $MEME_OUTPUT -P 0.1 --output  $SUMMARY_OUTPUT -c $COMPRESSED_OUTPUT_FN -E {{params.working_dir}}/data/evo_annotation.json -A {{params.working_dir}}/data/mafs.csv -V {{params.working_dir}}/data/evo_freqs.csv -F $FRAGMENT --frame_shift $ADDSHIFT --fragment_shift $SHIFT -S $OFFSET -O $ANNOTATION',
+                bash_command='{{ params.python }} {{params.working_dir}}/python/summarize_gene.py -T {{params.working_dir}}/data/ctl/epitopes.json -B {{params.working_dir}}/data/single_mut_effects.csv -D $MASTERNOFASTA -d $DUPLICATES -s $SLAC_OUTPUT -f $FEL_OUTPUT -m $MEME_OUTPUT -P 0.1 --output  $SUMMARY_OUTPUT -c $COMPRESSED_OUTPUT_FN -E {{params.working_dir}}/data/evo_annotation.json -A {{params.working_dir}}/data/mafs.csv -V {{params.working_dir}}/data/evo_freqs.csv -F $FRAGMENT --frame_shift $ADDSHIFT --fragment_shift $SHIFT -S $OFFSET -O $ANNOTATION',
                 params={'python': default_args['params']['python'], 'working_dir': WORKING_DIR},
                 env={
                     'MASTERNOFASTA': default_args["params"]["meta-output"],
@@ -323,12 +323,12 @@ def create_dag(dag_id, schedule, clade, default_args):
                     'MEME_OUTPUT': meme_output_fn,
                     'SUMMARY_OUTPUT': summary_output_fn,
                     'COMPRESSED_OUTPUT_FN': filtered_fasta_output,
-                    'FRAGMENT': regions[gene]['fragment'],
-                    'ADDSHIFT': regions[gene]['add_one'],
-                    'SHIFT': regions[gene]['shift'],
-                    'OFFSET': regions[gene]['offset'],
-                    'ANNOTATION': annotation_file},
-                    # **os.environ},
+                    'FRAGMENT': str(regions[gene]['fragment']),
+                    'ADDSHIFT': str(regions[gene]['add_one']),
+                    'SHIFT': str(regions[gene]['shift']),
+                    'OFFSET': str(regions[gene]['offset']),
+                    'ANNOTATION': annotation_file,
+                    **os.environ},
                 dag=dag,
             )
 
