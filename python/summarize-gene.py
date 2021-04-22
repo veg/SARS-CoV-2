@@ -439,44 +439,48 @@ if (import_settings.overall):
 mapped_dups = {}
 
 def extract_isl_id (seq_id):
-    parts = seq_id.upper().split ('_')
-    epi = parts.index ('EPI')
-    return 'epi_isl_' + parts[epi+2]    
+    try:
+        parts = seq_id.upper().split ('_')
+        epi = parts.index ('EPI')
+        return 'epi_isl_' + parts[epi+2]    
+    except:
+        return None
 
 
 for seq, copies in dups.items():
     date_collection = {}
     location_collection = []
     accessions = []
-    
-    for cp in copies.values():
-        try:
-            accessions.append (accession_mapper [sequence_to_accession (cp)])
-        except KeyError as e:
-            pass
-        cpv = extract_isl_id (cp)
-        if cpv in sequences_with_dates:
-            cdate = sequences_with_dates[cpv]
-            location = sequences_with_locations[cpv]
+    seqid = extract_isl_id (seq)
+    if seqid:    
+        for cp in copies.values():
+            try:
+                accessions.append (accession_mapper [sequence_to_accession (cp)])
+            except KeyError as e:
+                pass
+            cpv = extract_isl_id (cp)
+            if cpv in sequences_with_dates:
+                cdate = sequences_with_dates[cpv]
+                location = sequences_with_locations[cpv]
             
-            tag = (cdate, location)
+                tag = (cdate, location)
  
-            if not tag in date_collection:
-                date_collection[tag] = 1
+                if not tag in date_collection:
+                    date_collection[tag] = 1
+                else:
+                    date_collection[tag] += 1
+            
+        try:
+               mapped_dups [accession_mapper [sequence_to_accession (seq)]] = rle_compress(sorted(accessions))
+        except KeyError as e:
+            if len (accessions):
+                accession_mapper [sequence_to_accession (seq)] = accessions[0]
+                mapped_dups[accessions[0]] = rle_compress(sorted(accessions))
             else:
-                date_collection[tag] += 1
+                accession_mapper [sequence_to_accession (seq)] = -1
+                mapped_dups [-1] = []
             
-    try:
-           mapped_dups [accession_mapper [sequence_to_accession (seq)]] = rle_compress(sorted(accessions))
-    except KeyError as e:
-        if len (accessions):
-            accession_mapper [sequence_to_accession (seq)] = accessions[0]
-            mapped_dups[accessions[0]] = rle_compress(sorted(accessions))
-        else:
-            accession_mapper [sequence_to_accession (seq)] = -1
-            mapped_dups [-1] = []
-            
-    date_dups[seq] = date_collection   
+        date_dups[seq] = date_collection   
   
 slac = load_json_or_compressed (import_settings.slac)
 fel  = load_json_or_compressed (import_settings.fel)

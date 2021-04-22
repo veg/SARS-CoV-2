@@ -71,8 +71,11 @@ fi
 echo "...WILL USE META INFORMATION FROM $DATA_DIR"
 echo "...COMPRESSING SEQUENCE ANNOTATIONS"
 
-#$P3 ${BASE_DIR}/python/obfuscate-master.py -i ${DATA_DIR}/annotation.json -o ${DATA_DIR}/sequence-info.json -m  ${DATA_DIR}/map.json
-
+if [ -s ${DATA_DIR}/sequence-info.json ]; then
+    echo  "Already done with ANNOTATIONS"
+else
+    $P3 ${BASE_DIR}/python/obfuscate-master.py -i ${DATA_DIR}/annotation.json -o ${DATA_DIR}/sequence-info.json -m  ${DATA_DIR}/map.json
+fi
 
 
 if [ $DO_VARIANTS == "1" ]; 
@@ -131,7 +134,7 @@ for i in ${!genes[@]}; do
         else
             echo "Error"
             echo "<<<<<<<<<<"
-            exit 1
+            #exit 1
         fi
     fi
     
