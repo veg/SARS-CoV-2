@@ -62,7 +62,7 @@ default_args = {
         'zero_length_flags' : '--kill-zero-lengths Constrain ENV="_DO_TREE_REBALANCE_=1"',
         'date_string': DATE_STRING
     },
-    'retries': 3,
+    'retries': 0,
     'retry_delay': timedelta(minutes=5),
     'on_failure_callback': task_fail_slack_alert,
     # 'on_success_callback': task_success_slack_alert,
@@ -137,6 +137,14 @@ for gene in regions.keys():
         op_kwargs={ 'filepath': filepath },
         dag=dag
     )
+
+    # bealign_task = BashOperator(
+    #     task_id=f'bealign_{gene}',
+    #     bash_command=BEALIGN,
+    #     params={'bealign': default_args['params']['bealign']},
+    #     env={'NUC_INPUT_FN': filepath, 'REFERENCE_FILEPATH': reference_filepath , 'BAM_OUTPUT_FN': bam_output_fn, **os.environ },
+    #     dag=dag
+    # )
 
     bealign_task = BashOperator(
         task_id=f'bealign_{gene}',
