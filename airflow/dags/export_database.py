@@ -76,7 +76,7 @@ dag = DAG(
     'export_directory',
     default_args=default_args,
     description='exports mongodb to FASTA to and JSON metadata',
-    schedule_interval='0 11 * * *',
+    schedule_interval=None,
     start_date=datetime.datetime(2021, 4, 14),
     tags=['selection'],
 )
