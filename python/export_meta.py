@@ -41,7 +41,7 @@ def export_meta(config):
         start_date = config["collection-date-range"][0]
         end_date = config["collection-date-range"][1]
         mongo_query["collected"] = { "$gte": datetime.strptime(start_date, "%Y-%m-%d"), "$lte": datetime.strptime(end_date, "%Y-%m-%d") }
-        mongo_query["originalCollected"] = { "$regex": "/^\d{4}-\d{2}/" }
+        mongo_query["originalCollected"] = { "$regex": "[0-9]{4}-[0-9]{2}" }
 
     db_mongo_query = db.gisaid.records.find(mongo_query, acceptable_dict)
 
@@ -65,11 +65,11 @@ if __name__ == "__main__":
     args = arguments.parse_args()
     config = {"meta-output" : args.output }
     # config["clades"] = ["B.1.351"]
-    config["clades"] = ["B.1.427", "B.1.429"]
+    # config["clades"] = ["B.1.427", "B.1.429"]
     # config["clades"] = ["P.1"]
     # config["clades"] = ["B.1.1.7"]
     # config["ignore-clades"] = ["B.1.351", "P.1", "B.1.1.7"]
-    config["clade-type"] = "pangolinLineage"
-    # config['get-latest-by-collection-date'] = 100000
+    # config["clade-type"] = "pangolinLineage"
+    config["collection-date-range"] = ("2019-12-01", "2020-02-28")
     export_meta(config)
 

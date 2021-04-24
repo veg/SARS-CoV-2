@@ -18,7 +18,6 @@ import datetime
 import os
 import operator
 
-
 def handle_cmp (field, value, oper):
     is_date = None
     if type (value) == str:

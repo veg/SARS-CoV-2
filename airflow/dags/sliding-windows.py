@@ -1,5 +1,8 @@
 import yaml
 import datetime
+from dateutil.relativedelta import *
+from dateutil.rrule import *
+from dateutil.parser import *
 
 # The DAG object; we'll need this to instantiate a DAG
 from airflow import DAG
@@ -344,7 +347,7 @@ def create_dag(dag_id, schedule, window, default_args):
 sliding_windows = [
                     ("2020-08-01", "2020-10-31"),
                     ("2021-02-01", "2021-03-31"),
-                    ("2019-12-01", "2020-02-28"),
+                    ("2019-12-01", "2020-02-29"),
                     ("2020-01-01", "2020-03-31"),
                     ("2020-02-01", "2020-04-30"),
                     ("2020-03-01", "2020-05-31"),
@@ -353,6 +356,15 @@ sliding_windows = [
                     ("2020-06-01", "2020-08-31"),
                     ("2020-07-01", "2020-09-30")
                   ]
+
+# Supplement with 3 month sliding windows since beginning of pandemic
+TODAY = datetime.date.today()
+LASTMONTH = TODAY-relativedelta(months=+1, day=31)
+THREEMONTHSAGO = TODAY-relativedelta(months=+3, day=1)
+
+starts = [dt.strftime('%Y-%m-%d') for dt in rrule(MONTHLY, interval=1,bymonthday=(1),dtstart=parse("20191201T000000"), until=THREEMONTHSAGO)]
+ends = [dt.strftime('%Y-%m-%d') for dt in rrule(MONTHLY, interval=1,bymonthday=(-1),dtstart=parse("20200228T000000"), until=LASTMONTH)]
+sliding_windows = set(list(zip(starts,ends)) + sliding_windows)
 
 for window in sliding_windows:
     dag_id = 'sliding_windows_{}'.format(str('_'.join(window)))

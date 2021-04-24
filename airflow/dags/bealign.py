@@ -138,14 +138,6 @@ for gene in regions.keys():
         dag=dag
     )
 
-    # bealign_task = BashOperator(
-    #     task_id=f'bealign_{gene}',
-    #     bash_command=BEALIGN,
-    #     params={'bealign': default_args['params']['bealign']},
-    #     env={'NUC_INPUT_FN': filepath, 'REFERENCE_FILEPATH': reference_filepath , 'BAM_OUTPUT_FN': bam_output_fn, **os.environ },
-    #     dag=dag
-    # )
-
     bealign_task = BashOperator(
         task_id=f'bealign_{gene}',
         bash_command=BEALIGN,

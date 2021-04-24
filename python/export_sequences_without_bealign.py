@@ -45,7 +45,10 @@ def export_sequences_without_bealign(gene, output_fn):
     db = MongoClient(host='192.168.0.4')
 
     get_bealign_key = lambda gene: '.'.join(['bealign', gene])
+    get_qc_passed_key = lambda gene: '.'.join(['qc', gene, 'passed'])
+
     bealign_key = get_bealign_key(gene)
+    qc_passed_key = get_qc_passed_key(gene)
 
     acceptable = ['collected', 'originalCollected', 'host', 'id', 'location', 'name', 'technology', 'type', 'nextstrainClade', 'pangolinLineage', 'gisaidClade', 'seq']
 
@@ -53,6 +56,10 @@ def export_sequences_without_bealign(gene, output_fn):
     MINLENGTH=28000
     mongo_query = { "host" : HOST,  "length": {"$gt": MINLENGTH }, "seq": {"$exists":True} }
     mongo_query[bealign_key] = { "$exists": False }
+
+    # Ensure that the gene has passed quality control. We may use pre-msa output at a later date.
+    mongo_query[qc_passed_key] = True
+
 
     # Query for human host and sequence length greater than 28000, and sequence populated
     records = list(db.gisaid.records.find(mongo_query, limit=99000))

@@ -67,6 +67,7 @@ def export_sequences(config):
         start_date = config["collection-date-range"][0]
         end_date = config["collection-date-range"][1]
         mongo_query["collected"] = { "$gt": datetime.strptime(start_date, "%Y-%m-%d"), "$lt": datetime.strptime(end_date, "%Y-%m-%d") }
+        mongo_query["originalCollected"] = { "$regex": "[0-9]{4}-[0-9]{2}" }
 
     db_mongo_query = db.gisaid.records.find(mongo_query, acceptables);
 
@@ -217,8 +218,9 @@ if __name__ == "__main__":
 
     config = {}
     config["sequence-output"] = args.output
-    config['get-latest-by-collection-date'] = 100000
+    # config['get-latest-by-collection-date'] = 100000
     config['only-uniques'] = False
+    config["collection-date-range"] = ("2019-12-01", "2020-02-28")
     # config["clades"] = ["B.1.351"]
     # config["clades"] = ["B.1.427", "B.1.429"]
     # config["clades"] = ["B.1.1.7"]
