@@ -80,8 +80,8 @@ else
     then
         echo "Already aligned"
     else
-        echo "$MAFFT --auto --thread -1 --addfragments ${FILE}.${GENE}_protein.compressed.fas reference_genes/reference.${GENE}_protein.fas >| ${FILE}.${GENE}.tmp.msa"
-        $MAFFT --auto --thread -1 --addfragments ${FILE}.${GENE}_protein.compressed.fas reference_genes/reference.${GENE}_protein.fas >| ${FILE}.${GENE}.tmp.msa 
+        echo "$MAFFT --auto --thread -1 --add ${FILE}.${GENE}_protein.compressed.fas reference_genes/reference.${GENE}_protein.fas >| ${FILE}.${GENE}.tmp.msa"
+        $MAFFT --auto --thread -1 --add ${FILE}.${GENE}_protein.compressed.fas reference_genes/reference.${GENE}_protein.fas >| ${FILE}.${GENE}.tmp.msa 
         # Remove reference from output
         $PYTHON python/remove_seq.py -i ${FILE}.${GENE}.tmp.msa -r reference_genes/reference.${GENE}_protein.fas -o ${FILE}.${GENE}.msa
         rm ${FILE}.${GENE}.tmp.msa 
