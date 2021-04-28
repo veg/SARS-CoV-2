@@ -114,7 +114,7 @@ let adaptedRecords = _.map(records, record => {
     technology: null,
     type: null,
     nextstrainClade : record.Nextstrain_clade,
-    pangolinLineage : record.pangolin_lineage,
+    pangolinLineage : record.pango_lineage,
     gisaidClade : record.GISAID_clade
   };
 
@@ -151,10 +151,7 @@ MongoClient.connect(url, (err, client) => {
           "filter": { 'id': adaptedRecord.id},
           "update": { '$set': 
                            { 
-                              'originalCollected' : adaptedRecord.originalCollected,
-                              'collected' : adaptedRecord.collected,
-                              'submitted' : adaptedRecord.submitted,
-                              'originalSubmitted' : adaptedRecord.originalSubmitted
+                              'pangolinLineage' : adaptedRecord.pangolinLineage
                            }
                          }
         }
