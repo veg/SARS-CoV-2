@@ -51,7 +51,7 @@ default_args = {
         'region_cfg' : "/data/shares/veg/SARS-CoV-2/SARS-CoV-2-devel/airflow/libs/regions.yaml",
         'get-latest-by-collection-date': 100000,
         'date' : datetime.date.today().strftime('%Y-%m-%d'),
-        'python': "/data/shares/veg/SARS-CoV-2/SARS-CoV-2-devel/env/bin/python3",
+        'python': WORKING_DIR + "/env/bin/python3",
         'hyphy': "/data/shares/veg/SARS-CoV-2/hyphy/hyphy",
         'hyphy_mpi': "/data/shares/veg/SARS-CoV-2/hyphy/HYPHYMPI",
         'hyphy_lib_path': "/data/shares/veg/SARS-CoV-2/hyphy/res",

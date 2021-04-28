@@ -381,8 +381,8 @@ for clade in clades:
         'params' : {
             'working_dir' : WORKING_DIR,
             'num_procs': 64,
-            'region_cfg' : "/data/shares/veg/SARS-CoV-2/SARS-CoV-2-devel/airflow/libs/regions.yaml",
-            'python': "/data/shares/veg/SARS-CoV-2/SARS-CoV-2-devel/env/bin/python3",
+            'region_cfg' : WORKING_DIR + "/airflow/libs/regions.yaml",
+            'python': WORKING_DIR + "/env/bin/python3",
             'hyphy': "/data/shares/veg/SARS-CoV-2/hyphy/hyphy",
             'hyphy_mpi': "/data/shares/veg/SARS-CoV-2/hyphy/HYPHYMPI",
             'hyphy_lib_path': "/data/shares/veg/SARS-CoV-2/hyphy/res",
