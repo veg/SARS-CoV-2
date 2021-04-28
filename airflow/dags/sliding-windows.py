@@ -73,6 +73,7 @@ def create_dag(dag_id, schedule, window, default_args):
                 task_id='export_meta',
                 python_callable=export_meta,
                 op_kwargs={ "config" : default_args['params'] },
+                pool='mongo',
                 dag=dag,
             )
 
@@ -81,6 +82,7 @@ def create_dag(dag_id, schedule, window, default_args):
                 task_id='export_sequences',
                 python_callable=export_sequences,
                 op_kwargs={ "config" : default_args['params'] },
+                pool='mongo',
                 dag=dag,
             )
 
@@ -129,39 +131,27 @@ def create_dag(dag_id, schedule, window, default_args):
             default_args["params"]["protein-duplicate-output"] = protein_duplicate_output
             default_args["params"]["inital-duplicate-output"] = initial_duplicate_output
 
-            # export_premsa_sequence_task = PythonOperator(
-            #         task_id=f'export_premsa_sequences_{gene}',
-            #         python_callable=export_premsa_sequences,
-            #         op_kwargs={ "config" : default_args['params'], 'nuc_output_fn':  nuc_sequence_output, 'prot_output_fn' : prot_sequence_output, 'gene' : gene },
-            #         dag=dag,
-            #     )
-
-            # export_premsa_sequence_task.set_upstream(mk_dir_task)
-
-            # export_duplicates_task = PythonOperator(
-            #     task_id=f'export_duplicates_{gene}',
-            #     python_callable=export_duplicates,
-            #     op_kwargs={ 'output_fn' : initial_duplicate_output, 'gene': gene },
-            #     dag=dag,
-            # )
-
             with TaskGroup(f"alignment_{gene}") as alignment:
 
-                PREMSA = """
-                {{ params.hyphy }} LIBPATH={{ params.hyphy_lib_path}} {{ params.pre_msa }} --input {{ params.filepath }} --reference {{ params.working_dir }}/{{ params.regions[params["gene"]]["reference"] }} --trim-from {{ params.regions[params.gene]["trim_from"] }} --trim-to {{ params.regions[params.gene]["trim_to"] }} --E 0.01 --N-fraction {{ params.regions[params["gene"]]["fraction"] }} --remove-stop-codons Yes --protein $PROTEIN_OUT --rna $NUC_OUT --copies $COPIES_FN
-                """
+                export_premsa_sequence_task = PythonOperator(
+                        task_id=f'export_premsa_sequences_{gene}',
+                        python_callable=export_premsa_sequences,
+                        op_kwargs={ "config" : default_args['params'], 'nuc_output_fn':  nuc_sequence_output, 'prot_output_fn' : prot_sequence_output, 'gene' : gene },
+                        pool='mongo',
+                        dag=dag,
+                    )
 
-                pre_msa_task = BashOperator(
-                    task_id=f'pre_msa_{gene}',
-                    bash_command=PREMSA,
-                    params={'regions': regions, 'filepath': default_args["params"]["sequence-output"], 'gene': gene },
-                    env={'COPIES_FN': initial_duplicate_output, 'PROTEIN_OUT': prot_sequence_output, 'NUC_OUT': nuc_sequence_output, **os.environ},
+                export_duplicates_task = PythonOperator(
+                    task_id=f'export_duplicates_{gene}',
+                    python_callable=export_duplicates,
+                    op_kwargs={ 'output_fn' : initial_duplicate_output, 'gene': gene },
+                    pool='mongo',
                     dag=dag,
                 )
 
 
                 MAFFT = """
-                {{ params.mafft }} --auto --thread -1 --addfragments $INPUT_FN $REFERENCE_FILEPATH >| $TMP_OUTPUT_FN
+                {{ params.mafft }} --auto --thread -1 --add $INPUT_FN $REFERENCE_FILEPATH >| $TMP_OUTPUT_FN
                 """
 
                 mafft_task = BashOperator(
@@ -199,7 +189,7 @@ def create_dag(dag_id, schedule, window, default_args):
                     dag=dag
                 )
 
-                pre_msa_task >> mafft_task >> remove_ref_task >> reverse_translate_task >> cleanup_task
+                [export_premsa_sequence_task] >> mafft_task >> remove_ref_task >> reverse_translate_task >> cleanup_task
 
             with TaskGroup(f"duplicates_{gene}") as duplicates_group:
                 merge_duplicate_task = PythonOperator(

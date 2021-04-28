@@ -16,7 +16,7 @@ from airflow.models import Variable
 # These args will get passed on to each operator
 # You can override them on a per-task basis during operator initialization
 
-from libs.callbacks import task_fail_slack_alert, task_success_slack_alert
+from libs.callbacks import task_fail_slack_alert, task_success_slack_alert, dag_fail_slack_alert, dag_success_slack_alert
 
 import os
 import sys
@@ -47,8 +47,8 @@ def create_dag(dag_id, schedule, clade, default_args):
         description='creates output based on pangolin assignment',
         schedule_interval=schedule,
         start_date=datetime.datetime(2021, 4, 15),
-        on_failure_callback=task_fail_slack_alert,
-        on_success_callback=task_success_slack_alert,
+        on_failure_callback=dag_fail_slack_alert,
+        on_success_callback=dag_success_slack_alert,
         tags=['selection','clade'],
         ) as dag:
 
@@ -160,7 +160,7 @@ def create_dag(dag_id, schedule, clade, default_args):
 
 
                 MAFFT = """
-                {{ params.mafft }} --auto --thread -1 --addfragments $INPUT_FN $REFERENCE_FILEPATH >| $TMP_OUTPUT_FN
+                {{ params.mafft }} --auto --thread -1 --add $INPUT_FN $REFERENCE_FILEPATH >| $TMP_OUTPUT_FN
                 """
 
                 mafft_task = BashOperator(
@@ -366,7 +366,8 @@ clades = [
     "P.1",
     "B.1.526",
     "P.2",
-    "B.1.525"
+    "B.1.525",
+    "B.1.617"
     ]
 
 for clade in clades:

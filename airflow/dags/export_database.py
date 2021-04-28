@@ -84,23 +84,6 @@ dag = DAG(
 with open(dag.params["region_cfg"], 'r') as stream:
     regions = yaml.safe_load(stream)
 
-MAFFT = """
-{{ params.mafft }} --auto --thread -1 --mapout --addfragments $INPUT_FN $REFERENCE_FILEPATH >| $TMP_OUTPUT_FN
-"""
-
-POSTMSA = """
-{{ params.hyphy }} LIBPATH={{params.hyphy_lib_path}} {{ params.post_msa }} --protein-msa $INPUT_FN --nucleotide-sequences $NUC_INPUT_FN --output $COMPRESSED_OUTPUT_FN --duplicates $DUPLICATE_OUTPUT_FN
-"""
-
-COMPRESSOR = """
-{{ params.hyphy }} LIBPATH={{params.hyphy_lib_path}} {{ params.compressor }} --msa $COMPRESSED_FN --duplicates $DUPLICATE_FN --output $VARIANTS_CSV_FN  --json $VARIANTS_JSON_FN
-"""
-
-COMPRESSOR2 = """
-{{ params.hyphy }} LIBPATH={{params.hyphy_lib_path}} {{ params.compressor2 }} --msa $COMPRESSED_FN --duplicates $DUPLICATE_FN --csv $VARIANTS_CSV_FN  --byseq $VARIANTS_JSON_FN --p 0.9 --output $FILTERED_FASTA_FN --json FILTERED_JSON_FN
-"""
-
-
 mk_dir = BashOperator(
     task_id='make_directory',
     bash_command='mkdir -p {{params.export_directory}}',

@@ -60,9 +60,8 @@ def export_sequences_without_bealign(gene, output_fn):
     # Ensure that the gene has passed quality control. We may use pre-msa output at a later date.
     mongo_query[qc_passed_key] = True
 
-
     # Query for human host and sequence length greater than 28000, and sequence populated
-    records = list(db.gisaid.records.find(mongo_query, limit=99000))
+    records = list(db.gisaid.records.find(mongo_query, limit=15000))
 
     # Need to write prot_key
     seq_records = [SeqRecord(Seq(rec['seq']),id=sequence_name(rec),name='',description='') for rec in records]

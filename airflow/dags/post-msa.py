@@ -91,7 +91,7 @@ with open(dag.params["region_cfg"], 'r') as stream:
     regions = yaml.safe_load(stream)
 
 MAFFT = """
-{{ params.mafft }} --auto --thread -1 --mapout --addfragments $INPUT_FN $REFERENCE_FILEPATH >| $TMP_OUTPUT_FN
+{{ params.mafft }} --auto --thread -1 --mapout --add $INPUT_FN $REFERENCE_FILEPATH >| $TMP_OUTPUT_FN
 """
 
 POSTMSA = """

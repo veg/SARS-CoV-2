@@ -14,7 +14,7 @@ from airflow.models import Variable
 # These args will get passed on to each operator
 # You can override them on a per-task basis during operator initialization
 
-from libs.callbacks import task_fail_slack_alert, task_success_slack_alert
+from libs.callbacks import task_fail_slack_alert, task_success_slack_alert, dag_fail_slack_alert, dag_success_slack_alert
 
 import os
 import sys
@@ -64,7 +64,7 @@ default_args = {
     },
     'retries': 0,
     'retry_delay': timedelta(minutes=5),
-    'on_failure_callback': task_fail_slack_alert,
+    # 'on_failure_callback': task_fail_slack_alert,
     # 'on_success_callback': task_success_slack_alert,
     'concurrency': 20,
     'dag_concurrency' : 20,
@@ -86,9 +86,11 @@ dag = DAG(
     'bealign',
     default_args=default_args,
     description='performs bealign',
-    schedule_interval='@weekly',
+    schedule_interval='@hourly',
     start_date=days_ago(2),
     tags=['selection'],
+    on_failure_callback=dag_fail_slack_alert,
+    on_success_callback=dag_success_slack_alert
 )
 
 with open(dag.params["region_cfg"], 'r') as stream:
@@ -128,6 +130,7 @@ for gene in regions.keys():
         task_id=f'export_missing_bealigned_{gene}',
         python_callable=export_sequences_without_bealign,
         op_kwargs={ "gene" : gene, "output_fn" : filepath },
+        pool='mongo',
         dag=dag,
     )
 
@@ -143,6 +146,7 @@ for gene in regions.keys():
         bash_command=BEALIGN,
         params={'bealign': default_args['params']['bealign']},
         env={'NUC_INPUT_FN': filepath, 'REFERENCE_FILEPATH': reference_filepath , 'BAM_OUTPUT_FN': bam_output_fn, **os.environ },
+        pool='bealign',
         dag=dag
     )
 
@@ -159,6 +163,7 @@ for gene in regions.keys():
         task_id=f'store_bealign_{gene}',
         python_callable=store_bealign_file,
         op_kwargs={ "input" : msa_output_fn, "gene": gene },
+        pool='mongo',
         dag=dag,
     )
 
