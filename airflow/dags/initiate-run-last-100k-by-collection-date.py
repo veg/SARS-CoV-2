@@ -19,7 +19,7 @@ from airflow.models import Variable
 # These args will get passed on to each operator
 # You can override them on a per-task basis during operator initialization
 
-from libs.callbacks import task_fail_slack_alert, task_success_slack_alert
+from libs.callbacks import task_fail_slack_alert, task_success_slack_alert, dag_fail_slack_alert, dag_success_slack_alert
 
 import os
 import sys
@@ -64,8 +64,8 @@ default_args = {
     'retries': 1,
     'retry_delay': datetime.timedelta(minutes=5),
     'task_concurrency' : 5,
-    'on_failure_callback': task_fail_slack_alert,
-    'on_success_callback': task_success_slack_alert
+    # 'on_failure_callback': task_fail_slack_alert,
+    # 'on_success_callback': task_success_slack_alert
     # 'queue': 'bash_queue',
     # 'pool': 'backfill',
     # 'priority_weight': 10,
@@ -90,6 +90,8 @@ dag = DAG(
     description='initiates run with sequences from latest 100k sequences',
     schedule_interval='@weekly',
     start_date=datetime.datetime(2021, 3, 25),
+    on_failure_callback=dag_fail_slack_alert,
+    on_success_callback=dag_success_slack_alert,
     tags=['selection'],
 )
 
