@@ -412,7 +412,7 @@ for clade in clades:
         # 'sla_miss_callback': yet_another_function,
         # 'trigger_rule': 'all_success'
     }
-    schedule = 'weekly'
+    schedule = '@weekly'
     globals()[dag_id] = create_dag(dag_id,
                                   schedule,
                                   clade,
