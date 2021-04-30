@@ -86,7 +86,7 @@ dag = DAG(
     'bealign',
     default_args=default_args,
     description='performs bealign',
-    schedule_interval='@hourly',
+    schedule_interval='@daily',
     start_date=days_ago(2),
     tags=['selection'],
     on_failure_callback=dag_fail_slack_alert,

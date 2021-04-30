@@ -49,8 +49,9 @@ def store_bealign_file(input, gene):
 
     if(len(to_update)):
         results = db.gisaid.records.bulk_write(to_update)
-
-    print("Updated " +  str(results.modified_count) + " of " + str(len(items_to_update)) + " items to update")
+        print("Updated " +  str(results.modified_count) + " of " + str(len(items_to_update)) + " items to update")
+    else:
+        print("No items to update")
 
 
 if __name__ == "__main__":

@@ -99,7 +99,7 @@ i = 0
 
 for gene in regions.keys():
 
-    filepath_prefix = WORKING_DIR + 'data/premsa-processor/' + gene + '/sequences.' + default_args['params']['date_string']
+    filepath_prefix = WORKING_DIR + 'data/premsa-processor/' + gene + '/sequences'
     filepath = filepath_prefix + '.fasta'
     stdout = filepath_prefix  + '.stdout.log'
     reference_output_filepath  = filepath_prefix + '.references.fasta'
