@@ -23,8 +23,8 @@ TN93=/usr/local/bin/tn93
 PREMSA=/data/shares/veg/SARS-CoV-2/hyphy-analyses/codon-msa/pre-msa.bf
 POSTMSA=/data/shares/veg/SARS-CoV-2/hyphy-analyses/codon-msa/post-msa.bf
 
-WORKING_DIR=/data/shares/veg/SARS-CoV-2/SARS-CoV-2-devel
-PYTHON=/data/shares/veg/SARS-CoV-2/SARS-CoV-2-devel/env/bin/python3
+WORKING_DIR=/data/shares/veg/SARS-CoV-2/SARS-CoV-2
+PYTHON=/data/shares/veg/SARS-CoV-2/SARS-CoV-2/env/bin/python3
 
 COMPRESSOR=$WORKING_DIR/scripts/compressor.bf
 COMPRESSOR2=$WORKING_DIR/scripts/compressor-2.bf
