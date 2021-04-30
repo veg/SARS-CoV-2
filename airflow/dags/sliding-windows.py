@@ -54,7 +54,7 @@ def create_dag(dag_id, schedule, window, default_args):
         tags=['selection','sliding'],
         ) as dag:
 
-        OUTPUT_DIR = WORKING_DIR + "/data/sliding-windows/" + '_'.join(window) + '/{{ ds }}/'
+        OUTPUT_DIR = WORKING_DIR + "/data/sliding-windows/" + '_'.join(window)
         default_args["params"]["output-dir"] = OUTPUT_DIR
         default_args["params"]["meta-output"] = OUTPUT_DIR + '/master-no-sequences.json'
         default_args["params"]["sequence-output"] = OUTPUT_DIR + '/sequences'
