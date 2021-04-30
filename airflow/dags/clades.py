@@ -52,7 +52,7 @@ def create_dag(dag_id, schedule, clade, default_args):
         tags=['selection','clade'],
         ) as dag:
 
-        OUTPUT_DIR = WORKING_DIR + "/data/clades/" + clade + '/'
+        OUTPUT_DIR = WORKING_DIR + '/data/clades/ ' + clade + '/{{ ds }}/'
         default_args["params"]["output-dir"] = OUTPUT_DIR
         default_args["params"]["meta-output"] = OUTPUT_DIR + '/master-no-sequences.json'
         default_args["params"]["sequence-output"] = OUTPUT_DIR + '/sequences'
