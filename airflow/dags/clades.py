@@ -46,7 +46,7 @@ def create_dag(dag_id, schedule, clade, default_args):
         default_args=default_args,
         description='creates output based on pangolin assignment',
         schedule_interval=schedule,
-        start_date=datetime.datetime(2021, 4, 15),
+        start_date=datetime.datetime(2021, 4, 30),
         on_failure_callback=dag_fail_slack_alert,
         on_success_callback=dag_success_slack_alert,
         tags=['selection','clade'],
@@ -412,7 +412,7 @@ for clade in clades:
         # 'sla_miss_callback': yet_another_function,
         # 'trigger_rule': 'all_success'
     }
-    schedule = None
+    schedule = 'weekly'
     globals()[dag_id] = create_dag(dag_id,
                                   schedule,
                                   clade,
