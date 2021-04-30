@@ -116,22 +116,24 @@ def extract_id (seq_id):
 for i, gene in enumerate (genes):
     local_set = {}
     
-    #print ("/".join ([import_settings.dir, import_settings.sequence_pattern % gene]))
 
     try:
-        dups_raw = load_json_or_compressed ("/".join ([import_settings.dir, import_settings.duplicate_pattern % gene]))
+        dups_file = "".join ([import_settings.dir, import_settings.duplicate_pattern % gene])
+        dups_raw = load_json_or_compressed (dups_file)
         dups = {}
         for id, dup_list in dups_raw.items():
             idc = mapper[extract_id(id)]
-            dups[idc] = [mapper[extract_id(k)] for k in dup_list]
+            dups[idc] = [mapper[extract_id(k)] for ignore,k in dup_list.items()]
             dups[idc].append (idc)
         
     except FileNotFoundError as e:
-        continue        
+        print ("Not found %s" % dups_file, file = sys.stderr)
+        continue   
+        
+         
     count = 0
     
-    
-    for seq_record in SeqIO.parse(open ("/".join ([import_settings.dir, import_settings.sequence_pattern % gene]), "r"), "fasta"):
+    for seq_record in SeqIO.parse(open ("".join ([import_settings.dir, import_settings.sequence_pattern % gene]), "r"), "fasta"):
         seq_id   = seq_record.name
         seq = str (seq_record.seq).upper()
         no_count = mapper[extract_id (seq_id)]
