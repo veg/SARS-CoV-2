@@ -48,13 +48,13 @@ def create_dag(dag_id, schedule, window, default_args):
         default_args=default_args,
         description='creates sliding windows based on months',
         schedule_interval=schedule,
-        start_date=datetime.datetime(2021, 3, 25),
+        start_date=datetime.datetime(2021, 4, 30),
         on_failure_callback=task_fail_slack_alert,
         on_success_callback=task_success_slack_alert,
         tags=['selection','sliding'],
         ) as dag:
 
-        OUTPUT_DIR = WORKING_DIR + "/data/sliding-windows-two/" + '_'.join(window) + '/'
+        OUTPUT_DIR = WORKING_DIR + "/data/sliding-windows/" + '_'.join(window) + '/{{ ds }}/'
         default_args["params"]["output-dir"] = OUTPUT_DIR
         default_args["params"]["meta-output"] = OUTPUT_DIR + '/master-no-sequences.json'
         default_args["params"]["sequence-output"] = OUTPUT_DIR + '/sequences'
