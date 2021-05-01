@@ -94,9 +94,9 @@ gunzip_files = BashOperator(
 
 dag.doc_md = __doc__
 
-import_tsv.doc_md = """\
-#### Task Documentation
-IMPORT TSV FROM GISAID
-"""
+# import_tsv.doc_md = """\
+# #### Task Documentation
+# IMPORT TSV FROM GISAID
+# """
 
 [retrieve_meta_from_gisaid, retrieve_fasta_from_gisaid] >> gunzip_files
