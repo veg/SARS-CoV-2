@@ -15,6 +15,8 @@ from airflow.models.baseoperator import cross_downstream
 from airflow.utils.dates import days_ago
 from airflow.hooks.base import BaseHook
 from airflow.models import Variable
+from airflow.decorators import task
+from airflow.operators.python import get_current_context
 
 # These args will get passed on to each operator
 # You can override them on a per-task basis during operator initialization
@@ -79,12 +81,7 @@ default_args = {
     # 'trigger_rule': 'all_success'
 }
 
-OUTPUT_DIR = WORKING_DIR + "/data/fasta/" + default_args["params"]["date"]  + '-last100k-by-collection-date'
-default_args["params"]["output-dir"] = OUTPUT_DIR
-default_args["params"]["meta-output"] = OUTPUT_DIR + '/master-no-sequences.json'
-default_args["params"]["sequence-output"] = OUTPUT_DIR + '/sequences'
-
-dag = DAG(
+with DAG(
     'initiate_run_last_100k_by_collection_date',
     default_args=default_args,
     description='initiates run with sequences from latest 100k sequences',
@@ -93,19 +90,29 @@ dag = DAG(
     on_failure_callback=dag_fail_slack_alert,
     on_success_callback=dag_success_slack_alert,
     tags=['selection'],
-)
-
-with DAG(
-    'initiate_run_last_100k_by_collection_date',
-    default_args=default_args,
-    description='initiates run with sequences from latest 100k sequences',
-    schedule_interval='@weekly',
-    start_date=datetime.datetime(2021, 3, 25),
-    tags=['selection'],
     ) as dag:
+
+    OUTPUT_DIR = WORKING_DIR + "/data/fasta/" + default_args["params"]["date"]  + "-last100k-by-collection-date"
+    default_args["params"]["output-dir"] = OUTPUT_DIR
+    default_args["params"]["meta-output"] = OUTPUT_DIR + '/master-no-sequences.json'
+    default_args["params"]["sequence-output"] = OUTPUT_DIR + '/sequences'
 
     with open(dag.params["region_cfg"], 'r') as stream:
         regions = yaml.safe_load(stream)
+
+    def my_task():
+        context = get_current_context()
+        ds = context["ds"]
+        OUTPUT_DIR = WORKING_DIR + "/data/fasta/" + ds  + "-last100k-by-collection-date"
+        default_args["params"]["output-dir"] = OUTPUT_DIR
+        default_args["params"]["meta-output"] = OUTPUT_DIR + '/master-no-sequences.json'
+        default_args["params"]["sequence-output"] = OUTPUT_DIR + '/sequences'
+
+    test_task = PythonOperator(
+            task_id=f'test_task',
+            python_callable=my_task,
+            dag=dag,
+        )
 
     mk_dir_task = BashOperator(
         task_id='make_directory',
@@ -113,6 +120,8 @@ with DAG(
         params={'output': default_args['params']['output-dir']},
         dag=dag,
     )
+
+    mk_dir_task.set_upstream(test_task)
 
     export_meta_task = PythonOperator(
             task_id='export_meta',
