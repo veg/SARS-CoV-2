@@ -74,30 +74,23 @@ gunzip_files = BashOperator(
     dag=dag,
 )
 
-xunzip_files = BashOperator(
-    task_id='xunzip_files',
-    bash_command='unxz {{ params.import_dir}}/*.tar.xz && tar xvf {{ params.import_dir }}/*.tar',
-    dag=dag,
-)
+# import_tsv = BashOperator(
+#     task_id='import_tsv',
+#     bash_command='for x in $(ls {{ params.import_dir }}/*.tsv); do node {{ params.working_dir }}/js/submit-tsv-to-mongo.js $x; done;',
+#     dag=dag,
+# )
 
+# update_mongo_with_sequences = BashOperator(
+#     task_id='update_with_sequences',
+#     bash_command='for x in $(ls {{ params.import_dir }}/*.fasta); do python3 {{ params.working_dir }}/python/update_with_sequence_name.py -i $x; done;',
+#     dag=dag,
+# )
 
-import_tsv = BashOperator(
-    task_id='import_tsv',
-    bash_command='for x in $(ls {{ params.import_dir }}/*.tsv); do node {{ params.working_dir }}/js/submit-tsv-to-mongo.js $x; done;',
-    dag=dag,
-)
-
-update_mongo_with_sequences = BashOperator(
-    task_id='update_with_sequences',
-    bash_command='for x in $(ls {{ params.import_dir }}/*.fasta); do python3 {{ params.working_dir }}/python/update_with_sequence_name.py -i $x; done;',
-    dag=dag,
-)
-
-mv_files = BashOperator(
-    task_id='move_files',
-    bash_command='mv {{ params.import_dir }}/*.tsv {{ params.import_dir }}/*.fasta {{ params.imported_dir }}',
-    dag=dag,
-)
+# mv_files = BashOperator(
+#     task_id='move_files',
+#     bash_command='mv {{ params.import_dir }}/*.tsv {{ params.import_dir }}/*.fasta {{ params.imported_dir }}',
+#     dag=dag,
+# )
 
 dag.doc_md = __doc__
 
@@ -106,4 +99,4 @@ import_tsv.doc_md = """\
 IMPORT TSV FROM GISAID
 """
 
-[retrieve_meta_from_gisaid, retrieve_fasta_from_gisaid] >> gunzip_files >> xunzip_files >> import_tsv >> update_mongo_with_sequences >> mv_files
+[retrieve_meta_from_gisaid, retrieve_fasta_from_gisaid] >> gunzip_files
