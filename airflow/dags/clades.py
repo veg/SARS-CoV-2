@@ -52,10 +52,12 @@ def create_dag(dag_id, schedule, clade, default_args):
         tags=['selection','clade'],
         ) as dag:
 
-        OUTPUT_DIR = WORKING_DIR + '/data/clades/ ' + clade.strip()
+        OUTPUT_DIR = WORKING_DIR + '/data/clades/' + clade.strip()
         default_args["params"]["output-dir"] = OUTPUT_DIR
         default_args["params"]["meta-output"] = OUTPUT_DIR + '/master-no-sequences.json'
         default_args["params"]["sequence-output"] = OUTPUT_DIR + '/sequences'
+
+        print(OUTPUT_DIR)
 
         with open(dag.params["region_cfg"], 'r') as stream:
             regions = yaml.safe_load(stream)
