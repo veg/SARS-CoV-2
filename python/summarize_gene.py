@@ -29,7 +29,6 @@ from   Bio import SeqIO
 
 from Bio.Seq import Seq
 from Bio.SeqRecord import SeqRecord
-from Bio.Alphabet import IUPAC
 from BioExt.uds import _align_par
 from BioExt.scorematrices import (
     DNAScoreMatrix,
@@ -295,7 +294,7 @@ def ignore_record (x):
     pass
 
 for s in ref_genes:
-    _align_par (SeqRecord(Seq(s[1],IUPAC.IUPACAmbiguousDNA()),id=s[0]),[SeqRecord(Seq(ref_seq,IUPAC.IUPACAmbiguousDNA()),id="ref")],
+    _align_par (SeqRecord(Seq(s[1]),id=s[0]),[SeqRecord(Seq(ref_seq),id="ref")],
                 score_matrix_,False,False,0.8, ignore_record, output_record)
     if (aligned_str is not None):
         break
