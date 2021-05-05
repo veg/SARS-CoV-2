@@ -92,7 +92,7 @@ with DAG(
     tags=['selection'],
     ) as dag:
 
-    OUTPUT_DIR = WORKING_DIR + "/data/fasta/" + default_args["params"]["date"]  + "-last100k-by-collection-date"
+    OUTPUT_DIR = WORKING_DIR + "/data/fasta/last100k-by-collection-date"
     default_args["params"]["output-dir"] = OUTPUT_DIR
     default_args["params"]["meta-output"] = OUTPUT_DIR + '/master-no-sequences.json'
     default_args["params"]["sequence-output"] = OUTPUT_DIR + '/sequences'
@@ -103,7 +103,7 @@ with DAG(
     def my_task():
         context = get_current_context()
         ds = context["ds"]
-        OUTPUT_DIR = WORKING_DIR + "/data/fasta/" + ds  + "-last100k-by-collection-date"
+        OUTPUT_DIR = WORKING_DIR + "/data/fasta/last100k-by-collection-date"
         default_args["params"]["output-dir"] = OUTPUT_DIR
         default_args["params"]["meta-output"] = OUTPUT_DIR + '/master-no-sequences.json'
         default_args["params"]["sequence-output"] = OUTPUT_DIR + '/sequences'
@@ -204,7 +204,6 @@ with DAG(
                 dag=dag,
             )
 
-
             MAFFT = """
             {{ params.mafft }} --auto --thread -1 --add $INPUT_FN $REFERENCE_FILEPATH >| $TMP_OUTPUT_FN
             """
@@ -237,9 +236,10 @@ with DAG(
                 dag=dag
             )
 
+            # Occasional I/O error removing tmp file, hence || true
             cleanup_task = BashOperator(
                 task_id=f'cleanup_{gene}',
-                bash_command="sed -i '/^>/! s/[^ACTG-]/N/g' $COMPRESSED_OUTPUT_FN",
+                bash_command="sed -i '/^>/! s/[^ACTG-]/N/g' $COMPRESSED_OUTPUT_FN || true",
                 env={'COMPRESSED_OUTPUT_FN': compressed_output_filepath, **os.environ},
                 dag=dag
             )
@@ -278,6 +278,7 @@ with DAG(
         # $HYPHY LIBPATH=$HYPHYLIBPATH $COMPRESSOR --msa ${FILE}.${GENE}.compressed.fas --regexp "epi_isl_([0-9]+)" --duplicates ${FILE}.${GENE}.duplicates.json --output ${FILE}.${GENE}.variants.csv --json ${FILE}.${GENE}.variants.json --duplicate-out ${FILE}.${GENE}.duplicates.variants.json
 
         with TaskGroup(f"filter_{gene}") as filter:
+
             COMPRESSOR = """
             {{ params.hyphy }} LIBPATH={{params.hyphy_lib_path}} {{ params.compressor }} --msa $COMPRESSED_FN --regexp "epi_isl_([0-9]+)" --duplicates $DUPLICATE_FN --output $VARIANTS_CSV_FN  --json $VARIANTS_JSON_FN --duplicate-out $COMPRESSOR_DUPLICATE_OUT
             """

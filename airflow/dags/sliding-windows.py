@@ -151,7 +151,7 @@ def create_dag(dag_id, schedule, window, default_args):
 
 
                 MAFFT = """
-                {{ params.mafft }} --auto --thread -1 --add $INPUT_FN $REFERENCE_FILEPATH >| $TMP_OUTPUT_FN
+                {{ params.mafft }} --thread -1 --add $INPUT_FN $REFERENCE_FILEPATH >| $TMP_OUTPUT_FN
                 """
 
                 mafft_task = BashOperator(
