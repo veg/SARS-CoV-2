@@ -77,7 +77,6 @@ Assumes the availability of [HyPhy analyses](http://github.com/veg/hyphy-analyse
     15. ```RELAX```
 
 5. Visualize results: ```lib/generate-report.py```:
-    1. asdfasf
 
 6. Go to this [Observable notebook](https://observablehq.com/@spond/revised-sars-cov-2-analytics-page). Here you will find information about YY
         
