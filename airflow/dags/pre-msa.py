@@ -26,7 +26,6 @@ if p not in sys.path:
     sys.path.append(p)
 
 from export_sequences_without_premsa import export_sequences
-from export_sequences import export_postmsa_sequences
 from store_premsa import store_premsa_file
 from premsa_log_parse import mark_troubled
 from mark_premsa_dupes import mark_premsa_dupes

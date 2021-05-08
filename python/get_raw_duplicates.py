@@ -64,6 +64,27 @@ def get_raw_duplicates(input, nuc_input):
 
     return (dupe_names, nuc_dupe_names, prot_nuc_firsts, nuc_firsts)
 
+def get_nuc_raw_duplicates(input):
+
+    nuc_seqs = list(SeqIO.parse(input, 'fasta'))
+    dupes = get_dupes(nuc_seqs)
+
+    # Write new fasta from first index of each dupe, and duplicates file if provided
+    vals = list(dupes.values())
+
+    # Write fasta
+    firsts = [val[0] for val in vals]
+
+    # Write dupes
+    dupe_names = {val[0].name : {"{0}".format(i): val[i].name for i in range(len(val))} for val in vals}
+
+    for first in firsts:
+        first.id = first.name
+        first.description = first.name
+
+    return (dupe_names, firsts)
+
+
 def write_raw_duplicates(input, nuc_input, duplicates, nucleotide_duplicates):
     input_fh = open(input, 'r')
     nuc_input_fh = open(nuc_input, 'r')
@@ -74,6 +95,13 @@ def write_raw_duplicates(input, nuc_input, duplicates, nucleotide_duplicates):
     nucleotide_duplicates_fh = open(nucleotide_duplicates, 'w')
     json.dump(dupe_names, duplicates_fh, indent=4, sort_keys=True)
     json.dump(nuc_dupe_names, nucleotide_duplicates_fh, indent=4, sort_keys=True)
+
+def write_nuc_raw_duplicates(input, duplicate_output, uniques_output):
+    input_fh = open(input, 'r')
+    dupe_names, nuc_firsts = get_nuc_raw_duplicates(input_fh)
+    duplicates_fh = open(duplicate_output, 'w')
+    json.dump(dupe_names, duplicates_fh, indent=4, sort_keys=True)
+    SeqIO.write(nuc_firsts, uniques_output, "fasta")
 
 if __name__ == "__main__":
     arguments = argparse.ArgumentParser(description='Report which dates have full report')

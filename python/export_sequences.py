@@ -34,12 +34,13 @@ def sequence_name(record):
             if v['location'][k]:
                 return v['location'][k].replace (' ', '_')
 
-    if('originalCollected' in record.keys()):
-        fields = [record['id'], location(record), value_or_null(record['originalCollected']), value_or_null(record['technology'])]
-    else:
-        fields = [record['id'], location(record), value_or_null(record['collected']), value_or_null(record['technology'])]
+    # if('originalCollected' in record.keys()):
+    #     fields = [record['id'], location(record), value_or_null(record['originalCollected']), value_or_null(record['technology'])]
+    # else:
+    #     fields = [record['id'], location(record), value_or_null(record['collected']), value_or_null(record['technology'])]
 
-    return unicodedata.normalize('NFKD', "/".join (fields))
+    # Just export ID
+    return unicodedata.normalize('NFKD', record['id'])
 
 def export_sequences(config):
 
@@ -158,11 +159,11 @@ def export_premsa_sequences(config, nuc_output_fn, prot_output_fn, gene):
     with open(prot_output_fn, 'w', encoding='utf-8') as nuc_output_fh:
         SeqIO.write(prot_seq_records, nuc_output_fh, "fasta")
 
-def export_postmsa_sequences(config, output_fn, gene):
+def export_bealign_sequences(config, nuc_output_fn, gene):
     '''
-    config
-    output_fn = output filename
-    gene -- 'region of SARS-CoV-2
+    config -- TODO: Outline what it supports.
+    nuc_output_fn -- nucleotide output filename
+    gene -- region of SARS-CoV-2
     '''
 
     db = MongoClient(host='192.168.0.4')
@@ -170,15 +171,13 @@ def export_postmsa_sequences(config, output_fn, gene):
     acceptables = ['collected', 'originalCollected', 'host', 'id', 'location', 'name', 'technology', 'type', 'nextstrainClade', 'pangolinLineage', 'gisaidClade']
     HOST= "Human"
     MINLENGTH=28000
-    key_to_export = ''
+    validation_key = 'qc.' + gene + '.passed'
 
-    duplicate_key = 'duplicate_of_by_gene.' + gene
-    duplicate_val = [ {duplicate_key:{"$exists":False}}, {duplicate_key:'reference'} ]
+    # Get QC key
+    bealign_key_to_export = 'bealign.' + gene
 
-    key_to_export = ".".join(["reference_alignment", gene])
-
-    mongo_query = { "host" : HOST,  key_to_export : {"$exists": True }, "$or": duplicate_val}
-    acceptables.extend([key_to_export])
+    mongo_query = { "host" : HOST, validation_key: True }
+    acceptables.extend([bealign_key_to_export])
 
     if("clade-type" in config.keys()):
         clade_type = config["clade-type"]
@@ -187,28 +186,37 @@ def export_postmsa_sequences(config, output_fn, gene):
 
     if("clades" in config.keys()):
         mongo_query[clade_type] = { "$in": config["clades"] }
+
     elif("ignore-clades" in config.keys()):
         mongo_query[clade_type] = { "$nin": config["ignore-clades"] }
 
-    mongo_query["collected"] = { "$lt": datetime.strptime("2020-11-01", "%Y-%m-%d") }
+
+
+    if("collection-date-range" in config.keys()):
+        start_date = config["collection-date-range"][0]
+        end_date = config["collection-date-range"][1]
+        mongo_query["collected"] = { "$gt": datetime.strptime(start_date, "%Y-%m-%d"), "$lt": datetime.strptime(end_date, "%Y-%m-%d") }
+        # mongo_query["originalCollected"] = { "$regex": "[0-9]{4}-[0-9]{2}" }
+
     db_mongo_query = db.gisaid.records.find(mongo_query, acceptables)
 
     if("get-latest-by-collection-date") in config.keys():
         # Add sort and limit
         limit = config["get-latest-by-collection-date"]
-        db_mongo_query = db_mongo_query.sort({'collected': -1 }).limit(limit)
+        db_mongo_query = db_mongo_query.sort([("collected", -1)]).limit(limit)
+
+    # if(True):
+    #     db_mongo_query.limit(5000)
 
     # Query for human host and sequence length greater than 28000, and sequence populated
     records = list(db_mongo_query)
-    print(len(records))
 
     # Filter sequences down to those that have been processed
-    seq_records = [SeqRecord(Seq(rec["reference_alignment"][gene]),id=sequence_name(rec),name='',description='') for rec in records]
+    nuc_seq_records = [SeqRecord(Seq(rec['bealign'][gene]),id=sequence_name(rec),name='',description='') for rec in records]
 
     # Write to fasta
-    with open(output_fn, 'w', encoding='utf-8') as output_fh:
-        SeqIO.write(seq_records, output_fh, "fasta")
-
+    with open(nuc_output_fn, 'w', encoding='utf-8') as nuc_output_fh:
+        SeqIO.write(nuc_seq_records, nuc_output_fh, "fasta")
 
 if __name__ == "__main__":
 
@@ -220,14 +228,16 @@ if __name__ == "__main__":
     config["sequence-output"] = args.output
     # config['get-latest-by-collection-date'] = 100000
     config['only-uniques'] = False
-    config["collection-date-range"] = ("2019-12-01", "2020-02-28")
+    config["collection-date-range"] = ("2020-03-01", "2020-04-01")
     # config["clades"] = ["B.1.351"]
     # config["clades"] = ["B.1.427", "B.1.429"]
     # config["clades"] = ["B.1.1.7"]
     # config["ignore-clades"] = ["B.1.351", "P.1", "B.1.1.7"]
     # config["clade-type"] = "pangolinLineage"
 
-    export_sequences(config)
+    # export_sequences(config)
     # export_premsa_sequences(config, 'nuc.fas', 'prot.fas', '3C')
     # export_postmsa_sequences(config, 'aligned.fas', '3C')
+    export_bealign_sequences(config, args.output, 'leader')
+
 

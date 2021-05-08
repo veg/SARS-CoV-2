@@ -6,6 +6,7 @@ from airflow import DAG
 
 # Operators; we need this to operate!
 from airflow.operators.bash import BashOperator
+from airflow.operators.python import PythonOperator, ShortCircuitOperator
 from airflow.utils.dates import days_ago
 from airflow.hooks.base import BaseHook
 from airflow.models import Variable
@@ -14,6 +15,16 @@ from airflow.models import Variable
 # You can override them on a per-task basis during operator initialization
 
 from libs.callbacks import task_fail_slack_alert, task_success_slack_alert
+
+import os
+import sys
+import pathlib
+
+p = os.path.abspath(str(pathlib.Path(__file__).parent.absolute()) + '/../../python/')
+if p not in sys.path:
+    sys.path.append(p)
+
+from filter_gisaid_exports import filter_gisaid_exports_by_dir
 
 WORKING_DIR = Variable.get("WORKING_DIR")
 
@@ -74,23 +85,37 @@ gunzip_files = BashOperator(
     dag=dag,
 )
 
-# import_tsv = BashOperator(
-#     task_id='import_tsv',
-#     bash_command='for x in $(ls {{ params.import_dir }}/*.tsv); do node {{ params.working_dir }}/js/submit-tsv-to-mongo.js $x; done;',
-#     dag=dag,
-# )
+new_meta = default_args['params']['import_dir'] + 'new.tsv'
+new_fasta = default_args['params']['import_dir'] + 'new.fasta'
 
-# update_mongo_with_sequences = BashOperator(
-#     task_id='update_with_sequences',
-#     bash_command='for x in $(ls {{ params.import_dir }}/*.fasta); do python3 {{ params.working_dir }}/python/update_with_sequence_name.py -i $x; done;',
-#     dag=dag,
-# )
+# Split out items from
+split_out_new_task = PythonOperator(
+    task_id='split_out_new',
+    python_callable=filter_gisaid_exports_by_dir,
+    op_kwargs={ "dir": default_args['params']['import_dir'], "fasta_output" : new_fasta, "meta_output" : new_meta },
+    pool='mongo',
+    dag=dag,
+)
 
-# mv_files = BashOperator(
-#     task_id='move_files',
-#     bash_command='mv {{ params.import_dir }}/*.tsv {{ params.import_dir }}/*.fasta {{ params.imported_dir }}',
-#     dag=dag,
-# )
+import_tsv = BashOperator(
+    task_id='import_tsv',
+    bash_command='node {{ params.working_dir }}/js/submit-tsv-to-mongo.js {{ params.meta_tsv }}',
+    params={'meta_tsv': new_meta},
+    dag=dag,
+)
+
+update_mongo_with_sequences = BashOperator(
+    task_id='update_with_sequences',
+    bash_command='python3 {{ params.working_dir }}/python/update_with_sequence_name.py -i {{ params.fasta }}',
+    params={'fasta': new_fasta},
+    dag=dag,
+)
+
+mv_files = BashOperator(
+    task_id='move_files',
+    bash_command='mv {{ params.import_dir }}/*.tsv {{ params.import_dir }}/*.fasta {{ params.imported_dir }}',
+    dag=dag,
+)
 
 dag.doc_md = __doc__
 
@@ -99,4 +124,4 @@ dag.doc_md = __doc__
 # IMPORT TSV FROM GISAID
 # """
 
-[retrieve_meta_from_gisaid, retrieve_fasta_from_gisaid] >> gunzip_files
+[retrieve_meta_from_gisaid, retrieve_fasta_from_gisaid] >> gunzip_files >> split_out_new_task >> import_tsv >> update_mongo_with_sequences >> mv_files

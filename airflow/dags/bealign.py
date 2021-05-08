@@ -27,7 +27,6 @@ if p not in sys.path:
 
 from export_sequences_without_premsa import export_sequences, export_sequences_without_reference
 from export_sequences_without_bealign import export_sequences_without_bealign
-from export_sequences import export_postmsa_sequences
 from store_premsa import store_premsa_file
 from store_bealign import store_bealign_file
 from premsa_log_parse import mark_troubled
