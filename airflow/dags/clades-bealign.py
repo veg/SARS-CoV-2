@@ -1,8 +1,5 @@
 import yaml
 import datetime
-from dateutil.relativedelta import *
-from dateutil.rrule import *
-from dateutil.parser import *
 
 # The DAG object; we'll need this to instantiate a DAG
 from airflow import DAG
@@ -10,14 +7,16 @@ from airflow import DAG
 # Operators; we need this to operate!
 from airflow.utils.task_group import TaskGroup
 from airflow.operators.bash import BashOperator
-from airflow.models.baseoperator import cross_downstream
+from airflow.models.baseoperator import cross_downstream, chain
 from airflow.operators.python import PythonOperator
+from airflow.utils.dates import days_ago
+from airflow.hooks.base import BaseHook
 from airflow.models import Variable
 
 # These args will get passed on to each operator
 # You can override them on a per-task basis during operator initialization
 
-from libs.callbacks import dag_fail_slack_alert, dag_success_slack_alert
+from libs.callbacks import task_fail_slack_alert, task_success_slack_alert, dag_fail_slack_alert, dag_success_slack_alert
 
 import os
 import sys
@@ -36,19 +35,20 @@ WORKING_DIR = Variable.get("WORKING_DIR")
 # ["2020-08", "2020-09", "2020-10"]  # this is used for the baseline analysis forecasting Wave 3
 # ["2021-02", "2021-03"]  # this is used for forecasting the next wave
 
-def create_dag(dag_id, schedule, window, default_args):
+
+def create_dag(dag_id, schedule, clade, default_args):
     with DAG(
         dag_id,
         default_args=default_args,
-        description='creates sliding windows based on months',
+        description='creates output based on pangolin assignment',
         schedule_interval=schedule,
         start_date=datetime.datetime(2021, 4, 30),
         on_failure_callback=dag_fail_slack_alert,
         on_success_callback=dag_success_slack_alert,
-        tags=['selection','sliding'],
+        tags=['selection','clade'],
         ) as dag:
 
-        OUTPUT_DIR = WORKING_DIR + "/data/sliding-windows-bealign/" + '_'.join(window)
+        OUTPUT_DIR = WORKING_DIR + '/data/clades-bealign/' + clade.strip()
         default_args["params"]["output-dir"] = OUTPUT_DIR
         default_args["params"]["meta-output"] = OUTPUT_DIR + '/master-no-sequences.json'
         default_args["params"]["sequence-output"] = OUTPUT_DIR + '/sequences'
@@ -67,16 +67,15 @@ def create_dag(dag_id, schedule, window, default_args):
                 task_id='export_meta',
                 python_callable=export_meta,
                 op_kwargs={ "config" : default_args['params'] },
-                pool='mongo',
                 dag=dag,
             )
 
         export_meta_task.set_upstream(mk_dir_task)
+
         export_sequences_task = PythonOperator(
                 task_id='export_sequences',
                 python_callable=export_sequences,
                 op_kwargs={ "config" : default_args['params'] },
-                pool='mongo',
                 dag=dag,
             )
 
@@ -234,6 +233,10 @@ def create_dag(dag_id, schedule, window, default_args):
                 dag=dag,
             )
 
+            # alignment >> duplicates_group >> filter >> infer_tree_task >> [slac_task, fel_task, meme_task] >> copy_annotation_task >> summarize_gene_task
+            # selection_flow.set_downstream(slac_task)
+            # selection_flow.set_downstream(fel_task)
+            # selection_flow.set_downstream(meme_task)
             summarize_gene_task.set_upstream(export_meta_task)
             alignment.set_upstream(export_sequences_task)
             export_by_gene.append(alignment >> duplicates_group >> filter >> infer_tree_task >> [slac_task, fel_task, meme_task] >> copy_annotation_task >> summarize_gene_task)
@@ -241,34 +244,35 @@ def create_dag(dag_id, schedule, window, default_args):
         dag.doc_md = __doc__
 
         # Add export meta and export sequence tasks to be executed in parallel
-        cross_downstream([export_meta_task, export_sequences_task], export_by_gene)
+        # cross_downstream([export_meta_task, export_sequences_task], export_by_gene)
 
         return dag
 
-sliding_windows = [
-                    ("2020-08-01", "2020-10-31"),
-                    ("2021-02-01", "2021-03-31"),
-                    ("2019-12-01", "2020-02-29"),
-                    ("2020-01-01", "2020-03-31"),
-                    ("2020-02-01", "2020-04-30"),
-                    ("2020-03-01", "2020-05-31"),
-                    ("2020-04-01", "2020-06-30"),
-                    ("2020-05-01", "2020-07-31"),
-                    ("2020-06-01", "2020-08-31"),
-                    ("2020-07-01", "2020-09-30")
-                  ]
+clades = [
+    "B.1.2",
+    "B.1.596",
+    "B.1",
+    "B.1.1.519",
+    "B.1.243",
+    "B.1.234",
+    "B.1.526.1",
+    "B.1.1",
+    "B.1.526.2",
+    "B.1.575",
+    "R.1",
+    "B.1.1.7",
+    "B.1.429",
+    "B.1.427",
+    "B.1.351",
+    "P.1",
+    "B.1.526",
+    "P.2",
+    "B.1.525",
+    "B.1.617"
+    ]
 
-# Supplement with 3 month sliding windows since beginning of pandemic
-TODAY = datetime.date.today()
-LASTMONTH = TODAY-relativedelta(months=+1, day=31)
-THREEMONTHSAGO = TODAY-relativedelta(months=+3, day=1)
-
-starts = [dt.strftime('%Y-%m-%d') for dt in rrule(MONTHLY, interval=1,bymonthday=(1),dtstart=parse("20191201T000000"), until=THREEMONTHSAGO)]
-ends = [dt.strftime('%Y-%m-%d') for dt in rrule(MONTHLY, interval=1,bymonthday=(-1),dtstart=parse("20200228T000000"), until=LASTMONTH)]
-sliding_windows = set(list(zip(starts,ends)) + sliding_windows)
-
-for window in sliding_windows:
-    dag_id = 'bealign_sliding_windows_{}'.format(str('_'.join(window)))
+for clade in clades:
+    dag_id = 'bealign_clade_{}'.format(clade)
     default_args = {
         'owner': 'sweaver',
         'depends_on_past': False,
@@ -278,14 +282,15 @@ for window in sliding_windows:
         'params' : {
             'working_dir' : WORKING_DIR,
             'num_procs': 64,
-            'region_cfg' : "/data/shares/veg/SARS-CoV-2/SARS-CoV-2-devel/airflow/libs/regions.yaml",
-            'python': "/data/shares/veg/SARS-CoV-2/SARS-CoV-2-devel/env/bin/python3",
+            'region_cfg' : WORKING_DIR + "/airflow/libs/regions.yaml",
+            'python': WORKING_DIR + "/env/bin/python3",
             'hyphy': "/data/shares/veg/SARS-CoV-2/hyphy/hyphy",
             'hyphy_mpi': "/data/shares/veg/SARS-CoV-2/hyphy/HYPHYMPI",
             'hyphy_lib_path': "/data/shares/veg/SARS-CoV-2/hyphy/res",
             'compressor' : "/data/shares/veg/SARS-CoV-2/SARS-CoV-2-devel/scripts/compressor.bf",
             'compressor2' : "/data/shares/veg/SARS-CoV-2/SARS-CoV-2-devel/scripts/compressor-2.bf",
-            'collection-date-range': window,
+            # 'collection-date-range': window,
+            'clades' : [clade],
             'date' : datetime.date.today().strftime('%Y-%m-%d')
         },
         'retries': 1,
@@ -305,9 +310,9 @@ for window in sliding_windows:
         # 'sla_miss_callback': yet_another_function,
         # 'trigger_rule': 'all_success'
     }
-    schedule = '@weekly'
+    schedule = None
     globals()[dag_id] = create_dag(dag_id,
                                   schedule,
-                                  window,
+                                  clade,
                                   default_args)
 
