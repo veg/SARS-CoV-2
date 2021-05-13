@@ -6,11 +6,36 @@ import copy
 import itertools
 import multiprocessing
 from datetime import date, timedelta
+import datetime
+from dateutil.relativedelta import *
+from dateutil.rrule import *
+from dateutil.parser import *
 from operator import itemgetter
 from multiprocessing import Pool
 
 import pymongo
 from pymongo import MongoClient
+
+def get_sliding_window_counts(sliding_windows):
+
+    db = MongoClient(host='192.168.0.4')
+
+    # All sliding windows
+    counts = []
+
+    for sliding_window in sliding_windows:
+        print("Processing")
+        print(sliding_window)
+        start_date = sliding_window[0]
+        end_date = sliding_window[1]
+        mongo_query = { "seq": {"$exists":True} }
+        mongo_query["collected"] = { "$gt": datetime.datetime.strptime(start_date, "%Y-%m-%d"), "$lt": datetime.datetime.strptime(end_date, "%Y-%m-%d") }
+        mongo_query["originalCollected"] = { "$regex": "[0-9]{4}-[0-9]{2}" }
+        count = db.gisaid.records.find(mongo_query).count();
+        counts.append((sliding_window, count))
+
+    return counts
+
 
 def get_clade_counts():
 
@@ -42,8 +67,19 @@ if __name__ == "__main__":
     # arguments.add_argument('-g', '--gene', help = 'gene to get stats with', required = True, type = str)
     arguments.add_argument('-o', '--output', help = 'write compressed fasta here', type = argparse.FileType('w'), default = sys.stdout)
     args = arguments.parse_args()
-    genes = ["leader","nsp2","nsp3","nsp4","3C","nsp6","nsp7","nsp8","nsp9","nsp10","helicase","exonuclease","endornase","S","E","M","N","ORF3a","ORF6","ORF7a","ORF8","RdRp","methyltransferase"]
-    counts = get_all_unique_haplos(genes)
+    # genes = ["leader","nsp2","nsp3","nsp4","3C","nsp6","nsp7","nsp8","nsp9","nsp10","helicase","exonuclease","endornase","S","E","M","N","ORF3a","ORF6","ORF7a","ORF8","RdRp","methyltransferase"]
+    # counts = get_all_unique_haplos(genes)
+
+    # Supplement with 3 month sliding windows since beginning of pandemic
+    sliding_windows = []
+    TODAY = datetime.date.today()
+    LASTMONTH = TODAY-relativedelta(months=+1, day=31)
+    THREEMONTHSAGO = TODAY-relativedelta(months=+3, day=1)
+
+    starts = [dt.strftime('%Y-%m-%d') for dt in rrule(MONTHLY, interval=1,bymonthday=(1),dtstart=parse("20191201T000000"), until=THREEMONTHSAGO)]
+    ends = [dt.strftime('%Y-%m-%d') for dt in rrule(MONTHLY, interval=1,bymonthday=(-1),dtstart=parse("20200228T000000"), until=LASTMONTH)]
+    sliding_windows = set(list(zip(starts,ends)) + sliding_windows)
+    counts = get_sliding_window_counts(sliding_windows)
 
     spamwriter = csv.writer(args.output, delimiter=',', quotechar='|', quoting=csv.QUOTE_MINIMAL)
     for x in counts:

@@ -1,5 +1,9 @@
 import yaml
 import datetime
+from dateutil.relativedelta import *
+from dateutil.rrule import *
+from dateutil.parser import *
+
 import csv
 
 # The DAG object; we'll need this to instantiate a DAG
@@ -28,7 +32,7 @@ if p not in sys.path:
 
 from export_sequences import export_sequences, export_premsa_sequences
 from export_duplicates import export_duplicates
-from get_stats import get_all_unique_haplos, get_clade_counts
+from get_stats import get_all_unique_haplos, get_clade_counts, get_sliding_window_counts
 from export_meta import export_meta
 from remove_seq import remove_reference_seq, reserve_only_original_input
 from merge_duplicates import merge_duplicates
@@ -110,6 +114,19 @@ def write_clade_counts(output_fn):
         log.error(e)
         raise AirflowException(e)
 
+def write_sliding_window_counts(output_fn, sliding_windows):
+    counts = get_sliding_window_counts(sliding_windows)
+    try:
+        with open(output_fn, "wt") as csvfile:
+            spamwriter = csv.writer(csvfile, delimiter=',', quotechar='|', quoting=csv.QUOTE_MINIMAL)
+            spamwriter.writerow(['sliding_window', 'count'])
+            for x in counts:
+                print(x)
+                spamwriter.writerow(x)
+    except Exception as e:
+        log.error(e)
+        raise AirflowException(e)
+
 
 with open(dag.params["region_cfg"], 'r') as stream:
     regions = yaml.safe_load(stream)
@@ -133,6 +150,36 @@ get_clade_counts_task = PythonOperator(
         dag=dag,
     )
 
+sliding_window_count_output_fn = WORKING_DIR + "/data/exports/sliding_window_counts.csv"
+sliding_windows = [
+                    ("2020-08-01", "2020-10-31"),
+                    ("2021-02-01", "2021-03-31"),
+                    ("2019-12-01", "2020-02-29"),
+                    ("2020-01-01", "2020-03-31"),
+                    ("2020-02-01", "2020-04-30"),
+                    ("2020-03-01", "2020-05-31"),
+                    ("2020-04-01", "2020-06-30"),
+                    ("2020-05-01", "2020-07-31"),
+                    ("2020-06-01", "2020-08-31"),
+                    ("2020-07-01", "2020-09-30")
+                  ]
+
+# Supplement with 3 month sliding windows since beginning of pandemic
+TODAY = datetime.date.today()
+LASTMONTH = TODAY-relativedelta(months=+1, day=31)
+THREEMONTHSAGO = TODAY-relativedelta(months=+3, day=1)
+
+starts = [dt.strftime('%Y-%m-%d') for dt in rrule(MONTHLY, interval=1,bymonthday=(1),dtstart=parse("20191201T000000"), until=THREEMONTHSAGO)]
+ends = [dt.strftime('%Y-%m-%d') for dt in rrule(MONTHLY, interval=1,bymonthday=(-1),dtstart=parse("20200228T000000"), until=LASTMONTH)]
+sliding_windows = set(list(zip(starts,ends)) + sliding_windows)
+
+
+get_sliding_window_counts_task = PythonOperator(
+        task_id=f'get_sliding_window_counts',
+        python_callable=write_sliding_window_counts,
+        op_kwargs={ "output_fn" : sliding_window_count_output_fn, "sliding_windows": sliding_windows},
+        dag=dag,
+    )
 
 dag.doc_md = __doc__
 
@@ -142,6 +189,6 @@ Creates a directory and exports selected sequences
 """
 
 # Add export meta and export sequence tasks to be executed in parallel
-[get_unique_haplos_task, get_clade_counts_task]
+[get_unique_haplos_task, get_clade_counts_task, get_sliding_window_counts_task]
 
 
