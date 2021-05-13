@@ -319,6 +319,7 @@ with DAG(
             task_id=f'slac_{gene}',
             bash_command="{{ params.hyphy }} LIBPATH={{params.hyphy_lib_path}} slac --kill-zero-lengths Constrain ENV='_DO_TREE_REBALANCE_=1' --alignment $FILTERED_FASTA_FN --tree $TREE_OUTPUT --branches All --samples 0 --output $SLAC_OUTPUT",
             env={'FILTERED_FASTA_FN': filtered_fasta_output, 'TREE_OUTPUT': tree_output, 'SLAC_OUTPUT': slac_output_fn, **os.environ},
+            pool='hyphy',
             dag=dag,
         )
 
@@ -328,6 +329,7 @@ with DAG(
             task_id=f'fel_{gene}',
             bash_command="{{ params.hyphy }} LIBPATH={{params.hyphy_lib_path}} fel --kill-zero-lengths Constrain ENV='_DO_TREE_REBALANCE_=1' $BIG_DATA_FLAGS --alignment $FILTERED_FASTA_FN --tree $TREE_OUTPUT --branches Internal --output $FEL_OUTPUT",
             env={'FILTERED_FASTA_FN': filtered_fasta_output, 'TREE_OUTPUT': tree_output, 'FEL_OUTPUT': fel_output_fn, 'BIG_DATA_FLAGS': big_data_flags, **os.environ},
+            pool='hyphy',
             dag=dag,
         )
 
@@ -335,20 +337,9 @@ with DAG(
             task_id=f'meme_{gene}',
             bash_command="{{ params.hyphy }} LIBPATH={{params.hyphy_lib_path}} meme --kill-zero-lengths Constrain ENV='_DO_TREE_REBALANCE_=1' $BIG_DATA_FLAGS --alignment $FILTERED_FASTA_FN --tree $TREE_OUTPUT --branches Internal --output $MEME_OUTPUT",
             env={'FILTERED_FASTA_FN': filtered_fasta_output, 'TREE_OUTPUT': tree_output, 'MEME_OUTPUT': meme_output_fn, 'BIG_DATA_FLAGS': big_data_flags, **os.environ},
+            pool='hyphy',
             dag=dag,
         )
-
-        # fubar_task = BashOperator(
-        #     task_id='fubar_{gene}',
-        #     bash_command='mkdir -p {{params.working_dir}}/data/fasta/{{params.date}}',
-        #     dag=dag,
-        # )
-
-        # prime_task = BashOperator(
-        #     task_id='prime_{gene}',
-        #     bash_command='mkdir -p {{params.working_dir}}/data/fasta/{{params.date}}',
-        #     dag=dag,
-        # )
 
         annotation_file = filepath_prefix + '.annotation.json'
         copy_annotation_task = BashOperator(

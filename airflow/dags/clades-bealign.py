@@ -67,6 +67,7 @@ def create_dag(dag_id, schedule, clade, default_args):
                 task_id='export_meta',
                 python_callable=export_meta,
                 op_kwargs={ "config" : default_args['params'] },
+                pool='mongo',
                 dag=dag,
             )
 
@@ -76,6 +77,7 @@ def create_dag(dag_id, schedule, clade, default_args):
                 task_id='export_sequences',
                 python_callable=export_sequences,
                 op_kwargs={ "config" : default_args['params'] },
+                pool='mongo',
                 dag=dag,
             )
 
@@ -118,6 +120,7 @@ def create_dag(dag_id, schedule, clade, default_args):
                     task_id=f'export_bealign',
                     python_callable=export_bealign_sequences,
                     op_kwargs={ "config" : default_args['params'], 'nuc_output_fn':  nuc_sequence_output, 'gene' : gene },
+                    pool='mongo',
                     dag=dag,
                 )
 
@@ -185,6 +188,7 @@ def create_dag(dag_id, schedule, clade, default_args):
                 task_id=f'slac_{gene}',
                 bash_command="{{ params.hyphy }} LIBPATH={{params.hyphy_lib_path}} slac --kill-zero-lengths Constrain ENV='_DO_TREE_REBALANCE_=1' --alignment $FILTERED_FASTA_FN --tree $TREE_OUTPUT --branches All --samples 0 --output $SLAC_OUTPUT",
                 env={'FILTERED_FASTA_FN': filtered_fasta_output, 'TREE_OUTPUT': tree_output, 'SLAC_OUTPUT': slac_output_fn, **os.environ},
+                pool='hyphy',
                 dag=dag,
             )
 
@@ -194,6 +198,7 @@ def create_dag(dag_id, schedule, clade, default_args):
                 task_id=f'fel_{gene}',
                 bash_command="{{ params.hyphy }} LIBPATH={{params.hyphy_lib_path}} fel --kill-zero-lengths Constrain ENV='_DO_TREE_REBALANCE_=1' $BIG_DATA_FLAGS --alignment $FILTERED_FASTA_FN --tree $TREE_OUTPUT --branches Internal --output $FEL_OUTPUT",
                 env={'FILTERED_FASTA_FN': filtered_fasta_output, 'TREE_OUTPUT': tree_output, 'FEL_OUTPUT': fel_output_fn, 'BIG_DATA_FLAGS': big_data_flags, **os.environ},
+                pool='hyphy',
                 dag=dag,
             )
 
@@ -201,6 +206,7 @@ def create_dag(dag_id, schedule, clade, default_args):
                 task_id=f'meme_{gene}',
                 bash_command="{{ params.hyphy }} LIBPATH={{params.hyphy_lib_path}} meme --kill-zero-lengths Constrain ENV='_DO_TREE_REBALANCE_=1' $BIG_DATA_FLAGS --alignment $FILTERED_FASTA_FN --tree $TREE_OUTPUT --branches Internal --output $MEME_OUTPUT",
                 env={'FILTERED_FASTA_FN': filtered_fasta_output, 'TREE_OUTPUT': tree_output, 'MEME_OUTPUT': meme_output_fn, 'BIG_DATA_FLAGS': big_data_flags, **os.environ},
+                pool='hyphy',
                 dag=dag,
             )
 
@@ -310,7 +316,7 @@ for clade in clades:
         # 'sla_miss_callback': yet_another_function,
         # 'trigger_rule': 'all_success'
     }
-    schedule = None
+    schedule = '@weekly'
     globals()[dag_id] = create_dag(dag_id,
                                   schedule,
                                   clade,
