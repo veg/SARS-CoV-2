@@ -102,6 +102,7 @@ def write_clade_counts(output_fn):
     try:
         with open(output_fn, "wt") as csvfile:
             spamwriter = csv.writer(csvfile, delimiter=',', quotechar='|', quoting=csv.QUOTE_MINIMAL)
+            spamwriter.writerow(['clade', 'count'])
             for x in counts:
                 print(x)
                 spamwriter.writerow(x)
