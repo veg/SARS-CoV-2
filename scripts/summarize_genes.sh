@@ -83,8 +83,6 @@ then
 	$P3 ${BASE_DIR}/python/stitch_fasta.py -d $FILE -o ${FILE}.variants.json -r ${BASE_DIR}/reference_genes/sc2.mmi -m ${DATA_DIR}/map.json --duplicate_pattern '.%s.duplicates.variants.json.gz' -c 0.00001
 fi
 
-exit 0
-
 genes=(leader nsp2 nsp3 nsp4 3C nsp6 nsp7 nsp8 nsp9 nsp10 helicase exonuclease endornase  S E M N ORF3a ORF6 ORF7a ORF8 RdRp methyltransferase)
 offsets=(265 805 2719 8554 10054 10972 11842 12091 12685 13024 16236 18039 19620 21562 26244 26522 28273 25392 27201 27393 27893 13440 20658)
 fragments=(ORF1a ORF1a ORF1a ORF1a ORF1a ORF1a ORF1a ORF1a ORF1a ORF1a ORF1b ORF1b ORF1b S E M N ORF3a ORF6 ORF7a ORF8 ORF1b ORF1b)
