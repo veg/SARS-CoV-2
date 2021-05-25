@@ -41,7 +41,7 @@ default_args = {
     },
     'retries': 5,
     'retry_delay': datetime.timedelta(minutes=5),
-    'execution_timeout': datetime.timedelta(minutes=30),
+    'execution_timeout': datetime.timedelta(minutes=480),
     'on_failure_callback': task_fail_slack_alert,
     'on_success_callback': task_success_slack_alert
     # 'queue': 'bash_queue',

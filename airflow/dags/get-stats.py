@@ -119,10 +119,9 @@ def write_sliding_window_counts(output_fn, sliding_windows):
     try:
         with open(output_fn, "wt") as csvfile:
             spamwriter = csv.writer(csvfile, delimiter=',', quotechar='|', quoting=csv.QUOTE_MINIMAL)
-            spamwriter.writerow(['sliding_window', 'count'])
+            spamwriter.writerow(['begin', 'end', 'count'])
             for x in counts:
-                print(x)
-                spamwriter.writerow(x)
+                spamwriter.writerow([x[0][0], x[0][1], x[1]])
     except Exception as e:
         log.error(e)
         raise AirflowException(e)

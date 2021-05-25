@@ -79,9 +79,10 @@ if __name__ == "__main__":
     starts = [dt.strftime('%Y-%m-%d') for dt in rrule(MONTHLY, interval=1,bymonthday=(1),dtstart=parse("20191201T000000"), until=THREEMONTHSAGO)]
     ends = [dt.strftime('%Y-%m-%d') for dt in rrule(MONTHLY, interval=1,bymonthday=(-1),dtstart=parse("20200228T000000"), until=LASTMONTH)]
     sliding_windows = set(list(zip(starts,ends)) + sliding_windows)
-    counts = get_sliding_window_counts(sliding_windows)
+    counts = get_sliding_window_counts(list(sliding_windows)[:1])
 
     spamwriter = csv.writer(args.output, delimiter=',', quotechar='|', quoting=csv.QUOTE_MINIMAL)
+    spamwriter.writerow(['begin', 'end', 'count'])
     for x in counts:
-        spamwriter.writerow(x)
+        spamwriter.writerow([x[0][0], x[0][1], x[1]])
 

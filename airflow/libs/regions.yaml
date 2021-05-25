@@ -7,6 +7,7 @@ S:
     fragment: S
     shift: 0
     add_one: 0
+    cluster_threshold: 0.001
 
 
 M:
@@ -18,6 +19,7 @@ M:
     fragment: M
     shift: 0
     add_one: 0
+    cluster_threshold: 0.001
 
 
 N:
@@ -29,6 +31,7 @@ N:
     fragment: N
     shift: 0
     add_one: 0
+    cluster_threshold: 0.001
 
 
 E:
@@ -40,6 +43,7 @@ E:
     fragment: E
     shift: 0
     add_one: 0
+    cluster_threshold: 0.001
 
 
 ORF3a:
@@ -51,6 +55,7 @@ ORF3a:
     fragment: ORF3a
     shift: 0
     add_one: 0
+    cluster_threshold: 0.001
 
 
 ORF6:
@@ -62,6 +67,7 @@ ORF6:
     fragment: ORF6
     shift: 0
     add_one: 0
+    cluster_threshold: 0.001
 
 
 ORF7a:
@@ -73,6 +79,7 @@ ORF7a:
     fragment: ORF7a
     shift: 0
     add_one: 0
+    cluster_threshold: 0.001
 
 
 #ORF7b:
@@ -90,6 +97,7 @@ ORF8:
     fragment: ORF8
     shift: 0
     add_one: 0
+    cluster_threshold: 0.001
 
 #ORF10:
 #    reference: reference_genes/ORF10.fas
@@ -118,6 +126,7 @@ leader:
     fragment: ORF1a
     shift: 0
     add_one: 0
+    cluster_threshold: 0.001
 
 nsp2:
     reference: reference_genes/nsp2.fas
@@ -128,6 +137,7 @@ nsp2:
     fragment: ORF1a
     shift: 180
     add_one: 0
+    cluster_threshold: 0.001
 
 
 nsp3:
@@ -139,6 +149,7 @@ nsp3:
     fragment: ORF1a
     shift: 818
     add_one: 0
+    cluster_threshold: 0.001
 
 
 nsp4:
@@ -150,6 +161,7 @@ nsp4:
     fragment: ORF1a
     shift: 2763
     add_one: 0
+    cluster_threshold: 0.001
 
 
 3C:
@@ -161,6 +173,7 @@ nsp4:
     fragment: ORF1a
     shift: 3263
     add_one: 0
+    cluster_threshold: 0.001
 
 
 nsp6:
@@ -172,6 +185,7 @@ nsp6:
     fragment: ORF1a
     shift: 3569
     add_one: 0
+    cluster_threshold: 0.001
 
 
 nsp7:
@@ -183,6 +197,7 @@ nsp7:
     fragment: ORF1a
     shift: 3859
     add_one: 0
+    cluster_threshold: 0.001
 
 
 nsp8:
@@ -194,6 +209,7 @@ nsp8:
     fragment: ORF1a
     shift: 3942
     add_one: 0
+    cluster_threshold: 0.001
 
 
 nsp9:
@@ -205,6 +221,7 @@ nsp9:
     fragment: ORF1a
     shift: 4140
     add_one: 0
+    cluster_threshold: 0.001
 
 
 nsp10:
@@ -216,6 +233,7 @@ nsp10:
     fragment: ORF1a
     shift: 4253
     add_one: 0
+    cluster_threshold: 0.001
 
 
 RdRp:
@@ -227,6 +245,7 @@ RdRp:
     fragment: ORF1b
     shift: -10
     add_one: 1
+    cluster_threshold: 0.001
 
 
 helicase:
@@ -238,6 +257,7 @@ helicase:
     fragment: ORF1b
     shift: 922
     add_one: 1
+    cluster_threshold: 0.001
 
 exonuclease:
     reference: reference_genes/exonuclease.fas
@@ -248,6 +268,7 @@ exonuclease:
     fragment: ORF1b
     shift: 1523
     add_one: 1
+    cluster_threshold: 0.001
 
 endornase:
     reference: reference_genes/endornase.fas
@@ -258,6 +279,7 @@ endornase:
     fragment: ORF1b
     shift: 2050
     add_one: 1
+    cluster_threshold: 0.001
 
 methyltransferase:
     reference: reference_genes/methyltransferase.fas
@@ -268,4 +290,5 @@ methyltransferase:
     fragment: ORF1b
     shift: 2396
     add_one: 1
+    cluster_threshold: 0.001
 

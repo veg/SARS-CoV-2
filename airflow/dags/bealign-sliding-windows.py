@@ -99,6 +99,9 @@ def create_dag(dag_id, schedule, window, default_args):
             filtered_json_output = filepath_prefix + '.filtered.json'
             output_edits_fn = filepath_prefix + '.filtered.edits.json'
 
+            tn93_cluster_fn = filepath_prefix + '.tn93.cluster.json'
+            centroid_fn = filepath_prefix + '.centroids.fas'
+
             compressor_duplicate_out = filepath_prefix + '.duplicates.variants.json'
 
             tree_output = filepath_prefix + '.compressed.filtered.fas.rapidnj.bestTree'
@@ -168,7 +171,29 @@ def create_dag(dag_id, schedule, window, default_args):
                     dag=dag
                 )
 
-                compressor_task >> compressor_two_task
+                # bpsh 0 tn93-cluster -t 0.001 sequences.S.compressed.filtered.fas
+                TN93_CLUSTER = """
+                {{ params.tn93_cluster }} -t {{ params.threshold }} -o {{ params.output_fn }} {{ params.input_fn }}
+                """
+                tn93_cluster_task = BashOperator(
+                    task_id=f'tn93_cluster',
+                    bash_command=TN93_CLUSTER,
+                    params={'input_fn': filtered_fasta_output, 'threshold': str(regions[gene]['cluster_threshold']), 'output_fn': tn93_cluster_fn},
+                    dag=dag
+                )
+
+                WRITE_CENTROIDS= """
+                cat {{ params.input_fn }} | /usr/local/bin/jq -r '.[].centroid' > {{ params.output_fn }}
+                """
+                write_centroids_task = BashOperator(
+                    task_id=f'write_centroids',
+                    bash_command=WRITE_CENTROIDS,
+                    params={ 'input_fn': tn93_cluster_fn, 'output_fn': centroid_fn },
+                    dag=dag
+                )
+
+
+                compressor_task >> compressor_two_task >> tn93_cluster_task >> write_centroids_task
 
             INFER_TREE = """
             seqmagick convert $FILTERED_FASTA_FN $STO_OUTPUT;
@@ -179,14 +204,14 @@ def create_dag(dag_id, schedule, window, default_args):
             infer_tree_task = BashOperator(
                 task_id=f'infer_tree_{gene}',
                 bash_command=INFER_TREE,
-                env={'FILTERED_FASTA_FN': filtered_fasta_output, 'STO_OUTPUT': sto_output, 'TREE_OUTPUT': tree_output, **os.environ},
+                env={'FILTERED_FASTA_FN': centroid_fn, 'STO_OUTPUT': sto_output, 'TREE_OUTPUT': tree_output, **os.environ},
                 dag=dag
             )
 
             slac_task = BashOperator(
                 task_id=f'slac_{gene}',
                 bash_command="{{ params.hyphy }} LIBPATH={{params.hyphy_lib_path}} slac --kill-zero-lengths Constrain ENV='_DO_TREE_REBALANCE_=1' --alignment $FILTERED_FASTA_FN --tree $TREE_OUTPUT --branches All --samples 0 --output $SLAC_OUTPUT",
-                env={'FILTERED_FASTA_FN': filtered_fasta_output, 'TREE_OUTPUT': tree_output, 'SLAC_OUTPUT': slac_output_fn, **os.environ},
+                env={'FILTERED_FASTA_FN': centroid_fn, 'TREE_OUTPUT': tree_output, 'SLAC_OUTPUT': slac_output_fn, **os.environ},
                 pool='hyphy',
                 dag=dag,
             )
@@ -196,7 +221,7 @@ def create_dag(dag_id, schedule, window, default_args):
             fel_task = BashOperator(
                 task_id=f'fel_{gene}',
                 bash_command="{{ params.hyphy }} LIBPATH={{params.hyphy_lib_path}} fel --kill-zero-lengths Constrain ENV='_DO_TREE_REBALANCE_=1' $BIG_DATA_FLAGS --alignment $FILTERED_FASTA_FN --tree $TREE_OUTPUT --branches Internal --output $FEL_OUTPUT",
-                env={'FILTERED_FASTA_FN': filtered_fasta_output, 'TREE_OUTPUT': tree_output, 'FEL_OUTPUT': fel_output_fn, 'BIG_DATA_FLAGS': big_data_flags, **os.environ},
+                env={'FILTERED_FASTA_FN': centroid_fn, 'TREE_OUTPUT': tree_output, 'FEL_OUTPUT': fel_output_fn, 'BIG_DATA_FLAGS': big_data_flags, **os.environ},
                 pool='hyphy',
                 dag=dag,
             )
@@ -204,7 +229,7 @@ def create_dag(dag_id, schedule, window, default_args):
             meme_task = BashOperator(
                 task_id=f'meme_{gene}',
                 bash_command="{{ params.hyphy }} LIBPATH={{params.hyphy_lib_path}} meme --kill-zero-lengths Constrain ENV='_DO_TREE_REBALANCE_=1' $BIG_DATA_FLAGS --alignment $FILTERED_FASTA_FN --tree $TREE_OUTPUT --branches Internal --output $MEME_OUTPUT",
-                env={'FILTERED_FASTA_FN': filtered_fasta_output, 'TREE_OUTPUT': tree_output, 'MEME_OUTPUT': meme_output_fn, 'BIG_DATA_FLAGS': big_data_flags, **os.environ},
+                env={'FILTERED_FASTA_FN': centroid_fn, 'TREE_OUTPUT': tree_output, 'MEME_OUTPUT': meme_output_fn, 'BIG_DATA_FLAGS': big_data_flags, **os.environ},
                 pool='hyphy',
                 dag=dag,
             )
@@ -289,6 +314,7 @@ for window in sliding_windows:
             'hyphy_lib_path': "/data/shares/veg/SARS-CoV-2/hyphy/res",
             'compressor' : "/data/shares/veg/SARS-CoV-2/SARS-CoV-2-devel/scripts/compressor.bf",
             'compressor2' : "/data/shares/veg/SARS-CoV-2/SARS-CoV-2-devel/scripts/compressor-2.bf",
+            'tn93_cluster' : "/usr/local/bin/tn93-cluster",
             'collection-date-range': window,
             'date' : datetime.date.today().strftime('%Y-%m-%d')
         },

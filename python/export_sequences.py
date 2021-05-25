@@ -17,7 +17,6 @@ from Bio import SeqIO
 from Bio.Seq import Seq
 from Bio.SeqRecord import SeqRecord
 
-import pymongo
 from pymongo import MongoClient
 
 def sequence_name(record):
@@ -190,8 +189,6 @@ def export_bealign_sequences(config, nuc_output_fn, gene):
     elif("ignore-clades" in config.keys()):
         mongo_query[clade_type] = { "$nin": config["ignore-clades"] }
 
-
-
     if("collection-date-range" in config.keys()):
         start_date = config["collection-date-range"][0]
         end_date = config["collection-date-range"][1]
@@ -211,8 +208,14 @@ def export_bealign_sequences(config, nuc_output_fn, gene):
     # Query for human host and sequence length greater than 28000, and sequence populated
     records = list(db_mongo_query)
 
+
+    # Filter records that have bealign
     # Filter sequences down to those that have been processed
-    nuc_seq_records = [SeqRecord(Seq(rec['bealign'][gene]),id=sequence_name(rec),name='',description='') for rec in records]
+    nuc_seq_records = []
+    for rec in records:
+        if 'bealign' in rec.keys():
+            if gene in rec['bealign'].keys():
+                nuc_seq_records.append(SeqRecord(Seq(rec['bealign'][gene]),id=sequence_name(rec),name='',description=''))
 
     # Write to fasta
     with open(nuc_output_fn, 'w', encoding='utf-8') as nuc_output_fh:
