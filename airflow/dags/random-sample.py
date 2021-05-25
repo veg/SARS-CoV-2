@@ -67,9 +67,7 @@ default_args = {
     # 'trigger_rule': 'all_success'
 }
 
-directory_output = WORKING_DIR + "/data/random-sample/"
-default_args["params"]["output-dir"] = directory_output
-
+# Create unique id from last execution date
 def export_random_by_windows(windows, dir, size):
 
     for window in windows:
@@ -98,6 +96,15 @@ with DAG(
     tags=['selection'],
     ) as dag:
 
+    last_exec_date = dag.get_latest_execution_date()
+
+    if last_exec_date is None:
+        last_exec_date = datetime.datetime(year=1970, month=1, day=1)
+
+    unique_id = str(round(last_exec_date.timestamp()))
+
+    directory_output = WORKING_DIR + "/data/random-sample/" + unique_id
+
     with open(dag.params["region_cfg"], 'r') as stream:
         regions = yaml.safe_load(stream)
 
@@ -106,13 +113,16 @@ with DAG(
     LASTMONTH = TODAY-relativedelta(months=+1, day=31)
     ONEMONTHAGO = TODAY-relativedelta(months=+1, day=1)
 
+
     starts = [dt.strftime('%Y-%m-%d') for dt in rrule(MONTHLY, interval=1,bymonthday=(1),dtstart=parse("20191201T000000"), until=ONEMONTHAGO)]
     ends = [dt.strftime('%Y-%m-%d') for dt in rrule(MONTHLY, interval=1,bymonthday=(-1),dtstart=parse("20191231T000000"), until=LASTMONTH)]
     months = set(list(zip(starts,ends)))
 
+
     mk_dir_task = BashOperator(
         task_id='make_directory',
         bash_command='mkdir -p {{params["output-dir"]}}',
+        params={'output-dir' : directory_output },
         dag=dag,
     )
 
@@ -120,7 +130,7 @@ with DAG(
     export_random_samples_task = PythonOperator(
             task_id='export_random_samples',
             python_callable=export_random_by_windows,
-            op_kwargs={ "windows" : months, "dir" : dag.params["output-dir"], "size": 1000 },
+            op_kwargs={ "windows" : months, "dir" : directory_output, "size": 1000 },
             pool='mongo',
             dag=dag,
         )
@@ -131,7 +141,7 @@ with DAG(
     for month in months:
 
         month_str = '_'.join(month)
-        OUTPUT_DIR = os.path.join(dag.params["output-dir"], month_str)
+        OUTPUT_DIR = os.path.join(directory_output, month_str)
 
         for gene in regions.keys():
 
@@ -215,5 +225,5 @@ with DAG(
     dag.doc_md = __doc__
 
     # Add export meta and export sequence tasks to be executed in parallel
-    mk_dir_task >> export_random_samples_task
+    mk_dir_task >> export_random_samples_task >> export_by_gene
 
