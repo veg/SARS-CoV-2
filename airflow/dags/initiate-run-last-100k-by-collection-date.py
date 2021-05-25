@@ -10,18 +10,14 @@ from airflow import DAG
 # Operators; we need this to operate!
 from airflow.utils.task_group import TaskGroup
 from airflow.operators.bash import BashOperator
-from airflow.operators.python import PythonOperator
 from airflow.models.baseoperator import cross_downstream
-from airflow.utils.dates import days_ago
-from airflow.hooks.base import BaseHook
+from airflow.operators.python import PythonOperator
 from airflow.models import Variable
-from airflow.decorators import task
-from airflow.operators.python import get_current_context
 
 # These args will get passed on to each operator
 # You can override them on a per-task basis during operator initialization
 
-from libs.callbacks import task_fail_slack_alert, task_success_slack_alert, dag_fail_slack_alert, dag_success_slack_alert
+from libs.callbacks import dag_fail_slack_alert, dag_success_slack_alert
 
 import os
 import sys
@@ -31,13 +27,9 @@ p = os.path.abspath(str(pathlib.Path(__file__).parent.absolute()) + '/../../pyth
 if p not in sys.path:
     sys.path.append(p)
 
-from export_sequences import export_sequences, export_premsa_sequences
-from export_duplicates import export_duplicates
+from export_sequences import export_sequences, export_bealign_sequences
 from export_meta import export_meta
-from remove_seq import remove_reference_seq, reserve_only_original_input
-from merge_duplicates import merge_duplicates
-from fix_duplicates import fix_duplicates
-from update_fasta_duplicates import update_fasta_duplicates
+from get_raw_duplicates import write_nuc_raw_duplicates
 
 WORKING_DIR = Variable.get("WORKING_DIR")
 
@@ -148,16 +140,11 @@ with DAG(
 
     for gene in regions.keys():
 
-        reference_filepath = WORKING_DIR + 'reference_genes/reference.' + gene + '_protein.fas'
         filepath_prefix = OUTPUT_DIR + '/sequences.' + gene
 
         nuc_sequence_output = filepath_prefix + '_nuc.fas'
-        prot_sequence_output = filepath_prefix + '_protein.fas'
-
-        initial_duplicate_output = filepath_prefix + '.initial.duplicates.json'
-        protein_duplicate_output = filepath_prefix + '.protein.duplicates.json'
+        uniques_fn = filepath_prefix + '_nuc.uniques.fas'
         duplicate_output = filepath_prefix + '.duplicates.json'
-        map_output = filepath_prefix + '.map.json'
 
         variants_csv_output = filepath_prefix + '.variants.csv'
         variants_json_output = filepath_prefix + '.variants.json'
@@ -165,14 +152,13 @@ with DAG(
         filtered_json_output = filepath_prefix + '.filtered.json'
         output_edits_fn = filepath_prefix + '.filtered.edits.json'
 
-        compressed_output_filepath =  filepath_prefix + '.compressed.fas'
+        tn93_cluster_fn = filepath_prefix + '.tn93.cluster.json'
+        centroid_fn = filepath_prefix + '.centroids.fas'
+
         compressor_duplicate_out = filepath_prefix + '.duplicates.variants.json'
 
         tree_output = filepath_prefix + '.compressed.filtered.fas.rapidnj.bestTree'
         sto_output = filepath_prefix + '.compressed.filtered.sto';
-
-        tmp_output_fn = filepath_prefix + '.tmp.msa'
-        output_fn = filepath_prefix + '.msa'
 
         slac_output_fn = filepath_prefix + '.SLAC.json'
         fel_output_fn = filepath_prefix + '.FEL.json'
@@ -181,126 +167,84 @@ with DAG(
         summary_output_fn = filepath_prefix + '.json'
 
         default_args["params"]["nuc-sequence-output"] = nuc_sequence_output
-        default_args["params"]["prot-sequence-output"] = prot_sequence_output
         default_args["params"]["duplicate-output"] = duplicate_output
-        default_args["params"]["protein-duplicate-output"] = protein_duplicate_output
-        default_args["params"]["inital-duplicate-output"] = initial_duplicate_output
 
-        with TaskGroup(f"alignment_{gene}") as alignment:
+    with TaskGroup(f"alignment_{gene}") as alignment:
 
-            export_premsa_sequence_task = PythonOperator(
-                    task_id=f'export_premsa_sequences_{gene}',
-                    python_callable=export_premsa_sequences,
-                    op_kwargs={ "config" : default_args['params'], 'nuc_output_fn':  nuc_sequence_output, 'prot_output_fn' : prot_sequence_output, 'gene' : gene },
-                    pool='mongo',
-                    dag=dag,
-                )
+        export_bealign_task = PythonOperator(
+            task_id=f'export_bealign',
+            python_callable=export_bealign_sequences,
+            op_kwargs={ "config" : default_args['params'], 'nuc_output_fn':  nuc_sequence_output, 'gene' : gene },
+            pool='mongo',
+            dag=dag,
+        )
 
-            export_duplicates_task = PythonOperator(
-                task_id=f'export_duplicates_{gene}',
-                python_callable=export_duplicates,
-                op_kwargs={ 'output_fn' : initial_duplicate_output, 'gene': gene },
-                pool='mongo',
-                dag=dag,
-            )
+        # Occasional errors when cleaning up tmp files, so or'ing true
+        cleanup_task = BashOperator(
+            task_id=f'cleanup',
+            bash_command="sed -i '/^>/! s/[^ACTG-]/N/g' $NUC_OUTPUT_FN || true",
+            env={'NUC_OUTPUT_FN': nuc_sequence_output, **os.environ},
+            dag=dag
+        )
 
-            MAFFT = """
-            {{ params.mafft }} --auto --thread -1 --add $INPUT_FN $REFERENCE_FILEPATH >| $TMP_OUTPUT_FN
-            """
-
-            mafft_task = BashOperator(
-                task_id=f'mafft_{gene}',
-                bash_command=MAFFT,
-                params={'mafft': default_args['params']['mafft']},
-                env={'INPUT_FN': prot_sequence_output, 'TMP_OUTPUT_FN': tmp_output_fn, 'REFERENCE_FILEPATH': reference_filepath },
-                dag=dag
-            )
-
-            # input_fn, reference_fn, output_fn
-            remove_ref_task = PythonOperator(
-                task_id=f'remove_ref_{gene}',
-                python_callable=reserve_only_original_input,
-                op_kwargs={ "input_fn" : tmp_output_fn, "original_fn" : prot_sequence_output, "output_fn": output_fn },
-                dag=dag,
-            )
-
-            POSTMSA = """
-            {{ params.hyphy }} LIBPATH={{params.hyphy_lib_path}} {{ params.post_msa }} --protein-msa $INPUT_FN --nucleotide-sequences $NUC_INPUT_FN --output $COMPRESSED_OUTPUT_FN --duplicates $DUPLICATE_OUTPUT_FN
-            """
-
-            # Run POST-MSA on cancatenated dataset to translate back to nucleotides
-            reverse_translate_task = BashOperator(
-                task_id=f'post_msa_{gene}',
-                bash_command=POSTMSA,
-                env={'INPUT_FN': output_fn, 'NUC_INPUT_FN': nuc_sequence_output , 'COMPRESSED_OUTPUT_FN': compressed_output_filepath, 'DUPLICATE_OUTPUT_FN': protein_duplicate_output, **os.environ},
-                dag=dag
-            )
-
-            # Occasional I/O error removing tmp file, hence || true
-            cleanup_task = BashOperator(
-                task_id=f'cleanup_{gene}',
-                bash_command="sed -i '/^>/! s/[^ACTG-]/N/g' $COMPRESSED_OUTPUT_FN || true",
-                env={'COMPRESSED_OUTPUT_FN': compressed_output_filepath, **os.environ},
-                dag=dag
-            )
-
-            [export_premsa_sequence_task] >> mafft_task >> remove_ref_task >> reverse_translate_task >> cleanup_task
+        export_bealign_task >> cleanup_task
 
         with TaskGroup(f"duplicates_{gene}") as duplicates_group:
-            merge_duplicate_task = PythonOperator(
-                task_id=f'merge_duplicates_{gene}',
-                python_callable=merge_duplicates,
-                op_kwargs={ 'protein_duplicates' : protein_duplicate_output, 'nuc_duplicates': initial_duplicate_output, 'output':  duplicate_output},
+
+            compute_duplicates_task = PythonOperator(
+                task_id=f'write_raw_duplicates',
+                python_callable=write_nuc_raw_duplicates,
+                op_kwargs={ "input" : nuc_sequence_output, "duplicate_output" : duplicate_output, 'uniques_output': uniques_fn },
                 dag=dag,
             )
 
-            # Fix duplicates
-            fix_duplicate_task = PythonOperator(
-                task_id=f'fix_duplicates_{gene}',
-                python_callable=fix_duplicates,
-                op_kwargs={ 'duplicates' : duplicate_output, 'map': map_output, 'overwrite': True },
-                dag=dag,
-            )
-
-            # # Fix header files
-            # echo "$PYTHON python/update_fasta_duplicates.py -f ${FILE}.${GENE}.compressed.fas -m ${FILE}.${GENE}.map.json"
-            # $PYTHON python/update_fasta_duplicates.py -f ${FILE}.${GENE}.compressed.fas -m ${FILE}.${GENE}.map.json
-
-            update_fasta_duplicates_task = PythonOperator(
-                task_id=f'update_fasta_duplicates_{gene}',
-                python_callable=update_fasta_duplicates,
-                op_kwargs={ 'fasta_file' : compressed_output_filepath, 'map_file': map_output },
-                dag=dag,
-            )
-
-            merge_duplicate_task >> fix_duplicate_task >> update_fasta_duplicates_task
-
-        # $HYPHY LIBPATH=$HYPHYLIBPATH $COMPRESSOR --msa ${FILE}.${GENE}.compressed.fas --regexp "epi_isl_([0-9]+)" --duplicates ${FILE}.${GENE}.duplicates.json --output ${FILE}.${GENE}.variants.csv --json ${FILE}.${GENE}.variants.json --duplicate-out ${FILE}.${GENE}.duplicates.variants.json
+            compute_duplicates_task
 
         with TaskGroup(f"filter_{gene}") as filter:
-
             COMPRESSOR = """
-            {{ params.hyphy }} LIBPATH={{params.hyphy_lib_path}} {{ params.compressor }} --msa $COMPRESSED_FN --regexp "epi_isl_([0-9]+)" --duplicates $DUPLICATE_FN --output $VARIANTS_CSV_FN  --json $VARIANTS_JSON_FN --duplicate-out $COMPRESSOR_DUPLICATE_OUT
+            {{ params.hyphy }} LIBPATH={{params.hyphy_lib_path}} {{ params.compressor }} --msa $FASTA_FN --regexp "epi_isl_([0-9]+)" --duplicates $DUPLICATE_FN --output $VARIANTS_CSV_FN  --json $VARIANTS_JSON_FN --duplicate-out $COMPRESSOR_DUPLICATE_OUT
             """
             compressor_task = BashOperator(
-                task_id=f'compressor_{gene}',
+                task_id=f'compressor',
                 bash_command=COMPRESSOR,
-                env={'COMPRESSED_FN': compressed_output_filepath, 'DUPLICATE_FN': duplicate_output, 'VARIANTS_CSV_FN': variants_csv_output, 'VARIANTS_JSON_FN': variants_json_output, 'COMPRESSOR_DUPLICATE_OUT': compressor_duplicate_out, **os.environ},
+                env={'FASTA_FN': uniques_fn, 'DUPLICATE_FN': duplicate_output, 'VARIANTS_CSV_FN': variants_csv_output, 'VARIANTS_JSON_FN': variants_json_output, 'COMPRESSOR_DUPLICATE_OUT': compressor_duplicate_out, **os.environ},
                 dag=dag
             )
 
             # --output-edits ${FILE}.${GENE}.filtered.edits.json
             COMPRESSOR2 = """
-            {{ params.hyphy }} LIBPATH={{params.hyphy_lib_path}} {{ params.compressor2 }} --msa $COMPRESSED_FN --duplicates $DUPLICATE_FN --csv $VARIANTS_CSV_FN  --byseq $VARIANTS_JSON_FN --p 0.95 --output $FILTERED_FASTA_FN --json $FILTERED_JSON_FN --output-edits ${OUTPUT_EDITS}
+            {{ params.hyphy }} LIBPATH={{params.hyphy_lib_path}} {{ params.compressor2 }} --msa $FASTA_FN --duplicates $DUPLICATE_FN --csv $VARIANTS_CSV_FN  --byseq $VARIANTS_JSON_FN --p 0.95 --output $FILTERED_FASTA_FN --json $FILTERED_JSON_FN --output-edits ${OUTPUT_EDITS}
             """
             compressor_two_task = BashOperator(
-                task_id=f'compressor_two_{gene}',
+                task_id=f'compressor_two',
                 bash_command=COMPRESSOR2,
-                env={'COMPRESSED_FN': compressed_output_filepath, 'DUPLICATE_FN': compressor_duplicate_out, 'VARIANTS_CSV_FN': variants_csv_output, 'VARIANTS_JSON_FN': variants_json_output, 'FILTERED_FASTA_FN': filtered_fasta_output, 'FILTERED_JSON_FN': filtered_json_output, 'OUTPUT_EDITS': output_edits_fn, **os.environ},
+                env={'FASTA_FN': uniques_fn, 'DUPLICATE_FN': compressor_duplicate_out, 'VARIANTS_CSV_FN': variants_csv_output, 'VARIANTS_JSON_FN': variants_json_output, 'FILTERED_FASTA_FN': filtered_fasta_output, 'FILTERED_JSON_FN': filtered_json_output, 'OUTPUT_EDITS': output_edits_fn, **os.environ},
                 dag=dag
             )
 
-            compressor_task >> compressor_two_task
+            # bpsh 0 tn93-cluster -t 0.001 sequences.S.compressed.filtered.fas
+            TN93_CLUSTER = """
+            {{ params.tn93_cluster }} -t {{ params.threshold }} -o {{ params.output_fn }} {{ params.input_fn }}
+            """
+            tn93_cluster_task = BashOperator(
+                task_id=f'tn93_cluster',
+                bash_command=TN93_CLUSTER,
+                params={'input_fn': filtered_fasta_output, 'threshold': str(regions[gene]['cluster_threshold']), 'output_fn': tn93_cluster_fn},
+                dag=dag
+            )
+
+            WRITE_CENTROIDS= """
+            cat {{ params.input_fn }} | /usr/local/bin/jq -r '.[].centroid' > {{ params.output_fn }}
+            """
+            write_centroids_task = BashOperator(
+                task_id=f'write_centroids',
+                bash_command=WRITE_CENTROIDS,
+                params={ 'input_fn': tn93_cluster_fn, 'output_fn': centroid_fn },
+                dag=dag
+            )
+
+
+            compressor_task >> compressor_two_task >> tn93_cluster_task >> write_centroids_task
 
         INFER_TREE = """
         seqmagick convert $FILTERED_FASTA_FN $STO_OUTPUT;
@@ -311,14 +255,14 @@ with DAG(
         infer_tree_task = BashOperator(
             task_id=f'infer_tree_{gene}',
             bash_command=INFER_TREE,
-            env={'FILTERED_FASTA_FN': filtered_fasta_output, 'STO_OUTPUT': sto_output, 'TREE_OUTPUT': tree_output, **os.environ},
+            env={'FILTERED_FASTA_FN': centroid_fn, 'STO_OUTPUT': sto_output, 'TREE_OUTPUT': tree_output, **os.environ},
             dag=dag
         )
 
         slac_task = BashOperator(
             task_id=f'slac_{gene}',
             bash_command="{{ params.hyphy }} LIBPATH={{params.hyphy_lib_path}} slac --kill-zero-lengths Constrain ENV='_DO_TREE_REBALANCE_=1' --alignment $FILTERED_FASTA_FN --tree $TREE_OUTPUT --branches All --samples 0 --output $SLAC_OUTPUT",
-            env={'FILTERED_FASTA_FN': filtered_fasta_output, 'TREE_OUTPUT': tree_output, 'SLAC_OUTPUT': slac_output_fn, **os.environ},
+            env={'FILTERED_FASTA_FN': centroid_fn, 'TREE_OUTPUT': tree_output, 'SLAC_OUTPUT': slac_output_fn, **os.environ},
             pool='hyphy',
             dag=dag,
         )
@@ -328,7 +272,7 @@ with DAG(
         fel_task = BashOperator(
             task_id=f'fel_{gene}',
             bash_command="{{ params.hyphy }} LIBPATH={{params.hyphy_lib_path}} fel --kill-zero-lengths Constrain ENV='_DO_TREE_REBALANCE_=1' $BIG_DATA_FLAGS --alignment $FILTERED_FASTA_FN --tree $TREE_OUTPUT --branches Internal --output $FEL_OUTPUT",
-            env={'FILTERED_FASTA_FN': filtered_fasta_output, 'TREE_OUTPUT': tree_output, 'FEL_OUTPUT': fel_output_fn, 'BIG_DATA_FLAGS': big_data_flags, **os.environ},
+            env={'FILTERED_FASTA_FN': centroid_fn, 'TREE_OUTPUT': tree_output, 'FEL_OUTPUT': fel_output_fn, 'BIG_DATA_FLAGS': big_data_flags, **os.environ},
             pool='hyphy',
             dag=dag,
         )
@@ -336,7 +280,7 @@ with DAG(
         meme_task = BashOperator(
             task_id=f'meme_{gene}',
             bash_command="{{ params.hyphy }} LIBPATH={{params.hyphy_lib_path}} meme --kill-zero-lengths Constrain ENV='_DO_TREE_REBALANCE_=1' $BIG_DATA_FLAGS --alignment $FILTERED_FASTA_FN --tree $TREE_OUTPUT --branches Internal --output $MEME_OUTPUT",
-            env={'FILTERED_FASTA_FN': filtered_fasta_output, 'TREE_OUTPUT': tree_output, 'MEME_OUTPUT': meme_output_fn, 'BIG_DATA_FLAGS': big_data_flags, **os.environ},
+            env={'FILTERED_FASTA_FN': centroid_fn, 'TREE_OUTPUT': tree_output, 'MEME_OUTPUT': meme_output_fn, 'BIG_DATA_FLAGS': big_data_flags, **os.environ},
             pool='hyphy',
             dag=dag,
         )
