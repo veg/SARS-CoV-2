@@ -41,7 +41,7 @@ def parse_records(fh):
             yield (
                 sample,
                 (int(pos), ref, alt, eff, codon, trid, aa),
-                round(float(af), 4)
+                round(float(af)*10000)
             )
 
 
