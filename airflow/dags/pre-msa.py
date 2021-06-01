@@ -57,21 +57,7 @@ default_args = {
     },
     'retries': 3,
     'retry_delay': timedelta(minutes=5),
-    #'on_failure_callback': task_fail_slack_alert,
-    #'concurrency': 10,
-    #'dag_concurrency' : 10,
-	'max_active_runs': 1,
-    # 'execution_timeout': timedelta(minutes=30),
-    # 'queue': 'bash_queue',
-    # 'pool': 'backfill',
-    # 'priority_weight': 10,
-    # 'end_date': datetime(2016, 1, 1),
-    # 'wait_for_downstream': False,
-    # 'dag': dag,
-    # 'sla': timedelta(hours=2),
-    # 'on_retry_callback': another_function,
-    # 'sla_miss_callback': yet_another_function,
-    # 'trigger_rule': 'all_success'
+	'max_active_runs': 1
 }
 
 dag = DAG(
@@ -115,13 +101,7 @@ for gene in regions.keys():
         task_id=f'export_missing_premsa_{gene}',
         python_callable=export_sequences,
         op_kwargs={ "gene" : gene, "output_fn" : filepath },
-        dag=dag,
-    )
-
-    pre_msa = BashOperator(
-        task_id=f'pre_msa_{gene}',
-        bash_command=PREMSA,
-        params={'regions': regions, 'filepath': filepath, 'gene': gene, 'node' : i % 8, 'stdout' : stdout },
+        pool='mongo',
         dag=dag,
     )
 
@@ -132,11 +112,20 @@ for gene in regions.keys():
         dag=dag
     )
 
+    pre_msa = BashOperator(
+        task_id=f'pre_msa_{gene}',
+        bash_command=PREMSA,
+        params={'regions': regions, 'filepath': filepath, 'gene': gene, 'node' : i % 8, 'stdout' : stdout },
+        pool='hyphy',
+        dag=dag,
+    )
+
     # Store nuc_input, prot_input, type
     import_premsa_seqs = PythonOperator(
         task_id=f'store_premsa_{gene}',
         python_callable=store_premsa_file,
         op_kwargs={ "nuc_input" : nuc_input_filepath, "prot_input" : prot_input_filepath, "gene": gene },
+        pool='mongo',
         dag=dag,
     )
 
@@ -144,6 +133,7 @@ for gene in regions.keys():
         task_id=f'mark_troubled_{gene}',
         python_callable=mark_troubled,
         op_kwargs={ "log_file" : stdout, "gene": gene },
+        pool='mongo',
         dag=dag,
     )
 
@@ -151,6 +141,7 @@ for gene in regions.keys():
         task_id=f'mark_premsa_duplicates_{gene}',
         python_callable=mark_premsa_dupes,
         op_kwargs={ "dupe_input" : dupe_input_filepath, "gene": gene },
+        pool='mongo',
         dag=dag,
     )
 
@@ -165,6 +156,7 @@ for gene in regions.keys():
         task_id=f'mark_duplicates_{gene}',
         python_callable=mark_duplicates,
         op_kwargs={ "dupe_input" : nuc_dupe_output_filepath, "gene": gene },
+        pool='mongo',
         dag=dag,
     )
 
