@@ -1,5 +1,8 @@
 import yaml
 import datetime
+from dateutil.relativedelta import *
+from dateutil.rrule import *
+from dateutil.parser import *
 
 # The DAG object; we'll need this to instantiate a DAG
 from airflow import DAG
@@ -35,6 +38,14 @@ WORKING_DIR = Variable.get("WORKING_DIR")
 # ["2020-08", "2020-09", "2020-10"]  # this is used for the baseline analysis forecasting Wave 3
 # ["2021-02", "2021-03"]  # this is used for forecasting the next wave
 
+def export_with_context(func, config, **context):
+    # Get last 90 days
+    execution_date = datetime.datetime.strptime(context['ds'], '%Y-%m-%d')
+    ninety_days_from_execution_date = execution_date-relativedelta(days=+90)
+    window = (ninety_days_from_execution_date.strftime('%Y-%m-%d'), execution_date.strftime('%Y-%m-%d'))
+    config['collection-date-range'] = window
+    print(config)
+    func(config)
 
 def create_dag(dag_id, schedule, clade, default_args):
     with DAG(
@@ -42,7 +53,7 @@ def create_dag(dag_id, schedule, clade, default_args):
         default_args=default_args,
         description='creates output based on pangolin assignment',
         schedule_interval=schedule,
-        start_date=datetime.datetime(2021, 4, 30),
+        start_date=datetime.datetime(2021, 6, 1),
         on_failure_callback=dag_fail_slack_alert,
         on_success_callback=dag_success_slack_alert,
         tags=['selection','clade'],
@@ -63,6 +74,8 @@ def create_dag(dag_id, schedule, clade, default_args):
         with open(dag.params["region_cfg"], 'r') as stream:
             regions = yaml.safe_load(stream)
 
+
+
         mk_dir_task = BashOperator(
             task_id='make_directory',
             bash_command='mkdir -p {{params.output}}',
@@ -72,8 +85,9 @@ def create_dag(dag_id, schedule, clade, default_args):
 
         export_meta_task = PythonOperator(
                 task_id='export_meta',
-                python_callable=export_meta,
+                python_callable=lambda config, **context: export_with_context(export_meta,config, **context),
                 op_kwargs={ "config" : default_args['params'] },
+                provide_context=True,
                 pool='mongo',
                 dag=dag,
             )
@@ -82,8 +96,9 @@ def create_dag(dag_id, schedule, clade, default_args):
 
         export_sequences_task = PythonOperator(
                 task_id='export_sequences',
-                python_callable=export_sequences,
+                python_callable=lambda config, **context: export_with_context(export_sequences,config, **context),
                 op_kwargs={ "config" : default_args['params'] },
+                provide_context=True,
                 pool='mongo',
                 dag=dag,
             )
@@ -126,8 +141,9 @@ def create_dag(dag_id, schedule, clade, default_args):
 
                 export_bealign_task = PythonOperator(
                     task_id=f'export_bealign',
-                    python_callable=export_bealign_sequences,
+                    python_callable=lambda config, **context: export_with_context(export_bealign_sequences, config, **context),
                     op_kwargs={ "config" : default_args['params'], 'nuc_output_fn':  nuc_sequence_output, 'gene' : gene },
+                    provide_context=True,
                     pool='mongo',
                     dag=dag,
                 )
@@ -295,6 +311,7 @@ clades = [
     "B.1.525",
     "B.1.617"
     ]
+
 
 for clade in clades:
     dag_id = 'bealign_clade_{}'.format(clade)
