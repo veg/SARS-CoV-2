@@ -14,7 +14,7 @@ from airflow.models import Variable
 # These args will get passed on to each operator
 # You can override them on a per-task basis during operator initialization
 
-from libs.callbacks import task_fail_slack_alert, task_success_slack_alert, dag_fail_slack_alert, dag_success_slack_alert
+from libs.callbacks import dag_fail_slack_alert, dag_success_slack_alert
 
 import os
 import sys
@@ -63,8 +63,6 @@ default_args = {
     },
     'retries': 0,
     'retry_delay': timedelta(minutes=5),
-    # 'on_failure_callback': task_fail_slack_alert,
-    # 'on_success_callback': task_success_slack_alert,
     'concurrency': 20,
     'dag_concurrency' : 20,
 	'max_active_runs': 1,
