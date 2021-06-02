@@ -44,8 +44,15 @@ def export_with_context(func, config, **context):
     ninety_days_from_execution_date = execution_date-relativedelta(days=+90)
     window = (ninety_days_from_execution_date.strftime('%Y-%m-%d'), execution_date.strftime('%Y-%m-%d'))
     config['collection-date-range'] = window
-    print(config)
     func(config)
+
+def export_bealign_with_context(func, config, nuc_output_fn, gene, **context):
+    # Get last 90 days
+    execution_date = datetime.datetime.strptime(context['ds'], '%Y-%m-%d')
+    ninety_days_from_execution_date = execution_date-relativedelta(days=+90)
+    window = (ninety_days_from_execution_date.strftime('%Y-%m-%d'), execution_date.strftime('%Y-%m-%d'))
+    config['collection-date-range'] = window
+    func(config, nuc_output_fn, gene)
 
 def create_dag(dag_id, schedule, clade, default_args):
     with DAG(
@@ -141,7 +148,7 @@ def create_dag(dag_id, schedule, clade, default_args):
 
                 export_bealign_task = PythonOperator(
                     task_id=f'export_bealign',
-                    python_callable=lambda config, **context: export_with_context(export_bealign_sequences, config, **context),
+                    python_callable=lambda config, **context: export_bealign_with_context(export_bealign_sequences, config, **context),
                     op_kwargs={ "config" : default_args['params'], 'nuc_output_fn':  nuc_sequence_output, 'gene' : gene },
                     provide_context=True,
                     pool='mongo',
