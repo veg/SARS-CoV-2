@@ -296,11 +296,11 @@ sliding_windows = [
 
 # Supplement with 3 month sliding windows since beginning of pandemic
 TODAY = datetime.date.today()
-LASTMONTH = TODAY-relativedelta(months=+1, day=31)
-THREEMONTHSAGO = TODAY-relativedelta(months=+3, day=1)
+THISMONTH = TODAY-relativedelta(day=31)
+TWOMONTHSAGO = TODAY-relativedelta(months=+2, day=1)
 
-starts = [dt.strftime('%Y-%m-%d') for dt in rrule(MONTHLY, interval=1,bymonthday=(1),dtstart=parse("20191201T000000"), until=THREEMONTHSAGO)]
-ends = [dt.strftime('%Y-%m-%d') for dt in rrule(MONTHLY, interval=1,bymonthday=(-1),dtstart=parse("20200228T000000"), until=LASTMONTH)]
+starts = [dt.strftime('%Y-%m-%d') for dt in rrule(MONTHLY, interval=1,bymonthday=(1),dtstart=parse("20191201T000000"), until=TWOMONTHSAGO)]
+ends = [dt.strftime('%Y-%m-%d') for dt in rrule(MONTHLY, interval=1,bymonthday=(-1),dtstart=parse("20200228T000000"), until=THISMONTH)]
 sliding_windows = set(list(zip(starts,ends)) + sliding_windows)
 
 for window in sliding_windows:
