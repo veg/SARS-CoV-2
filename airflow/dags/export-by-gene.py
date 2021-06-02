@@ -59,9 +59,20 @@ with DAG(
     with open(dag.params["region_cfg"], 'r') as stream:
         regions = yaml.safe_load(stream)
 
+    last_exec_date = dag.get_latest_execution_date()
+
+    if last_exec_date is None:
+        last_exec_date = datetime.datetime(year=1970, month=1, day=1)
+
+    unique_id = str(round(last_exec_date.timestamp()))
+
+    directory_output = WORKING_DIR + "/data/exports/" + unique_id + "/"
+    default_args['meta-output'] = directory_output + '/master-no-fasta.json'
+
     mk_dir_task = BashOperator(
         task_id='make_directory',
-        bash_command='mkdir -p {{params.directory}}',
+        bash_command='mkdir -p {{params.directory_output}}',
+        params={"directory_output": directory_output},
         dag=dag,
     )
 
@@ -75,23 +86,17 @@ with DAG(
 
     export_meta_task.set_upstream(mk_dir_task)
 
-    last_exec_date = dag.get_latest_execution_date()
-
-    if last_exec_date is None:
-        last_exec_date = datetime.datetime(year=1970, month=1, day=1)
-
-    unique_id = str(round(last_exec_date.timestamp()))
 
     export_by_gene = []
 
     for gene in regions.keys():
 
-        directory_output = WORKING_DIR + "/data/" + gene + "/" + unique_id
+        gene_directory_output = directory_output + "/" + gene
 
-        default_args["params"]["directory"] = directory_output
-        default_args["params"]["sequence-output"] = directory_output + '/sequences'
-        default_args["params"]["meta-output"] = directory_output  + '/master-no-sequences.json'
-        default_args["params"]["duplicate-output"] = directory_output  + '/duplicates.json'
+        default_args["params"]["directory"] = gene_directory_output
+        default_args["params"]["sequence-output"] = gene_directory_output + '/sequences'
+        default_args["params"]["meta-output"] = gene_directory_output  + '/master-no-sequences.json'
+        default_args["params"]["duplicate-output"] = gene_directory_output  + '/duplicates.json'
 
         nuc_sequence_output = default_args["params"]["directory"] + '/sequences_nuc.fas'
         bealign_nuc_sequence_output = default_args["params"]["directory"] + '/sequences_nuc.bealign.fas'
@@ -100,6 +105,14 @@ with DAG(
         default_args["params"]["nuc-sequence-output"] = nuc_sequence_output
         default_args["params"]["prot-sequence-output"] = prot_sequence_output
 
+        gene_mk_dir_task = BashOperator(
+            task_id=f'make_directory_{gene}',
+            bash_command='mkdir -p {{params.directory_output}}',
+            params={"directory_output": gene_directory_output},
+            dag=dag,
+        )
+
+
         export_duplicates_task = PythonOperator(
                 task_id=f'export_duplicates_{gene}',
                 python_callable=export_duplicates,
@@ -107,6 +120,8 @@ with DAG(
                 pool='mongo',
                 dag=dag,
             )
+
+        export_duplicates_task.set_upstream(gene_mk_dir_task)
 
         # For each region
         export_by_gene_task = PythonOperator(
@@ -117,6 +132,8 @@ with DAG(
                 dag=dag,
             )
 
+        export_by_gene_task.set_upstream(gene_mk_dir_task)
+
         export_bealign_task = PythonOperator(
             task_id=f'export_bealign_{gene}',
             python_callable=export_bealign_sequences,
@@ -126,6 +143,7 @@ with DAG(
             dag=dag,
         )
 
+        export_bealign_task.set_upstream(gene_mk_dir_task)
 
         export_by_gene.extend([export_duplicates_task, export_by_gene_task, export_bealign_sequences])
 
@@ -135,8 +153,3 @@ with DAG(
         # Task Documentation
         Exports by specific gene
     """
-
-    # Add export meta and export sequence tasks to be executed in parallel
-    export_meta_task >> export_by_gene
-
-
