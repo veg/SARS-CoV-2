@@ -10,6 +10,7 @@ from airflow.operators.python import PythonOperator
 from airflow.utils.dates import days_ago
 from airflow.hooks.base import BaseHook
 from airflow.models import Variable
+from libs.callbacks import task_fail_slack_alert, task_success_slack_alert, dag_fail_slack_alert, dag_success_slack_alert
 
 # These args will get passed on to each operator
 # You can override them on a per-task basis during operator initialization
