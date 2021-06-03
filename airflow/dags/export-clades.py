@@ -69,7 +69,7 @@ with DAG(
     unique_id = str(round(last_exec_date.timestamp()))
     directory_output = WORKING_DIR + "/data/exports/whole-genome-clades/" + unique_id + "/"
 
-    default_args['meta-output'] = directory_output + '/master-no-fasta.json'
+    default_args['params']['meta-output'] = directory_output + '/master-no-fasta.json'
 
     mk_dir_task = BashOperator(
         task_id='make_directory',
