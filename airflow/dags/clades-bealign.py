@@ -148,7 +148,7 @@ def create_dag(dag_id, schedule, clade, default_args):
 
                 export_bealign_task = PythonOperator(
                     task_id=f'export_bealign',
-                    python_callable=lambda config, nuc_ouput_fn, gene, **context: export_bealign_with_context(export_bealign_sequences, config, nuc_output_fn, gene, **context),
+                    python_callable=lambda config, nuc_output_fn, gene, **context: export_bealign_with_context(export_bealign_sequences, config, nuc_output_fn, gene, **context),
                     op_kwargs={ "config" : default_args['params'], 'nuc_output_fn':  nuc_sequence_output, 'gene' : gene },
                     provide_context=True,
                     pool='mongo',
