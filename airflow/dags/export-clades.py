@@ -69,7 +69,6 @@ with DAG(
     unique_id = str(round(last_exec_date.timestamp()))
     directory_output = WORKING_DIR + "/data/exports/whole-genome-clades/" + unique_id + "/"
 
-    default_args['params']['meta-output'] = directory_output + '/master-no-fasta.json'
 
     mk_dir_task = BashOperator(
         task_id='make_directory',
@@ -78,14 +77,6 @@ with DAG(
         dag=dag,
     )
 
-    export_meta_task = PythonOperator(
-            task_id='export_meta',
-            python_callable=export_meta,
-            op_kwargs={ "config" : default_args['params'] },
-            dag=dag,
-        )
-
-    export_meta_task.set_upstream(mk_dir_task)
 
     clades = [
         "B.1.2",
@@ -114,9 +105,20 @@ with DAG(
 
         params = {}
 
+        params['meta-output'] = directory_output + '/' + clade + '-no-fasta.json'
         params["sequence-output"] = directory_output + '/' + clade + '.fas'
         params['only-uniques'] = False
         params["clades"] = [clade]
+
+        export_meta_task = PythonOperator(
+                task_id=f'export_meta_{clade}',
+                python_callable=export_meta,
+                op_kwargs={ "config" : params },
+                dag=dag,
+            )
+
+        export_meta_task.set_upstream(mk_dir_task)
+
 
         export_sequences_task = PythonOperator(
                 task_id=f'export_sequences_{clade}',
