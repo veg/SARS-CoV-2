@@ -11,7 +11,7 @@ from airflow.operators.python import PythonOperator
 from airflow.utils.dates import days_ago
 from airflow.hooks.base import BaseHook
 from airflow.models import Variable
-from libs.callbacks import task_fail_slack_alert, task_success_slack_alert
+from libs.callbacks import task_fail_slack_alert, task_success_slack_alert, dag_fail_slack_alert, dag_success_slack_alert
 
 import os
 import sys
@@ -53,7 +53,9 @@ with DAG(
     description='export_by_gene',
     schedule_interval='@weekly',
     start_date=datetime.datetime(2021, 6, 2),
-    tags=['selection'],
+    on_failure_callback=dag_fail_slack_alert,
+    on_success_callback=dag_success_slack_alert,
+    tags=['export'],
     ) as dag:
 
     with open(dag.params["region_cfg"], 'r') as stream:
@@ -67,7 +69,7 @@ with DAG(
     unique_id = str(round(last_exec_date.timestamp()))
 
     directory_output = WORKING_DIR + "/data/exports/" + unique_id + "/"
-    default_args['meta-output'] = directory_output + '/master-no-fasta.json'
+    default_args['params']['meta-output'] = directory_output + '/master-no-fasta.json'
 
     mk_dir_task = BashOperator(
         task_id='make_directory',
@@ -111,7 +113,6 @@ with DAG(
             params={"directory_output": gene_directory_output},
             dag=dag,
         )
-
 
         export_duplicates_task = PythonOperator(
                 task_id=f'export_duplicates_{gene}',
