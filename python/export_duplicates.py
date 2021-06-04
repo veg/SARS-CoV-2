@@ -45,7 +45,10 @@ def export_duplicates(output_fn, gene):
     # transform acceptable into mongo query
     acceptable_dict = { k: 1 for k in acceptable}
 
-    mongo_query = {}
+    HOST= "Human"
+    MINLENGTH=28000
+    validation_key = 'qc.' + gene + '.passed'
+    mongo_query = { "host" : HOST,  "length": {"$gt": MINLENGTH }, "seq": {"$exists":True}, validation_key: True }
 
     records = list(db.gisaid.records.find(mongo_query, acceptable_dict))
     records = [{k: v for k, v in rec.items() if k in acceptable} for rec in records]
