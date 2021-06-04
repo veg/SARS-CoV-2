@@ -1,3 +1,7 @@
+import os
+import sys
+import pathlib
+
 import yaml
 import datetime
 from dateutil.relativedelta import *
@@ -21,10 +25,6 @@ from airflow.models import Variable
 # You can override them on a per-task basis during operator initialization
 
 from libs.callbacks import task_fail_slack_alert, task_success_slack_alert
-
-import os
-import sys
-import pathlib
 
 p = os.path.abspath(str(pathlib.Path(__file__).parent.absolute()) + '/../../python/')
 if p not in sys.path:
