@@ -19,7 +19,7 @@ from airflow.models import Variable
 # These args will get passed on to each operator
 # You can override them on a per-task basis during operator initialization
 
-from libs.callbacks import task_fail_slack_alert, task_success_slack_alert, dag_fail_slack_alert, dag_success_slack_alert
+from libs.callbacks import dag_fail_slack_alert, dag_success_slack_alert
 
 import os
 import sys
@@ -217,14 +217,6 @@ def create_dag(dag_id, schedule, clade, default_args):
                 dag=dag
             )
 
-            tn93_task = BashOperator(
-                task_id=f'tn93_{gene}',
-                bash_command='tn93 -o {{params.tn93_output}} {{params.filtered_fasta_fn}}',
-                params={'filtered_fasta_fn': filtered_fasta_output, 'tn93_output': tn93_output, **os.environ},
-                dag=dag
-            )
-
-
             slac_task = BashOperator(
                 task_id=f'slac_{gene}',
                 bash_command="{{ params.hyphy }} LIBPATH={{params.hyphy_lib_path}} slac --kill-zero-lengths Constrain ENV='_DO_TREE_REBALANCE_=1' --alignment $FILTERED_FASTA_FN --tree $TREE_OUTPUT --branches All --samples 0 --output $SLAC_OUTPUT",
@@ -280,13 +272,9 @@ def create_dag(dag_id, schedule, clade, default_args):
                 dag=dag,
             )
 
-            # alignment >> duplicates_group >> filter >> infer_tree_task >> [slac_task, fel_task, meme_task] >> copy_annotation_task >> summarize_gene_task
-            # selection_flow.set_downstream(slac_task)
-            # selection_flow.set_downstream(fel_task)
-            # selection_flow.set_downstream(meme_task)
             summarize_gene_task.set_upstream(export_meta_task)
             alignment.set_upstream(export_sequences_task)
-            tn93_task.set_upstream(filter)
+            # tn93_task.set_upstream(filter)
             export_by_gene.append(alignment >> duplicates_group >> filter >> infer_tree_task >> [slac_task, fel_task, meme_task] >> copy_annotation_task >> summarize_gene_task)
 
         dag.doc_md = __doc__
@@ -345,8 +333,6 @@ for clade in clades:
         'retries': 1,
         'retry_delay': datetime.timedelta(minutes=5),
         'task_concurrency' : 5,
-        # 'on_failure_callback': task_fail_slack_alert,
-        # 'on_success_callback': task_success_slack_alert
         # 'queue': 'bash_queue',
         # 'pool': 'backfill',
         # 'priority_weight': 10,

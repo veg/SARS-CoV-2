@@ -48,7 +48,8 @@ def create_dag(dag_id, schedule, window, default_args):
         tags=['selection','sliding'],
         ) as dag:
 
-        priority = int(datetime.datetime.strptime(window[1], '%Y-%M-%d').timestamp())
+        t = datetime.datetime.strptime(window[1], '%Y-%M-%d')
+        priority = int(''.join([str(t.year - 2019),str(t.month)]))
 
         last_exec_date = dag.get_latest_execution_date()
 
