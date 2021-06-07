@@ -78,6 +78,8 @@ with DAG(
         dag=dag,
     )
 
+    print(default_args['params'])
+
     export_meta_task = PythonOperator(
             task_id='export_meta',
             python_callable=export_meta,
@@ -88,7 +90,6 @@ with DAG(
 
     export_meta_task.set_upstream(mk_dir_task)
 
-
     export_by_gene = []
 
     for gene in regions.keys():
@@ -97,7 +98,6 @@ with DAG(
 
         default_args["params"]["directory"] = gene_directory_output
         default_args["params"]["sequence-output"] = gene_directory_output + '/sequences'
-        default_args["params"]["meta-output"] = gene_directory_output  + '/master-no-sequences.json'
         default_args["params"]["duplicate-output"] = gene_directory_output  + '/duplicates.json'
 
         nuc_sequence_output = default_args["params"]["directory"] + '/sequences_nuc.fas'
