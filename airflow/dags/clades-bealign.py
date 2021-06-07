@@ -128,7 +128,6 @@ def create_dag(dag_id, schedule, clade, default_args):
             filtered_fasta_output = filepath_prefix + '.compressed.filtered.fas'
             filtered_json_output = filepath_prefix + '.filtered.json'
             output_edits_fn = filepath_prefix + '.filtered.edits.json'
-            tn93_output = filepath_prefix + '.tn93.csv'
 
             compressor_duplicate_out = filepath_prefix + '.duplicates.variants.json'
 
@@ -200,7 +199,6 @@ def create_dag(dag_id, schedule, clade, default_args):
                     dag=dag
                 )
 
-                # bpsh 0 tn93-cluster -t 0.001 sequences.S.compressed.filtered.fas
 
                 compressor_task >> compressor_two_task
 
@@ -274,7 +272,6 @@ def create_dag(dag_id, schedule, clade, default_args):
 
             summarize_gene_task.set_upstream(export_meta_task)
             alignment.set_upstream(export_sequences_task)
-            # tn93_task.set_upstream(filter)
             export_by_gene.append(alignment >> duplicates_group >> filter >> infer_tree_task >> [slac_task, fel_task, meme_task] >> copy_annotation_task >> summarize_gene_task)
 
         dag.doc_md = __doc__
