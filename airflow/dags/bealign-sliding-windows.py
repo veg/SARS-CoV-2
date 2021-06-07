@@ -11,7 +11,7 @@ from airflow import DAG
 from airflow.utils.task_group import TaskGroup
 from airflow.operators.bash import BashOperator
 from airflow.models.baseoperator import cross_downstream
-from airflow.operators.python import PythonOperator
+from airflow.operators.python import PythonOperator, BranchPythonOperator
 from airflow.models import Variable
 
 # These args will get passed on to each operator
@@ -84,6 +84,7 @@ def create_dag(dag_id, schedule, window, default_args):
             )
 
         export_meta_task.set_upstream(mk_dir_task)
+
         export_sequences_task = PythonOperator(
                 task_id='export_sequences',
                 python_callable=export_sequences,
@@ -189,6 +190,29 @@ def create_dag(dag_id, schedule, window, default_args):
                     dag=dag
                 )
 
+                def is_less_than_10k(filepath):
+                    MINIMUM = 10000
+                    num_seqs = sum(['>' in r for r in open(filepath,'r').readlines()])
+                    if num_seqs < MINIMUM:
+                        return 'copy_filepath'
+                    return 'tn93_cluster'
+
+                # Skip if less than 10k sequences
+                less_than_10k_task = BranchPythonOperator(
+                    task_id=f'less_than_10k',
+                    python_callable=is_less_than_10k,
+                    op_kwargs={ 'filepath': filtered_fasta_output },
+                    dag=dag
+                )
+
+                copy_filepath_task = BashOperator(
+                    task_id=f'copy_filepath',
+                    bash_command='cp {{params.input_fn}} {{params.output_fn}}',
+                    params={'input_fn': filtered_fasta_output, 'output_fn': centroid_fn},
+                    priority_weight=priority,
+                    dag=dag
+                )
+
                 # bpsh 0 tn93-cluster -t 0.001 sequences.S.compressed.filtered.fas
                 TN93_CLUSTER = """
                 {{ params.tn93_cluster }} -t {{ params.threshold }} -o {{ params.output_fn }} {{ params.input_fn }}
@@ -212,8 +236,9 @@ def create_dag(dag_id, schedule, window, default_args):
                     dag=dag
                 )
 
+                write_centroids_task.set_upstream(tn93_cluster_task)
 
-                compressor_task >> compressor_two_task >> tn93_cluster_task >> write_centroids_task
+                compressor_task >> compressor_two_task >> less_than_10k_task >> [tn93_cluster_task, copy_filepath_task]
 
             INFER_TREE = """
             seqmagick convert $FILTERED_FASTA_FN $STO_OUTPUT;
