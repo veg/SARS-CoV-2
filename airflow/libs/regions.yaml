@@ -7,7 +7,7 @@ S:
     fragment: S
     shift: 0
     add_one: 0
-    cluster_threshold: 0.001
+    cluster_threshold: 0.0007
 
 
 M:
@@ -55,7 +55,7 @@ ORF3a:
     fragment: ORF3a
     shift: 0
     add_one: 0
-    cluster_threshold: 0.001
+    cluster_threshold: 0.0005
 
 
 ORF6:
@@ -149,7 +149,7 @@ nsp3:
     fragment: ORF1a
     shift: 818
     add_one: 0
-    cluster_threshold: 0.001
+    cluster_threshold: 0.0007
 
 
 nsp4:
