@@ -9,6 +9,7 @@ from airflow import DAG
 
 # Operators; we need this to operate!
 from airflow.utils.task_group import TaskGroup
+from airflow.operators.dummy import DummyOperator
 from airflow.operators.bash import BashOperator
 from airflow.models.baseoperator import cross_downstream
 from airflow.operators.python import PythonOperator, BranchPythonOperator
@@ -190,7 +191,7 @@ def create_dag(dag_id, schedule, window, default_args):
                     dag=dag
                 )
 
-                def is_less_than_10k(filepath):
+                def is_less_than_10k(filepath, gene):
                     MINIMUM = 10000
                     num_seqs = sum(['>' in r for r in open(filepath,'r').readlines()])
                     if num_seqs < MINIMUM:
@@ -201,7 +202,7 @@ def create_dag(dag_id, schedule, window, default_args):
                 less_than_10k_task = BranchPythonOperator(
                     task_id=f'less_than_10k',
                     python_callable=is_less_than_10k,
-                    op_kwargs={ 'filepath': filtered_fasta_output },
+                    op_kwargs={ 'filepath': filtered_fasta_output, 'gene': gene },
                     dag=dag
                 )
 
@@ -238,7 +239,10 @@ def create_dag(dag_id, schedule, window, default_args):
 
                 write_centroids_task.set_upstream(tn93_cluster_task)
 
-                compressor_task >> compressor_two_task >> less_than_10k_task >> [tn93_cluster_task, copy_filepath_task]
+                join_1 = DummyOperator(task_id="join_1", trigger_rule="none_failed_or_skipped")
+
+                compressor_task >> compressor_two_task >> less_than_10k_task >> copy_filepath_task >> join_1
+                compressor_task >> compressor_two_task >> less_than_10k_task >> tn93_cluster_task >> write_centroids_task >> join_1
 
             INFER_TREE = """
             seqmagick convert $FILTERED_FASTA_FN $STO_OUTPUT;
