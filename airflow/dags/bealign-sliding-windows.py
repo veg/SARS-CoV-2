@@ -196,7 +196,7 @@ def create_dag(dag_id, schedule, window, default_args):
                     num_seqs = sum(['>' in r for r in open(filepath,'r').readlines()])
                     if num_seqs < MINIMUM:
                         return f'filter_{gene}.copy_filepath'
-                    return 'filter_{gene}.tn93_cluster'
+                    return f'filter_{gene}.tn93_cluster'
 
                 # Skip if less than 10k sequences
                 less_than_10k_task = BranchPythonOperator(
