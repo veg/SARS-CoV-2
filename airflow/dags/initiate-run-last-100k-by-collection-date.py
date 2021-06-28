@@ -84,6 +84,11 @@ with DAG(
     tags=['selection'],
     ) as dag:
 
+    last_exec_date = dag.get_latest_execution_date()
+
+    if last_exec_date is None:
+        last_exec_date = datetime.datetime(year=1970, month=1, day=1)
+
     unique_id = str(round(last_exec_date.timestamp()))
 
     OUTPUT_DIR = WORKING_DIR + "/data/fasta/last100k-by-collection-date" + '/' + unique_id
