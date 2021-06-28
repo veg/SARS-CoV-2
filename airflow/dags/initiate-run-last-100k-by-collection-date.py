@@ -84,7 +84,7 @@ with DAG(
     tags=['selection'],
     ) as dag:
 
-    OUTPUT_DIR = WORKING_DIR + "/data/fasta/last100k-by-collection-date"
+    OUTPUT_DIR = WORKING_DIR + "/data/fasta/last100k-by-collection-date" + '/' + unique_id
     default_args["params"]["output-dir"] = OUTPUT_DIR
     default_args["params"]["meta-output"] = OUTPUT_DIR + '/master-no-sequences.json'
     default_args["params"]["sequence-output"] = OUTPUT_DIR + '/sequences'
@@ -92,28 +92,12 @@ with DAG(
     with open(dag.params["region_cfg"], 'r') as stream:
         regions = yaml.safe_load(stream)
 
-    def my_task():
-        context = get_current_context()
-        ds = context["ds"]
-        OUTPUT_DIR = WORKING_DIR + "/data/fasta/last100k-by-collection-date"
-        default_args["params"]["output-dir"] = OUTPUT_DIR
-        default_args["params"]["meta-output"] = OUTPUT_DIR + '/master-no-sequences.json'
-        default_args["params"]["sequence-output"] = OUTPUT_DIR + '/sequences'
-
-    test_task = PythonOperator(
-            task_id=f'test_task',
-            python_callable=my_task,
-            dag=dag,
-        )
-
     mk_dir_task = BashOperator(
         task_id='make_directory',
         bash_command='mkdir -p {{params.output}}',
         params={'output': default_args['params']['output-dir']},
         dag=dag,
     )
-
-    mk_dir_task.set_upstream(test_task)
 
     export_meta_task = PythonOperator(
             task_id='export_meta',
