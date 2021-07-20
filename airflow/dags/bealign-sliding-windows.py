@@ -1,5 +1,6 @@
 import yaml
 import datetime
+from datetime import timedelta
 from dateutil.relativedelta import *
 from dateutil.rrule import *
 from dateutil.parser import *
@@ -352,7 +353,9 @@ ends = [dt.strftime('%Y-%m-%d') for dt in rrule(MONTHLY, interval=1,bymonthday=(
 sliding_windows = set(list(zip(starts,ends)) + sliding_windows)
 
 for window in sliding_windows:
+
     dag_id = 'bealign_sliding_windows_{}'.format(str('_'.join(window)))
+
     default_args = {
         'owner': 'sweaver',
         'depends_on_past': False,
@@ -376,6 +379,7 @@ for window in sliding_windows:
         'retries': 1,
         'retry_delay': datetime.timedelta(minutes=5),
         'task_concurrency' : 5,
+        'execution_timeout': timedelta(minutes=5000),
         # 'on_failure_callback': task_fail_slack_alert,
         # 'on_success_callback': task_success_slack_alert
         # 'queue': 'bash_queue',

@@ -80,9 +80,10 @@ def export_sequences(config):
     records = list(db_mongo_query)
     seq_records = [SeqRecord(Seq(rec["seq"]),id=sequence_name(rec),name='',description='') for rec in records]
 
-    # Write to fasta
-    with open(output_fn, 'w', encoding='utf-8') as output_fh:
-        SeqIO.write(seq_records, output_fh, "fasta")
+    if len(nuc_seq_records) > 0:
+        # Write to fasta
+        with open(output_fn, 'w', encoding='utf-8') as output_fh:
+            SeqIO.write(seq_records, output_fh, "fasta")
 
 def export_premsa_sequences(config, nuc_output_fn, prot_output_fn, gene):
     '''
@@ -150,13 +151,18 @@ def export_premsa_sequences(config, nuc_output_fn, prot_output_fn, gene):
     recs_with_prot = filter(lambda x: prot_key_to_export in x.keys(), records)
     prot_seq_records = [SeqRecord(Seq(rec[prot_key_to_export]),id=sequence_name(rec),name='',description='') for rec in recs_with_prot]
 
+    if len(nuc_seq_records) <= 0 or len(prot_seq_records) <= 0:
+        return False
+
     # Write to fasta
     with open(nuc_output_fn, 'w', encoding='utf-8') as nuc_output_fh:
         SeqIO.write(nuc_seq_records, nuc_output_fh, "fasta")
 
     # Write to fasta
-    with open(prot_output_fn, 'w', encoding='utf-8') as nuc_output_fh:
-        SeqIO.write(prot_seq_records, nuc_output_fh, "fasta")
+    with open(prot_output_fn, 'w', encoding='utf-8') as prot_output_fh:
+        SeqIO.write(prot_seq_records, prot_output_fh, "fasta")
+
+    return True
 
 def export_bealign_sequences(config, nuc_output_fn, gene):
     '''
@@ -217,9 +223,13 @@ def export_bealign_sequences(config, nuc_output_fn, gene):
             if gene in rec['bealign'].keys():
                 nuc_seq_records.append(SeqRecord(Seq(rec['bealign'][gene]),id=sequence_name(rec),name='',description=''))
 
-    # Write to fasta
-    with open(nuc_output_fn, 'w', encoding='utf-8') as nuc_output_fh:
-        SeqIO.write(nuc_seq_records, nuc_output_fh, "fasta")
+    if len(nuc_seq_records) > 0:
+        # Write to fasta
+        with open(nuc_output_fn, 'w', encoding='utf-8') as nuc_output_fh:
+            SeqIO.write(nuc_seq_records, nuc_output_fh, "fasta")
+        return True
+
+    return False
 
 if __name__ == "__main__":
 
