@@ -39,6 +39,7 @@ WORKING_DIR = Variable.get("WORKING_DIR")
 # ["2021-02", "2021-03"]  # this is used for forecasting the next wave
 
 def create_dag(dag_id, schedule, window, default_args):
+
     with DAG(
         dag_id,
         default_args=default_args,
@@ -140,7 +141,7 @@ def create_dag(dag_id, schedule, window, default_args):
                     op_kwargs={ "config" : default_args['params'], 'nuc_output_fn':  nuc_sequence_output, 'gene' : gene },
                     pool='mongo',
                     priority_weight=priority,
-                    dag=dag,
+                    dag=dag
                 )
 
                 # Occasional errors when cleaning up tmp files, so or'ing true

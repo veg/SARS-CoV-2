@@ -36,8 +36,8 @@ default_args = {
     'email_on_retry': False,
     'params' : {
         'working_dir' : WORKING_DIR,
-        'import_dir' : '/data/shares/veg/SARS-CoV-2/SARS-CoV-2-devel/data/to-import/',
-        'imported_dir': '/data/shares/veg/SARS-CoV-2/SARS-CoV-2-devel/data/imported/',
+        'import_dir' : WORKING_DIR + '/data/to-import/',
+        'imported_dir': WORKING_DIR + '/data/imported/',
     },
     'retries': 5,
     'retry_delay': datetime.timedelta(minutes=5),
