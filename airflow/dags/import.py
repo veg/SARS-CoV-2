@@ -69,13 +69,15 @@ dag = DAG(
 
 retrieve_meta_from_gisaid = BashOperator(
     task_id='retrieve_meta_from_gisaid',
-    bash_command='node {{ params.working_dir }}/js/get_metadata.js',
+    bash_command='/home/airflow/.nvm/versions/node/v13.14.0/bin/node {{ params.working_dir }}/js/get_metadata.js',
+    env={**os.environ},
     dag=dag,
 )
 
 retrieve_fasta_from_gisaid = BashOperator(
     task_id='retrieve_fasta_from_gisaid',
-    bash_command='node {{ params.working_dir }}/js/get_seqs.js',
+    bash_command='/home/airflow/.nvm/versions/node/v13.14.0/bin/node {{ params.working_dir }}/js/get_seqs.js',
+    env={**os.environ},
     dag=dag,
 )
 
