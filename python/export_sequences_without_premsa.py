@@ -66,7 +66,7 @@ def export_sequences(gene, output_fn):
 
     # LIMIT=100000
     # LIMIT=10
-    records = list(db.gisaid.records.find(mongo_query, limit=25000))
+    records = list(db.gisaid.records.find(mongo_query, limit=75000))
     seq_records = [SeqRecord(Seq(rec["seq"]),id=sequence_name(rec),name='',description='') for rec in records]
 
     # Write to fasta
