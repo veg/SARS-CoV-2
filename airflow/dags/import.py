@@ -41,7 +41,7 @@ default_args = {
     },
     'retries': 5,
     'retry_delay': datetime.timedelta(minutes=5),
-    'execution_timeout': datetime.timedelta(minutes=480),
+    'execution_timeout': datetime.timedelta(minutes=4800),
     'on_failure_callback': task_fail_slack_alert,
     'on_success_callback': task_success_slack_alert
     # 'queue': 'bash_queue',
@@ -69,13 +69,15 @@ dag = DAG(
 
 retrieve_meta_from_gisaid = BashOperator(
     task_id='retrieve_meta_from_gisaid',
-    bash_command='node {{ params.working_dir }}/js/get_metadata.js',
+    bash_command='/home/airflow/.nvm/versions/node/v13.14.0/bin/node {{ params.working_dir }}/js/get_metadata.js',
+    env={**os.environ},
     dag=dag,
 )
 
 retrieve_fasta_from_gisaid = BashOperator(
     task_id='retrieve_fasta_from_gisaid',
-    bash_command='node {{ params.working_dir }}/js/get_seqs.js',
+    bash_command='/home/airflow/.nvm/versions/node/v13.14.0/bin/node {{ params.working_dir }}/js/get_seqs.js',
+    env={**os.environ},
     dag=dag,
 )
 
@@ -84,6 +86,13 @@ gunzip_files = BashOperator(
     bash_command='gunzip {{ params.import_dir}}/*.gz',
     dag=dag,
 )
+
+untar_files = BashOperator(
+    task_id='untar_files',
+    bash_command='tar xvf {{ params.import_dir}}/*.tar',
+    dag=dag,
+)
+
 
 new_meta = default_args['params']['import_dir'] + 'new.tsv'
 new_fasta = default_args['params']['import_dir'] + 'new.fasta'
@@ -124,4 +133,4 @@ dag.doc_md = __doc__
 # IMPORT TSV FROM GISAID
 # """
 
-[retrieve_meta_from_gisaid, retrieve_fasta_from_gisaid] >> gunzip_files >> split_out_new_task >> import_tsv >> update_mongo_with_sequences >> mv_files
+[retrieve_meta_from_gisaid, retrieve_fasta_from_gisaid] >> gunzip_files >> untar_files >> split_out_new_task >> import_tsv >> update_mongo_with_sequences >> mv_files
