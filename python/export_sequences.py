@@ -80,7 +80,7 @@ def export_sequences(config):
     records = list(db_mongo_query)
     seq_records = [SeqRecord(Seq(rec["seq"]),id=sequence_name(rec),name='',description='') for rec in records]
 
-    if len(nuc_seq_records) > 0:
+    if len(seq_records) > 0:
         # Write to fasta
         with open(output_fn, 'w', encoding='utf-8') as output_fh:
             SeqIO.write(seq_records, output_fh, "fasta")
