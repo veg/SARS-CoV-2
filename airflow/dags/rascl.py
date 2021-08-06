@@ -272,7 +272,7 @@ def create_dag(dag_id, schedule, clade, default_args):
 
                 meme_full_task = BashOperator(
                     task_id=f'meme_full',
-                    bash_command="{{ params.hyphy }} LIBPATH={{params.hyphy_lib_path}} MEME --alignment $FILTERED_FASTA_FN --tree $TREE_OUTPUT --output $MEME_OUTPUT --branches {{ LABEL }}",
+                    bash_command="{{ params.hyphy }} LIBPATH={{params.hyphy_lib_path}} MEME --alignment $FILTERED_FASTA_FN --tree $TREE_OUTPUT --output $MEME_OUTPUT --branches {{ params.LABEL }}",
                     env={'FILTERED_FASTA_FN': ref_combined_fn, 'TREE_OUTPUT': out_full_tree_path, 'MEME_OUTPUT': meme_full_output_fn, 'BIG_DATA_FLAGS': big_data_flags, **os.environ},
                     pool='hyphy',
                     dag=dag,
