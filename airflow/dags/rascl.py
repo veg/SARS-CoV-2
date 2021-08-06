@@ -238,7 +238,7 @@ def create_dag(dag_id, schedule, clade, default_args):
             annotation_task = BashOperator(
                 task_id=f'annotation_{gene}',
                 bash_command="bash {{ params.annotate_path }} {{ params.input_fn }} 'REFERENCE' {{ params.in_compressed_fas }} {{ params.LABEL }} {{ params.output_dir }}",
-                params={'input_fn': tree_output, 'in_compressed_fas': ref_combined_fn, 'output_dir': OUTPUT_DIR },
+                params={'input_fn': tree_output, 'in_compressed_fas': centroid_fn, 'output_dir': OUTPUT_DIR },
                 dag=dag
             )
 
