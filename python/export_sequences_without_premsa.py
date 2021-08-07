@@ -10,7 +10,9 @@ import copy
 import os
 import multiprocessing
 import unicodedata
+from dateutil.relativedelta import *
 from multiprocessing import Pool
+import datetime
 from datetime import date, timedelta
 from operator import itemgetter
 from Bio import SeqIO
@@ -55,12 +57,17 @@ def export_sequences(gene, output_fn):
     acceptable = ['collected', 'originalCollected', 'host', 'id', 'location', 'name', 'technology', 'type', 'nextstrainClade', 'pangolinLineage', 'gisaidClade', 'seq']
     HOST= "Human"
     MINLENGTH=28000
+    TODAY = datetime.date.today()
+    LAST_MONTH = TODAY-relativedelta(months=+1, day=1)
+
 
     mongo_query = { "host" : HOST,  "length": {"$gt": MINLENGTH }, "seq": {"$exists":True} }
-
     mongo_query[nuc_key] = { "$exists": False }
     mongo_query[prot_key] = { "$exists": False }
     mongo_query[qc_key] = { "$exists": False }
+
+    # Speed up query by only looking at submitted from last month
+    mongo_query["submitted"] = { "$gte": LAST_MONTH }
 
     # Query for human host and sequence length greater than 28000, and sequence populated
 
@@ -123,6 +130,6 @@ if __name__ == "__main__":
     arguments.add_argument('-n', '--nuc-output',   help = 'fasta output', type = str)
     arguments.add_argument('-g', '--gene',   help = 'gene output', type = str)
     args = arguments.parse_args()
-    export_sequences_without_reference(args.gene, args.output, args.nuc_output)
-    #export_sequences(args.gene, args.output)
+    #export_sequences_without_reference(args.gene, args.output, args.nuc_output)
+    export_sequences(args.gene, args.output)
 
