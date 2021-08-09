@@ -66,7 +66,7 @@ def export_sequences_without_bealign(gene, output_fn):
     mongo_query[qc_passed_key] = True
 
     # Speed up query by only looking at submitted from last month
-    mongo_query["submitted"] = { "$gte": LAST_MONTH }
+    mongo_query["submitted"] = { "$gte": LAST_MONTH.strftime('%Y-%m-%d') }
 
     # Query for human host and sequence length greater than 28000, and sequence populated
     records = list(db.gisaid.records.find(mongo_query, limit=75000))

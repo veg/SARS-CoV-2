@@ -67,7 +67,7 @@ def export_sequences(gene, output_fn):
     mongo_query[qc_key] = { "$exists": False }
 
     # Speed up query by only looking at submitted from last month
-    mongo_query["submitted"] = { "$gte": LAST_MONTH }
+    mongo_query["submitted"] = { "$gte": LAST_MONTH.strftime('%Y-%m-%d') }
 
     # Query for human host and sequence length greater than 28000, and sequence populated
 
