@@ -78,8 +78,6 @@ with DAG(
         dag=dag,
     )
 
-    print(default_args['params'])
-
     export_meta_task = PythonOperator(
             task_id='export_meta',
             python_callable=export_meta,
@@ -141,6 +139,7 @@ with DAG(
             op_kwargs={ "config" : default_args['params'], 'nuc_output_fn':  bealign_nuc_sequence_output, 'gene' : gene },
             provide_context=True,
             pool='mongo',
+            priority_weight=100,
             dag=dag,
         )
 
