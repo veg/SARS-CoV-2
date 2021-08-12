@@ -18,14 +18,14 @@ from airflow.models import Variable
 
 # These args will get passed on to each operator
 # You can override them on a per-task basis during operator initialization
-
 from libs.callbacks import dag_fail_slack_alert, dag_success_slack_alert
 
 import os
 import sys
 import pathlib
 
-p = os.path.abspath(str(pathlib.Path(__file__).parent.absolute()) + '/../../python/')
+p = os.path.abspath(str(pathlib.Path(__file__).parent.absolute()) + "/../../python/")
+
 if p not in sys.path:
     sys.path.append(p)
 
@@ -148,8 +148,6 @@ def create_dag(dag_id, schedule, clade, default_args):
             input_ref_fn =  WORKING_DIR + "/rascl_reference/processed/" + gene + ".reference.compressed.fas"
             in_gene_ref_seq =  default_args["params"]["rascl_path"] + "/data/ReferenceSeq/" + gene + ".fas"
 
-            default_args["params"]["nuc-sequence-output"] = nuc_sequence_output
-            default_args["params"]["duplicate-output"] = duplicate_output
 
             with TaskGroup(f"alignment_{gene}") as alignment:
 
