@@ -62,7 +62,7 @@ dag = DAG(
     'import',
     default_args=default_args,
     description='performs selection analysis',
-    schedule_interval='0 4 * * 5',
+    schedule_interval='0 4 * * 6',
     start_date=datetime.datetime(2021, 2, 10),
     tags=['selection'],
 )
