@@ -57,7 +57,7 @@ def export_sequences(gene, output_fn):
     acceptable = ['collected', 'originalCollected', 'host', 'id', 'location', 'name', 'technology', 'type', 'nextstrainClade', 'pangolinLineage', 'gisaidClade', 'seq']
     HOST= "Human"
     MINLENGTH=28000
-    TODAY = datetime.date.today()
+    TODAY = datetime.datetime.today()
     LAST_MONTH = TODAY-relativedelta(months=+1, day=1)
 
 
@@ -67,7 +67,7 @@ def export_sequences(gene, output_fn):
     mongo_query[qc_key] = { "$exists": False }
 
     # Speed up query by only looking at submitted from last month
-    mongo_query["submitted"] = { "$gte": LAST_MONTH.strftime('%Y-%m-%d') }
+    mongo_query["submitted"] = { "$gte": LAST_MONTH }
 
     # Query for human host and sequence length greater than 28000, and sequence populated
 
