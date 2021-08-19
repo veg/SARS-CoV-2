@@ -70,7 +70,6 @@ def export_sequences_without_bealign(gene, output_fn):
 
     # Query for human host and sequence length greater than 28000, and sequence populated
     records = list(db.gisaid.records.find(mongo_query, limit=75000))
-    import pdb; pdb.set_trace()
 
     # Need to write prot_key
     seq_records = [SeqRecord(Seq(rec['seq']),id=sequence_name(rec),name='',description='') for rec in records]
