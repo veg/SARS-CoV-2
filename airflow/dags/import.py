@@ -104,6 +104,7 @@ split_out_new_task = PythonOperator(
     op_kwargs={ "dir": default_args['params']['import_dir'], "fasta_output" : new_fasta, "meta_output" : new_meta },
     pool='mongo',
     dag=dag,
+    priority_weight=9000
 )
 
 import_tsv = BashOperator(
@@ -111,6 +112,7 @@ import_tsv = BashOperator(
     bash_command='node {{ params.working_dir }}/js/submit-tsv-to-mongo.js {{ params.meta_tsv }}',
     params={'meta_tsv': new_meta},
     dag=dag,
+    priority_weight=9000
 )
 
 update_mongo_with_sequences = BashOperator(
@@ -118,12 +120,14 @@ update_mongo_with_sequences = BashOperator(
     bash_command='python3 {{ params.working_dir }}/python/update_with_sequence_name.py -i {{ params.fasta }}',
     params={'fasta': new_fasta},
     dag=dag,
+    priority_weight=9000
 )
 
 mv_files = BashOperator(
     task_id='move_files',
     bash_command='mv {{ params.import_dir }}/*.tsv {{ params.import_dir }}/*.fasta {{ params.imported_dir }}',
     dag=dag,
+    priority_weight=9000
 )
 
 dag.doc_md = __doc__
