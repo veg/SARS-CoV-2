@@ -46,7 +46,6 @@ default_args = {
         'num_procs': 16,
         'python': "/data/shares/veg/SARS-CoV-2/SARS-CoV-2-devel/env/bin/python3",
         'hyphy': "/data/shares/veg/SARS-CoV-2/hyphy/hyphy",
-        'hyphy_mpi': "/data/shares/veg/SARS-CoV-2/hyphy/HYPHYMPI",
         'hyphy_lib_path': "/data/shares/veg/SARS-CoV-2/hyphy/res",
         'pre_msa' : "/data/shares/veg/SARS-CoV-2/hyphy-analyses/codon-msa/pre-msa.bf",
         'compressor' : "/data/shares/veg/SARS-CoV-2/SARS-CoV-2-devel/scripts/compressor.bf",
@@ -75,7 +74,7 @@ with open(dag.params["region_cfg"], 'r') as stream:
     regions = yaml.safe_load(stream)
 
 PREMSA = """
-mpirun -np {{ params.num_procs }} {{ params.hyphy_mpi }} LIBPATH={{ params.hyphy_lib_path}} {{ params.pre_msa }} --input {{ params.filepath }} --reference {{ params.working_dir }}/{{ params.regions[params["gene"]]["reference"] }} --trim-from {{ params.regions[params.gene]["trim_from"] }} --trim-to {{ params.regions[params.gene]["trim_to"] }} --E 0.01 --N-fraction {{ params.regions[params["gene"]]["fraction"] }} --remove-stop-codons Yes > {{ params.stdout }}
+{{ params.hyphy }} LIBPATH={{ params.hyphy_lib_path}} {{ params.pre_msa }} --input {{ params.filepath }} --reference {{ params.working_dir }}/{{ params.regions[params["gene"]]["reference"] }} --trim-from {{ params.regions[params.gene]["trim_from"] }} --trim-to {{ params.regions[params.gene]["trim_to"] }} --E 0.01 --N-fraction {{ params.regions[params["gene"]]["fraction"] }} --remove-stop-codons Yes > {{ params.stdout }}
 """
 
 def is_export_populated(filepath):
