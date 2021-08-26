@@ -86,6 +86,7 @@ dag = DAG(
     schedule_interval='@daily',
     start_date=days_ago(2),
     tags=['selection'],
+	max_active_runs=1,
     on_failure_callback=dag_fail_slack_alert,
     on_success_callback=dag_success_slack_alert
 )
