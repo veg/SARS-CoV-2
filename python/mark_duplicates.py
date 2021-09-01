@@ -1,20 +1,13 @@
-import csv
 import json
-import sys
 import argparse
 import itertools
-import shutil
-import copy
-import os
-import multiprocessing
-from multiprocessing import Pool
+import math
 
 from datetime import date, timedelta, datetime
 from dateutil.relativedelta import *
 from dateutil.rrule import *
 from dateutil.parser import *
 
-from operator import itemgetter
 from Bio import SeqIO
 from pymongo import MongoClient, InsertOne, DeleteMany, ReplaceOne, UpdateOne, UpdateMany
 
@@ -54,7 +47,25 @@ def mark_duplicates(dupe_input, gene):
     results = db.gisaid.records.bulk_write(get_update_queries + get_update_reference_queries)
     print("Updated " +  str(results.modified_count) + " of " + str(sum([len(v) for k,v in fmt_dupes.items()]) + len(ref_keys)) + " items to update")
 
-def aggregate_duplicates(gene, start_date, end_date):
+
+def verify_duplicates(gene):
+    db = MongoClient(host='192.168.0.4')
+
+    original_records = set([rec['id'] for rec in list(db.gisaid.dev.find({}, { 'id' : 1, '_id': False }))])
+    records = set(itertools.chain(*[rec['uniqueIds'] for rec in list(db.gisaid.dev_duplicate_agg_S.find({}, { 'uniqueIds' : 1, '_id': False }))]))
+
+    missing_ids = list(original_records.difference(records))
+    seq = list(db.gisaid.dev.find({'id': missing_ids[0]}))[0]['S_premsa_nuc_seq']
+    hi = list(db.gisaid.dev_duplicate_agg_S.find({'_id.S_premsa_nuc_seq' : seq}, { 'uniqueIds' : 1, '_id': False }))
+
+    import pdb; pdb.set_trace()
+    print(records)
+
+def get_all_count():
+    db = MongoClient(host='192.168.0.4')
+    return db.gisaid.records.find({}, {'_id': 1}).count()
+
+def aggregate_duplicates(gene, month, count_index, starting_id, month_index):
 
     db = MongoClient(host='192.168.0.4')
 
@@ -63,55 +74,85 @@ def aggregate_duplicates(gene, start_date, end_date):
     DEV_DB = "dev_duplicate_agg_"
     PROD_DB = "record_duplicate_agg_"
 
-    #db_prefix = PROD_DB
-    db_prefix = DEV_DB
+    start_date = month[0]
+    end_date = month[1]
 
+    # Create new documents for every 500k sequences
+    COLLECTION_INDEX = 500000
+
+    db_string = PROD_DB + gene
+    # db_string = DEV_DB + gene
+
+    didx = '_'.join([str(month_index), str(math.floor(count_index/COLLECTION_INDEX))])
+
+    # Use date instead of skip
     aggregate_query = [
         { "$match": { "collected": { "$gte": datetime.strptime(start_date, "%Y-%m-%d"), "$lte": datetime.strptime(end_date, "%Y-%m-%d") } } },
-        { "$group" : { "_id": {gene_id: "$" + gene_id}, "uniqueIds": {"$addToSet": "$id"}, "count": {"$sum": 1 } } },
-        { "$match": { "count": {"$gt": 1} } },
+        { "$skip": count_index },
+        { "$limit" : 50000 },
+        { "$group" : { "_id": {didx + '_' + gene_id: "$" + gene_id}, "uniqueIds": {"$addToSet": "$id"}, "count": {"$sum": 1 } } },
+        { "$match": { "count": {"$gt": 0} } },
         { "$sort": { "count" : -1 } },
         { "$merge": {
-           "into": db_prefix + gene,
+           "into": db_string,
            "on" : "_id",
            "whenMatched": [ { "$set": {
               "uniqueIds": { "$setUnion": ["$uniqueIds", "$$new.uniqueIds"] },
               "count": { "$size": { "$setUnion": ["$uniqueIds", "$$new.uniqueIds"] } },
+              "month": month_index,
+              "index": math.floor(count_index/COLLECTION_INDEX),
+              "seq" : "$" + gene_id
            } } ],
            "whenNotMatched": "insert"
        }}
     ]
 
-    records = db.gisaid.dev.aggregate(aggregate_query, allowDiskUse=True)
-    #records = db.gisaid.records.aggregate(aggregate_query, allowDiskUse=True)
+    # records = db.gisaid.dev.aggregate(aggregate_query, allowDiskUse=True)
+    records = db.gisaid.records.aggregate(aggregate_query, allowDiskUse=True)
+
+def get_month_id(month):
+    try:
+        db = MongoClient(host='192.168.0.4')
+        records = list(db.gisaid.records.find({ "collected": { "$gte": datetime.strptime(month[0], "%Y-%m-%d"), "$lte": datetime.strptime(month[1], "%Y-%m-%d") } }, { 'id' : 1 }).limit(1))
+        earliest_id = records[0]['_id']
+        count = db.gisaid.records.find({ "collected": { "$gte": datetime.strptime(month[0], "%Y-%m-%d"), "$lte": datetime.strptime(month[1], "%Y-%m-%d") } }, { 'id' : 1 }).count()
+        return earliest_id, count
+    except:
+        return False, 0
+
 
 
 if __name__ == "__main__":
+
     arguments = argparse.ArgumentParser(description='Mark duplicates in MongoDB')
     # arguments.add_argument('-d', '--dupe-input',   help = 'fasta to update', required = True, type = str)
     arguments.add_argument('-t', '--type',   help = 'gene region', required = True, type = str)
     args = arguments.parse_args()
-    # mark_duplicates(args.dupe_input, args.type)
+
+    # verify_duplicates(args.type)
 
     TODAY = date.today()
-    # THISMONTH = TODAY-relativedelta(day=1)
-    # ONEMONTHAGO = TODAY-relativedelta(day=1)
+    THISMONTH = TODAY-relativedelta(day=31)
+    ONEMONTHAGO = TODAY-relativedelta(months=+1, day=1)
 
-    THISMONTH = TODAY
-    ONEMONTHAGO = TODAY
 
-    print(THISMONTH)
-    print(ONEMONTHAGO)
+    starts = [dt.strftime('%Y-%m-%d') for dt in rrule(MONTHLY,dtstart=parse("20191101T000000"), until=ONEMONTHAGO)]
+    ends = [dt.strftime('%Y-%m-%d') for dt in rrule(MONTHLY,dtstart=parse("20191201T000000"), until=THISMONTH)]
+    months = sorted(set(list(zip(starts,ends))), reverse=False)
 
-    starts = [dt.strftime('%Y-%m-%d') for dt in rrule(DAILY,dtstart=parse("20191101T000000"), until=ONEMONTHAGO)]
-    ends = [dt.strftime('%Y-%m-%d') for dt in rrule(DAILY,dtstart=parse("20191101T000000"), until=THISMONTH)]
-    months = set(list(zip(starts,ends)))
-
-    for x in months:
-        print(x)
-        # try:
-        aggregate_duplicates(args.type, x[0], x[1])
-        # except:
-            # print('could not aggregate counts for ' + x[0])
+    for idx in range(len(months)):
+        month = months[idx]
+        earliest_id, count = get_month_id(month)
+        # split by 30000 each
+        print(earliest_id)
+        print(count)
+        lst = list(range(count))[0::50000]
+        # Need to get each month, then first id with that month and count, then loop
+        for x in lst:
+            print('processing ' + str(x))
+            try:
+                aggregate_duplicates(args.type, month, x, earliest_id, idx)
+            except:
+                print('could not aggregate counts for ' + x)
 
 

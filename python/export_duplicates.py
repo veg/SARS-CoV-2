@@ -1,20 +1,7 @@
-import csv
 import json
-import sys
 import argparse
-import itertools
-import shutil
-import copy
-import os
-import multiprocessing
-from multiprocessing import Pool
 from datetime import date, timedelta, datetime
-from operator import itemgetter
-from Bio import SeqIO
-
-import pymongo
 from pymongo import MongoClient
-from bson.son import SON
 
 def get_duplicates(records, gene):
     references = {}
@@ -70,7 +57,6 @@ def export_duplicates(output_fn, gene):
     # Now, instead of getting the entire collection, let's loop through submit dates and merge into dev_duplicates
 
 
-    # Write attributes.csv file and MASTER-NO-JSON file
     with open(output_fn, 'w') as output_fh:
         json.dump(records, output_fh, indent=4, sort_keys=True)
 
