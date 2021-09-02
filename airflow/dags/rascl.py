@@ -1,4 +1,5 @@
 import yaml
+import json
 import datetime
 from dateutil.relativedelta import *
 from dateutil.rrule import *
@@ -78,6 +79,7 @@ def create_dag(dag_id, schedule, clade, default_args):
 
         with open(dag.params["region_cfg"], 'r') as stream:
             regions = yaml.safe_load(stream)
+
 
         mk_dir_task = BashOperator(
             task_id='make_directory',
@@ -410,6 +412,12 @@ clades = [
 	"AY.11",
 	"AY.12"
     ]
+
+# Add VOCs from WHO config
+with open(WORKING_DIR + "/airflow/libs/voc.json", 'r') as stream:
+    vocs = json.load(stream)
+
+clades = list(set(vocs['clades']).union(clades))
 
 for clade in clades:
     dag_id = 'rascl_{}'.format(clade)

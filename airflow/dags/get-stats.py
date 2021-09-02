@@ -149,6 +149,13 @@ get_clade_counts_task = PythonOperator(
         dag=dag,
     )
 
+get_vocs = BashOperator(
+    task_id='get_vocs',
+    bash_command='/data/deno/target/release/deno run --allow-all --unstable {{ params.working_dir }}/js/who.ts',
+    dag=dag,
+)
+
+
 sliding_window_count_output_fn = WORKING_DIR + "/data/exports/sliding_window_counts.csv"
 sliding_windows = [
                     ("2020-08-01", "2020-10-31"),
