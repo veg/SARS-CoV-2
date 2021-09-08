@@ -370,16 +370,16 @@ def create_dag(dag_id, schedule, clade, default_args):
             mk_release_dir_task = BashOperator(
                 task_id='make_directory',
                 trigger_rule=TriggerRule.ALL_DONE,
-                bash_command='mkdir -p /data/shares/web/web/covid-19/selection-analyses/rascl/{{ params.gene }}/{{ run_id }}/',
-                params={'gene': gene },
+                bash_command='mkdir -p /data/shares/web/web/covid-19/selection-analyses/rascl/{{ params.clade }}/{{ run_id }}/',
+                params={'clade': clade },
                 dag=dag,
             )
 
             copy_results_task = BashOperator(
                 task_id=f'copy_results',
                 trigger_rule=TriggerRule.ALL_DONE,
-                bash_command='cp {{params.output}}/sequences.*.json /data/shares/web/web/covid-19/selection-analyses/rascl/{{ params.gene }}/{{ run_id }}/',
-                params={'gene': gene },
+                bash_command='cp {{params.output}}/sequences.*.json /data/shares/web/web/covid-19/selection-analyses/rascl/{{ params.clade }}/{{ run_id }}/',
+                params={'clade': clade.strip() },
                 dag=dag,
             )
 
