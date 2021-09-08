@@ -378,7 +378,7 @@ def create_dag(dag_id, schedule, clade, default_args):
             copy_results_task = BashOperator(
                 task_id=f'copy_results',
                 trigger_rule=TriggerRule.ALL_DONE,
-                bash_command='cp {{params.output}}/sequences.*.json /data/shares/web/web/covid-19/selection-analyses/rascl/{{ params.cladej}}/{{ run_id }}/',
+                bash_command='cp {{params.output}}/sequences.*.json /data/shares/web/web/covid-19/selection-analyses/rascl/{{ params.clade }}/{{ run_id }}/',
                 params={'output': default_args['params']['output-dir'], 'clade': clade.strip() },
                 dag=dag,
             )
