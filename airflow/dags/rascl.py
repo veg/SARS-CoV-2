@@ -16,6 +16,8 @@ from airflow.operators.python import PythonOperator
 from airflow.utils.dates import days_ago
 from airflow.hooks.base import BaseHook
 from airflow.models import Variable
+from airflow.utils.trigger_rule import TriggerRule
+
 
 # These args will get passed on to each operator
 # You can override them on a per-task basis during operator initialization
@@ -362,6 +364,26 @@ def create_dag(dag_id, schedule, clade, default_args):
             alignment.set_upstream(export_sequences_task)
             # export_by_gene.append(alignment >> sampling >> infer_tree_task >> selection_analyses >> summarize_gene_task)
             export_by_gene.append(alignment >> sampling >> combine_task >> protein_conv_task >> infer_tree_task >> annotation_task >> selection_analyses)
+
+        with TaskGroup(f"release") as release:
+
+            mk_release_dir_task = BashOperator(
+                task_id='make_directory',
+                trigger_rule=TriggerRule.ALL_DONE,
+                bash_command='mkdir -p /data/shares/web/web/covid-19/selection-analyses/rascl/{{ run_id }}/',
+                dag=dag,
+            )
+
+            copy_results_task = BashOperator(
+                task_id=f'copy_results',
+                trigger_rule=TriggerRule.ALL_DONE,
+                bash_command='cp {{params.output}}/sequences.*.json /data/shares/web/web/covid-19/selection-analyses/rascl/{{ run_id }}/',
+                params={'output': default_args['params']['output-dir']},
+                dag=dag,
+            )
+
+        export_by_gene >> release
+
 
         dag.doc_md = __doc__
 
