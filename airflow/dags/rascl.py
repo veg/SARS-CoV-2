@@ -382,6 +382,8 @@ def create_dag(dag_id, schedule, clade, default_args):
                 dag=dag,
             )
 
+            mk_release_dir_task >> copy_results_task
+
         export_by_gene >> release
 
 
