@@ -176,6 +176,7 @@ def create_dag(dag_id, schedule, clade, default_args):
                     task_id=f'strike_ambigs',
                     bash_command="{{ params.hyphy }} LIBPATH={{params.hyphy_lib_path}} {{ params.strike_ambigs_path }} --alignment {{ params.input_fn }} --output {{ params.output_fn }}",
                     params={'input_fn': nuc_sequence_output, 'output_fn': fasta_no_ambigs_fn },
+                    execution_timeout=timedelta(minutes=5),
                     dag=dag
                 )
 
