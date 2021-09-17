@@ -1,4 +1,5 @@
 env/
+env38/
 data/fasta
 *.log
 hosts
