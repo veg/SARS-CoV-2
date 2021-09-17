@@ -33,6 +33,7 @@ if p not in sys.path:
     sys.path.append(p)
 
 from export_sequences import export_sequences, export_bealign_sequences
+from summarize_rascl import rascl_summary_report
 from export_meta import export_meta
 from get_raw_duplicates import write_nuc_raw_duplicates
 
@@ -237,7 +238,6 @@ def create_dag(dag_id, schedule, clade, default_args):
                 dag=dag
             )
 
-            # BASEDIR = os.getcwd()
             annotation_task = BashOperator(
                 task_id=f'annotation_{gene}',
                 bash_command="bash {{ params.annotate_path }} {{ params.input_fn }} 'REFERENCE' {{ params.in_compressed_fas }} {{ params.LABEL }} {{ params.output_dir }}",
@@ -339,32 +339,19 @@ def create_dag(dag_id, schedule, clade, default_args):
 
                 [fade_task, fel_task, meme_task, meme_full_task, prime_task, contrast_fel_task, relax_task, absrel_task, busted_task, bgm_task, slac_task]
 
-
-            # summarize_gene_task = BashOperator(
-            #     task_id=f'summarize_gene_{gene}',
-            #     bash_command='{{ params.python }} {{params.working_dir}}/python/summarize_gene.py -T {{params.working_dir}}/data/ctl/epitopes.json -B {{params.working_dir}}/data/single_mut_effects.csv -D $MASTERNOFASTA -d $DUPLICATES -s $SLAC_OUTPUT -f $FEL_OUTPUT -m $MEME_OUTPUT -P 0.1 --output  $SUMMARY_OUTPUT -c $COMPRESSED_OUTPUT_FN -E {{params.working_dir}}/data/evo_annotation.json -A {{params.working_dir}}/data/mafs.csv -V {{params.working_dir}}/data/evo_freqs.csv -F $FRAGMENT --frame_shift $ADDSHIFT --fragment_shift $SHIFT -S $OFFSET -O $ANNOTATION',
-            #     params={'python': default_args['params']['python'], 'working_dir': WORKING_DIR},
-            #     env={
-            #         'MASTERNOFASTA': default_args["params"]["meta-output"],
-            #         'DUPLICATES': duplicate_output,
-            #         'SLAC_OUTPUT': slac_output_fn,
-            #         'FEL_OUTPUT': fel_output_fn,
-            #         'MEME_OUTPUT': meme_output_fn,
-            #         'SUMMARY_OUTPUT': summary_output_fn,
-            #         'COMPRESSED_OUTPUT_FN': filtered_fasta_output,
-            #         'FRAGMENT': str(regions[gene]['fragment']),
-            #         'ADDSHIFT': str(regions[gene]['add_one']),
-            #         'SHIFT': str(regions[gene]['shift']),
-            #         'OFFSET': str(regions[gene]['offset']),
-            #         'ANNOTATION': annotation_file,
-            #         **os.environ},
-            #     dag=dag,
-            # )
-
-            # summarize_gene_task.set_upstream(export_meta_task)
             alignment.set_upstream(export_sequences_task)
-            # export_by_gene.append(alignment >> sampling >> infer_tree_task >> selection_analyses >> summarize_gene_task)
             export_by_gene.append(alignment >> sampling >> combine_task >> protein_conv_task >> infer_tree_task >> annotation_task >> selection_analyses)
+
+        with TaskGroup(f"summary_reports") as summary_reports:
+
+           simple_summary_report_task = PythonOperator(
+                task_id=f'simple_summary_report',
+                trigger_rule=TriggerRule.ALL_DONE,
+                python_callable=rascl_summary_report,
+                op_kwargs={ "input_dir" : OUTPUT_DIR, 'output_fn':  OUTPUT_DIR + '/report.csv' },
+                provide_context=True,
+                dag=dag,
+            )
 
         with TaskGroup(f"release") as release:
 
@@ -379,14 +366,14 @@ def create_dag(dag_id, schedule, clade, default_args):
             copy_results_task = BashOperator(
                 task_id=f'copy_results',
                 trigger_rule=TriggerRule.ALL_DONE,
-                bash_command='cp {{params.output}}/sequences.*.json /data/shares/web/web/covid-19/selection-analyses/rascl/{{ params.clade }}/{{ run_id }}/',
+                bash_command='cp {{params.output}}/sequences.*.json {{params.output}}/report.csv /data/shares/web/web/covid-19/selection-analyses/rascl/{{ params.clade }}/{{ run_id }}/',
                 params={'output': default_args['params']['output-dir'], 'clade': clade.strip() },
                 dag=dag,
             )
 
             mk_release_dir_task >> copy_results_task
 
-        export_by_gene >> release
+        export_by_gene >> summary_reports >> release
 
         dag.doc_md = __doc__
 
