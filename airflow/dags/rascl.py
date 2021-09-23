@@ -235,6 +235,7 @@ def create_dag(dag_id, schedule, clade, default_args):
                 task_id=f'infer_tree_{gene}',
                 bash_command=INFER_TREE,
                 params={'combined_fas': ref_combined_fn, 'tree_output': tree_output},
+                execution_timeout=datetime.timedelta(hours=24),
                 dag=dag
             )
 
@@ -242,6 +243,7 @@ def create_dag(dag_id, schedule, clade, default_args):
                 task_id=f'annotation_{gene}',
                 bash_command="bash {{ params.annotate_path }} {{ params.input_fn }} 'REFERENCE' {{ params.in_compressed_fas }} {{ params.LABEL }} {{ params.output_dir }}",
                 params={'input_fn': tree_output, 'in_compressed_fas': centroid_fn, 'output_dir': OUTPUT_DIR },
+                execution_timeout=datetime.timedelta(hours=24),
                 dag=dag
             )
 
@@ -352,6 +354,8 @@ def create_dag(dag_id, schedule, clade, default_args):
                 provide_context=True,
                 dag=dag,
             )
+
+           simple_summary_report_task
 
         with TaskGroup(f"release") as release:
 

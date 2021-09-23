@@ -1,3 +1,6 @@
+import glob
+import shutil
+import datetime
 from os import path
 from itertools import product
 import json
@@ -104,7 +107,9 @@ def collect_info(item):
         with open(cfel_fn) as cfel_fh:
             cfel = json.load(cfel_fh)
 
-        sig_sites = [x[1] > x[0] for x in cfel["MLE"]["content"]["0"] if x[4] <= pval]
+        qval = 0.2
+        sig_sites = [x[2] > x[1] for x in cfel["MLE"]["content"]["0"] if x[8] <= qval]
+
         to_return["num_sites_pos_cfel"] = len([x for x in sig_sites if x])
         to_return["num_sites_neg_cfel"] = len(sig_sites) - to_return["num_sites_pos_cfel"]
     except:
@@ -145,6 +150,7 @@ def collect_info(item):
 
         to_return["num_sites_meme"] = len([row for row in meme["MLE"]["content"]["0"] if row[6] <= pval])
         to_return["median_branches_meme"] = np.median([row[7] for row in meme["MLE"]["content"]["0"] if row[6] <= pval])
+
     except:
         print(f'No MEME results for : {item}')
 
@@ -164,6 +170,7 @@ def collect_info(item):
         by_prot_site = np.transpose([v["amino-acid"][0] for k,v in slac["branch attributes"]["0"].items()])
         to_return["prot_num_var_sites"] = len([x for x in map(get_variant_count, by_prot_site) if x > 0])
         to_return["prot_num_var_sites_minor"] = len([x for x in map(lambda x: get_variant_count(x,2), by_prot_site) if x > 0])
+
     except:
         print(f'No SLAC results for : {item}')
 
@@ -197,9 +204,39 @@ def rascl_summary_report(input_dir, output_fn):
         for row_item in row_items:
             writer.writerow(row_item)
 
+def copy_reports(input_fn):
+    basepath = "/data/shares/web/web/covid-19/selection-analyses/rascl/"
+    # datetime.datetime.fromtimestamp(1629590400)
+    # Get timestamps from directories
+    timestamp = int(input_fn.split('/')[-2])
+    gene = input_fn.split('/')[-3]
+    dt = datetime.datetime.fromtimestamp(timestamp)
+    exec_date = datetime.datetime(*dt.timetuple()[:3]) + datetime.timedelta(days=1)
+    exec_date_str = exec_date.isoformat() + "+00:00"
+
+    full_path = basepath + gene + '/scheduled__' + exec_date_str + '/report.csv'
+    alt_full_path = basepath + gene + '/backfill__' + exec_date_str + '/report.csv'
+
+    try:
+        shutil.copyfile(input_fn, full_path, follow_symlinks=True)
+    except OSError as err:
+        print(err)
+        try:
+            shutil.copyfile(input_fn, alt_full_path, follow_symlinks=True)
+        except OSError as err:
+            print(err)
+            print("no destination directory present! " + full_path + " or " + alt_full_path)
+
 def main():
-    basedir = "/data/shares/veg/SARS-CoV-2/SARS-CoV-2/data/rascl/AY.1/1630195200/"
-    output_fn = "report.csv"
+    basedir = '/data/shares/veg/SARS-CoV-2/SARS-CoV-2-devel/data/rascl/AY.1/1630195200/'
+    output_fn = 'report.csv'
     rascl_summary_report(basedir, output_fn)
+
+    # dirs = glob.glob("/data/shares/veg/SARS-CoV-2/SARS-CoV-2/data/rascl/**/*")
+    # for dir in dirs:
+    #     output_fn = dir + "/report.csv"
+    #     print(dir)
+    #     print(output_fn)
+    #     copy_reports(output_fn)
 
 main()
