@@ -1,3 +1,7 @@
+import os
+import sys
+import pathlib
+
 import yaml
 import json
 import datetime
@@ -11,8 +15,8 @@ from airflow import DAG
 # Operators; we need this to operate!
 from airflow.utils.task_group import TaskGroup
 from airflow.operators.bash import BashOperator
-from airflow.models.baseoperator import cross_downstream, chain
 from airflow.operators.python import PythonOperator
+from airflow.models.baseoperator import cross_downstream, chain
 from airflow.utils.dates import days_ago
 from airflow.hooks.base import BaseHook
 from airflow.models import Variable
@@ -23,9 +27,6 @@ from airflow.utils.trigger_rule import TriggerRule
 # You can override them on a per-task basis during operator initialization
 from libs.callbacks import dag_fail_slack_alert, dag_success_slack_alert
 
-import os
-import sys
-import pathlib
 
 p = os.path.abspath(str(pathlib.Path(__file__).parent.absolute()) + "/../../python/")
 

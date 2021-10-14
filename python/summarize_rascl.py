@@ -5,6 +5,7 @@ from os import path
 from itertools import product
 import json
 import numpy as np
+import itertools
 import collections
 import csv
 import warnings
@@ -39,6 +40,7 @@ Data dictionary
 
 gene_dup_fn = lambda x,y: path.join(x, 'sequences.' + y + '.duplicates.json')
 gene_meme_fn = lambda x,y: path.join(x, 'sequences.' + y + '.MEME.json')
+gene_meme_full_fn = lambda x,y: path.join(x, 'sequences.' + y + '.FULL.MEME.json')
 gene_slac_fn = lambda x,y: path.join(x, 'sequences.' + y + '.SLAC.json')
 gene_fel_fn = lambda x,y: path.join(x, 'sequences.' + y + '.FEL.json')
 
@@ -71,9 +73,16 @@ def collect_info(item):
     pval = 0.1
 
     meme_fn = gene_meme_fn(*item)
+    meme_full_fn = gene_meme_full_fn(*item)
+    prime_fn = gene_prime_fn(*item)
+    busted_fn = gene_busted_fn(*item)
+    relax_fn = gene_relax_fn(*item)
     slac_fn = gene_slac_fn(*item)
     fel_fn = gene_fel_fn(*item)
     cfel_fn = gene_cfel_fn(*item)
+    fade_fn = gene_fade_fn(*item)
+    bgm_fn = gene_bgm_fn(*item)
+    absrel_fn = gene_absrel_fn(*item)
 
     to_return = {
         "analysis_date": item[0],
@@ -99,8 +108,60 @@ def collect_info(item):
         "num_sites_directional": None,
         "num_sites_coevolving": None,
         "num_sites_meme": None,
+        "num_sites_meme_full": None,
+        "num_sites_pos_prime": None,
+        "num_sites_neg_prime": None,
+        "is_sig_relax": None,
+        "is_sig_busted": None,
+        "num_branches_absrel": None,
         "median_branches_meme": None
     }
+
+    # If aBSREL
+    try:
+        with open(absrel_fn) as absrel_fh:
+            absrel = json.load(absrel_fh)
+
+        pvals = [ p['Corrected P-value'] for p in absrel["branch attributes"]["0"].values() if p['Corrected P-value'] is not None and p['Corrected P-value'] < pval ]
+        to_return["num_branches_absrel"] = len(pvals)
+
+    except:
+        print(f'No aBSREL results for : {item}')
+
+
+    # If RELAX
+    try:
+        with open(relax_fn) as relax_fh:
+            relax = json.load(relax_fh)
+
+        to_return["is_sig_relax"] = relax["test results"]["p-value"] < pval
+
+    except:
+        print(f'No RELAX results for : {item}')
+
+    # If BUSTED
+    try:
+        with open(busted_fn) as busted_fh:
+            busted = json.load(busted_fh)
+
+        to_return["is_sig_busted"] = busted["test results"]["p-value"] < pval
+
+    except:
+        print(f'No BUSTED results for : {item}')
+
+
+    # If PRIME
+    try:
+        with open(prime_fn) as prime_fh:
+            prime = json.load(prime_fh)
+
+        sig_sites = [x[1] > x[0] for x in prime["MLE"]["content"]["0"] if x[4] <= pval]
+        to_return["num_sites_pos_prime"] = len([x for x in sig_sites if x])
+        to_return["num_sites_neg_prime"] = len(sig_sites) - to_return["num_sites_pos_prime"]
+
+    except:
+        print(f'No PRIME results for : {item}')
+
 
     # If Contrast-FEL
     try:
@@ -108,10 +169,14 @@ def collect_info(item):
             cfel = json.load(cfel_fh)
 
         qval = 0.2
-        sig_sites = [x[2] > x[1] for x in cfel["MLE"]["content"]["0"] if x[8] <= qval]
+
+        header_key = 'Q-value (overall)'
+        qval_index = [ header[0] for header in cfel["MLE"]["headers"]].index('Q-value (overall)')
+        sig_sites = [x[2] > x[1] for x in cfel["MLE"]["content"]["0"] if x[qval_index] <= qval]
 
         to_return["num_sites_pos_cfel"] = len([x for x in sig_sites if x])
         to_return["num_sites_neg_cfel"] = len(sig_sites) - to_return["num_sites_pos_cfel"]
+
     except:
         print(f'No Contrast-FEL results for : {item}')
 
@@ -120,7 +185,12 @@ def collect_info(item):
         with open(fade_fn) as fade_fh:
             fade = json.load(fade_fh)
 
-        to_return["num_sites_directional"] = len(fade["site annotations"]["site annotations"][0])
+        # Get BayesFactor Index
+        bayes_factor_index = [header[0] for header in fade['MLE']['headers']].index('BayesFactor[bias>0]')
+        bayes_threshold = 100
+        # flatten content
+        items = itertools.chain(*[val['0'] for val in fade['MLE']['content'].values()])
+        to_return["num_sites_directional"] = sum([ c[bayes_factor_index] > bayes_threshold for c in items])
 
     except:
         print(f'No FADE results for : {item}')
@@ -129,7 +199,17 @@ def collect_info(item):
     try:
         with open(bgm_fn) as bgm_fh:
             bgm = json.load(bgm_fh)
-        to_return["num_sites_coevolving"] = len(bgm["MLEData"])
+
+        bgm_prob_threshold = 0.5
+
+        # Check if there is MLE content
+        if 'MLE' not in bgm.keys():
+            to_return["num_sites_coevolving"] = 0
+        else:
+            # Get all indices that are probabilities, any one of them over 0.5
+            items = [ header[0].startswith('P ') for header in bgm["MLE"]["headers"] ]
+            count = sum([ any(prob > bgm_prob_threshold for prob in itertools.compress(content, items)) for content in bgm["MLE"]["content"] ])
+            to_return["num_sites_coevolving"] = count
 
     except:
         print(f'No BGM results for : {item}')
@@ -153,6 +233,17 @@ def collect_info(item):
 
     except:
         print(f'No MEME results for : {item}')
+
+    # If MEME FULL
+    try:
+        with open(meme_full_fn) as meme_full_fh:
+            meme_full = json.load(meme_full_fh)
+
+        # Get branch lengths and node name
+        to_return["num_sites_meme_full"] = len([row for row in meme_full["MLE"]["content"]["0"] if row[6] <= pval])
+
+    except:
+        print(f'No Full MEME results for : {item}')
 
     # If SLAC
     try:
@@ -182,6 +273,7 @@ def collect_info(item):
         sig_sites = [x[1] > x[0] for x in fel["MLE"]["content"]["0"] if x[4] <= pval]
         to_return["num_sites_pos_fel"] = len([x for x in sig_sites if x])
         to_return["num_sites_neg_fel"] = len(sig_sites) - to_return["num_sites_pos_fel"]
+
     except:
         print(f'No FEL results for : {item}')
 
@@ -205,6 +297,7 @@ def rascl_summary_report(input_dir, output_fn):
             writer.writerow(row_item)
 
 def copy_reports(input_fn):
+
     basepath = "/data/shares/web/web/covid-19/selection-analyses/rascl/"
     # datetime.datetime.fromtimestamp(1629590400)
     # Get timestamps from directories
@@ -228,15 +321,18 @@ def copy_reports(input_fn):
             print("no destination directory present! " + full_path + " or " + alt_full_path)
 
 def main():
-    basedir = '/data/shares/veg/SARS-CoV-2/SARS-CoV-2-devel/data/rascl/AY.1/1630195200/'
-    output_fn = 'report.csv'
-    rascl_summary_report(basedir, output_fn)
 
-    # dirs = glob.glob("/data/shares/veg/SARS-CoV-2/SARS-CoV-2/data/rascl/**/*")
-    # for dir in dirs:
-    #     output_fn = dir + "/report.csv"
-    #     print(dir)
-    #     print(output_fn)
-    #     copy_reports(output_fn)
+    # basedir = '/data/shares/veg/SARS-CoV-2/SARS-CoV-2-devel/data/rascl/AY.1/1630195200/'
+    # output_fn = 'report.csv'
+    # rascl_summary_report(basedir, output_fn)
+
+    dirs = glob.glob("/data/shares/veg/SARS-CoV-2/SARS-CoV-2/data/rascl/**/*")
+
+    for dir in dirs:
+        output_fn = dir + "/report.csv"
+        print(dir)
+        print(output_fn)
+        rascl_summary_report(dir, output_fn)
+        copy_reports(output_fn)
 
 main()
