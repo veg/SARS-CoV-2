@@ -66,17 +66,7 @@ default_args = {
     'concurrency': 20,
     'dag_concurrency' : 20,
 	'max_active_runs': 1,
-    'execution_timeout': timedelta(minutes=3000),
-    # 'queue': 'bash_queue',
-    # 'pool': 'backfill',
-    # 'priority_weight': 10,
-    # 'end_date': datetime(2016, 1, 1),
-    # 'wait_for_downstream': False,
-    # 'dag': dag,
-    # 'sla': timedelta(hours=2),
-    # 'on_retry_callback': another_function,
-    # 'sla_miss_callback': yet_another_function,
-    # 'trigger_rule': 'all_success'
+    'execution_timeout': timedelta(minutes=3000)
 }
 
 dag = DAG(
@@ -85,7 +75,8 @@ dag = DAG(
     description='performs bealign',
     schedule_interval='@daily',
     start_date=days_ago(2),
-    tags=['selection'],
+    tags=['preprocessing', 'selection'],
+	max_active_runs=1,
     on_failure_callback=dag_fail_slack_alert,
     on_success_callback=dag_success_slack_alert
 )
