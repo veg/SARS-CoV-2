@@ -63,7 +63,7 @@ dag = DAG(
     'populate_pre_msa',
     default_args=default_args,
     description='performs selection analysis',
-    schedule_interval='0 8 * * *',
+    schedule_interval='0 */3 * * *',
     start_date=days_ago(2),
     tags=['preprocessing', 'selection'],
 	max_active_runs=1,

@@ -59,7 +59,6 @@ def export_sequences(gene, output_fn):
     MINLENGTH=28000
     TODAY = datetime.datetime.today()
     LAST_MONTH = TODAY-relativedelta(months=+1, day=1)
-    LAST_WEEK = TODAY-relativedelta(weeks=+1, day=1)
 
 
     mongo_query = { "host" : HOST,  "length": {"$gt": MINLENGTH }, "seq": {"$exists":True} }
@@ -68,13 +67,13 @@ def export_sequences(gene, output_fn):
     mongo_query[qc_key] = { "$exists": False }
 
     # Speed up query by only looking at submitted from last month
-    mongo_query["submitted"] = { "$gte": LAST_WEEK }
+    mongo_query["submitted"] = { "$gte": LAST_MONTH }
 
     # Query for human host and sequence length greater than 28000, and sequence populated
 
     # LIMIT=100000
     # LIMIT=10
-    records = list(db.gisaid.records.find(mongo_query, limit=15000))
+    records = list(db.gisaid.records.find(mongo_query, limit=10000).sort([( '$natural', -1 )]))
     seq_records = [SeqRecord(Seq(rec["seq"]),id=sequence_name(rec),name='',description='') for rec in records]
 
     # Write to fasta
