@@ -73,7 +73,7 @@ dag = DAG(
     'bealign',
     default_args=default_args,
     description='performs bealign',
-    schedule_interval='@daily',
+    schedule_interval='0 */3 * * *',
     start_date=days_ago(2),
     tags=['preprocessing', 'selection'],
 	max_active_runs=1,
