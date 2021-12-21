@@ -22,7 +22,6 @@ from airflow.hooks.base import BaseHook
 from airflow.models import Variable
 from airflow.utils.trigger_rule import TriggerRule
 
-
 # These args will get passed on to each operator
 # You can override them on a per-task basis during operator initialization
 from libs.callbacks import dag_fail_slack_alert, dag_success_slack_alert
@@ -396,6 +395,7 @@ clades = [
     "B.1.234",
     "B.1.526.1",
     "B.1.1",
+    "B.1.1.529",
     "B.1.526.2",
     "B.1.575",
     "C.37",

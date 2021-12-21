@@ -114,7 +114,7 @@ let adaptedRecords = _.map(records, record => {
     technology: null,
     type: null,
     nextstrainClade : record.Nextstrain_clade,
-    pangolinLineage : record.pango_lineage,
+    pangolinLineage : record.pangolin_lineage,
     gisaidClade : record.GISAID_clade
   };
 

@@ -335,4 +335,4 @@ def main():
         rascl_summary_report(dir, output_fn)
         copy_reports(output_fn)
 
-main()
+#main()

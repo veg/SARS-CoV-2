@@ -55,7 +55,7 @@ try {
 
     let noEmpty = R.reject(R.isEmpty, cladeNames);
     let removeCA = R.reject((d: string) => R.includes("B.1.427", d), noEmpty);
-    let removeMal = R.reject((d: string) => R.includes("B.1.617.2_", d), removeCA);
+    let removeMal = R.reject((d: string) => R.includes("_", d) || R.includes("#", d) || R.match(/[0-9]/, R.last(d)).length == 0, removeCA);
 
     let clades = {
       'clades': removeMal

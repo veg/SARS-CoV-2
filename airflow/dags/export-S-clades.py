@@ -1,6 +1,6 @@
 import yaml
-import json
 import datetime
+import json
 
 # The DAG object; we'll need this to instantiate a DAG
 from airflow import DAG
@@ -26,7 +26,7 @@ p = os.path.abspath(str(pathlib.Path(__file__).parent.absolute()) + '/../../pyth
 if p not in sys.path:
     sys.path.append(p)
 
-from export_sequences import export_sequences
+from export_sequences import export_sequences, export_bealign_sequences
 from export_meta import export_meta
 
 WORKING_DIR = Variable.get("WORKING_DIR")
@@ -68,7 +68,7 @@ with DAG(
         last_exec_date = datetime.datetime(year=1970, month=1, day=1)
 
     unique_id = str(round(last_exec_date.timestamp()))
-    directory_output = WORKING_DIR + "/data/exports/whole-genome-clades/" + unique_id + "/"
+    directory_output = WORKING_DIR + "/data/exports/s-clades/" + unique_id + "/"
 
 
     mk_dir_task = BashOperator(
@@ -150,8 +150,8 @@ with DAG(
 
         export_sequences_task = PythonOperator(
                 task_id=f'export_sequences_{clade}',
-                python_callable=export_sequences,
-                op_kwargs={ "config" : params },
+                python_callable=export_bealign_sequences,
+                op_kwargs={ "config" : default_args['params'], 'nuc_output_fn':  directory_output + '/sequences.fas', 'gene' : 'S'},
                 dag=dag,
             )
 
