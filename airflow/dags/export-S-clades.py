@@ -49,7 +49,7 @@ default_args = {
 }
 
 with DAG(
-    'export_clades',
+    'export_clades_S',
     default_args=default_args,
     description='exports clades',
     schedule_interval='@weekly',
