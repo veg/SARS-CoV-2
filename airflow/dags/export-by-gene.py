@@ -51,7 +51,7 @@ with DAG(
     'export_by_gene',
     default_args=default_args,
     description='export_by_gene',
-    schedule_interval='@weekly',
+    schedule_interval='@monthly',
     start_date=datetime.datetime(2021, 6, 2),
     on_failure_callback=dag_fail_slack_alert,
     on_success_callback=dag_success_slack_alert,

@@ -84,7 +84,7 @@ dag = DAG(
     'get_stats',
     default_args=default_args,
     description='get stats',
-    schedule_interval='@daily',
+    schedule_interval='@weekly',
     start_date=datetime.datetime(2021, 4, 30),
     tags=['selection'],
 )
