@@ -44,7 +44,7 @@ def sequence_name(record):
 
 def export_sequences(gene, output_fn):
 
-    db = MongoClient(host='192.168.0.4')
+    db = MongoClient(host='129.32.209.134')
 
     get_nuc_key = lambda gene: gene + '_premsa_nuc_seq'
     get_prot_key = lambda gene: gene + '_premsa_protein_seq'
@@ -82,7 +82,7 @@ def export_sequences(gene, output_fn):
 
 def export_sequences_without_reference(gene, output_fn, nuc_output_fn):
 
-    db = MongoClient(host='192.168.0.4')
+    db = MongoClient(host='129.32.209.134')
 
     get_nuc_key = lambda gene: gene + '_premsa_nuc_seq'
     get_prot_key = lambda gene: gene + '_premsa_protein_seq'

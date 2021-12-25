@@ -39,7 +39,7 @@ def get_duplicates(records, gene):
 
 def export_duplicates(output_fn, gene):
 
-    db = MongoClient(host='192.168.0.4')
+    db = MongoClient(host='129.32.209.134')
     acceptable = ['id', 'duplicate_of_by_gene']
 
     # transform acceptable into mongo query

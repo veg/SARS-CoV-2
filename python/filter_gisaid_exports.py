@@ -20,7 +20,7 @@ import pymongo
 from pymongo import MongoClient
 
 def get_most_recent_submission_date():
-    db = MongoClient(host='192.168.0.4')
+    db = MongoClient(host='129.32.209.134')
     acceptable = ['id', 'submitted']
     acceptable_dict = { k: 1 for k in acceptable}
     mongo_query = {}

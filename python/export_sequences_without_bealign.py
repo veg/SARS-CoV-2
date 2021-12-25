@@ -44,7 +44,7 @@ def sequence_name(record):
 
 def export_sequences_without_bealign(gene, output_fn):
 
-    db = MongoClient(host='192.168.0.4')
+    db = MongoClient(host='129.32.209.134')
 
     get_bealign_key = lambda gene: '.'.join(['bealign', gene])
     get_qc_passed_key = lambda gene: '.'.join(['qc', gene, 'passed'])

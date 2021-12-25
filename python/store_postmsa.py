@@ -33,7 +33,7 @@ def update_record(seq, gene):
 
 def store_postmsa_file(input, gene):
 
-    db = MongoClient(host='192.168.0.4')
+    db = MongoClient(host='129.32.209.134')
 
     input_fh = open(input, 'r')
     seqs = list(SeqIO.parse(input_fh, 'fasta'))

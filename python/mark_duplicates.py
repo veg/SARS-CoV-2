@@ -30,7 +30,7 @@ def update_reference_records(reference, gene):
 
 def mark_duplicates(dupe_input, gene):
 
-    db = MongoClient(host='192.168.0.4')
+    db = MongoClient(host='129.32.209.134')
     dupes = json.loads(open(dupe_input, 'r').read())
 
     # Shave meta

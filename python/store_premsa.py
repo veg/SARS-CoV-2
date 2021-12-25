@@ -37,7 +37,7 @@ def update_record(nuc_seq_key, nuc_seq, prot_seq_key, prot_seq, gene):
 
 def store_premsa_file(nuc_input, prot_input, gene):
 
-    db = MongoClient(host='192.168.0.4')
+    db = MongoClient(host='129.32.209.134')
 
     nuc_input_fh = open(nuc_input, 'r')
     prot_input_fh = open(prot_input, 'r')

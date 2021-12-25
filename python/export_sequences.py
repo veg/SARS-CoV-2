@@ -43,7 +43,7 @@ def sequence_name(record):
 
 def export_sequences(config):
 
-    db = MongoClient(host='192.168.0.4')
+    db = MongoClient(host='129.32.209.134')
 
     acceptables = ['collected', 'originalCollected', 'host', 'id', 'location', 'name', 'technology', 'type', 'nextstrainClade', 'pangolinLineage', 'gisaidClade', 'seq']
     HOST= "Human"
@@ -93,7 +93,7 @@ def export_premsa_sequences(config, nuc_output_fn, prot_output_fn, gene):
     gene -- 'region of SARS-CoV-2
     '''
 
-    db = MongoClient(host='192.168.0.4')
+    db = MongoClient(host='129.32.209.134')
 
     acceptables = ['collected', 'originalCollected', 'host', 'id', 'location', 'name', 'technology', 'type', 'nextstrainClade', 'pangolinLineage', 'gisaidClade']
     HOST= "Human"
@@ -171,7 +171,7 @@ def export_bealign_sequences(config, nuc_output_fn, gene):
     gene -- region of SARS-CoV-2
     '''
 
-    db = MongoClient(host='192.168.0.4')
+    db = MongoClient(host='129.32.209.134')
 
     acceptables = ['collected', 'originalCollected', 'host', 'id', 'location', 'name', 'technology', 'type', 'nextstrainClade', 'pangolinLineage', 'gisaidClade']
     HOST= "Human"

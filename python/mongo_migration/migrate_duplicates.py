@@ -14,7 +14,7 @@ from Bio import SeqIO
 
 from pymongo import MongoClient, InsertOne, DeleteMany, ReplaceOne, UpdateOne, UpdateMany
 
-db = MongoClient(host='192.168.0.4')
+db = MongoClient(host='129.32.209.134')
 
 def update_dupe_records(doc, gene):
     dupe_key = ".".join(["duplicate_of_by_gene", gene])

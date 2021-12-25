@@ -18,7 +18,7 @@ from pymongo import MongoClient
 
 def get_sliding_window_counts(sliding_windows):
 
-    db = MongoClient(host='192.168.0.4')
+    db = MongoClient(host='129.32.209.134')
 
     # All sliding windows
     counts = []
@@ -39,7 +39,7 @@ def get_sliding_window_counts(sliding_windows):
 
 def get_clade_counts():
 
-    db = MongoClient(host='192.168.0.4')
+    db = MongoClient(host='129.32.209.134')
     # Aggregate is too slow, so get distinct lineage then counts
 
     # All lineages
@@ -53,7 +53,7 @@ def get_clade_counts():
     return counts
 
 def get_unique_haplos(gene):
-    db = MongoClient(host='192.168.0.4')
+    db = MongoClient(host='129.32.209.134')
     reference_key = 'duplicate_of_by_gene.' + gene
     count = db.gisaid.records.find({reference_key:'reference'}).count()
     return count
