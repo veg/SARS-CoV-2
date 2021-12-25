@@ -142,6 +142,7 @@ with DAG(
                 task_id=f'export_meta_{clade}',
                 python_callable=export_meta,
                 op_kwargs={ "config" : params },
+                pool='mongo',
                 dag=dag,
             )
 
@@ -152,6 +153,7 @@ with DAG(
                 task_id=f'export_sequences_{clade}',
                 python_callable=export_bealign_sequences,
                 op_kwargs={ "config" : default_args['params'], 'nuc_output_fn':  directory_output + '/sequences.fas', 'gene' : 'S'},
+                pool='mongo',
                 dag=dag,
             )
 
