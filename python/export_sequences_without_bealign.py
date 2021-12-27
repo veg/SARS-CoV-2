@@ -69,7 +69,7 @@ def export_sequences_without_bealign(gene, output_fn):
     mongo_query["submitted"] = { "$gte": LAST_MONTH }
 
     # Query for human host and sequence length greater than 28000, and sequence populated
-    records = list(db.gisaid.records.find(mongo_query, limit=10000).sort([( '$natural', -1 )]))
+    records = list(db.gisaid.records.find(mongo_query, limit=50000).sort([( '$natural', -1 )]))
 
     # Need to write prot_key
     seq_records = [SeqRecord(Seq(rec['seq']),id=sequence_name(rec),name='',description='') for rec in records]

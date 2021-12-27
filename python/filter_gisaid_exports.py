@@ -57,8 +57,9 @@ def split_fasta_based_on_names(input, output, meta):
     # *DO NOT* load entire FASTA into memory, just pick off based on names
     with open(input) as handle:
         for rec in SimpleFastaParser(handle):
+            strain_name = '/'.join(rec[0].split('/')[1:]).split('|')[0]
             if rec[0] in names:
-                seq_records.append(SeqRecord(Seq(rec[1]),id=rec[0],name='',description=''))
+                seq_records.append(SeqRecord(Seq(rec[1]),id=strain_name,name='',description=''))
 
     # Write new FASTA with just new records
     with open(output, 'w', encoding='utf-8') as output_fh:

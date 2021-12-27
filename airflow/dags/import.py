@@ -83,16 +83,9 @@ retrieve_fasta_from_gisaid = BashOperator(
 
 untar_files = BashOperator(
     task_id='untar_files',
-    bash_command='tar xzvf {{ params.import_dir}}/*.tar.gz',
+    bash_command='tar -xJf {{ params.import_dir}}/*.tar.xz && rm {{ params.import_dir}}/*.tar.xz',
     dag=dag,
 )
-
-gunzip_files = BashOperator(
-    task_id='gunzip_files',
-    bash_command='gunzip {{ params.import_dir}}/*.gz',
-    dag=dag,
-)
-
 
 new_meta = default_args['params']['import_dir'] + 'new.tsv'
 new_fasta = default_args['params']['import_dir'] + 'new.fasta'
@@ -137,4 +130,4 @@ dag.doc_md = __doc__
 # IMPORT TSV FROM GISAID
 # """
 
-[retrieve_meta_from_gisaid, retrieve_fasta_from_gisaid] >> untar_files >> gunzip_files >> split_out_new_task >> import_tsv >> update_mongo_with_sequences >> mv_files
+[retrieve_meta_from_gisaid, retrieve_fasta_from_gisaid] >> untar_files >> split_out_new_task >> import_tsv >> update_mongo_with_sequences >> mv_files

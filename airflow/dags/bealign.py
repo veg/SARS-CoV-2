@@ -66,7 +66,7 @@ default_args = {
     'concurrency': 20,
     'dag_concurrency' : 20,
 	'max_active_runs': 1,
-    'execution_timeout': timedelta(minutes=3000)
+    'execution_timeout': timedelta(hours=3600)
 }
 
 dag = DAG(
