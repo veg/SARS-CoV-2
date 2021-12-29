@@ -25,6 +25,7 @@ if p not in sys.path:
     sys.path.append(p)
 
 from filter_gisaid_exports import filter_gisaid_exports_by_dir
+from translate_tsv import translate_tsv
 
 WORKING_DIR = Variable.get("WORKING_DIR")
 
@@ -87,8 +88,26 @@ untar_files = BashOperator(
     dag=dag,
 )
 
+tsvfile = default_args['params']['import_dir'] + 'metadata.tsv'
+translate_meta = default_args['params']['import_dir'] + 'translate.tsv'
 new_meta = default_args['params']['import_dir'] + 'new.tsv'
 new_fasta = default_args['params']['import_dir'] + 'new.fasta'
+
+translate_tsv_task = PythonOperator(
+    task_id='translate_tsv',
+    python_callable=translate_tsv,
+    op_kwargs={ "tsvfile" : tsvfile, "outfile" : translate_meta },
+    pool='default',
+    dag=dag,
+    priority_weight=9000
+)
+
+rename_task = BashOperator(
+    task_id='rename_task',
+    bash_command='mv {{ params.translate_meta }} {{ params.tsvfile }}',
+    params={'translate_meta': translate_meta, 'tsvfile':tsvfile},
+    dag=dag,
+)
 
 # Split out items from
 split_out_new_task = PythonOperator(
@@ -130,4 +149,4 @@ dag.doc_md = __doc__
 # IMPORT TSV FROM GISAID
 # """
 
-[retrieve_meta_from_gisaid, retrieve_fasta_from_gisaid] >> untar_files >> split_out_new_task >> import_tsv >> update_mongo_with_sequences >> mv_files
+[retrieve_meta_from_gisaid, retrieve_fasta_from_gisaid] >> untar_files >> translate_tsv_task >> rename_task >> split_out_new_task >> import_tsv >> update_mongo_with_sequences >> mv_files
