@@ -97,7 +97,6 @@ translate_tsv_task = PythonOperator(
     task_id='translate_tsv',
     python_callable=translate_tsv,
     op_kwargs={ "tsvfile" : tsvfile, "outfile" : translate_meta },
-    pool='default',
     dag=dag,
     priority_weight=9000
 )
