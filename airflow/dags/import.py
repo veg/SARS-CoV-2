@@ -96,7 +96,7 @@ new_fasta = default_args['params']['import_dir'] + 'new.fasta'
 translate_tsv_task = PythonOperator(
     task_id='translate_tsv',
     python_callable=translate_tsv,
-    op_kwargs={ "tsvfile" : tsvfile, "outfile" : translate_meta },
+    op_kwargs={ "tsvfile" : open(tsvfile, 'r'), "outfile" : open(translate_meta, 'w') },
     dag=dag,
     priority_weight=9000
 )
