@@ -1,22 +1,15 @@
 import csv
-import json
-import sys
 import argparse
 import itertools
-import shutil
 import copy
 import os
 import glob
-import multiprocessing
-from multiprocessing import Pool
 from datetime import date, timedelta, datetime
-from operator import itemgetter
 from Bio import SeqIO
 from Bio.Seq import Seq
 from Bio.SeqRecord import SeqRecord
 from Bio.SeqIO.FastaIO import SimpleFastaParser
 
-import pymongo
 from pymongo import MongoClient
 
 def get_most_recent_submission_date():
