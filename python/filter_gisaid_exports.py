@@ -51,7 +51,8 @@ def split_fasta_based_on_names(input, output, meta):
     with open(input) as handle:
         for rec in SimpleFastaParser(handle):
             strain_name = '/'.join(rec[0].split('/')[1:]).split('|')[0]
-            if rec[0] in names:
+            if strain_name in names:
+                print("Found " + rec[0])
                 seq_records.append(SeqRecord(Seq(rec[1]),id=strain_name,name='',description=''))
 
     # Write new FASTA with just new records
@@ -64,6 +65,12 @@ def filter_gisaid_exports(meta_input, meta_output, fasta_input, fasta_output):
     # Return names of new metadata as well
     new_meta = split_metadata_based_on_date(meta_input, meta_output, most_recent_submission_date)
     split_fasta_based_on_names(fasta_input, fasta_output, new_meta)
+
+def filter_gisaid_exports_on_new_metafile(new_meta, fasta_input, fasta_output):
+    # Return names of new metadata as well
+    metadata = list(csv.reader(open(new_meta, 'r'), delimiter='\t', quotechar='|'))
+    split_fasta_based_on_names(fasta_input, fasta_output, metadata)
+
 
 def filter_gisaid_exports_by_dir(dir, meta_output, fasta_output):
     meta_input = max(glob.glob(dir + '*.tsv'), key=os.path.getctime)
@@ -82,6 +89,7 @@ if __name__ == "__main__":
     arguments.add_argument('-g', '--fasta-output', help = 'fasta output', type = str)
     args = arguments.parse_args()
     filter_gisaid_exports(args.meta_input, args.meta_output, args.fasta_input, args.fasta_output)
+    # filter_gisaid_exports_on_new_metafile(args.meta_input, args.fasta_input, args.fasta_output)
     # filter_gisaid_exports_by_dir('./data/to-import/', args.meta_output, args.fasta_output)
 
 
