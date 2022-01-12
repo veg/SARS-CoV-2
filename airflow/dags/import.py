@@ -84,7 +84,7 @@ retrieve_fasta_from_gisaid = BashOperator(
 
 untar_files = BashOperator(
     task_id='untar_files',
-    bash_command='tar -xJf {{ params.import_dir}}/*.tar.xz && rm {{ params.import_dir}}/*.tar.xz',
+    bash_command='cd {{params.import_dir}} && tar -xJf $(ls metadata*.tar.xz) && tar -xJf $(ls sequence*.tar.xz) && rm *.tar.xz && cd -',
     dag=dag,
 )
 
