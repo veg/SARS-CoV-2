@@ -1,0 +1,32 @@
+[
+    {
+        "label" : "Estonia",
+        "variants" : "variants-estonia.json.gz",
+        "meta": "meta-estonia.tsv.gz",
+        "pangolin" : "all_pangolin.tsv.gz"
+    },
+    {
+        "label" : "Greece",
+        "variants" : "variants-greece.json.gz",
+        "meta": "meta-greece.tsv.gz",
+        "pangolin" : "all_pangolin.tsv.gz"
+    },
+    {
+        "label" : "Ireland",
+        "variants" : "variants-ireland.json.gz",
+        "meta": "meta-ireland.tsv.gz",
+        "pangolin" : "all_pangolin.tsv.gz"
+    },    
+    {
+        "label" : "South Africa",
+        "variants" : "variants-sa.json.gz",
+        "meta": "meta-sa.tsv.gz",
+        "pangolin" : "all_pangolin.tsv.gz"
+    },    
+    {
+        "label" : "COG-UK",
+        "variants" : "variants.json.gz",
+        "meta": "meta.tsv.gz",
+        "pangolin" : "all_pangolin.tsv.gz"
+    }
+]
