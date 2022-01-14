@@ -60,12 +60,6 @@
         "pangolin" : "all_pangolin_21.tsv.gz"
     },
     {
-        "label" : "Ireland (2021/09/01 - 2022/02/28)",
-        "variants" : "PRJEB40277_variants_21-22.json.gz",
-        "meta": "PRJEB40277_meta.tsv.gz",
-        "pangolin" : "all_pangolin_21-22.tsv.gz"
-    },
-    {
         "label" : "Greece (2020/03/01 - 2020/08/31)",
         "variants" : "PRJEB44141_variants_20.json.gz",
         "meta": "PRJEB44141_meta.tsv.gz",
