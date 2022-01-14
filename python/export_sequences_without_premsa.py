@@ -35,6 +35,8 @@ def sequence_name(record):
         for k in ['state','country','subregion']:
             if v['location'][k]:
                 return v['location'][k].replace (' ', '_')
+            else:
+                return ''
 
     if('originalCollected' in record.keys()):
         fields = [record['id'], location(record), value_or_null(record['originalCollected']), value_or_null(record['technology'])]
@@ -111,6 +113,7 @@ def export_sequences_without_reference(gene, output_fn, nuc_output_fn):
 
     # Query for human host and sequence length greater than 28000, and sequence populated
     records = list(db.gisaid.records.find(mongo_query, limit=99000))
+    print(len(records))
 
     # Need to write prot_key
     seq_records = [SeqRecord(Seq(rec[prot_key]),id=sequence_name(rec),name='',description='') for rec in records]
