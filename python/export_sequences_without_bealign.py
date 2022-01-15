@@ -35,6 +35,8 @@ def sequence_name(record):
         for k in ['state','country','subregion']:
             if v['location'][k]:
                 return v['location'][k].replace (' ', '_')
+            else:
+                return ''
 
     if('originalCollected' in record.keys()):
         fields = [record['id'], location(record), value_or_null(record['originalCollected']), value_or_null(record['technology'])]
