@@ -46,6 +46,7 @@ def export_sequences(config):
     db = MongoClient(host='129.32.209.134')
 
     acceptables = ['collected', 'originalCollected', 'host', 'id', 'location', 'name', 'technology', 'type', 'nextstrainClade', 'pangolinLineage', 'gisaidClade', 'seq']
+
     HOST= "Human"
     MINLENGTH=28000
 
@@ -68,6 +69,12 @@ def export_sequences(config):
         end_date = config["collection-date-range"][1]
         mongo_query["collected"] = { "$gt": datetime.strptime(start_date, "%Y-%m-%d"), "$lt": datetime.strptime(end_date, "%Y-%m-%d") }
         mongo_query["originalCollected"] = { "$regex": "[0-9]{4}-[0-9]{2}" }
+
+    country_key = 'location.country'
+
+    if("countries" in config.keys()):
+        # db.inventory.find ( { quantity: { $in: [20, 50] } } )
+        mongo_query[country_key] = { "$in": config["countries"] }
 
     db_mongo_query = db.gisaid.records.find(mongo_query, acceptables);
 
@@ -208,6 +215,12 @@ def export_bealign_sequences(config, nuc_output_fn, gene):
         limit = config["get-latest-by-collection-date"]
         db_mongo_query = db_mongo_query.sort([("collected", -1)]).limit(limit)
 
+    country_key = 'location.country'
+
+    if("countries" in config.keys()):
+        # db.inventory.find ( { quantity: { $in: [20, 50] } } )
+        mongo_query[country_key] = { "$in": config["countries"] }
+
     # if(True):
     #     db_mongo_query.limit(5000)
 
@@ -239,9 +252,11 @@ if __name__ == "__main__":
 
     config = {}
     config["sequence-output"] = args.output
+    config["countries"] = ["Mexico"]
+    # config["clades"] = ["B.1.351"]
     # config['get-latest-by-collection-date'] = 100000
-    config['only-uniques'] = False
-    config["collection-date-range"] = ("2020-03-01", "2020-04-01")
+    # config['only-uniques'] = False
+    # config["collection-date-range"] = ("2020-03-01", "2020-04-01")
     # config["clades"] = ["B.1.351"]
     # config["clades"] = ["B.1.427", "B.1.429"]
     # config["clades"] = ["B.1.1.7"]

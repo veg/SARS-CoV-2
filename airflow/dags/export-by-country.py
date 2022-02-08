@@ -1,6 +1,6 @@
 import yaml
-import datetime
 import json
+import datetime
 
 # The DAG object; we'll need this to instantiate a DAG
 from airflow import DAG
@@ -26,7 +26,7 @@ p = os.path.abspath(str(pathlib.Path(__file__).parent.absolute()) + '/../../pyth
 if p not in sys.path:
     sys.path.append(p)
 
-from export_sequences import export_sequences, export_bealign_sequences
+from export_sequences import export_sequences
 from export_meta import export_meta
 
 WORKING_DIR = Variable.get("WORKING_DIR")
@@ -49,7 +49,7 @@ default_args = {
 }
 
 with DAG(
-    'export_clades_S',
+    'export_by_country',
     default_args=default_args,
     description='exports clades',
     schedule_interval='@monthly',
@@ -68,7 +68,7 @@ with DAG(
         last_exec_date = datetime.datetime(year=1970, month=1, day=1)
 
     unique_id = str(round(last_exec_date.timestamp()))
-    directory_output = WORKING_DIR + "/data/exports/s-clades/" + unique_id + "/"
+    directory_output = WORKING_DIR + "/data/exports/whole-genome-clades/" + unique_id + "/"
 
 
     mk_dir_task = BashOperator(
@@ -79,73 +79,73 @@ with DAG(
     )
 
 
-    clades = [
-        "B.1.2",
-        "B.1.596",
-        "B.1",
-        "B.1.1.519",
-        "B.1.243",
-        "B.1.234",
-        "B.1.526.1",
-        "B.1.1",
-        "B.1.1.529",
-        "B.1.526.2",
-        "B.1.575",
-        "C.37",
-        "R.1",
-        "B.1.1.7",
-        "B.1.429",
-        "B.1.427",
-        "B.1.351",
-        "B.1.351.2",
-        "B.1.351.3",
-        "P.1",
-        "P.1.1",
-        "P.1.2",
-        "B.1.526",
-        "P.2",
-        "B.1.525",
-        "B.1.617",
-        "B.1.617.1",
-        "B.1.617.2",
-        "B.1.617.3",
-        "AY.1",
-        "AY.2",
-        "AY.3",
-        "AY.4",
-        "AY.5",
-        "AY.6",
-        "AY.7",
-        "AY.8",
-        "AY.9",
-        "AY.10",
-        "AY.11",
-        "AY.12",
-        "BA.1",
-        "BA.2",
-        "BA.3"
+    countries = [
+        "Argentina",
+        "Australia",
+        "Austria",
+        "Belgium",
+        "Brazil",
+        "Bulgaria",
+        "Cambodia",
+        "Canada",
+        "Chile",
+        "Colombia",
+        "Croatia",
+        "Czech Republic",
+        "Denmark",
+        "Estonia",
+        "Finland",
+        "France",
+        "Germany",
+        "Greece",
+        "Iceland",
+        "India",
+        "Indonesia",
+        "Ireland",
+        "Israel",
+        "Italy",
+        "Japan",
+        "Latvia",
+        "Lithuania",
+        "Luxembourg",
+        "Malaysia",
+        "Mexico",
+        "Netherlands",
+        "New Zealand",
+        "Norway",
+        "Peru",
+        "Philippines",
+        "Poland",
+        "Portugal",
+        "Romania",
+        "Russia",
+        "Singapore",
+        "Slovakia",
+        "South Africa",
+        "South Korea",
+        "Spain",
+        "Sweden",
+        "Switzerland",
+        "Thailand",
+        "Turkey",
+        "USA",
+        "United Kingdom"
         ]
 
-    # Add VOCs from WHO config
-    with open(WORKING_DIR + "/airflow/libs/voc.json", 'r') as stream:
-        vocs = json.load(stream)
-
-    clades = list(set(vocs['clades']).union(clades))
-
-    for clade in clades:
+    for country in countries:
 
         params = {}
 
-        params['meta-output'] = directory_output + '/' + clade + '-no-fasta.json'
-        params["sequence-output"] = directory_output + '/' + clade + '.fas'
+        sanitized_country = country.lower().replace(' ', '_')
+        params['meta-output'] = directory_output + '/' + sanitized_country + '-no-fasta.json'
+        params["sequence-output"] = directory_output + '/' + sanitized_country + '.fas'
         params['only-uniques'] = False
-        params["clades"] = [clade]
+        params["countries"] = [country]
 
         export_meta_task = PythonOperator(
-                task_id=f'export_meta_{clade}',
+                task_id=f'export_meta_{sanitized_country}',
                 python_callable=export_meta,
                 op_kwargs={ "config" : params },
-                pool='mongo',
                 dag=dag,
             )
 
@@ -153,10 +153,9 @@ with DAG(
 
 
         export_sequences_task = PythonOperator(
-                task_id=f'export_sequences_{clade}',
-                python_callable=export_bealign_sequences,
-                op_kwargs={ "config" : default_args['params'], 'nuc_output_fn':  directory_output + '/sequences.fas', 'gene' : 'S'},
-                pool='mongo',
+                task_id=f'export_sequences_{sanitized_country}',
+                python_callable=export_sequences,
+                op_kwargs={ "config" : params },
                 dag=dag,
             )
 

@@ -43,6 +43,13 @@ def export_meta(config):
         mongo_query["collected"] = { "$gte": datetime.strptime(start_date, "%Y-%m-%d"), "$lte": datetime.strptime(end_date, "%Y-%m-%d") }
         mongo_query["originalCollected"] = { "$regex": "[0-9]{4}-[0-9]{2}" }
 
+    country_key = 'location.country'
+
+    if("countries" in config.keys()):
+        # db.inventory.find ( { quantity: { $in: [20, 50] } } )
+        mongo_query[country_key] = { "$in": config["countries"] }
+
+
     db_mongo_query = db.gisaid.records.find(mongo_query, acceptable_dict)
 
     if("get-latest-by-collection-date") in config.keys():
@@ -64,12 +71,13 @@ if __name__ == "__main__":
     arguments.add_argument('-o', '--output', help = 'json output', type = str)
     args = arguments.parse_args()
     config = {"meta-output" : args.output }
+    config["countries"] = ["Mexico"]
     # config["clades"] = ["B.1.351"]
     # config["clades"] = ["B.1.427", "B.1.429"]
     # config["clades"] = ["P.1"]
     # config["clades"] = ["B.1.1.7"]
     # config["ignore-clades"] = ["B.1.351", "P.1", "B.1.1.7"]
     # config["clade-type"] = "pangolinLineage"
-    config["collection-date-range"] = ("2019-12-01", "2020-02-28")
+    # config["collection-date-range"] = ("2019-12-01", "2020-02-28")
     export_meta(config)
 

@@ -120,7 +120,10 @@ with DAG(
         "AY.9",
         "AY.10",
         "AY.11",
-        "AY.12"
+        "AY.12",
+        "BA.1",
+        "BA.2",
+        "BA.3"
         ]
 
     # Add VOCs from WHO config
