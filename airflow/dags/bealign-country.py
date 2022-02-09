@@ -44,7 +44,7 @@ def create_dag(dag_id, schedule, country, default_args):
         default_args=default_args,
         description='country level analysis',
         schedule_interval=schedule,
-        start_date=datetime.datetime(2022, 2, 10),
+        start_date=datetime.datetime(2022, 2, 8),
         on_failure_callback=dag_fail_slack_alert,
         on_success_callback=dag_success_slack_alert,
         tags=['selection','country'],
@@ -56,8 +56,9 @@ def create_dag(dag_id, schedule, country, default_args):
             last_exec_date = datetime.datetime(year=1970, month=1, day=1)
 
         unique_id = str(round(last_exec_date.timestamp()))
+        priority = 100
 
-        OUTPUT_DIR = WORKING_DIR + "/data/countries-bealign/" + country + '/' + unique_id
+        OUTPUT_DIR = WORKING_DIR + "/data/countries-bealign/" + sanitized_country + '/' + unique_id
         default_args["params"]["output-dir"] = OUTPUT_DIR
         default_args["params"]["meta-output"] = OUTPUT_DIR + '/master-no-sequences.json'
         default_args["params"]["sequence-output"] = OUTPUT_DIR + '/sequences'
@@ -69,6 +70,7 @@ def create_dag(dag_id, schedule, country, default_args):
             task_id='make_directory',
             bash_command='mkdir -p {{params.output}}',
             params={'output': default_args['params']['output-dir']},
+            priority_weight=priority,
             dag=dag,
         )
 
@@ -77,6 +79,7 @@ def create_dag(dag_id, schedule, country, default_args):
                 python_callable=export_meta,
                 op_kwargs={ "config" : default_args['params'] },
                 pool='mongo',
+                priority_weight=priority,
                 dag=dag,
             )
 
@@ -87,6 +90,7 @@ def create_dag(dag_id, schedule, country, default_args):
                 python_callable=export_sequences,
                 op_kwargs={ "config" : default_args['params'] },
                 pool='mongo',
+                priority_weight=priority,
                 dag=dag,
             )
 
@@ -133,6 +137,7 @@ def create_dag(dag_id, schedule, country, default_args):
                     python_callable=export_bealign_sequences,
                     op_kwargs={ "config" : default_args['params'], 'nuc_output_fn':  nuc_sequence_output, 'gene' : gene },
                     pool='mongo',
+                    priority_weight=priority,
                     dag=dag
                 )
 
@@ -141,6 +146,7 @@ def create_dag(dag_id, schedule, country, default_args):
                     task_id=f'cleanup',
                     bash_command="sed -i '/^>/! s/[^ACTG-]/N/g' $NUC_OUTPUT_FN || true",
                     env={'NUC_OUTPUT_FN': nuc_sequence_output, **os.environ},
+                    priority_weight=priority,
                     dag=dag
                 )
 
@@ -152,6 +158,7 @@ def create_dag(dag_id, schedule, country, default_args):
                     task_id=f'write_raw_duplicates',
                     python_callable=write_nuc_raw_duplicates,
                     op_kwargs={ "input" : nuc_sequence_output, "duplicate_output" : duplicate_output, 'uniques_output': uniques_fn },
+                    priority_weight=priority,
                     dag=dag,
                 )
 
@@ -167,6 +174,7 @@ def create_dag(dag_id, schedule, country, default_args):
                     task_id=f'compressor',
                     bash_command=COMPRESSOR,
                     env={'FASTA_FN': uniques_fn, 'DUPLICATE_FN': duplicate_output, 'VARIANTS_CSV_FN': variants_csv_output, 'VARIANTS_JSON_FN': variants_json_output, 'COMPRESSOR_DUPLICATE_OUT': compressor_duplicate_out, **os.environ},
+                    priority_weight=priority,
                     dag=dag
                 )
 
@@ -178,6 +186,7 @@ def create_dag(dag_id, schedule, country, default_args):
                     task_id=f'compressor_two',
                     bash_command=COMPRESSOR2,
                     env={'FASTA_FN': uniques_fn, 'DUPLICATE_FN': compressor_duplicate_out, 'VARIANTS_CSV_FN': variants_csv_output, 'VARIANTS_JSON_FN': variants_json_output, 'FILTERED_FASTA_FN': filtered_fasta_output, 'FILTERED_JSON_FN': filtered_json_output, 'OUTPUT_EDITS': output_edits_fn, **os.environ},
+                    priority_weight=priority,
                     dag=dag
                 )
 
@@ -200,6 +209,7 @@ def create_dag(dag_id, schedule, country, default_args):
                     task_id=f'copy_filepath',
                     bash_command='cp {{params.input_fn}} {{params.output_fn}}',
                     params={'input_fn': filtered_fasta_output, 'output_fn': centroid_fn},
+                    priority_weight=priority,
                     dag=dag
                 )
 
@@ -211,6 +221,7 @@ def create_dag(dag_id, schedule, country, default_args):
                     task_id=f'tn93_cluster',
                     bash_command=TN93_CLUSTER,
                     params={'input_fn': filtered_fasta_output, 'threshold': str(regions[gene]['cluster_threshold']), 'output_fn': tn93_cluster_fn},
+                    priority_weight=priority,
                     dag=dag
                 )
 
@@ -221,6 +232,7 @@ def create_dag(dag_id, schedule, country, default_args):
                     task_id=f'write_centroids',
                     bash_command=WRITE_CENTROIDS,
                     params={ 'input_fn': tn93_cluster_fn, 'output_fn': centroid_fn },
+                    priority_weight=priority,
                     dag=dag
                 )
 
@@ -241,6 +253,7 @@ def create_dag(dag_id, schedule, country, default_args):
                 task_id=f'infer_tree_{gene}',
                 bash_command=INFER_TREE,
                 env={'FILTERED_FASTA_FN': centroid_fn, 'STO_OUTPUT': sto_output, 'TREE_OUTPUT': tree_output, **os.environ},
+                priority_weight=priority,
                 dag=dag
             )
 
@@ -249,6 +262,7 @@ def create_dag(dag_id, schedule, country, default_args):
                 bash_command="{{ params.hyphy }} LIBPATH={{params.hyphy_lib_path}} slac --kill-zero-lengths Constrain ENV='_DO_TREE_REBALANCE_=1' --alignment $FILTERED_FASTA_FN --tree $TREE_OUTPUT --branches All --samples 0 --output $SLAC_OUTPUT",
                 env={'FILTERED_FASTA_FN': centroid_fn, 'TREE_OUTPUT': tree_output, 'SLAC_OUTPUT': slac_output_fn, **os.environ},
                 pool='hyphy',
+                priority_weight=priority,
                 dag=dag,
             )
 
@@ -259,6 +273,7 @@ def create_dag(dag_id, schedule, country, default_args):
                 bash_command="{{ params.hyphy }} LIBPATH={{params.hyphy_lib_path}} fel --kill-zero-lengths Constrain ENV='_DO_TREE_REBALANCE_=1' $BIG_DATA_FLAGS --alignment $FILTERED_FASTA_FN --tree $TREE_OUTPUT --branches Internal --output $FEL_OUTPUT",
                 env={'FILTERED_FASTA_FN': centroid_fn, 'TREE_OUTPUT': tree_output, 'FEL_OUTPUT': fel_output_fn, 'BIG_DATA_FLAGS': big_data_flags, **os.environ},
                 pool='hyphy',
+                priority_weight=priority,
                 dag=dag,
             )
 
@@ -267,6 +282,7 @@ def create_dag(dag_id, schedule, country, default_args):
                 bash_command="{{ params.hyphy }} LIBPATH={{params.hyphy_lib_path}} meme --kill-zero-lengths Constrain ENV='_DO_TREE_REBALANCE_=1' $BIG_DATA_FLAGS --alignment $FILTERED_FASTA_FN --tree $TREE_OUTPUT --branches Internal --output $MEME_OUTPUT",
                 env={'FILTERED_FASTA_FN': centroid_fn, 'TREE_OUTPUT': tree_output, 'MEME_OUTPUT': meme_output_fn, 'BIG_DATA_FLAGS': big_data_flags, **os.environ},
                 pool='hyphy',
+                priority_weight=priority,
                 dag=dag,
             )
 
@@ -275,6 +291,7 @@ def create_dag(dag_id, schedule, country, default_args):
                 task_id=f'copy_annotation_{gene}',
                 bash_command='cp {{params.working_dir}}/data/comparative-annotation.json {{params.annotation_file}}',
                 params={'annotation_file': annotation_file, 'working_dir': WORKING_DIR},
+                priority_weight=priority,
                 dag=dag
             )
 
@@ -296,6 +313,7 @@ def create_dag(dag_id, schedule, country, default_args):
                     'OFFSET': str(regions[gene]['offset']),
                     'ANNOTATION': annotation_file,
                     **os.environ},
+                priority_weight=priority,
                 dag=dag,
             )
 
