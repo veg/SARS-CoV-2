@@ -395,7 +395,7 @@ for window in sliding_windows:
         # 'sla_miss_callback': yet_another_function,
         # 'trigger_rule': 'all_success'
     }
-    schedule = '@monthly'
+    schedule = '@weekly'
     globals()[dag_id] = create_dag(dag_id,
                                   schedule,
                                   window,
