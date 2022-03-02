@@ -38,6 +38,7 @@ WORKING_DIR = Variable.get("WORKING_DIR")
 def create_dag(dag_id, schedule, country, window, default_args):
 
     sanitized_country = country.lower().replace(' ', '_')
+    sanitized_country = country.lower().replace(' ', '_')
 
     with DAG(
         dag_id,
@@ -60,7 +61,8 @@ def create_dag(dag_id, schedule, country, window, default_args):
         t = datetime.datetime.strptime(window[1], '%Y-%M-%d')
         priority = int(''.join([str(t.year - 2019),str(t.month)]))
 
-        OUTPUT_DIR = WORKING_DIR + "/data/countries-bealign/" + sanitized_country + '/' + unique_id
+        OUTPUT_DIR = WORKING_DIR + "/data/countries-bealign/" + sanitized_country + '/' +  str('_'.join(window)) + '/' + unique_id
+
         default_args["params"]["output-dir"] = OUTPUT_DIR
         default_args["params"]["meta-output"] = OUTPUT_DIR + '/master-no-sequences.json'
         default_args["params"]["sequence-output"] = OUTPUT_DIR + '/sequences'
@@ -398,8 +400,7 @@ for country in countries:
 
     for window in sliding_windows:
 
-
-        dag_id = 'bealign_country_{}_{}'.format(sanitized_country, str('_'.join(window)))
+        dag_id = 'country_{}_{}'.format(sanitized_country, str('_'.join(window)))
 
         default_args = {
             'owner': 'sweaver',
