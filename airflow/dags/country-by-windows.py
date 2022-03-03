@@ -59,7 +59,7 @@ def create_dag(dag_id, schedule, country, window, default_args):
         unique_id = str(round(last_exec_date.timestamp()))
 
         t = datetime.datetime.strptime(window[1], '%Y-%M-%d')
-        priority = int(''.join([str(t.year - 2019),str(t.month)]))
+        priority = 1
 
         OUTPUT_DIR = WORKING_DIR + "/data/countries-bealign/" + sanitized_country + '/' +  str('_'.join(window)) + '/' + unique_id
 

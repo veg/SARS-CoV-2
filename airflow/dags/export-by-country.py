@@ -142,22 +142,24 @@ with DAG(
         params['only-uniques'] = False
         params["countries"] = [country]
 
+        PRIORITY_RANK = 9999
+
         export_meta_task = PythonOperator(
                 task_id=f'export_meta_{sanitized_country}',
                 python_callable=export_meta,
                 op_kwargs={ "config" : params },
+                priority_weight=PRIORITY_RANK,
                 dag=dag,
             )
 
         export_meta_task.set_upstream(mk_dir_task)
 
-
         export_sequences_task = PythonOperator(
                 task_id=f'export_sequences_{sanitized_country}',
                 python_callable=export_sequences,
                 op_kwargs={ "config" : params },
+                priority_weight=PRIORITY_RANK,
                 dag=dag,
             )
 
         export_sequences_task.set_upstream(mk_dir_task)
-

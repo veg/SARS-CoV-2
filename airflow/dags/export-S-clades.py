@@ -141,11 +141,14 @@ with DAG(
         params['only-uniques'] = False
         params["clades"] = [clade]
 
+        PRIORITY_RANK = 9999
+
         export_meta_task = PythonOperator(
                 task_id=f'export_meta_{clade}',
                 python_callable=export_meta,
                 op_kwargs={ "config" : params },
                 pool='mongo',
+                priority_weight=PRIORITY_RANK,
                 dag=dag,
             )
 
@@ -157,6 +160,7 @@ with DAG(
                 python_callable=export_bealign_sequences,
                 op_kwargs={ "config" : default_args['params'], 'nuc_output_fn':  directory_output + '/sequences.fas', 'gene' : 'S'},
                 pool='mongo',
+                priority_weight=PRIORITY_RANK,
                 dag=dag,
             )
 

@@ -140,11 +140,14 @@ with DAG(
         params["sequence-output"] = directory_output + '/' + clade + '.fas'
         params['only-uniques'] = False
         params["clades"] = [clade]
+        PRIORITY_RANK=9999
+
 
         export_meta_task = PythonOperator(
                 task_id=f'export_meta_{clade}',
                 python_callable=export_meta,
                 op_kwargs={ "config" : params },
+                priority_weight=PRIORITY_RANK,
                 dag=dag,
             )
 
@@ -155,6 +158,7 @@ with DAG(
                 task_id=f'export_sequences_{clade}',
                 python_callable=export_sequences,
                 op_kwargs={ "config" : params },
+                priority_weight=PRIORITY_RANK,
                 dag=dag,
             )
 
