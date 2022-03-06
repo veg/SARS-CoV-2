@@ -56,6 +56,7 @@ with DAG(
     start_date=datetime.datetime(2021, 6, 2),
     on_failure_callback=dag_fail_slack_alert,
     on_success_callback=dag_success_slack_alert,
+    max_active_runs=1,
     tags=['export'],
     ) as dag:
 

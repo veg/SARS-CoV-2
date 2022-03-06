@@ -48,6 +48,7 @@ def create_dag(dag_id, schedule, window, default_args):
         start_date=datetime.datetime(2021, 4, 30),
         on_failure_callback=dag_fail_slack_alert,
         on_success_callback=dag_success_slack_alert,
+        max_active_runs=1,
         tags=['selection','sliding'],
         ) as dag:
 
@@ -302,6 +303,7 @@ def create_dag(dag_id, schedule, window, default_args):
                 task_id=f'summarize_gene_{gene}',
                 bash_command='{{ params.python }} {{params.working_dir}}/python/summarize_gene.py -T {{params.working_dir}}/data/ctl/epitopes.json -B {{params.working_dir}}/data/single_mut_effects.csv -D $MASTERNOFASTA -d $DUPLICATES -s $SLAC_OUTPUT -f $FEL_OUTPUT -m $MEME_OUTPUT -P 0.1 --output  $SUMMARY_OUTPUT -c $COMPRESSED_OUTPUT_FN -E {{params.working_dir}}/data/evo_annotation.json -A {{params.working_dir}}/data/mafs.csv -V {{params.working_dir}}/data/evo_freqs.csv -F $FRAGMENT --frame_shift $ADDSHIFT --fragment_shift $SHIFT -S $OFFSET -O $ANNOTATION',
                 params={'python': default_args['params']['python'], 'working_dir': WORKING_DIR},
+                execution_timeout=timedelta(minutes=30),
                 env={
                     'MASTERNOFASTA': default_args["params"]["meta-output"],
                     'DUPLICATES': duplicate_output,
@@ -381,6 +383,7 @@ for window in sliding_windows:
         'retry_delay': datetime.timedelta(minutes=5),
         'task_concurrency' : 5,
         'execution_timeout': timedelta(minutes=5000),
+        'max_active_runs': 1,
         # 'on_failure_callback': task_fail_slack_alert,
         # 'on_success_callback': task_success_slack_alert
         # 'queue': 'bash_queue',
