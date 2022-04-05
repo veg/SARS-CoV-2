@@ -1,15 +1,9 @@
 [
     {
-        "label" : "Estonia (2020/09/01 - 2021/02/28)",
-        "variants" : "Estonia_variants_20-21.json.gz",
+        "label" : "Estonia (2022/03/01 - 2022/08/31)",
+        "variants" : "Estonia_variants_22.json.gz",
         "meta": "Estonia_meta.tsv.gz",
-        "pangolin" : "all_pangolin_20-21.tsv.gz"
-    },
-    {
-        "label" : "Estonia (2021/03/01 - 2021/08/31)",
-        "variants" : "Estonia_variants_21.json.gz",
-        "meta": "Estonia_meta.tsv.gz",
-        "pangolin" : "all_pangolin_21.tsv.gz"
+        "pangolin" : "all_pangolin_22.tsv.gz"
     },
     {
         "label" : "Estonia (2021/09/01 - 2022/02/28)",
@@ -18,64 +12,16 @@
         "pangolin" : "all_pangolin_21-22.tsv.gz"
     },
     {
-        "label" : "South Africa (2020/03/01 - 2020/08/31)",
-        "variants" : "PRJNA636748_variants_20.json.gz",
-        "meta": "PRJNA636748_meta.tsv.gz",
-        "pangolin" : "all_pangolin_20.tsv.gz"
-    },
-    {
-        "label" : "South Africa (2020/09/01 - 2021/02/28)",
-        "variants" : "PRJNA636748_variants_20-21.json.gz",
-        "meta": "PRJNA636748_meta.tsv.gz",
-        "pangolin" : "all_pangolin_20-21.tsv.gz"
-    },
-    {
-        "label" : "South Africa (2021/03/01 - 2021/08/31)",
-        "variants" : "PRJNA636748_variants_21.json.gz",
-        "meta": "PRJNA636748_meta.tsv.gz",
+        "label" : "Estonia (2021/03/01 - 2021/08/31)",
+        "variants" : "Estonia_variants_21.json.gz",
+        "meta": "Estonia_meta.tsv.gz",
         "pangolin" : "all_pangolin_21.tsv.gz"
     },
     {
-        "label" : "South Africa (2021/09/01 - 2022/02/28)",
-        "variants" : "PRJNA636748_variants_21-22.json.gz",
-        "meta": "PRJNA636748_meta.tsv.gz",
-        "pangolin" : "all_pangolin_21-22.tsv.gz"
-    },
-    {
-        "label" : "Ireland (2020/03/01 - 2020/08/31)",
-        "variants" : "PRJEB40277_variants_20.json.gz",
-        "meta": "PRJEB40277_meta.tsv.gz",
-        "pangolin" : "all_pangolin_20.tsv.gz"
-    },
-    {
-        "label" : "Ireland (2020/09/01 - 2021/02/28)",
-        "variants" : "PRJEB40277_variants_20-21.json.gz",
-        "meta": "PRJEB40277_meta.tsv.gz",
+        "label" : "Estonia (2020/09/01 - 2021/02/28)",
+        "variants" : "Estonia_variants_20-21.json.gz",
+        "meta": "Estonia_meta.tsv.gz",
         "pangolin" : "all_pangolin_20-21.tsv.gz"
-    },
-    {
-        "label" : "Ireland (2021/03/01 - 2021/08/31)",
-        "variants" : "PRJEB40277_variants_21.json.gz",
-        "meta": "PRJEB40277_meta.tsv.gz",
-        "pangolin" : "all_pangolin_21.tsv.gz"
-    },
-    {
-        "label" : "Greece (2020/03/01 - 2020/08/31)",
-        "variants" : "PRJEB44141_variants_20.json.gz",
-        "meta": "PRJEB44141_meta.tsv.gz",
-        "pangolin" : "all_pangolin_20.tsv.gz"
-    },
-    {
-        "label" : "Greece (2020/09/01 - 2021/02/28)",
-        "variants" : "PRJEB44141_variants_20-21.json.gz",
-        "meta": "PRJEB44141_meta.tsv.gz",
-        "pangolin" : "all_pangolin_20-21.tsv.gz"
-    },
-    {
-        "label" : "Greece (2021/03/01 - 2021/08/31)",
-        "variants" : "PRJEB44141_variants_21.json.gz",
-        "meta": "PRJEB44141_meta.tsv.gz",
-        "pangolin" : "all_pangolin_21.tsv.gz"
     },
     {
         "label" : "Greece (2021/09/01 - 2022/02/28)",
@@ -84,10 +30,34 @@
         "pangolin" : "all_pangolin_21-22.tsv.gz"
     },
     {
-        "label" : "COG-UK (2020/03/01 - 2020/08/31)",
-        "variants" : "PRJEB37886_variants_20.json.gz",
-        "meta": "PRJEB37886_meta.tsv.gz",
+        "label" : "Greece (2021/03/01 - 2021/08/31)",
+        "variants" : "PRJEB44141_variants_21.json.gz",
+        "meta": "PRJEB44141_meta.tsv.gz",
+        "pangolin" : "all_pangolin_21.tsv.gz"
+    },
+    {
+        "label" : "Greece (2020/09/01 - 2021/02/28)",
+        "variants" : "PRJEB44141_variants_20-21.json.gz",
+        "meta": "PRJEB44141_meta.tsv.gz",
+        "pangolin" : "all_pangolin_20-21.tsv.gz"
+    },
+    {
+        "label" : "Greece (2020/03/01 - 2020/08/31)",
+        "variants" : "PRJEB44141_variants_20.json.gz",
+        "meta": "PRJEB44141_meta.tsv.gz",
         "pangolin" : "all_pangolin_20.tsv.gz"
+    },
+    {
+        "label" : "COG-UK (2021/09/01 - 2022/02/28)",
+        "variants" : "PRJEB37886_variants_21-22.json.gz",
+        "meta": "PRJEB37886_meta.tsv.gz",
+        "pangolin" : "all_pangolin_21-22.tsv.gz"
+    }
+    {
+        "label" : "COG-UK (2021/03/01 - 2021/08/31)",
+        "variants" : "PRJEB37886_variants_21.json.gz",
+        "meta": "PRJEB37886_meta.tsv.gz",
+        "pangolin" : "all_pangolin_21.tsv.gz"
     },
     {
         "label" : "COG-UK (2020/09/01 - 2021/02/28)",
@@ -96,16 +66,51 @@
         "pangolin" : "all_pangolin_20-21.tsv.gz"
     },
     {
-        "label" : "COG-UK (2021/03/01 - 2021/08/31)",
-        "variants" : "PRJEB37886_variants_21.json.gz",
+        "label" : "COG-UK (2020/03/01 - 2020/08/31)",
+        "variants" : "PRJEB37886_variants_20.json.gz",
         "meta": "PRJEB37886_meta.tsv.gz",
+        "pangolin" : "all_pangolin_20.tsv.gz"
+    },
+    {
+        "label" : "South Africa (2021/09/01 - 2022/02/28)",
+        "variants" : "PRJNA636748_variants_21-22.json.gz",
+        "meta": "PRJNA636748_meta.tsv.gz",
+        "pangolin" : "all_pangolin_21-22.tsv.gz"
+    },
+    {
+        "label" : "South Africa (2021/03/01 - 2021/08/31)",
+        "variants" : "PRJNA636748_variants_21.json.gz",
+        "meta": "PRJNA636748_meta.tsv.gz",
         "pangolin" : "all_pangolin_21.tsv.gz"
     },
     {
-        "label" : "COG-UK (2021/09/01 - 2022/02/28)",
-        "variants" : "PRJEB37886_variants_21-22.json.gz",
-        "meta": "PRJEB37886_meta.tsv.gz",
-        "pangolin" : "all_pangolin_21-22.tsv.gz"
+        "label" : "South Africa (2020/09/01 - 2021/02/28)",
+        "variants" : "PRJNA636748_variants_20-21.json.gz",
+        "meta": "PRJNA636748_meta.tsv.gz",
+        "pangolin" : "all_pangolin_20-21.tsv.gz"
+    },
+    {
+        "label" : "South Africa (2020/03/01 - 2020/08/31)",
+        "variants" : "PRJNA636748_variants_20.json.gz",
+        "meta": "PRJNA636748_meta.tsv.gz",
+        "pangolin" : "all_pangolin_20.tsv.gz"
+    },
+    {
+        "label" : "Ireland (2021/03/01 - 2021/08/31)",
+        "variants" : "PRJEB40277_variants_21.json.gz",
+        "meta": "PRJEB40277_meta.tsv.gz",
+        "pangolin" : "all_pangolin_21.tsv.gz"
+    },
+    {
+        "label" : "Ireland (2020/09/01 - 2021/02/28)",
+        "variants" : "PRJEB40277_variants_20-21.json.gz",
+        "meta": "PRJEB40277_meta.tsv.gz",
+        "pangolin" : "all_pangolin_20-21.tsv.gz"
+    },
+    {
+        "label" : "Ireland (2020/03/01 - 2020/08/31)",
+        "variants" : "PRJEB40277_variants_20.json.gz",
+        "meta": "PRJEB40277_meta.tsv.gz",
+        "pangolin" : "all_pangolin_20.tsv.gz"
     }
-
 ]
