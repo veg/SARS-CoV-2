@@ -48,6 +48,12 @@
         "pangolin" : "all_pangolin_20.tsv.gz"
     },
     {
+        "label" : "COG-UK (2022/03/01 - 2022/08/31)",
+        "variants" : "PRJEB37886_variants_22.json.gz",
+        "meta": "PRJEB37886_meta.tsv.gz",
+        "pangolin" : "all_pangolin_22.tsv.gz"
+    },
+    {
         "label" : "COG-UK (2021/09/01 - 2022/02/28)",
         "variants" : "PRJEB37886_variants_21-22.json.gz",
         "meta": "PRJEB37886_meta.tsv.gz",
